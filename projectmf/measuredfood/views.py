@@ -7,6 +7,10 @@ from django.contrib import messages
 # from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 
+# imports for the view to create raw ingredients
+from django.views.generic.edit import CreateView
+from .models import RawIngredient
+
 # Create your views here.
 def home(request):
     return render(request, 'measuredfood/home.html')
@@ -24,3 +28,8 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'measuredfood/register.html', {'form': form})
+
+
+class CreateRawIngredient(CreateView):
+    model = RawIngredient
+    fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
