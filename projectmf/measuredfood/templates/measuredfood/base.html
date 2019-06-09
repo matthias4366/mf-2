@@ -30,17 +30,23 @@
             <div class="navbar-nav">
               {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="#">
-                  New Post
+                  Nutrient Profiles
                 </a>
                 <a class="nav-item nav-link" href="#">
-                  Profile
+                  Ingredients
                 </a>
                 <a class="nav-item nav-link" href="#">
-                  Logout
+                  Recipes
+                </a>
+                <a class="nav-item nav-link" href="#">
+                  Meal Plans
+                </a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}">
+                  Log Out
                 </a>
               {% else %}
-                <a class="nav-item nav-link" href="#">Login</a>
-                <a class="nav-item nav-link" href="#">Register</a>
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
               {% endif %}
             </div>
           </div>
