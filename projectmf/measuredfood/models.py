@@ -13,7 +13,7 @@ class RawIngredient(models.Model):
     a database or share ingredients with other users (yet). These ingredients
     serve as the basis for creating recipes.
     """
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     calories = models.DecimalField(
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_
@@ -30,12 +30,9 @@ class RawIngredient(models.Model):
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_
     )
-    
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        # TODO: remove intermediary solution.
-        # Now, after creating a raw ingredient, the user is redirected to the
-        # home page. They should be redirected to the list of ingredients.
-        return reverse('home')
+        return reverse('list-raw-ingredients')

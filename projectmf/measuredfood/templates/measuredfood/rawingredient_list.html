@@ -1,7 +1,23 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
-  <h1>List of Raw Ingredients.</h1>
-  {% for ingredient in rawingredient_list %}
-    <h2>{{ ingredient.name }}</h2>
-  {% endfor %}
+  <div class="">
+    <a class="btn btn-primary"
+    href="{% url 'create-raw-ingredient' %}">
+      New Raw Ingredient
+    </a>
+  </div>
+
+  {% if rawingredient_list %}
+  <br>
+  <br>
+  <div class="">
+    <h1>List of your Raw Ingredients:</h1>
+    <br>
+    {% for ingredient in rawingredient_list %}
+      <h3>{{ ingredient.name }}</h3>
+    {% endfor %}
+  </div>
+  {% else %}
+    <h1>No Raw Ingredients have been added yet.</h1>
+  {% endif %}
 {% endblock content %}
