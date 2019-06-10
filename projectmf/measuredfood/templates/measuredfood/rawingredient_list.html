@@ -1,15 +1,16 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+
   <div class="">
     <a class="btn btn-primary btn-large"
     href="{% url 'create-raw-ingredient' %}">
       New Raw Ingredient
     </a>
   </div>
+  <br>
+  <br>
 
   {% if rawingredient_list %}
-  <br>
-  <br>
   <div class="">
     <h1>List of your Raw Ingredients:</h1>
     <br>
@@ -24,4 +25,5 @@
   {% else %}
     <h1>No Raw Ingredients have been added yet.</h1>
   {% endif %}
+  
 {% endblock content %}
