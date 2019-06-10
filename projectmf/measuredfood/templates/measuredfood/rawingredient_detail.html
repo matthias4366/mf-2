@@ -6,7 +6,10 @@
   href="{% url 'update-raw-ingredient' object.id %}">
     Edit
   </a>
-  <a class="btn btn-danger btn-large" href="#">Delete</a>
+  <a class="btn btn-danger btn-large"
+  href="{% url 'delete-raw-ingredient' object.id %}">
+    Delete
+  </a>
   <!-- TODO: Here, put in all the information about the ingredient. -->
 
 {% endblock content %}

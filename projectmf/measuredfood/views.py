@@ -17,6 +17,7 @@ from django.views.generic import (
 )
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 
 ALL_INGREDIENT_FIELD_NAMES = [
     'name',
@@ -55,14 +56,12 @@ class CreateRawIngredient(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-# interim ingredient view. TODO remove and replace with proper class based view.
 class ListRawIngredients(
     LoginRequiredMixin,
-    # UserPassesTestMixin,  # TODO removed because it causes errors (missing
-    # test function.) Fix error and then add it back in.
     ListView
 ):
     model = RawIngredient
+    ordering = ['name']
 
 
 class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -82,3 +81,14 @@ class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class DetailRawIngredient(DetailView):
     model = RawIngredient
+
+
+class DeleteRawIngredient(DeleteView):
+    model = RawIngredient
+    success_url = reverse_lazy('list-raw-ingredients')
+
+    def test_func(self):
+        raw_ingredient = self.get_object()
+        if self.request.user == raw_ingredient.author:
+            return True
+        return False

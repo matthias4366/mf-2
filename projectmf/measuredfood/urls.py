@@ -32,4 +32,9 @@ urlpatterns = [
         views.DetailRawIngredient.as_view(),
         name='detail-raw-ingredient'
     ),
+    path(
+        'ingredients/<int:pk>/delete/',
+        views.DeleteRawIngredient.as_view(),
+        name='delete-raw-ingredient'
+    ),
 ]
