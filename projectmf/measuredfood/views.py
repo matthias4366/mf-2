@@ -18,7 +18,9 @@ from django.views.generic import (
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from .ingredient_properties import ALL_INGREDIENT_FIELD_NAMES
+from .ingredient_properties import (
+    ALL_INGREDIENT_FIELD_NAMES
+)
 
 # Create your views here.
 def home(request):

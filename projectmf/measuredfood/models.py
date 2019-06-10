@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .ingredient_properties import (
+    INGREDIENT_FIELDS_NUMBERS
+)
 
 MAX_DIGITS_ = 20
 DECIMAL_PLACES_ = 6
@@ -14,30 +17,14 @@ class RawIngredient(models.Model):
     serve as the basis for creating recipes.
     """
     name = models.CharField(max_length=100)
-    calories = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
+    where_to_buy = models.CharField(
+        max_length=100,
         blank=True,
-        null=True
-    )
-    fat = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
+        null=True)
+    source_nutritional_information = models.CharField(
+        max_length=100,
         blank=True,
-        null=True
-    )
-    protein = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
-        blank=True,
-        null=True
-    )
-    carbohydrates = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
-        blank=True,
-        null=True
-    )
+        null=True)
 
     author = models.ForeignKey(
         User,
@@ -49,3 +36,15 @@ class RawIngredient(models.Model):
 
     def get_absolute_url(self):
         return reverse('list-raw-ingredients')
+
+
+for name in INGREDIENT_FIELDS_NUMBERS:
+    RawIngredient.add_to_class(
+        name,
+        models.DecimalField(
+            max_digits=MAX_DIGITS_,
+            decimal_places=DECIMAL_PLACES_,
+            blank=True,
+            null=True
+        )
+    )
