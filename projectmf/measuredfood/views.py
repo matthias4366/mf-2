@@ -12,7 +12,8 @@ from django.views.generic import (
     CreateView,
     ListView,
     UpdateView,
-    DeleteView
+    DeleteView,
+    DetailView
 )
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -64,17 +65,6 @@ class ListRawIngredients(
     model = RawIngredient
 
 
-# class UpdateRawIngredient(
-#     # TODO Currently, it is probably possible for user A to edit the Ingredients
-#     # of user B. Make that impossible with the UserPassesTestMixin and by giving
-#     # the ingredients a foreignkey which contains who made them.
-#     LoginRequiredMixin,
-#     UpdateView
-# ):
-#     pass
-
-
-# TODO fix this work in progress
 class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = RawIngredient
     fields = ALL_INGREDIENT_FIELD_NAMES
@@ -88,3 +78,7 @@ class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == raw_ingredient.author:
             return True
         return False
+
+
+class DetailRawIngredient(DetailView):
+    model = RawIngredient

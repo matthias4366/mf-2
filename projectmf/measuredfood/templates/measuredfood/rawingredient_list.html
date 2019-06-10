@@ -15,12 +15,18 @@
     <h1>List of your ingredients:</h1>
     <br>
     {% for ingredient in rawingredient_list %}
+      <!-- TODO: Currently, all ingredients are stored in one database.
+      When the user wants to look at their ingredients, a for loop iterates
+      over the entire ingredient database with the ingredients of all the users,
+      but only shows the ingredients that the user owns.
+      This is not scalable. -->
       {% if ingredient.author.username == request.user.username %}
-      <!-- Trying to display only the raw ingredients related to a specific
-      user.-->
-        <h3>{{ ingredient.name }} created by {{ ingredient.author.username }}</h3>
-        <a class="btn btn-primary btn-large" href="#">Edit</a>
-        <a class="btn btn-primary btn-large" href="#">Delete</a>
+        <h4>
+          <a href="{% url 'detail-raw-ingredient' ingredient.id %}"
+          class="btn btn-primary btn-large">
+            View
+          </a>    {{ ingredient.name }}
+        </h4>
         <br>
         <br>
       {% endif %}

@@ -13,7 +13,7 @@ class RawIngredient(models.Model):
     a database or share ingredients with other users (yet). These ingredients
     serve as the basis for creating recipes.
     """
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     calories = models.DecimalField(
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_

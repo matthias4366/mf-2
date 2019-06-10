@@ -26,5 +26,10 @@ urlpatterns = [
         'ingredients/<int:pk>/update/',
         views.UpdateRawIngredient.as_view(),
         name='update-raw-ingredient'
-    )
+    ),
+    path(
+        'ingredients/<int:pk>/detail/',
+        views.DetailRawIngredient.as_view(),
+        name='detail-raw-ingredient'
+    ),
 ]
