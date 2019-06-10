@@ -18,14 +18,7 @@ from django.views.generic import (
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-
-ALL_INGREDIENT_FIELD_NAMES = [
-    'name',
-    'calories',
-    'fat',
-    'protein',
-    'carbohydrates'
-]
+from .ingredient_properties import ALL_INGREDIENT_FIELD_NAMES
 
 # Create your views here.
 def home(request):
@@ -48,7 +41,6 @@ def register(request):
 
 class CreateRawIngredient(LoginRequiredMixin, CreateView):
     model = RawIngredient
-    # fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
     fields = ALL_INGREDIENT_FIELD_NAMES
 
     def form_valid(self, form):

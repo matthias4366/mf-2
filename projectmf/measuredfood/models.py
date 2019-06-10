@@ -16,19 +16,27 @@ class RawIngredient(models.Model):
     name = models.CharField(max_length=100)
     calories = models.DecimalField(
         max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
     )
     fat = models.DecimalField(
         max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
     )
     protein = models.DecimalField(
         max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
     )
     carbohydrates = models.DecimalField(
         max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
     )
 
     author = models.ForeignKey(
