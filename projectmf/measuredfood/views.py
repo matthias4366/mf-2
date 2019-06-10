@@ -8,8 +8,12 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 
 # imports for the view to create raw ingredients
-from django.views.generic.edit import CreateView
+from django.views.generic import (
+    CreateView,
+    ListView,
+)
 from .models import RawIngredient
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 def home(request):
@@ -30,6 +34,16 @@ def register(request):
     return render(request, 'measuredfood/register.html', {'form': form})
 
 
-class CreateRawIngredient(CreateView):
+class CreateRawIngredient(LoginRequiredMixin, CreateView):
     model = RawIngredient
     fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
+
+
+# interim ingredient view. TODO remove and replace with proper class based view.
+class ListRawIngredients(
+    LoginRequiredMixin,
+    # UserPassesTestMixin,  # TODO removed because it causes errors (missing
+    # test function.) Fix error and then add it back in.
+    ListView
+):
+    model = RawIngredient

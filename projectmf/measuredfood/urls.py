@@ -13,8 +13,13 @@ urlpatterns = [
              template_name='measuredfood/logout.html'
         ), name='logout'),
     path(
-        'ingredients/create',
+        'ingredients/create/',
         views.CreateRawIngredient.as_view(),
         name='create-raw-ingredient'
     ),
+    path(
+        'ingredients/list/',
+        views.ListRawIngredients.as_view(),
+        name='list-raw-ingredients'
+    )
 ]
