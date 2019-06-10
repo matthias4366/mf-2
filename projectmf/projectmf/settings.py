@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'projectmf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_first_postgres_database',
+        'NAME': 'm_second_postgres_database',
         'USER': 'postgres',
         'PASSWORD': 'testpassword',
         'HOST': '127.0.0.1',

@@ -1,7 +1,7 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
   <div class="">
-    <a class="btn btn-primary"
+    <a class="btn btn-primary btn-large"
     href="{% url 'create-raw-ingredient' %}">
       New Raw Ingredient
     </a>
@@ -15,6 +15,10 @@
     <br>
     {% for ingredient in rawingredient_list %}
       <h3>{{ ingredient.name }}</h3>
+      <a href="#">Edit</a>
+      <a href="#">Delete</a>
+      <br>
+      <br>
     {% endfor %}
   </div>
   {% else %}

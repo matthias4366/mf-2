@@ -31,6 +31,14 @@ class RawIngredient(models.Model):
         decimal_places=DECIMAL_PLACES_
     )
 
+    # author = models.ForeignKey(
+    #     User,
+    #     on_delete=models.CASCADE,
+    #     blank=True,
+    #     null=True,
+    #     default=1
+    # )
+
     def __str__(self):
         return self.name
 

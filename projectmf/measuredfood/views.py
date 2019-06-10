@@ -11,6 +11,8 @@ from .forms import UserRegisterForm
 from django.views.generic import (
     CreateView,
     ListView,
+    UpdateView,
+    DeleteView
 )
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -38,6 +40,10 @@ class CreateRawIngredient(LoginRequiredMixin, CreateView):
     model = RawIngredient
     fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 # interim ingredient view. TODO remove and replace with proper class based view.
 class ListRawIngredients(
@@ -47,3 +53,13 @@ class ListRawIngredients(
     ListView
 ):
     model = RawIngredient
+
+
+class UpdateRawIngredient(
+    # TODO Currently, it is probably possible for user A to edit the Ingredients
+    # of user B. Make that impossible with the UserPassesTestMixin and by giving
+    # the ingredients a foreignkey which contains who made them.
+    LoginRequiredMixin,
+    UpdateView
+):
+    pass
