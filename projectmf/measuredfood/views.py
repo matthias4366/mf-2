@@ -17,6 +17,14 @@ from django.views.generic import (
 from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+ALL_INGREDIENT_FIELD_NAMES = [
+    'name',
+    'calories',
+    'fat',
+    'protein',
+    'carbohydrates'
+]
+
 # Create your views here.
 def home(request):
     return render(request, 'measuredfood/home.html')
@@ -38,7 +46,8 @@ def register(request):
 
 class CreateRawIngredient(LoginRequiredMixin, CreateView):
     model = RawIngredient
-    fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
+    # fields = ['name', 'calories', 'fat', 'protein', 'carbohydrates']
+    fields = ALL_INGREDIENT_FIELD_NAMES
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -55,11 +64,27 @@ class ListRawIngredients(
     model = RawIngredient
 
 
-class UpdateRawIngredient(
-    # TODO Currently, it is probably possible for user A to edit the Ingredients
-    # of user B. Make that impossible with the UserPassesTestMixin and by giving
-    # the ingredients a foreignkey which contains who made them.
-    LoginRequiredMixin,
-    UpdateView
-):
-    pass
+# class UpdateRawIngredient(
+#     # TODO Currently, it is probably possible for user A to edit the Ingredients
+#     # of user B. Make that impossible with the UserPassesTestMixin and by giving
+#     # the ingredients a foreignkey which contains who made them.
+#     LoginRequiredMixin,
+#     UpdateView
+# ):
+#     pass
+
+
+# TODO fix this work in progress
+class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = RawIngredient
+    fields = ALL_INGREDIENT_FIELD_NAMES
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        raw_ingredient = self.get_object()
+        if self.request.user == raw_ingredient.author:
+            return True
+        return False

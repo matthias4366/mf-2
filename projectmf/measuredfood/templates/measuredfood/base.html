@@ -42,7 +42,7 @@
                   Meal Plans
                 </a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">
-                  Log Out
+                  Log Out {{ user.username }}
                 </a>
               {% else %}
                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

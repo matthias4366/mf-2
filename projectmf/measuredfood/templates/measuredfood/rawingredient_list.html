@@ -4,7 +4,7 @@
   <div class="">
     <a class="btn btn-primary btn-large"
     href="{% url 'create-raw-ingredient' %}">
-      New Raw Ingredient
+      New Ingredient
     </a>
   </div>
   <br>
@@ -12,18 +12,22 @@
 
   {% if rawingredient_list %}
   <div class="">
-    <h1>List of your Raw Ingredients:</h1>
+    <h1>List of your ingredients:</h1>
     <br>
     {% for ingredient in rawingredient_list %}
-      <h3>{{ ingredient.name }}</h3>
-      <a href="#">Edit</a>
-      <a href="#">Delete</a>
-      <br>
-      <br>
+      {% if ingredient.author.username == request.user.username %}
+      <!-- Trying to display only the raw ingredients related to a specific
+      user.-->
+        <h3>{{ ingredient.name }} created by {{ ingredient.author.username }}</h3>
+        <a class="btn btn-primary btn-large" href="#">Edit</a>
+        <a class="btn btn-primary btn-large" href="#">Delete</a>
+        <br>
+        <br>
+      {% endif %}
     {% endfor %}
   </div>
   {% else %}
-    <h1>No Raw Ingredients have been added yet.</h1>
+    <h1>No Ingredients have been added yet.</h1>
   {% endif %}
-  
+
 {% endblock content %}

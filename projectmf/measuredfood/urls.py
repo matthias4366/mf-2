@@ -21,5 +21,10 @@ urlpatterns = [
         'ingredients/list/',
         views.ListRawIngredients.as_view(),
         name='list-raw-ingredients'
+    ),
+    path(
+        'ingredients/<int:pk>/update/',
+        views.UpdateRawIngredient.as_view(),
+        name='update-raw-ingredient'
     )
 ]
