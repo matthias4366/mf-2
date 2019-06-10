@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 MAX_DIGITS_ = 20
 DECIMAL_PLACES_ = 6
@@ -29,10 +30,9 @@ class RawIngredient(models.Model):
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_
     )
-    # author = models.ForeignKey(User, on_delete=models.CASCADE)
-    #
-    # def __str__(self):
-    #     return self.name
+    
+    def __str__(self):
+        return self.name
 
     def get_absolute_url(self):
         # TODO: remove intermediary solution.
