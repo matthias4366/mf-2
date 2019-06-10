@@ -19,7 +19,7 @@ from .models import RawIngredient
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .ingredient_properties import (
-    ALL_INGREDIENT_FIELD_NAMES
+    INGREDIENT_FIELDS_ALL
 )
 
 # Create your views here.
@@ -43,7 +43,7 @@ def register(request):
 
 class CreateRawIngredient(LoginRequiredMixin, CreateView):
     model = RawIngredient
-    fields = ALL_INGREDIENT_FIELD_NAMES
+    fields = INGREDIENT_FIELDS_ALL
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -60,7 +60,7 @@ class ListRawIngredients(
 
 class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = RawIngredient
-    fields = ALL_INGREDIENT_FIELD_NAMES
+    fields = INGREDIENT_FIELDS_ALL
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -2,7 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .ingredient_properties import (
-    INGREDIENT_FIELDS_NUMBERS
+    INGREDIENT_FIELDS_NUMBERS,
+    INGREDIENT_FIELDS_STRINGS
 )
 
 MAX_DIGITS_ = 20
@@ -17,14 +18,6 @@ class RawIngredient(models.Model):
     serve as the basis for creating recipes.
     """
     name = models.CharField(max_length=100)
-    where_to_buy = models.CharField(
-        max_length=100,
-        blank=True,
-        null=True)
-    source_nutritional_information = models.CharField(
-        max_length=100,
-        blank=True,
-        null=True)
 
     author = models.ForeignKey(
         User,
@@ -47,4 +40,13 @@ for name in INGREDIENT_FIELDS_NUMBERS:
             blank=True,
             null=True
         )
+    )
+
+for name in INGREDIENT_FIELDS_STRINGS:
+    RawIngredient.add_to_class(
+        name,
+        models.CharField(
+        max_length=100,
+        blank=True,
+        null=True)
     )

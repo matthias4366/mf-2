@@ -52,3 +52,13 @@ INGREDIENT_FIELDS_NUMBERS.append(
 INGREDIENT_FIELDS_NUMBERS.append(
     'amount_in_package'
 )
+
+# This variable does not include the 'name' field, which can't be empty.
+INGREDIENT_FIELDS_STRINGS = [
+    'where_to_buy',
+    'source_nutritional_information'
+]
+
+INGREDIENT_FIELDS_ALL = ['name'] \
+    + INGREDIENT_FIELDS_NUMBERS\
+    + INGREDIENT_FIELDS_STRINGS
