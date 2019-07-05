@@ -27,7 +27,21 @@ class FunctionalTest(StaticLiveServerTestCase):
         """
         # Open the registration page
         self.browser.get(self.live_server_url + '/register/')
+        # Find elements by name
         username = self.browser.find_element_by_name('username')
+        email = self.browser.find_element_by_name('email')
+        password1 = self.browser.find_element_by_name('password1')
+        password2 = self.browser.find_element_by_name('password2')
+
+        # Input values into the fields
         username.send_keys('DummyUser')
+        email.send_keys('DummyUser@gmail.com')
+        password1.send_keys('testpassword')
+        password2.send_keys('testpassword')
+
+        # Simulate clicking on Sign Up
+        sign_up_button = self.browser.find_element_by_id('id_button_signup')
+        sign_up_button.send_keys(Keys.ENTER)
+        # ['username', 'email', 'password1', 'password2']
         # username.submit()
         time.sleep(3)
