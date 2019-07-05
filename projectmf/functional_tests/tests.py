@@ -8,6 +8,10 @@ import os
 
 MAX_WAIT = 10
 
+DUMMY_USERNAME = 'DummyUser'
+DUMMY_EMAIL = 'DummyUser@gmail.com'
+DUMMY_PASSWORD = 'testpassword'
+
 
 class FunctionalTest(StaticLiveServerTestCase):
 
@@ -25,8 +29,10 @@ class FunctionalTest(StaticLiveServerTestCase):
         There should be a temporary database created for testing purposes only.
         Test the registration of a new user with a username and a password.
         """
+
         # Open the registration page
         self.browser.get(self.live_server_url + '/register/')
+
         # Find elements by name
         username = self.browser.find_element_by_name('username')
         email = self.browser.find_element_by_name('email')
@@ -34,14 +40,37 @@ class FunctionalTest(StaticLiveServerTestCase):
         password2 = self.browser.find_element_by_name('password2')
 
         # Input values into the fields
-        username.send_keys('DummyUser')
-        email.send_keys('DummyUser@gmail.com')
-        password1.send_keys('testpassword')
-        password2.send_keys('testpassword')
+        username.send_keys(DUMMY_USERNAME)
+        email.send_keys(DUMMY_EMAIL)
+        password1.send_keys(DUMMY_PASSWORD)
+        password2.send_keys(DUMMY_PASSWORD)
+        time.sleep(3)
 
         # Simulate clicking on Sign Up
         sign_up_button = self.browser.find_element_by_id('id_button_signup')
         sign_up_button.send_keys(Keys.ENTER)
-        # ['username', 'email', 'password1', 'password2']
-        # username.submit()
+
+        # TODO: Check if the user has been added to the database.
+
+        # A redirect to the login page should happen at this point.
+        # TODO: Test whether the redirect has happened.
+
+        time.sleep(3)
+
+        # Find login elements
+        # username_field = self.browser.find_element_by_name('username')
+        # password_field = self.browser.find_element_by_name('password')
+        username_field = self.browser.find_element_by_css_selector(
+            'form input[name="username"]')
+        password_field = self.browser.find_element_by_css_selector(
+            'form input[name="password"]')
+
+        # Input values into the fields
+        username_field.send_keys(DUMMY_USERNAME)
+        password_field.send_keys(DUMMY_PASSWORD)
+
+        # Simulate clicking on Log In
+        log_in_button = self.browser.find_element_by_id('id_button_login')
+        log_in_button.send_keys(Keys.ENTER)
+
         time.sleep(3)
