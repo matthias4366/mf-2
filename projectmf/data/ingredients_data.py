@@ -123,7 +123,7 @@ kidney_beans_raw_dict = {
 }
 
 canola_oil_dict = {
-    'name': Oil, vegetable, canola [low erucic acid rapeseed oil],
+    'name': 'Oil, vegetable, canola [low erucic acid rapeseed oil]',
     'price': 0.52,
     'reference_amount': 100,
     'amount_in_package': 750,
@@ -468,4 +468,4 @@ tomato_puree_dict = {
 #     'ash_g' : None,
 #     'caffeine_mg' : None,
 #     'theobromine_mg' : None
-}
+# }
