@@ -58,12 +58,8 @@ class FunctionalTest(StaticLiveServerTestCase):
         time.sleep(3)
 
         # Find login elements
-        # username_field = self.browser.find_element_by_name('username')
-        # password_field = self.browser.find_element_by_name('password')
-        username_field = self.browser.find_element_by_css_selector(
-            'form input[name="username"]')
-        password_field = self.browser.find_element_by_css_selector(
-            'form input[name="password"]')
+        username_field = self.browser.find_element_by_name('username')
+        password_field = self.browser.find_element_by_name('password')
 
         # Input values into the fields
         username_field.send_keys(DUMMY_USERNAME)
@@ -72,5 +68,15 @@ class FunctionalTest(StaticLiveServerTestCase):
         # Simulate clicking on Log In
         log_in_button = self.browser.find_element_by_id('id_button_login')
         log_in_button.send_keys(Keys.ENTER)
+
+        time.sleep(3)
+
+        # A redirect to the homepage should happen at this point.
+        # TODO: Test whether a redirect to the homepage happens.
+
+        # Simulate clicking on the menu item "Ingredients"
+        ingredients_menu_item = self.browser.find_element_by_id(
+            'id_menu_item_ingredients')
+        ingredients_menu_item.send_keys(Keys.ENTER)
 
         time.sleep(3)
