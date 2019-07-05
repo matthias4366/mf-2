@@ -95,13 +95,14 @@ class FunctionalTest(StaticLiveServerTestCase):
 
         time.sleep(3)
 
-        print(kidney_beans_raw_dict)
+        # print(kidney_beans_raw_dict)
 
-        # # Fill out the fields for the new ingredient
-        # self.browser.find_element_by_name().send_keys()
+        for key, value in kidney_beans_raw_dict.items():
+            if value != None:
+                self.browser.find_element_by_name(key).send_keys(str(value))
 
-        # # Simulate clicking the save button
-        # save_button = self.browser.find_element_by_id(
-        #     'id_button_save_new_ingredient'
-        # )
-        # save_button.send_keys(Keys.ENTER)
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_new_ingredient'
+        )
+        save_button.send_keys(Keys.ENTER)
