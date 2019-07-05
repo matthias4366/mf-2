@@ -80,3 +80,10 @@ class FunctionalTest(StaticLiveServerTestCase):
         ingredients_menu_item.send_keys(Keys.ENTER)
 
         time.sleep(3)
+
+        new_ingredient_button = self.browser.find_element_by_id(
+            'id_button_new_ingredient'
+        )
+        new_ingredient_button.send_keys(Keys.ENTER)
+
+        time.sleep(3)
