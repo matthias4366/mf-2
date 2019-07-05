@@ -1,32 +1,63 @@
 import copy
 
-ALL_INGREDIENT_FIELD_NAMES = [
-    'name',
-    'calories',
-    'fat',
-    'protein',
-    'carbohydrates'
-]
-
-
-# TODO interim code. Apply or delete.
-INGREDIENT_ATTRIBUTE_NAMES = [
-    'calories',
-    'fat',
-    'protein',
-    'carbohydrates',
-    'magnesium'
-]
-
+# I am using https://nutritiondata.self.com
+# as a model for the all the information that goes into the ingredients.
 
 # INGREDIENT_FIELDS_NUTRITION. Names of the fields of the RawIngredient model.
 # These names are related to fields related to the nutritional values.
+# Do not fill this out with everything from nutritiondata.self.com. It will
+# be changed later anyways.
 INGREDIENT_FIELDS_NUTRITION = [
-    'calories',
-    'fat',
-    'protein',
-    'carbohydrates',
-    'magnesium'
+    'calories_kcal',
+    # The 'calories from fat' etc. stuff is redundant.
+    'total_carbohydrates_g',
+    'dietary_fiber_g',
+    'starch_g',
+    'sugars_g',
+    'total_fat_g',
+    'saturated_fat_g',
+    'monounsaturated_fat_g',
+    'polyunsaturated_fat_g',
+    'total_trans_fatty_acids_g',
+    'total_omega_3_fatty_acids_g',
+    'total_omega_6_fatty_acids_g',
+    'protein_g',
+    # Vitamins
+    'vitamin_a_iu',
+    'vitamin_c_mg',
+    'vitamin_d_iu',
+    'vitamin_e_alpha_tocopherol_mg',
+    'vitamin_K_mcg',
+    'thiamin_mg',
+    'riboflavin_mg',
+    'niacin_mg',
+    'vitamin_b6_mg',
+    'folate_mcg',
+    'vitamin_b12_mcg',
+    'pantothenic_acid_mg',
+    'choline_mg',
+    'betaine_mg',
+    # Minerals
+    'calcium_mg',
+    'iron_mg',
+    'magnesium_mg',
+    'phosphorus_mg',
+    'potassium_mg',
+    'sodium_mg',
+    'zinc_mg',
+    'copper_mg',
+    'manganese_mg',
+    'selenium_mcg',
+    'fluoride_mcg',
+    # Sterols
+    'cholesterol_mg',
+    'phytosterols',
+    # Other
+    'alcohol_g',
+    'water_g',
+    'ash_g',
+    'caffeine_mg',
+    'theobromine_mg'
 ]
 
 # INGREDIENT_FIELDS_SCALING_PROPERTIES: Ingredients is the basic model,

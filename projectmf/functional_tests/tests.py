@@ -22,6 +22,7 @@ class FunctionalTest(StaticLiveServerTestCase):
             self.live_server_url = 'http://' + staging_server
 
     def tearDown(self):
+        time.sleep(3)
         self.browser.quit()
 
     def test_user_registration(self):
@@ -87,3 +88,25 @@ class FunctionalTest(StaticLiveServerTestCase):
         new_ingredient_button.send_keys(Keys.ENTER)
 
         time.sleep(3)
+
+        # # Find the fields for the new ingredient
+        # name_field = self.browser.find_element_by_name('name')
+        # calories_field = self.browser.find_element_by_name('calories')
+        # fat_field = self.browser.find_element_by_name('fat')
+        # protein_field = self.browser.find_element_by_name('protein')
+        # carbohydrates_field = self.browser.find_element_by_name('carbohydrates')
+        # name_field = self.browser.find_element_by_name('name')
+        # name_field = self.browser.find_element_by_name('name')
+        # name_field = self.browser.find_element_by_name('name')
+        # name_field = self.browser.find_element_by_name('name')
+        # name_field = self.browser.find_element_by_name('name')
+        # name_field = self.browser.find_element_by_name('name')
+        #
+        # # Fill out the fields for the new ingredient
+        # name_field.send_keys('Kidney Beans Dummy')
+        #
+        # # Simulate clicking the save button
+        # save_button = self.browser.find_element_by_id(
+        #     'id_button_save_new_ingredient'
+        # )
+        # save_button.send_keys(Keys.ENTER)
