@@ -20,5 +20,11 @@ class FunctionalTest(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_foo(self):
-        self.assertEqual(1, 0)
+    def test_user_registration(self):
+        """
+        There should be a temporary database created for testing purposes only.
+        Test the registration of a new user with a username and a password.
+        """
+        # Open the login page
+        self.browser.get(self.live_server_url + '/login/')
+        time.sleep(3)
