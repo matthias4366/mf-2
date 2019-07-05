@@ -6,6 +6,12 @@ from selenium.common.exceptions import WebDriverException
 import time
 import os
 
+# import the ingredient dictionaries
+import sys
+sys.path.insert(0, '/projectmf/data/')
+from data.ingredients_data import kidney_beans_raw_dict
+# from projectmf.data.ingredients_data import kidney_beans_raw_dict
+
 MAX_WAIT = 10
 
 DUMMY_USERNAME = 'DummyUser'
@@ -89,22 +95,11 @@ class FunctionalTest(StaticLiveServerTestCase):
 
         time.sleep(3)
 
-        # # Find the fields for the new ingredient
-        # name_field = self.browser.find_element_by_name('name')
-        # calories_field = self.browser.find_element_by_name('calories')
-        # fat_field = self.browser.find_element_by_name('fat')
-        # protein_field = self.browser.find_element_by_name('protein')
-        # carbohydrates_field = self.browser.find_element_by_name('carbohydrates')
-        # name_field = self.browser.find_element_by_name('name')
-        # name_field = self.browser.find_element_by_name('name')
-        # name_field = self.browser.find_element_by_name('name')
-        # name_field = self.browser.find_element_by_name('name')
-        # name_field = self.browser.find_element_by_name('name')
-        # name_field = self.browser.find_element_by_name('name')
-        #
+        print(kidney_beans_raw_dict)
+
         # # Fill out the fields for the new ingredient
-        # name_field.send_keys('Kidney Beans Dummy')
-        #
+        # self.browser.find_element_by_name().send_keys()
+
         # # Simulate clicking the save button
         # save_button = self.browser.find_element_by_id(
         #     'id_button_save_new_ingredient'

@@ -1,0 +1,123 @@
+"""
+It is desired to test the measured food application. A full recipe creation is
+to be performed. For this, ingredients are to be added. The data for the
+ingredients is stored centrally in this python file.
+"""
+
+# This is the template for an ingredient dictionary.
+ingredient_dict_template = {
+    'name': None,
+    'price': None,
+    'reference_amount': None,
+    'amount_in_package': None,
+    'where_to_buy': None,
+    'source_nutritional_information': None,
+    'calories_kcal' : None,
+    'total_carbohydrates_g' : None,
+    'dietary_fiber_g' : None,
+    'starch_g' : None,
+    'sugars_g' : None,
+    'total_fat_g' : None,
+    'saturated_fat_g' : None,
+    'monounsaturated_fat_g' : None,
+    'polyunsaturated_fat_g' : None,
+    'total_trans_fatty_acids_g' : None,
+    'total_omega_3_fatty_acids_mg' : None,
+    'total_omega_6_fatty_acids_mg' : None,
+    'protein_g' : None,
+    # Vitamins
+    'vitamin_a_iu' : None,
+    'vitamin_c_mg' : None,
+    'vitamin_d_iu' : None,
+    'vitamin_e_alpha_tocopherol_mg' : None,
+    'vitamin_k_mcg' : None,
+    'thiamin_mg' : None,
+    'riboflavin_mg' : None,
+    'niacin_mg' : None,
+    'vitamin_b6_mg' : None,
+    'folate_mcg' : None,
+    'vitamin_b12_mcg' : None,
+    'pantothenic_acid_mg' : None,
+    'choline_mg' : None,
+    'betaine_mg' : None,
+    # Minerals
+    'calcium_mg' : None,
+    'iron_mg' : None,
+    'magnesium_mg' : None,
+    'phosphorus_mg' : None,
+    'potassium_mg' : None,
+    'sodium_mg' : None,
+    'zinc_mg' : None,
+    'copper_mg' : None,
+    'manganese_mg' : None,
+    'selenium_mcg' : None,
+    'fluoride_mcg' : None,
+    # Sterols
+    'cholesterol_mg' : None,
+    'phytosterols' : None,
+    # Other
+    'alcohol_g' : None,
+    'water_g' : None,
+    'ash_g' : None,
+    'caffeine_mg' : None,
+    'theobromine_mg' : None
+}
+
+kidney_beans_raw_dict = {
+    'name': 'Kidney Beans, raw',
+    'price': 0.35,
+    'reference_amount': 100,
+    'amount_in_package': 500,
+    'where_to_buy': 'https://www.get-grocery.com/en/dal-lentils-beans/112-trs-red-kidney-beans-rajma-1-5017689005092.html',
+    'source_nutritional_information': \
+        'https://nutritiondata.self.com/facts/legumes-and-legume-products/4301/2',
+    'calories_kcal' : 337,
+    'total_carbohydrates_g' : 61.3,
+    'dietary_fiber_g' : 15.2,
+    'starch_g' : 0,
+    'sugars_g' : 2.1,
+    'total_fat_g' : 1.1,
+    'saturated_fat_g' : 0.2,
+    'monounsaturated_fat_g' : 0.1,
+    'polyunsaturated_fat_g' : 0.6,
+    'total_trans_fatty_acids_g' : 0,
+    'total_omega_3_fatty_acids_mg' : 358,
+    'total_omega_6_fatty_acids_mg' : 228,
+    'protein_g' : 22.5,
+    # Vitamins
+    'vitamin_a_iu' : 0,
+    'vitamin_c_mg' : 4.5,
+    'vitamin_d_iu' : 0,
+    'vitamin_e_alpha_tocopherol_mg' : 0.2,
+    'vitamin_k_mcg' : 5.6,
+    'thiamin_mg' : 0.6,
+    'riboflavin_mg' : 0.2,
+    'niacin_mg' : 2.1,
+    'vitamin_b6_mg' : 0.4,
+    'folate_mcg' : 394,
+    'vitamin_b12_mcg' : 0,
+    'pantothenic_acid_mg' : 0.8,
+    'choline_mg' : 65.9,
+    'betaine_mg' : None,
+    # Minerals
+    'calcium_mg' : 83.0,
+    'iron_mg' : 6.7,
+    'magnesium_mg' : 138,
+    'phosphorus_mg' : 406,
+    'potassium_mg' : 1359,
+    'sodium_mg' : 12.0,
+    'zinc_mg' : 2.8,
+    'copper_mg' : 0.7,
+    'manganese_mg' : 1.1,
+    'selenium_mcg' : 3.2,
+    'fluoride_mcg' : 2.2,
+    # Sterols
+    'cholesterol_mg' : 0,
+    'phytosterols' : None,
+    # Other
+    'alcohol_g' : 0,
+    'water_g' : 11.7,
+    'ash_g' : 3.4,
+    'caffeine_mg' : 0,
+    'theobromine_mg' : 0
+}
