@@ -25,6 +25,9 @@ class FunctionalTest(StaticLiveServerTestCase):
         There should be a temporary database created for testing purposes only.
         Test the registration of a new user with a username and a password.
         """
-        # Open the login page
-        self.browser.get(self.live_server_url + '/login/')
+        # Open the registration page
+        self.browser.get(self.live_server_url + '/register/')
+        username = self.browser.find_element_by_name('username')
+        username.send_keys('DummyUser')
+        # username.submit()
         time.sleep(3)
