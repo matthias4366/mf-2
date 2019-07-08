@@ -939,7 +939,7 @@ spinach_dict = {
 
 # The nutrition info for an ingredient is saved in a dictionary. All the
 # dictionaries are saved in a list.
-ingredient_dicts_list = [
+ingredient_dict_list = [
     kidney_beans_raw_dict,
     canola_oil_dict,
     white_rice_dict,

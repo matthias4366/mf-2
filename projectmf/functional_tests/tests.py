@@ -9,8 +9,7 @@ import os
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
-from data.ingredients_data import kidney_beans_raw_dict
-# from projectmf.data.ingredients_data import kidney_beans_raw_dict
+from data.ingredients_data import ingredient_dict_list
 
 MAX_WAIT = 10
 
@@ -88,21 +87,24 @@ class FunctionalTest(StaticLiveServerTestCase):
 
         time.sleep(3)
 
-        new_ingredient_button = self.browser.find_element_by_id(
-            'id_button_new_ingredient'
-        )
-        new_ingredient_button.send_keys(Keys.ENTER)
+        # Add all the ingredients
+        for k in range(len(ingredient_dict_list)):
 
-        time.sleep(3)
+            new_ingredient_button = self.browser.find_element_by_id(
+                'id_button_new_ingredient'
+            )
+            new_ingredient_button.send_keys(Keys.ENTER)
 
-        # print(kidney_beans_raw_dict)
+            time.sleep(1)
 
-        for key, value in kidney_beans_raw_dict.items():
-            if value != None:
-                self.browser.find_element_by_name(key).send_keys(str(value))
+            for key, value in ingredient_dict_list[k].items():
+                if value != None:
+                    self.browser.find_element_by_name(key).send_keys(str(value))
 
-        # Simulate clicking the save button
-        save_button = self.browser.find_element_by_id(
-            'id_button_save_new_ingredient'
-        )
-        save_button.send_keys(Keys.ENTER)
+            # Simulate clicking the save button
+            save_button = self.browser.find_element_by_id(
+                'id_button_save_new_ingredient'
+            )
+            save_button.send_keys(Keys.ENTER)
+
+            time.sleep(1)
