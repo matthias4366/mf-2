@@ -12,7 +12,6 @@ INGREDIENT_FIELDS_NUTRITION = [
     # The 'calories from fat' etc. stuff is redundant.
     'total_carbohydrates_g',
     'dietary_fiber_g',
-    'starch_g',
     'sugars_g',
     'total_fat_g',
     'saturated_fat_g',
@@ -35,8 +34,6 @@ INGREDIENT_FIELDS_NUTRITION = [
     'folate_mcg',
     'vitamin_b12_mcg',
     'pantothenic_acid_mg',
-    'choline_mg',
-    'betaine_mg',
     # Minerals
     'calcium_mg',
     'iron_mg',
@@ -48,16 +45,8 @@ INGREDIENT_FIELDS_NUTRITION = [
     'copper_mg',
     'manganese_mg',
     'selenium_mcg',
-    'fluoride_mcg',
     # Sterols
     'cholesterol_mg',
-    'phytosterols',
-    # Other
-    'alcohol_g',
-    'water_g',
-    'ash_g',
-    'caffeine_mg',
-    'theobromine_mg'
 ]
 
 # INGREDIENT_FIELDS_SCALING_PROPERTIES: Ingredients is the basic model,
@@ -69,7 +58,7 @@ INGREDIENT_FIELDS_SCALING_PROPERTIES = copy.deepcopy(
 )
 INGREDIENT_FIELDS_SCALING_PROPERTIES.append(
     # Price of the ingredient per reference amount
-    'price'
+    'price_eur_per_reference_amount'
 )
 
 INGREDIENT_FIELDS_NUMBERS = copy.deepcopy(
@@ -78,18 +67,18 @@ INGREDIENT_FIELDS_NUMBERS = copy.deepcopy(
 INGREDIENT_FIELDS_NUMBERS.append(
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
-    'reference_amount'
+    'reference_amount_g'
 )
 INGREDIENT_FIELDS_NUMBERS.append(
-    'amount_in_package'
+    'amount_in_package_g'
 )
 
 # This variable does not include the 'name' field, which can't be empty.
-INGREDIENT_FIELDS_STRINGS = [
-    'where_to_buy',
-    'source_nutritional_information'
+INGREDIENT_FIELDS_LINKS = [
+    'buy_here_link',
+    'source_nutritional_information_link'
 ]
 
 INGREDIENT_FIELDS_ALL = ['name'] \
     + INGREDIENT_FIELDS_NUMBERS\
-    + INGREDIENT_FIELDS_STRINGS
+    + INGREDIENT_FIELDS_LINKS

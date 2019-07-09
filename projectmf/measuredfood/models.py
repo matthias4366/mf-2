@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .ingredient_properties import (
     INGREDIENT_FIELDS_NUMBERS,
-    INGREDIENT_FIELDS_STRINGS
+    INGREDIENT_FIELDS_LINKS
 )
 
 MAX_DIGITS_ = 20
@@ -42,11 +42,11 @@ for name in INGREDIENT_FIELDS_NUMBERS:
         )
     )
 
-for name in INGREDIENT_FIELDS_STRINGS:
+for name in INGREDIENT_FIELDS_LINKS:
     RawIngredient.add_to_class(
         name,
-        models.CharField(
-        max_length=100,
+        models.URLField(
+        max_length=1000,
         blank=True,
         null=True)
     )

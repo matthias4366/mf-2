@@ -14,13 +14,17 @@ sys.path.insert(0, '/projectmf/fixtures/')
 # correct JSON with the model name, pk and the fields.
 formatted_ingredient_dict_list = []
 
-# for k in range(len(ingredient_dict_list)):
-for k in range(2):
+for k in range(len(ingredient_dict_list)):
+# for k in range(2):
+
+    formatted_ingredient_dict_list_k = ingredient_dict_list[k]
+    formatted_ingredient_dict_list_k['author'] = 1
+
     formatted_dict_k = {
         'model': 'measuredfood.rawingredient',
         'pk': k+1,
         'fields':
-                ingredient_dict_list[k]
+                formatted_ingredient_dict_list_k
     }
 
     formatted_ingredient_dict_list.append(formatted_dict_k)
