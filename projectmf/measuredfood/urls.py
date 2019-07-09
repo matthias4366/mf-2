@@ -37,4 +37,10 @@ urlpatterns = [
         views.DeleteRawIngredient.as_view(),
         name='delete-raw-ingredient'
     ),
+    # Nutrient profiles
+    path(
+        'nutrientprofiles/list/',
+        views.ListNutrientProfile.as_view(),
+        name='list-nutrient-profiles'
+    ),
 ]

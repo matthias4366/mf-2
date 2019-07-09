@@ -15,7 +15,6 @@ sys.path.insert(0, '/projectmf/fixtures/')
 formatted_ingredient_dict_list = []
 
 for k in range(len(ingredient_dict_list)):
-# for k in range(2):
 
     formatted_ingredient_dict_list_k = ingredient_dict_list[k]
     formatted_ingredient_dict_list_k['author'] = 1
@@ -29,5 +28,5 @@ for k in range(len(ingredient_dict_list)):
 
     formatted_ingredient_dict_list.append(formatted_dict_k)
 
-with open('/home/matthias/1_local_code/mf-2/projectmf/fixtures/data.json', 'w', encoding='utf-8') as f:
+with open('/home/matthias/1_local_code/mf-2/projectmf/fixtures/rawingredient_initial_data.json', 'w', encoding='utf-8') as f:
     json.dump(formatted_ingredient_dict_list, f, ensure_ascii=False, indent=4)

@@ -15,7 +15,10 @@ from django.views.generic import (
     DeleteView,
     DetailView
 )
-from .models import RawIngredient
+from .models import (
+    RawIngredient,
+    NutrientProfile
+)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .ingredient_properties import (
@@ -86,3 +89,12 @@ class DeleteRawIngredient(DeleteView):
         if self.request.user == raw_ingredient.author:
             return True
         return False
+
+# Nutrient profiles
+
+class ListNutrientProfile(
+    LoginRequiredMixin,
+    ListView
+):
+    model = NutrientProfile
+    ordering = ['name']
