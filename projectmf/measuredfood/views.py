@@ -22,7 +22,8 @@ from .models import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .ingredient_properties import (
-    INGREDIENT_FIELDS_ALL
+    INGREDIENT_FIELDS_ALL,
+    INGREDIENT_FIELDS_NUTRITION
 )
 
 # Create your views here.
@@ -92,9 +93,49 @@ class DeleteRawIngredient(DeleteView):
 
 # Nutrient profiles
 
+
+class CreateNutrientProfile(LoginRequiredMixin, CreateView):
+    model = NutrientProfile
+    fields = INGREDIENT_FIELDS_NUTRITION
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
 class ListNutrientProfile(
     LoginRequiredMixin,
     ListView
 ):
     model = NutrientProfile
     ordering = ['name']
+
+
+class UpdateNutrientProfile(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = NutrientProfile
+    fields = INGREDIENT_FIELDS_NUTRITION
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        nutrient_profile_ = self.get_object()
+        if self.request.user == nutrient_profile_.author:
+            return True
+        return False
+
+
+class DetailNutrientProfile(DetailView):
+    model = NutrientProfile
+
+
+class DeleteNutrientProfile(DeleteView):
+    model = NutrientProfile
+    success_url = reverse_lazy('list-nutrient-profile')
+
+    def test_func(self):
+        nutrient_profile_ = self.get_object()
+        if self.request.user == nutrient_profile_.author:
+            return True
+        return False

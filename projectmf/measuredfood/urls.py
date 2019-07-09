@@ -39,8 +39,28 @@ urlpatterns = [
     ),
     # Nutrient profiles
     path(
-        'nutrientprofiles/list/',
+        'nutrientprofile/create/',
+        views.CreateNutrientProfile.as_view(),
+        name='create-nutrient-profile'
+    ),
+    path(
+        'nutrientprofile/list/',
         views.ListNutrientProfile.as_view(),
         name='list-nutrient-profiles'
+    ),
+    path(
+        'nutrientprofile/<int:pk>/update/',
+        views.UpdateNutrientProfile.as_view(),
+        name='update-nutrient-profile'
+    ),
+    path(
+        'nutrientprofile/<int:pk>/detail/',
+        views.DetailNutrientProfile.as_view(),
+        name='detail-nutrient-profile'
+    ),
+    path(
+        'nutrientprofile/<int:pk>/delete/',
+        views.DeleteNutrientProfile.as_view(),
+        name='delete-nutrient-profile'
     ),
 ]

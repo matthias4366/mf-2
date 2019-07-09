@@ -1,0 +1,35 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+<h1>Nutrient profile list</h1>
+
+  <div class="">
+    <a class="btn btn-primary btn-large"
+    href="{% url 'create-nutrient-profile' %}"
+    id="id_button_new_ingredient">
+      New Nutrient Profile
+    </a>
+  </div>
+  <br>
+  <br>
+
+  {% if nutrientprofile_list %}
+    <div class="">
+      <h1>List of your nutrient profiles:</h1>
+      <br>
+      {% for profile in nutrientprofile_list %}
+        {% if profile.author.username == request.user.username %}
+          <p>
+            <a href="{% url 'detail-nutrient-profile' profile.id %}"
+            class="btn btn-primary btn-large"
+            id="button_view_nutrient_profile">
+              View
+            </a>{{ profile.name }}
+          </p>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <h1>No nutrient profiles have been added yet.</h1>
+  {% endif %}
+
+{% endblock content %}

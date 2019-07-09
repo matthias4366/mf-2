@@ -29,7 +29,10 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="{% url 'home' %}">
+                <a
+                  class="nav-item nav-link"
+                  href="{% url 'list-nutrient-profiles' %}"
+                  id="id_menu_item_nutrient_profiles">
                   Nutrient Profiles
                 </a>
                 <a
