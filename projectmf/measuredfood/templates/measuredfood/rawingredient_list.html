@@ -20,16 +20,15 @@
       When the user wants to look at their ingredients, a for loop iterates
       over the entire ingredient database with the ingredients of all the users,
       but only shows the ingredients that the user owns.
-      This is not scalable. -->
+      This is not scalable. Or is it? -->
       {% if ingredient.author.username == request.user.username %}
-        <h4>
+        <p>
           <a href="{% url 'detail-raw-ingredient' ingredient.id %}"
-          class="btn btn-primary btn-large">
+          class="btn btn-primary btn-large"
+          id="button_view_ingredient">
             View
-          </a>    {{ ingredient.name }}
-        </h4>
-        <br>
-        <br>
+          </a>{{ ingredient.name }}
+        </p>
       {% endif %}
     {% endfor %}
   </div>
