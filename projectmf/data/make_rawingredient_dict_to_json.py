@@ -15,7 +15,7 @@ sys.path.insert(0, '/projectmf/fixtures/')
 formatted_ingredient_dict_list = []
 
 # for k in range(len(ingredient_dict_list)):
-for k in range(1):
+for k in range(2):
     formatted_dict_k = {
         'model': 'measuredfood.rawingredient',
         'pk': k+1,
