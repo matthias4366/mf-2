@@ -9,6 +9,7 @@ ingredients is stored centrally in this python file.
 # has a trailing comma and it is also less scrolling.
 {
     'name': None,
+    'author': 1,
     'price': None,
     'reference_amount': None,
     'amount_in_package': None,
@@ -70,6 +71,7 @@ ingredients is stored centrally in this python file.
 ingredient_dict_list = [
     {
         'name': 'Kidney Beans, raw',
+        'author': 1,
         'price': 0.35,
         'reference_amount': 100,
         'amount_in_package': 500,
@@ -127,7 +129,8 @@ ingredient_dict_list = [
         'theobromine_mg' : 0
     },
     {
-        'name': 'Oil, vegetable, canola [low erucic acid rapeseed oil]',
+        'name': 'Canola oil',
+        'author': 1,
         'price': 0.52,
         'reference_amount': 100,
         'amount_in_package': 750,
@@ -185,6 +188,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Rice, white, long-grain, regular, raw, unenriched',
+        'author': 1,
         'price': 0.13,
         'reference_amount': 100,
         'amount_in_package': 10000,
@@ -242,6 +246,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Oregano',
+        'author': 1,
         'price': None,
         'reference_amount': None,
         'amount_in_package': None,
@@ -299,6 +304,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Chili powder',
+        'author': 1,
         'price': None,
         'reference_amount': None,
         'amount_in_package': None,
@@ -356,6 +362,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Tomato puree, MUTTI',
+        'author': 1,
         'price': 0.30,
         'reference_amount': 100,
         'amount_in_package': 750,
@@ -413,6 +420,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Beer, alcohol free',
+        'author': 1,
         'price': 0.21,
         'reference_amount': 100,
         'amount_in_package': 1980,
@@ -470,6 +478,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Mushrooms',
+        'author': 1,
         'price': 0.33,
         'reference_amount': 100,
         'amount_in_package': 450,
@@ -528,6 +537,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Walnuts',
+        'author': 1,
         'price': 1.499,
         'reference_amount': 100,
         'amount_in_package': 1000,
@@ -585,6 +595,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Whole wheat pasta',
+        'author': 1,
         'price': 0.38,
         'reference_amount': 100,
         'amount_in_package': 500,
@@ -643,6 +654,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Pea protein powder',
+        'author': 1,
         'price': 1.04,
         'reference_amount': 100,
         'amount_in_package': 2500,
@@ -700,6 +712,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Napoletana sauce barilla',
+        'author': 1,
         'price': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -757,6 +770,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Arrabiata sauce barilla',
+        'author': 1,
         'price': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -814,6 +828,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Olive sauce barilla',
+        'author': 1,
         'price': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -871,6 +886,7 @@ ingredient_dict_list = [
     },
     {
         'name': 'Spinach',
+        'author': 1,
         'price': 0.213,
         'reference_amount': 100,
         'amount_in_package': 1000,
