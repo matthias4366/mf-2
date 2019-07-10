@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import copy
 
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
@@ -93,10 +94,13 @@ class DeleteRawIngredient(DeleteView):
 
 # Nutrient profiles
 
-
+# TODO: The bug where the name of the model "NutrientProfile" is not displayed
+# in the form most likely originates in this piece of code.
 class CreateNutrientProfile(LoginRequiredMixin, CreateView):
     model = NutrientProfile
-    fields = INGREDIENT_FIELDS_NUTRITION
+    all_fields = copy.deepcopy(INGREDIENT_FIELDS_NUTRITION)
+    all_fields.insert(0, 'name')
+    fields = all_fields
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -132,7 +136,7 @@ class DetailNutrientProfile(DetailView):
 
 class DeleteNutrientProfile(DeleteView):
     model = NutrientProfile
-    success_url = reverse_lazy('list-nutrient-profile')
+    success_url = reverse_lazy('list-nutrient-profiles')
 
     def test_func(self):
         nutrient_profile_ = self.get_object()
