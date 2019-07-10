@@ -1,23 +1,73 @@
 nutrient_profile_dict_list = [
     {
-        'name': None,
-        'price_eur_per_reference_amount': None,
-        'reference_amount_g': None,
-        'amount_in_package_g': None,
-        'buy_here_link': None,
-        'source_nutritional_information_link': None,
-        'calories_kcal' : None,
+        'name': 'Matthias maintenance plus vitamins from NIH Males 19-30 ',
+        # sources:
+        # https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t3/?report=objectonly
+        # https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t2/?report=objectonly
+        'calories_kcal' : 2500,
         'total_carbohydrates_g' : None,
         'dietary_fiber_g' : None,
         'sugars_g' : None,
-        'total_fat_g' : None,
+        'total_fat_g' : 72,
         'saturated_fat_g' : None,
         'monounsaturated_fat_g' : None,
         'polyunsaturated_fat_g' : None,
         'total_trans_fatty_acids_g' : None,
         'total_omega_3_fatty_acids_mg' : None,
         'total_omega_6_fatty_acids_mg' : None,
-        'protein_g' : None,
+        'protein_g' : 164,
+        # Vitamins
+        # vitamin a was converted from micrograms based on
+        # https://www.thecalculatorsite.com/articles/units/convert-ui-to-mcg.php
+        'vitamin_a_iu' : 3000,
+        'vitamin_c_mg' : 90,
+        # vitamin d unit conversion was done on the same website were the value
+        # came from
+        'vitamin_d_iu' : 600,
+        'vitamin_e_alpha_tocopherol_mg' : 15,
+        'vitamin_k_mcg' : 120,
+        'thiamin_mg' : 1.2,
+        'riboflavin_mg' : 1.3,
+        'niacin_mg' : 16,
+        'vitamin_b6_mg' : 1.3,
+        'folate_mcg' : 400,
+        'vitamin_b12_mcg' : 2.4,
+        'pantothenic_acid_mg' : 5,
+        # Minerals
+        'calcium_mg' : 1000,
+        'iron_mg' : 8,
+        'magnesium_mg' : 400,
+        'phosphorus_mg' : 700,
+        'potassium_mg' : 4700,
+        'sodium_mg' : 1500,
+        'zinc_mg' : 11,
+        'copper_mg' : 0.900,
+        'manganese_mg' : 2.3,
+        'selenium_mcg' : 55,
+        # Sterols
+        'cholesterol_mg' : None,
+        'biotin_ug' : 30,
+        'choline_mg' : 550,
+        'chloride_g' : 2.3,
+        'chromium_ug' : 35,
+        'iodine_ug' : 150,
+        'molybdenum_ug' : 45,
+        'sulfur_g' : None,
+    },
+    {
+        'name': 'Maintenance Matthias',
+        'calories_kcal' : 2500,
+        'total_carbohydrates_g' : None,
+        'dietary_fiber_g' : None,
+        'sugars_g' : None,
+        'total_fat_g' : 72,
+        'saturated_fat_g' : None,
+        'monounsaturated_fat_g' : None,
+        'polyunsaturated_fat_g' : None,
+        'total_trans_fatty_acids_g' : None,
+        'total_omega_3_fatty_acids_mg' : None,
+        'total_omega_6_fatty_acids_mg' : None,
+        'protein_g' : 164,
         # Vitamins
         'vitamin_a_iu' : None,
         'vitamin_c_mg' : None,
@@ -43,6 +93,13 @@ nutrient_profile_dict_list = [
         'manganese_mg' : None,
         'selenium_mcg' : None,
         # Sterols
-        'cholesterol_mg' : None
+        'cholesterol_mg' : None,
+        'biotin_ug' : None,
+        'choline_mg' : None,
+        'chloride_g' : None,
+        'chromium_ug' : None,
+        'iodine_ug' : None,
+        'molybdenum_ug' : None,
+        'sulfur_g' : None,
     },
 ]
