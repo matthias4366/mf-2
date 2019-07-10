@@ -108,3 +108,53 @@ class FunctionalTest(StaticLiveServerTestCase):
             save_button.send_keys(Keys.ENTER)
 
             time.sleep(1)
+
+    def test_nutrient_profile_creation(self):
+        """
+        Every test starts with a user registration. It might make sense to work
+        on speeding it up.
+        Test the creation of a nutrient profile.
+        """
+
+        # Open the registration page
+        self.browser.get(self.live_server_url + '/register/')
+
+        # Find elements by name
+        username = self.browser.find_element_by_name('username')
+        email = self.browser.find_element_by_name('email')
+        password1 = self.browser.find_element_by_name('password1')
+        password2 = self.browser.find_element_by_name('password2')
+
+        # Input values into the fields
+        username.send_keys(DUMMY_USERNAME)
+        email.send_keys(DUMMY_EMAIL)
+        password1.send_keys(DUMMY_PASSWORD)
+        password2.send_keys(DUMMY_PASSWORD)
+        time.sleep(3)
+
+        # Simulate clicking on Sign Up
+        sign_up_button = self.browser.find_element_by_id('id_button_signup')
+        sign_up_button.send_keys(Keys.ENTER)
+
+        # TODO: Check if the user has been added to the database.
+
+        # A redirect to the login page should happen at this point.
+        # TODO: Test whether the redirect has happened.
+
+        time.sleep(3)
+
+        # Find login elements
+        username_field = self.browser.find_element_by_name('username')
+        password_field = self.browser.find_element_by_name('password')
+
+        # Input values into the fields
+        username_field.send_keys(DUMMY_USERNAME)
+        password_field.send_keys(DUMMY_PASSWORD)
+
+        # Simulate clicking on Log In
+        log_in_button = self.browser.find_element_by_id('id_button_login')
+        log_in_button.send_keys(Keys.ENTER)
+
+        time.sleep(3)
+
+        
