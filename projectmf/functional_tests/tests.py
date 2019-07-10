@@ -10,6 +10,7 @@ import os
 import sys
 sys.path.insert(0, '/projectmf/data/')
 from data.ingredients_data import ingredient_dict_list
+from data.initial_nutrient_profiles import nutrient_profile_dict_list
 
 MAX_WAIT = 10
 
@@ -157,4 +158,31 @@ class FunctionalTest(StaticLiveServerTestCase):
 
         time.sleep(3)
 
-        
+        # Simulate clicking on nutrient profiles
+        nutrient_profiles_menu_item = self.browser.find_element_by_id(
+            'id_menu_item_nutrient_profiles')
+        nutrient_profiles_menu_item.send_keys(Keys.ENTER)
+
+        time.sleep(3)
+
+        # Add all the nutrient profiles
+        for k in range(len(nutrient_profile_dict_list)):
+
+            new_nutrient_profile_button = self.browser.find_element_by_id(
+                'id_button_new_nutrient_profile'
+            )
+            new_nutrient_profile_button.send_keys(Keys.ENTER)
+
+            time.sleep(1)
+
+            for key, value in nutrient_profile_dict_list[k].items():
+                if value != None:
+                    self.browser.find_element_by_name(key).send_keys(str(value))
+
+            # Simulate clicking the save button
+            save_button = self.browser.find_element_by_id(
+                'id_button_save_new_nutrient_profile'
+            )
+            save_button.send_keys(Keys.ENTER)
+
+            time.sleep(1)
