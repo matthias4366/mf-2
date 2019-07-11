@@ -86,6 +86,25 @@ for name in INGREDIENT_FIELDS_NUTRITION:
     )
 
 
+class Mealplan(models.Model):
+    """
+    Putting many FullDayOfEating instances together creates a mealplan.
+    TODO: write the code for this class.
+    """
+
+    name = models.CharField(max_length=100)
+
+
+class FullDayOfEating(models.Model):
+    """
+    Putting many recipes and single ingredients together creates a full day of
+    eating.
+    TODO: write the code for this class and create the correct relationships.
+    """
+
+    name = models.CharField(max_length=100)
+
+
 class Recipe(models.Model):
 
     name = models.CharField(max_length=100)

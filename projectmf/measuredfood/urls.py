@@ -63,4 +63,10 @@ urlpatterns = [
         views.DeleteNutrientProfile.as_view(),
         name='delete-nutrient-profile'
     ),
+    # Interim recipe
+    path(
+        'interim_recipe/creation',
+        views.DeleteNutrientProfile.as_view(),
+        name='interim-recipe-creation'
+    ),
 ]
