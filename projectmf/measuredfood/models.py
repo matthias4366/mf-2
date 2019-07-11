@@ -189,3 +189,7 @@ class SpecificIngredient(models.Model):
         blank=True,
         null=True
     )
+
+    def __str__(self):
+        label = self.rawingredient.name + ' for ' + self.recipe.name
+        return label
