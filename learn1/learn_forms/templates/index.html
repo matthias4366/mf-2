@@ -6,8 +6,11 @@
   </head>
   <body>
     <form method="post">{% csrf_token %}
-      {{ formset.as_p }}
+      <table>
+        {{ formset.as_table }}
+      </table>
       <button type="submit">Save</button>
     </form>
+
   </body>
 </html>

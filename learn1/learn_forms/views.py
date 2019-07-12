@@ -24,6 +24,7 @@ from .models import FullDayOfEating, SpecificIngredient
 # The programmer is equivalent to the full day of eating.
 # The language is equivalent to the specific ingredient.
 
+
 def index(request, fulldayofeating_id):
     fulldayofeating = FullDayOfEating.objects.get(pk=fulldayofeating_id)
     SpecificIngredientFormset = inlineformset_factory(FullDayOfEating, SpecificIngredient, fields=('__all__'), extra=1)
@@ -38,3 +39,7 @@ def index(request, fulldayofeating_id):
     formset = SpecificIngredientFormset(instance=fulldayofeating)
 
     return render(request, 'index.html', {'formset': formset})
+
+
+def basictable(request):
+    return render(request, 'table.html')
