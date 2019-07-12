@@ -43,31 +43,31 @@ class ListRecipes(
     ordering = ['name']
 
 
-# class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     model = RawIngredient
-#     fields = INGREDIENT_FIELDS_ALL
-#
-#     def form_valid(self, form):
-#         form.instance.author = self.request.user
-#         return super().form_valid(form)
-#
-#     def test_func(self):
-#         raw_ingredient = self.get_object()
-#         if self.request.user == raw_ingredient.author:
-#             return True
-#         return False
+class UpdateRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Recipe
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        recipe = self.get_object()
+        if self.request.user == recipe.author:
+            return True
+        return False
 
 
 class DetailRecipe(DetailView):
     model = Recipe
 
 
-# class DeleteRawIngredient(DeleteView):
-#     model = RawIngredient
-#     success_url = reverse_lazy('list-raw-ingredients')
-#
-#     def test_func(self):
-#         raw_ingredient = self.get_object()
-#         if self.request.user == raw_ingredient.author:
-#             return True
-#         return False
+class DeleteRecipe(DeleteView):
+    model = Recipe
+    success_url = reverse_lazy('list-recipes')
+
+    def test_func(self):
+        recipe = self.get_object()
+        if self.request.user == recipe.author:
+            return True
+        return False

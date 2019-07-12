@@ -89,21 +89,21 @@ urlpatterns_recipe = [
         recipe.ListRecipes.as_view(),
         name='list-recipes'
     ),
-    # path(
-    #     'nutrientprofile/<int:pk>/update/',
-    #     nutrientprofile.UpdateNutrientProfile.as_view(),
-    #     name='update-nutrient-profile'
-    # ),
+    path(
+        'recipe/<int:pk>/update/',
+        recipe.UpdateRecipe.as_view(),
+        name='update-recipe'
+    ),
     path(
         'recipe/<int:pk>/detail/',
         recipe.DetailRecipe.as_view(),
         name='detail-recipe'
     ),
-    # path(
-    #     'nutrientprofile/<int:pk>/delete/',
-    #     nutrientprofile.DeleteNutrientProfile.as_view(),
-    #     name='delete-nutrient-profile'
-    # ),
+    path(
+        'recipe/<int:pk>/delete/',
+        recipe.DeleteRecipe.as_view(),
+        name='delete-recipe'
+    ),
 ]
 
 urlpatterns = urlpattern_home \
