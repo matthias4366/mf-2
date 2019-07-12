@@ -1,0 +1,73 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+import copy
+
+# imports for the creation of user accounts
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from measuredfood.forms import UserRegisterForm
+
+# imports for the view to create raw ingredients
+from django.views.generic import (
+    CreateView,
+    ListView,
+    UpdateView,
+    DeleteView,
+    DetailView
+)
+from measuredfood.models import (
+    Recipe
+)
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+from measuredfood.ingredient_properties import (
+    INGREDIENT_FIELDS_ALL,
+    INGREDIENT_FIELDS_NUTRITION
+)
+
+
+class CreateRecipe(LoginRequiredMixin, CreateView):
+    model = Recipe
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class ListRecipes(
+    LoginRequiredMixin,
+    ListView
+):
+    model = Recipe
+    ordering = ['name']
+
+
+# class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+#     model = RawIngredient
+#     fields = INGREDIENT_FIELDS_ALL
+#
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         return super().form_valid(form)
+#
+#     def test_func(self):
+#         raw_ingredient = self.get_object()
+#         if self.request.user == raw_ingredient.author:
+#             return True
+#         return False
+
+
+class DetailRecipe(DetailView):
+    model = Recipe
+
+
+# class DeleteRawIngredient(DeleteView):
+#     model = RawIngredient
+#     success_url = reverse_lazy('list-raw-ingredients')
+#
+#     def test_func(self):
+#         raw_ingredient = self.get_object()
+#         if self.request.user == raw_ingredient.author:
+#             return True
+#         return False

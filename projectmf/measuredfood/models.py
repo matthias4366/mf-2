@@ -109,16 +109,16 @@ class Recipe(models.Model):
 
     name = models.CharField(max_length=100)
 
-    # author = models.ForeignKey(
-    #     User,
-    #     on_delete=models.CASCADE
-    # )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('list-recipes')
+    def get_absolute_url(self):
+        return reverse('list-recipes')
 
 
 class SpecificIngredient(models.Model):

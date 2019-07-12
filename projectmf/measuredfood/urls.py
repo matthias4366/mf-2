@@ -2,12 +2,16 @@ from django.urls import path
 from .views import (home,
                     register,
                     rawingredient,
-                    nutrientprofile
+                    nutrientprofile,
+                    recipe
 )
 from django.contrib.auth import views as auth_views
 
-urlpatterns = [
+urlpattern_home = [
     path('', home.home, name='home'),
+    ]
+
+urlpatterns_user = [
     path('register/', register.register, name='register'),
     path('login/',
          auth_views.LoginView.as_view(template_name='measuredfood/login.html'),
@@ -16,6 +20,9 @@ urlpatterns = [
          auth_views.LogoutView.as_view(
              template_name='measuredfood/logout.html'
         ), name='logout'),
+]
+
+urlpatterns_rawingredient = [
     path(
         'ingredients/create/',
         rawingredient.CreateRawIngredient.as_view(),
@@ -41,7 +48,9 @@ urlpatterns = [
         rawingredient.DeleteRawIngredient.as_view(),
         name='delete-raw-ingredient'
     ),
-    # Nutrient profiles
+]
+
+urlpatterns_nutrientprofile = [
     path(
         'nutrientprofile/create/',
         nutrientprofile.CreateNutrientProfile.as_view(),
@@ -67,10 +76,38 @@ urlpatterns = [
         nutrientprofile.DeleteNutrientProfile.as_view(),
         name='delete-nutrient-profile'
     ),
-    # Interim recipe
-    path(
-        'interim_recipe/creation',
-        nutrientprofile.DeleteNutrientProfile.as_view(),
-        name='interim-recipe-creation'
-    ),
 ]
+
+urlpatterns_recipe = [
+    path(
+        'recipe/create/',
+        recipe.CreateRecipe.as_view(),
+        name='create-recipe'
+    ),
+    path(
+        'recipe/list/',
+        recipe.ListRecipes.as_view(),
+        name='list-recipes'
+    ),
+    # path(
+    #     'nutrientprofile/<int:pk>/update/',
+    #     nutrientprofile.UpdateNutrientProfile.as_view(),
+    #     name='update-nutrient-profile'
+    # ),
+    path(
+        'recipe/<int:pk>/detail/',
+        recipe.DetailRecipe.as_view(),
+        name='detail-recipe'
+    ),
+    # path(
+    #     'nutrientprofile/<int:pk>/delete/',
+    #     nutrientprofile.DeleteNutrientProfile.as_view(),
+    #     name='delete-nutrient-profile'
+    # ),
+]
+
+urlpatterns = urlpattern_home \
++ urlpatterns_user \
++ urlpatterns_rawingredient \
++ urlpatterns_nutrientprofile \
++ urlpatterns_recipe
