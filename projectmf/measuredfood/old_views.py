@@ -93,8 +93,6 @@ class DeleteRawIngredient(DeleteView):
 
 # Nutrient profiles
 
-# TODO: The bug where the name of the model "NutrientProfile" is not displayed
-# in the form most likely originates in this piece of code.
 class CreateNutrientProfile(LoginRequiredMixin, CreateView):
     model = NutrientProfile
     all_fields = copy.deepcopy(INGREDIENT_FIELDS_NUTRITION)
@@ -142,3 +140,6 @@ class DeleteNutrientProfile(DeleteView):
         if self.request.user == nutrient_profile_.author:
             return True
         return False
+
+
+# Specific Ingredient
