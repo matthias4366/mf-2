@@ -148,7 +148,14 @@ class SpecificIngredient(models.Model):
         null=True
     )
 
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    # A specific ingredient can't both belong to a recipe AND to a
+    # FullDayOfEating. This is complicated, so I will forget about
+    # the recipes for now.
+    fulldayofeating = models.ForeignKey(
+        FullDayOfEating,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True)
 
     rawingredient = models.ForeignKey(
         RawIngredient,
@@ -227,6 +234,17 @@ class SpecificIngredient(models.Model):
         null=True
     )
 
+    # It might not be practically to smoothly adapt all ingredients: for
+    # example 1.24 tsp of chili does not make sense. If an ingredient is not
+    # smoothly scalable, it makes sense to use steps. If the step_size field
+    # is empty, the ingredient is scaled smoothly.
+    step_size = models.DecimalField(
+        max_digits=MAX_DIGITS_,
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
+    )
+
     def __str__(self):
-        label = self.rawingredient.name + ' for ' + self.recipe.name
+        label = self.rawingredient.name
         return label

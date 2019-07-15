@@ -4,8 +4,12 @@ import copy
 
 from measuredfood.forms import SpecificIngredientForm
 
-# Create your views here.
-def table(request):
+# The primary key pk is from the fulldayofeating.
+def table(request, pk):
+
+    # get the fulldayofeating based on its pk
+    
+
     if request.method == 'POST':
         form = SpecificIngredientForm(request.POST)
         if form.is_valid():
