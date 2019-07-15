@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
+
+Source on how to render forms manually:
+https://simpleisbetterthancomplex.com/article/2017/08/19/
+how-to-render-django-form-manually.html#working-example
 """
 
 import os
