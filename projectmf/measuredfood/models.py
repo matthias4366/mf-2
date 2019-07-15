@@ -104,6 +104,23 @@ class FullDayOfEating(models.Model):
 
     name = models.CharField(max_length=100)
 
+    # Every full day of eating is linked with one nutrient_profile.
+    # But one nutrient_profile can be linked to many full days of eating.
+    nutrient_profile = models.ForeignKey(
+        NutrientProfile,
+        # TODO: I am not sure about the on_delete option.
+        on_delete=models.SET_NULL,
+        editable = True,
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('list-recipes')
+
 
 class Recipe(models.Model):
 
