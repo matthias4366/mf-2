@@ -3,7 +3,8 @@ from .views import (home,
                     register,
                     rawingredient,
                     nutrientprofile,
-                    recipe
+                    recipe,
+                    table
 )
 from django.contrib.auth import views as auth_views
 
@@ -106,8 +107,14 @@ urlpatterns_recipe = [
     ),
 ]
 
+# interim code figuring out how to create html tables.
+urlpatterns_table = [
+    path('table/', table.table, name='table'),
+]
+
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
-+ urlpatterns_recipe
++ urlpatterns_recipe \
++ urlpatterns_table
