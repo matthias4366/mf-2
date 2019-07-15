@@ -1,32 +1,19 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
-  <div class="jumbotron">
-    <h1>Html table will be built here.</h1>
-  </div>
-
-  <div class="">
-    <table style="width:100%">
-     <tr>
-       <th>Firstname</th>
-       <th>Lastname</th>
-       <th>Age</th>
-     </tr>
-     <tr>
-       <td>Jill</td>
-       <td>Smith</td>
-       <td>50</td>
-     </tr>
-     <tr>
-       <td>Eve</td>
-       <td>Jackson</td>
-       <td>94</td>
-     </tr>
-    </table>
-  </div>
-
+<!-- The html table holding the recipe editor with the addition of specific
+ingredients is built here. -->
   <form method="post">
     {% csrf_token %}
-    {{ form }}
+    <table border="1">
+      <tr>
+        <th>{{ form.name.label_tag }}</th>
+        <th>{{ form.calories_kcal.label_tag }}</th>
+      </tr>
+      <tr>
+        <td>{{ form.name }}</td>
+        <td>{{ form.calories_kcal }}</td>
+      </tr>
+    </table>
   </form>
 
 {% endblock content %}

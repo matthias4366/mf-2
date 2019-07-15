@@ -16,3 +16,4 @@ class RawIngredientForm(forms.ModelForm):
     class Meta:
         model = RawIngredient
         fields = '__all__'
+        exclude = ['author']
