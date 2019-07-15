@@ -26,6 +26,9 @@ def table(request, id_fulldayofeating):
             pass  # does nothing, just trigger the validation
 
         form_fulldayofeating = FullDayOfEatingForm(request.POST, instance=fulldayofeating_object)
+        if form_fulldayofeating.is_valid():
+            form_fulldayofeating.save()
+            # pass  # does nothing, just trigger the validation
     else:
         form_fulldayofeating = FullDayOfEatingForm(instance=fulldayofeating_object)
 
