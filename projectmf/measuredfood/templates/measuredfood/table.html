@@ -19,25 +19,21 @@ ingredients is built here. -->
     {% csrf_token %}
     <table border="1">
       <tr>
-        <th>{{ form.base_amount.label_tag }}</th>
-        <th>{{ form.base_amount_unit.label_tag }}</th>
-        <th>{{ form.rawingredient.label_tag }}</th>
-        <th>{{ form.group_or_fixed.label_tag }}</th>
+        <th>Amount</th>
+        <th>Units</th>
+        <th>Ingredient</th>
+        <th>Group or fixed</th>
       </tr>
 
-      <!-- List all the Specific Ingredients related to the FullDayOfEating -->
-      <!-- {% for specificingredient in specificingredient_queryset %} -->
-      <tr>
-        <td>{{ form.base_amount }}</td>
-        <td>{{ form.base_amount_unit }}</td>
-        <td>{{ form.rawingredient }}</td>
-        <td>{{ form.group_or_fixed }}</td>
-      </tr>
-      <!-- {% endfor %} -->
-
-
-
-
+      {% for form in list_of_forms_specificingredient %}
+        <tr>
+          <td>{{ form.base_amount }}</td>
+          <td>{{ form.base_amount_unit }}</td>
+          <td>{{ form.rawingredient }}</td>
+          <td>{{ form.group_or_fixed }}</td>
+        </tr>
+      {% endfor %}
+      
       <tr>
         <td colspan="4"> <button type="button">Add ingredient to recipe</button> </td>
       </tr>
