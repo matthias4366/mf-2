@@ -4,18 +4,14 @@ import copy
 
 from measuredfood.forms import SpecificIngredientForm
 
-from measuredfood.models import FullDayOfEating
+from measuredfood.models import FullDayOfEating, SpecificIngredient
 
-# The primary key pk is from the fulldayofeating.
 def table(request, id_fulldayofeating):
 
-    # get the fulldayofeating based on its pk
-    print('\n\n\n\n\n')
-    print('Name of the FullDayOfEating:')
-    print(f'{FullDayOfEating.objects.get(pk=id_fulldayofeating).name}')
-    print('\n\n\n\n\n')
-
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
+
+    specificingredient_queryset = SpecificIngredient.objects.filter(fulldayofeating__id=id_fulldayofeating)
+    print(specificingredient_queryset)
 
     if request.method == 'POST':
         form = SpecificIngredientForm(request.POST)
@@ -27,4 +23,5 @@ def table(request, id_fulldayofeating):
         request,
         'measuredfood/table.html',
         {'form': form,
-         'fulldayofeating': fulldayofeating_object})
+         'fulldayofeating': fulldayofeating_object,
+         'specificingredient_queryset': specificingredient_queryset})
