@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from measuredfood.models import RawIngredient
+from measuredfood.models import SpecificIngredient
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -11,9 +11,9 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class RawIngredientForm(forms.ModelForm):
+class SpecificIngredientForm(forms.ModelForm):
 
     class Meta:
-        model = RawIngredient
+        model = SpecificIngredient
         fields = '__all__'
         exclude = ['author']

@@ -5,13 +5,18 @@ ingredients is built here. -->
   <form method="post">
     {% csrf_token %}
     <table border="1">
+      <!-- {{ form }} -->
       <tr>
-        <th>{{ form.name.label_tag }}</th>
-        <th>{{ form.calories_kcal.label_tag }}</th>
+        <th>{{ form.base_amount.label_tag }}</th>
+        <th>{{ form.base_amount_unit.label_tag }}</th>
+        <th>{{ form.rawingredient.label_tag }}</th>
+        <th>{{ form.group_or_fixed.label_tag }}</th>
       </tr>
       <tr>
-        <td>{{ form.name }}</td>
-        <td>{{ form.calories_kcal }}</td>
+        <td>{{ form.base_amount }}</td>
+        <td>{{ form.base_amount_unit }}</td>
+        <td>{{ form.rawingredient }}</td>
+        <td>{{ form.group_or_fixed }}</td>
       </tr>
     </table>
   </form>
