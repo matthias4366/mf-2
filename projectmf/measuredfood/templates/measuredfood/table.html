@@ -2,6 +2,11 @@
 {% block content %}
 <!-- The html table holding the recipe editor with the addition of specific
 ingredients is built here. -->
+
+  <!-- Show which full day of eating is currently being edited. -->
+  <h1>{{ fulldayofeating.name }}</h1>
+  <br>
+
   <form method="post">
     {% csrf_token %}
     <table border="1">
