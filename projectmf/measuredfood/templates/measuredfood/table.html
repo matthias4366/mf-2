@@ -3,7 +3,15 @@
 <!-- The html table holding the recipe editor with the addition of specific
 ingredients is built here. -->
 
-  <h1>{{ fulldayofeating.name }}</h1>
+  <!-- Create the form fields to edit the full day of eating. -->
+  <form method="post">
+    {% csrf_token %}
+    <table border="2">
+      {{ form_fulldayofeating }}
+    </table>
+  </form>
+
+  <br>
   <br>
 
   <form method="post">
@@ -17,14 +25,14 @@ ingredients is built here. -->
       </tr>
 
       <!-- List all the Specific Ingredients related to the FullDayOfEating -->
-      {% for specificingredient in specificingredient_queryset %}
+      <!-- {% for specificingredient in specificingredient_queryset %} -->
       <tr>
-        <td>{{ specificingredient.base_amount }}</td>
-        <td>{{ specificingredient.base_amount_unit }}</td>
-        <td>{{ specificingredient.rawingredient }}</td>
-        <td>{{ specificingredient.group_or_fixed }}</td>
+        <td>{{ form.base_amount }}</td>
+        <td>{{ form.base_amount_unit }}</td>
+        <td>{{ form.rawingredient }}</td>
+        <td>{{ form.group_or_fixed }}</td>
       </tr>
-      {% endfor %}
+      <!-- {% endfor %} -->
 
 
 
