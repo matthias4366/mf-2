@@ -24,4 +24,9 @@
     </table>
   </div>
 
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+  </form>
+
 {% endblock content %}

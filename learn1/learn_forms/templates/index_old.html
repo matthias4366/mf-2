@@ -6,11 +6,8 @@
   </head>
   <body>
     <form method="post">{% csrf_token %}
-      <table border="1">
-        Number of forms in the formset:
-        
-        {{ formset.total_form_count }}
-        {{ formset}}
+      <table>
+        {{ formset.as_table }}
       </table>
       <button type="submit">Save</button>
     </form>
