@@ -18,13 +18,13 @@ def table(request, id_fulldayofeating):
     if request.method == 'POST':
         form_fulldayofeating = FullDayOfEatingForm(request.POST, instance=fulldayofeating_object)
         formset = SpecificIngredientFormset(request.POST, instance=fulldayofeating_object)
-        if formset.is_valid():
+        if formset.is_valid() and form_fulldayofeating.is_valid():
             formset.save()
+            form_fulldayofeating.save()
             return redirect('update-fulldayofeating', id_fulldayofeating=fulldayofeating_object.id)
     else:
         form_fulldayofeating = FullDayOfEatingForm(instance=fulldayofeating_object)
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
-        print(formset[0].fields)
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,}
         return render(request,'measuredfood/table.html', context)

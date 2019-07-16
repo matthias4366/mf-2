@@ -4,7 +4,7 @@
 ingredients is built here. -->
 
   <!-- Create the form fields to edit the full day of eating. -->
-  <form method="post">
+  <!-- <form method="post">
     {% csrf_token %}
     <table border="2">
       {{ form_fulldayofeating }}
@@ -13,11 +13,19 @@ ingredients is built here. -->
   </form>
 
   <br>
-  <br>
+  <br> -->
 
   <form method="post">
     {% csrf_token %}
-    <table border="1">
+
+    <!-- Trying to put 2 django forms in the same html form. -->
+
+    <table border="2">
+      {{ form_fulldayofeating }}
+    </table>
+    <br>
+    <br>
+    <table border="2">
       <tr>
         <th>Amount</th>
         <th>Units</th>
@@ -42,7 +50,7 @@ ingredients is built here. -->
         </tr>
       {% endfor %}
     </table>
-    <input type="submit" value="Save changes to SpecificIngredients" />
+    <input type="submit" value="Save all changes" />
   </form>
 
 
