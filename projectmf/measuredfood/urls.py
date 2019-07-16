@@ -109,7 +109,6 @@ urlpatterns_recipe = [
 
 # interim code figuring out how to create html tables.
 urlpatterns_table = [
-    # path('table/', table.table, name='table'),
     path('fulldayofeating/<int:id_fulldayofeating>/update/', table.table, name='update-fulldayofeating')
 ]
 
