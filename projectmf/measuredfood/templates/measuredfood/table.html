@@ -23,20 +23,24 @@ ingredients is built here. -->
         <th>Units</th>
         <th>Ingredient</th>
         <th>Group or fixed</th>
+        <th>Step size</th>
+        <th>Delete</th>
       </tr>
 
-      {% for form in list_of_forms_specificingredient %}
+      {{ formset.management_form }}
+      {% for form in formset %}
+        {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
         <tr>
           <td>{{ form.base_amount }}</td>
           <td>{{ form.base_amount_unit }}</td>
           <td>{{ form.rawingredient }}</td>
           <td>{{ form.group_or_fixed }}</td>
+          <td>{{ form.step_size }}</td>
+          <td>{{ form.DELETE }}</td>
         </tr>
       {% endfor %}
-      
-      <tr>
-        <td colspan="4"> <button type="button">Add ingredient to recipe</button> </td>
-      </tr>
     </table>
   </form>
 
