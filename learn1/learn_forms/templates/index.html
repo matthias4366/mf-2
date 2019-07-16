@@ -14,6 +14,9 @@
         </tr>
         {{ formset.management_form }}
         {% for form in formset %}
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
           <tr>
             <td>{{ form.base_amount }}</td>
             <td>{{ form.rawingredient }}</td>

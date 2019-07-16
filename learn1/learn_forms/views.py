@@ -30,11 +30,15 @@ def index(request, fulldayofeating_id):
     SpecificIngredientFormset = inlineformset_factory(FullDayOfEating, SpecificIngredient, fields=('__all__'), extra=1)
 
     if request.method == 'POST':
+        print('\n\nREQUEST METHOD IS POST!\n\n')
         formset = SpecificIngredientFormset(request.POST, instance=fulldayofeating)
+        print(formset.errors)
         if formset.is_valid():
+            print('\n\nFORMSET IS VALID!\n\n')
             formset.save()
 
             return redirect('index', fulldayofeating_id=fulldayofeating.id)
+
 
     formset = SpecificIngredientFormset(instance=fulldayofeating)
 
