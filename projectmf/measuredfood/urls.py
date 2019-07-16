@@ -54,7 +54,7 @@ urlpatterns_rawingredient = [
 urlpatterns_nutrientprofile = [
     path(
         'nutrientprofile/create/',
-        nutrientprofile.CreateNutrientProfile.as_view(),
+        nutrientprofile.create_nutrientprofile,
         name='create-nutrient-profile'
     ),
     path(
@@ -63,8 +63,8 @@ urlpatterns_nutrientprofile = [
         name='list-nutrient-profiles'
     ),
     path(
-        'nutrientprofile/<int:pk>/update/',
-        nutrientprofile.UpdateNutrientProfile.as_view(),
+        'nutrientprofile/<int:id_nutrientprofile>/update/',
+        nutrientprofile.update_nutrientprofile,
         name='update-nutrient-profile'
     ),
     path(

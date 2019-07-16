@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from measuredfood.models import (
     SpecificIngredient,
-    FullDayOfEating
+    FullDayOfEating,
+    NutrientProfile
     )
 
 class UserRegisterForm(UserCreationForm):
@@ -26,5 +27,13 @@ class FullDayOfEatingForm(forms.ModelForm):
 
     class Meta:
         model = FullDayOfEating
+        fields = '__all__'
+        exclude = ['author']
+
+
+class NutrientProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = NutrientProfile
         fields = '__all__'
         exclude = ['author']

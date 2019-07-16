@@ -85,6 +85,17 @@ for name in INGREDIENT_FIELDS_NUTRITION:
         )
     )
 
+# For each nutrient, add a field with the information about whether that
+# nutrient is targeted when the tailored ingredient amounts are calculated.
+for name in INGREDIENT_FIELDS_NUTRITION:
+    name_field = name + '_is_targeted'
+    NutrientProfile.add_to_class(
+        name_field,
+        models.BooleanField(
+            default = False
+        )
+    )
+
 
 class Mealplan(models.Model):
     """
@@ -103,6 +114,8 @@ class FullDayOfEating(models.Model):
     """
 
     name = models.CharField(max_length=100)
+
+    notes = models.TextField(null=True, blank=True)
 
     # Every full day of eating is linked with one nutrient_profile.
     # But one nutrient_profile can be linked to many full days of eating.
@@ -196,9 +209,19 @@ class SpecificIngredient(models.Model):
         default = GRAM,
     )
 
-    # Group or fixed
-    GROUP_OR_FIXED_CHOICES = [
+    """
+    The scaling option defines option that are applied in the scaling of
+    the amount of an ingredient. Some ingredients should not be scaled,
+    i.e. the amount should be fixed. Some ingredients should be scaled
+    independently of the other ingredients. Some ingredients should be scaled
+    in relation to other ingredients, in order to maintain the taste of the
+    recipe in the scaling process. For example there could be a set relationship
+    between chili powder and rice. This would be implemented by assigning both
+    the chili powder and the rice to group A.
+    """
+    SCALING_OPTION_CHOICES = [
         ('FIXED', 'fixed'),
+        ('INDEPENDENT', 'independent'),
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
@@ -227,11 +250,12 @@ class SpecificIngredient(models.Model):
         ('Z', 'Z'),
     ]
 
-    group_or_fixed = models.CharField(
+    scaling_option = models.CharField(
         max_length = 100,
-        choices = GROUP_OR_FIXED_CHOICES,
+        choices = SCALING_OPTION_CHOICES,
         blank=True,
-        null=True
+        null=True,
+        default = 'FIXED'
     )
 
     # It might not be practically to smoothly adapt all ingredients: for
