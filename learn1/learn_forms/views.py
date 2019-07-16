@@ -38,7 +38,14 @@ def index(request, fulldayofeating_id):
 
     formset = SpecificIngredientFormset(instance=fulldayofeating)
 
-    return render(request, 'index.html', {'formset': formset})
+    for field in formset[0]:
+        print(field.name)
+
+    return render(
+        request,
+        'index.html', {
+            'formset': formset,
+            })
 
 
 def basictable(request):

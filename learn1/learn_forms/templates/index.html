@@ -7,10 +7,18 @@
   <body>
     <form method="post">{% csrf_token %}
       <table border="1">
-        Number of forms in the formset:
-        
-        {{ formset.total_form_count }}
-        {{ formset}}
+        <tr>
+            <th>Base amount</th>
+            <th>Ingredient</th>
+            <th>Delete</th>
+        </tr>
+        {% for form in formset %}
+          <tr>
+            <td>{{ form.base_amount }}</td>
+            <td>{{ form.rawingredient }}</td>
+            <td>{{ form.DELETE }}</td>
+          </tr>
+        {% endfor %}
       </table>
       <button type="submit">Save</button>
     </form>

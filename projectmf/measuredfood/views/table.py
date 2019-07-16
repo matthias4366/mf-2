@@ -24,10 +24,7 @@ def table(request, id_fulldayofeating):
         if form_fulldayofeating.is_valid():
             form_fulldayofeating.save()
 
-        # Specific Ingredient
-        form = SpecificIngredientForm(request.POST)
-        if form.is_valid():
-            pass  # does nothing, just trigger the validation
+        # Specific Ingredient # TODO code this part.
 
     else:
         # Full day of eating
@@ -38,14 +35,10 @@ def table(request, id_fulldayofeating):
             form_specificingredient_i = SpecificIngredientForm(instance = i)
             list_of_forms_specificingredient.append(form_specificingredient_i)
 
-    print(list_of_forms_specificingredient)
-
-
     return render(
         request,
         'measuredfood/table.html',
         {
             'form_fulldayofeating': form_fulldayofeating,
             'list_of_forms_specificingredient': list_of_forms_specificingredient,
-            'form': list_of_forms_specificingredient[0],
          })
