@@ -38,9 +38,6 @@ def index(request, fulldayofeating_id):
 
     formset = SpecificIngredientFormset(instance=fulldayofeating)
 
-    for field in formset[0]:
-        print(field.name)
-
     return render(
         request,
         'index.html', {

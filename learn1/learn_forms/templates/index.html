@@ -12,6 +12,7 @@
             <th>Ingredient</th>
             <th>Delete</th>
         </tr>
+        {{ formset.management_form }}
         {% for form in formset %}
           <tr>
             <td>{{ form.base_amount }}</td>
