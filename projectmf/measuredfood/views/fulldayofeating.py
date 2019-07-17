@@ -12,9 +12,11 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import (
     ListView,
     DeleteView,
-    DetailView
+    DetailView,
+    CreateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 
 def create_fulldayofeating(request):
     """
@@ -22,26 +24,20 @@ def create_fulldayofeating(request):
     function first and copy the changes to the create_fulldayofeating function.
     """
 
-
     if request.method == 'POST':
-        fulldayofeating_new = FullDayOfEating()
-        SpecificIngredientFormset = inlineformset_factory(
-            FullDayOfEating,
-            SpecificIngredient,
-            fields=('__all__'),
-            extra=1
-            )
-        fulldayofeating_new.save()
+        form_fulldayofeating = FullDayOfEatingForm(request.POST)
+        if form_fulldayofeating.is_valid():
+            form_fulldayofeating.instance.author = request.user
+            form_fulldayofeating.save()
+            return redirect('list-fulldayofeating')
     else:
-        fulldayofeating_new = FullDayOfEating()
-        SpecificIngredientFormset = inlineformset_factory(
-            FullDayOfEating,
-            SpecificIngredient,
-            fields=('__all__'),
-            extra=1
+        form_fulldayofeating = FullDayOfEatingForm()
+        context = {'form_fulldayofeating': form_fulldayofeating}
+        return render(
+            request,
+            'measuredfood/fulldayofeating_create.html',
+            context
             )
-
-    return render(request,'measuredfood/fulldayofeating_form.html')
 
 
 def update_fulldayofeating(request, id_fulldayofeating):
