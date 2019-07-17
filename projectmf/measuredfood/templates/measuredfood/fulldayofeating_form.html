@@ -48,8 +48,9 @@ ingredients is built here. -->
   <br>
   <!-- Trying to implement the method from
   https://www.youtube.com/watch?v=6y5Ucj5bI0Q -->
+  <h6>id_fulldayofeating: {{ id_fulldayofeating }}</h6>
   <h6>
-    <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=14 %}">
+    <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
       <button type="button" class="btn btn-primary">
         Calculate full day of eating (Master Code Online)
       </button>

@@ -71,7 +71,8 @@ def update_fulldayofeating(request, id_fulldayofeating):
             )
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
         context = {'formset': formset,
-                   'form_fulldayofeating': form_fulldayofeating,}
+                   'form_fulldayofeating': form_fulldayofeating,
+                   'id_fulldayofeating': id_fulldayofeating}
         # TODO: use reverse function instead
         return render(request,'measuredfood/fulldayofeating_form.html', context)
 
