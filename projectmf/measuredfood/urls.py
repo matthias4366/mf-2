@@ -136,9 +136,18 @@ urlpatterns_fulldayofeating = [
     ),
 ]
 
+urlpatterns_fulldayofeating_after_calculation = [
+    path(
+        'fulldayofeating/<int:id_fulldayofeating>/calculate/',
+        fulldayofeating.calculate_fulldayofeating,
+        name='calculate-fulldayofeating'
+    ),
+]
+
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
 + urlpatterns_recipe \
-+ urlpatterns_fulldayofeating
++ urlpatterns_fulldayofeating \
++ urlpatterns_fulldayofeating_after_calculation

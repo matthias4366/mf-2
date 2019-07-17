@@ -97,3 +97,25 @@ class DeleteFullDayOfEating(DeleteView):
         if self.request.user == fulldayofeating_.author:
             return True
         return False
+
+
+def calculate_fulldayofeating(request, id_fulldayofeating):
+    return HttpResponse("<html><body>Calculate full day of eating.</body></html>")
+
+# TODO: remove this code once you don't need it anymore. It shouldn't do
+# anything, it is example code for learning purposes.
+# code from https://youtu.be/6y5Ucj5bI0Q?t=499
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = forms.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('blog:list_of_post_backend')
+    else:
+        form = PostForm(instance=post)
+    template = 'blog/backend/new_post.html'
+    context = {'form': form}
+    return render(request, template, context)

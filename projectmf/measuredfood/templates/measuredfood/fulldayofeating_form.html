@@ -36,8 +36,25 @@ ingredients is built here. -->
         </tr>
       {% endfor %}
     </table>
-    <input type="submit" value="Save all changes" />
+    <br>
+    <input type="submit" value="Save all changes and maybe add more ingredients" />
   </form>
+  <br>
+  <br>
+  <form class="" action='calculateFullDayOfEatingUrl' method="get">
+    <button type="submit">Calculate full day of eating</button>
+  </form>
+  <br>
+  <br>
+  <!-- Trying to implement the method from
+  https://www.youtube.com/watch?v=6y5Ucj5bI0Q -->
+  <h6>
+    <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=14 %}">
+      <button type="button" class="btn btn-primary">
+        Calculate full day of eating (Master Code Online)
+      </button>
+    </a>
+  </h6>
 
 
 

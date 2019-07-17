@@ -1,8 +1,6 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <h1>fulldayofeating_detail.html</h1>
-
   <h1>{{ object.name }}</h1>
   <a class="btn btn-primary btn-large"
   href="{% url 'update-fulldayofeating' object.id %}">
