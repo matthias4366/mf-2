@@ -270,5 +270,8 @@ class SpecificIngredient(models.Model):
     )
 
     def __str__(self):
-        label = self.rawingredient.name
-        return label
+        if self.rawingredient.name is not None:
+            label = self.rawingredient.name
+            return label
+        else:
+            return 'SpecificIngredient without an associated RawIngredient'

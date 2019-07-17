@@ -1,0 +1,44 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+
+  <div class="">
+    <a class="btn btn-primary btn-large"
+    href="{% url 'create-fulldayofeating' %}"
+    id="id_button_new_fulldayofeating">
+      New Full Day Of Eating
+    </a>
+  </div>
+  <br>
+  <br>
+
+  {% if fulldayofeating_list %}
+  <div class="">
+    <h1>List of your full days of eating:</h1>
+    <br>
+    {% for fulldayofeating in fulldayofeating_list %}
+      <!-- TODO: Currently, all ingredients are stored in one database.
+      When the user wants to look at their ingredients, a for loop iterates
+      over the entire ingredient database with the ingredients of all the users,
+      but only shows the ingredients that the user owns.
+      This is not scalable.
+      USE FILTER instead
+      https://docs.djangoproject.com/en/2.2/topics/db/queries/
+      #retrieving-specific-objects-with-filters
+      -->
+      <p>
+        <a href="{% url 'detail-fulldayofeating' fulldayofeating.id %}"
+        class="btn btn-primary btn-large"
+        id="button_view_fulldayofeating">
+        <!-- <a href="#"
+        class="btn btn-primary btn-large"
+        id="button_view_fulldayofeating"> -->
+          View
+        </a>{{ fulldayofeating.name }}
+      </p>
+    {% endfor %}
+  </div>
+  {% else %}
+    <h1>No full days of eating have been added yet.</h1>
+  {% endif %}
+
+{% endblock content %}

@@ -4,7 +4,7 @@ from .views import (home,
                     rawingredient,
                     nutrientprofile,
                     recipe,
-                    table
+                    fulldayofeating
 )
 from django.contrib.auth import views as auth_views
 
@@ -108,8 +108,32 @@ urlpatterns_recipe = [
 ]
 
 # interim code figuring out how to create html tables.
-urlpatterns_table = [
-    path('fulldayofeating/<int:id_fulldayofeating>/update/', table.table, name='update-fulldayofeating')
+urlpatterns_fulldayofeating = [
+    path(
+        'fulldayofeating/create/',
+        fulldayofeating.create_fulldayofeating,
+        name='create-fulldayofeating'
+    ),
+    path(
+        'fulldayofeating/<int:id_fulldayofeating>/update/',
+         fulldayofeating.update_fulldayofeating,
+         name='update-fulldayofeating'
+         ),
+    path(
+        'fulldayofeating/list/',
+        fulldayofeating.ListFullDayOfEating.as_view(),
+        name='list-fulldayofeating'
+    ),
+    path(
+        'fulldayofeating/<int:pk>/detail/',
+        fulldayofeating.DetailFullDayOfEating.as_view(),
+        name='detail-fulldayofeating'
+    ),
+    path(
+        'fulldayofeating/<int:pk>/delete/',
+        fulldayofeating.DeleteFullDayOfEating.as_view(),
+        name='delete-fulldayofeating'
+    ),
 ]
 
 urlpatterns = urlpattern_home \
@@ -117,4 +141,4 @@ urlpatterns = urlpattern_home \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
 + urlpatterns_recipe \
-+ urlpatterns_table
++ urlpatterns_fulldayofeating
