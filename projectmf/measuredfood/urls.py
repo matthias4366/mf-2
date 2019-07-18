@@ -111,12 +111,12 @@ urlpatterns_recipe = [
 urlpatterns_fulldayofeating = [
     path(
         'fulldayofeating/create/',
-        fulldayofeating.create_fulldayofeating,
+        fulldayofeating.create_fulldayofeating_view,
         name='create-fulldayofeating'
     ),
     path(
         'fulldayofeating/<int:id_fulldayofeating>/update/',
-         fulldayofeating.update_fulldayofeating,
+         fulldayofeating.update_fulldayofeating_view,
          name='update-fulldayofeating'
          ),
     path(
@@ -139,7 +139,7 @@ urlpatterns_fulldayofeating = [
 urlpatterns_fulldayofeating_after_calculation = [
     path(
         'fulldayofeating/<int:id_fulldayofeating>/calculate/',
-        fulldayofeating.calculate_fulldayofeating,
+        fulldayofeating.calculate_fulldayofeating_view,
         name='calculate-fulldayofeating'
     ),
 ]
