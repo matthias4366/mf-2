@@ -154,6 +154,9 @@ class Recipe(models.Model):
 
 class SpecificIngredient(models.Model):
 
+    # class Meta:
+    #     ordering = ['calculated_amount']
+
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

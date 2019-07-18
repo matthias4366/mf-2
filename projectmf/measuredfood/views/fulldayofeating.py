@@ -140,50 +140,24 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
         queried and given to the context dictionary.
         """
         # Get the names of the raw ingredients belonging to the fulldayofeating
+        # needed, do not delete
         queryset_specificingredient = SpecificIngredient.objects.filter(
             fulldayofeating_id=id_fulldayofeating
             )
+        # needed
         list_specificingredient_id = [
             s.id for s in queryset_specificingredient
             ]
-        list_rawingredient_id = [
-            s.rawingredient_id for s in queryset_specificingredient
-            ]
-        queryset_rawingredient = RawIngredient.objects.filter(
-            id__in = list_rawingredient_id
-            )
-        list_of_dict_rawingredient = list(queryset_rawingredient.values())
 
         # Get the information about the specific ingredients belonging to the
         # fulldayofeating
+        # needed, do not delete
         list_of_dict_specificingredient = list(
             queryset_specificingredient.values()
             )
-        list_of_dict_specificingredient_len = len(
-            list_of_dict_specificingredient
-            )
 
-        result_calculation_fulldayofeating_mockup = [
-            {'calculated_amount': 200,
-             'base_amount_unit': 'g',
-             'name': 'Pea protein powder',
-             'buy_here_link': 'www.proteinshop.com'},
-            {'calculated_amount': 400,
-             'base_amount_unit': 'g',
-             'name': 'Pasta',
-             'buy_here_link': 'www.pastashop.com'},
-
-        ]
-
-        """There are two lists of dictionaries, one for the RawIngredient and
-        one for the SpecificIngredient. The n-th dictionaries in both lists are
-        to be merged. The result should be a list of merged dictionaries.
-        How to merge python dictionaries: z = {**x, **y}."""
         result_calculation_fulldayofeating = []
         for k in range(len(list_of_dict_specificingredient)):
-
-            # seems to be returning the output of the specific ingredient
-            # __str__ function.
             specific_ingredient_obj = SpecificIngredient.objects.get(
                         id=list_specificingredient_id[k]
                         )
@@ -221,9 +195,6 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
         print('\n\n')
         print('result_calculation_fulldayofeating')
         print(result_calculation_fulldayofeating)
-        # print('\n\n')
-        # print('list_of_dict_rawingredient')
-        # print(list_of_dict_rawingredient)
 
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
