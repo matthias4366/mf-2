@@ -140,17 +140,31 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
         print('\n\n\n\n')
         print(result_mockup_ingredient_list_0)
         print('\n\n\n\n')
-        result_mockup_ingredient_list = list(
-            RawIngredient.objects.filter(
-            id=1).values('name')
+
+        queryset_specificingredient = SpecificIngredient.objects.filter(
+            fulldayofeating_id=id_fulldayofeating
             )
+        list_rawingredient_id = [
+            s.rawingredient_id for s in queryset_specificingredient
+            ]
+        queryset_rawingredient = RawIngredient.objects.filter(
+            id__in = list_rawingredient_id
+            )
+        list_of_dict_rawingredient = list(queryset_rawingredient.values())
+
+        list_of_dict_specificingredient = queryset_specificingredient.values()
+
         print('\n\n\n\n')
-        print(result_mockup_ingredient_list)
+        print(list_of_dict_specificingredient)
         print('\n\n\n\n')
+
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
                    'id_fulldayofeating': id_fulldayofeating,
-                   'result_calculation_fulldayofeating': result_mockup_string
+                   'result_calculation_fulldayofeating': \
+                   list_of_dict_rawingredient,
+                   'list_of_dict_specificingredient': \
+                   list_of_dict_specificingredient
                    }
         # TODO: use reverse function instead
         return render(request,'measuredfood/fulldayofeating_calculate.html', context)

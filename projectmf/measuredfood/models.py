@@ -192,6 +192,13 @@ class SpecificIngredient(models.Model):
         null=True
     )
 
+    calculated_amount = models.DecimalField(
+        max_digits=MAX_DIGITS_,
+        decimal_places=DECIMAL_PLACES_,
+        blank=True,
+        null=True
+    )
+
     # Units
     GRAM = 'g'
     MILLILITRE = 'ml'

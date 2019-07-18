@@ -1,12 +1,6 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <h1>{{ result_calculation_fulldayofeating }}</h1>
-    <table>
-      
-    </table>
-  <br>
-  <br>
   <form method="post">
     {% csrf_token %}
 
@@ -51,6 +45,25 @@
       </button>
     </a>
   </h6>
+  <br>
+  <br>
+  <h1>Calculation results:</h1>
+    <table border="2">
+      <tr>
+        <th>Calculated amount</th>
+        <th>Unit</th>
+        <th>Ingredient</th>
+        <th>Purchase here</th>
+      </tr>
+      {% for k in result_calculation_fulldayofeating %}
+      <tr>
+        <td></td>
+        <td></td>
+        <td>{{ k.name }}</td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </table>
   <br>
   <br>
 {% endblock content %}
