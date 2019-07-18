@@ -143,6 +143,9 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
         queryset_specificingredient = SpecificIngredient.objects.filter(
             fulldayofeating_id=id_fulldayofeating
             )
+        list_specificingredient_id = [
+            s.id for s in queryset_specificingredient
+            ]
         list_rawingredient_id = [
             s.rawingredient_id for s in queryset_specificingredient
             ]
@@ -177,17 +180,34 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
         to be merged. The result should be a list of merged dictionaries.
         How to merge python dictionaries: z = {**x, **y}."""
         result_calculation_fulldayofeating = []
-        if len(list_of_dict_specificingredient) == len(list_of_dict_rawingredient):
-            for k in range(len(list_of_dict_specificingredient)):
-                merged_dict_k = {**list_of_dict_specificingredient[k], **list_of_dict_rawingredient[k]}
-                result_calculation_fulldayofeating.append(merged_dict_k)
-        else:
-            print('\n\n ERROR: The dictionaries for the RawIngredient and the\
-                  SpecificIngredient do not have the same length! \n\n')
+        for k in range(len(list_of_dict_specificingredient)):
+
+            # seems to be returning the output of the specific ingredient
+            # __str__ function.
+            specific_ingredient_obj = SpecificIngredient.objects.get(
+                        id=list_specificingredient_id[k]
+                        )
+
+            calculated_amount_k = getattr(specific_ingredient_obj, 'calculated_amount')
+
+            base_amount_unit_k = getattr(specific_ingredient_obj, 'base_amount_unit')
+            name_k = None
+            buy_here_link_k = None
+            merged_dict_k = {
+                'specificingredient_id': list_specificingredient_id[k],
+                'calculated_amount': calculated_amount_k,
+                 'base_amount_unit': base_amount_unit_k,
+                 'name': name_k,
+                 'buy_here_link': buy_here_link_k
+            }
+            result_calculation_fulldayofeating.append(merged_dict_k)
 
         print('\n\n')
         print('result_calculation_fulldayofeating')
         print(result_calculation_fulldayofeating)
+        # print('\n\n')
+        # print('list_of_dict_rawingredient')
+        # print(list_of_dict_rawingredient)
 
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
