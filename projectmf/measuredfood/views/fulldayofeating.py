@@ -189,10 +189,26 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
                         )
 
             calculated_amount_k = getattr(specific_ingredient_obj, 'calculated_amount')
-
             base_amount_unit_k = getattr(specific_ingredient_obj, 'base_amount_unit')
-            name_k = None
-            buy_here_link_k = None
+
+            specific_ingredient_k_id = specific_ingredient_obj.id
+
+            rawingredient_k_id = SpecificIngredient.objects.filter(
+                        id=list_specificingredient_id[k]
+                        ).values('rawingredient_id')
+            rawingredient_k_id = list(rawingredient_k_id)
+            rawingredient_k_id = rawingredient_k_id[0]
+            rawingredient_k_id = rawingredient_k_id['rawingredient_id']
+
+            rawingredient_k_queryset = RawIngredient.objects.filter(
+                id = rawingredient_k_id
+            )
+            name_k = rawingredient_k_queryset.values('name')
+            name_k = list(name_k)[0]['name']
+
+            buy_here_link_k = rawingredient_k_queryset.values('buy_here_link')
+            buy_here_link_k = list(buy_here_link_k)[0]['buy_here_link']
+
             merged_dict_k = {
                 'specificingredient_id': list_specificingredient_id[k],
                 'calculated_amount': calculated_amount_k,
