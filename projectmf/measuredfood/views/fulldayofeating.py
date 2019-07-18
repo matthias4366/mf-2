@@ -133,14 +133,13 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
             instance=fulldayofeating_object
             )
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
-        result_mockup_string = 'Your results will be displayed here.'
-        result_mockup_ingredient_list_0 = SpecificIngredient.objects.filter(
-            fulldayofeating__id=id_fulldayofeating
-            ).values('rawingredient_id')
-        print('\n\n\n\n')
-        print(result_mockup_ingredient_list_0)
-        print('\n\n\n\n')
 
+        """
+        In the page fulldayofeating_calculate.html, at the bottom, a table
+        should display the results of the calculation. Here, the results are
+        queried and given to the context dictionary.
+        """
+        # Get the names of the raw ingredients belonging to the fulldayofeating
         queryset_specificingredient = SpecificIngredient.objects.filter(
             fulldayofeating_id=id_fulldayofeating
             )
@@ -152,19 +151,49 @@ def calculate_fulldayofeating(request, id_fulldayofeating):
             )
         list_of_dict_rawingredient = list(queryset_rawingredient.values())
 
-        list_of_dict_specificingredient = queryset_specificingredient.values()
+        # Get the information about the specific ingredients belonging to the
+        # fulldayofeating
+        list_of_dict_specificingredient = list(
+            queryset_specificingredient.values()
+            )
+        list_of_dict_specificingredient_len = len(
+            list_of_dict_specificingredient
+            )
 
-        print('\n\n\n\n')
-        print(list_of_dict_specificingredient)
-        print('\n\n\n\n')
+        result_calculation_fulldayofeating_mockup = [
+            {'calculated_amount': 200,
+             'base_amount_unit': 'g',
+             'name': 'Pea protein powder',
+             'buy_here_link': 'www.proteinshop.com'},
+            {'calculated_amount': 400,
+             'base_amount_unit': 'g',
+             'name': 'Pasta',
+             'buy_here_link': 'www.pastashop.com'},
+
+        ]
+
+        """There are two lists of dictionaries, one for the RawIngredient and
+        one for the SpecificIngredient. The n-th dictionaries in both lists are
+        to be merged. The result should be a list of merged dictionaries.
+        How to merge python dictionaries: z = {**x, **y}."""
+        result_calculation_fulldayofeating = []
+        if len(list_of_dict_specificingredient) == len(list_of_dict_rawingredient):
+            for k in range(len(list_of_dict_specificingredient)):
+                merged_dict_k = {**list_of_dict_specificingredient[k], **list_of_dict_rawingredient[k]}
+                result_calculation_fulldayofeating.append(merged_dict_k)
+        else:
+            print('\n\n ERROR: The dictionaries for the RawIngredient and the\
+                  SpecificIngredient do not have the same length! \n\n')
+
+        print('\n\n')
+        print('result_calculation_fulldayofeating')
+        print(result_calculation_fulldayofeating)
 
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
                    'id_fulldayofeating': id_fulldayofeating,
                    'result_calculation_fulldayofeating': \
-                   list_of_dict_rawingredient,
-                   'list_of_dict_specificingredient': \
-                   list_of_dict_specificingredient
+                   result_calculation_fulldayofeating,
                    }
         # TODO: use reverse function instead
         return render(request,'measuredfood/fulldayofeating_calculate.html', context)
