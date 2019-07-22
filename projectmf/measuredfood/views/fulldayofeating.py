@@ -6,7 +6,8 @@ from measuredfood.forms import (
     FullDayOfEatingForm,
     )
 from measuredfood.models import (
-    RawIngredient
+    RawIngredient,
+    NutrientProfile
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
 from django.forms import modelformset_factory, inlineformset_factory
@@ -20,6 +21,7 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+from measuredfood.utils import fulldayofeating_calculate
 
 def create_fulldayofeating_view(request):
     """
@@ -134,6 +136,14 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             )
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
 
+        list_calculated_amount, error_message_calculate_fulldayofeating = \
+        fulldayofeating_calculate.calculate_fulldayofeating(
+            id_fulldayofeating,
+            SpecificIngredient,
+            FullDayOfEating,
+            NutrientProfile
+            )
+
         result_calculation_fulldayofeating = \
         query_result_calculation_fulldayofeating(id_fulldayofeating)
 
@@ -142,6 +152,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                    'id_fulldayofeating': id_fulldayofeating,
                    'result_calculation_fulldayofeating': \
                    result_calculation_fulldayofeating,
+                   # TODO: the error_message_calculate_fulldayofeating needs to
+                   # be given to the template and rendered in the html.
                    }
 
         # TODO: use reverse function instead
@@ -154,18 +166,15 @@ def query_result_calculation_fulldayofeating(id_fulldayofeating):
     queried and given to the context dictionary.
     """
     # Get the names of the raw ingredients belonging to the fulldayofeating
-    # needed, do not delete
     queryset_specificingredient = SpecificIngredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
         )
-    # needed
     list_specificingredient_id = [
         s.id for s in queryset_specificingredient
         ]
 
     # Get the information about the specific ingredients belonging to the
     # fulldayofeating
-    # needed, do not delete
     list_of_dict_specificingredient = list(
         queryset_specificingredient.values()
         )
