@@ -23,6 +23,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from measuredfood.utils import fulldayofeating_calculate
 import pprint
 from django.contrib.auth.decorators import login_required
+import pprint
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -50,21 +51,30 @@ def create_fulldayofeating_view(request):
 def update_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
-
     if request.method == 'POST':
         form_fulldayofeating = FullDayOfEatingForm(
             request.POST,
             instance=fulldayofeating_object
             )
+        # I do not know if this part is necessary. It seems to work without.
+        # Allow the user to only add NutrientProfiles from their own collection.
+        form_fulldayofeating.fields['nutrient_profile'].queryset = \
+        NutrientProfile.objects.filter(
+            author = request.user.id
+            )
+
         formset = SpecificIngredientFormset(
             request.POST,
             instance=fulldayofeating_object
             )
+        # I do not know if this part is necessary. It seems to work without.
+        # Allow the user to only add RawIngredients from their own collection.
+        for form in formset:
+            form.fields['rawingredient'].queryset = \
+            RawIngredient.objects.filter(
+                author = request.user.id
+                )
 
-        ## TODO remove this possible hand grenade.
-        # formset.rawingredient.queryset = RawIngredient.objects.filter(
-        #     author = request.user.username
-        # )
         if formset.is_valid() and form_fulldayofeating.is_valid():
             formset.save()
             form_fulldayofeating.save()
@@ -76,9 +86,19 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         form_fulldayofeating = FullDayOfEatingForm(
             instance=fulldayofeating_object
             )
+        # Allow the user to only add NutrientProfiles from their own collection.
+        form_fulldayofeating.fields['nutrient_profile'].queryset = \
+        NutrientProfile.objects.filter(
+            author = request.user.id
+            )
+
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
-
-
+        # Allow the user to only add RawIngredients from their own collection.
+        for form in formset:
+            form.fields['rawingredient'].queryset = \
+            RawIngredient.objects.filter(
+                author = request.user.id
+                )
 
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
@@ -122,10 +142,23 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             request.POST,
             instance=fulldayofeating_object
             )
+        # I do not know if this part is necessary. It seems to work without.
+        # Allow the user to only add NutrientProfiles from their own collection.
+        form_fulldayofeating.fields['nutrient_profile'].queryset = \
+        NutrientProfile.objects.filter(
+            author = request.user.id
+            )
         formset = SpecificIngredientFormset(
             request.POST,
             instance=fulldayofeating_object
             )
+        # I do not know if this part is necessary. It seems to work without.
+        # Allow the user to only add RawIngredients from their own collection.
+        for form in formset:
+            form.fields['rawingredient'].queryset = \
+            RawIngredient.objects.filter(
+                author = request.user.id
+                )
         if formset.is_valid() and form_fulldayofeating.is_valid():
             formset.save()
             form_fulldayofeating.save()
@@ -137,7 +170,19 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         form_fulldayofeating = FullDayOfEatingForm(
             instance=fulldayofeating_object
             )
+        # Allow the user to only add NutrientProfiles from their own collection.
+        form_fulldayofeating.fields['nutrient_profile'].queryset = \
+        NutrientProfile.objects.filter(
+            author = request.user.id
+            )
+
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
+        # Allow the user to only add RawIngredients from their own collection.
+        for form in formset:
+            form.fields['rawingredient'].queryset = \
+            RawIngredient.objects.filter(
+                author = request.user.id
+                )
 
         fulldayofeating_calculate.calculate_fulldayofeating(
             id_fulldayofeating,
