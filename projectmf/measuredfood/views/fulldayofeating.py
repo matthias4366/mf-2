@@ -23,6 +23,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from measuredfood.utils import fulldayofeating_calculate
 
+import pprint
+
 def create_fulldayofeating_view(request):
     """
     Largely copied from the update_fulldayofeating function. Always edit that
@@ -140,7 +142,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             id_fulldayofeating,
             SpecificIngredient,
             FullDayOfEating,
-            NutrientProfile
+            NutrientProfile,
+            RawIngredient,
+            pprint
             )
 
         result_calculation_fulldayofeating = \

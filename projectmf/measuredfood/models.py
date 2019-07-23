@@ -173,7 +173,7 @@ class SpecificIngredient(models.Model):
     rawingredient = models.ForeignKey(
         RawIngredient,
         on_delete=models.CASCADE,
-        blank=True,
+        blank=False,
         null=True
     )
 
@@ -260,8 +260,8 @@ class SpecificIngredient(models.Model):
     scaling_option = models.CharField(
         max_length = 100,
         choices = SCALING_OPTION_CHOICES,
-        blank=True,
-        null=True,
+        # blank=True,
+        # null=True,
         default = 'FIXED'
     )
 
