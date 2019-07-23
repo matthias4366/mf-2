@@ -117,6 +117,13 @@ class FullDayOfEating(models.Model):
 
     notes = models.TextField(null=True, blank=True)
 
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
     # Every full day of eating is linked with one nutrient_profile.
     # But one nutrient_profile can be linked to many full days of eating.
     nutrient_profile = models.ForeignKey(
@@ -153,13 +160,8 @@ class Recipe(models.Model):
 
 
 class SpecificIngredient(models.Model):
-
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True
-    )
+    # This class does not need an author, as it is linked to a specific
+    # FullDayOfEating and the FullDayOfEating has an author.
 
     # A specific ingredient can't both belong to a recipe AND to a
     # FullDayOfEating. This is complicated, so I will forget about

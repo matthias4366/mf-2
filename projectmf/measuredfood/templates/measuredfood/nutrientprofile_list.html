@@ -15,6 +15,7 @@
       <h1>List of your nutrient profiles:</h1>
       <br>
       {% for profile in nutrientprofile_list %}
+        <!-- TODO: DO THIS WITH A QUEERYSET INSTEAD -->
         {% if profile.author.username == request.user.username %}
           <p>
             <a href="{% url 'detail-nutrient-profile' profile.id %}"

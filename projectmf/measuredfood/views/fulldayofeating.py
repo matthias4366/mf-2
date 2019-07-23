@@ -20,11 +20,11 @@ from django.views.generic import (
     CreateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
 from measuredfood.utils import fulldayofeating_calculate
-
 import pprint
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def create_fulldayofeating_view(request):
     """
     Largely copied from the update_fulldayofeating function. Always edit that
@@ -46,7 +46,7 @@ def create_fulldayofeating_view(request):
             context
             )
 
-
+@login_required
 def update_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
     SpecificIngredientFormset = inlineformset_factory(
@@ -89,7 +89,11 @@ class ListFullDayOfEating(
     ListView
 ):
     model = FullDayOfEating
-    ordering = ['name']
+    def get_queryset(self):
+        return FullDayOfEating.objects.filter(
+            author = self.request.user
+        )
+    # ordering = ['name']
 
 
 class DetailFullDayOfEating(DetailView):
@@ -106,7 +110,7 @@ class DeleteFullDayOfEating(DeleteView):
             return True
         return False
 
-
+@login_required
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
     SpecificIngredientFormset = inlineformset_factory(
