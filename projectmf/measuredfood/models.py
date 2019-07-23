@@ -268,17 +268,6 @@ class SpecificIngredient(models.Model):
         default = 'FIXED'
     )
 
-    # It might not be practically to smoothly adapt all ingredients: for
-    # example 1.24 tsp of chili does not make sense. If an ingredient is not
-    # smoothly scalable, it makes sense to use steps. If the step_size field
-    # is empty, the ingredient is scaled smoothly.
-    step_size = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
-        blank=True,
-        null=True
-    )
-
     def __str__(self):
         if self.rawingredient.name is not None:
             label = self.rawingredient.name

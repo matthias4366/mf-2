@@ -49,27 +49,24 @@ def calculate_fulldayofeating(
     """
     Remove all SpecificIngredients whose scaling_option is set to 'fixed'.
     """
-    # print(list_of_dict_specificingredient_1)
-    list_of_dict_after_removing_fixed = []
+    specificingredient_scaling_variable = []
     for dict in list_of_dict_specificingredient_1:
-        # print('')
-        # print('dict')
-        # print(dict)
-        # print('scaling_option is fixed')
-        # print(dict['scaling_option'] == 'FIXED')
-        # print('')
         if dict['scaling_option'] != 'FIXED':
-            # print('\n\n Ingredient is not fixed! \n\n')
-            list_of_dict_after_removing_fixed.append(dict)
-
-    print('list_of_dict_after_removing_fixed')
-    print(list_of_dict_after_removing_fixed)
+            specificingredient_scaling_variable.append(dict)
 
     """
-    Check for error: add up all the fixed ingredients and see if some nutrients
-    are already higher than their targets.
+    TODO: Check for error: add up all the fixed ingredients and see if some
+    nutrients are already higher than their targets.
+    """
+
+    """
     For each group of ingredients, create an average ingredient representing
     the group. Use the base_amounts to set the ratios.
+    """
+
+
+
+    """
     Check for error: When multiple ingredients belong to the same group, they
     need to have base_amounts defined, otherwise the ratios are not defined.
     If none of the ingredients in the group have base_amounts defined, it is
@@ -107,3 +104,11 @@ def calculate_fulldayofeating(
     error_message_calculate_fulldayofeating = None
 
     return list_calculated_amount, error_message_calculate_fulldayofeating
+
+def create_ingredient_average():
+    """
+    For each group of ingredients, create an average ingredient representing
+    the group. Use the base_amounts to set the ratios.
+    """
+
+    return 'result create ingredient average'
