@@ -136,7 +136,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             )
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
 
-        list_calculated_amount, error_message_calculate_fulldayofeating = \
         fulldayofeating_calculate.calculate_fulldayofeating(
             id_fulldayofeating,
             SpecificIngredient,
