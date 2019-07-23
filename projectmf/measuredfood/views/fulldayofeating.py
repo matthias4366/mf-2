@@ -92,8 +92,7 @@ class ListFullDayOfEating(
     def get_queryset(self):
         return FullDayOfEating.objects.filter(
             author = self.request.user
-        )
-    # ordering = ['name']
+        ).order_by('name')
 
 
 class DetailFullDayOfEating(DetailView):
