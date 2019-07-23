@@ -78,6 +78,8 @@ def calculate_fulldayofeating(
     #       'RawIngredient dictionaries:')
     # pprint.pprint(specificingredient_dict_list_1)
 
+
+
     """
     Iterate through the dictionaries representing the SpecificIngredients
     and sort them by their 'scaling_option' property.
