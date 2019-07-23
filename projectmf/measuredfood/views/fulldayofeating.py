@@ -4,13 +4,13 @@ import copy
 from measuredfood.forms import (
     SpecificIngredientForm,
     FullDayOfEatingForm,
+    SpecificIngredientFormset
     )
 from measuredfood.models import (
     RawIngredient,
     NutrientProfile
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
-from django.forms import modelformset_factory, inlineformset_factory
 from django.urls import reverse, reverse_lazy
 # imports for the view to create raw ingredients
 from django.views.generic import (
@@ -49,12 +49,7 @@ def create_fulldayofeating_view(request):
 @login_required
 def update_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
-    SpecificIngredientFormset = inlineformset_factory(
-        FullDayOfEating,
-        SpecificIngredient,
-        fields=('__all__'),
-        extra=1
-        )
+
 
     if request.method == 'POST':
         form_fulldayofeating = FullDayOfEatingForm(
@@ -65,6 +60,11 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             request.POST,
             instance=fulldayofeating_object
             )
+
+        ## TODO remove this possible hand grenade.
+        # formset.rawingredient.queryset = RawIngredient.objects.filter(
+        #     author = request.user.username
+        # )
         if formset.is_valid() and form_fulldayofeating.is_valid():
             formset.save()
             form_fulldayofeating.save()
@@ -77,6 +77,9 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             instance=fulldayofeating_object
             )
         formset = SpecificIngredientFormset(instance=fulldayofeating_object)
+
+
+
         context = {'formset': formset,
                    'form_fulldayofeating': form_fulldayofeating,
                    'id_fulldayofeating': id_fulldayofeating}
@@ -112,12 +115,7 @@ class DeleteFullDayOfEating(DeleteView):
 @login_required
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
-    SpecificIngredientFormset = inlineformset_factory(
-        FullDayOfEating,
-        SpecificIngredient,
-        fields=('__all__'),
-        extra=1
-        )
+# removed SpecificIngredientFormset
 
     if request.method == 'POST':
         form_fulldayofeating = FullDayOfEatingForm(

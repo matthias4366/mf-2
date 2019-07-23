@@ -81,7 +81,10 @@ class ListNutrientProfile(
     ListView
 ):
     model = NutrientProfile
-    ordering = ['name']
+    def get_queryset(self):
+        return NutrientProfile.objects.filter(
+            author = self.request.user
+        ).order_by('name')
 
 
 class DetailNutrientProfile(DetailView):

@@ -6,6 +6,8 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile
     )
+from django.forms import modelformset_factory, inlineformset_factory
+from django.forms import BaseModelFormSet
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -37,3 +39,17 @@ class NutrientProfileForm(forms.ModelForm):
         model = NutrientProfile
         fields = '__all__'
         exclude = ['author']
+
+
+class BaseAuthorFormSet(BaseModelFormSet):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.queryset = Author.objects.filter(name__startswith='O')
+
+
+SpecificIngredientFormset = inlineformset_factory(
+    FullDayOfEating,
+    SpecificIngredient,
+    fields=('__all__'),
+    extra=1
+    )

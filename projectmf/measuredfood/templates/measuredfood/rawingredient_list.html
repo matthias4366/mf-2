@@ -16,16 +16,6 @@
     <h1>List of your ingredients:</h1>
     <br>
     {% for ingredient in rawingredient_list %}
-      <!-- TODO: Currently, all ingredients are stored in one database.
-      When the user wants to look at their ingredients, a for loop iterates
-      over the entire ingredient database with the ingredients of all the users,
-      but only shows the ingredients that the user owns.
-      This is not scalable.
-      USE FILTER instead
-      https://docs.djangoproject.com/en/2.2/topics/db/queries/
-      #retrieving-specific-objects-with-filters
-      -->
-      {% if ingredient.author.username == request.user.username %}
         <p>
           <a href="{% url 'detail-raw-ingredient' ingredient.id %}"
           class="btn btn-primary btn-large"
@@ -33,11 +23,10 @@
             View
           </a>{{ ingredient.name }}
         </p>
-      {% endif %}
     {% endfor %}
   </div>
   {% else %}
-    <h1>No Ingredients have been added yet.</h1>
+    <h1>Add ingredients by clicking on the "New Ingredient" button above.</h1>
   {% endif %}
 
 {% endblock content %}

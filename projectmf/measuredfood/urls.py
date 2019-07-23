@@ -3,7 +3,6 @@ from .views import (home,
                     register,
                     rawingredient,
                     nutrientprofile,
-                    recipe,
                     fulldayofeating
 )
 from django.contrib.auth import views as auth_views
@@ -79,34 +78,6 @@ urlpatterns_nutrientprofile = [
     ),
 ]
 
-urlpatterns_recipe = [
-    path(
-        'recipe/create/',
-        recipe.CreateRecipe.as_view(),
-        name='create-recipe'
-    ),
-    path(
-        'recipe/list/',
-        recipe.ListRecipes.as_view(),
-        name='list-recipes'
-    ),
-    path(
-        'recipe/<int:pk>/update/',
-        recipe.UpdateRecipe.as_view(),
-        name='update-recipe'
-    ),
-    path(
-        'recipe/<int:pk>/detail/',
-        recipe.DetailRecipe.as_view(),
-        name='detail-recipe'
-    ),
-    path(
-        'recipe/<int:pk>/delete/',
-        recipe.DeleteRecipe.as_view(),
-        name='delete-recipe'
-    ),
-]
-
 # interim code figuring out how to create html tables.
 urlpatterns_fulldayofeating = [
     path(
@@ -148,6 +119,5 @@ urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
-+ urlpatterns_recipe \
 + urlpatterns_fulldayofeating \
 + urlpatterns_fulldayofeating_after_calculation

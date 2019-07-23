@@ -41,7 +41,10 @@ class ListRawIngredients(
     ListView
 ):
     model = RawIngredient
-    ordering = ['name']
+    def get_queryset(self):
+        return RawIngredient.objects.filter(
+            author = self.request.user
+        ).order_by('name')
 
 
 class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
