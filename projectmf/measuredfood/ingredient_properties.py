@@ -1,5 +1,6 @@
 import copy
 
+# (!) WARNING changing this variable has consequences all throughout the code!
 # I am using www.completefoods.co
 # as a model for the all the information that goes into the ingredients.
 INGREDIENT_FIELDS_NUTRITION_COMPLETEFOODS = [
@@ -49,7 +50,7 @@ INGREDIENT_FIELDS_NUTRITION_COMPLETEFOODS = [
     'zinc_mg'  # check
 ]
 
-
+# (!) WARNING changing this variable has consequences all throughout the code!
 # INGREDIENT_FIELDS_NUTRITION. Names of the fields of the RawIngredient model.
 # These names are related to fields related to the nutritional values.
 INGREDIENT_FIELDS_NUTRITION_NUTRITION_DATA = [
@@ -94,6 +95,7 @@ INGREDIENT_FIELDS_NUTRITION_NUTRITION_DATA = [
     'cholesterol_mg',
 ]
 
+# (!) WARNING changing this variable has consequences all throughout the code!
 INGREDIENT_FIELDS_NUTRITION_MISSING_FROM_NUTRITION_DATA = [
     'biotin_ug',
     'choline_mg',
@@ -104,6 +106,7 @@ INGREDIENT_FIELDS_NUTRITION_MISSING_FROM_NUTRITION_DATA = [
     'sulfur_g',
 ]
 
+# (!) WARNING changing this variable has consequences all throughout the code!
 INGREDIENT_FIELDS_NUTRITION = INGREDIENT_FIELDS_NUTRITION_NUTRITION_DATA \
     + INGREDIENT_FIELDS_NUTRITION_MISSING_FROM_NUTRITION_DATA
 

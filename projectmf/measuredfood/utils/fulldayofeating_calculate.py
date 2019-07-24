@@ -31,7 +31,7 @@ def calculate_fulldayofeating(
     # done by taking the value as a function argument.
 
     """
-    Query the related SpecificIngredients and the NutrientProfile.
+    Query the related SpecificIngredients and store the results in dictionaries.
     """
     queryset_specificingredient_0 = SpecificIngredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
@@ -40,22 +40,6 @@ def calculate_fulldayofeating(
         fulldayofeating_id=id_fulldayofeating
         )
 
-    queryset_nutrientprofile_of_fulldayofeating = \
-    FullDayOfEating.objects.filter(
-        id=id_fulldayofeating
-    ).values('nutrient_profile')
-    nutrientprofile_id = \
-    list(queryset_nutrientprofile_of_fulldayofeating)[0]['nutrient_profile']
-
-    queryset_nutrientprofile_data = NutrientProfile.objects.filter(
-        id = nutrientprofile_id
-    )
-
-    """
-    For the SpecificIngredients, store the data from the querysets in
-    dictionaries. The RawIngredient should be included in that same dictionary
-    in explicit form.
-    """
     # 0 is not to be changed.
     specificingredient_dict_list_0 = list(
         queryset_specificingredient_0.values()
@@ -76,6 +60,34 @@ def calculate_fulldayofeating(
         specificingredient_dict_list_1[k].update(
             raw_ingredient = rawingredient_k_dict
             )
+
+    """
+    Query the related NutrientProfile and store the results in dictionaries.
+    """
+    queryset_nutrientprofile_of_fulldayofeating = \
+    FullDayOfEating.objects.filter(
+        id=id_fulldayofeating
+    ).values('nutrient_profile')
+    nutrientprofile_id = \
+    list(queryset_nutrientprofile_of_fulldayofeating)[0]['nutrient_profile']
+
+    queryset_nutrientprofile_data = NutrientProfile.objects.filter(
+        id = nutrientprofile_id
+    )
+
+    nutrientprofile_dict = list(queryset_nutrientprofile_data.values())[0]
+    # print('\nnutrientprofile_dict \n')
+    # pprint.pprint(nutrientprofile_dict)
+
+    # Collect all the nutrition goals that are actually targeted.
+    targeted_nutrients = {}
+    for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+        if nutrientprofile_dict[nutrient_field_name+'_is_targeted']:
+            targeted_nutrients.update(
+                {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
+            )
+    print('\ntargeted_nutrients \n')
+    pprint.pprint(targeted_nutrients)
 
     """
     Iterate through the dictionaries representing the SpecificIngredients
@@ -144,8 +156,45 @@ def calculate_fulldayofeating(
         pprint,
         decimal
     )
-    print('\n list_averaged_specificingredients \n')
-    pprint.pprint(list_averaged_specificingredients)
+    # print('\n list_averaged_specificingredients \n')
+    # pprint.pprint(list_averaged_specificingredients)
+
+    # group the averaged SpecificIngredients together with the
+    # SpecificIngredients whose scaling_option was set to independent.
+    list_independently_scaling_entities = []
+    list_independently_scaling_entities.append(
+        specificingredient_scalingoption_independent
+        )
+    list_independently_scaling_entities.append(
+        list_averaged_specificingredients
+        )
+    # print('\n list_independently_scaling_entities \n')
+    # pprint.pprint(list_independently_scaling_entities)
+
+    # Initialize fulldayofeating_nutrition_so_far
+    fulldayofeating_nutrition_so_far = {}
+    for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+        fulldayofeating_nutrition_so_far.update(
+            {nutrient_field_name: decimal.Decimal(0)}
+        )
+    # print('\n fulldayofeating_nutrition_so_far \n')
+    # pprint.pprint(fulldayofeating_nutrition_so_far)
+
+    # Sum up the nutrition from the SpecificIngredients with the scaling_option
+    # set to 'FIXED'.
+    for dict_k in specificingredient_scalingoption_fixed:
+         for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+             if dict_k['raw_ingredient'][nutrient_field_name] == None:
+                 dict_k['raw_ingredient'][nutrient_field_name] = \
+                 decimal.Decimal(0)
+             fulldayofeating_nutrition_so_far[nutrient_field_name]=\
+             fulldayofeating_nutrition_so_far[nutrient_field_name]\
+             + dict_k['base_amount'] \
+             / dict_k['raw_ingredient']['reference_amount_g'] \
+             * dict_k['raw_ingredient'][nutrient_field_name]
+    # print('\n fulldayofeating_nutrition_so_far \n')
+    # pprint.pprint(fulldayofeating_nutrition_so_far)
+
 
 
     """
@@ -195,6 +244,9 @@ def calculate_average_of_specificingredient_group(
         total_base_amount = decimal.Decimal(0)
         for m in range(len(group_k)):
             total_base_amount = total_base_amount + group_k[m]['base_amount']
+        # Add the total base amount to the averaged_specificingredient
+        # so it is available later when it is needed.
+        averaged_specificingredient['total_base_amount'] = total_base_amount
         # print('\n type_total_base_amount \n')
         # print(type(total_base_amount))
 
