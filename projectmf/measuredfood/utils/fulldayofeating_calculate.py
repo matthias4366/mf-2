@@ -21,14 +21,6 @@ def calculate_fulldayofeating(
     values for the SpecificIngredient instances associated with a
     FullDayOfEating, which is associated with a NutrientProfile.
     """
-    # Some stuff so the function is not empty
-    print(f'\nFunction calculate_fulldayofeating is called.\n')
-
-    """
-    Get the ID of the FullDayOfEating that is calculated.
-    """
-
-    # done by taking the value as a function argument.
 
     """
     Query the related SpecificIngredients and store the results in dictionaries.
@@ -154,18 +146,19 @@ def calculate_fulldayofeating(
         specificingredient_scalingoption_group_dict,
         copy,
         pprint,
-        decimal
+        decimal,
+        targeted_nutrients
     )
-    # print('\n list_averaged_specificingredients \n')
-    # pprint.pprint(list_averaged_specificingredients)
+    print('\n list_averaged_specificingredients \n')
+    pprint.pprint(list_averaged_specificingredients)
 
     # group the averaged SpecificIngredients together with the
     # SpecificIngredients whose scaling_option was set to independent.
     list_independently_scaling_entities = []
-    list_independently_scaling_entities.append(
+    list_independently_scaling_entities.extend(
         specificingredient_scalingoption_independent
         )
-    list_independently_scaling_entities.append(
+    list_independently_scaling_entities.extend(
         list_averaged_specificingredients
         )
     # print('\n list_independently_scaling_entities \n')
@@ -201,8 +194,8 @@ def calculate_fulldayofeating(
         targeted_nutrients_remainder[key_k] = \
         targeted_nutrients[key_k] \
         - fulldayofeating_nutrition_so_far[key_k]
-        # Check if the 'FIXED' SpecificIngredients already run over the nutrition
-        # goal.
+        # Check if the 'FIXED' SpecificIngredients already run over the
+        # nutrition goal.
         if targeted_nutrients_remainder[key_k] <= decimal.Decimal(0):
             print('ERROR: The ingredients with the \'FIXED\' scaling_options '\
                   'already provide too much nutrition.')
@@ -210,6 +203,26 @@ def calculate_fulldayofeating(
     # print('\n targeted_nutrients_remainder \n')
     # pprint.pprint(targeted_nutrients_remainder)
 
+    # Prepare the arrays for the linear equation solver.
+    b = []
+    for key_k in targeted_nutrients_remainder:
+        b.append(targeted_nutrients_remainder[key_k])
+    print('\nb \n')
+    pprint.pprint(b)
+
+    a = []
+    for dict_k in list_independently_scaling_entities:
+        a_new_row = []
+        # print('\ndict_k\n')
+        # pprint.pprint(dict_k)
+        for key_k in targeted_nutrients_remainder:
+            a_new_row.append(
+                dict_k['raw_ingredient'][key_k]
+            )
+        a.append(a_new_row)
+
+    print('\na \n')
+    pprint.pprint(a)
 
     """
     Return the values to make this a PURE function
@@ -221,7 +234,8 @@ def calculate_average_of_specificingredient_group(
     specificingredient_scalingoption_group_dict,
     copy,
     pprint,
-    decimal
+    decimal,
+    targeted_nutrients
 ):
     """
     For each group of ingredients, create an average ingredient representing
@@ -274,11 +288,14 @@ def calculate_average_of_specificingredient_group(
                     group_k[m]['raw_ingredient'][nutrient_field_name] = \
                     decimal.Decimal(0)
                 averaged_specificingredient['raw_ingredient'][nutrient_field_name] = \
-                (group_k[m]['base_amount'] / total_base_amount) \
+                averaged_specificingredient['raw_ingredient'][nutrient_field_name] \
+                + (group_k[m]['base_amount'] / total_base_amount) \
                 * group_k[m]['raw_ingredient'][nutrient_field_name]
 
-        # print('\n averaged_specificingredient \n ')
-        # pprint.pprint(averaged_specificingredient)
+            # print('\nm\n')
+            # print(m)
+            # print('\n averaged_specificingredient \n ')
+            # pprint.pprint(averaged_specificingredient)
 
         # Add all the averaged ingredients to a list.
         list_averaged_specificingredients.append(averaged_specificingredient)
