@@ -4,7 +4,8 @@ def calculate_fulldayofeating(
     FullDayOfEating,
     NutrientProfile,
     RawIngredient,
-    pprint
+    pprint,
+    copy
     ):
     """
     This function should be independent of everything else.
@@ -86,21 +87,44 @@ def calculate_fulldayofeating(
     """
     specificingredient_scalingoption_fixed = []
     specificingredient_scalingoption_independent = []
-    specificingredient_scalingoption_group = []
+
+    # Create a dictionary where the keys are the group names and the fields
+    # are lists of SpecificIngredients as dictionaries belonging to that group.
+    specificingredient_scalingoption_group_dict = {}
+
+    counter_added_to_existing_group = 0
+
     for dict_k in specificingredient_dict_list_1:
         if dict_k['scaling_option'] == 'FIXED':
             specificingredient_scalingoption_fixed.append(dict_k)
         elif dict_k['scaling_option'] == 'INDEPENDENT':
             specificingredient_scalingoption_independent.append(dict_k)
-    #     elif len(dict_k['scaling_option']) == 1:
+        elif len(dict_k['scaling_option']) == 1:
+            # If the group already exists in
+            # specificingredient_scalingoption_group_dict, add dict_k to it.
+            if dict_k['scaling_option'] in specificingredient_scalingoption_group_dict:
+                specificingredient_scalingoption_group_dict[
+                    dict_k['scaling_option']
+                    ].append(dict_k)
+            # If the group does not exist
+            # specificingredient_scalingoption_group_dict, create it an add
+            # dict_k to it.
+            else:
+                specificingredient_scalingoption_group_dict.update(
+                    {dict_k['scaling_option'] : [dict_k]}
+                    )
+
+
     #     else:
     #         print('ERROR. The value given for scaling_group option was' \
     #               ' not valid.')
 
     # print('\n specificingredient_scalingoption_fixed')
     # pprint.pprint(specificingredient_scalingoption_fixed)
-    print('\n specificingredient_scalingoption_independent')
-    pprint.pprint(specificingredient_scalingoption_independent)
+    # print('\n specificingredient_scalingoption_independent')
+    # pprint.pprint(specificingredient_scalingoption_independent)
+    print('\n specificingredient_scalingoption_group_dict')
+    pprint.pprint(specificingredient_scalingoption_group_dict)
 
     """
     Return the values to make this a PURE function

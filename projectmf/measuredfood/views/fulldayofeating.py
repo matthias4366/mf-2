@@ -190,7 +190,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             FullDayOfEating,
             NutrientProfile,
             RawIngredient,
-            pprint
+            pprint,
+            copy
             )
 
         result_calculation_fulldayofeating = \
