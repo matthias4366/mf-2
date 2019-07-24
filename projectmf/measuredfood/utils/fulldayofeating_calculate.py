@@ -173,7 +173,20 @@ def calculate_average_of_specificingredient_group(
         # print('\n averaged_ingredient_initial \n')
         # pprint.pprint(averaged_ingredient_initial)
 
+        # Name the averaged ingredient using the group name.
+        averaged_ingredient_initial['raw_ingredient']['name'] = \
+        'average_group_' + key_k
+        # print('\n averaged_ingredient_initial \n')
+        # pprint.pprint(averaged_ingredient_initial)
 
+        # Average the SpecificIngredients in group_k
+        # Initialise the sum of the base_amounts
+        total_base_amount = 0
+        for m in range(len(group_k)):
+            # print(group_k[m]['base_amount'])
+            total_base_amount = total_base_amount + group_k[m]['base_amount']
+        print('\n total_base_amount \n')
+        print(total_base_amount)
 
 
     return 'result create ingredient average'
