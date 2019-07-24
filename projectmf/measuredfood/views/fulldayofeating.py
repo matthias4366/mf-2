@@ -27,6 +27,7 @@ import pprint
 from measuredfood.ingredient_properties import (
     INGREDIENT_FIELDS_NUTRITION
 )
+import decimal
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -195,7 +196,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             RawIngredient,
             pprint,
             copy,
-            INGREDIENT_FIELDS_NUTRITION
+            INGREDIENT_FIELDS_NUTRITION,
+            decimal
             )
 
         result_calculation_fulldayofeating = \

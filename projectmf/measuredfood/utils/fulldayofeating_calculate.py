@@ -6,7 +6,8 @@ def calculate_fulldayofeating(
     RawIngredient,
     pprint,
     copy,
-    INGREDIENT_FIELDS_NUTRITION
+    INGREDIENT_FIELDS_NUTRITION,
+    decimal
     ):
     """
     This function should be independent of everything else.
@@ -133,15 +134,18 @@ def calculate_fulldayofeating(
     # pprint.pprint(specificingredient_scalingoption_fixed)
     # print('\n specificingredient_scalingoption_independent')
     # pprint.pprint(specificingredient_scalingoption_independent)
-    print('\n specificingredient_scalingoption_group_dict')
-    pprint.pprint(specificingredient_scalingoption_group_dict)
+    # print('\n specificingredient_scalingoption_group_dict')
+    # pprint.pprint(specificingredient_scalingoption_group_dict)
 
-    average_of_group_list = calculate_average_of_specificingredient_group(
+    list_averaged_specificingredients = calculate_average_of_specificingredient_group(
         INGREDIENT_FIELDS_NUTRITION,
         specificingredient_scalingoption_group_dict,
         copy,
-        pprint
+        pprint,
+        decimal
     )
+    print('\n list_averaged_specificingredients \n')
+    pprint.pprint(list_averaged_specificingredients)
 
 
     """
@@ -153,40 +157,64 @@ def calculate_average_of_specificingredient_group(
     INGREDIENT_FIELDS_NUTRITION,
     specificingredient_scalingoption_group_dict,
     copy,
-    pprint
+    pprint,
+    decimal
 ):
     """
     For each group of ingredients, create an average ingredient representing
     the group. Use the base_amounts to set the ratios.
     """
 
+    # Add all the averaged ingredients to a list.
+    list_averaged_specificingredients = []
+
     for key_k in specificingredient_scalingoption_group_dict:
         group_k = specificingredient_scalingoption_group_dict[key_k]
-        # Create an initial state for the averaged_ingredient. Start from the
+        # Create an initial state for the averaged_specificingredient. Start from the
         # first SpecificIngredient dict in the list.
         # Make a copy.
-        averaged_ingredient_initial = copy.deepcopy(group_k[0])
+        averaged_specificingredient_initial = copy.deepcopy(group_k[0])
         # Simply ignore the unimportant fields, no need to remove them.
         # Set the values of the remaining fields to None.
-        for key_l in averaged_ingredient_initial['raw_ingredient']:
-            averaged_ingredient_initial['raw_ingredient'][key_l] = None
-        # print('\n averaged_ingredient_initial \n')
-        # pprint.pprint(averaged_ingredient_initial)
+        for key_l in averaged_specificingredient_initial['raw_ingredient']:
+            averaged_specificingredient_initial['raw_ingredient'][key_l] = \
+            decimal.Decimal(0)
+        # print('\n averaged_specificingredient_initial \n')
+        # pprint.pprint(averaged_specificingredient_initial)
 
         # Name the averaged ingredient using the group name.
-        averaged_ingredient_initial['raw_ingredient']['name'] = \
+        averaged_specificingredient = copy.deepcopy(averaged_specificingredient_initial)
+        averaged_specificingredient['raw_ingredient']['name'] = \
         'average_group_' + key_k
-        # print('\n averaged_ingredient_initial \n')
-        # pprint.pprint(averaged_ingredient_initial)
+        # print('\n averaged_specificingredient \n')
+        # pprint.pprint(averaged_specificingredient)
 
         # Average the SpecificIngredients in group_k
+
         # Initialise the sum of the base_amounts
-        total_base_amount = 0
+        total_base_amount = decimal.Decimal(0)
         for m in range(len(group_k)):
-            # print(group_k[m]['base_amount'])
             total_base_amount = total_base_amount + group_k[m]['base_amount']
-        print('\n total_base_amount \n')
-        print(total_base_amount)
+        # print('\n type_total_base_amount \n')
+        # print(type(total_base_amount))
 
+        # Go through the SpecificIngredients belonging to a certain group
+        # and add them to the averaged_specificingredient.
+        for m in range(len(group_k)):
+            for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+                # Change field values to supported values, i.e. None to 0 and
+                # Decimal to number.
+                if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
+                    group_k[m]['raw_ingredient'][nutrient_field_name] = \
+                    decimal.Decimal(0)
+                averaged_specificingredient['raw_ingredient'][nutrient_field_name] = \
+                (group_k[m]['base_amount'] / total_base_amount) \
+                * group_k[m]['raw_ingredient'][nutrient_field_name]
 
-    return 'result create ingredient average'
+        # print('\n averaged_specificingredient \n ')
+        # pprint.pprint(averaged_specificingredient)
+
+        # Add all the averaged ingredients to a list.
+        list_averaged_specificingredients.append(averaged_specificingredient)
+
+    return list_averaged_specificingredients
