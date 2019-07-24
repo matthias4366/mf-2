@@ -5,7 +5,8 @@ def calculate_fulldayofeating(
     NutrientProfile,
     RawIngredient,
     pprint,
-    copy
+    copy,
+    INGREDIENT_FIELDS_NUTRITION
     ):
     """
     This function should be independent of everything else.
@@ -75,12 +76,6 @@ def calculate_fulldayofeating(
             raw_ingredient = rawingredient_k_dict
             )
 
-    # print('\nspecificingredient_dict_list_1 AFTER the addition of the ' \
-    #       'RawIngredient dictionaries:')
-    # pprint.pprint(specificingredient_dict_list_1)
-
-
-
     """
     Iterate through the dictionaries representing the SpecificIngredients
     and sort them by their 'scaling_option' property.
@@ -141,15 +136,44 @@ def calculate_fulldayofeating(
     print('\n specificingredient_scalingoption_group_dict')
     pprint.pprint(specificingredient_scalingoption_group_dict)
 
+    average_of_group_list = calculate_average_of_specificingredient_group(
+        INGREDIENT_FIELDS_NUTRITION,
+        specificingredient_scalingoption_group_dict,
+        copy,
+        pprint
+    )
+
+
     """
     Return the values to make this a PURE function
     """
     # return
 
-def create_ingredient_average():
+def calculate_average_of_specificingredient_group(
+    INGREDIENT_FIELDS_NUTRITION,
+    specificingredient_scalingoption_group_dict,
+    copy,
+    pprint
+):
     """
     For each group of ingredients, create an average ingredient representing
     the group. Use the base_amounts to set the ratios.
     """
+
+    for key_k in specificingredient_scalingoption_group_dict:
+        group_k = specificingredient_scalingoption_group_dict[key_k]
+        # Create an initial state for the averaged_ingredient. Start from the
+        # first SpecificIngredient dict in the list.
+        # Make a copy.
+        averaged_ingredient_initial = copy.deepcopy(group_k[0])
+        # Simply ignore the unimportant fields, no need to remove them.
+        # Set the values of the remaining fields to None.
+        for key_l in averaged_ingredient_initial['raw_ingredient']:
+            averaged_ingredient_initial['raw_ingredient'][key_l] = None
+        # print('\n averaged_ingredient_initial \n')
+        # pprint.pprint(averaged_ingredient_initial)
+
+
+
 
     return 'result create ingredient average'
