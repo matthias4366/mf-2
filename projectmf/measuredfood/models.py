@@ -7,9 +7,6 @@ from .ingredient_properties import (
     INGREDIENT_FIELDS_NUTRITION
 )
 
-MAX_DIGITS_ = 20
-DECIMAL_PLACES_ = 6
-
 from string import ascii_lowercase
 
 
@@ -37,9 +34,7 @@ class RawIngredient(models.Model):
 for name in INGREDIENT_FIELDS_NUMBERS:
     RawIngredient.add_to_class(
         name,
-        models.DecimalField(
-            max_digits=MAX_DIGITS_,
-            decimal_places=DECIMAL_PLACES_,
+        models.FloatField(
             blank=True,
             null=True
         )
@@ -77,9 +72,7 @@ class NutrientProfile(models.Model):
 for name in INGREDIENT_FIELDS_NUTRITION:
     NutrientProfile.add_to_class(
         name,
-        models.DecimalField(
-            max_digits=MAX_DIGITS_,
-            decimal_places=DECIMAL_PLACES_,
+        models.FloatField(
             blank=True,
             null=True
         )
@@ -187,16 +180,12 @@ class SpecificIngredient(models.Model):
     other. So, the base_amounts are important for the ratios of the ingredients
     at a later point.
     """
-    base_amount = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
+    base_amount = models.FloatField(
         blank=True,
         null=True
     )
 
-    calculated_amount = models.DecimalField(
-        max_digits=MAX_DIGITS_,
-        decimal_places=DECIMAL_PLACES_,
+    calculated_amount = models.FloatField(
         blank=True,
         null=True
     )

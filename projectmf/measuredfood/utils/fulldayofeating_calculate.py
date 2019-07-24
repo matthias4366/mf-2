@@ -7,7 +7,7 @@ def calculate_fulldayofeating(
     pprint,
     copy,
     INGREDIENT_FIELDS_NUTRITION,
-    decimal
+    np
     ):
     """
     This function should be independent of everything else.
@@ -146,7 +146,6 @@ def calculate_fulldayofeating(
         specificingredient_scalingoption_group_dict,
         copy,
         pprint,
-        decimal,
         targeted_nutrients
     )
     print('\n list_averaged_specificingredients \n')
@@ -168,7 +167,7 @@ def calculate_fulldayofeating(
     fulldayofeating_nutrition_so_far = {}
     for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
         fulldayofeating_nutrition_so_far.update(
-            {nutrient_field_name: decimal.Decimal(0)}
+            {nutrient_field_name: 0}
         )
     # print('\n fulldayofeating_nutrition_so_far \n')
     # pprint.pprint(fulldayofeating_nutrition_so_far)
@@ -179,7 +178,7 @@ def calculate_fulldayofeating(
          for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
              if dict_k['raw_ingredient'][nutrient_field_name] == None:
                  dict_k['raw_ingredient'][nutrient_field_name] = \
-                 decimal.Decimal(0)
+                 0
              fulldayofeating_nutrition_so_far[nutrient_field_name]=\
              fulldayofeating_nutrition_so_far[nutrient_field_name]\
              + dict_k['base_amount'] \
@@ -196,7 +195,7 @@ def calculate_fulldayofeating(
         - fulldayofeating_nutrition_so_far[key_k]
         # Check if the 'FIXED' SpecificIngredients already run over the
         # nutrition goal.
-        if targeted_nutrients_remainder[key_k] <= decimal.Decimal(0):
+        if targeted_nutrients_remainder[key_k] <= 0:
             print('ERROR: The ingredients with the \'FIXED\' scaling_options '\
                   'already provide too much nutrition.')
             return None
@@ -207,9 +206,11 @@ def calculate_fulldayofeating(
     b = []
     for key_k in targeted_nutrients_remainder:
         b.append(targeted_nutrients_remainder[key_k])
+    b = np.asarray(b)
     print('\nb \n')
     pprint.pprint(b)
 
+    # TODO: check a, as it might be causing the wrong results for x.
     a = []
     for dict_k in list_independently_scaling_entities:
         a_new_row = []
@@ -220,9 +221,14 @@ def calculate_fulldayofeating(
                 dict_k['raw_ingredient'][key_k]
             )
         a.append(a_new_row)
-
+    a = np.asarray(a)
     print('\na \n')
     pprint.pprint(a)
+
+    # # Solve the linear equation.
+    x = np.linalg.solve(a, b)
+    print('\nx \n')
+    pprint.pprint(x)
 
     """
     Return the values to make this a PURE function
@@ -234,7 +240,6 @@ def calculate_average_of_specificingredient_group(
     specificingredient_scalingoption_group_dict,
     copy,
     pprint,
-    decimal,
     targeted_nutrients
 ):
     """
@@ -255,7 +260,7 @@ def calculate_average_of_specificingredient_group(
         # Set the values of the remaining fields to None.
         for key_l in averaged_specificingredient_initial['raw_ingredient']:
             averaged_specificingredient_initial['raw_ingredient'][key_l] = \
-            decimal.Decimal(0)
+            0
         # print('\n averaged_specificingredient_initial \n')
         # pprint.pprint(averaged_specificingredient_initial)
 
@@ -269,7 +274,7 @@ def calculate_average_of_specificingredient_group(
         # Average the SpecificIngredients in group_k
 
         # Initialise the sum of the base_amounts
-        total_base_amount = decimal.Decimal(0)
+        total_base_amount = 0
         for m in range(len(group_k)):
             total_base_amount = total_base_amount + group_k[m]['base_amount']
         # Add the total base amount to the averaged_specificingredient
@@ -282,11 +287,10 @@ def calculate_average_of_specificingredient_group(
         # and add them to the averaged_specificingredient.
         for m in range(len(group_k)):
             for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
-                # Change field values to supported values, i.e. None to 0 and
-                # Decimal to number.
+                # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
                     group_k[m]['raw_ingredient'][nutrient_field_name] = \
-                    decimal.Decimal(0)
+                    0
                 averaged_specificingredient['raw_ingredient'][nutrient_field_name] = \
                 averaged_specificingredient['raw_ingredient'][nutrient_field_name] \
                 + (group_k[m]['base_amount'] / total_base_amount) \
