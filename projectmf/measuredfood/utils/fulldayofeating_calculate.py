@@ -103,9 +103,22 @@ def calculate_fulldayofeating(
             # If the group already exists in
             # specificingredient_scalingoption_group_dict, add dict_k to it.
             if dict_k['scaling_option'] in specificingredient_scalingoption_group_dict:
+                # Check that the new SpecificIngredient has the same units as
+                # the first SpecificIngredient in the group.
+                if dict_k['base_amount_unit'] == \
                 specificingredient_scalingoption_group_dict[
-                    dict_k['scaling_option']
-                    ].append(dict_k)
+                                    dict_k['scaling_option']
+                                    ][0]['base_amount_unit']:
+                    specificingredient_scalingoption_group_dict[
+                        dict_k['scaling_option']
+                        ].append(dict_k)
+                else:
+                    # TODO: Make this into a proper error message and show it
+                    # to the user.
+                    print('\nERROR: All specific ingredients belonging to the'\
+                           ' same group'\
+                          ' must have the same units.\n')
+                    return None
             # If the group does not exist
             # specificingredient_scalingoption_group_dict, create it an add
             # dict_k to it.
@@ -113,11 +126,13 @@ def calculate_fulldayofeating(
                 specificingredient_scalingoption_group_dict.update(
                     {dict_k['scaling_option'] : [dict_k]}
                     )
-
-
-    #     else:
-    #         print('ERROR. The value given for scaling_group option was' \
-    #               ' not valid.')
+        else:
+            # This case is impossible, since the user is only presented
+            # with valid selections for the scaling_option. It's still good
+            # practice to have this piece of code.
+            print('\nERROR. The value given for scaling_group option was' \
+                  ' not valid.\n')
+            return None
 
     # print('\n specificingredient_scalingoption_fixed')
     # pprint.pprint(specificingredient_scalingoption_fixed)
