@@ -86,8 +86,8 @@ def calculate_fulldayofeating(
             targeted_nutrients.update(
                 {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
             )
-    print('\ntargeted_nutrients \n')
-    pprint.pprint(targeted_nutrients)
+    # print('\ntargeted_nutrients \n')
+    # pprint.pprint(targeted_nutrients)
 
     """
     Iterate through the dictionaries representing the SpecificIngredients
@@ -195,6 +195,20 @@ def calculate_fulldayofeating(
     # print('\n fulldayofeating_nutrition_so_far \n')
     # pprint.pprint(fulldayofeating_nutrition_so_far)
 
+    # For the targeted nutrients, calculate the remaining values.
+    targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)
+    for key_k in targeted_nutrients:
+        targeted_nutrients_remainder[key_k] = \
+        targeted_nutrients[key_k] \
+        - fulldayofeating_nutrition_so_far[key_k]
+        # Check if the 'FIXED' SpecificIngredients already run over the nutrition
+        # goal.
+        if targeted_nutrients_remainder[key_k] <= decimal.Decimal(0):
+            print('ERROR: The ingredients with the \'FIXED\' scaling_options '\
+                  'already provide too much nutrition.')
+            return None
+    # print('\n targeted_nutrients_remainder \n')
+    # pprint.pprint(targeted_nutrients_remainder)
 
 
     """
