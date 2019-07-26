@@ -255,26 +255,40 @@ def calculate_fulldayofeating(
     for k in range(len(solution)):
         list_independently_scaling_entities[k]['calculated_amount'] = \
         solution[k]
-    print('\n list_independently_scaling_entities \n')
-    pprint.pprint(list_independently_scaling_entities)
+    # print('\n list_independently_scaling_entities \n')
+    # pprint.pprint(list_independently_scaling_entities)
 
     # From list_independently_scaling_entities, get all the
     # averaged_specificingredient instances.
-    list_averaged_specificingredient_with_calculated_amount = []
+
+    # old code TODO delete
+    # list_averaged_specificingredient_with_calculated_amount = []
+
+    calculated_amount_and_group_name = []
     for k in range(len(list_independently_scaling_entities)):
+        new_dict = {}
         if list_independently_scaling_entities[k]['raw_ingredient']['name']\
         .startswith('average_group_'):
-            list_averaged_specificingredient_with_calculated_amount.append(
-                list_independently_scaling_entities[k]
-            )
+            group_name = list_independently_scaling_entities[k]['group']
+            calculated_amount = \
+            list_independently_scaling_entities[k]['calculated_amount']
+            new_dict = {'group': group_name,
+                        'calculated_amount': calculated_amount}
+            calculated_amount_and_group_name.append(new_dict)
 
-    print('\n list_averaged_specificingredient_with_calculated_amount \n')
-    pprint.pprint(list_averaged_specificingredient_with_calculated_amount)
+            # old code TODO delete
+            # list_averaged_specificingredient_with_calculated_amount.append(
+            #     list_independently_scaling_entities[k]
+            # )
+
+    print('\n calculated_amount_and_group_name \n')
+    pprint.pprint(calculated_amount_and_group_name)
 
     # unaverage the averaged_specificingredient instances
     foo = undo_calculate_average_of_specificingredient_group(
         specificingredient_scalingoption_group_dict,
-        list_averaged_specificingredient_with_calculated_amount
+        calculated_amount_and_group_name,
+        pprint
     )
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.
@@ -322,6 +336,10 @@ def calculate_average_of_specificingredient_group(
         averaged_specificingredient = copy.deepcopy(averaged_specificingredient_initial)
         averaged_specificingredient['raw_ingredient']['name'] = \
         'average_group_' + key_k
+
+        # Add a group property with the group name to have it easily on hand.
+        averaged_specificingredient['group'] = key_k
+
         # print('\n averaged_specificingredient \n')
         # pprint.pprint(averaged_specificingredient)
 
@@ -365,6 +383,37 @@ def calculate_average_of_specificingredient_group(
 
 def undo_calculate_average_of_specificingredient_group(
     specificingredient_scalingoption_group_dict,
-    list_averaged_specificingredient_with_calculated_amount
+    calculated_amount_and_group_name,
+    pprint
 ):
+
+    print('\n specificingredient_scalingoption_group_dict \n')
+    pprint.pprint(specificingredient_scalingoption_group_dict)
+
+    print('\n calculated_amount_and_group_name \n')
+    pprint.pprint(calculated_amount_and_group_name)
+
+    """
+    # Iterate over the groups: A, B, C etc.
+    for group, list_specificingredients in \
+    specificingredient_scalingoption_group_dict:
+        # Iterate over all the SpecificIngredients belonging to the current
+        # group.
+        corresponding_calculated_amount = None
+        for k in range(len(specificingredient_scalingoption_group_dict[group])):
+            # Based on the id of the current SpecificIngredient, get the
+            # corresponding calculated_amount.
+
+            for m in range(len(list_averaged_specificingredient_with_calculated_amount)):
+                corresponding_calculated_amount =
+
+
+            # Assign the solution for the calculated_amount to the correct
+            # dictionary.
+            specificingredient_scalingoption_group_dict\
+            [group][k]['calculated_amount'] =\
+            None
+    """
+
+
     return None
