@@ -207,8 +207,8 @@ def calculate_fulldayofeating(
     for key_k in targeted_nutrients_remainder:
         b.append(targeted_nutrients_remainder[key_k])
     b = np.asarray(b)
-    print('\nb \n')
-    pprint.pprint(b)
+    # print('\nb \n')
+    # pprint.pprint(b)
 
     a = np.zeros(shape=(len(b),len(b)))
     column_index = 0
@@ -218,24 +218,24 @@ def calculate_fulldayofeating(
             a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
             row_index = row_index + 1
         column_index = column_index + 1
-    print('\na \n')
-    pprint.pprint(a)
+    # print('\na \n')
+    # pprint.pprint(a)
 
     # Solve the linear equation.
     x = np.linalg.solve(a, b)
-    print('\nx \n')
-    pprint.pprint(x)
+    # print('\nx \n')
+    # pprint.pprint(x)
 
     # Multiply the entries in x with the reference_amount_g of each
     # SpecificIngredient
     solution = np.zeros(len(x))
-    print('\nsolution \n')
-    pprint.pprint(solution)
+    # print('\nsolution \n')
+    # pprint.pprint(solution)
 
     for k in range(len(x)):
         solution[k] = x[k] * list_independently_scaling_entities[k]['raw_ingredient']['reference_amount_g']
-    print('\n list_independently_scaling_entities \n')
-    pprint.pprint(list_independently_scaling_entities)
+    print('\n solution \n')
+    pprint.pprint(solution)
 
     """
     Return the values to make this a PURE function
@@ -259,17 +259,26 @@ def calculate_average_of_specificingredient_group(
 
     for key_k in specificingredient_scalingoption_group_dict:
         group_k = specificingredient_scalingoption_group_dict[key_k]
-        # Create an initial state for the averaged_specificingredient. Start from the
-        # first SpecificIngredient dict in the list.
-        # Make a copy.
-        averaged_specificingredient_initial = copy.deepcopy(group_k[0])
-        # Simply ignore the unimportant fields, no need to remove them.
-        # Set the values of the remaining fields to None.
-        for key_l in INGREDIENT_FIELDS_NUTRITION:
-            averaged_specificingredient_initial['raw_ingredient'][key_l] = \
-            0
-        # print('\n averaged_specificingredient_initial \n')
-        # pprint.pprint(averaged_specificingredient_initial)
+
+        # Initialize the averaged_specificingredient_initial intentionally
+        # as opposed to starting with a copy of a SpecificIngredient. This way,
+        # only the needed fields will be included.
+        rawingredient_dict_initial = {}
+        for field_name in INGREDIENT_FIELDS_NUTRITION:
+            rawingredient_dict_initial.update(
+                {field_name: 0}
+            )
+        rawingredient_dict_initial.update(
+            {'reference_amount_g': 100}
+        )
+        # print('\n rawingredient_dict_initial \n')
+        # pprint.pprint(rawingredient_dict_initial)
+        averaged_specificingredient_initial = {}
+        averaged_specificingredient_initial.update(
+            {'raw_ingredient': rawingredient_dict_initial}
+        )
+        print('\n averaged_specificingredient_initial \n')
+        pprint.pprint(averaged_specificingredient_initial)
 
         # Name the averaged ingredient using the group name.
         averaged_specificingredient = copy.deepcopy(averaged_specificingredient_initial)
