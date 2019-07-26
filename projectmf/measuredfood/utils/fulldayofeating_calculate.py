@@ -210,25 +210,26 @@ def calculate_fulldayofeating(
     print('\nb \n')
     pprint.pprint(b)
 
-    # TODO: check a, as it might be causing the wrong results for x.
-    a = []
+    a = np.zeros(shape=(len(b),len(b)))
+    column_index = 0
     for dict_k in list_independently_scaling_entities:
-        a_new_row = []
-        # print('\ndict_k\n')
-        # pprint.pprint(dict_k)
+        row_index = 0
         for key_k in targeted_nutrients_remainder:
-            a_new_row.append(
-                dict_k['raw_ingredient'][key_k]
-            )
-        a.append(a_new_row)
-    a = np.asarray(a)
+            a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
+            row_index = row_index + 1
+        column_index = column_index + 1
     print('\na \n')
     pprint.pprint(a)
 
-    # # Solve the linear equation.
+    # Solve the linear equation.
     x = np.linalg.solve(a, b)
     print('\nx \n')
     pprint.pprint(x)
+
+    # Multiply the entries in x with the reference_amount_g of each
+    # SpecificIngredient
+    print('\n list_independently_scaling_entities \n')
+    pprint.pprint(list_independently_scaling_entities)
 
     """
     Return the values to make this a PURE function
