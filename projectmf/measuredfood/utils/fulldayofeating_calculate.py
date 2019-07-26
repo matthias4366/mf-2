@@ -228,6 +228,12 @@ def calculate_fulldayofeating(
 
     # Multiply the entries in x with the reference_amount_g of each
     # SpecificIngredient
+    solution = np.zeros(len(x))
+    print('\nsolution \n')
+    pprint.pprint(solution)
+
+    for k in range(len(x)):
+        solution[k] = x[k] * list_independently_scaling_entities[k]['raw_ingredient']['reference_amount_g']
     print('\n list_independently_scaling_entities \n')
     pprint.pprint(list_independently_scaling_entities)
 
@@ -286,15 +292,12 @@ def calculate_average_of_specificingredient_group(
 
         # Go through the SpecificIngredients belonging to a certain group
         # and add them to the averaged_specificingredient.
-        # Average the reference_amount_g as well.
-        nutrient_fields_to_average = copy.deepcopy(INGREDIENT_FIELDS_NUTRITION)
-        nutrient_fields_to_average.append('reference_amount_g')
-
-        print('\n nutrient_fields_to_average \n')
-        pprint.pprint(nutrient_fields_to_average)
-
+        # Helper variable to calculate the average reference_amount_g.
+        sum_reference_amount_g = 0
         for m in range(len(group_k)):
-            for nutrient_field_name in nutrient_fields_to_average:
+            sum_reference_amount_g = sum_reference_amount_g \
+            + averaged_specificingredient['raw_ingredient']['reference_amount_g']
+            for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
                 # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
                     group_k[m]['raw_ingredient'][nutrient_field_name] = \
@@ -304,10 +307,9 @@ def calculate_average_of_specificingredient_group(
                 + (group_k[m]['base_amount'] / total_base_amount) \
                 * group_k[m]['raw_ingredient'][nutrient_field_name]
 
-            # print('\nm\n')
-            # print(m)
-            # print('\n averaged_specificingredient \n ')
-            # pprint.pprint(averaged_specificingredient)
+        # Calculate the average reference_amount_g.
+        averaged_specificingredient['raw_ingredient']['reference_amount_g'] = \
+        sum_reference_amount_g / len(group_k)
 
         # Add all the averaged ingredients to a list.
         list_averaged_specificingredients.append(averaged_specificingredient)
