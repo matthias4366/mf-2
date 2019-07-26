@@ -117,19 +117,11 @@ INGREDIENT_FIELDS_NUTRITION = INGREDIENT_FIELDS_NUTRITION_NUTRITION_DATA \
 INGREDIENT_FIELDS_SCALING_PROPERTIES = copy.deepcopy(
     INGREDIENT_FIELDS_NUTRITION
 )
-INGREDIENT_FIELDS_SCALING_PROPERTIES.append(
-    # Price of the ingredient per reference amount
-    'price_eur_per_reference_amount'
-)
 
 INGREDIENT_FIELDS_NUMBERS = copy.deepcopy(
     INGREDIENT_FIELDS_SCALING_PROPERTIES
 )
-INGREDIENT_FIELDS_NUMBERS.append(
-    # Reference amount to which all the nutrition amounts related, e.g.
-    # 370 kcal / 100 g => 100 is the reference amount.
-    'reference_amount_g'
-)
+
 INGREDIENT_FIELDS_NUMBERS.append(
     'amount_in_package_g'
 )
@@ -142,4 +134,6 @@ INGREDIENT_FIELDS_LINKS = [
 
 INGREDIENT_FIELDS_ALL = ['name'] \
     + INGREDIENT_FIELDS_NUMBERS\
-    + INGREDIENT_FIELDS_LINKS
+    + INGREDIENT_FIELDS_LINKS\
+    + ['price_eur_per_reference_amount'] \
+    + ['reference_amount_g']

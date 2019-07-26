@@ -10,7 +10,7 @@ ingredients is stored centrally in this python file.
 {
     'name': None,
     'price_eur_per_reference_amount': None,
-    'reference_amount_g': None,
+    'reference_amount_g': 100,
     'amount_in_package_g': None,
     'buy_here_link': None,
     'source_nutritional_information_link': None,

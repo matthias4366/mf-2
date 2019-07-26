@@ -24,6 +24,23 @@ class RawIngredient(models.Model):
         on_delete=models.CASCADE
     )
 
+    # Price of the ingredient per reference amount
+    price_eur_per_reference_amount = models.FloatField(
+        blank = False,
+        null = False,
+        default = 0
+    )
+
+    # Reference amount to which all the nutrition amounts related, e.g.
+    # 370 kcal / 100 g => 100 is the reference amount.
+    reference_amount_g = models.FloatField(
+        blank = False,
+        null = False,
+        default = 100
+    )
+
+
+
     def __str__(self):
         return self.name
 

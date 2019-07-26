@@ -259,7 +259,7 @@ def calculate_average_of_specificingredient_group(
         averaged_specificingredient_initial = copy.deepcopy(group_k[0])
         # Simply ignore the unimportant fields, no need to remove them.
         # Set the values of the remaining fields to None.
-        for key_l in averaged_specificingredient_initial['raw_ingredient']:
+        for key_l in INGREDIENT_FIELDS_NUTRITION:
             averaged_specificingredient_initial['raw_ingredient'][key_l] = \
             0
         # print('\n averaged_specificingredient_initial \n')
@@ -286,8 +286,15 @@ def calculate_average_of_specificingredient_group(
 
         # Go through the SpecificIngredients belonging to a certain group
         # and add them to the averaged_specificingredient.
+        # Average the reference_amount_g as well.
+        nutrient_fields_to_average = copy.deepcopy(INGREDIENT_FIELDS_NUTRITION)
+        nutrient_fields_to_average.append('reference_amount_g')
+
+        print('\n nutrient_fields_to_average \n')
+        pprint.pprint(nutrient_fields_to_average)
+
         for m in range(len(group_k)):
-            for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+            for nutrient_field_name in nutrient_fields_to_average:
                 # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
                     group_k[m]['raw_ingredient'][nutrient_field_name] = \
