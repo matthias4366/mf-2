@@ -249,6 +249,14 @@ def calculate_fulldayofeating(
     # print('\n list_independently_scaling_entities \n')
     # pprint.pprint(list_independently_scaling_entities)
 
+    # Initialize the return value.
+    specificingredient_id_and_calculated_amount = []
+
+    # Assign the calculated_amount values to the return variable.
+
+    # Assign the calculated_amount values from the SpecificIngredients
+    # belonging to groups to the return variable.
+
     # From list_independently_scaling_entities, get all the
     # averaged_specificingredient instances.
     calculated_amount_and_group_name = {}
@@ -277,11 +285,8 @@ def calculate_fulldayofeating(
         calculated_amount_and_group_name,
         pprint
     )
-    print('\n specificingredient_scalingoption_group_dict_with_results \n')
-    pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
-
-    # Initialize the return value.
-    specificingredient_id_and_calculated_amount = []
+    # print('\n specificingredient_scalingoption_group_dict_with_results \n')
+    # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
 
     for group_name, specificingredient_list in \
     specificingredient_scalingoption_group_dict_with_results.items():
@@ -294,6 +299,38 @@ def calculate_fulldayofeating(
                 'calculated_amount': calculated_amount_result
             }
             specificingredient_id_and_calculated_amount.append(new_dict)
+
+    # Assign the calculated_amount values from the SpecificIngredients
+    # with scaling_option == 'INDEPENDENT' to the return variable.
+    for k in range(len(list_independently_scaling_entities)):
+        # The averaged_specificingredient do not have a 'scaling_option' key.
+        if 'scaling_option' in list_independently_scaling_entities[k].keys():
+            if list_independently_scaling_entities[k]['scaling_option'] \
+            == 'INDEPENDENT':
+                id_result = list_independently_scaling_entities[k]['id']
+                calculated_amount_result = \
+                list_independently_scaling_entities[k]['calculated_amount']
+                new_dict = {
+                    'id': id_result,
+                    'calculated_amount': calculated_amount_result
+                }
+                specificingredient_id_and_calculated_amount.append(new_dict)
+
+    # Assign the calculated_amount values from the SpecificIngredients
+    # with scaling_option == 'FIXED' to the return variable.
+
+    for k in range(len(specificingredient_scalingoption_fixed)):
+        id_result = specificingredient_scalingoption_fixed[k]['id']
+        # For the SpecificIngredients with scaling_option = 'FIXED',
+        # no calculations are done. Hence, the base_amounts are used.
+        # TODO: This might be confusing.
+        calculated_amount_result = \
+        specificingredient_scalingoption_fixed[k]['base_amount']
+        new_dict = {
+            'id': id_result,
+            'calculated_amount': calculated_amount_result
+        }
+        specificingredient_id_and_calculated_amount.append(new_dict)
 
 
     # Make it a PURE function, i.e. return the values instead of directly
