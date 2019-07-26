@@ -188,6 +188,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 author = request.user.id
                 )
 
+        specificingredient_id_and_calculated_amount = \
         fulldayofeating_calculate.calculate_fulldayofeating(
             id_fulldayofeating,
             SpecificIngredient,
@@ -199,6 +200,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             INGREDIENT_FIELDS_NUTRITION,
             np
             )
+        # print('\n specificingredient_id_and_calculated_amount \n')
+        # pprint.pprint(specificingredient_id_and_calculated_amount)
 
         result_calculation_fulldayofeating = \
         query_result_calculation_fulldayofeating(id_fulldayofeating)

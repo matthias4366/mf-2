@@ -42,6 +42,18 @@ def calculate_fulldayofeating(
         queryset_specificingredient_1.values()
         )
 
+    # Initialize the return value.
+    # print('\n specificingredient_dict_list_0 \n')
+    # pprint.pprint(specificingredient_dict_list_0)
+    specificingredient_id_and_calculated_amount = []
+    for k in range(len(specificingredient_dict_list_0)):
+        specificingredient_id_and_calculated_amount.append(
+            {'id': specificingredient_dict_list_0[k]['id'],
+             'calculated_amount': None}
+        )
+    # print('\n specificingredient_id_and_calculated_amount \n')
+    # pprint.pprint(specificingredient_id_and_calculated_amount)
+
     # Add the RawIngredient dictionaries to the SpecificIngredient dictionaries
     # to make the nutrition values (kcal etc.) accessible for calculation.
     for k in range(len(specificingredient_dict_list_1)):
@@ -148,8 +160,8 @@ def calculate_fulldayofeating(
         pprint,
         targeted_nutrients
     )
-    print('\n list_averaged_specificingredients \n')
-    pprint.pprint(list_averaged_specificingredients)
+    # print('\n list_averaged_specificingredients \n')
+    # pprint.pprint(list_averaged_specificingredients)
 
     # group the averaged SpecificIngredients together with the
     # SpecificIngredients whose scaling_option was set to independent.
@@ -233,14 +245,40 @@ def calculate_fulldayofeating(
     # pprint.pprint(solution)
 
     for k in range(len(x)):
-        solution[k] = x[k] * list_independently_scaling_entities[k]['raw_ingredient']['reference_amount_g']
-    print('\n solution \n')
-    pprint.pprint(solution)
+        # Calculate solution
+        solution[k] = x[k] * list_independently_scaling_entities\
+        [k]['raw_ingredient']['reference_amount_g']
+    # print('\n solution \n')
+    # pprint.pprint(solution)
 
-    """
-    Return the values to make this a PURE function
-    """
-    # return
+    # Assign the solution to the respective dictionary.
+    for k in range(len(solution)):
+        list_independently_scaling_entities[k]['calculated_amount'] = \
+        solution[k]
+    print('\n list_independently_scaling_entities \n')
+    pprint.pprint(list_independently_scaling_entities)
+
+    # From list_independently_scaling_entities, get all the
+    # averaged_specificingredient instances.
+    list_averaged_specificingredient_with_calculated_amount = []
+    for k in range(len(list_independently_scaling_entities)):
+        if list_independently_scaling_entities[k]['raw_ingredient']['name']\
+        .startswith('average_group_'):
+            list_averaged_specificingredient_with_calculated_amount.append(
+                list_independently_scaling_entities[k]
+            )
+
+    print('\n list_averaged_specificingredient_with_calculated_amount \n')
+    pprint.pprint(list_averaged_specificingredient_with_calculated_amount)
+
+    # unaverage the averaged_specificingredient instances
+    foo = undo_calculate_average_of_specificingredient_group(
+        specificingredient_scalingoption_group_dict,
+        list_averaged_specificingredient_with_calculated_amount
+    )
+    # Make it a PURE function, i.e. return the values instead of directly
+    # saving them to the database.
+    return specificingredient_id_and_calculated_amount
 
 def calculate_average_of_specificingredient_group(
     INGREDIENT_FIELDS_NUTRITION,
@@ -277,8 +315,8 @@ def calculate_average_of_specificingredient_group(
         averaged_specificingredient_initial.update(
             {'raw_ingredient': rawingredient_dict_initial}
         )
-        print('\n averaged_specificingredient_initial \n')
-        pprint.pprint(averaged_specificingredient_initial)
+        # print('\n averaged_specificingredient_initial \n')
+        # pprint.pprint(averaged_specificingredient_initial)
 
         # Name the averaged ingredient using the group name.
         averaged_specificingredient = copy.deepcopy(averaged_specificingredient_initial)
@@ -324,3 +362,9 @@ def calculate_average_of_specificingredient_group(
         list_averaged_specificingredients.append(averaged_specificingredient)
 
     return list_averaged_specificingredients
+
+def undo_calculate_average_of_specificingredient_group(
+    specificingredient_scalingoption_group_dict,
+    list_averaged_specificingredient_with_calculated_amount
+):
+    return None
