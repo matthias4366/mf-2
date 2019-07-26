@@ -200,8 +200,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             INGREDIENT_FIELDS_NUTRITION,
             np
             )
-        # print('\n specificingredient_id_and_calculated_amount \n')
-        # pprint.pprint(specificingredient_id_and_calculated_amount)
+        print('\n specificingredient_id_and_calculated_amount \n')
+        pprint.pprint(specificingredient_id_and_calculated_amount)
 
         result_calculation_fulldayofeating = \
         query_result_calculation_fulldayofeating(id_fulldayofeating)

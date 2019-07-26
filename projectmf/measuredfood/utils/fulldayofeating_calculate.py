@@ -42,19 +42,6 @@ def calculate_fulldayofeating(
         queryset_specificingredient_1.values()
         )
 
-
-    # Initialize the return value.
-    # print('\n specificingredient_dict_list_0 \n')
-    # pprint.pprint(specificingredient_dict_list_0)
-    specificingredient_id_and_calculated_amount = []
-
-    # TODO: delete this. It is more comfortable to add key value pairs directly.
-    for k in range(len(specificingredient_dict_list_0)):
-        specificingredient_id_and_calculated_amount.append(
-            {'id': specificingredient_dict_list_0[k]['id'],
-             'calculated_amount': None}
-        )
-
     # print('\n specificingredient_id_and_calculated_amount \n')
     # pprint.pprint(specificingredient_id_and_calculated_amount)
 
@@ -293,6 +280,22 @@ def calculate_fulldayofeating(
     print('\n specificingredient_scalingoption_group_dict_with_results \n')
     pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
 
+    # Initialize the return value.
+    specificingredient_id_and_calculated_amount = []
+
+    for group_name, specificingredient_list in \
+    specificingredient_scalingoption_group_dict_with_results.items():
+        for k in range(len(specificingredient_list)):
+            id_result = specificingredient_list[k]['id']
+            calculated_amount_result = \
+            specificingredient_list[k]['calculated_amount']
+            new_dict = {
+                'id': id_result,
+                'calculated_amount': calculated_amount_result
+            }
+            specificingredient_id_and_calculated_amount.append(new_dict)
+
+
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.
     return specificingredient_id_and_calculated_amount
@@ -390,11 +393,11 @@ def undo_calculate_average_of_specificingredient_group(
     pprint
 ):
 
-    print('\n specificingredient_scalingoption_group_dict \n')
-    pprint.pprint(specificingredient_scalingoption_group_dict)
+    # print('\n specificingredient_scalingoption_group_dict \n')
+    # pprint.pprint(specificingredient_scalingoption_group_dict)
 
-    print('\n calculated_amount_and_group_name \n')
-    pprint.pprint(calculated_amount_and_group_name)
+    # print('\n calculated_amount_and_group_name \n')
+    # pprint.pprint(calculated_amount_and_group_name)
 
     # """
     # Iterate over the groups: A, B, C etc.
