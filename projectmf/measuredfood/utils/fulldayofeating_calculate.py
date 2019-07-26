@@ -42,15 +42,19 @@ def calculate_fulldayofeating(
         queryset_specificingredient_1.values()
         )
 
+
     # Initialize the return value.
     # print('\n specificingredient_dict_list_0 \n')
     # pprint.pprint(specificingredient_dict_list_0)
     specificingredient_id_and_calculated_amount = []
+
+    # TODO: delete this. It is more comfortable to add key value pairs directly.
     for k in range(len(specificingredient_dict_list_0)):
         specificingredient_id_and_calculated_amount.append(
             {'id': specificingredient_dict_list_0[k]['id'],
              'calculated_amount': None}
         )
+
     # print('\n specificingredient_id_and_calculated_amount \n')
     # pprint.pprint(specificingredient_id_and_calculated_amount)
 
@@ -260,11 +264,7 @@ def calculate_fulldayofeating(
 
     # From list_independently_scaling_entities, get all the
     # averaged_specificingredient instances.
-
-    # old code TODO delete
-    # list_averaged_specificingredient_with_calculated_amount = []
-
-    calculated_amount_and_group_name = []
+    calculated_amount_and_group_name = {}
     for k in range(len(list_independently_scaling_entities)):
         new_dict = {}
         if list_independently_scaling_entities[k]['raw_ingredient']['name']\
@@ -272,24 +272,27 @@ def calculate_fulldayofeating(
             group_name = list_independently_scaling_entities[k]['group']
             calculated_amount = \
             list_independently_scaling_entities[k]['calculated_amount']
-            new_dict = {'group': group_name,
-                        'calculated_amount': calculated_amount}
-            calculated_amount_and_group_name.append(new_dict)
+            total_base_amount = \
+            list_independently_scaling_entities[k]['total_base_amount']
+            new_dict = {group_name:
+                {'calculated_amount': calculated_amount,
+                 'total_base_amount': total_base_amount}
+                                     }
+            calculated_amount_and_group_name.update(new_dict)
 
-            # old code TODO delete
-            # list_averaged_specificingredient_with_calculated_amount.append(
-            #     list_independently_scaling_entities[k]
-            # )
-
-    print('\n calculated_amount_and_group_name \n')
-    pprint.pprint(calculated_amount_and_group_name)
+    # print('\n calculated_amount_and_group_name \n')
+    # pprint.pprint(calculated_amount_and_group_name)
 
     # unaverage the averaged_specificingredient instances
-    foo = undo_calculate_average_of_specificingredient_group(
+    specificingredient_scalingoption_group_dict_with_results =\
+     undo_calculate_average_of_specificingredient_group(
         specificingredient_scalingoption_group_dict,
         calculated_amount_and_group_name,
         pprint
     )
+    print('\n specificingredient_scalingoption_group_dict_with_results \n')
+    pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
+
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.
     return specificingredient_id_and_calculated_amount
@@ -393,27 +396,26 @@ def undo_calculate_average_of_specificingredient_group(
     print('\n calculated_amount_and_group_name \n')
     pprint.pprint(calculated_amount_and_group_name)
 
-    """
+    # """
     # Iterate over the groups: A, B, C etc.
     for group, list_specificingredients in \
-    specificingredient_scalingoption_group_dict:
+    specificingredient_scalingoption_group_dict.items():
         # Iterate over all the SpecificIngredients belonging to the current
         # group.
-        corresponding_calculated_amount = None
         for k in range(len(specificingredient_scalingoption_group_dict[group])):
             # Based on the id of the current SpecificIngredient, get the
             # corresponding calculated_amount.
-
-            for m in range(len(list_averaged_specificingredient_with_calculated_amount)):
-                corresponding_calculated_amount =
-
 
             # Assign the solution for the calculated_amount to the correct
             # dictionary.
             specificingredient_scalingoption_group_dict\
             [group][k]['calculated_amount'] =\
-            None
-    """
+            calculated_amount_and_group_name[group]['calculated_amount'] *\
+            specificingredient_scalingoption_group_dict\
+            [group][k]['base_amount'] / \
+            calculated_amount_and_group_name[group]['total_base_amount']
+
+    # """
 
 
-    return None
+    return specificingredient_scalingoption_group_dict
