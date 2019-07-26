@@ -203,6 +203,16 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         print('\n specificingredient_id_and_calculated_amount \n')
         pprint.pprint(specificingredient_id_and_calculated_amount)
 
+        # Save the results to the database:
+        for k in range(len(specificingredient_id_and_calculated_amount)):
+            s = SpecificIngredient.objects.get(
+                pk = specificingredient_id_and_calculated_amount[k]['id']
+            )
+            s.calculated_amount = \
+            specificingredient_id_and_calculated_amount\
+            [k]['calculated_amount']
+            s.save()
+
         result_calculation_fulldayofeating = \
         query_result_calculation_fulldayofeating(id_fulldayofeating)
 
