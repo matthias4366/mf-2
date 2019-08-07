@@ -1,0 +1,24 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+  <h1>Calculation results:</h1>
+    <table border="2">
+      <tr>
+        <th>Calculated amount</th>
+        <th>Unit</th>
+        <th>Ingredient</th>
+        <th>Affiliate link</th>
+      </tr>
+      {% for dict_k in result_calculation_fulldayofeating %}
+      <tr>
+        <td>{{ dict_k.calculated_amount }}</td>
+        <td>{{ dict_k.base_amount_unit }}</td>
+        <td>{{ dict_k.name }}</td>
+        <td>
+          <a href="{{ dict_k.buy_here_link }}">Buy</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  <br>
+  <br>
+{% endblock content %}

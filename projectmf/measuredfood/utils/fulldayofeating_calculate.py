@@ -42,9 +42,6 @@ def calculate_fulldayofeating(
         queryset_specificingredient_1.values()
         )
 
-    # print('\n specificingredient_id_and_calculated_amount \n')
-    # pprint.pprint(specificingredient_id_and_calculated_amount)
-
     # Add the RawIngredient dictionaries to the SpecificIngredient dictionaries
     # to make the nutrition values (kcal etc.) accessible for calculation.
     for k in range(len(specificingredient_dict_list_1)):
@@ -55,6 +52,52 @@ def calculate_fulldayofeating(
         specificingredient_dict_list_1[k].update(
             raw_ingredient = rawingredient_k_dict
             )
+
+    # print('\n specificingredient_dict_list_1 \n')
+    # pprint.pprint(specificingredient_dict_list_1)
+
+    # In the end, the calculated amounts are to be rounded. The number of
+    # decimals to which to round is the number of decimals the user used for
+    # the base amounts. Therefore, the number of decimals for the base amounts
+    # are determined and stored in the dictionaries.
+    # Convert the base_amount from DecimalField to float. But, before,
+    # save the number of decimals based on the DecimalField.
+    for k in range(len(specificingredient_dict_list_1)):
+        base_amount_str = str(specificingredient_dict_list_1[k]['base_amount'])
+
+        # TODO: This code is very unelegant. Rewrite it using regular
+        # expressions.
+        # The number of trailing zeros at the end of the base_amount. E.g.
+        # 400.230000 has 4 trailing zeros. 2.000 has 3 trailing zeros.
+        n_trailing_zeros = 0
+        for l in reversed(range(len(base_amount_str))):
+            if base_amount_str[l] == '0':
+                n_trailing_zeros = n_trailing_zeros + 1
+            else:
+                break
+
+        n_total_digits_after_decimal_point = 0
+        for l in reversed(range(len(base_amount_str))):
+            if base_amount_str[l] != '.':
+                n_total_digits_after_decimal_point = \
+                n_total_digits_after_decimal_point + 1
+            else:
+                break
+
+        n_decimals_to_round_to = n_total_digits_after_decimal_point\
+        - n_trailing_zeros
+
+        specificingredient_dict_list_1[k].update(
+            n_decimals_to_round_to = n_decimals_to_round_to
+            )
+
+        # Convert base_amount from decimal to float so it can be used for
+        # calculations.
+        specificingredient_dict_list_1[k]['base_amount'] = \
+        float(specificingredient_dict_list_1[k]['base_amount'])
+
+    print('\n specificingredient_dict_list_1 \n')
+    pprint.pprint(specificingredient_dict_list_1)
 
     """
     Query the related NutrientProfile and store the results in dictionaries.
@@ -292,8 +335,16 @@ def calculate_fulldayofeating(
     specificingredient_scalingoption_group_dict_with_results.items():
         for k in range(len(specificingredient_list)):
             id_result = specificingredient_list[k]['id']
-            calculated_amount_result = \
-            specificingredient_list[k]['calculated_amount']
+
+            # TODO: delete this old code.
+            # calculated_amount_result = \
+            # specificingredient_list[k]['calculated_amount']
+
+            calculated_amount_result = round(
+                specificingredient_list[k]['calculated_amount'],
+                specificingredient_list[k]['n_decimals_to_round_to']
+            )
+
             new_dict = {
                 'id': id_result,
                 'calculated_amount': calculated_amount_result
@@ -308,8 +359,16 @@ def calculate_fulldayofeating(
             if list_independently_scaling_entities[k]['scaling_option'] \
             == 'INDEPENDENT':
                 id_result = list_independently_scaling_entities[k]['id']
-                calculated_amount_result = \
-                list_independently_scaling_entities[k]['calculated_amount']
+
+                # Round the calculated_amount_result before adding it to the
+                # return dictionary.
+                # TODO: remove trailing zeros when there are zero decimals.
+                calculated_amount_result = round(
+                    list_independently_scaling_entities[k]['calculated_amount'],
+                    list_independently_scaling_entities[k]\
+                    ['n_decimals_to_round_to']
+                )
+
                 new_dict = {
                     'id': id_result,
                     'calculated_amount': calculated_amount_result
@@ -323,6 +382,7 @@ def calculate_fulldayofeating(
         id_result = specificingredient_scalingoption_fixed[k]['id']
         # For the SpecificIngredients with scaling_option = 'FIXED',
         # no calculations are done. Hence, the base_amounts are used.
+        # Since the base amounts are used, rounding is not necessary.
         # TODO: This might be confusing.
         calculated_amount_result = \
         specificingredient_scalingoption_fixed[k]['base_amount']

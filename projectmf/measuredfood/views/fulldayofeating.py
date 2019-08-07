@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 import copy
 from measuredfood.forms import (
-    SpecificIngredientForm,
     FullDayOfEatingForm,
     SpecificIngredientFormset
     )

@@ -17,12 +17,13 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class SpecificIngredientForm(forms.ModelForm):
-
-    class Meta:
-        model = SpecificIngredient
-        fields = '__all__'
-        exclude = ['author']
+# class SpecificIngredientForm(forms.ModelForm):
+#     """This class does not currently do anything."""
+#
+#     class Meta:
+#         model = SpecificIngredient
+#         fields = '__all__'
+#         exclude = ['author']
 
 
 class FullDayOfEatingForm(forms.ModelForm):

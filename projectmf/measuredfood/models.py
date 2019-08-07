@@ -9,6 +9,8 @@ from .ingredient_properties import (
 
 from string import ascii_lowercase
 
+MAX_DIGITS_ = 20
+DECIMAL_PLACES_ = 6
 
 class RawIngredient(models.Model):
     """
@@ -197,7 +199,13 @@ class SpecificIngredient(models.Model):
     other. So, the base_amounts are important for the ratios of the ingredients
     at a later point.
     """
-    base_amount = models.FloatField(
+    # base_amount = models.FloatField(
+    #     blank=False,
+    #     null=True
+    # )
+    base_amount = models.DecimalField(
+        max_digits=MAX_DIGITS_,
+        decimal_places=DECIMAL_PLACES_,
         blank=False,
         null=True
     )
