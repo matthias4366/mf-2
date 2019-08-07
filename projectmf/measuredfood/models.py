@@ -198,7 +198,7 @@ class SpecificIngredient(models.Model):
     at a later point.
     """
     base_amount = models.FloatField(
-        blank=True,
+        blank=False,
         null=True
     )
 

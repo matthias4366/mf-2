@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'projectmf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'm_third_postgres_database',
-        'USER': 'postgres',
-        'PASSWORD': 'testpassword',
+        'NAME': 'postgresql_database_measured_food',
+        'USER': 'user_matthias',
+        'PASSWORD': 'suregeneralunit',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
