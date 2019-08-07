@@ -1,5 +1,14 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+
+  <a href="{% url 'update-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
+    <button type="button" class="btn btn-primary">
+      Back to Full Day Of Eating.
+    </button>
+  </a>
+  <br>
+  <br>
+
   <h1>Calculation results:</h1>
     <table border="2">
       <tr>
@@ -20,5 +29,5 @@
       {% endfor %}
     </table>
   <br>
-  <br>
+
 {% endblock content %}

@@ -135,97 +135,52 @@ class DeleteFullDayOfEating(DeleteView):
             return True
         return False
 
+
 @login_required
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
-# removed SpecificIngredientFormset
 
-    if request.method == 'POST':
-        form_fulldayofeating = FullDayOfEatingForm(
-            request.POST,
-            instance=fulldayofeating_object
-            )
-        # I do not know if this part is necessary. It seems to work without.
-        # Allow the user to only add NutrientProfiles from their own collection.
-        form_fulldayofeating.fields['nutrient_profile'].queryset = \
-        NutrientProfile.objects.filter(
-            author = request.user.id
-            )
-        formset = SpecificIngredientFormset(
-            request.POST,
-            instance=fulldayofeating_object
-            )
-        # I do not know if this part is necessary. It seems to work without.
-        # Allow the user to only add RawIngredients from their own collection.
-        for form in formset:
-            form.fields['rawingredient'].queryset = \
-            RawIngredient.objects.filter(
-                author = request.user.id
-                )
-        if formset.is_valid() and form_fulldayofeating.is_valid():
-            formset.save()
-            form_fulldayofeating.save()
-            return redirect(
-                'update-fulldayofeating',
-                id_fulldayofeating=fulldayofeating_object.id
-                )
-    else:
-        form_fulldayofeating = FullDayOfEatingForm(
-            instance=fulldayofeating_object
-            )
-        # Allow the user to only add NutrientProfiles from their own collection.
-        form_fulldayofeating.fields['nutrient_profile'].queryset = \
-        NutrientProfile.objects.filter(
-            author = request.user.id
-            )
+    specificingredient_id_and_calculated_amount = \
+    fulldayofeating_calculate.calculate_fulldayofeating(
+        id_fulldayofeating,
+        SpecificIngredient,
+        FullDayOfEating,
+        NutrientProfile,
+        RawIngredient,
+        pprint,
+        copy,
+        INGREDIENT_FIELDS_NUTRITION,
+        np
+        )
+    # print('\n specificingredient_id_and_calculated_amount \n')
+    # pprint.pprint(specificingredient_id_and_calculated_amount)
 
-        formset = SpecificIngredientFormset(instance=fulldayofeating_object)
-        # Allow the user to only add RawIngredients from their own collection.
-        for form in formset:
-            form.fields['rawingredient'].queryset = \
-            RawIngredient.objects.filter(
-                author = request.user.id
-                )
+    # Save the results to the database:
+    for k in range(len(specificingredient_id_and_calculated_amount)):
+        s = SpecificIngredient.objects.get(
+            pk = specificingredient_id_and_calculated_amount[k]['id']
+        )
+        s.calculated_amount = \
+        specificingredient_id_and_calculated_amount\
+        [k]['calculated_amount']
+        s.save()
 
-        specificingredient_id_and_calculated_amount = \
-        fulldayofeating_calculate.calculate_fulldayofeating(
-            id_fulldayofeating,
-            SpecificIngredient,
-            FullDayOfEating,
-            NutrientProfile,
-            RawIngredient,
-            pprint,
-            copy,
-            INGREDIENT_FIELDS_NUTRITION,
-            np
-            )
-        print('\n specificingredient_id_and_calculated_amount \n')
-        pprint.pprint(specificingredient_id_and_calculated_amount)
+    result_calculation_fulldayofeating = \
+    query_result_calculation_fulldayofeating(id_fulldayofeating)
 
-        # Save the results to the database:
-        for k in range(len(specificingredient_id_and_calculated_amount)):
-            s = SpecificIngredient.objects.get(
-                pk = specificingredient_id_and_calculated_amount[k]['id']
-            )
-            s.calculated_amount = \
-            specificingredient_id_and_calculated_amount\
-            [k]['calculated_amount']
-            s.save()
+    context = {'id_fulldayofeating': id_fulldayofeating,
+               'result_calculation_fulldayofeating': \
+               result_calculation_fulldayofeating,
+               # TODO: the error_message_calculate_fulldayofeating needs to
+               # be given to the template and rendered in the html.
+               }
 
-        result_calculation_fulldayofeating = \
-        query_result_calculation_fulldayofeating(id_fulldayofeating)
-
-        context = {'formset': formset,
-                   'form_fulldayofeating': form_fulldayofeating,
-                   'id_fulldayofeating': id_fulldayofeating,
-                   'result_calculation_fulldayofeating': \
-                   result_calculation_fulldayofeating,
-                   # TODO: the error_message_calculate_fulldayofeating needs to
-                   # be given to the template and rendered in the html.
-                   }
-
-        # TODO: use reverse function instead
-        return render(request,'measuredfood/fulldayofeating_calculate.html', context)
+    # TODO: use reverse function instead
+    return render(
+        request,
+        'measuredfood/fulldayofeating_calculation_result.html',
+        context
+        )
 
 def query_result_calculation_fulldayofeating(id_fulldayofeating):
     """
