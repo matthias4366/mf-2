@@ -62,11 +62,16 @@ class UpdateRawIngredient(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
-class DetailRawIngredient(DetailView):
+class DetailRawIngredient(UserPassesTestMixin, DetailView):
     model = RawIngredient
+    
+    def test_func(self):
+        raw_ingredient = self.get_object()
+        if self.request.user == raw_ingredient.author:
+            return True
+        return False
 
-
-class DeleteRawIngredient(DeleteView):
+class DeleteRawIngredient(UserPassesTestMixin, DeleteView):
     model = RawIngredient
     success_url = reverse_lazy('list-raw-ingredients')
 
