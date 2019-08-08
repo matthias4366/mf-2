@@ -37,13 +37,13 @@ def create_fulldayofeating_view(request):
     """
 
     if request.method == 'POST':
-        form_fulldayofeating = FullDayOfEatingForm(request.POST)
+        form_fulldayofeating = FullDayOfEatingForm(request.user.id, request.POST)
         if form_fulldayofeating.is_valid():
             form_fulldayofeating.instance.author = request.user
             form_fulldayofeating.save()
             return redirect('list-fulldayofeating')
     else:
-        form_fulldayofeating = FullDayOfEatingForm()
+        form_fulldayofeating = FullDayOfEatingForm(request.user.id)
         context = {'form_fulldayofeating': form_fulldayofeating}
         return render(
             request,
@@ -68,6 +68,7 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
 
     if request.method == 'POST':
         form_fulldayofeating = FullDayOfEatingForm(
+            request.user.id,
             request.POST,
             instance=fulldayofeating_object
             )
@@ -99,6 +100,7 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 )
     else:
         form_fulldayofeating = FullDayOfEatingForm(
+            request.user.id,
             instance=fulldayofeating_object
             )
         # Allow the user to only add NutrientProfiles from their own collection.

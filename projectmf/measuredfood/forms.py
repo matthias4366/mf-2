@@ -9,6 +9,7 @@ from measuredfood.models import (
     Mealplan
     )
 from django.forms import inlineformset_factory
+import pprint
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -33,6 +34,13 @@ class FullDayOfEatingForm(forms.ModelForm):
         model = FullDayOfEating
         fields = '__all__'
         exclude = ['author']
+
+    # Prevent the users from using the NutrientProfiles of other users when
+    # creating a full day of eating.
+    def __init__(self, id_user, *args, **kwargs):
+        super(FullDayOfEatingForm, self).__init__(*args, **kwargs)
+        self.fields['nutrient_profile'].queryset = \
+        NutrientProfile.objects.filter(author_id=id_user)
 
 
 class NutrientProfileForm(forms.ModelForm):
