@@ -1,4 +1,4 @@
-def check_if_author(request_, model_, id_model, error_url, render):
+def check_if_author(request_, model_, id_model):
     """
     Check if the user authored the given Model instance.
     """

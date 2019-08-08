@@ -27,6 +27,7 @@ from measuredfood.ingredient_properties import (
     INGREDIENT_FIELDS_NUTRITION
 )
 import numpy as np
+from measuredfood.utils.check_if_author import check_if_author
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -52,6 +53,17 @@ def create_fulldayofeating_view(request):
 
 @login_required
 def update_fulldayofeating_view(request, id_fulldayofeating):
+    # Make sure users can not edit other user's objects.
+    user_is_author = check_if_author(
+        request,
+        FullDayOfEating,
+        id_fulldayofeating
+        )
+    if not user_is_author:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
+    # The user is the author, proceed.
+
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
     if request.method == 'POST':
@@ -121,11 +133,16 @@ class ListFullDayOfEating(
         ).order_by('name')
 
 
-class DetailFullDayOfEating(DetailView):
+class DetailFullDayOfEating(UserPassesTestMixin, DetailView):
     model = FullDayOfEating
 
+    def test_func(self):
+        fulldayofeating_ = self.get_object()
+        if self.request.user == fulldayofeating_.author:
+            return True
+        return False
 
-class DeleteFullDayOfEating(DeleteView):
+class DeleteFullDayOfEating(UserPassesTestMixin, DeleteView):
     model = FullDayOfEating
     success_url = reverse_lazy('list-fulldayofeating')
 
@@ -138,6 +155,17 @@ class DeleteFullDayOfEating(DeleteView):
 
 @login_required
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
+    # Make sure users can not edit other user's objects.
+    user_is_author = check_if_author(
+        request,
+        FullDayOfEating,
+        id_fulldayofeating
+        )
+    if not user_is_author:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
+    # The user is the author, proceed.
+
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
     specificingredient_id_and_calculated_amount = \

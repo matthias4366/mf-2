@@ -27,12 +27,11 @@ from measuredfood.utils.check_if_author import check_if_author
 
 @login_required
 def update_nutrientprofile(request, id_nutrientprofile):
+    # Make sure users can not edit other user's objects.
     user_is_author = check_if_author(
         request,
         NutrientProfile,
-        id_nutrientprofile,
-        'measuredfood/not_yours.html',
-        render
+        id_nutrientprofile
         )
     if not user_is_author:
         context = {}
