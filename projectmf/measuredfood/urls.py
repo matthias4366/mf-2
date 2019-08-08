@@ -3,7 +3,8 @@ from .views import (home,
                     register,
                     rawingredient,
                     nutrientprofile,
-                    fulldayofeating
+                    fulldayofeating,
+                    mealplan
 )
 from django.contrib.auth import views as auth_views
 
@@ -115,9 +116,38 @@ urlpatterns_fulldayofeating_after_calculation = [
     ),
 ]
 
+urlpatterns_mealplan = [
+    path(
+        'mealplan/create/',
+        mealplan.CreateMealplan.as_view(),
+        name='create-mealplan'
+    ),
+    path(
+        'mealplan/<int:id_mealplan>/update/',
+         mealplan.update_mealplan_view,
+         name='update-mealplan'
+         ),
+    path(
+        'mealplan/list/',
+        mealplan.ListMealplan.as_view(),
+        name='list-mealplan'
+    ),
+    path(
+        'mealplan/<int:pk>/detail/',
+        mealplan.DetailMealplan.as_view(),
+        name='detail-mealplan'
+    ),
+    path(
+        'mealplan/<int:pk>/delete/',
+        mealplan.DeleteMealplan.as_view(),
+        name='delete-mealplan'
+    ),
+]
+
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
 + urlpatterns_fulldayofeating \
-+ urlpatterns_fulldayofeating_after_calculation
++ urlpatterns_fulldayofeating_after_calculation \
++ urlpatterns_mealplan

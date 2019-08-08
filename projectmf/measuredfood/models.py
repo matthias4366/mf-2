@@ -163,6 +163,12 @@ class Mealplan(models.Model):
         FullDayOfEating
     )
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('list-mealplan')
+
 
 class Recipe(models.Model):
 
