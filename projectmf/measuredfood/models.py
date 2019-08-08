@@ -109,15 +109,6 @@ for name in INGREDIENT_FIELDS_NUTRITION:
     )
 
 
-class Mealplan(models.Model):
-    """
-    Putting many FullDayOfEating instances together creates a mealplan.
-    TODO: write the code for this class.
-    """
-
-    name = models.CharField(max_length=100)
-
-
 class FullDayOfEating(models.Model):
     """
     Putting many recipes and single ingredients together creates a full day of
@@ -132,7 +123,7 @@ class FullDayOfEating(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        blank=True,
+        blank=False,
         null=True
     )
 
@@ -152,6 +143,25 @@ class FullDayOfEating(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse('list-recipes')
+
+
+class Mealplan(models.Model):
+    """
+    Putting many FullDayOfEating instances together creates a mealplan.
+    """
+
+    name = models.CharField(max_length=100)
+
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
+    fulldayofeating = models.ManyToManyField(
+        FullDayOfEating
+    )
 
 
 class Recipe(models.Model):
