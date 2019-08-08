@@ -5,7 +5,8 @@ from measuredfood.models import (
     SpecificIngredient,
     FullDayOfEating,
     NutrientProfile,
-    RawIngredient
+    RawIngredient,
+    Mealplan
     )
 from django.forms import inlineformset_factory
 
@@ -47,4 +48,17 @@ SpecificIngredientFormset = inlineformset_factory(
     SpecificIngredient,
     fields=('__all__'),
     extra=1,
+    )
+
+
+class MealplanForm(forms.ModelForm):
+
+    class Meta:
+        model = Mealplan
+        exclude = ['author']
+
+    # TODO: Important error. Only query the FullDayOfEating objects that belong
+    # to the user.
+    fulldayofeating = forms.ModelMultipleChoiceField(
+        queryset = FullDayOfEating.objects.all()
     )

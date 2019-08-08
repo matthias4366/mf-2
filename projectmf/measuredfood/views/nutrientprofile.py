@@ -29,13 +29,21 @@ def update_nutrientprofile(request, id_nutrientprofile):
     instance_nutrientprofile = NutrientProfile.objects.get(
         pk=id_nutrientprofile
         )
+    
+    # Check if the user authored the NutrientProfile
+    author_id_user_request = request.user.id
 
-    ## TODO: There is a bug here. Write a check to see if the user is the author
-    # of the NutrientProfile without causing false positives.
-    # # Check if the current user is the author of the nutrient profile,
-    # # so that users can't edit the nutrient profiles of other users.
-    # if instance_nutrientprofile.author is not request.user:
-    #     return redirect('login')
+    queryset_nutrientprofile = \
+    NutrientProfile.objects.filter(id=id_nutrientprofile).values()
+    dict_nutrientprofile = list(queryset_nutrientprofile)[0]
+    author_id_nutrientprofile = dict_nutrientprofile['author_id']
+
+    user_did_author_nutrientprofile = \
+    (author_id_user_request == author_id_nutrientprofile)
+
+    if not user_did_author_nutrientprofile:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
 
     if request.method == 'POST':
         form = NutrientProfileForm(

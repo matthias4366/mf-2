@@ -19,6 +19,9 @@ from measuredfood.models import (
     Mealplan,
     FullDayOfEating
 )
+from measuredfood.forms import (
+    MealplanForm
+)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -46,7 +49,23 @@ class ListMealplan(
 
 @login_required
 def update_mealplan_view(request, id_mealplan):
-    context = {}
+
+    # Check if the user is the owner of the mealplan:
+    author_id_user_request = request.user.id
+
+    queryset_mealplan = Mealplan.objects.filter(id=id_mealplan).values()
+    dict_mealplan = list(queryset_mealplan)[0]
+    author_id_mealplan = dict_mealplan['author_id']
+
+    user_did_author_mealplan = (author_id_user_request == author_id_mealplan)
+
+    if not user_did_author_mealplan:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
+
+    form = MealplanForm()
+    context = {'form': form,
+               'user_did_author_mealplan': user_did_author_mealplan}
     # TODO: use reverse_lazy instead of hard coding the name of the html file.
     return render(request, 'measuredfood/mealplan_form.html', context)
 
