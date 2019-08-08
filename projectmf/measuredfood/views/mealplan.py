@@ -70,11 +70,17 @@ def update_mealplan_view(request, id_mealplan):
     return render(request, 'measuredfood/mealplan_form.html', context)
 
 
-class DetailMealplan(DetailView):
+class DetailMealplan(UserPassesTestMixin, DetailView):
     model = Mealplan
 
+    def test_func(self):
+        mealplan = self.get_object()
+        if self.request.user == mealplan.author:
+            return True
+        return False
 
-class DeleteMealplan(DeleteView):
+
+class DeleteMealplan(UserPassesTestMixin, DeleteView):
     model = Mealplan
     success_url = reverse_lazy('list-mealplan')
 

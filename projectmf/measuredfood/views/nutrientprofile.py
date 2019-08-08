@@ -23,27 +23,24 @@ from measuredfood.ingredient_properties import (
     INGREDIENT_FIELDS_NUTRITION
 )
 from django.contrib.auth.decorators import login_required
+from measuredfood.utils.check_if_author import check_if_author
 
 @login_required
 def update_nutrientprofile(request, id_nutrientprofile):
+    user_is_author = check_if_author(
+        request,
+        NutrientProfile,
+        id_nutrientprofile,
+        'measuredfood/not_yours.html',
+        render
+        )
+    if not user_is_author:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
+
     instance_nutrientprofile = NutrientProfile.objects.get(
         pk=id_nutrientprofile
         )
-    
-    # Check if the user authored the NutrientProfile
-    author_id_user_request = request.user.id
-
-    queryset_nutrientprofile = \
-    NutrientProfile.objects.filter(id=id_nutrientprofile).values()
-    dict_nutrientprofile = list(queryset_nutrientprofile)[0]
-    author_id_nutrientprofile = dict_nutrientprofile['author_id']
-
-    user_did_author_nutrientprofile = \
-    (author_id_user_request == author_id_nutrientprofile)
-
-    if not user_did_author_nutrientprofile:
-        context = {}
-        return render(request, 'measuredfood/not_yours.html', context)
 
     if request.method == 'POST':
         form = NutrientProfileForm(
@@ -95,11 +92,16 @@ class ListNutrientProfile(
         ).order_by('name')
 
 
-class DetailNutrientProfile(DetailView):
+class DetailNutrientProfile(UserPassesTestMixin, DetailView):
     model = NutrientProfile
 
+    def test_func(self):
+        nutrient_profile_ = self.get_object()
+        if self.request.user == nutrient_profile_.author:
+            return True
+        return False
 
-class DeleteNutrientProfile(DeleteView):
+class DeleteNutrientProfile(UserPassesTestMixin, DeleteView):
     model = NutrientProfile
     success_url = reverse_lazy('list-nutrient-profiles')
 
