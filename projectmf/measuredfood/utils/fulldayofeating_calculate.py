@@ -96,8 +96,8 @@ def calculate_fulldayofeating(
         specificingredient_dict_list_1[k]['base_amount'] = \
         float(specificingredient_dict_list_1[k]['base_amount'])
 
-    print('\n specificingredient_dict_list_1 \n')
-    pprint.pprint(specificingredient_dict_list_1)
+    # print('\n specificingredient_dict_list_1 \n')
+    # pprint.pprint(specificingredient_dict_list_1)
 
     """
     Query the related NutrientProfile and store the results in dictionaries.

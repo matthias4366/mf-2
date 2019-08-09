@@ -18,7 +18,10 @@ from django.views.generic import (
 from measuredfood.models import (
     Mealplan,
     FullDayOfEating,
-    SpecificFullDayOfEating
+    SpecificFullDayOfEating,
+    SpecificIngredient,
+    NutrientProfile,
+    RawIngredient,
 )
 from measuredfood.forms import (
     MealplanForm,
@@ -29,6 +32,13 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
 import pprint
+from measuredfood.ingredient_properties import (
+    INGREDIENT_FIELDS_NUTRITION
+)
+import numpy as np
+from measuredfood.utils import fulldayofeating_calculate
+from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
+import save_fulldayofeating_calculation_result_to_database
 
 class CreateMealplan(LoginRequiredMixin, CreateView):
     model = Mealplan
@@ -134,23 +144,75 @@ def shoppinglist_view(request, id_mealplan):
     # for every FullDayOfEating in that list. Write a separate function for
     # that which just takes in the id of the FullDayOfEating and does
     # everything else on its own.
-    
+    for k in range(len(id_list_no_duplications)):
+        id_fulldayofeating_to_recalculate = id_list_no_duplications[k]
+
+        specificingredient_id_and_calculated_amount = \
+        fulldayofeating_calculate.calculate_fulldayofeating(
+            id_fulldayofeating_to_recalculate,  # check
+            SpecificIngredient, # check
+            FullDayOfEating, # check
+            NutrientProfile,  # check
+            RawIngredient,  # check
+            pprint,  # check
+            copy,  # check
+            INGREDIENT_FIELDS_NUTRITION,  # check
+            np  # check
+            )
+        # Save the results to the database:
+        save_fulldayofeating_calculation_result_to_database(
+            specificingredient_id_and_calculated_amount,
+            SpecificIngredient
+        )
 
     # Sum up the calculated amounts.
     # Initiate a dictionary shopping_list_dict which will have the format
-    # {'RawIngredient_name': sum total amount}
-    # Iterate over the id_list_with_duplications. For each FullDayOfEating in
-    # that list, iterate over all the SpecificIngredients.
-    # For each SpecificIngredient, get the name of the associated RawIngredient.
-    # Check if the name of the RawIngredient is already in the
-    # shopping_list_dict. If it is not, add it and initialize the sum total
-    # amount as 0.
-    # After that, add the calculated_amount of the SpecificIngredient which
-    # is related to the RawIngredient to the sum total amount.
+    # {'RawIngredient_name': sum total amount}.
+    shopping_list_dict = {}
+
+    # Iterate over the id_list_with_duplications.
+    for id_fulldayofeating_k in id_list_with_duplications:
+        queryset_specificingredient_for_sum = SpecificIngredient.objects.filter(
+            fulldayofeating = id_fulldayofeating_k
+        ).values()
+        list_specificingredient_for_sum = list(queryset_specificingredient_for_sum)
+        print('\n\n list_specificingredient_for_sum')
+        pprint.pprint(list_specificingredient_for_sum)
+
+        # For each FullDayOfEating in
+        # that list, iterate over all the SpecificIngredients.
+        for dict_specificingredient_k in list_specificingredient_for_sum:
+            # For each SpecificIngredient, get the name of the associated RawIngredient.
+            rawingredient_id = dict_specificingredient_k['rawingredient_id']
+            query_rawingredient_name = RawIngredient.objects.filter(
+                id = rawingredient_id
+            ).values('name')
+            # print('\n\n query_rawingredient_name')
+            # pprint.pprint(query_rawingredient_name)
+
+            rawingredient_name = list(query_rawingredient_name)[0]['name']
+            # print('\n\n rawingredient_name')
+            # pprint.pprint(rawingredient_name)
+
+            # Check if the name of the RawIngredient is already in the
+            # shopping_list_dict. If it is not, add it and initialize the sum total
+            # amount as 0.
+            if rawingredient_name not in shopping_list_dict:
+                new_dict = {rawingredient_name: 0}
+                shopping_list_dict.update(new_dict)
+
+            # After that, add the calculated_amount of the SpecificIngredient which
+            # is related to the RawIngredient to the sum total amount.
+            shopping_list_dict[rawingredient_name] = \
+            shopping_list_dict[rawingredient_name] \
+            + dict_specificingredient_k['calculated_amount']
 
 
-
-    context = {}
+    # print('\n\n shopping_list_dict')
+    # pprint.pprint(shopping_list_dict)
+    context = {'results_shopping_list': shopping_list_dict}
+    print('\n\n context')
+    pprint.pprint(context)
     return render(request, 'measuredfood/shoppinglist.html', context)
 
 
