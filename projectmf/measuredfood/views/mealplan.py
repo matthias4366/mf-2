@@ -17,7 +17,8 @@ from django.views.generic import (
 )
 from measuredfood.models import (
     Mealplan,
-    FullDayOfEating
+    FullDayOfEating,
+    SpecificFullDayOfEating
 )
 from measuredfood.forms import (
     MealplanForm,
@@ -27,6 +28,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
+import pprint
 
 class CreateMealplan(LoginRequiredMixin, CreateView):
     model = Mealplan
@@ -93,17 +95,46 @@ def update_mealplan_view(request, id_mealplan):
 
 @login_required
 def shoppinglist_view(request, id_mealplan):
+
     # From id_mealplan, get all the related SpecificFullDayOfEating objects.
+    queryset_specificfulldayofeating = SpecificFullDayOfEating.objects.filter(
+        mealplan = id_mealplan
+    )
 
     # From all the SpecificFullDayOfEating, get the related FullDayOfEating
-    # objects. Save the id values in a list. Make two lists: one without
+    # objects.
+    queryset_related_fulldayofeating = \
+    queryset_specificfulldayofeating.values('fulldayofeating')
+    list_dict_related_fulldayofeating = list(queryset_related_fulldayofeating)
+
+    # TODO delete this.
+    # print('\n\n list_dict_related_fulldayofeating')
+    # pprint.pprint(list_dict_related_fulldayofeating)
+
+    # Save the id values in a list. Make two lists: one without
     # duplications for the recalculation and one with duplications for the
     # making of the shopping list.
+    id_list_no_duplications = []
+    id_list_with_duplications = []
+    for k in range(len(list_dict_related_fulldayofeating)):
+        # TODO: A for loop is used for a dictionary that only has one entry.
+        # This seems inefficient and confusing, but is also should not matter.
+        for key, value in list_dict_related_fulldayofeating[k].items():
+            id_list_with_duplications.append(value)
+            if value not in id_list_no_duplications:
+                id_list_no_duplications.append(value)
+
+    # TODO: delete this.
+    # print('\n\n id_list_no_duplications')
+    # pprint.pprint(id_list_no_duplications)
+    # print('\n\n id_list_with_duplications')
+    # pprint.pprint(id_list_with_duplications)
 
     # Iterate through the id_list_no_duplications and recalculate the amounts
     # for every FullDayOfEating in that list. Write a separate function for
     # that which just takes in the id of the FullDayOfEating and does
     # everything else on its own.
+    
 
     # Sum up the calculated amounts.
     # Initiate a dictionary shopping_list_dict which will have the format
@@ -115,7 +146,7 @@ def shoppinglist_view(request, id_mealplan):
     # shopping_list_dict. If it is not, add it and initialize the sum total
     # amount as 0.
     # After that, add the calculated_amount of the SpecificIngredient which
-    # is related to the RawIngredient to the sum total amount. 
+    # is related to the RawIngredient to the sum total amount.
 
 
 
