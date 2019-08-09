@@ -28,6 +28,8 @@ from measuredfood.ingredient_properties import (
 )
 import numpy as np
 from measuredfood.utils.check_if_author import check_if_author
+from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
+import save_fulldayofeating_calculation_result_to_database
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -186,14 +188,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # pprint.pprint(specificingredient_id_and_calculated_amount)
 
     # Save the results to the database:
-    for k in range(len(specificingredient_id_and_calculated_amount)):
-        s = SpecificIngredient.objects.get(
-            pk = specificingredient_id_and_calculated_amount[k]['id']
-        )
-        s.calculated_amount = \
-        specificingredient_id_and_calculated_amount\
-        [k]['calculated_amount']
-        s.save()
+    save_fulldayofeating_calculation_result_to_database(
+        specificingredient_id_and_calculated_amount,
+        SpecificIngredient
+    )
 
     result_calculation_fulldayofeating = \
     query_result_calculation_fulldayofeating(id_fulldayofeating)
