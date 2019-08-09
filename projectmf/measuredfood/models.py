@@ -113,7 +113,6 @@ class FullDayOfEating(models.Model):
     """
     Putting many recipes and single ingredients together creates a full day of
     eating.
-    TODO: write the code for this class and create the correct relationships.
     """
 
     name = models.CharField(max_length=100)
@@ -135,65 +134,15 @@ class FullDayOfEating(models.Model):
         on_delete=models.SET_NULL,
         editable = True,
         null=True,
-        blank=True
+        blank=False
     )
 
     def __str__(self):
         return self.name
-
-    # def get_absolute_url(self):
-    #     return reverse('list-recipes')
-
-
-class Mealplan(models.Model):
-    """
-    Putting many FullDayOfEating instances together creates a mealplan.
-    """
-
-    name = models.CharField(max_length=100)
-
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True
-    )
-
-    fulldayofeating = models.ManyToManyField(
-        FullDayOfEating
-    )
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('list-mealplan')
-
-
-class Recipe(models.Model):
-
-    name = models.CharField(max_length=100)
-
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        editable = False
-    )
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('list-recipes')
 
 
 class SpecificIngredient(models.Model):
-    # This class does not need an author, as it is linked to a specific
-    # FullDayOfEating and the FullDayOfEating has an author.
 
-    # A specific ingredient can't both belong to a recipe AND to a
-    # FullDayOfEating. This is complicated, so I will forget about
-    # the recipes for now.
     fulldayofeating = models.ForeignKey(
         FullDayOfEating,
         on_delete=models.CASCADE,
@@ -215,10 +164,6 @@ class SpecificIngredient(models.Model):
     other. So, the base_amounts are important for the ratios of the ingredients
     at a later point.
     """
-    # base_amount = models.FloatField(
-    #     blank=False,
-    #     null=True
-    # )
     base_amount = models.DecimalField(
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_,
@@ -303,3 +248,48 @@ class SpecificIngredient(models.Model):
             return label
         else:
             return 'SpecificIngredient without an associated RawIngredient'
+
+
+class Mealplan(models.Model):
+    """
+    Putting many SpecificFullDayOfEating instances together creates a mealplan.
+    """
+
+    name = models.CharField(max_length=100)
+
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('list-mealplan')
+
+
+class SpecificFullDayOfEating(models.Model):
+    """
+    The principle here is the same as with RawIngredient and SpecificIngredient.
+    Here is is FullDayOfEating and SpecificFullDayOfEating.
+    SpecificFullDayOfEating is used to composite a Mealplan.
+    Each SpecificFullDayOfEating has an associated Mealplan and an associated
+    FullDayOfEating and serves as the glue between the two.
+    """
+
+    fulldayofeating = models.ForeignKey(
+        FullDayOfEating,
+        on_delete=models.CASCADE,
+        blank=False,
+        null=True
+    )
+
+    mealplan = models.ForeignKey(
+        Mealplan,
+        on_delete=models.CASCADE,
+        blank=False,
+        null=True
+    )

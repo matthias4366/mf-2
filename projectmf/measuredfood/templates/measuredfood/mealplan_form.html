@@ -6,7 +6,7 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Mealplan</legend>
-                {{ form|crispy }}
+                {{ form_mealplan|crispy }}
             </fieldset>
             <div class="form-group">
                 <button
@@ -16,6 +16,28 @@
                   Save
                 </button>
             </div>
+
+            <table border="2">
+              <tr>
+                <th>Full day of eating</th>
+                <th>Delete</th>
+                <th>View</th>
+              </tr>
+
+              {{ formset_specificfulldayofeating.management_form }}
+              {% for form in formset_specificfulldayofeating %}
+                {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                {% endfor %}
+                <tr>
+                  <td>{{ form.fulldayofeating }}</td>
+                  <td>{{ form.DELETE }}</td>
+                  <td>VIEW BUTTON HERE</td>
+                </tr>
+              {% endfor %}
+            </table>
+            <br>
+            <input type="submit" value="Save changes / Add more full days of eating" />
         </form>
     </div>
 {% endblock content %}

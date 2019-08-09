@@ -6,7 +6,8 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
     RawIngredient,
-    Mealplan
+    Mealplan,
+    SpecificFullDayOfEating
     )
 from django.forms import inlineformset_factory
 import pprint
@@ -17,15 +18,6 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-
-
-# class SpecificIngredientForm(forms.ModelForm):
-#     """This class does not currently do anything."""
-#
-#     class Meta:
-#         model = SpecificIngredient
-#         fields = '__all__'
-#         exclude = ['author']
 
 
 class FullDayOfEatingForm(forms.ModelForm):
@@ -65,8 +57,10 @@ class MealplanForm(forms.ModelForm):
         model = Mealplan
         exclude = ['author']
 
-    # TODO: Important error. Only query the FullDayOfEating objects that belong
-    # to the user.
-    fulldayofeating = forms.ModelMultipleChoiceField(
-        queryset = FullDayOfEating.objects.all()
-    )
+
+SpecificFullDayOfEatingFormset = inlineformset_factory(
+    Mealplan,
+    SpecificFullDayOfEating,
+    fields=('__all__'),
+    extra=1,
+)
