@@ -144,10 +144,19 @@ urlpatterns_mealplan = [
     ),
 ]
 
+urlpatterns_shoppinglist = [
+    path(
+        'mealplan/<int:id_mealplan>/shoppinglist/',
+        mealplan.shoppinglist_view,
+        name='mealplan-shoppinglist'
+    ),
+]
+
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
 + urlpatterns_nutrientprofile \
 + urlpatterns_fulldayofeating \
 + urlpatterns_fulldayofeating_after_calculation \
-+ urlpatterns_mealplan
++ urlpatterns_mealplan \
++ urlpatterns_shoppinglist

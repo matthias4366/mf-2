@@ -61,14 +61,14 @@ def update_mealplan_view(request, id_mealplan):
             request.POST,
             instance = mealplan_object
         )
-        
+
         if form_mealplan.is_valid() and \
         formset_specificfulldayofeating.is_valid():
             formset_specificfulldayofeating.save()
             form_mealplan.save()
             return redirect(
                 'update-mealplan',
-                id_mealplan=mealplan_object.id
+                id_mealplan = mealplan_object.id
                 )
     else:
         form_mealplan = MealplanForm(instance = mealplan_object)
@@ -85,10 +85,16 @@ def update_mealplan_view(request, id_mealplan):
 
         context = {
             'form_mealplan': form_mealplan,
-            'formset_specificfulldayofeating': formset_specificfulldayofeating
+            'formset_specificfulldayofeating': formset_specificfulldayofeating,
+            'id_mealplan': mealplan_object.id
         }
         # TODO: use reverse_lazy instead of hard coding the name of the html file.
         return render(request, 'measuredfood/mealplan_form.html', context)
+
+@login_required
+def shoppinglist_view(request, id_mealplan):
+    context = {}
+    return render(request, 'measuredfood/shoppinglist.html', context)
 
 
 class ListMealplan(

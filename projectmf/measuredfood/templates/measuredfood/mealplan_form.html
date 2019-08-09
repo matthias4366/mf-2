@@ -16,12 +16,12 @@
                   Save
                 </button>
             </div>
-
+            <!-- TODO: find a better way to introduce line breaks. -->
+            <p>----------------------------------------------------------------------------------------------------------------------------------------------------</p>
             <table border="2">
               <tr>
                 <th>Full day of eating</th>
                 <th>Delete</th>
-                <th>View</th>
               </tr>
 
               {{ formset_specificfulldayofeating.management_form }}
@@ -30,14 +30,25 @@
                   {{ hidden }}
                 {% endfor %}
                 <tr>
+                  <!-- The goal is that users are not shown FullDayOfEating
+                  objects made by other users.The form already shows only the
+                  FullDayOfEating objects belonging to the user. Matthias
+                  Schulz does not know why.
+                  -->
                   <td>{{ form.fulldayofeating }}</td>
                   <td>{{ form.DELETE }}</td>
-                  <td>VIEW BUTTON HERE</td>
                 </tr>
               {% endfor %}
             </table>
             <br>
             <input type="submit" value="Save changes / Add more full days of eating" />
         </form>
+        <br>
+        <br>
+        <a href="{% url 'mealplan-shoppinglist' id_mealplan=id_mealplan %}">
+          <button type="button" class="btn btn-primary">
+            Make shopping list
+          </button>
+        </a>
     </div>
 {% endblock content %}
