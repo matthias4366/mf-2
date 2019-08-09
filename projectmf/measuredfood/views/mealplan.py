@@ -93,6 +93,32 @@ def update_mealplan_view(request, id_mealplan):
 
 @login_required
 def shoppinglist_view(request, id_mealplan):
+    # From id_mealplan, get all the related SpecificFullDayOfEating objects.
+
+    # From all the SpecificFullDayOfEating, get the related FullDayOfEating
+    # objects. Save the id values in a list. Make two lists: one without
+    # duplications for the recalculation and one with duplications for the
+    # making of the shopping list.
+
+    # Iterate through the id_list_no_duplications and recalculate the amounts
+    # for every FullDayOfEating in that list. Write a separate function for
+    # that which just takes in the id of the FullDayOfEating and does
+    # everything else on its own.
+
+    # Sum up the calculated amounts.
+    # Initiate a dictionary shopping_list_dict which will have the format
+    # {'RawIngredient_name': sum total amount}
+    # Iterate over the id_list_with_duplications. For each FullDayOfEating in
+    # that list, iterate over all the SpecificIngredients.
+    # For each SpecificIngredient, get the name of the associated RawIngredient.
+    # Check if the name of the RawIngredient is already in the
+    # shopping_list_dict. If it is not, add it and initialize the sum total
+    # amount as 0.
+    # After that, add the calculated_amount of the SpecificIngredient which
+    # is related to the RawIngredient to the sum total amount. 
+
+
+
     context = {}
     return render(request, 'measuredfood/shoppinglist.html', context)
 
