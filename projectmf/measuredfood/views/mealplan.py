@@ -213,7 +213,7 @@ def shoppinglist_view(request, id_mealplan):
     context = {'results_shopping_list': shopping_list_dict}
     print('\n\n context')
     pprint.pprint(context)
-    return render(request, 'measuredfood/shoppinglist.html', context)
+    return render(request, 'measuredfood/shoppinglist.html', {'results_shopping_list': shopping_list_dict})
 
 
 class ListMealplan(
