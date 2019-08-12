@@ -44,21 +44,13 @@ VITAMINS = [
 
 ELEMENTS = [
     'calcium',
-    'calcium_unit',
     'chromium',
-    'chromium_unit',
     'coppper',
-    'copper_unit',
     'fluoride',
-    'fluoride_unit',
     'iodine',
-    'iodine_unit',
     'iron',
-    'iron_unit',
     'magnesium',
-    'magnesium_unit',
     'manganese',
-    'manganese_unit',
     'molybdenum',
     'phosphorus',
     'selenium',
@@ -72,6 +64,15 @@ FIBER = [
     'total_fiber',
 ]
 
-OTHER = [
-    'total_water',
+
+# Since users might not want to type in all the nutritional information for
+# their ingredients, since they are maybe only interested in macros,
+# a short list is provided. This
+INGREDIENT_PROPERTIES_SHORT_LIST = [
+
+]
+
+# Some things are ignored for now.
+IGNORED = [
+    'total_water'
 ]

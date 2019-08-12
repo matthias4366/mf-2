@@ -2,6 +2,7 @@ from django.urls import path
 from .views import (home,
                     register,
                     rawingredient,
+                    rawingredient2,
                     nutrientprofile,
                     fulldayofeating,
                     mealplan
@@ -48,6 +49,34 @@ urlpatterns_rawingredient = [
         'ingredients/<int:pk>/delete/',
         rawingredient.DeleteRawIngredient.as_view(),
         name='delete-raw-ingredient'
+    ),
+]
+
+urlpatterns_rawingredient2 = [
+    path(
+        'rawingredient2/create/',
+        rawingredient2.CreateRawIngredient2.as_view(),
+        name='create-rawingredient2'
+    ),
+    path(
+        'rawingredient2/list/',
+        rawingredient2.ListRawIngredient2.as_view(),
+        name='list-rawingredient2'
+    ),
+    path(
+        'rawingredient2/<int:pk>/update/',
+        rawingredient2.UpdateRawIngredient2.as_view(),
+        name='update-rawingredient2'
+    ),
+    path(
+        'rawingredient2/<int:pk>/detail/',
+        rawingredient2.DetailRawIngredient2.as_view(),
+        name='detail-rawingredient2'
+    ),
+    path(
+        'rawingredient2/<int:pk>/delete/',
+        rawingredient2.DeleteRawIngredient2.as_view(),
+        name='delete-rawingredient2'
     ),
 ]
 
@@ -155,6 +184,7 @@ urlpatterns_shoppinglist = [
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient \
++ urlpatterns_rawingredient2 \
 + urlpatterns_nutrientprofile \
 + urlpatterns_fulldayofeating \
 + urlpatterns_fulldayofeating_after_calculation \
