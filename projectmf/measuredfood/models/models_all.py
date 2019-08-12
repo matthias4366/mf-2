@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .ingredient_properties import (
+from measuredfood.ingredient_properties import (
     INGREDIENT_FIELDS_NUMBERS,
     INGREDIENT_FIELDS_LINKS,
     INGREDIENT_FIELDS_NUTRITION
