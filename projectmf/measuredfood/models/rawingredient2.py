@@ -38,9 +38,17 @@ class RawIngredient2(models.Model):
         null = False,
         default = 0
     )
-    # TODO: code this as a choice field.
-    # Start with the choices "EURO" and "DOLLAR".
-    # currency_price_per_reference_amount
+
+    CURRENCY_CHOICES = [
+        ('euro', 'euro'),
+        ('dollar', 'dollar')
+    ]
+    currency_of_price_per_reference_amount = models.CharField(
+        max_length = 100,
+        choices = CURRENCY_CHOICES,
+        blank = False,
+        null = True,
+    )
 
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
@@ -49,9 +57,18 @@ class RawIngredient2(models.Model):
         null = False,
         default = 100
     )
-    # TODO: code this as a choice field.
-    # Have gram as the only choice for now.
-    # reference_amount_unit
+
+    # The unit choices have been implemented for extensibility, so it is easier
+    # to add more unit choices later.
+    MASS_UNIT_CHOICES = [
+        ('gram', 'gram')
+    ]
+    reference_amount_unit = models.CharField(
+        max_length = 100,
+        choices = MASS_UNIT_CHOICES,
+        blank = False,
+        null = True,
+    )
 
     def __str__(self):
         return self.name

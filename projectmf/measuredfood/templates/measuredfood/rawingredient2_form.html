@@ -6,6 +6,40 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Ingredient</legend>
+                {{ form.management_form }}
+                {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                {% endfor %}
+                <table>
+                  <tr>
+                    <td colspan="2">{{ form.name.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">{{ form.name }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"><hr></td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2">Additional information:</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.price_per_reference_amount.label_tag }}</td>
+                    <td>{{ form.currency_of_price_per_reference_amount.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.price_per_reference_amount }}</td>
+                    <td>{{ form.currency_of_price_per_reference_amount }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"><hr></td>
+                  </tr>
+                </table>
+                <br>
+                <br>
                 {{ form }}
             </fieldset>
             <div class="form-group">

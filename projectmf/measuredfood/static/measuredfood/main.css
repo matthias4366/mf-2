@@ -1,3 +1,25 @@
+/* Create horizontal lines in the create form for the RawIngredient2
+to create sections. */
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 5px;
+}
+
+
+/* Create blank row in html table which holds the form for the creation
+of RawIngredient2 objects. The blank row causes the related fields to be
+visually grouped together. */
+.blank_row
+{
+    height: 20px !important;
+    background-color: #FFFFFF;
+}
+
 body {
   background: #fafafa;
   color: #333333;
