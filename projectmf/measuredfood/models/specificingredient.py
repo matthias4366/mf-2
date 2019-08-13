@@ -51,21 +51,12 @@ class SpecificIngredient(models.Model):
         null=True
     )
 
-    # Units
-    GRAM = 'g'
-    MILLILITRE = 'ml'
-    PILL = 'pill'
-
-    BASE_AMOUNT_UNIT_CHOICES = [
-        (GRAM, 'gram'),
-        (MILLILITRE, 'milli litre'),
-        (PILL, 'pill'),
-    ]
-
+    # Do not give the user the choice between different units if you are not
+    # doing anything with that choice on the backend.
     base_amount_unit = models.CharField(
         max_length = 100,
-        choices = BASE_AMOUNT_UNIT_CHOICES,
-        default = GRAM,
+        choices = [('gram', 'gram')],
+        default = 'gram',
     )
 
     """

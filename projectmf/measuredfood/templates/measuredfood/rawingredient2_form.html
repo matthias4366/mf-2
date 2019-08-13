@@ -17,13 +17,523 @@
                   <tr>
                     <td colspan="2">{{ form.name }}</td>
                   </tr>
+
                   <tr class="blank_row">
                       <td colspan="2"></td>
                   </tr>
+                  <tr>
+                    <td>{{ form.reference_amount.label_tag }}</td>
+                    <td>{{ form.reference_amount_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.reference_amount }}</td>
+                    <td>{{ form.reference_amount_unit }}</td>
+                  </tr>
+
                   <tr class="blank_row">
-                      <td colspan="2"><hr></td>
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calories.label_tag }}</td>
+                    <td>{{ form.calories_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calories }}</td>
+                    <td>{{ form.calories_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.carbohydrates.label_tag }}</td>
+                    <td>{{ form.carbohydrates_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.carbohydrates }}</td>
+                    <td>{{ form.carbohydrates_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.protein.label_tag }}</td>
+                    <td>{{ form.protein_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.protein }}</td>
+                    <td>{{ form.protein_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fat.label_tag }}</td>
+                    <td>{{ form.fat_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fat }}</td>
+                    <td>{{ form.fat_unit }}</td>
                   </tr>
                   <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                        <button
+                          class="btn btn-outline-info"
+                          type="submit"
+                          id="id_button_save_new_ingredient">
+                          Save
+                        </button>
+                      </td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2"><hr></td>
+                  </tr>
+
+                  <tr>
+                      <td colspan="2">Essential fats:</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.linoleic_acid.label_tag }}</td>
+                    <td>{{ form.linoleic_acid_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.linoleic_acid }}</td>
+                    <td>{{ form.linoleic_acid_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.alpha_linoleic_acid.label_tag }}</td>
+                    <td>{{ form.alpha_linoleic_acid_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.alpha_linoleic_acid }}</td>
+                    <td>{{ form.alpha_linoleic_acid_unit }}</td>
+                  </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2"><hr></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">Vitamins:</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_a.label_tag }}</td>
+                    <td>{{ form.vitamin_a_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_a }}</td>
+                    <td>{{ form.vitamin_a_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_c.label_tag }}</td>
+                    <td>{{ form.vitamin_c_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_c }}</td>
+                    <td>{{ form.vitamin_c_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_d.label_tag }}</td>
+                    <td>{{ form.vitamin_d_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_d }}</td>
+                    <td>{{ form.vitamin_d_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_e.label_tag }}</td>
+                    <td>{{ form.vitamin_e_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_e }}</td>
+                    <td>{{ form.vitamin_e_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_k.label_tag }}</td>
+                    <td>{{ form.vitamin_k_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_k }}</td>
+                    <td>{{ form.vitamin_k_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.thiamin.label_tag }}</td>
+                    <td>{{ form.thiamin_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.thiamin }}</td>
+                    <td>{{ form.thiamin_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.riboflavin.label_tag }}</td>
+                    <td>{{ form.riboflavin_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.riboflavin }}</td>
+                    <td>{{ form.riboflavin_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.niacin.label_tag }}</td>
+                    <td>{{ form.niacin_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.niacin }}</td>
+                    <td>{{ form.niacin_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b6.label_tag }}</td>
+                    <td>{{ form.vitamin_b6_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b6 }}</td>
+                    <td>{{ form.vitamin_b6_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.folate.label_tag }}</td>
+                    <td>{{ form.folate_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.folate }}</td>
+                    <td>{{ form.folate_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b12.label_tag }}</td>
+                    <td>{{ form.vitamin_b12_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b12 }}</td>
+                    <td>{{ form.vitamin_b12_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.pantothenic_acid.label_tag }}</td>
+                    <td>{{ form.pantothenic_acid_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.pantothenic_acid }}</td>
+                    <td>{{ form.pantothenic_acid_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.biotin.label_tag }}</td>
+                    <td>{{ form.biotin_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.biotin }}</td>
+                    <td>{{ form.biotin_unit }}</td>
+                  </tr>
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.choline.label_tag }}</td>
+                    <td>{{ form.choline_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.choline }}</td>
+                    <td>{{ form.choline_unit }}</td>
+                  </tr>
+
+
+
+
+
+
+
+
+
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2"><hr></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">Elements:</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calcium.label_tag }}</td>
+                    <td>{{ form.calcium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calcium }}</td>
+                    <td>{{ form.calcium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chromium.label_tag }}</td>
+                    <td>{{ form.chromium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chromium }}</td>
+                    <td>{{ form.chromium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.coppper.label_tag }}</td>
+                    <td>{{ form.coppper_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.coppper }}</td>
+                    <td>{{ form.coppper_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fluoride.label_tag }}</td>
+                    <td>{{ form.fluoride_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fluoride }}</td>
+                    <td>{{ form.fluoride_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iodine.label_tag }}</td>
+                    <td>{{ form.iodine_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iodine }}</td>
+                    <td>{{ form.iodine_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iron.label_tag }}</td>
+                    <td>{{ form.iron_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iron }}</td>
+                    <td>{{ form.iron_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.magnesium.label_tag }}</td>
+                    <td>{{ form.magnesium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.magnesium }}</td>
+                    <td>{{ form.magnesium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.manganese.label_tag }}</td>
+                    <td>{{ form.manganese_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.manganese }}</td>
+                    <td>{{ form.manganese_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.molybdenum.label_tag }}</td>
+                    <td>{{ form.molybdenum_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.molybdenum }}</td>
+                    <td>{{ form.molybdenum_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.phosphorus.label_tag }}</td>
+                    <td>{{ form.phosphorus_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.phosphorus }}</td>
+                    <td>{{ form.phosphorus_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.selenium.label_tag }}</td>
+                    <td>{{ form.selenium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.selenium }}</td>
+                    <td>{{ form.selenium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.zinc.label_tag }}</td>
+                    <td>{{ form.zinc_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.zinc }}</td>
+                    <td>{{ form.zinc_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.potassium.label_tag }}</td>
+                    <td>{{ form.potassium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.potassium }}</td>
+                    <td>{{ form.potassium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.sodium.label_tag }}</td>
+                    <td>{{ form.sodium_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.sodium }}</td>
+                    <td>{{ form.sodium_unit }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chloride.label_tag }}</td>
+                    <td>{{ form.chloride_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chloride }}</td>
+                    <td>{{ form.chloride_unit }}</td>
+                  </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2"><hr></td>
+                  </tr>
+
+
+                  <tr>
                       <td colspan="2">Additional information:</td>
                   </tr>
                   <tr>
@@ -34,13 +544,10 @@
                     <td>{{ form.price_per_reference_amount }}</td>
                     <td>{{ form.currency_of_price_per_reference_amount }}</td>
                   </tr>
-                  <tr class="blank_row">
+                  <tr>
                       <td colspan="2"><hr></td>
                   </tr>
                 </table>
-                <br>
-                <br>
-                {{ form }}
             </fieldset>
             <div class="form-group">
                 <button

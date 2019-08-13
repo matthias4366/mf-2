@@ -1,17 +1,28 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_NUMBERS,
-    INGREDIENT_FIELDS_LINKS,
-    INGREDIENT_FIELDS_NUTRITION
+from measuredfood.ingredient_properties2 import (
+    VITAMINS_AND_DEFAULT_UNITS,
+    ELEMENTS_AND_DEFAULT_UNITS,
 )
 
 from string import ascii_lowercase
 
-MAX_DIGITS_ = 20
-DECIMAL_PLACES_ = 6
+# The unit choices have been implemented for extensibility, so it is easier
+# to add more unit choices later.
+MASS_UNIT_CHOICES = [
+    ('gram', 'gram'),
+    ('milligram', 'milligram'),
+    ('microgram', 'microgram'),
+]
+MASS_UNIT_DEFAULT_CHOICE = 'gram'
 
+VITAMIN_AND_ELEMENT_UNIT_CHOICES = [
+    ('gram', 'gram'),
+    ('milligram', 'milligram'),
+    ('microgram', 'microgram'),
+    ('international units', 'international units')
+]
 
 class RawIngredient2(models.Model):
     """
@@ -39,15 +50,12 @@ class RawIngredient2(models.Model):
         default = 0
     )
 
-    CURRENCY_CHOICES = [
-        ('euro', 'euro'),
-        ('dollar', 'dollar')
-    ]
     currency_of_price_per_reference_amount = models.CharField(
         max_length = 100,
-        choices = CURRENCY_CHOICES,
+        choices = [('euro', 'euro'),],
         blank = False,
-        null = True,
+        null = False,
+        default = 'euro',
     )
 
     # Reference amount to which all the nutrition amounts related, e.g.
@@ -58,16 +66,92 @@ class RawIngredient2(models.Model):
         default = 100
     )
 
-    # The unit choices have been implemented for extensibility, so it is easier
-    # to add more unit choices later.
-    MASS_UNIT_CHOICES = [
-        ('gram', 'gram')
-    ]
     reference_amount_unit = models.CharField(
         max_length = 100,
         choices = MASS_UNIT_CHOICES,
         blank = False,
+        null = False,
+        default = MASS_UNIT_DEFAULT_CHOICE,
+    )
+
+    # Calories
+    calories = models.FloatField(
+        blank = False,
         null = True,
+    )
+    calories_unit = models.CharField(
+        max_length = 100,
+        choices = [('kcal', 'kcal'),],
+        blank = False,
+        null = False,
+        default = 'kcal',
+    )
+
+    # Macronutrients
+    # Carbohydrates
+    carbohydrates = models.FloatField(
+        blank = False,
+        null = True,
+    )
+    carbohydrates_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram'),],
+        blank = False,
+        null = False,
+        default = MASS_UNIT_DEFAULT_CHOICE,
+    )
+
+    # Fat
+    fat = models.FloatField(
+        blank = False,
+        null = True,
+    )
+    fat_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram')],
+        blank = False,
+        null = False,
+        default = 'gram',
+    )
+
+    # Protein
+    protein = models.FloatField(
+        blank = False,
+        null = True,
+    )
+    protein_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram')],
+        blank = False,
+        null = False,
+        default = 'gram',
+    )
+
+    # Essential fats
+    # Linoleic acid
+    linoleic_acid = models.FloatField(
+        blank = False,
+        null = True,
+    )
+    linoleic_acid_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram')],
+        blank = False,
+        null = False,
+        default = 'gram',
+    )
+
+    # Alpha linoleic acid
+    alpha_linoleic_acid = models.FloatField(
+        blank = False,
+        null = True,
+    )
+    alpha_linoleic_acid_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram')],
+        blank = False,
+        null = False,
+        default = 'gram',
     )
 
     def __str__(self):
@@ -75,3 +159,48 @@ class RawIngredient2(models.Model):
 
     def get_absolute_url(self):
         return reverse('list-rawingredient2')
+
+# Vitamins
+
+for vitamin_dict in VITAMINS_AND_DEFAULT_UNITS:
+    # add the vitamin fields
+    RawIngredient2.add_to_class(
+        vitamin_dict['name'],
+        models.FloatField(
+            blank=True,
+            null=True,
+        )
+    )
+    # add the vitamin unit fields.
+    RawIngredient2.add_to_class(
+        vitamin_dict['name']+'_unit',
+        models.CharField(
+            max_length = 100,
+            choices = [(vitamin_dict['default_unit'], vitamin_dict['default_unit']),],
+            blank = False,
+            null = False,
+            default = vitamin_dict['default_unit'],
+        )
+    )
+
+# Elements
+for element_dict in ELEMENTS_AND_DEFAULT_UNITS:
+    # add the element fields
+    RawIngredient2.add_to_class(
+        element_dict['name'],
+        models.FloatField(
+            blank=True,
+            null=True,
+        )
+    )
+    # add the element unit fields.
+    RawIngredient2.add_to_class(
+        element_dict['name']+'_unit',
+        models.CharField(
+            max_length = 100,
+            choices = [(element_dict['default_unit'], element_dict['default_unit']),],
+            blank = False,
+            null = False,
+            default = element_dict['default_unit'],
+        )
+    )
