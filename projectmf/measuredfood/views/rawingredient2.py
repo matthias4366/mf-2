@@ -106,17 +106,17 @@ class DetailRawIngredient2(UserPassesTestMixin, DetailView):
     model = RawIngredient2
 
     def test_func(self):
-        raw_ingredient = self.get_object()
-        if self.request.user == raw_ingredient.author:
+        rawingredient2 = self.get_object()
+        if self.request.user == rawingredient2.author:
             return True
         return False
 
 class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
     model = RawIngredient2
-    success_url = reverse_lazy('list-raw-ingredients')
+    success_url = reverse_lazy('list-rawingredient2')
 
     def test_func(self):
-        raw_ingredient = self.get_object()
-        if self.request.user == raw_ingredient.author:
+        rawingredient2 = self.get_object()
+        if self.request.user == rawingredient2.author:
             return True
         return False
