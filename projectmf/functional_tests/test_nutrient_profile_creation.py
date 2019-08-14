@@ -87,15 +87,7 @@ class NutrientProfileTest(FunctionalTest):
             for key, value in nutrient_profile_dict_list[k].items():
                 id_from_key = 'id_' + key
                 if value != None:
-                    # There are both input fields for numbers and checkboxes
-                    # to enter boolean values.
-                    if "_is_targeted" in id_from_key:
-                        # Appropriatedly check the checkboxes.
-                        if value is True:
-                            self.browser.find_element_by_id(id_from_key).click()
-                    else:
-                        # Fill the input fields with the respective numbers.
-                        self.browser.find_element_by_id(id_from_key).send_keys(str(value))
+                    self.browser.find_element_by_id(id_from_key).send_keys(str(value))
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(

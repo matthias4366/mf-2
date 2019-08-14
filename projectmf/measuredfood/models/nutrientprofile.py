@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_NUMBERS,
-    INGREDIENT_FIELDS_LINKS,
     INGREDIENT_FIELDS_NUTRITION
 )
 
@@ -39,16 +37,5 @@ for name in INGREDIENT_FIELDS_NUTRITION:
         models.FloatField(
             blank=True,
             null=True
-        )
-    )
-
-# For each nutrient, add a field with the information about whether that
-# nutrient is targeted when the tailored ingredient amounts are calculated.
-for name in INGREDIENT_FIELDS_NUTRITION:
-    name_field = name + '_is_targeted'
-    NutrientProfile.add_to_class(
-        name_field,
-        models.BooleanField(
-            default = False
         )
     )

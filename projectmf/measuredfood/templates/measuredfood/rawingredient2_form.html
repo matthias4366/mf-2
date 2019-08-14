@@ -2,6 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+        <h3>Add new ingredient</h3>
+        <p>Add a new ingredient and its nutritional data.
+          A good source for nutrition data is
+          <a href="https://nutritiondata.self.com/">nutritiondata.self.com</a>.
+        If you want to get done quickly, only add the macronutrients.
+        In the future, there will be a database of ingredients to choose from.
+        In the future, there will be also be a page showing the planned features
+        where you can vote on which features you want to be implemented next.
+      </p>
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -81,6 +90,17 @@
                       <td colspan="2"></td>
                   </tr>
 <!-- removed upper Save button while debugging the redirect -->
+                  <tr>
+                    <td>
+                      <button
+                        class="btn btn-success"
+                        type="submit"
+                        id="id_button_save_new_rawingredient2">
+                        Save
+                      </button>
+                    </td>
+                  </tr>
+
 
                   <tr class="blank_row">
                       <td colspan="2"></td>

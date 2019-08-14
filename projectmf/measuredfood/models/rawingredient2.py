@@ -4,26 +4,15 @@ from django.contrib.auth.models import User
 from measuredfood.ingredient_properties2 import (
     VITAMINS_AND_DEFAULT_UNITS,
     ELEMENTS_AND_DEFAULT_UNITS,
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     INGREDIENT_FIELDS_LINKS
 )
 
 from string import ascii_lowercase
 
 # The unit choices have been implemented for extensibility, so it is easier
-# to add more unit choices later.
-MASS_UNIT_CHOICES = [
-    ('gram', 'gram'),
-    ('milligram', 'milligram'),
-    ('microgram', 'microgram'),
-]
-MASS_UNIT_DEFAULT_CHOICE = 'gram'
+# to add more unit choices later. Currently, the user de facto has no choice.
 
-VITAMIN_AND_ELEMENT_UNIT_CHOICES = [
-    ('gram', 'gram'),
-    ('milligram', 'milligram'),
-    ('microgram', 'microgram'),
-    ('international units', 'international units')
-]
 
 class RawIngredient2(models.Model):
     """
@@ -115,7 +104,7 @@ class RawIngredient2(models.Model):
         choices = [('gram', 'gram'),],
         blank = False,
         null = False,
-        default = MASS_UNIT_DEFAULT_CHOICE,
+        default = 'gram',
     )
 
     # Fat

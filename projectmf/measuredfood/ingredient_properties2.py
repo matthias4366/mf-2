@@ -10,38 +10,27 @@ Source:
 https://ods.od.nih.gov/Health_Information/Dietary_Reference_Intakes.aspx
 """
 
-CALORIES = [
-    'calories'
+CALORIES_AND_DEFAULT_UNITS = [
+    {'name': 'calories',
+     'default_unit': 'kcal'},
 ]
 
-MACRONUTRIENTS = [
+MACRONUTRIENTS_AND_DEFAULT_UNITS = [
     # Matthias Schulz called it carbohydrates instead of carbohydrate
     # because that is what he is used to.
-    'carbohydrates',
-    'fat',
-    'protein',
+    {'name': 'carbohydrates',
+     'default_unit': 'gram'},
+    {'name': 'fat',
+     'default_unit': 'gram'},
+    {'name': 'protein',
+     'default_unit': 'gram'},
 ]
 
-ESSENTIAL_FATS = [
-    'linoleic_acid',
-    'alpha_linoleic_acid',
-]
-
-VITAMINS = [
-    'vitamin_a',
-    'vitamin_c',
-    'vitamin_d',
-    'vitamin_e',
-    'vitamin_k',
-    'thiamin',
-    'riboflavin',
-    'niacin',
-    'vitamin_b6',
-    'folate',
-    'vitamin_b12',
-    'pantothenic_acid',
-    'biotin',
-    'choline',
+ESSENTIAL_AND_DEFAULT_UNITS = [
+    {'name': 'linoleic_acid',
+     'default_unit': 'gram'},
+    {'name': 'alpha_linoleic_acid',
+     'default_unit': 'gram'},
 ]
 
 VITAMINS_AND_DEFAULT_UNITS = [
@@ -107,6 +96,13 @@ ELEMENTS_AND_DEFAULT_UNITS = [
     {'name': 'chloride',
      'default_unit': 'gram'},
 ]
+
+ALL_NUTRIENTS_AND_DEFAULT_UNITS = \
+CALORIES_AND_DEFAULT_UNITS \
++ MACRONUTRIENTS_AND_DEFAULT_UNITS\
++ ESSENTIAL_AND_DEFAULT_UNITS\
++ VITAMINS_AND_DEFAULT_UNITS\
++ ELEMENTS_AND_DEFAULT_UNITS
 
 INGREDIENT_FIELDS_LINKS = [
     'buy_here_link',
