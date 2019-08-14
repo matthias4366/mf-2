@@ -62,6 +62,19 @@ class RawIngredient2(models.Model):
         default = 'euro',
     )
 
+    # Amount in package to round up shopping list.
+    amount_in_package = models.FloatField(
+            blank = True,
+            null = True,
+        )
+    amount_in_package_unit = models.CharField(
+        max_length = 100,
+        choices = [('gram', 'gram'),],
+        blank = False,
+        null = False,
+        default = 'gram',
+    )
+
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
     reference_amount = models.FloatField(

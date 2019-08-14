@@ -527,6 +527,7 @@
                   <tr>
                       <td colspan="2">Additional information:</td>
                   </tr>
+
                   <tr>
                     <td>{{ form.price_per_reference_amount.label_tag }}</td>
                     <td>{{ form.currency_of_price_per_reference_amount.label_tag }}</td>
@@ -535,6 +536,19 @@
                     <td>{{ form.price_per_reference_amount }}</td>
                     <td>{{ form.currency_of_price_per_reference_amount }}</td>
                   </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.amount_in_package.label_tag }}</td>
+                    <td>{{ form.amount_in_package_unit.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.amount_in_package }}</td>
+                    <td>{{ form.amount_in_package_unit }}</td>
+                  </tr>
+
 
                   <tr class="blank_row">
                       <td colspan="2"></td>

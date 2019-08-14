@@ -15,7 +15,9 @@ CALORIES = [
 ]
 
 MACRONUTRIENTS = [
-    'carbohydrate',
+    # Matthias Schulz called it carbohydrates instead of carbohydrate
+    # because that is what he is used to.
+    'carbohydrates',
     'fat',
     'protein',
 ]
@@ -111,19 +113,10 @@ INGREDIENT_FIELDS_LINKS = [
     'source_nutritional_information_link'
 ]
 
-FIBER = [
-    'total_fiber',
-]
-
-
-# Since users might not want to type in all the nutritional information for
-# their ingredients, since they are maybe only interested in macros,
-# a short list is provided. This
-INGREDIENT_PROPERTIES_SHORT_LIST = [
-
-]
-
 # Some things are ignored for now.
-IGNORED = [
-    'total_water'
-]
+# IGNORED = [
+#     'total_water'
+# ]
+# FIBER = [
+#     'total_fiber',
+# ]
