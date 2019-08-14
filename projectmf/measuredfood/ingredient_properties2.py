@@ -69,7 +69,7 @@ ELEMENTS_AND_DEFAULT_UNITS = [
      'default_unit': 'milligram'},
     {'name': 'chromium',
      'default_unit': 'microgram'},
-    {'name': 'coppper',
+    {'name': 'copper',
      'default_unit': 'microgram'},
     {'name': 'fluoride',
      'default_unit': 'milligram'},

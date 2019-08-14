@@ -1,8 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_NUTRITION
+from measuredfood.ingredient_properties2 import (
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 
 from string import ascii_lowercase
@@ -28,11 +28,23 @@ class NutrientProfile(models.Model):
         return reverse('list-nutrient-profiles')
 
 # add all the fields related to nutrition to the nutrient profile model
-for name in INGREDIENT_FIELDS_NUTRITION:
+for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    # add the nutrient fields
     NutrientProfile.add_to_class(
-        name,
+        nutrient_dict['name'],
         models.FloatField(
             blank=True,
             null=True
+        )
+    )
+    # add the nutrient unit fields.
+    NutrientProfile.add_to_class(
+        nutrient_dict['name']+'_unit',
+        models.CharField(
+            max_length = 100,
+            choices = [(nutrient_dict['default_unit'], nutrient_dict['default_unit']),],
+            blank = False,
+            null = False,
+            default = nutrient_dict['default_unit'],
         )
     )

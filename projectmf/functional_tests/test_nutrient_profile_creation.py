@@ -91,7 +91,7 @@ class NutrientProfileTest(FunctionalTest):
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(
-                'id_button_save_new_nutrient_profile'
+                'id_button_save_new_nutrientprofile'
             )
             save_button.send_keys(Keys.ENTER)
 
