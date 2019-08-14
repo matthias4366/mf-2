@@ -49,8 +49,7 @@ def update_nutrientprofile(request, id_nutrientprofile):
         if form.is_valid():
             form.save()
             return redirect(
-                'update-nutrient-profile',
-                id_nutrientprofile=instance_nutrientprofile.id
+                'list-nutrient-profiles',
                 )
     else:
         form = NutrientProfileForm(

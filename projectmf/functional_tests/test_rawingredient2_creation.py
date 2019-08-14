@@ -10,7 +10,7 @@ import os
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
-from data.ingredients_data import ingredient_dict_list
+from data.ingredients_data2 import ingredient_dict_list
 from data.initial_nutrient_profiles import nutrient_profile_dict_list
 
 class RawIngredientTest(FunctionalTest):
@@ -71,7 +71,7 @@ class RawIngredientTest(FunctionalTest):
 
         # Simulate clicking on the menu item "Ingredients"
         ingredients_menu_item = self.browser.find_element_by_id(
-            'id_menu_item_ingredients')
+            'id_menu_item_rawingredients2')
         ingredients_menu_item.send_keys(Keys.ENTER)
 
         time.sleep(3)
@@ -82,7 +82,7 @@ class RawIngredientTest(FunctionalTest):
         for k in range(2):
 
             new_ingredient_button = self.browser.find_element_by_id(
-                'id_button_new_ingredient'
+                'id_button_new_rawingredient2'
             )
             new_ingredient_button.send_keys(Keys.ENTER)
 
@@ -94,7 +94,7 @@ class RawIngredientTest(FunctionalTest):
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(
-                'id_button_save_new_ingredient'
+                'id_button_save_new_rawingredient2'
             )
             save_button.send_keys(Keys.ENTER)
 

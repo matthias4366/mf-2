@@ -5,7 +5,8 @@ from .models import (
     SpecificIngredient,
     NutrientProfile,
     FullDayOfEating,
-    Mealplan
+    Mealplan,
+    NutrientTargetSelection
     )
 
 # Register your models here.
@@ -15,3 +16,4 @@ admin.site.register(SpecificIngredient)
 admin.site.register(NutrientProfile)
 admin.site.register(FullDayOfEating)
 admin.site.register(Mealplan)
+admin.site.register(NutrientTargetSelection)
