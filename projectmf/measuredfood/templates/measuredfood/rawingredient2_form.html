@@ -80,16 +80,7 @@
                   <tr class="blank_row">
                       <td colspan="2"></td>
                   </tr>
-                  <tr>
-                      <td colspan="2">
-                        <button
-                          class="btn btn-outline-info"
-                          type="submit"
-                          id="id_button_save_new_ingredient">
-                          Save
-                        </button>
-                      </td>
-                  </tr>
+<!-- removed upper Save button while debugging the redirect -->
 
                   <tr class="blank_row">
                       <td colspan="2"></td>
@@ -544,6 +535,26 @@
                     <td>{{ form.price_per_reference_amount }}</td>
                     <td>{{ form.currency_of_price_per_reference_amount }}</td>
                   </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td>Purchase url:</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.buy_here_link }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Source nutritional information url:</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">{{ form.source_nutritional_information_link }}</td>
+                  </tr>
                   <tr>
                       <td colspan="2"><hr></td>
                   </tr>
@@ -551,9 +562,9 @@
             </fieldset>
             <div class="form-group">
                 <button
-                  class="btn btn-outline-info"
+                  class="btn btn-success"
                   type="submit"
-                  id="id_button_save_new_ingredient">
+                  id="id_button_save_new_rawingredient2">
                   Save
                 </button>
             </div>

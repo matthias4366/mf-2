@@ -20,15 +20,17 @@ from measuredfood.models import (
     NutrientProfile
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from measuredfood.ingredient_properties2 import (
     VITAMINS_AND_DEFAULT_UNITS
 )
 
+
 class CreateRawIngredient2(LoginRequiredMixin, CreateView):
     model = RawIngredient2
     fields ='__all__'
+    # success_url = reverse('list-rawingredient2')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -38,6 +40,8 @@ class CreateRawIngredient2(LoginRequiredMixin, CreateView):
         context = super(CreateRawIngredient2, self).get_context_data(**kwargs)
         context['VITAMINS_AND_DEFAULT_UNITS'] = VITAMINS_AND_DEFAULT_UNITS
         return context
+
+    # def get_success_url(self):
 
 
 class ListRawIngredient2(

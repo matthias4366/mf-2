@@ -48,7 +48,7 @@ VITAMINS_AND_DEFAULT_UNITS = [
     {'name': 'vitamin_c',
      'default_unit': 'milligram'},
     {'name': 'vitamin_d',
-     'default_unit': 'microgram'},
+     'default_unit': 'international units'},
     {'name': 'vitamin_e',
      'default_unit': 'milligram'},
     {'name': 'vitamin_k',
@@ -104,6 +104,11 @@ ELEMENTS_AND_DEFAULT_UNITS = [
      'default_unit': 'gram'},
     {'name': 'chloride',
      'default_unit': 'gram'},
+]
+
+INGREDIENT_FIELDS_LINKS = [
+    'buy_here_link',
+    'source_nutritional_information_link'
 ]
 
 FIBER = [

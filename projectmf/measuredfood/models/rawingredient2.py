@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from measuredfood.ingredient_properties2 import (
     VITAMINS_AND_DEFAULT_UNITS,
     ELEMENTS_AND_DEFAULT_UNITS,
+    INGREDIENT_FIELDS_LINKS
 )
 
 from string import ascii_lowercase
@@ -36,7 +37,10 @@ class RawIngredient2(models.Model):
     a database or share ingredients with other users (yet). These ingredients
     serve as the basis for creating recipes.
     """
-    name = models.CharField(max_length=100)
+    name = models.CharField(
+        max_length=100,
+        blank=False,
+        null=True)
 
     author = models.ForeignKey(
         User,
@@ -61,22 +65,22 @@ class RawIngredient2(models.Model):
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
     reference_amount = models.FloatField(
-        blank = False,
+        blank = True,
         null = False,
         default = 100
     )
 
     reference_amount_unit = models.CharField(
         max_length = 100,
-        choices = MASS_UNIT_CHOICES,
+        choices = [('gram', 'gram'),],
         blank = False,
         null = False,
-        default = MASS_UNIT_DEFAULT_CHOICE,
+        default = 'gram',
     )
 
     # Calories
     calories = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     calories_unit = models.CharField(
@@ -90,7 +94,7 @@ class RawIngredient2(models.Model):
     # Macronutrients
     # Carbohydrates
     carbohydrates = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     carbohydrates_unit = models.CharField(
@@ -103,7 +107,7 @@ class RawIngredient2(models.Model):
 
     # Fat
     fat = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     fat_unit = models.CharField(
@@ -116,7 +120,7 @@ class RawIngredient2(models.Model):
 
     # Protein
     protein = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     protein_unit = models.CharField(
@@ -130,7 +134,7 @@ class RawIngredient2(models.Model):
     # Essential fats
     # Linoleic acid
     linoleic_acid = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     linoleic_acid_unit = models.CharField(
@@ -143,7 +147,7 @@ class RawIngredient2(models.Model):
 
     # Alpha linoleic acid
     alpha_linoleic_acid = models.FloatField(
-        blank = False,
+        blank = True,
         null = True,
     )
     alpha_linoleic_acid_unit = models.CharField(
@@ -203,4 +207,13 @@ for element_dict in ELEMENTS_AND_DEFAULT_UNITS:
             null = False,
             default = element_dict['default_unit'],
         )
+    )
+
+for name in INGREDIENT_FIELDS_LINKS:
+    RawIngredient2.add_to_class(
+        name,
+        models.URLField(
+        max_length=1000,
+        blank=True,
+        null=True)
     )
