@@ -28,6 +28,7 @@ from measuredfood.ingredient_properties2 import (
 
 from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient2Form
+from measuredfood.utils.check_if_author import check_if_author
 
 @login_required
 def create_rawingredient2(request):
@@ -53,23 +54,6 @@ def create_rawingredient2(request):
             context
             )
 
-class CreateRawIngredient2(LoginRequiredMixin, CreateView):
-    model = RawIngredient2
-    fields ='__all__'
-    # success_url = reverse('list-rawingredient2')
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super(CreateRawIngredient2, self).get_context_data(**kwargs)
-        context['VITAMINS_AND_DEFAULT_UNITS'] = VITAMINS_AND_DEFAULT_UNITS
-        return context
-
-    def get_success_url(self):
-        return reverse('list-rawingredient2')
-
 
 class ListRawIngredient2(
     LoginRequiredMixin,
@@ -82,20 +66,41 @@ class ListRawIngredient2(
         ).order_by('name')
 
 
-class UpdateRawIngredient2(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = RawIngredient2
-    fields = '__all__'
+@login_required
+def update_rawingredient2(request, id_rawingredient2):
+    user_is_author = check_if_author(
+        request,
+        RawIngredient2,
+        id_rawingredient2
+    )
+    if not user_is_author:
+        context = {}
+        return render(request, 'measuredfood/not_yours.html', context)
+    # The user is the author, proceed.
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    rawingredient2_object = RawIngredient2.objects.get(pk=id_rawingredient2)
 
-    def test_func(self):
-        raw_ingredient = self.get_object()
-        if self.request.user == raw_ingredient.author:
-            return True
-        return False
-
+    if request.method == 'POST':
+        form_rawingredient2 = RawIngredient2Form(
+            request.POST,
+            instance = rawingredient2_object
+        )
+        if form_rawingredient2.is_valid():
+            form_rawingredient2.save()
+            return redirect('list-rawingredient2')
+    else:
+        form_rawingredient2 = RawIngredient2Form(
+            instance = rawingredient2_object
+        )
+        context = {
+            'VITAMINS_AND_DEFAULT_UNITS': VITAMINS_AND_DEFAULT_UNITS,
+            'form': form_rawingredient2
+        }
+        return render(
+            request,
+            'measuredfood/rawingredient2_form.html',
+            context
+            )
 
 class DetailRawIngredient2(UserPassesTestMixin, DetailView):
     model = RawIngredient2

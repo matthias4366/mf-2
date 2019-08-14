@@ -64,8 +64,8 @@ urlpatterns_rawingredient2 = [
         name='list-rawingredient2'
     ),
     path(
-        'rawingredient2/<int:pk>/update/',
-        rawingredient2.UpdateRawIngredient2.as_view(),
+        'rawingredient2/<int:id_rawingredient2>/update/',
+        rawingredient2.update_rawingredient2,
         name='update-rawingredient2'
     ),
     path(

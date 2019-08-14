@@ -1,0 +1,15 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+
+  <h1>{{ object.name }}</h1>
+  <a class="btn btn-primary btn-large"
+  href="{% url 'update-rawingredient2' object.id %}">
+    Edit
+  </a>
+  <a class="btn btn-danger btn-large"
+  href="{% url 'delete-rawingredient2' object.id %}">
+    Delete
+  </a>
+  <!-- TODO: Here, put in all the information about the ingredient. -->
+
+{% endblock content %}

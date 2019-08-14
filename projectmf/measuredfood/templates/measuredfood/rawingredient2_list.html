@@ -1,0 +1,32 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+
+  <div class="">
+    <a class="btn btn-primary btn-large"
+    href="{% url 'create-rawingredient2' %}"
+    id="id_button_new_rawingredient2">
+      New Ingredient
+    </a>
+  </div>
+  <br>
+  <br>
+
+  {% if rawingredient2_list %}
+  <div class="">
+    <h1>List of your ingredients:</h1>
+    <br>
+    {% for ingredient in rawingredient2_list %}
+        <p>
+          <a href="{% url 'detail-rawingredient2' ingredient.id %}"
+          class="btn btn-primary btn-large"
+          id="button_view_rawingredient2">
+            View
+          </a>{{ ingredient.name }}
+        </p>
+    {% endfor %}
+  </div>
+  {% else %}
+    <h1>Add ingredients by clicking on the "New Ingredient" button above.</h1>
+  {% endif %}
+
+{% endblock content %}
