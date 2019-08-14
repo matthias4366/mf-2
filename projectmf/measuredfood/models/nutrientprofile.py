@@ -8,9 +8,6 @@ from measuredfood.ingredient_properties import (
 from string import ascii_lowercase
 from .rawingredient import RawIngredient
 
-MAX_DIGITS_ = 20
-DECIMAL_PLACES_ = 6
-
 
 class NutrientProfile(models.Model):
     """

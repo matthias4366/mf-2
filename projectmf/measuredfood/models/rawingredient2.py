@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from measuredfood.ingredient_properties2 import (
-    VITAMINS_AND_DEFAULT_UNITS,
-    ELEMENTS_AND_DEFAULT_UNITS,
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     INGREDIENT_FIELDS_LINKS
 )
@@ -80,134 +78,32 @@ class RawIngredient2(models.Model):
         default = 'gram',
     )
 
-    # Calories
-    calories = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    calories_unit = models.CharField(
-        max_length = 100,
-        choices = [('kcal', 'kcal'),],
-        blank = False,
-        null = False,
-        default = 'kcal',
-    )
-
-    # Macronutrients
-    # Carbohydrates
-    carbohydrates = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    carbohydrates_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram'),],
-        blank = False,
-        null = False,
-        default = 'gram',
-    )
-
-    # Fat
-    fat = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    fat_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram')],
-        blank = False,
-        null = False,
-        default = 'gram',
-    )
-
-    # Protein
-    protein = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    protein_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram')],
-        blank = False,
-        null = False,
-        default = 'gram',
-    )
-
-    # Essential fats
-    # Linoleic acid
-    linoleic_acid = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    linoleic_acid_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram')],
-        blank = False,
-        null = False,
-        default = 'gram',
-    )
-
-    # Alpha linoleic acid
-    alpha_linoleic_acid = models.FloatField(
-        blank = True,
-        null = True,
-    )
-    alpha_linoleic_acid_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram')],
-        blank = False,
-        null = False,
-        default = 'gram',
-    )
-
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('list-rawingredient2')
 
-# Vitamins
+# Nutrients
 
-for vitamin_dict in VITAMINS_AND_DEFAULT_UNITS:
-    # add the vitamin fields
+for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    # add the nutrient fields
     RawIngredient2.add_to_class(
-        vitamin_dict['name'],
+        nutrient_dict['name'],
         models.FloatField(
             blank=True,
             null=True,
         )
     )
-    # add the vitamin unit fields.
+    # add the nutrient unit fields.
     RawIngredient2.add_to_class(
-        vitamin_dict['name']+'_unit',
+        nutrient_dict['name']+'_unit',
         models.CharField(
             max_length = 100,
-            choices = [(vitamin_dict['default_unit'], vitamin_dict['default_unit']),],
+            choices = [(nutrient_dict['default_unit'], nutrient_dict['default_unit']),],
             blank = False,
             null = False,
-            default = vitamin_dict['default_unit'],
-        )
-    )
-
-# Elements
-for element_dict in ELEMENTS_AND_DEFAULT_UNITS:
-    # add the element fields
-    RawIngredient2.add_to_class(
-        element_dict['name'],
-        models.FloatField(
-            blank=True,
-            null=True,
-        )
-    )
-    # add the element unit fields.
-    RawIngredient2.add_to_class(
-        element_dict['name']+'_unit',
-        models.CharField(
-            max_length = 100,
-            choices = [(element_dict['default_unit'], element_dict['default_unit']),],
-            blank = False,
-            null = False,
-            default = element_dict['default_unit'],
+            default = nutrient_dict['default_unit'],
         )
     )
 
