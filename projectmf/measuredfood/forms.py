@@ -6,6 +6,7 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
     RawIngredient,
+    RawIngredient2,
     Mealplan,
     SpecificFullDayOfEating
     )
@@ -65,3 +66,11 @@ SpecificFullDayOfEatingFormset = inlineformset_factory(
     fields=('__all__'),
     extra=1,
 )
+
+
+class RawIngredient2Form(forms.ModelForm):
+
+    class Meta:
+        model = RawIngredient2
+        fields = '__all__'
+        exclude = ['author']

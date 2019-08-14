@@ -55,7 +55,7 @@ urlpatterns_rawingredient = [
 urlpatterns_rawingredient2 = [
     path(
         'rawingredient2/create/',
-        rawingredient2.CreateRawIngredient2.as_view(),
+        rawingredient2.create_rawingredient2,
         name='create-rawingredient2'
     ),
     path(

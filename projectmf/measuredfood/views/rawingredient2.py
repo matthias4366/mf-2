@@ -26,6 +26,32 @@ from measuredfood.ingredient_properties2 import (
     VITAMINS_AND_DEFAULT_UNITS
 )
 
+from django.contrib.auth.decorators import login_required
+from measuredfood.forms import RawIngredient2Form
+
+@login_required
+def create_rawingredient2(request):
+    """
+    Create view for the RawIngredient2. RawIngredient2 is the updated version
+    of RawIngredient.
+    """
+    if request.method == 'POST':
+        form_rawingredient2 = RawIngredient2Form(request.POST)
+        if form_rawingredient2.is_valid():
+            form_rawingredient2.instance.author = request.user
+            form_rawingredient2.save()
+            return redirect('list-rawingredient2')
+    else:
+        form_rawingredient2 = RawIngredient2Form()
+        context = {
+            'VITAMINS_AND_DEFAULT_UNITS': VITAMINS_AND_DEFAULT_UNITS,
+            'form': form_rawingredient2
+        }
+        return render(
+            request,
+            'measuredfood/rawingredient2_form.html',
+            context
+            )
 
 class CreateRawIngredient2(LoginRequiredMixin, CreateView):
     model = RawIngredient2
@@ -41,7 +67,8 @@ class CreateRawIngredient2(LoginRequiredMixin, CreateView):
         context['VITAMINS_AND_DEFAULT_UNITS'] = VITAMINS_AND_DEFAULT_UNITS
         return context
 
-    # def get_success_url(self):
+    def get_success_url(self):
+        return reverse('list-rawingredient2')
 
 
 class ListRawIngredient2(
