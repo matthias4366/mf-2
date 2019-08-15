@@ -2,12 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import copy
 
-# imports for the creation of user accounts
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from measuredfood.forms import UserRegisterForm
 
-# imports for the view to create raw ingredients
 from django.views.generic import (
     ListView,
     DeleteView,

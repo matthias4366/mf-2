@@ -5,7 +5,8 @@ from .views import (home,
                     nutrientprofile,
                     fulldayofeating,
                     mealplan,
-                    nutrienttargetselection
+                    nutrienttargetselection,
+                    tolerableupperintake
 )
 from django.contrib.auth import views as auth_views
 
@@ -181,6 +182,34 @@ urlpatterns_nutrienttargetselection = [
     ),
 ]
 
+urlpatterns_tolerableupperintake = [
+    path(
+        'tolerableupperintake/create/',
+        tolerableupperintake.create_tolerableupperintake_view,
+        name='create-tolerableupperintake'
+    ),
+    path(
+        'tolerableupperintake/list/',
+        tolerableupperintake.ListTolerableUpperIntake.as_view(),
+        name='list-tolerableupperintake'
+    ),
+    path(
+        'tolerableupperintake/<int:id_tolerableupperintake>/update/',
+        tolerableupperintake.update_tolerableupperintake_view,
+        name='update-tolerableupperintake'
+    ),
+    path(
+        'tolerableupperintake/<int:pk>/detail/',
+        tolerableupperintake.DetailTolerableUpperIntake.as_view(),
+        name='detail-tolerableupperintake'
+    ),
+    path(
+        'tolerableupperintake/<int:pk>/delete/',
+        tolerableupperintake.DeleteTolerableUpperIntake.as_view(),
+        name='delete-tolerableupperintake'
+    ),
+]
+
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
 + urlpatterns_rawingredient2 \
@@ -189,4 +218,5 @@ urlpatterns = urlpattern_home \
 + urlpatterns_fulldayofeating_after_calculation \
 + urlpatterns_mealplan \
 + urlpatterns_shoppinglist \
-+ urlpatterns_nutrienttargetselection
++ urlpatterns_nutrienttargetselection \
++ urlpatterns_tolerableupperintake

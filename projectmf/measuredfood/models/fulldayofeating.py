@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from string import ascii_lowercase
 from .nutrientprofile import NutrientProfile
 from .nutrienttargetselection import NutrientTargetSelection
+from .tolerableupperintake import TolerableUpperIntake
 
 MAX_DIGITS_ = 20
 DECIMAL_PLACES_ = 6
@@ -30,8 +31,7 @@ class FullDayOfEating(models.Model):
     # But one nutrient_profile can be linked to many full days of eating.
     nutrient_profile = models.ForeignKey(
         NutrientProfile,
-        # TODO: I am not sure about the on_delete option.
-        on_delete=models.SET_NULL,
+        on_delete=models.PROTECT,
         editable = True,
         null=True,
         blank=False
@@ -41,6 +41,14 @@ class FullDayOfEating(models.Model):
     # mathematical calculation of the ingredient amounts in the final recipe.
     nutrient_target_selection = models.ForeignKey(
         NutrientTargetSelection,
+        on_delete = models.PROTECT,
+        editable = True,
+        null = True,
+        blank = False,
+    )
+
+    tolerable_upper_intake = models.ForeignKey(
+        TolerableUpperIntake,
         on_delete = models.PROTECT,
         editable = True,
         null = True,

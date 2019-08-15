@@ -1,0 +1,479 @@
+{% extends "measuredfood/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Tolerable upper intake</legend>
+                {{ form.management_form }}
+                {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                {% endfor %}
+                <table>
+                  <tr>
+                    <td colspan="3">{{ form.name.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">{{ form.name }}</td>
+                  </tr>
+
+
+
+
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="3"><hr></td>
+                  </tr>
+                  <tr>
+                      <td colspan="3">Vitamins:</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_a_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_a_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_a_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_a_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_a_unit }}</td>
+                    <td>{{ form.vitamin_a_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_c_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_c_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_c_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_c_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_c_unit }}</td>
+                    <td>{{ form.vitamin_c_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_d_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_d_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_d_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_d_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_d_unit }}</td>
+                    <td>{{ form.vitamin_d_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_e_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_e_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_e_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_e_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_e_unit }}</td>
+                    <td>{{ form.vitamin_e_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_k_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_k_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_k_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_k_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_k_unit }}</td>
+                    <td>{{ form.vitamin_k_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.thiamin_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.thiamin_unit.label_tag }}</td>
+                    <td>{{ form.thiamin_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.thiamin_tolerable_upper_intake }}</td>
+                    <td>{{ form.thiamin_unit }}</td>
+                    <td>{{ form.thiamin_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.riboflavin_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.riboflavin_unit.label_tag }}</td>
+                    <td>{{ form.riboflavin_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.riboflavin_tolerable_upper_intake }}</td>
+                    <td>{{ form.riboflavin_unit }}</td>
+                    <td>{{ form.riboflavin_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.niacin_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.niacin_unit.label_tag }}</td>
+                    <td>{{ form.niacin_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.niacin_tolerable_upper_intake }}</td>
+                    <td>{{ form.niacin_unit }}</td>
+                    <td>{{ form.niacin_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b6_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_b6_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_b6_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b6_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_b6_unit }}</td>
+                    <td>{{ form.vitamin_b6_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.folate_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.folate_unit.label_tag }}</td>
+                    <td>{{ form.folate_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.folate_tolerable_upper_intake }}</td>
+                    <td>{{ form.folate_unit }}</td>
+                    <td>{{ form.folate_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b12_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.vitamin_b12_unit.label_tag }}</td>
+                    <td>{{ form.vitamin_b12_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.vitamin_b12_tolerable_upper_intake }}</td>
+                    <td>{{ form.vitamin_b12_unit }}</td>
+                    <td>{{ form.vitamin_b12_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.pantothenic_acid_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.pantothenic_acid_unit.label_tag }}</td>
+                    <td>{{ form.pantothenic_acid_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.pantothenic_acid_tolerable_upper_intake }}</td>
+                    <td>{{ form.pantothenic_acid_unit }}</td>
+                    <td>{{ form.pantothenic_acid_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.biotin_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.biotin_unit.label_tag }}</td>
+                    <td>{{ form.biotin_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.biotin_tolerable_upper_intake }}</td>
+                    <td>{{ form.biotin_unit }}</td>
+                    <td>{{ form.biotin_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.choline_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.choline_unit.label_tag }}</td>
+                    <td>{{ form.choline_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.choline_tolerable_upper_intake }}</td>
+                    <td>{{ form.choline_unit }}</td>
+                    <td>{{ form.choline_value_exists }}</td>
+                  </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="3"><hr></td>
+                  </tr>
+                  <tr>
+                      <td colspan="3">Elements:</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calcium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.calcium_unit.label_tag }}</td>
+                    <td>{{ form.calcium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.calcium_tolerable_upper_intake }}</td>
+                    <td>{{ form.calcium_unit }}</td>
+                    <td>{{ form.calcium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chromium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.chromium_unit.label_tag }}</td>
+                    <td>{{ form.chromium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chromium_tolerable_upper_intake }}</td>
+                    <td>{{ form.chromium_unit }}</td>
+                    <td>{{ form.chromium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.copper_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.copper_unit.label_tag }}</td>
+                    <td>{{ form.copper_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.copper_tolerable_upper_intake }}</td>
+                    <td>{{ form.copper_unit }}</td>
+                    <td>{{ form.copper_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fluoride_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.fluoride_unit.label_tag }}</td>
+                    <td>{{ form.fluoride_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.fluoride_tolerable_upper_intake }}</td>
+                    <td>{{ form.fluoride_unit }}</td>
+                    <td>{{ form.fluoride_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iodine_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.iodine_unit.label_tag }}</td>
+                    <td>{{ form.iodine_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iodine_tolerable_upper_intake }}</td>
+                    <td>{{ form.iodine_unit }}</td>
+                    <td>{{ form.iodine_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iron_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.iron_unit.label_tag }}</td>
+                    <td>{{ form.iron_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.iron_tolerable_upper_intake }}</td>
+                    <td>{{ form.iron_unit }}</td>
+                    <td>{{ form.iron_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.magnesium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.magnesium_unit.label_tag }}</td>
+                    <td>{{ form.magnesium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.magnesium_tolerable_upper_intake }}</td>
+                    <td>{{ form.magnesium_unit }}</td>
+                    <td>{{ form.magnesium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.manganese_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.manganese_unit.label_tag }}</td>
+                    <td>{{ form.manganese_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.manganese_tolerable_upper_intake }}</td>
+                    <td>{{ form.manganese_unit }}</td>
+                    <td>{{ form.manganese_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.molybdenum_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.molybdenum_unit.label_tag }}</td>
+                    <td>{{ form.molybdenum_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.molybdenum_tolerable_upper_intake }}</td>
+                    <td>{{ form.molybdenum_unit }}</td>
+                    <td>{{ form.molybdenum_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.phosphorus_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.phosphorus_unit.label_tag }}</td>
+                    <td>{{ form.phosphorus_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.phosphorus_tolerable_upper_intake }}</td>
+                    <td>{{ form.phosphorus_unit }}</td>
+                    <td>{{ form.phosphorus_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.selenium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.selenium_unit.label_tag }}</td>
+                    <td>{{ form.selenium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.selenium_tolerable_upper_intake }}</td>
+                    <td>{{ form.selenium_unit }}</td>
+                    <td>{{ form.selenium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.zinc_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.zinc_unit.label_tag }}</td>
+                    <td>{{ form.zinc_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.zinc_tolerable_upper_intake }}</td>
+                    <td>{{ form.zinc_unit }}</td>
+                    <td>{{ form.zinc_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.potassium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.potassium_unit.label_tag }}</td>
+                    <td>{{ form.potassium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.potassium_tolerable_upper_intake }}</td>
+                    <td>{{ form.potassium_unit }}</td>
+                    <td>{{ form.potassium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.sodium_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.sodium_unit.label_tag }}</td>
+                    <td>{{ form.sodium_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.sodium_tolerable_upper_intake }}</td>
+                    <td>{{ form.sodium_unit }}</td>
+                    <td>{{ form.sodium_value_exists }}</td>
+                  </tr>
+
+                  <tr class="blank_row">
+                      <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chloride_tolerable_upper_intake.label_tag }}</td>
+                    <td>{{ form.chloride_unit.label_tag }}</td>
+                    <td>{{ form.chloride_value_exists.label_tag }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.chloride_tolerable_upper_intake }}</td>
+                    <td>{{ form.chloride_unit }}</td>
+                    <td>{{ form.chloride_value_exists }}</td>
+                  </tr>
+
+
+                </table>
+            </fieldset>
+            <div class="form-group">
+                <button
+                  class="btn btn-success"
+                  type="submit"
+                  id="id_button_save_new_tolerableupperintake">
+                  Save
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+  <div class="">
+    <a class="btn btn-primary btn-large"
+    href="{% url 'create-tolerableupperintake' %}"
+    id="id_button_new_tolerableupperintake">
+      New tolerable upper intake
+    </a>
+  </div>
+  <br>
+  <br>
+
+  {% if tolerableupperintake_list %}
+    <div class="">
+      <h1>List of your tolerable upper intakes:</h1>
+      <br>
+      {% for tolerableupperintake in tolerableupperintake_list %}
+          <p>
+            <a href="{% url 'detail-tolerableupperintake' tolerableupperintake.id %}"
+            class="btn btn-primary btn-large"
+            id="button_view_tolerableupperintake">
+              View
+            </a>{{ tolerableupperintake.name }}
+          </p>
+      {% endfor %}
+    </div>
+  {% else %}
+    <h1>No tolerable upper intakes have been added yet.</h1>
+  {% endif %}
+
+{% endblock content %}

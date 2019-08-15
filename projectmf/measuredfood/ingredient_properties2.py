@@ -39,7 +39,7 @@ VITAMINS_AND_DEFAULT_UNITS = [
     {'name': 'vitamin_c',
      'default_unit': 'milligram'},
     {'name': 'vitamin_d',
-     'default_unit': 'international units'},
+     'default_unit': 'microgram'},
     {'name': 'vitamin_e',
      'default_unit': 'milligram'},
     {'name': 'vitamin_k',

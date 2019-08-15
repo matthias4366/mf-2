@@ -31,9 +31,21 @@
               {% if user.is_authenticated %}
                 <a
                   class="nav-item nav-link"
+                  href="#"
+                  id="id_browse_nutrient_profiles">
+                  Browse Nutrient Profiles
+                </a>
+                <a
+                  class="nav-item nav-link"
                   href="{% url 'list-nutrient-profiles' %}"
                   id="id_menu_item_nutrient_profiles">
                   Nutrient Profiles
+                </a>
+                <a
+                  class="nav-item nav-link"
+                  href="{% url 'list-tolerableupperintake' %}"
+                  id="id_menu_item_tolerableupperintake">
+                  Tolerable Upper Intake
                 </a>
                 <a
                   class="nav-item nav-link"
