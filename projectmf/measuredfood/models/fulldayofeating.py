@@ -10,6 +10,7 @@ from measuredfood.ingredient_properties import (
 from string import ascii_lowercase
 from .rawingredient import RawIngredient
 from .nutrientprofile import NutrientProfile
+from .nutrienttargetselection import NutrientTargetSelection
 
 MAX_DIGITS_ = 20
 DECIMAL_PLACES_ = 6
@@ -41,6 +42,16 @@ class FullDayOfEating(models.Model):
         editable = True,
         null=True,
         blank=False
+    )
+
+    # Within the nutrient profile, some nutrients are selected for the
+    # mathematical calculation of the ingredient amounts in the final recipe.
+    nutrient_target_selection = models.ForeignKey(
+        NutrientTargetSelection,
+        on_delete = models.PROTECT,
+        editable = True,
+        null = True,
+        blank = False,
     )
 
     def __str__(self):

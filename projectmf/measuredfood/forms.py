@@ -5,7 +5,6 @@ from measuredfood.models import (
     SpecificIngredient,
     FullDayOfEating,
     NutrientProfile,
-    RawIngredient,
     RawIngredient2,
     Mealplan,
     SpecificFullDayOfEating,
@@ -30,12 +29,16 @@ class FullDayOfEatingForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['author']
 
-    # Prevent the users from using the NutrientProfiles of other users when
+    # Prevent the users from using the NutrientProfiles or
+    # NutrientTargetSelections
+    # of other users when
     # creating a full day of eating.
     def __init__(self, id_user, *args, **kwargs):
         super(FullDayOfEatingForm, self).__init__(*args, **kwargs)
         self.fields['nutrient_profile'].queryset = \
         NutrientProfile.objects.filter(author_id=id_user)
+        self.fields['nutrient_target_selection'].queryset = \
+        NutrientTargetSelection.objects.filter(author_id=id_user)
 
 
 class NutrientProfileForm(forms.ModelForm):

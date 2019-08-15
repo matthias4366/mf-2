@@ -3,10 +3,12 @@ def calculate_fulldayofeating(
     SpecificIngredient,
     FullDayOfEating,
     NutrientProfile,
-    RawIngredient,
+    NutrientTargetSelection,
+    RawIngredient2,
     pprint,
     copy,
-    INGREDIENT_FIELDS_NUTRITION,
+    INGREDIENT_FIELDS_NUTRITION,  # TODO: old, delete once you can.
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,  # new
     np
     ):
     """
@@ -42,10 +44,10 @@ def calculate_fulldayofeating(
         queryset_specificingredient_1.values()
         )
 
-    # Add the RawIngredient dictionaries to the SpecificIngredient dictionaries
+    # Add the RawIngredient2 dictionaries to the SpecificIngredient dictionaries
     # to make the nutrition values (kcal etc.) accessible for calculation.
     for k in range(len(specificingredient_dict_list_1)):
-        rawingredient_k_queryset = RawIngredient.objects.filter(
+        rawingredient_k_queryset = RawIngredient2.objects.filter(
             id = specificingredient_dict_list_1[k]['rawingredient_id']
         ).values()
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
@@ -117,14 +119,56 @@ def calculate_fulldayofeating(
     # print('\nnutrientprofile_dict \n')
     # pprint.pprint(nutrientprofile_dict)
 
-    # Collect all the nutrition goals that are actually targeted.
+    """
+    Query the related NutrientTargetSelection and use it to select the targeted
+    nutrients.
+    """
+    queryset_nutrienttargetselection_of_fulldayofeating = \
+    FullDayOfEating.objects.filter(
+        id = id_fulldayofeating
+    ).values('nutrient_target_selection')
+    nutrienttargetselection_id = \
+    list(queryset_nutrienttargetselection_of_fulldayofeating)[0]\
+    ['nutrient_target_selection']
+    queryset_nutrienttargetselection_data = \
+    NutrientTargetSelection.objects.filter(
+        id = nutrienttargetselection_id
+    )
+    nutrienttargetselection_dict = \
+    list(queryset_nutrienttargetselection_data.values())[0]
+    print('\n nutrienttargetselection_dict \n')
+    pprint.pprint(nutrienttargetselection_dict)
+
+    # Rewrite the targeted_nutrients
     targeted_nutrients = {}
-    for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
-        if nutrientprofile_dict[nutrient_field_name+'_is_targeted']:
-            targeted_nutrients.update(
-                {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
-            )
-    # print('\ntargeted_nutrients \n')
+    for key, is_targeted in nutrienttargetselection_dict.items():
+        # Only use the keys that end in '_is_targeted'. Otherwise, the keys
+        # such as author_id can cause problems as their value, i.e. 1 will be
+        # interpreted as True.
+        if '_is_targeted' in key:
+            if is_targeted:
+                print('\n key \n')
+                pprint.pprint(key)
+                # Remove the "_is_targeted" at the end
+                nutrient_field_name = key[:-12]
+                print('\n nutrient_field_name \n')
+                pprint.pprint(nutrient_field_name)
+                targeted_nutrients.update(
+                    {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
+                )
+    print('\n targeted_nutrients \n')
+    pprint.pprint(targeted_nutrients)
+
+    # # TODO: delete this old code. At this point, I am just keeping it for mental reference.
+    # # Old code that does not work since introducing NutrientTargetSelection.
+    # # Collect all the nutrition goals that are actually targeted.
+    # targeted_nutrients = {}
+    # for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+    #     if nutrientprofile_dict[nutrient_field_name+'_is_targeted']:
+    #         targeted_nutrients.update(
+    #             {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
+    #         )
+    # print('\n targeted_nutrients \n')
     # pprint.pprint(targeted_nutrients)
 
     """
@@ -209,29 +253,28 @@ def calculate_fulldayofeating(
     # print('\n list_independently_scaling_entities \n')
     # pprint.pprint(list_independently_scaling_entities)
 
-    # Initialize fulldayofeating_nutrition_so_far
     fulldayofeating_nutrition_so_far = {}
-    for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+    for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        nutrient_field_name = nutrient_dict['name']
         fulldayofeating_nutrition_so_far.update(
             {nutrient_field_name: 0}
         )
     # print('\n fulldayofeating_nutrition_so_far \n')
     # pprint.pprint(fulldayofeating_nutrition_so_far)
 
-    # Sum up the nutrition from the SpecificIngredients with the scaling_option
-    # set to 'FIXED'.
     for dict_k in specificingredient_scalingoption_fixed:
-         for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
-             if dict_k['raw_ingredient'][nutrient_field_name] == None:
-                 dict_k['raw_ingredient'][nutrient_field_name] = \
-                 0
-             fulldayofeating_nutrition_so_far[nutrient_field_name]=\
-             fulldayofeating_nutrition_so_far[nutrient_field_name]\
-             + dict_k['base_amount'] \
-             / dict_k['raw_ingredient']['reference_amount_g'] \
-             * dict_k['raw_ingredient'][nutrient_field_name]
-    # print('\n fulldayofeating_nutrition_so_far \n')
-    # pprint.pprint(fulldayofeating_nutrition_so_far)
+        for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+            nutrient_field_name = nutrient_dict['name']
+            if dict_k['raw_ingredient'][nutrient_field_name] == None:
+                dict_k['raw_ingredient'][nutrient_field_name] = \
+                0
+            fulldayofeating_nutrition_so_far[nutrient_field_name]=\
+            fulldayofeating_nutrition_so_far[nutrient_field_name]\
+            + dict_k['base_amount'] \
+            / dict_k['raw_ingredient']['reference_amount'] \
+            * dict_k['raw_ingredient'][nutrient_field_name]
+    print('\n fulldayofeating_nutrition_so_far \n')
+    pprint.pprint(fulldayofeating_nutrition_so_far)
 
     # For the targeted nutrients, calculate the remaining values.
     targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)
@@ -272,7 +315,7 @@ def calculate_fulldayofeating(
     # print('\nx \n')
     # pprint.pprint(x)
 
-    # Multiply the entries in x with the reference_amount_g of each
+    # Multiply the entries in x with the reference_amount of each
     # SpecificIngredient
     solution = np.zeros(len(x))
     # print('\nsolution \n')
@@ -281,7 +324,7 @@ def calculate_fulldayofeating(
     for k in range(len(x)):
         # Calculate solution
         solution[k] = x[k] * list_independently_scaling_entities\
-        [k]['raw_ingredient']['reference_amount_g']
+        [k]['raw_ingredient']['reference_amount']
     # print('\n solution \n')
     # pprint.pprint(solution)
 
@@ -424,7 +467,7 @@ def calculate_average_of_specificingredient_group(
                 {field_name: 0}
             )
         rawingredient_dict_initial.update(
-            {'reference_amount_g': 100}
+            {'reference_amount': 100}
         )
         # print('\n rawingredient_dict_initial \n')
         # pprint.pprint(rawingredient_dict_initial)
@@ -460,11 +503,11 @@ def calculate_average_of_specificingredient_group(
 
         # Go through the SpecificIngredients belonging to a certain group
         # and add them to the averaged_specificingredient.
-        # Helper variable to calculate the average reference_amount_g.
+        # Helper variable to calculate the average reference_amount.
         sum_reference_amount_g = 0
         for m in range(len(group_k)):
             sum_reference_amount_g = sum_reference_amount_g \
-            + averaged_specificingredient['raw_ingredient']['reference_amount_g']
+            + averaged_specificingredient['raw_ingredient']['reference_amount']
             for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
                 # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
@@ -475,8 +518,8 @@ def calculate_average_of_specificingredient_group(
                 + (group_k[m]['base_amount'] / total_base_amount) \
                 * group_k[m]['raw_ingredient'][nutrient_field_name]
 
-        # Calculate the average reference_amount_g.
-        averaged_specificingredient['raw_ingredient']['reference_amount_g'] = \
+        # Calculate the average reference_amount.
+        averaged_specificingredient['raw_ingredient']['reference_amount'] = \
         sum_reference_amount_g / len(group_k)
 
         # Add all the averaged ingredients to a list.
