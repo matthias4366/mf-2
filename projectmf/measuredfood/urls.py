@@ -149,7 +149,7 @@ urlpatterns_fulldayofeating_after_calculation = [
 urlpatterns_mealplan = [
     path(
         'mealplan/create/',
-        mealplan.CreateMealplan.as_view(),
+        mealplan.create_mealplan_view,
         name='create-mealplan'
     ),
     path(

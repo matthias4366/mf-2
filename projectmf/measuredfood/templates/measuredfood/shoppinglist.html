@@ -1,5 +1,14 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+
+  <a href="{% url 'update-mealplan' id_mealplan=id_mealplan %}">
+    <button type="button" class="btn btn-primary">
+      Back to Mealplan
+    </button>
+  </a>
+  <br>
+  <br>
+
   <h1>Your shopping list:</h1>
   <table border="2">
     <thead>

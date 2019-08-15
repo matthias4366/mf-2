@@ -21,7 +21,8 @@ from measuredfood.models import (
     SpecificFullDayOfEating,
     SpecificIngredient,
     NutrientProfile,
-    RawIngredient,
+    RawIngredient2,
+    NutrientTargetSelection
 )
 from measuredfood.forms import (
     MealplanForm,
@@ -32,25 +33,39 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
 import pprint
-from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_NUTRITION
+from measuredfood.ingredient_properties2 import (
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 import numpy as np
 from measuredfood.utils import fulldayofeating_calculate
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
 
-class CreateMealplan(LoginRequiredMixin, CreateView):
-    model = Mealplan
-    fields = ['name',]
+@login_required
+def create_mealplan_view(request):
+    view_type = 'create'
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    if request.method == 'POST':
+        form_mealplan = MealplanForm(request.POST)
+        if form_mealplan.is_valid():
+            form_mealplan.instance.author = request.user
+            form_mealplan.save()
+            return redirect('list-mealplan')
+    else:
+        form_mealplan = MealplanForm()
+        context = {'form_mealplan': form_mealplan,
+                   'view_type': view_type}
+        return render(
+            request,
+            'measuredfood/mealplan_form.html',
+            context
+            )
 
 
 @login_required
 def update_mealplan_view(request, id_mealplan):
+    view_type = 'update'
+
     # Make sure users can not edit other user's objects.
     user_is_author = check_if_author(
         request,
@@ -98,7 +113,8 @@ def update_mealplan_view(request, id_mealplan):
         context = {
             'form_mealplan': form_mealplan,
             'formset_specificfulldayofeating': formset_specificfulldayofeating,
-            'id_mealplan': mealplan_object.id
+            'id_mealplan': mealplan_object.id,
+            'view_type': view_type
         }
         # TODO: use reverse_lazy instead of hard coding the name of the html file.
         return render(request, 'measuredfood/mealplan_form.html', context)
@@ -149,15 +165,16 @@ def shoppinglist_view(request, id_mealplan):
 
         specificingredient_id_and_calculated_amount = \
         fulldayofeating_calculate.calculate_fulldayofeating(
-            id_fulldayofeating_to_recalculate,  # check
-            SpecificIngredient, # check
-            FullDayOfEating, # check
-            NutrientProfile,  # check
-            RawIngredient,  # check
-            pprint,  # check
-            copy,  # check
-            INGREDIENT_FIELDS_NUTRITION,  # check
-            np  # check
+            id_fulldayofeating_to_recalculate,
+            SpecificIngredient,
+            FullDayOfEating,
+            NutrientProfile,
+            NutrientTargetSelection,
+            RawIngredient2,
+            pprint,
+            copy,
+            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            np
             )
         # Save the results to the database:
         save_fulldayofeating_calculation_result_to_database(
@@ -176,15 +193,15 @@ def shoppinglist_view(request, id_mealplan):
             fulldayofeating = id_fulldayofeating_k
         ).values()
         list_specificingredient_for_sum = list(queryset_specificingredient_for_sum)
-        print('\n\n list_specificingredient_for_sum')
-        pprint.pprint(list_specificingredient_for_sum)
+        # print('\n\n list_specificingredient_for_sum')
+        # pprint.pprint(list_specificingredient_for_sum)
 
         # For each FullDayOfEating in
         # that list, iterate over all the SpecificIngredients.
         for dict_specificingredient_k in list_specificingredient_for_sum:
-            # For each SpecificIngredient, get the name of the associated RawIngredient.
+            # For each SpecificIngredient, get the name of the associated RawIngredient2.
             rawingredient_id = dict_specificingredient_k['rawingredient_id']
-            query_rawingredient_name = RawIngredient.objects.filter(
+            query_rawingredient_name = RawIngredient2.objects.filter(
                 id = rawingredient_id
             ).values('name')
             # print('\n\n query_rawingredient_name')
@@ -194,7 +211,7 @@ def shoppinglist_view(request, id_mealplan):
             # print('\n\n rawingredient_name')
             # pprint.pprint(rawingredient_name)
 
-            # Check if the name of the RawIngredient is already in the
+            # Check if the name of the RawIngredient2 is already in the
             # shopping_list_dict. If it is not, add it and initialize the sum total
             # amount as 0.
             if rawingredient_name not in shopping_list_dict:
@@ -202,7 +219,7 @@ def shoppinglist_view(request, id_mealplan):
                 shopping_list_dict.update(new_dict)
 
             # After that, add the calculated_amount of the SpecificIngredient which
-            # is related to the RawIngredient to the sum total amount.
+            # is related to the RawIngredient2 to the sum total amount.
             shopping_list_dict[rawingredient_name] = \
             shopping_list_dict[rawingredient_name] \
             + dict_specificingredient_k['calculated_amount']
@@ -210,10 +227,13 @@ def shoppinglist_view(request, id_mealplan):
 
     # print('\n\n shopping_list_dict')
     # pprint.pprint(shopping_list_dict)
-    context = {'results_shopping_list': shopping_list_dict}
-    print('\n\n context')
-    pprint.pprint(context)
-    return render(request, 'measuredfood/shoppinglist.html', {'results_shopping_list': shopping_list_dict})
+    context = {
+        'results_shopping_list': shopping_list_dict,
+        'id_mealplan': id_mealplan,
+        }
+    # print('\n\n context')
+    # pprint.pprint(context)
+    return render(request, 'measuredfood/shoppinglist.html', context)
 
 
 class ListMealplan(

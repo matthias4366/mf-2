@@ -135,8 +135,8 @@ def calculate_fulldayofeating(
     )
     nutrienttargetselection_dict = \
     list(queryset_nutrienttargetselection_data.values())[0]
-    print('\n nutrienttargetselection_dict \n')
-    pprint.pprint(nutrienttargetselection_dict)
+    # print('\n nutrienttargetselection_dict \n')
+    # pprint.pprint(nutrienttargetselection_dict)
 
     # Rewrite the targeted_nutrients
     targeted_nutrients = {}
@@ -146,17 +146,11 @@ def calculate_fulldayofeating(
         # interpreted as True.
         if '_is_targeted' in key:
             if is_targeted:
-                print('\n key \n')
-                pprint.pprint(key)
                 # Remove the "_is_targeted" at the end
                 nutrient_field_name = key[:-12]
-                print('\n nutrient_field_name \n')
-                pprint.pprint(nutrient_field_name)
                 targeted_nutrients.update(
                     {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
                 )
-    print('\n targeted_nutrients \n')
-    pprint.pprint(targeted_nutrients)
 
     """
     Iterate through the dictionaries representing the SpecificIngredients
@@ -260,8 +254,8 @@ def calculate_fulldayofeating(
             + dict_k['base_amount'] \
             / dict_k['raw_ingredient']['reference_amount'] \
             * dict_k['raw_ingredient'][nutrient_field_name]
-    print('\n fulldayofeating_nutrition_so_far \n')
-    pprint.pprint(fulldayofeating_nutrition_so_far)
+    # print('\n fulldayofeating_nutrition_so_far \n')
+    # pprint.pprint(fulldayofeating_nutrition_so_far)
 
     # For the targeted nutrients, calculate the remaining values.
     targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)

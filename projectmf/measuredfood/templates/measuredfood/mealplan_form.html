@@ -16,6 +16,9 @@
                   Save
                 </button>
             </div>
+
+            {% if view_type == 'update' %}
+
             <!-- TODO: find a better way to introduce line breaks. -->
             <p>----------------------------------------------------------------------------------------------------------------------------------------------------</p>
             <table border="2">
@@ -42,13 +45,19 @@
             </table>
             <br>
             <input type="submit" value="Save changes / Add more full days of eating" />
+
+            {% endif %}
+
         </form>
-        <br>
-        <br>
-        <a href="{% url 'mealplan-shoppinglist' id_mealplan=id_mealplan %}">
-          <button type="button" class="btn btn-primary">
-            Make shopping list
-          </button>
-        </a>
+        {% if view_type == 'update' %}
+          <br>
+          <br>
+
+          <a href="{% url 'mealplan-shoppinglist' id_mealplan=id_mealplan %}">
+            <button type="button" class="btn btn-primary">
+              Make shopping list
+            </button>
+          </a>
+        {% endif %}
     </div>
 {% endblock content %}
