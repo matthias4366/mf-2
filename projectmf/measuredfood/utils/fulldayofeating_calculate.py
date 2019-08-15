@@ -7,7 +7,6 @@ def calculate_fulldayofeating(
     RawIngredient2,
     pprint,
     copy,
-    INGREDIENT_FIELDS_NUTRITION,  # TODO: old, delete once you can.
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,  # new
     np
     ):
@@ -159,18 +158,6 @@ def calculate_fulldayofeating(
     print('\n targeted_nutrients \n')
     pprint.pprint(targeted_nutrients)
 
-    # # TODO: delete this old code. At this point, I am just keeping it for mental reference.
-    # # Old code that does not work since introducing NutrientTargetSelection.
-    # # Collect all the nutrition goals that are actually targeted.
-    # targeted_nutrients = {}
-    # for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
-    #     if nutrientprofile_dict[nutrient_field_name+'_is_targeted']:
-    #         targeted_nutrients.update(
-    #             {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
-    #         )
-    # print('\n targeted_nutrients \n')
-    # pprint.pprint(targeted_nutrients)
-
     """
     Iterate through the dictionaries representing the SpecificIngredients
     and sort them by their 'scaling_option' property.
@@ -232,7 +219,7 @@ def calculate_fulldayofeating(
     # pprint.pprint(specificingredient_scalingoption_group_dict)
 
     list_averaged_specificingredients = calculate_average_of_specificingredient_group(
-        INGREDIENT_FIELDS_NUTRITION,
+        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         specificingredient_scalingoption_group_dict,
         copy,
         pprint,
@@ -441,7 +428,7 @@ def calculate_fulldayofeating(
     return specificingredient_id_and_calculated_amount
 
 def calculate_average_of_specificingredient_group(
-    INGREDIENT_FIELDS_NUTRITION,
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     specificingredient_scalingoption_group_dict,
     copy,
     pprint,
@@ -462,7 +449,8 @@ def calculate_average_of_specificingredient_group(
         # as opposed to starting with a copy of a SpecificIngredient. This way,
         # only the needed fields will be included.
         rawingredient_dict_initial = {}
-        for field_name in INGREDIENT_FIELDS_NUTRITION:
+        for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+            field_name = nutrient_dict['name']
             rawingredient_dict_initial.update(
                 {field_name: 0}
             )
@@ -508,7 +496,8 @@ def calculate_average_of_specificingredient_group(
         for m in range(len(group_k)):
             sum_reference_amount_g = sum_reference_amount_g \
             + averaged_specificingredient['raw_ingredient']['reference_amount']
-            for nutrient_field_name in INGREDIENT_FIELDS_NUTRITION:
+            for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+                nutrient_field_name = nutrient_dict['name']
                 # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
                     group_k[m]['raw_ingredient'][nutrient_field_name] = \

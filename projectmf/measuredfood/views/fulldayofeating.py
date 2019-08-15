@@ -24,9 +24,6 @@ from measuredfood.utils import fulldayofeating_calculate
 import pprint
 from django.contrib.auth.decorators import login_required
 import pprint
-from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_NUTRITION
-)
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
@@ -198,7 +195,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         RawIngredient2,
         pprint,
         copy,
-        INGREDIENT_FIELDS_NUTRITION,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         np
         )
