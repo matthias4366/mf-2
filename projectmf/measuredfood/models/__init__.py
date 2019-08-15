@@ -1,4 +1,3 @@
-from .rawingredient import RawIngredient
 from .rawingredient2 import RawIngredient2
 from .nutrientprofile import NutrientProfile
 from .fulldayofeating import FullDayOfEating

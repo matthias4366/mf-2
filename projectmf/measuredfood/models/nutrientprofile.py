@@ -6,7 +6,6 @@ from measuredfood.ingredient_properties2 import (
 )
 
 from string import ascii_lowercase
-from .rawingredient import RawIngredient
 
 
 class NutrientProfile(models.Model):

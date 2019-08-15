@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import (home,
                     register,
-                    rawingredient,
                     rawingredient2,
                     nutrientprofile,
                     fulldayofeating,
@@ -23,34 +22,6 @@ urlpatterns_user = [
          auth_views.LogoutView.as_view(
              template_name='measuredfood/logout.html'
         ), name='logout'),
-]
-
-urlpatterns_rawingredient = [
-    path(
-        'ingredients/create/',
-        rawingredient.CreateRawIngredient.as_view(),
-        name='create-raw-ingredient'
-    ),
-    path(
-        'ingredients/list/',
-        rawingredient.ListRawIngredients.as_view(),
-        name='list-raw-ingredients'
-    ),
-    path(
-        'ingredients/<int:pk>/update/',
-        rawingredient.UpdateRawIngredient.as_view(),
-        name='update-raw-ingredient'
-    ),
-    path(
-        'ingredients/<int:pk>/detail/',
-        rawingredient.DetailRawIngredient.as_view(),
-        name='detail-raw-ingredient'
-    ),
-    path(
-        'ingredients/<int:pk>/delete/',
-        rawingredient.DeleteRawIngredient.as_view(),
-        name='delete-raw-ingredient'
-    ),
 ]
 
 urlpatterns_rawingredient2 = [
@@ -212,7 +183,6 @@ urlpatterns_nutrienttargetselection = [
 
 urlpatterns = urlpattern_home \
 + urlpatterns_user \
-+ urlpatterns_rawingredient \
 + urlpatterns_rawingredient2 \
 + urlpatterns_nutrientprofile \
 + urlpatterns_fulldayofeating \

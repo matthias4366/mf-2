@@ -18,10 +18,6 @@ from measuredfood.forms import (NutrientProfileForm)
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from measuredfood.ingredient_properties import (
-    INGREDIENT_FIELDS_ALL,
-    INGREDIENT_FIELDS_NUTRITION
-)
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
 
