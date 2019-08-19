@@ -44,19 +44,17 @@
     </tr>
 
     <!-- Use forloop.counter0 to access the for loop counter -->
-    {% for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS %}
+
+    {% for ab in aggregated_results %}
       <tr>
-        <td>{{ dict_k.name }}</td>
-        <td></td>
+        <td>{{ ab.0 }}</td>
+        <td>{{ ab.1 }}</td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
     {% endfor %}
-
-
-
 
   </table>
   <br>

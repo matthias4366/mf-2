@@ -26,12 +26,13 @@ from django.contrib.auth.decorators import login_required
 import pprint
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-
 )
 import numpy as np
 from measuredfood.utils.check_if_author import check_if_author
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
+from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
+import calculate_total_nutrition_fulldayofeating
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -211,10 +212,40 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     result_calculation_fulldayofeating = \
     query_result_calculation_fulldayofeating(id_fulldayofeating)
 
+    # Calculate the total nutrition of the full day of eating
+    result_total_nutrition_fulldayofeating_rounded = \
+    calculate_total_nutrition_fulldayofeating(
+        id_fulldayofeating,
+        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+        pprint,
+        copy,
+        SpecificIngredient,
+        RawIngredient2,
+    )
+
+    # Make the result_total_nutrition_fulldayofeating_rounded into a list.
+    result_total_nutrition_fulldayofeating_rounded_list = []
+    nutrient_name_list = []
+    for key, value in result_total_nutrition_fulldayofeating_rounded.items():
+        result_total_nutrition_fulldayofeating_rounded_list.append(value)
+        nutrient_name_list.append(key)
+
+    print('\n result_total_nutrition_fulldayofeating_rounded \n')
+    pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
+
+
+    aggregated_results = zip(nutrient_name_list, result_total_nutrition_fulldayofeating_rounded_list)
+
+    print('\n aggregated_results \n')
+    pprint.pprint(aggregated_results)
+
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
                'ALL_NUTRIENTS_AND_DEFAULT_UNITS': ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+               'result_total_nutrition_fulldayofeating_rounded_list':\
+               result_total_nutrition_fulldayofeating_rounded_list,
+               'aggregated_results': aggregated_results,
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }
