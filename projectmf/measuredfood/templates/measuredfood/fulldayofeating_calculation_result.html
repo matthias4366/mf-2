@@ -28,6 +28,40 @@
       </tr>
       {% endfor %}
     </table>
+
+  <br>
+  <br>
+  <h1>Total nutrition in full day of eating:</h1>
+  <table border="2">
+    <tr>
+      <td>Nutrient name</td>
+      <td>Full day of eating</td>
+      <!-- Percent of the target set in NutrientProfile -->
+      <td>% Target</td>
+      <td>% Tolerable upper intake</td>
+      <td>Judgement</td>
+      <td>Certainty</td>
+    </tr>
+
+    <!-- Use forloop.counter0 to access the for loop counter -->
+    {% for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS %}
+      <tr>
+        <td>{{ dict_k.name }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    {% endfor %}
+
+
+
+
+  </table>
+  <br>
+  <br>
+  <br>
   <br>
 
 {% endblock content %}

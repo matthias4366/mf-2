@@ -25,7 +25,8 @@ import pprint
 from django.contrib.auth.decorators import login_required
 import pprint
 from measuredfood.ingredient_properties2 import (
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+
 )
 import numpy as np
 from measuredfood.utils.check_if_author import check_if_author
@@ -213,6 +214,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
+               'ALL_NUTRIENTS_AND_DEFAULT_UNITS': ALL_NUTRIENTS_AND_DEFAULT_UNITS,
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }
