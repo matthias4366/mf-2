@@ -33,7 +33,7 @@ def calculate_percentage_of_target_amount(
 
     for key, value in result_total_nutrition_fulldayofeating.items():
         if nutrientprofile_dict[key] is None:
-            result_percentage_of_target_amount[key] = 'no target'
+            result_percentage_of_target_amount[key] = ''
         elif nutrientprofile_dict[key] == 0:
             result_percentage_of_target_amount[key] = 'target amount is zero'
         else:

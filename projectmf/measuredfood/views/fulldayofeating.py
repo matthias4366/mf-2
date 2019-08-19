@@ -8,7 +8,8 @@ from measuredfood.forms import (
 from measuredfood.models import (
     RawIngredient2,
     NutrientProfile,
-    NutrientTargetSelection
+    NutrientTargetSelection,
+    TolerableUpperIntake,
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
 from django.urls import reverse, reverse_lazy
@@ -37,6 +38,9 @@ from measuredfood.utils.calculate_percentage_of_target_amount\
 import calculate_percentage_of_target_amount
 from measuredfood.utils.set_to_zero_if_none\
 import set_to_zero_if_none
+from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
+import calculate_percentage_of_tolerable_upper_intake
+
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -260,14 +264,35 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     for key, value in result_percentage_of_target_amount.items():
         result_percentage_of_target_amount_list.append(value)
 
+    # Calculate the percentage of the tolerable upper limit.
+    result_percentage_of_tolerable_upper_intake = \
+    calculate_percentage_of_tolerable_upper_intake(
+        result_total_nutrition_fulldayofeating,
+        id_fulldayofeating,
+        pprint,
+        FullDayOfEating,
+        TolerableUpperIntake,
+        set_to_zero_if_none,
+    )
+
+    print('\n result_percentage_of_tolerable_upper_intake \n')
+    pprint.pprint(result_percentage_of_tolerable_upper_intake)
+
+    # Make the result_percentage_of_target_amount into a list
+    result_percentage_of_tolerable_upper_intake_list = []
+    for key, value in result_percentage_of_tolerable_upper_intake.items():
+        result_percentage_of_tolerable_upper_intake_list.append(value)
+
     aggregated_total_nutrition_fulldayofeating = \
     zip(
         nutrient_name_list,
         result_total_nutrition_fulldayofeating_rounded_list,
         result_percentage_of_target_amount_list,
+        result_percentage_of_tolerable_upper_intake_list,
         )
-    # print('\n aggregated_total_nutrition_fulldayofeating \n')
-    # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
+    print('\n aggregated_total_nutrition_fulldayofeating \n')
+    pprint.pprint(aggregated_total_nutrition_fulldayofeating)
+
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
