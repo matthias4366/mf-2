@@ -33,6 +33,10 @@ from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
 from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
 import calculate_total_nutrition_fulldayofeating
+from measuredfood.utils.calculate_percentage_of_target_amount\
+import calculate_percentage_of_target_amount
+from measuredfood.utils.set_to_zero_if_none\
+import set_to_zero_if_none
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -213,7 +217,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     query_result_calculation_fulldayofeating(id_fulldayofeating)
 
     # Calculate the total nutrition of the full day of eating
-    result_total_nutrition_fulldayofeating_rounded = \
+    result_total_nutrition_fulldayofeating,\
+    result_total_nutrition_fulldayofeating_rounded =\
     calculate_total_nutrition_fulldayofeating(
         id_fulldayofeating,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
@@ -230,22 +235,46 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_total_nutrition_fulldayofeating_rounded_list.append(value)
         nutrient_name_list.append(key)
 
-    print('\n result_total_nutrition_fulldayofeating_rounded \n')
-    pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
+    # print('\n result_total_nutrition_fulldayofeating_rounded \n')
+    # pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
 
+    # Calculate the ratio of the total nutrition in the full day of eating
+    # in relation to the target amounts in the nutrient profile and
+    # express the result as a percentage.
 
-    aggregated_results = zip(nutrient_name_list, result_total_nutrition_fulldayofeating_rounded_list)
+    result_percentage_of_target_amount = \
+    calculate_percentage_of_target_amount(
+        result_total_nutrition_fulldayofeating,
+        pprint,
+        id_fulldayofeating,
+        FullDayOfEating,
+        NutrientProfile,
+        set_to_zero_if_none,
+    )
 
-    print('\n aggregated_results \n')
-    pprint.pprint(aggregated_results)
+    # print('\n result_percentage_of_target_amount \n')
+    # pprint.pprint(result_percentage_of_target_amount)
 
+    # Make the result_percentage_of_target_amount into a list
+    result_percentage_of_target_amount_list = []
+    for key, value in result_percentage_of_target_amount.items():
+        result_percentage_of_target_amount_list.append(value)
+
+    aggregated_total_nutrition_fulldayofeating = \
+    zip(
+        nutrient_name_list,
+        result_total_nutrition_fulldayofeating_rounded_list,
+        result_percentage_of_target_amount_list,
+        )
+    # print('\n aggregated_total_nutrition_fulldayofeating \n')
+    # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
-               'ALL_NUTRIENTS_AND_DEFAULT_UNITS': ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-               'result_total_nutrition_fulldayofeating_rounded_list':\
-               result_total_nutrition_fulldayofeating_rounded_list,
-               'aggregated_results': aggregated_results,
+               'aggregated_total_nutrition_fulldayofeating': \
+               aggregated_total_nutrition_fulldayofeating,
+               'result_percentage_of_target_amount':\
+               result_percentage_of_target_amount,
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }

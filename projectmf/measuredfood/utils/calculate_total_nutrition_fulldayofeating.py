@@ -82,7 +82,8 @@ def calculate_total_nutrition_fulldayofeating(
         result_total_nutrition_fulldayofeating_rounded[nutrient_name] = \
         round(result_total_nutrition_fulldayofeating[nutrient_name],1)
 
-    return result_total_nutrition_fulldayofeating_rounded
+    return result_total_nutrition_fulldayofeating,\
+            result_total_nutrition_fulldayofeating_rounded
 
 def set_to_zero_if_none(input):
     if input is None:
