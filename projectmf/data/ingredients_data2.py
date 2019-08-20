@@ -4,46 +4,51 @@ to be performed. For this, ingredients are to be added. The data for the
 ingredients is stored centrally in this python file.
 """
 # New template
+
+
+
 {
     'name': None,
-    'calories': None,
-    'carbohydrates': None,
-    'fat': None,
-    'protein': None,
-    'linoleic_acid': None,
-    'alpha_linoleic_acid': None,
-    'vitamin_a': None,
-    'vitamin_c': None,
-    'vitamin_d': None,
-    'vitamin_e': None,
-    'vitamin_k': None,
-    'thiamin': None,
-    'riboflavin': None,
-    'niacin': None,
-    'vitamin_b6': None,
-    'folate': None,
-    'vitamin_b12': None,
-    'pantothenic_acid': None,
-    'biotin': None,
-    'choline': None,
-    'calcium': None,
-    'chromium': None,
-    'copper': None,
-    'fluoride': None,
-    'iodine': None,
-    'iron': None,
-    'magnesium': None,
-    'manganese': None,
-    'molybdenum': None,
-    'phosphorus': None,
-    'selenium': None,
-    'zinc': None,
-    'potassium': None,
-    'sodium': None,
-    'chloride': None,
+    'reference_amount': None,  # default: 100 g
+    'calories': None,  # 'default_unit': 'kcal'
+    'carbohydrates': None,  # 'default_unit': 'gram'
+    'fat': None,  # 'default_unit': 'gram'
+    'protein': None,  # 'default_unit': 'gram'
+    'linoleic_acid': None,  # 'default_unit': 'gram'
+    'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+    'vitamin_a': None,  #'default_unit': 'microgram'
+    'vitamin_c': None,  # 'default_unit': 'milligram'
+    'vitamin_d': None,  #'default_unit': 'microgram'
+    'vitamin_e': None,  # 'default_unit': 'milligram'
+    'vitamin_k': None,  # 'default_unit': 'microgram'
+    'thiamin': None,  # 'default_unit': 'milligram'
+    'riboflavin': None,  # 'default_unit': 'milligram'
+    'niacin': None,  # 'default_unit': 'milligram'
+    'vitamin_b6': None,  # 'default_unit': 'milligram'
+    'folate': None,  # 'default_unit': 'microgram'
+    'vitamin_b12': None,  # 'default_unit': 'microgram'
+    'pantothenic_acid': None,  #'default_unit': 'milligram'
+    'biotin': None,  # 'default_unit': 'microgram'
+    'choline': None,  # 'default_unit': 'milligram'
+    'calcium': None,  # 'default_unit': 'milligram'
+    'chromium': None,  # 'default_unit': 'microgram'
+    'copper': None,  # 'default_unit': 'microgram'
+    'fluoride': None,  # 'default_unit': 'milligram'
+    'iodine': None,  # 'default_unit': 'microgram'
+    'iron': None,  # 'default_unit': 'milligram'
+    'magnesium': None,  # 'default_unit': 'milligram'
+    'manganese': None,  # 'default_unit': 'milligram'
+    'molybdenum': None,  # 'default_unit': 'microgram'
+    'phosphorus': None,  # 'default_unit': 'milligram'
+    'selenium': None,  # 'default_unit': 'microgram'
+    'zinc': None,  # 'default_unit': 'milligram'
+    'potassium': None,  # 'default_unit': 'gram'
+    'sodium': None,  # 'default_unit': 'gram'
+    'chloride': None,  # 'default_unit': 'gram'
     'buy_here_link': None,
     'source_nutritional_information_link': None,
 },
+
 
 # The nutrition info for an ingredient is saved in a dictionary. All the
 # dictionaries are saved in a list.
@@ -622,5 +627,456 @@ ingredient_dict_list = [
         'copper' : 0.1,
         'manganese' : 0.9,
         'selenium' : 1.0,
-    }
+    },
+    {
+        'name': 'Multivitamin A-Z Komplett Mivolis dm',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 400,
+        'vitamin_c': 80,
+        'vitamin_d': 5,
+        'vitamin_e': 12,
+        'vitamin_k': 75,
+        'thiamin': 1.1,
+        'riboflavin': 1.4,
+        'niacin': 16,
+        'vitamin_b6': 1.4,
+        'folate': 200,
+        'vitamin_b12': 2.5,
+        'pantothenic_acid': 6,
+        'biotin': 50,
+        'choline': 0,
+        'calcium': 200,
+        'chromium': 40,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 100,
+        'iron': 0,
+        'magnesium': 100,
+        'manganese': 0,
+        'molybdenum': 50,
+        'phosphorus': 125,
+        'selenium': 25,
+        'zinc': 2.25,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None, # package
+    },
+    {
+        'name': 'Vitamin D3 Tablette Vitabay 5000 I.E.',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 125,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+    },
+    {
+        'name': 'Iron tablets, gentle iron',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 25,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+    },
+    {
+        'name': 'Vitamin B12 tablets Nu U',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 1000,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+    },
+    {
+        'name': 'Zink bisglycinat Nature Love',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 25,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+    },
+    {
+        'name': 'Salt, iodized',
+        'reference_amount': 100,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 31,
+        'iodine': 2000,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 38.758,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,  # package aro Jodsalz von getnow
+    },
+    {
+        'name': 'Magnesium citrate',
+        'reference_amount': 100,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 8340,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,  # package
+    },
+    {
+        'name': 'Potassium citrate',
+        'reference_amount': 100,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 0,
+        'riboflavin': 0,
+        'niacin': 0,
+        'vitamin_b6': 0,
+        'folate': 0,
+        'vitamin_b12': 0,
+        'pantothenic_acid': 0,
+        'biotin': 0,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 36,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+    },
+    {
+        'name': 'Vitamin B-Komplex ratiopharm',
+        'reference_amount': 1,
+        'calories': 0,
+        'carbohydrates': 0,
+        'fat': 0,
+        'protein': 0,
+        'linoleic_acid': 0,
+        'alpha_linoleic_acid': 0,
+        'vitamin_a': 0,
+        'vitamin_c': 0,
+        'vitamin_d': 0,
+        'vitamin_e': 0,
+        'vitamin_k': 0,
+        'thiamin': 15,
+        'riboflavin': 15,
+        'niacin': 15,
+        'vitamin_b6': 10,
+        'folate': 450,
+        'vitamin_b12': 10,
+        'pantothenic_acid': 25,
+        'biotin': 150,
+        'choline': 0,
+        'calcium': 0,
+        'chromium': 0,
+        'copper': 0,
+        'fluoride': 0,
+        'iodine': 0,
+        'iron': 0,
+        'magnesium': 0,
+        'manganese': 0,
+        'molybdenum': 0,
+        'phosphorus': 0,
+        'selenium': 0,
+        'zinc': 0,
+        'potassium': 0,
+        'sodium': 0,
+        'chloride': 0,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,  # package
+    },
+    {
+        'name': 'Complete Multivitamin Komplex Tabletten Bulkpowders',
+        'reference_amount': 3,
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': 400,  #'default_unit': 'microgram'
+        'vitamin_c': 150,  # 'default_unit': 'milligram'
+        'vitamin_d': 25,  #'default_unit': 'microgram'
+        'vitamin_e': 10.5,  # 'default_unit': 'milligram'
+        'vitamin_k': 100,  # 'default_unit': 'microgram'
+        'thiamin': 25,
+        'riboflavin': 25,
+        'niacin': 25,
+        'vitamin_b6': 25,  # 'default_unit': 'milligram'
+        'folate': 400,  # 'default_unit': 'microgram'
+        'vitamin_b12': 100,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 25,  #'default_unit': 'milligram'
+        'biotin': 150,  # 'default_unit': 'microgram'
+        'choline': 61,
+        'calcium': 495,  # 'default_unit': 'milligram'
+        'chromium': 100,  # 'default_unit': 'microgram'
+        'copper': 100,  # 'default_unit': 'microgram'
+        'fluoride': None,  # 'default_unit': 'milligram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 14.1,  # 'default_unit': 'milligram'
+        'magnesium': 150,  # 'default_unit': 'milligram'
+        'manganese': 0.100,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': 55,  # 'default_unit': 'microgram'
+        'zinc': 15,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': 'https://www.bulkpowders.de/complete-multivitamin-komplex-de.html',
+        'source_nutritional_information_link': 'https://www.bulkpowders.de/complete-multivitamin-komplex-de.html',
+    },
+    {
+        'name': 'Multivitamin vitasyg',  # Best multivitamin tablet.
+        'reference_amount': 1,  # default: 100 g
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': 800,  #'default_unit': 'microgram'
+        'vitamin_c': 80,  # 'default_unit': 'milligram'
+        'vitamin_d': 5,  #'default_unit': 'microgram'
+        'vitamin_e': 12,  # 'default_unit': 'milligram'
+        'vitamin_k': 75,  # 'default_unit': 'microgram'
+        'thiamin': 1.1,  # 'default_unit': 'milligram'
+        'riboflavin': 1.4,  # 'default_unit': 'milligram'
+        'niacin': 16,  # 'default_unit': 'milligram'
+        'vitamin_b6': 1.4,  # 'default_unit': 'milligram'
+        'folate': 200,  # 'default_unit': 'microgram'
+        'vitamin_b12': 2.5,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 6,  #'default_unit': 'milligram'
+        'biotin': 50,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': 200,  # 'default_unit': 'milligram'
+        'chromium': 20,  # 'default_unit': 'microgram'
+        'copper': 1000,  # 'default_unit': 'microgram'
+        'fluoride': None,  # 'default_unit': 'milligram'
+        'iodine': 150,  # 'default_unit': 'microgram'
+        'iron': 14,  # 'default_unit': 'milligram'
+        'magnesium': 75,  # 'default_unit': 'milligram'
+        'manganese': 2,  # 'default_unit': 'milligram'
+        'molybdenum': 25,  # 'default_unit': 'microgram'
+        'phosphorus': 40,  # 'default_unit': 'milligram'
+        'selenium': 55,  # 'default_unit': 'microgram'
+        'zinc': 10,  # 'default_unit': 'milligram'
+        'potassium': 0.04,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': 0.036,  # 'default_unit': 'gram'
+        'buy_here_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
+        'source_nutritional_information_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
+    },
 ]

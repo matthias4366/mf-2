@@ -40,6 +40,8 @@ from measuredfood.utils.set_to_zero_if_none\
 import set_to_zero_if_none
 from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
 import calculate_percentage_of_tolerable_upper_intake
+from measuredfood.utils.judge_total_nutrition\
+import judge_total_nutrition
 
 
 @login_required
@@ -246,7 +248,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # in relation to the target amounts in the nutrient profile and
     # express the result as a percentage.
 
-    result_percentage_of_target_amount = \
+    result_percentage_of_target_amount_str,\
+    result_percentage_of_target_amount_numbers = \
     calculate_percentage_of_target_amount(
         result_total_nutrition_fulldayofeating,
         pprint,
@@ -256,16 +259,22 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         set_to_zero_if_none,
     )
 
-    # print('\n result_percentage_of_target_amount \n')
-    # pprint.pprint(result_percentage_of_target_amount)
+    # print('\n result_percentage_of_target_amount_str \n')
+    # pprint.pprint(result_percentage_of_target_amount_str)
 
-    # Make the result_percentage_of_target_amount into a list
+    # Make the result_percentage_of_target_amount_str into a list
     result_percentage_of_target_amount_list = []
-    for key, value in result_percentage_of_target_amount.items():
+    for key, value in result_percentage_of_target_amount_str.items():
         result_percentage_of_target_amount_list.append(value)
 
+    # Make the result_percentage_of_target_amount_numbers into a list
+    result_percentage_of_target_amount_numbers_list = []
+    for key, value in result_percentage_of_target_amount_numbers.items():
+        result_percentage_of_target_amount_numbers_list.append(value)
+
     # Calculate the percentage of the tolerable upper limit.
-    result_percentage_of_tolerable_upper_intake = \
+    result_percentage_of_tolerable_upper_intake_str,\
+    result_percentage_of_tolerable_upper_intake_numbers = \
     calculate_percentage_of_tolerable_upper_intake(
         result_total_nutrition_fulldayofeating,
         id_fulldayofeating,
@@ -275,18 +284,32 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         set_to_zero_if_none,
     )
 
-    print('\n result_percentage_of_tolerable_upper_intake \n')
-    pprint.pprint(result_percentage_of_tolerable_upper_intake)
+    print('\n result_percentage_of_tolerable_upper_intake_str \n')
+    pprint.pprint(result_percentage_of_tolerable_upper_intake_str)
 
-    # Make the result_percentage_of_target_amount into a list
-    result_percentage_of_tolerable_upper_intake_list = []
-    for key, value in result_percentage_of_tolerable_upper_intake.items():
-        result_percentage_of_tolerable_upper_intake_list.append(value)
+    # Make the result_percentage_of_target_amount_str into a list
+    result_percentage_of_tolerable_upper_intake_str_list = []
+    for key, value in result_percentage_of_tolerable_upper_intake_str.items():
+        result_percentage_of_tolerable_upper_intake_str_list.append(value)
+
+    # Make the result_percentage_of_target_amount_numbers into a list
+    result_percentage_of_tolerable_upper_intake_numbers_list = []
+    for key, value in result_percentage_of_tolerable_upper_intake_numbers.items():
+        result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
 
     # Make the default units into a list and display them in the table.
     default_unit_list = []
     for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         default_unit_list.append(dict_k['default_unit'])
+
+    # Based on the ratios between the sum of the total nutrition for a
+    # given nutrient to that nutrient's target value and tolerable upper intake,
+    # judge the total nutrition as either the right amount, too little or too
+    # much.
+    result_judge_total_nutrition = judge_total_nutrition(
+        result_percentage_of_target_amount_numbers_list,
+        result_percentage_of_tolerable_upper_intake_numbers_list,
+    )
 
     aggregated_total_nutrition_fulldayofeating = \
     zip(
@@ -294,7 +317,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_total_nutrition_fulldayofeating_rounded_list,
         default_unit_list,
         result_percentage_of_target_amount_list,
-        result_percentage_of_tolerable_upper_intake_list,
+        result_percentage_of_tolerable_upper_intake_str_list,
         )
     print('\n aggregated_total_nutrition_fulldayofeating \n')
     pprint.pprint(aggregated_total_nutrition_fulldayofeating)
@@ -305,7 +328,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                'aggregated_total_nutrition_fulldayofeating': \
                aggregated_total_nutrition_fulldayofeating,
                'result_percentage_of_target_amount':\
-               result_percentage_of_target_amount,
+               result_percentage_of_target_amount_str,
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }

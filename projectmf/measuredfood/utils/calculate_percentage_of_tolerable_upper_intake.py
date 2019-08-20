@@ -8,9 +8,15 @@ def calculate_percentage_of_tolerable_upper_intake(
 ):
 
     # Initialize result
-    result_percentage_of_tolerable_upper_intake = {}
+    result_percentage_of_tolerable_upper_intake_str = {}
     for key, value in result_total_nutrition_fulldayofeating.items():
-        result_percentage_of_tolerable_upper_intake[key] = ''
+        result_percentage_of_tolerable_upper_intake_str[key] = ''
+
+    # Also give the results in the form of numbers so I can use them for
+    # the judgement of the total nutrition.
+    result_percentage_of_tolerable_upper_intake_numbers = {}
+    for key, value in result_total_nutrition_fulldayofeating.items():
+        result_percentage_of_tolerable_upper_intake_numbers[key] = None
 
     """
     Query the related TolerableUpperIntake and store the results in dictionaries.
@@ -56,14 +62,19 @@ def calculate_percentage_of_tolerable_upper_intake(
                 percentage_tolerable_upper_intake_rounded = \
                 round(percentage_tolerable_upper_intake, 0)
 
+                result_percentage_of_tolerable_upper_intake_numbers\
+                [nutrient_name] = \
+                percentage_tolerable_upper_intake_rounded
+
                 percentage_tolerable_upper_intake_str = \
                 str(percentage_tolerable_upper_intake_rounded)+' %'
 
-                result_percentage_of_tolerable_upper_intake[nutrient_name] = \
+                result_percentage_of_tolerable_upper_intake_str[nutrient_name] = \
                 percentage_tolerable_upper_intake_str
             else:
-                result_percentage_of_tolerable_upper_intake[nutrient_name] = \
+                result_percentage_of_tolerable_upper_intake_str[nutrient_name] = \
                 ''
 
 
-    return result_percentage_of_tolerable_upper_intake
+    return result_percentage_of_tolerable_upper_intake_str,\
+            result_percentage_of_tolerable_upper_intake_numbers
