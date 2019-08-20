@@ -283,10 +283,16 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     for key, value in result_percentage_of_tolerable_upper_intake.items():
         result_percentage_of_tolerable_upper_intake_list.append(value)
 
+    # Make the default units into a list and display them in the table.
+    default_unit_list = []
+    for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        default_unit_list.append(dict_k['default_unit'])
+
     aggregated_total_nutrition_fulldayofeating = \
     zip(
         nutrient_name_list,
         result_total_nutrition_fulldayofeating_rounded_list,
+        default_unit_list,
         result_percentage_of_target_amount_list,
         result_percentage_of_tolerable_upper_intake_list,
         )
