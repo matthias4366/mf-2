@@ -62,4 +62,12 @@ def judge_total_nutrition(
             else:
                 print('Something went wrong, this case should not be possible.')
 
-    return result_judge_total_nutrition
+    # Based on the judgments, create css class names by replacing the spaces
+    # underscores.
+    result_judge_total_nutrition_css_class_name = []
+    for str_k in result_judge_total_nutrition:
+        str_css = str_k.replace(' ', '_')
+        result_judge_total_nutrition_css_class_name.append(str_css)
+
+
+    return result_judge_total_nutrition, result_judge_total_nutrition_css_class_name

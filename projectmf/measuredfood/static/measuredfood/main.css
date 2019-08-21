@@ -1,3 +1,16 @@
+.good {
+  /* color: green; */
+  /* background-color: lightgreen */
+}
+
+.too_much {
+  color: red;
+}
+
+.too_little {
+  color: blue;
+}
+
 /* Create horizontal lines in the create form for the RawIngredient2
 to create sections. */
 hr {
@@ -19,6 +32,8 @@ visually grouped together. */
     height: 20px !important;
     background-color: #FFFFFF;
 }
+
+/* Stuff from the tutorial I got the CSS file from */
 
 body {
   background: #fafafa;
