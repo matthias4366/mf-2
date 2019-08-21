@@ -232,6 +232,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         copy,
         SpecificIngredient,
         RawIngredient2,
+        set_to_zero_if_none,
     )
 
     # Make the result_total_nutrition_fulldayofeating_rounded into a list.
@@ -284,8 +285,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         set_to_zero_if_none,
     )
 
-    print('\n result_percentage_of_tolerable_upper_intake_str \n')
-    pprint.pprint(result_percentage_of_tolerable_upper_intake_str)
+    # print('\n result_percentage_of_tolerable_upper_intake_str \n')
+    # pprint.pprint(result_percentage_of_tolerable_upper_intake_str)
 
     # Make the result_percentage_of_target_amount_str into a list
     result_percentage_of_tolerable_upper_intake_str_list = []
@@ -310,6 +311,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_percentage_of_target_amount_numbers_list,
         result_percentage_of_tolerable_upper_intake_numbers_list,
     )
+    # print('\n result_judge_total_nutrition \n')
+    # pprint.pprint(result_judge_total_nutrition)
 
     aggregated_total_nutrition_fulldayofeating = \
     zip(
@@ -318,9 +321,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         default_unit_list,
         result_percentage_of_target_amount_list,
         result_percentage_of_tolerable_upper_intake_str_list,
+        result_judge_total_nutrition,
         )
-    print('\n aggregated_total_nutrition_fulldayofeating \n')
-    pprint.pprint(aggregated_total_nutrition_fulldayofeating)
+    # print('\n aggregated_total_nutrition_fulldayofeating \n')
+    # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
 
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \

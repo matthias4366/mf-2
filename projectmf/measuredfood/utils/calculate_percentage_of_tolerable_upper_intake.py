@@ -36,8 +36,8 @@ def calculate_percentage_of_tolerable_upper_intake(
 
     tolerableupperintake_dict = list(queryset_tolerableupperintake_data.values())[0]
 
-    print('\n tolerableupperintake_dict \n')
-    pprint.pprint(tolerableupperintake_dict)
+    # print('\n tolerableupperintake_dict \n')
+    # pprint.pprint(tolerableupperintake_dict)
 
     for key, value in tolerableupperintake_dict.items():
         # pick out only the fields which represent a tolerable upper intake

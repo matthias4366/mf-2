@@ -5,6 +5,7 @@ def calculate_total_nutrition_fulldayofeating(
     copy,
     SpecificIngredient,
     RawIngredient2,
+    set_to_zero_if_none,
 ):
     """
     Below the calculation results of a full day of eating, the total nutrition
@@ -84,9 +85,3 @@ def calculate_total_nutrition_fulldayofeating(
 
     return result_total_nutrition_fulldayofeating,\
             result_total_nutrition_fulldayofeating_rounded
-
-def set_to_zero_if_none(input):
-    if input is None:
-        return 0
-    else:
-        return input
