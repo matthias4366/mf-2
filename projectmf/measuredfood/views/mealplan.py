@@ -63,6 +63,9 @@ query_tolerableupperintake_of_mealplan
 from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake import\
 calculate_percentage_of_tolerable_upper_intake
 
+from measuredfood.utils.judge_total_nutrition import\
+judge_total_nutrition
+
 @login_required
 def create_mealplan_view(request):
     view_type = 'create'
@@ -468,6 +471,21 @@ def mealplan_average_nutrition_view(request, id_mealplan):
 
     # =========================================================================
 
+    # Based on the ratios between the sum of the total nutrition for a
+    # given nutrient to that nutrient's target value and tolerable upper intake,
+    # judge the total nutrition as either the right amount, too little or too
+    # much.
+    # Make the result_percentage_of_target_amount_numbers into a list
+    result_percentage_of_target_amount_numbers_list = []
+    for key, value in result_percentage_of_target_amount_numbers.items():
+        result_percentage_of_target_amount_numbers_list.append(value)
+    result_judge_total_nutrition,\
+    result_judge_total_nutrition_css_class_name = judge_total_nutrition(
+        result_percentage_of_target_amount_numbers_list,
+        result_percentage_of_tolerable_upper_intake_numbers_list,
+    )
+
+
     aggregated_total_nutrition_fulldayofeating = \
     zip(
         nutrient_name_list,
@@ -475,8 +493,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         default_unit_list,
         result_percentage_of_target_amount_list,
         result_percentage_of_tolerable_upper_intake_str_list,
-        # result_judge_total_nutrition,
-        # result_judge_total_nutrition_css_class_name,
+        result_judge_total_nutrition,
+        result_judge_total_nutrition_css_class_name,
         )
 
     # Write code above this line

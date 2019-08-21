@@ -331,8 +331,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_percentage_of_target_amount_numbers_list,
         result_percentage_of_tolerable_upper_intake_numbers_list,
     )
-    # print('\n result_judge_total_nutrition \n')
-    # pprint.pprint(result_judge_total_nutrition)
 
 
 

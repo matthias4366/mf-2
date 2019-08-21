@@ -604,7 +604,10 @@ ingredient_dict_list = [
         'linoleic_acid' : 0.026,
         'protein' : 2.9,
         # Vitamins
-        'vitamin_a' : 9376,
+        # vitamin a IU: 9376 from https://nutritiondata.self.com/facts/vegetables-and-vegetable-products/2626/2
+        # converted assuming Retinol and using conversion factor from
+        # https://dietarysupplementdatabase.usda.nih.gov/ingredient_calculator/help.php
+        'vitamin_a' :  2812.8,
         'vitamin_c' : 28.1,
         'vitamin_d' : None,
         'vitamin_e' : 2.0,
@@ -1078,5 +1081,46 @@ ingredient_dict_list = [
         'chloride': 0.036,  # 'default_unit': 'gram'
         'buy_here_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
         'source_nutritional_information_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
+    },
+    {
+        'name': 'Calcium citrate',
+        'reference_amount': None,  # default: 100 g
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': None,  #'default_unit': 'microgram'
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  #'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  #'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'fluoride': None,  # 'default_unit': 'milligram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
     },
 ]
