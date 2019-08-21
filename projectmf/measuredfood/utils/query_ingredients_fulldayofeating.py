@@ -29,7 +29,6 @@ def query_ingredients_fulldayofeating(
         fulldayofeating_id=id_fulldayofeating
         )
 
-    # 1 will be used for calculations, i.e. the fixed values will be removed.
     specificingredient_dict_list = list(
         queryset_specificingredient.values()
         )
@@ -45,7 +44,7 @@ def query_ingredients_fulldayofeating(
             raw_ingredient = rawingredient_k_dict
             )
 
-    print('\n specificingredient_dict_list \n')
-    pprint.pprint(specificingredient_dict_list)
+    # print('\n specificingredient_dict_list \n')
+    # pprint.pprint(specificingredient_dict_list)
 
     return specificingredient_dict_list

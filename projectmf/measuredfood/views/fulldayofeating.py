@@ -223,6 +223,17 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         SpecificIngredient
     )
 
+    # Since the calculated_amount values have been calculated and saved to the
+    # database, they can be queried. They are queried and saved in a dictionary.
+    # From this point, use this dictionary instead of requeriing the database.
+    # TODO: check if database is unnecessarily queried.
+    specificingredient_dict_list = query_ingredients_fulldayofeating(
+        id_fulldayofeating,
+        SpecificIngredient,
+        RawIngredient2,
+        pprint,
+    )
+
     result_calculation_fulldayofeating = \
     query_result_calculation_fulldayofeating(id_fulldayofeating)
 
@@ -230,12 +241,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     result_total_nutrition_fulldayofeating,\
     result_total_nutrition_fulldayofeating_rounded =\
     calculate_total_nutrition_fulldayofeating(
-        id_fulldayofeating,
+        specificingredient_dict_list,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         pprint,
         copy,
-        SpecificIngredient,
-        RawIngredient2,
         set_to_zero_if_none,
     )
 
@@ -319,12 +328,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # print('\n result_judge_total_nutrition \n')
     # pprint.pprint(result_judge_total_nutrition)
 
-    specificingredient_dict_list = query_ingredients_fulldayofeating(
-        id_fulldayofeating,
-        SpecificIngredient,
-        RawIngredient2,
-        pprint,
-    )
 
 
     aggregated_total_nutrition_fulldayofeating = \

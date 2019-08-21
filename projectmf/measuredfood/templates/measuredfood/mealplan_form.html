@@ -52,10 +52,17 @@
         {% if view_type == 'update' %}
           <br>
           <br>
-
           <a href="{% url 'mealplan-shoppinglist' id_mealplan=id_mealplan %}">
             <button type="button" class="btn btn-primary">
               Make shopping list
+            </button>
+          </a>
+
+          <br>
+          <br>
+          <a href="{% url 'mealplan-averagenutrition' id_mealplan=id_mealplan %}">
+            <button type="button" class="btn btn-primary">
+              Calculate average daily nutrition
             </button>
           </a>
         {% endif %}

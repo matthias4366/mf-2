@@ -1,0 +1,34 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+
+  <h1>Average nutrition of the mealplan insert name here:</h1>
+  <br>
+  <br>
+  <table border="2">
+    <tr>
+      <td>Nutrient name</td>
+      <td>Average in mealplan</td>
+      <td>Unit</td>
+      <!-- Percent of the target set in NutrientProfile -->
+      <!-- <td>% Target</td> -->
+      <!-- <td>% Tolerable upper intake</td> -->
+      <!-- <td>Judgement</td> -->
+    </tr>
+
+    <!-- Use forloop.counter0 to access the for loop counter -->
+
+    {% for ab in aggregated_total_nutrition_fulldayofeating %}
+      <tr>
+      <!-- <tr class="{{ ab.6 }}"> -->
+        <td>{{ ab.0 }}</td>
+        <td>{{ ab.1 }}</td>
+        <td>{{ ab.2 }}</td>
+        <!-- <td>{{ ab.3 }}</td> -->
+        <!-- <td>{{ ab.4 }}</td> -->
+        <!-- <td>{{ ab.5 }}</td> -->
+      </tr>
+    {% endfor %}
+
+  </table>
+
+{% endblock content %}
