@@ -42,7 +42,10 @@ from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
 import calculate_percentage_of_tolerable_upper_intake
 from measuredfood.utils.judge_total_nutrition\
 import judge_total_nutrition
-
+from measuredfood.utils.query_ingredients_fulldayofeating\
+import query_ingredients_fulldayofeating
+from measuredfood.utils.calculate_total_price_fulldayofeating\
+import calculate_total_price_fulldayofeating
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -326,6 +329,24 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # print('\n aggregated_total_nutrition_fulldayofeating \n')
     # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
 
+    # Calculate the total price
+    # Query the SpecificIngredient objects related to the FullDayOfEating.
+    # TODO: There might be mulitple queries doing the same thing,
+    # i.e. getting SpecificIngredient objects related to the FullDayOfEating
+
+    specificingredient_dict_list = query_ingredients_fulldayofeating(
+        id_fulldayofeating,
+        SpecificIngredient,
+        RawIngredient2,
+        pprint,
+    )
+
+    total_price_fulldayofeating_result_dict = calculate_total_price_fulldayofeating(
+        specificingredient_dict_list,
+        pprint,
+    )
+
+
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
@@ -333,6 +354,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                aggregated_total_nutrition_fulldayofeating,
                'result_percentage_of_target_amount':\
                result_percentage_of_target_amount_str,
+               'total_price_fulldayofeating_result_dict':\
+               total_price_fulldayofeating_result_dict
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }

@@ -41,7 +41,7 @@
       <td>% Target</td>
       <td>% Tolerable upper intake</td>
       <td>Judgement</td>
-      <td>Certainty</td>
+      <td>Possibly higher</td>
     </tr>
 
     <!-- Use forloop.counter0 to access the for loop counter -->
@@ -58,6 +58,23 @@
       </tr>
     {% endfor %}
 
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Total price of full day of eating:</h1>
+  <table border="2">
+    <tr>
+      <td>Price</td>
+      <td>Currency</td>
+      <td>Possibly higher</td>
+    </tr>
+    <tr>
+      <td>{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
+      <td>{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
+      <td>{{ total_price_fulldayofeating_result_dict.total_price_possibly_higher }}</td>
+    </tr>
   </table>
   <br>
   <br>
