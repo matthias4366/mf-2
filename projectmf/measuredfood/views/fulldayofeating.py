@@ -47,6 +47,11 @@ import query_ingredients_fulldayofeating
 from measuredfood.utils.calculate_total_price_fulldayofeating\
 import calculate_total_price_fulldayofeating
 
+from measuredfood.utils.query_nutrientprofile_of_fulldayofeating\
+import query_nutrientprofile_of_fulldayofeating
+
+from measuredfood.utils.query.query_tolerableupperintake_of_fulldayofeating\
+import query_tolerableupperintake_of_fulldayofeating
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -262,19 +267,20 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # in relation to the target amounts in the nutrient profile and
     # express the result as a percentage.
 
-    result_percentage_of_target_amount_str,\
-    result_percentage_of_target_amount_numbers = \
-    calculate_percentage_of_target_amount(
-        result_total_nutrition_fulldayofeating,
-        pprint,
+    nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,
         FullDayOfEating,
         NutrientProfile,
-        set_to_zero_if_none,
     )
 
-    # print('\n result_percentage_of_target_amount_str \n')
-    # pprint.pprint(result_percentage_of_target_amount_str)
+    result_percentage_of_target_amount_str,\
+    result_percentage_of_target_amount_numbers = \
+    calculate_percentage_of_target_amount(
+        nutrientprofile_dict,
+        result_total_nutrition_fulldayofeating,
+        pprint,
+        set_to_zero_if_none,
+    )
 
     # Make the result_percentage_of_target_amount_str into a list
     result_percentage_of_target_amount_list = []
@@ -287,26 +293,26 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_percentage_of_target_amount_numbers_list.append(value)
 
     # Calculate the percentage of the tolerable upper limit.
+    tolerableupperintake_dict = query_tolerableupperintake_of_fulldayofeating(
+        id_fulldayofeating,
+        FullDayOfEating,
+        TolerableUpperIntake,
+    )
     result_percentage_of_tolerable_upper_intake_str,\
     result_percentage_of_tolerable_upper_intake_numbers = \
     calculate_percentage_of_tolerable_upper_intake(
+        tolerableupperintake_dict,
         result_total_nutrition_fulldayofeating,
-        id_fulldayofeating,
         pprint,
-        FullDayOfEating,
-        TolerableUpperIntake,
         set_to_zero_if_none,
     )
 
-    # print('\n result_percentage_of_tolerable_upper_intake_str \n')
-    # pprint.pprint(result_percentage_of_tolerable_upper_intake_str)
-
-    # Make the result_percentage_of_target_amount_str into a list
+    # Make the result_percentage_of_tolerable_upper_intake_str into a list
     result_percentage_of_tolerable_upper_intake_str_list = []
     for key, value in result_percentage_of_tolerable_upper_intake_str.items():
         result_percentage_of_tolerable_upper_intake_str_list.append(value)
 
-    # Make the result_percentage_of_target_amount_numbers into a list
+    # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
     result_percentage_of_tolerable_upper_intake_numbers_list = []
     for key, value in result_percentage_of_tolerable_upper_intake_numbers.items():
         result_percentage_of_tolerable_upper_intake_numbers_list.append(value)

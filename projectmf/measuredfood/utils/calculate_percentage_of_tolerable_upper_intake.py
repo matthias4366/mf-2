@@ -1,9 +1,7 @@
 def calculate_percentage_of_tolerable_upper_intake(
+    tolerableupperintake_dict,
     result_total_nutrition_fulldayofeating,
-    id_fulldayofeating,
     pprint,
-    FullDayOfEating,
-    TolerableUpperIntake,
     set_to_zero_if_none,
 ):
 
@@ -17,27 +15,6 @@ def calculate_percentage_of_tolerable_upper_intake(
     result_percentage_of_tolerable_upper_intake_numbers = {}
     for key, value in result_total_nutrition_fulldayofeating.items():
         result_percentage_of_tolerable_upper_intake_numbers[key] = None
-
-    """
-    Query the related TolerableUpperIntake and store the results in dictionaries.
-    """
-    queryset_tolerableupperintake_of_fulldayofeating = \
-    FullDayOfEating.objects.filter(
-        id=id_fulldayofeating
-    ).values('tolerable_upper_intake')
-
-    tolerableupperintake_id = \
-    list(queryset_tolerableupperintake_of_fulldayofeating)\
-    [0]['tolerable_upper_intake']
-
-    queryset_tolerableupperintake_data = TolerableUpperIntake.objects.filter(
-        id = tolerableupperintake_id
-    )
-
-    tolerableupperintake_dict = list(queryset_tolerableupperintake_data.values())[0]
-
-    # print('\n tolerableupperintake_dict \n')
-    # pprint.pprint(tolerableupperintake_dict)
 
     for key, value in tolerableupperintake_dict.items():
         # pick out only the fields which represent a tolerable upper intake

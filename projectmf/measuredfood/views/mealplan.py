@@ -22,7 +22,8 @@ from measuredfood.models import (
     SpecificIngredient,
     NutrientProfile,
     RawIngredient2,
-    NutrientTargetSelection
+    NutrientTargetSelection,
+    TolerableUpperIntake,
 )
 from measuredfood.forms import (
     MealplanForm,
@@ -49,6 +50,18 @@ import set_to_zero_if_none
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
+from measuredfood.utils.query_nutrientprofile_of_fulldayofeating\
+import query_nutrientprofile_of_fulldayofeating
+from measuredfood.utils.calculate_percentage_of_target_amount\
+import calculate_percentage_of_target_amount
+from measuredfood.utils.query_nutrientprofile_of_mealplan\
+import query_nutrientprofile_of_mealplan
+
+from measuredfood.utils.query.query_tolerableupperintake_of_mealplan import\
+query_tolerableupperintake_of_mealplan
+
+from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake import\
+calculate_percentage_of_tolerable_upper_intake
 
 @login_required
 def create_mealplan_view(request):
@@ -402,13 +415,66 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         default_unit_list.append(dict_k['default_unit'])
 
+    # =========================================================================
+    # Calculate % Target
+
+    nutrientprofile_dict = query_nutrientprofile_of_mealplan(
+        id_mealplan,
+        Mealplan,
+        NutrientProfile,
+    )
+
+    result_percentage_of_target_amount_str,\
+    result_percentage_of_target_amount_numbers = \
+    calculate_percentage_of_target_amount(
+        nutrientprofile_dict,
+        result_average_nutrition_mealplan,
+        pprint,
+        set_to_zero_if_none,
+    )
+
+    # Make the result_percentage_of_target_amount_str into a list
+    result_percentage_of_target_amount_list = []
+    for key, value in result_percentage_of_target_amount_str.items():
+        result_percentage_of_target_amount_list.append(value)
+
+    # =========================================================================
+
+    # Calculate the percentage of the tolerable upper limit.
+    tolerableupperintake_dict = query_tolerableupperintake_of_mealplan(
+        id_mealplan,
+        Mealplan,
+        TolerableUpperIntake,
+        pprint,
+    )
+    result_percentage_of_tolerable_upper_intake_str,\
+    result_percentage_of_tolerable_upper_intake_numbers = \
+    calculate_percentage_of_tolerable_upper_intake(
+        tolerableupperintake_dict,
+        result_average_nutrition_mealplan,
+        pprint,
+        set_to_zero_if_none,
+    )
+
+    # Make the result_percentage_of_tolerable_upper_intake_str into a list
+    result_percentage_of_tolerable_upper_intake_str_list = []
+    for key, value in result_percentage_of_tolerable_upper_intake_str.items():
+        result_percentage_of_tolerable_upper_intake_str_list.append(value)
+
+    # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
+    result_percentage_of_tolerable_upper_intake_numbers_list = []
+    for key, value in result_percentage_of_tolerable_upper_intake_numbers.items():
+        result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
+
+    # =========================================================================
+
     aggregated_total_nutrition_fulldayofeating = \
     zip(
         nutrient_name_list,
         result_average_nutrition_mealplan_values,
         default_unit_list,
-        # result_percentage_of_target_amount_list,
-        # result_percentage_of_tolerable_upper_intake_str_list,
+        result_percentage_of_target_amount_list,
+        result_percentage_of_tolerable_upper_intake_str_list,
         # result_judge_total_nutrition,
         # result_judge_total_nutrition_css_class_name,
         )
