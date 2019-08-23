@@ -69,9 +69,6 @@ class RawIngredientTest(FunctionalTest):
             self.browser,
             Keys,
             )
-        # # TODO: delete this old code
-        # log_in_button = self.browser.find_element_by_id('id_button_login')
-        # log_in_button.send_keys(Keys.ENTER)
 
         time.sleep(3)
 
@@ -84,10 +81,6 @@ class RawIngredientTest(FunctionalTest):
             self.browser,
             Keys,
             )
-        # # TODO: delete this old code
-        # ingredients_menu_item = self.browser.find_element_by_id(
-        #     'id_menu_item_rawingredients2')
-        # ingredients_menu_item.send_keys(Keys.ENTER)
 
         time.sleep(3)
 
