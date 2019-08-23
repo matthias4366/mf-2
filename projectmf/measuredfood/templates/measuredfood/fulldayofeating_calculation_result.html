@@ -29,6 +29,22 @@
       {% endfor %}
     </table>
 
+  {% if negative_result %}
+    <br>
+    <h1>Error</h1>
+    <br>
+    <p>It seems you have gotten a negative result. Try the following solution.
+    Remove the ingredient whose amount was negative. Remove one nutrient target.
+    Remove the nutrient target in which the ingredient with a negative result
+    is likely to be high.</p>
+    <p>For example, if you got a negative result for the
+    protein powder, the other ingredients in your recipe are already providing
+    enough protein to the point where you would need negative protein powder
+    to get back down to the specified protein target. In that case,
+    remove the protein powder as an ingredient and remove protein from the
+    targeted nutrients.</p>
+  {% endif %}
+
   <br>
   <br>
   <h1>Total nutrition in full day of eating:</h1>

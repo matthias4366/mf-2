@@ -21,7 +21,7 @@ from django.views.generic import (
     CreateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from measuredfood.utils import fulldayofeating_calculate
+from measuredfood.utils import calculate_fulldayofeating
 import pprint
 from django.contrib.auth.decorators import login_required
 import pprint
@@ -29,21 +29,30 @@ from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
 import numpy as np
+
 from measuredfood.utils.check_if_author import check_if_author
+
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
+
 from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
 import calculate_total_nutrition_fulldayofeating
+
 from measuredfood.utils.calculate_percentage_of_target_amount\
 import calculate_percentage_of_target_amount
+
 from measuredfood.utils.set_to_zero_if_none\
 import set_to_zero_if_none
+
 from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
 import calculate_percentage_of_tolerable_upper_intake
+
 from measuredfood.utils.judge_total_nutrition\
 import judge_total_nutrition
+
 from measuredfood.utils.query_ingredients_fulldayofeating\
 import query_ingredients_fulldayofeating
+
 from measuredfood.utils.calculate_total_price_fulldayofeating\
 import calculate_total_price_fulldayofeating
 
@@ -132,7 +141,7 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             context = {}
             return render(
                 request,
-                'measuredfood/error/form_fulldayofeating_not_valid.html', 
+                'measuredfood/error/form_fulldayofeating_not_valid.html',
                 context)
     else:
         form_fulldayofeating = FullDayOfEatingForm(
@@ -212,8 +221,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
-    specificingredient_id_and_calculated_amount = \
-    fulldayofeating_calculate.calculate_fulldayofeating(
+    result_calculate_fulldayofeating = \
+    calculate_fulldayofeating.calculate_fulldayofeating(
         id_fulldayofeating,
         SpecificIngredient,
         FullDayOfEating,
@@ -225,6 +234,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         np
         )
+
+    specificingredient_id_and_calculated_amount = \
+    copy.deepcopy(result_calculate_fulldayofeating['values'])
+
     # print('\n specificingredient_id_and_calculated_amount \n')
     # pprint.pprint(specificingredient_id_and_calculated_amount)
 
@@ -379,7 +392,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                'result_percentage_of_target_amount':\
                result_percentage_of_target_amount_str,
                'total_price_fulldayofeating_result_dict':\
-               total_price_fulldayofeating_result_dict
+               total_price_fulldayofeating_result_dict,
+               'negative_result':\
+               result_calculate_fulldayofeating['errors']['negative_result'],
                # TODO: the error_message_calculate_fulldayofeating needs to
                # be given to the template and rendered in the html.
                }
@@ -393,7 +408,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
 def query_result_calculation_fulldayofeating(id_fulldayofeating):
     """
-    In the page fulldayofeating_calculate.html, at the bottom, a table
+    In the page calculate_fulldayofeating.html, at the bottom, a table
     should display the results of the calculation. Here, the results are
     queried and given to the context dictionary.
     """

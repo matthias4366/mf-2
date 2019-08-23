@@ -38,7 +38,7 @@ from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 import numpy as np
-from measuredfood.utils import fulldayofeating_calculate
+from measuredfood.utils import calculate_fulldayofeating
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
 from measuredfood.utils.query_ingredients_fulldayofeating\
@@ -181,8 +181,8 @@ def shoppinglist_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating_to_recalculate = id_list_no_duplications[k]
 
-        specificingredient_id_and_calculated_amount = \
-        fulldayofeating_calculate.calculate_fulldayofeating(
+        result_calculate_fulldayofeating = \
+        calculate_fulldayofeating.calculate_fulldayofeating(
             id_fulldayofeating_to_recalculate,
             SpecificIngredient,
             FullDayOfEating,
@@ -194,6 +194,9 @@ def shoppinglist_view(request, id_mealplan):
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np
             )
+        specificingredient_id_and_calculated_amount = \
+        copy.deepcopy(result_calculate_fulldayofeating['values'])
+
         # Save the results to the database:
         save_fulldayofeating_calculation_result_to_database(
             specificingredient_id_and_calculated_amount,
@@ -319,8 +322,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating_to_recalculate = id_list_no_duplications[k]
 
-        specificingredient_id_and_calculated_amount = \
-        fulldayofeating_calculate.calculate_fulldayofeating(
+        result_calculate_fulldayofeating = \
+        calculate_fulldayofeating.calculate_fulldayofeating(
             id_fulldayofeating_to_recalculate,
             SpecificIngredient,
             FullDayOfEating,
@@ -332,6 +335,10 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np
             )
+
+        specificingredient_id_and_calculated_amount = \
+        copy.deepcopy(result_calculate_fulldayofeating['values'])
+
         # Save the results to the database:
         save_fulldayofeating_calculation_result_to_database(
             specificingredient_id_and_calculated_amount,

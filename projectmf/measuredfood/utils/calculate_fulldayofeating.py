@@ -10,6 +10,7 @@ def calculate_fulldayofeating(
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,  # new
     np
     ):
+
     """
     This function should be independent of everything else.
     It should be a PURE function, i.e. work solely with inputs and outputs.
@@ -23,19 +24,29 @@ def calculate_fulldayofeating(
     FullDayOfEating, which is associated with a NutrientProfile.
     """
 
+    result_calculate_fulldayofeating = {
+        'values': {},
+        'errors': {
+            # If there was a critical error in the linear matrix equation
+            # solver, set this variable to True.
+            'solver_failed': False,
+            # If the inputs are set up badly, it is possible to get negative
+            # results for the calculated amount values. For example,
+            # if the targets are 10000 kcal and 23 g of protein and the
+            # ingredients are beans and pea protein powder. Covering the
+            # calories with the beans already surpases the protein goal.
+            # Hence, to make the numbers add up, the solution for the
+            # amount of pea protein will be negative.
+            'negative_result': False,
+        },
+
+    }
+
     """
     Query the related SpecificIngredients and store the results in dictionaries.
     """
-    queryset_specificingredient_0 = SpecificIngredient.objects.filter(
-        fulldayofeating_id=id_fulldayofeating
-        )
     queryset_specificingredient_1 = SpecificIngredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
-        )
-
-    # 0 is not to be changed.
-    specificingredient_dict_list_0 = list(
-        queryset_specificingredient_0.values()
         )
 
     # 1 will be used for calculations, i.e. the fixed values will be removed.
@@ -292,7 +303,14 @@ def calculate_fulldayofeating(
     # pprint.pprint(a)
 
     # Solve the linear equation.
-    x = np.linalg.solve(a, b)
+    # Catch the case that the linear equation system is not solvable, in
+    # order to give the user a useful error page.
+    try:
+        x = np.linalg.solve(a, b)
+    except:
+        result_calculate_fulldayofeating['errors']['solver_failed']\
+        = True
+        return result_calculate_fulldayofeating
     # print('\nx \n')
     # pprint.pprint(x)
 
@@ -306,6 +324,15 @@ def calculate_fulldayofeating(
         # Calculate solution
         solution[k] = x[k] * list_independently_scaling_entities\
         [k]['raw_ingredient']['reference_amount']
+
+        # If any of the solutions are negative, the whole calculation is not
+        # useful to the user. The user will be shown an explanatory error
+        # page.
+        if solution[k] < 0:
+            result_calculate_fulldayofeating['errors']['negative_result']\
+            = True
+            return result_calculate_fulldayofeating
+
     # print('\n solution \n')
     # pprint.pprint(solution)
 
@@ -416,10 +443,12 @@ def calculate_fulldayofeating(
         }
         specificingredient_id_and_calculated_amount.append(new_dict)
 
+    result_calculate_fulldayofeating['values'] = \
+    copy.deepcopy(specificingredient_id_and_calculated_amount)
 
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.
-    return specificingredient_id_and_calculated_amount
+    return result_calculate_fulldayofeating
 
 def calculate_average_of_specificingredient_group(
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
