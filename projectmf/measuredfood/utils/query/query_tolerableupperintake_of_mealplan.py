@@ -13,22 +13,22 @@ def query_tolerableupperintake_of_mealplan(
         id=id_mealplan
     ).values('tolerable_upper_intake')
 
-    print('\n queryset_tolerableupperintake_of_mealplan \n')
-    pprint.pprint(queryset_tolerableupperintake_of_mealplan)
+    # print('\n queryset_tolerableupperintake_of_mealplan \n')
+    # pprint.pprint(queryset_tolerableupperintake_of_mealplan)
 
     tolerableupperintake_id = \
     list(queryset_tolerableupperintake_of_mealplan)\
     [0]['tolerable_upper_intake']
 
-    print('\n tolerableupperintake_id \n')
-    pprint.pprint(tolerableupperintake_id)
+    # print('\n tolerableupperintake_id \n')
+    # pprint.pprint(tolerableupperintake_id)
 
     queryset_tolerableupperintake_data = TolerableUpperIntake.objects.filter(
         id = tolerableupperintake_id
     )
 
-    print('\n queryset_tolerableupperintake_data \n')
-    pprint.pprint(queryset_tolerableupperintake_data)
+    # print('\n queryset_tolerableupperintake_data \n')
+    # pprint.pprint(queryset_tolerableupperintake_data)
 
 
     tolerableupperintake_dict = \

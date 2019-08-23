@@ -66,6 +66,9 @@ calculate_percentage_of_tolerable_upper_intake
 from measuredfood.utils.judge_total_nutrition import\
 judge_total_nutrition
 
+from measuredfood.utils.calculate_total_price_fulldayofeating import \
+calculate_total_price_fulldayofeating
+
 @login_required
 def create_mealplan_view(request):
     view_type = 'create'
@@ -343,6 +346,11 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     # average.
     result_total_nutrition_fulldayofeating_list = []
 
+    # Gather all the specificingredient_dict_list in a list for the calculation
+    # of the average price of the mealplan later. This is done in order to
+    # separate out the code as much as possible.
+    specificingredient_dict_list_mealplan = []
+
     # Calculate the nutrition sum for each FullDayOfEating.
     # Iterate over the id_list_with_duplications.
     for id_fulldayofeating in id_list_with_duplications:
@@ -354,6 +362,11 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             pprint,
         )
 
+        # Save for later to calculate average daily cost of mealplan.
+        specificingredient_dict_list_mealplan.append(
+            specificingredient_dict_list
+            )
+
         result_total_nutrition_fulldayofeating,\
         result_total_nutrition_fulldayofeating_rounded =\
         calculate_total_nutrition_fulldayofeating(
@@ -363,9 +376,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             copy,
             set_to_zero_if_none,
         )
-
-        print('\n result_total_nutrition_fulldayofeating \n')
-        pprint.pprint(result_total_nutrition_fulldayofeating)
 
         result_total_nutrition_fulldayofeating_list.append(
             result_total_nutrition_fulldayofeating
@@ -497,11 +507,73 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         result_judge_total_nutrition_css_class_name,
         )
 
+    # Get the name of the mealplan
+    queryset_mealplan_name = \
+    Mealplan.objects.filter(id=id_mealplan).values('name')
+    mealplan_name = list(queryset_mealplan_name)[0]['name']
+    # print('mealplan_name')
+    # pprint.pprint(mealplan_name)
+
+    # Calculate the average daily cost of a mealplan.
+
+    # Calculate the total price for each FullDayOfEating.
+    # Collect the price for each day in a list.
+    fulldayofeating_price_collection_list = []
+    for specificingredient_dict_list in specificingredient_dict_list_mealplan:
+        total_price_fulldayofeating_result_dict = \
+        calculate_total_price_fulldayofeating(
+            specificingredient_dict_list,
+            pprint,
+        )
+        fulldayofeating_price_collection_list.append(
+            total_price_fulldayofeating_result_dict
+        )
+    # print('fulldayofeating_price_collection_list')
+    # pprint.pprint(fulldayofeating_price_collection_list)
+
+    mealplan_total_price_dict = {
+        'price_sum_mealplan': 0,
+        'average_price_mealplan': 0,
+        'average_price_mealplan_rounded': 0,
+        'total_price_currency': 'currency',
+        'total_price_rounded': 0,
+        }
+    # Sum up the prices of the FullDayOfEating to get the total price of the
+    # Mealplan.
+    for price_dict in fulldayofeating_price_collection_list:
+        mealplan_total_price_dict['price_sum_mealplan'] = \
+        mealplan_total_price_dict['price_sum_mealplan'] + \
+        price_dict['total_price']
+
+    # print('mealplan_total_price_dict')
+    # pprint.pprint(mealplan_total_price_dict)
+
+    # From the sum, calculate the average price
+    n_fulldayofeating_objects_in_mealplan = \
+    len(fulldayofeating_price_collection_list)
+
+    mealplan_total_price_dict['average_price_mealplan'] = \
+    mealplan_total_price_dict['price_sum_mealplan']\
+    / n_fulldayofeating_objects_in_mealplan
+
+    mealplan_total_price_dict['average_price_mealplan_rounded'] = \
+    round(mealplan_total_price_dict['average_price_mealplan'], 2)
+
+    # It is assumed that all mealplans have the same currency. The currency
+    # of the first full day of eating is selected.
+    mealplan_total_price_dict['total_price_currency'] = \
+    fulldayofeating_price_collection_list[0]['total_price_currency']
+
+
     # Write code above this line
 
     context = {
         'aggregated_total_nutrition_fulldayofeating':\
-        aggregated_total_nutrition_fulldayofeating
+        aggregated_total_nutrition_fulldayofeating,
+        'mealplan_name':\
+        mealplan_name,
+        'mealplan_total_price_dict':\
+        mealplan_total_price_dict,
     }
     return render(
         request,

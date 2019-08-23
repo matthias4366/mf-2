@@ -1,7 +1,7 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <h1>Average nutrition of the mealplan insert name here:</h1>
+  <h1>Average nutrition of the mealplan {{ mealplan_name }}:</h1>
   <br>
   <br>
   <table border="2">
@@ -29,6 +29,21 @@
       </tr>
     {% endfor %}
 
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Average price of the mealplan {{ mealplan_name }}:</h1>
+  <table border="2">
+    <tr>
+      <td>Price</td>
+      <td>Currency</td>
+    </tr>
+    <tr>
+      <td>{{ mealplan_total_price_dict.average_price_mealplan_rounded }}</td>
+      <td>{{ mealplan_total_price_dict.total_price_currency }}</td>
+    </tr>
   </table>
 
 {% endblock content %}
