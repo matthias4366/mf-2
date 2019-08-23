@@ -128,6 +128,12 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 'update-fulldayofeating',
                 id_fulldayofeating=fulldayofeating_object.id
                 )
+        else:
+            context = {}
+            return render(
+                request,
+                'measuredfood/error/form_fulldayofeating_not_valid.html', 
+                context)
     else:
         form_fulldayofeating = FullDayOfEatingForm(
             request.user.id,

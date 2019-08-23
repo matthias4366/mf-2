@@ -38,7 +38,7 @@ class SpecificIngredient(models.Model):
         max_digits=MAX_DIGITS_,
         decimal_places=DECIMAL_PLACES_,
         blank=False,
-        null=True,
+        null=False,
         default = 100,
     )
 
