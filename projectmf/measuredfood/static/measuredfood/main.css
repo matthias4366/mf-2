@@ -17,12 +17,8 @@ https://www.colourlovers.com/palette/1123439/I_Want_Paint_of_This */
   /* color: blue; */
 }
 
-tr td {
-      border:2px solid #000000;
-    }
-
-/* Give the table content some breathing room */
-tr td {
+.total_nutrition_table {
+  border:2px solid #000000;
   padding-top: 1px;
   padding-right: 5px;
   padding-bottom: 1px;

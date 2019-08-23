@@ -4,28 +4,24 @@
   <h1>Average nutrition of the mealplan {{ mealplan_name }}:</h1>
   <br>
   <br>
-  <table border="2">
+  <table class="total_nutrition_table">
     <tr>
-      <td>Nutrient name</td>
-      <td>Average in mealplan</td>
-      <td>Unit</td>
-      <!-- Percent of the target set in NutrientProfile -->
-      <td>% Target</td>
-      <td>% Tolerable upper intake</td>
-      <td>Judgement</td>
+      <td class="total_nutrition_table">Nutrient name</td>
+      <td class="total_nutrition_table">Average in mealplan</td>
+      <td class="total_nutrition_table">Unit</td>
+      <td class="total_nutrition_table">% Target</td>
+      <td class="total_nutrition_table">% Tolerable upper intake</td>
+      <td class="total_nutrition_table">Judgement</td>
     </tr>
 
-    <!-- Use forloop.counter0 to access the for loop counter -->
-
     {% for ab in aggregated_total_nutrition_fulldayofeating %}
-      <!-- <tr> -->
-      <tr  class="{{ ab.6 }}">
-        <td>{{ ab.0 }}</td>
-        <td>{{ ab.1 }}</td>
-        <td>{{ ab.2 }}</td>
-        <td>{{ ab.3 }}</td>
-        <td>{{ ab.4 }}</td>
-        <td>{{ ab.5 }}</td>
+      <tr  class="{{ ab.6 }} total_nutrition_table">
+        <td class="total_nutrition_table">{{ ab.0 }}</td>
+        <td class="total_nutrition_table">{{ ab.1 }}</td>
+        <td class="total_nutrition_table">{{ ab.2 }}</td>
+        <td class="total_nutrition_table">{{ ab.3 }}</td>
+        <td class="total_nutrition_table">{{ ab.4 }}</td>
+        <td class="total_nutrition_table">{{ ab.5 }}</td>
       </tr>
     {% endfor %}
 

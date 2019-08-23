@@ -13,6 +13,9 @@ sys.path.insert(0, '/projectmf/data/')
 from data.ingredients_data import ingredient_dict_list
 from data.initial_nutrient_profiles import nutrient_profile_dict_list
 
+from functional_tests.utils.click_navbar_item import \
+click_navbar_item
+
 class NutrientProfileTest(FunctionalTest):
 
     def test_nutrient_profile_creation(self):
@@ -42,9 +45,11 @@ class NutrientProfileTest(FunctionalTest):
         password2.send_keys(DUMMY_PASSWORD)
         time.sleep(3)
 
-        # Simulate clicking on Sign Up
-        sign_up_button = self.browser.find_element_by_id('id_button_signup')
-        sign_up_button.send_keys(Keys.ENTER)
+        click_navbar_item(
+            'id_button_signup',
+            self.browser,
+            Keys,
+            )
 
         # TODO: Check if the user has been added to the database.
 
@@ -68,9 +73,11 @@ class NutrientProfileTest(FunctionalTest):
         time.sleep(3)
 
         # Simulate clicking on nutrient profiles
-        nutrient_profiles_menu_item = self.browser.find_element_by_id(
-            'id_menu_item_nutrient_profiles')
-        nutrient_profiles_menu_item.send_keys(Keys.ENTER)
+        click_navbar_item(
+            'id_menu_item_nutrient_profiles',
+            self.browser,
+            Keys,
+            )
 
         time.sleep(3)
 

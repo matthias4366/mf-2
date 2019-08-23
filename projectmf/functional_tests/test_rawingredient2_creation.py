@@ -13,6 +13,9 @@ sys.path.insert(0, '/projectmf/data/')
 from data.ingredients_data2 import ingredient_dict_list
 from data.initial_nutrient_profiles import nutrient_profile_dict_list
 
+from functional_tests.utils.click_navbar_item import \
+click_navbar_item
+
 class RawIngredientTest(FunctionalTest):
 
     def test_user_registration_and_rawingredient_creation(self):
@@ -61,8 +64,14 @@ class RawIngredientTest(FunctionalTest):
         password_field.send_keys(DUMMY_PASSWORD)
 
         # Simulate clicking on Log In
-        log_in_button = self.browser.find_element_by_id('id_button_login')
-        log_in_button.send_keys(Keys.ENTER)
+        click_navbar_item(
+            'id_button_login',
+            self.browser,
+            Keys,
+            )
+        # # TODO: delete this old code
+        # log_in_button = self.browser.find_element_by_id('id_button_login')
+        # log_in_button.send_keys(Keys.ENTER)
 
         time.sleep(3)
 
@@ -70,9 +79,15 @@ class RawIngredientTest(FunctionalTest):
         # TODO: Test whether a redirect to the homepage happens.
 
         # Simulate clicking on the menu item "Ingredients"
-        ingredients_menu_item = self.browser.find_element_by_id(
-            'id_menu_item_rawingredients2')
-        ingredients_menu_item.send_keys(Keys.ENTER)
+        click_navbar_item(
+            'id_menu_item_rawingredients2',
+            self.browser,
+            Keys,
+            )
+        # # TODO: delete this old code
+        # ingredients_menu_item = self.browser.find_element_by_id(
+        #     'id_menu_item_rawingredients2')
+        # ingredients_menu_item.send_keys(Keys.ENTER)
 
         time.sleep(3)
 
