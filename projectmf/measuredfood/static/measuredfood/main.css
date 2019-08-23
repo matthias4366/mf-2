@@ -3,13 +3,23 @@
   /* background-color: lightgreen */
 }
 
+/* Source for color pattern:
+https://www.colourlovers.com/palette/1123439/I_Want_Paint_of_This */
+
 .too_much {
-  color: red;
+  background-color: #B33A3A;
+  color: white;
 }
 
 .too_little {
-  color: blue;
+  background-color: #3D999D;
+  color: white;
+  /* color: blue; */
 }
+
+tr td {
+      border:2px solid #000000;
+    }
 
 /* Create horizontal lines in the create form for the RawIngredient2
 to create sections. */
