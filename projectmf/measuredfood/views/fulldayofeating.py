@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 import copy
 from measuredfood.forms import (
     FullDayOfEatingForm,
-    SpecificIngredientFormset
+    SpecificIngredientFormset,
+    SpecificNutrientTargetFormset
     )
 from measuredfood.models import (
     RawIngredient2,
@@ -146,13 +147,24 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 author = request.user.id
                 )
 
-        if formset_specificingredient.is_valid() and form_fulldayofeating.is_valid():
+        formset_specificnutrienttarget = SpecificNutrientTargetFormset(
+            request.POST,
+            instance=fulldayofeating_object,
+        )
+
+        if formset_specificingredient.is_valid() \
+        and form_fulldayofeating.is_valid()\
+        and formset_specificnutrienttarget.is_valid():
+
             formset_specificingredient.save()
             form_fulldayofeating.save()
+            formset_specificnutrienttarget.save()
+
             return redirect(
                 'update-fulldayofeating',
                 id_fulldayofeating=fulldayofeating_object.id
                 )
+
         else:
             context = {}
             return render(
@@ -173,6 +185,7 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         formset_specificingredient = SpecificIngredientFormset(
             instance=fulldayofeating_object
             )
+
         # Allow the user to only add RawIngredient2s from their own collection.
         for form in formset_specificingredient:
             form.fields['rawingredient'].queryset = \
@@ -186,9 +199,16 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 author = request.user.id
                 )
 
-        context = {'formset_specificingredient': formset_specificingredient,
-                   'form_fulldayofeating': form_fulldayofeating,
-                   'id_fulldayofeating': id_fulldayofeating}
+        formset_specificnutrienttarget = SpecificNutrientTargetFormset(
+            instance=fulldayofeating_object,
+        )
+
+        context = {
+            'formset_specificingredient': formset_specificingredient,
+            'form_fulldayofeating': form_fulldayofeating,
+            'id_fulldayofeating': id_fulldayofeating,
+            'formset_specificnutrienttarget': formset_specificnutrienttarget,
+            }
         # TODO: use reverse function instead
         return render(request,'measuredfood/fulldayofeating_form.html', context)
 

@@ -11,6 +11,26 @@ ingredients is built here. -->
     </table>
     <br>
     <br>
+
+    <table border="2">
+      {{ formset_specificnutrienttarget.management_form }}
+      <tr>
+        <th>Nutrient targets for the calculations:</th>
+        <th>Delete</th>
+      </tr>
+      {% for form in formset_specificnutrienttarget %}
+        {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+        <tr>
+          <td>{{ form.nutrient_target }}</td>
+          <td>{{ form.DELETE }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <br>
+
     <table border="2">
       <tr>
         <th>Amount</th>
