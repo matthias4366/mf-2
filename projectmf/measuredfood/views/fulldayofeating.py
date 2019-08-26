@@ -134,20 +134,20 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             author = request.user.id
             )
 
-        formset = SpecificIngredientFormset(
+        formset_specificingredient = SpecificIngredientFormset(
             request.POST,
             instance=fulldayofeating_object
             )
         # I do not know if this part is necessary. It seems to work without.
         # Allow the user to only add RawIngredient2s from their own collection.
-        for form in formset:
+        for form in formset_specificingredient:
             form.fields['rawingredient'].queryset = \
             RawIngredient2.objects.filter(
                 author = request.user.id
                 )
 
-        if formset.is_valid() and form_fulldayofeating.is_valid():
-            formset.save()
+        if formset_specificingredient.is_valid() and form_fulldayofeating.is_valid():
+            formset_specificingredient.save()
             form_fulldayofeating.save()
             return redirect(
                 'update-fulldayofeating',
@@ -170,9 +170,11 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             author = request.user.id
             )
 
-        formset = SpecificIngredientFormset(instance=fulldayofeating_object)
+        formset_specificingredient = SpecificIngredientFormset(
+            instance=fulldayofeating_object
+            )
         # Allow the user to only add RawIngredient2s from their own collection.
-        for form in formset:
+        for form in formset_specificingredient:
             form.fields['rawingredient'].queryset = \
             RawIngredient2.objects.filter(
                 author = request.user.id
@@ -184,7 +186,7 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 author = request.user.id
                 )
 
-        context = {'formset': formset,
+        context = {'formset_specificingredient': formset_specificingredient,
                    'form_fulldayofeating': form_fulldayofeating,
                    'id_fulldayofeating': id_fulldayofeating}
         # TODO: use reverse function instead

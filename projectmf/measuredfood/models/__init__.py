@@ -6,3 +6,4 @@ from .mealplan import Mealplan
 from .specificfulldayofeating import SpecificFullDayOfEating
 from .nutrienttargetselection import NutrientTargetSelection
 from .tolerableupperintake import TolerableUpperIntake
+from .specificnutrienttarget import SpecificNutrientTarget

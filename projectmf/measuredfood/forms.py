@@ -9,7 +9,8 @@ from measuredfood.models import (
     Mealplan,
     SpecificFullDayOfEating,
     NutrientTargetSelection,
-    TolerableUpperIntake
+    TolerableUpperIntake,
+    SpecificNutrientTarget,
     )
 
 from django.forms import inlineformset_factory
@@ -95,3 +96,18 @@ class TolerableUpperIntakeForm(forms.ModelForm):
         model = TolerableUpperIntake
         fields = '__all__'
         exclude = ['author']
+
+
+class SpecificNutrientTargetForm(forms.ModelForm):
+
+    class Meta:
+        model = SpecificNutrientTarget
+        fields = '__all__'
+
+
+SpecificNutrientTargetFormset = inlineformset_factory(
+    FullDayOfEating,
+    SpecificNutrientTarget,
+    fields=('__all__'),
+    extra=1,
+    )

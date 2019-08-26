@@ -7,6 +7,7 @@ from .models import (
     Mealplan,
     NutrientTargetSelection,
     TolerableUpperIntake,
+    SpecificNutrientTarget,
     )
 
 # Register your models here.
@@ -17,3 +18,4 @@ admin.site.register(FullDayOfEating)
 admin.site.register(Mealplan)
 admin.site.register(NutrientTargetSelection)
 admin.site.register(TolerableUpperIntake)
+admin.site.register(SpecificNutrientTarget)

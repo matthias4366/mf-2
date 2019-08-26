@@ -9,7 +9,10 @@ class NutrientTargetSelection(models.Model):
     The total of the daily nutrient goals is stored in the NutrientProfile.
     However, when calculating the ingredient amounts in the FullDayOfEating,
     that calculation is based on only the nutrients selected in the
-    NutrientTargetSelection
+    NutrientTargetSelection.
+
+    TODO: delete this once the newer, better model is ready.
+
     """
     name = models.CharField(
         max_length=100,

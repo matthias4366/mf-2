@@ -20,8 +20,8 @@ fulldayofeating_calculation_result.html -->
         <th>Delete</th>
       </tr>
 
-      {{ formset.management_form }}
-      {% for form in formset %}
+      {{ formset_specificingredient.management_form }}
+      {% for form in formset_specificingredient %}
         {% for hidden in form.hidden_fields %}
           {{ hidden }}
         {% endfor %}
