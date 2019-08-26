@@ -71,5 +71,17 @@ def query_input_and_calculate_fulldayofeating(
         SpecificIngredient
     )
 
+    # Query the SpecificIngredient objects again in order to get them with
+    # their calculated_amount values. After the first query, they did not
+    # have them yet.
+    specificingredient_dict_list = query_ingredients_fulldayofeating(
+        id_fulldayofeating,
+        SpecificIngredient,
+        RawIngredient2,
+        pprint,
+        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+        set_to_zero_if_none,
+    )
+
     return result_calculate_fulldayofeating,\
     specificingredient_dict_list
