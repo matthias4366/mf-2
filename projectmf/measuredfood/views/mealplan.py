@@ -84,6 +84,12 @@ calculate_average_of_specificingredient_group
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group \
 import undo_calculate_average_of_specificingredient_group
 
+from measuredfood.utils.query.query_ingredients_fulldayofeating import \
+query_ingredients_fulldayofeating
+
+from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
+import query_nutrienttargetselection_of_fulldayofeating
+
 @login_required
 def create_mealplan_view(request):
     view_type = 'create'
@@ -194,12 +200,24 @@ def shoppinglist_view(request, id_mealplan):
     # that which just takes in the id of the FullDayOfEating and does
     # everything else on its own.
     for k in range(len(id_list_no_duplications)):
-        id_fulldayofeating_to_recalculate = id_list_no_duplications[k]
+        id_fulldayofeating = id_list_no_duplications[k]
+
+        specificingredient_dict_list = query_ingredients_fulldayofeating(
+            id_fulldayofeating,
+            SpecificIngredient,
+            RawIngredient2,
+            pprint,
+        )
+
+        nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
+            id_fulldayofeating,
+            FullDayOfEating,
+            NutrientProfile,
+        )
 
         result_calculate_fulldayofeating = \
         calculate_fulldayofeating.calculate_fulldayofeating(
-            id_fulldayofeating_to_recalculate,
-            SpecificIngredient,
+            id_fulldayofeating,
             FullDayOfEating,
             NutrientProfile,
             NutrientTargetSelection,
@@ -210,6 +228,8 @@ def shoppinglist_view(request, id_mealplan):
             np,
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
+            specificingredient_dict_list,
+            nutrientprofile_dict,
             )
         specificingredient_id_and_calculated_amount = \
         copy.deepcopy(result_calculate_fulldayofeating['values'])
@@ -337,12 +357,24 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     # that which just takes in the id of the FullDayOfEating and does
     # everything else on its own.
     for k in range(len(id_list_no_duplications)):
-        id_fulldayofeating_to_recalculate = id_list_no_duplications[k]
+        id_fulldayofeating = id_list_no_duplications[k]
+
+        specificingredient_dict_list = query_ingredients_fulldayofeating(
+            id_fulldayofeating,
+            SpecificIngredient,
+            RawIngredient2,
+            pprint,
+        )
+
+        nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
+            id_fulldayofeating,
+            FullDayOfEating,
+            NutrientProfile,
+        )
 
         result_calculate_fulldayofeating = \
         calculate_fulldayofeating.calculate_fulldayofeating(
-            id_fulldayofeating_to_recalculate,
-            SpecificIngredient,
+            id_fulldayofeating,
             FullDayOfEating,
             NutrientProfile,
             NutrientTargetSelection,
@@ -353,6 +385,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             np,
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
+            specificingredient_dict_list,
+            nutrientprofile_dict,
             )
 
         specificingredient_id_and_calculated_amount = \

@@ -21,7 +21,8 @@ from django.views.generic import (
     CreateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from measuredfood.utils import calculate_fulldayofeating
+from measuredfood.utils.calculate_fulldayofeating\
+import calculate_fulldayofeating
 import pprint
 from django.contrib.auth.decorators import login_required
 import pprint
@@ -67,6 +68,12 @@ import undo_calculate_average_of_specificingredient_group
 
 from measuredfood.utils.calculate_average_of_specificingredient_group \
 import calculate_average_of_specificingredient_group
+
+from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
+import query_nutrienttargetselection_of_fulldayofeating
+
+from measuredfood.utils.fulldayofeating.query_input_and_calculate_fulldayofeating\
+import query_input_and_calculate_fulldayofeating
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -227,21 +234,26 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
-    result_calculate_fulldayofeating = \
-    calculate_fulldayofeating.calculate_fulldayofeating(
+    result_calculate_fulldayofeating,\
+    specificingredient_dict_list = \
+    query_input_and_calculate_fulldayofeating(
+        query_ingredients_fulldayofeating,
+        query_nutrientprofile_of_fulldayofeating,
+        query_nutrienttargetselection_of_fulldayofeating,
+        calculate_fulldayofeating,
+        calculate_average_of_specificingredient_group,
+        undo_calculate_average_of_specificingredient_group,
         id_fulldayofeating,
         SpecificIngredient,
+        RawIngredient2,
+        pprint,
         FullDayOfEating,
         NutrientProfile,
         NutrientTargetSelection,
-        RawIngredient2,
-        pprint,
         copy,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         np,
-        calculate_average_of_specificingredient_group,
-        undo_calculate_average_of_specificingredient_group,
-        )
+    )
 
     specificingredient_id_and_calculated_amount = \
     copy.deepcopy(result_calculate_fulldayofeating['values'])
@@ -253,17 +265,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     save_fulldayofeating_calculation_result_to_database(
         specificingredient_id_and_calculated_amount,
         SpecificIngredient
-    )
-
-    # Since the calculated_amount values have been calculated and saved to the
-    # database, they can be queried. They are queried and saved in a dictionary.
-    # From this point, use this dictionary instead of requeriing the database.
-    # TODO: check if database is unnecessarily queried.
-    specificingredient_dict_list = query_ingredients_fulldayofeating(
-        id_fulldayofeating,
-        SpecificIngredient,
-        RawIngredient2,
-        pprint,
     )
 
     result_calculation_fulldayofeating = \

@@ -1,16 +1,18 @@
 def calculate_fulldayofeating(
     id_fulldayofeating,
-    SpecificIngredient,
     FullDayOfEating,
     NutrientProfile,
     NutrientTargetSelection,
     RawIngredient2,
     pprint,
     copy,
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,  # new
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     np,
     calculate_average_of_specificingredient_group,
     undo_calculate_average_of_specificingredient_group,
+    specificingredient_dict_list,
+    nutrientprofile_dict,
+    targeted_nutrients,
     ):
 
     """
@@ -44,31 +46,6 @@ def calculate_fulldayofeating(
 
     }
 
-    """
-    Query the related SpecificIngredients and store the results in dictionaries.
-    """
-    queryset_specificingredient_1 = SpecificIngredient.objects.filter(
-        fulldayofeating_id=id_fulldayofeating
-        )
-
-    # 1 will be used for calculations, i.e. the fixed values will be removed.
-    specificingredient_dict_list_1 = list(
-        queryset_specificingredient_1.values()
-        )
-
-    # Add the RawIngredient2 dictionaries to the SpecificIngredient dictionaries
-    # to make the nutrition values (kcal etc.) accessible for calculation.
-    for k in range(len(specificingredient_dict_list_1)):
-        rawingredient_k_queryset = RawIngredient2.objects.filter(
-            id = specificingredient_dict_list_1[k]['rawingredient_id']
-        ).values()
-        rawingredient_k_dict = list(rawingredient_k_queryset)[0]
-        specificingredient_dict_list_1[k].update(
-            raw_ingredient = rawingredient_k_dict
-            )
-
-    # print('\n specificingredient_dict_list_1 \n')
-    # pprint.pprint(specificingredient_dict_list_1)
 
     # In the end, the calculated amounts are to be rounded. The number of
     # decimals to which to round is the number of decimals the user used for
@@ -76,8 +53,8 @@ def calculate_fulldayofeating(
     # are determined and stored in the dictionaries.
     # Convert the base_amount from DecimalField to float. But, before,
     # save the number of decimals based on the DecimalField.
-    for k in range(len(specificingredient_dict_list_1)):
-        base_amount_str = str(specificingredient_dict_list_1[k]['base_amount'])
+    for k in range(len(specificingredient_dict_list)):
+        base_amount_str = str(specificingredient_dict_list[k]['base_amount'])
 
         # TODO: This code is very unelegant. Rewrite it using regular
         # expressions.
@@ -101,69 +78,17 @@ def calculate_fulldayofeating(
         n_decimals_to_round_to = n_total_digits_after_decimal_point\
         - n_trailing_zeros
 
-        specificingredient_dict_list_1[k].update(
+        specificingredient_dict_list[k].update(
             n_decimals_to_round_to = n_decimals_to_round_to
             )
 
         # Convert base_amount from decimal to float so it can be used for
         # calculations.
-        specificingredient_dict_list_1[k]['base_amount'] = \
-        float(specificingredient_dict_list_1[k]['base_amount'])
+        specificingredient_dict_list[k]['base_amount'] = \
+        float(specificingredient_dict_list[k]['base_amount'])
 
-    # print('\n specificingredient_dict_list_1 \n')
-    # pprint.pprint(specificingredient_dict_list_1)
-
-    """
-    Query the related NutrientProfile and store the results in dictionaries.
-    """
-    queryset_nutrientprofile_of_fulldayofeating = \
-    FullDayOfEating.objects.filter(
-        id=id_fulldayofeating
-    ).values('nutrient_profile')
-    nutrientprofile_id = \
-    list(queryset_nutrientprofile_of_fulldayofeating)[0]['nutrient_profile']
-
-    queryset_nutrientprofile_data = NutrientProfile.objects.filter(
-        id = nutrientprofile_id
-    )
-
-    nutrientprofile_dict = list(queryset_nutrientprofile_data.values())[0]
-    # print('\nnutrientprofile_dict \n')
-    # pprint.pprint(nutrientprofile_dict)
-
-    """
-    Query the related NutrientTargetSelection and use it to select the targeted
-    nutrients.
-    """
-    queryset_nutrienttargetselection_of_fulldayofeating = \
-    FullDayOfEating.objects.filter(
-        id = id_fulldayofeating
-    ).values('nutrient_target_selection')
-    nutrienttargetselection_id = \
-    list(queryset_nutrienttargetselection_of_fulldayofeating)[0]\
-    ['nutrient_target_selection']
-    queryset_nutrienttargetselection_data = \
-    NutrientTargetSelection.objects.filter(
-        id = nutrienttargetselection_id
-    )
-    nutrienttargetselection_dict = \
-    list(queryset_nutrienttargetselection_data.values())[0]
-    # print('\n nutrienttargetselection_dict \n')
-    # pprint.pprint(nutrienttargetselection_dict)
-
-    # Rewrite the targeted_nutrients
-    targeted_nutrients = {}
-    for key, is_targeted in nutrienttargetselection_dict.items():
-        # Only use the keys that end in '_is_targeted'. Otherwise, the keys
-        # such as author_id can cause problems as their value, i.e. 1 will be
-        # interpreted as True.
-        if '_is_targeted' in key:
-            if is_targeted:
-                # Remove the "_is_targeted" at the end
-                nutrient_field_name = key[:-12]
-                targeted_nutrients.update(
-                    {nutrient_field_name: nutrientprofile_dict[nutrient_field_name]}
-                )
+    # print('\n specificingredient_dict_list \n')
+    # pprint.pprint(specificingredient_dict_list)
 
     """
     Iterate through the dictionaries representing the SpecificIngredients
@@ -178,7 +103,7 @@ def calculate_fulldayofeating(
 
     counter_added_to_existing_group = 0
 
-    for dict_k in specificingredient_dict_list_1:
+    for dict_k in specificingredient_dict_list:
         if dict_k['scaling_option'] == 'FIXED':
             specificingredient_scalingoption_fixed.append(dict_k)
         elif dict_k['scaling_option'] == 'INDEPENDENT':
@@ -225,7 +150,8 @@ def calculate_fulldayofeating(
     # print('\n specificingredient_scalingoption_group_dict')
     # pprint.pprint(specificingredient_scalingoption_group_dict)
 
-    list_averaged_specificingredients = calculate_average_of_specificingredient_group(
+    list_averaged_specificingredients = \
+    calculate_average_of_specificingredient_group(
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         specificingredient_scalingoption_group_dict,
         copy,
