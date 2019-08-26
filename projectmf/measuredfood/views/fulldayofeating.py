@@ -75,6 +75,9 @@ import query_nutrienttargetselection_of_fulldayofeating
 from measuredfood.utils.fulldayofeating.query_input_and_calculate_fulldayofeating\
 import query_input_and_calculate_fulldayofeating
 
+from measuredfood.utils.query.query_result_calculation_fulldayofeating \
+import query_result_calculation_fulldayofeating
+
 @login_required
 def create_fulldayofeating_view(request):
     """
@@ -243,6 +246,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         calculate_fulldayofeating,
         calculate_average_of_specificingredient_group,
         undo_calculate_average_of_specificingredient_group,
+        save_fulldayofeating_calculation_result_to_database,
         id_fulldayofeating,
         SpecificIngredient,
         RawIngredient2,
@@ -255,20 +259,12 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         np,
     )
 
-    specificingredient_id_and_calculated_amount = \
-    copy.deepcopy(result_calculate_fulldayofeating['values'])
-
-    # print('\n specificingredient_id_and_calculated_amount \n')
-    # pprint.pprint(specificingredient_id_and_calculated_amount)
-
-    # Save the results to the database:
-    save_fulldayofeating_calculation_result_to_database(
-        specificingredient_id_and_calculated_amount,
-        SpecificIngredient
-    )
-
     result_calculation_fulldayofeating = \
-    query_result_calculation_fulldayofeating(id_fulldayofeating)
+    query_result_calculation_fulldayofeating(
+        id_fulldayofeating,
+        SpecificIngredient,
+        RawIngredient2,
+        )
 
     # Calculate the total nutrition of the full day of eating
     result_total_nutrition_fulldayofeating,\
@@ -405,8 +401,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                total_price_fulldayofeating_result_dict,
                'negative_result':\
                result_calculate_fulldayofeating['errors']['negative_result'],
-               # TODO: the error_message_calculate_fulldayofeating needs to
-               # be given to the template and rendered in the html.
                }
 
     # TODO: use reverse function instead
@@ -415,61 +409,3 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         'measuredfood/fulldayofeating_calculation_result.html',
         context
         )
-
-def query_result_calculation_fulldayofeating(id_fulldayofeating):
-    """
-    In the page calculate_fulldayofeating.html, at the bottom, a table
-    should display the results of the calculation. Here, the results are
-    queried and given to the context dictionary.
-    """
-    # Get the names of the raw ingredients belonging to the fulldayofeating
-    queryset_specificingredient = SpecificIngredient.objects.filter(
-        fulldayofeating_id=id_fulldayofeating
-        )
-    list_specificingredient_id = [
-        s.id for s in queryset_specificingredient
-        ]
-
-    # Get the information about the specific ingredients belonging to the
-    # fulldayofeating
-    list_of_dict_specificingredient = list(
-        queryset_specificingredient.values()
-        )
-
-    result_calculation_fulldayofeating = []
-    for k in range(len(list_of_dict_specificingredient)):
-        specific_ingredient_obj = SpecificIngredient.objects.get(
-                    id=list_specificingredient_id[k]
-                    )
-
-        calculated_amount_k = getattr(specific_ingredient_obj, 'calculated_amount')
-        base_amount_unit_k = getattr(specific_ingredient_obj, 'base_amount_unit')
-
-        specific_ingredient_k_id = specific_ingredient_obj.id
-
-        rawingredient_k_id = SpecificIngredient.objects.filter(
-                    id=list_specificingredient_id[k]
-                    ).values('rawingredient_id')
-        rawingredient_k_id = list(rawingredient_k_id)
-        rawingredient_k_id = rawingredient_k_id[0]
-        rawingredient_k_id = rawingredient_k_id['rawingredient_id']
-
-        rawingredient_k_queryset = RawIngredient2.objects.filter(
-            id = rawingredient_k_id
-        )
-        name_k = rawingredient_k_queryset.values('name')
-        name_k = list(name_k)[0]['name']
-
-        buy_here_link_k = rawingredient_k_queryset.values('buy_here_link')
-        buy_here_link_k = list(buy_here_link_k)[0]['buy_here_link']
-
-        merged_dict_k = {
-            'specificingredient_id': list_specificingredient_id[k],
-            'calculated_amount': calculated_amount_k,
-             'base_amount_unit': base_amount_unit_k,
-             'name': name_k,
-             'buy_here_link': buy_here_link_k
-        }
-        result_calculation_fulldayofeating.append(merged_dict_k)
-
-    return result_calculation_fulldayofeating

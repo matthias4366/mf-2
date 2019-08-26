@@ -39,7 +39,8 @@ from measuredfood.ingredient_properties2 import (
 )
 import numpy as np
 
-from measuredfood.utils import calculate_fulldayofeating
+from measuredfood.utils.calculate_fulldayofeating import \
+calculate_fulldayofeating
 
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
@@ -89,6 +90,10 @@ query_ingredients_fulldayofeating
 
 from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
 import query_nutrienttargetselection_of_fulldayofeating
+
+from measuredfood.utils.fulldayofeating\
+.query_input_and_calculate_fulldayofeating\
+import query_input_and_calculate_fulldayofeating
 
 @login_required
 def create_mealplan_view(request):
@@ -202,42 +207,26 @@ def shoppinglist_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating = id_list_no_duplications[k]
 
-        specificingredient_dict_list = query_ingredients_fulldayofeating(
+        result_calculate_fulldayofeating,\
+        specificingredient_dict_list = \
+        query_input_and_calculate_fulldayofeating(
+            query_ingredients_fulldayofeating,
+            query_nutrientprofile_of_fulldayofeating,
+            query_nutrienttargetselection_of_fulldayofeating,
+            calculate_fulldayofeating,
+            calculate_average_of_specificingredient_group,
+            undo_calculate_average_of_specificingredient_group,
+            save_fulldayofeating_calculation_result_to_database,
             id_fulldayofeating,
             SpecificIngredient,
             RawIngredient2,
             pprint,
-        )
-
-        nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
-            id_fulldayofeating,
-            FullDayOfEating,
-            NutrientProfile,
-        )
-
-        result_calculate_fulldayofeating = \
-        calculate_fulldayofeating.calculate_fulldayofeating(
-            id_fulldayofeating,
             FullDayOfEating,
             NutrientProfile,
             NutrientTargetSelection,
-            RawIngredient2,
-            pprint,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,
-            calculate_average_of_specificingredient_group,
-            undo_calculate_average_of_specificingredient_group,
-            specificingredient_dict_list,
-            nutrientprofile_dict,
-            )
-        specificingredient_id_and_calculated_amount = \
-        copy.deepcopy(result_calculate_fulldayofeating['values'])
-
-        # Save the results to the database:
-        save_fulldayofeating_calculation_result_to_database(
-            specificingredient_id_and_calculated_amount,
-            SpecificIngredient
         )
 
     # Sum up the calculated amounts.
@@ -359,43 +348,26 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating = id_list_no_duplications[k]
 
-        specificingredient_dict_list = query_ingredients_fulldayofeating(
+        result_calculate_fulldayofeating,\
+        specificingredient_dict_list = \
+        query_input_and_calculate_fulldayofeating(
+            query_ingredients_fulldayofeating,
+            query_nutrientprofile_of_fulldayofeating,
+            query_nutrienttargetselection_of_fulldayofeating,
+            calculate_fulldayofeating,
+            calculate_average_of_specificingredient_group,
+            undo_calculate_average_of_specificingredient_group,
+            save_fulldayofeating_calculation_result_to_database,
             id_fulldayofeating,
             SpecificIngredient,
             RawIngredient2,
             pprint,
-        )
-
-        nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
-            id_fulldayofeating,
-            FullDayOfEating,
-            NutrientProfile,
-        )
-
-        result_calculate_fulldayofeating = \
-        calculate_fulldayofeating.calculate_fulldayofeating(
-            id_fulldayofeating,
             FullDayOfEating,
             NutrientProfile,
             NutrientTargetSelection,
-            RawIngredient2,
-            pprint,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,
-            calculate_average_of_specificingredient_group,
-            undo_calculate_average_of_specificingredient_group,
-            specificingredient_dict_list,
-            nutrientprofile_dict,
-            )
-
-        specificingredient_id_and_calculated_amount = \
-        copy.deepcopy(result_calculate_fulldayofeating['values'])
-
-        # Save the results to the database:
-        save_fulldayofeating_calculation_result_to_database(
-            specificingredient_id_and_calculated_amount,
-            SpecificIngredient
         )
 
     # The calculated_amount values for the FullDayOfEating objects have been
