@@ -5,12 +5,6 @@ def calculate_percentage_of_target_amount(
     set_to_zero_if_none,
 ):
 
-    print('\n nutrientprofile_dict in calculate_percentage_of_target_amount \n')
-    pprint.pprint(nutrientprofile_dict)
-
-    print('\n result_total_nutrition_fulldayofeating in calculate_percentage_of_target_amount \n')
-    pprint.pprint(result_total_nutrition_fulldayofeating)
-
     # Initialize the result
     result_percentage_of_target_amount_str = {}
     result_percentage_of_target_amount_numbers = {}

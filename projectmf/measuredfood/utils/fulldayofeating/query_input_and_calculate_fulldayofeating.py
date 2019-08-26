@@ -6,6 +6,7 @@ def query_input_and_calculate_fulldayofeating(
     calculate_average_of_specificingredient_group,
     undo_calculate_average_of_specificingredient_group,
     save_fulldayofeating_calculation_result_to_database,
+    set_to_zero_if_none,
     id_fulldayofeating,
     SpecificIngredient,
     RawIngredient2,
@@ -27,6 +28,8 @@ def query_input_and_calculate_fulldayofeating(
         SpecificIngredient,
         RawIngredient2,
         pprint,
+        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+        set_to_zero_if_none,
     )
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
@@ -44,11 +47,6 @@ def query_input_and_calculate_fulldayofeating(
 
     result_calculate_fulldayofeating = \
     calculate_fulldayofeating(
-        id_fulldayofeating,
-        FullDayOfEating,
-        NutrientProfile,
-        NutrientTargetSelection,
-        RawIngredient2,
         pprint,
         copy,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
@@ -58,6 +56,7 @@ def query_input_and_calculate_fulldayofeating(
         specificingredient_dict_list,
         nutrientprofile_dict,
         targeted_nutrients,
+        set_to_zero_if_none,
         )
 
     specificingredient_id_and_calculated_amount = \

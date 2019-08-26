@@ -247,6 +247,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         calculate_average_of_specificingredient_group,
         undo_calculate_average_of_specificingredient_group,
         save_fulldayofeating_calculation_result_to_database,
+        set_to_zero_if_none,
         id_fulldayofeating,
         SpecificIngredient,
         RawIngredient2,
@@ -316,8 +317,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     for key, value in result_percentage_of_target_amount_numbers.items():
         result_percentage_of_target_amount_numbers_list.append(value)
 
-    print('\n result_percentage_of_target_amount_numbers_list \n')
-    pprint.pprint(result_percentage_of_target_amount_numbers_list)
+    # print('\n result_percentage_of_target_amount_numbers_list \n')
+    # pprint.pprint(result_percentage_of_target_amount_numbers_list)
 
     # Calculate the percentage of the tolerable upper limit.
     tolerableupperintake_dict = query_tolerableupperintake_of_fulldayofeating(

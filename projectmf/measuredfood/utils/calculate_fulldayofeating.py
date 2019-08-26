@@ -1,9 +1,4 @@
 def calculate_fulldayofeating(
-    id_fulldayofeating,
-    FullDayOfEating,
-    NutrientProfile,
-    NutrientTargetSelection,
-    RawIngredient2,
     pprint,
     copy,
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
@@ -13,15 +8,12 @@ def calculate_fulldayofeating(
     specificingredient_dict_list,
     nutrientprofile_dict,
     targeted_nutrients,
+    set_to_zero_if_none,
     ):
 
     """
     This function should be independent of everything else.
     It should be a PURE function, i.e. work solely with inputs and outputs.
-    It is given an id_fulldayofeating. Based on that, it retrieves the
-    SpecificIngredients belonging to that FullDayOfEating and the
-    NutrientProfile. It then calculates the final amounts and saves them to the
-    fields "calculated_amount".
 
     Calculate the fulldayofeating, i.e. calculate the calculated_amount
     values for the SpecificIngredient instances associated with a
@@ -208,7 +200,8 @@ def calculate_fulldayofeating(
             print('ERROR: The ingredients with the \'FIXED\' scaling_options '\
                   'already provide too much nutrition.')
             return None
-    # print('\n targeted_nutrients_remainder \n')
+
+    # print('\n targeted_nutrients_remainder in calculate_fulldayofeating \n')
     # pprint.pprint(targeted_nutrients_remainder)
 
     # Prepare the arrays for the linear equation solver.
@@ -377,4 +370,8 @@ def calculate_fulldayofeating(
 
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.
+
+    # print('\n result_calculate_fulldayofeating[\'values\'] \n')
+    # pprint.pprint(result_calculate_fulldayofeating['values'])
+
     return result_calculate_fulldayofeating

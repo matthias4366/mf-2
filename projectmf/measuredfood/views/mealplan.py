@@ -85,9 +85,6 @@ calculate_average_of_specificingredient_group
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group \
 import undo_calculate_average_of_specificingredient_group
 
-from measuredfood.utils.query.query_ingredients_fulldayofeating import \
-query_ingredients_fulldayofeating
-
 from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
 import query_nutrienttargetselection_of_fulldayofeating
 
@@ -217,6 +214,7 @@ def shoppinglist_view(request, id_mealplan):
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
             save_fulldayofeating_calculation_result_to_database,
+            set_to_zero_if_none,
             id_fulldayofeating,
             SpecificIngredient,
             RawIngredient2,
@@ -358,6 +356,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
             save_fulldayofeating_calculation_result_to_database,
+            set_to_zero_if_none,
             id_fulldayofeating,
             SpecificIngredient,
             RawIngredient2,
@@ -392,6 +391,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             SpecificIngredient,
             RawIngredient2,
             pprint,
+            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            set_to_zero_if_none,
         )
 
         # Save for later to calculate average daily cost of mealplan.

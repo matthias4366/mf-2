@@ -3,6 +3,8 @@ def query_ingredients_fulldayofeating(
     SpecificIngredient,
     RawIngredient2,
     pprint,
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    set_to_zero_if_none,
 ):
     """
     This function assists the function calculate_total_price_fulldayofeating.
@@ -40,6 +42,16 @@ def query_ingredients_fulldayofeating(
             id = specificingredient_dict_list[k]['rawingredient_id']
         ).values()
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
+
+        # print('\n rawingredient_k_dict \n')
+        # pprint.pprint(rawingredient_k_dict)
+
+        # Make sure that no None fields are returned.
+        for nutrient_dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+            nutrient_name = nutrient_dict_k['name']
+            rawingredient_k_dict[nutrient_name] = \
+            set_to_zero_if_none(rawingredient_k_dict[nutrient_name])
+
         specificingredient_dict_list[k].update(
             raw_ingredient = rawingredient_k_dict
             )
