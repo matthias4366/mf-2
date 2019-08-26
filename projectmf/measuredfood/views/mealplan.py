@@ -38,23 +38,32 @@ from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 import numpy as np
+
 from measuredfood.utils import calculate_fulldayofeating
+
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
 import save_fulldayofeating_calculation_result_to_database
-from measuredfood.utils.query_ingredients_fulldayofeating\
+
+from measuredfood.utils.query.query_ingredients_fulldayofeating\
 import query_ingredients_fulldayofeating
+
 from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
 import calculate_total_nutrition_fulldayofeating
+
 from measuredfood.utils.set_to_zero_if_none\
 import set_to_zero_if_none
+
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
-from measuredfood.utils.query_nutrientprofile_of_fulldayofeating\
+
+from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
 import query_nutrientprofile_of_fulldayofeating
+
 from measuredfood.utils.calculate_percentage_of_target_amount\
 import calculate_percentage_of_target_amount
-from measuredfood.utils.query_nutrientprofile_of_mealplan\
+
+from measuredfood.utils.query.query_nutrientprofile_of_mealplan\
 import query_nutrientprofile_of_mealplan
 
 from measuredfood.utils.query.query_tolerableupperintake_of_mealplan import\
@@ -68,6 +77,12 @@ judge_total_nutrition
 
 from measuredfood.utils.calculate_total_price_fulldayofeating import \
 calculate_total_price_fulldayofeating
+
+from measuredfood.utils.calculate_average_of_specificingredient_group import \
+calculate_average_of_specificingredient_group
+
+from measuredfood.utils.undo_calculate_average_of_specificingredient_group \
+import undo_calculate_average_of_specificingredient_group
 
 @login_required
 def create_mealplan_view(request):
@@ -192,7 +207,9 @@ def shoppinglist_view(request, id_mealplan):
             pprint,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            np
+            np,
+            calculate_average_of_specificingredient_group,
+            undo_calculate_average_of_specificingredient_group,
             )
         specificingredient_id_and_calculated_amount = \
         copy.deepcopy(result_calculate_fulldayofeating['values'])
@@ -333,7 +350,9 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             pprint,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            np
+            np,
+            calculate_average_of_specificingredient_group,
+            undo_calculate_average_of_specificingredient_group,
             )
 
         specificingredient_id_and_calculated_amount = \

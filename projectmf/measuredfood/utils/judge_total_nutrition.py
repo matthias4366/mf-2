@@ -37,7 +37,12 @@ def judge_total_nutrition(
             elif result_percentage_of_tolerable_upper_intake_numbers_list[k] >= 100:
                 result_judge_total_nutrition.append(too_much_str)
             else:
-                print('Something went wrong, this case should not be possible.')
+                print('\n Something went wrong, this case should not be possible.')
+                print('Location in code: judge_total_nutrition loc 1. \n ')
+                print('Faulty variable: ')
+                print(' result_percentage_of_tolerable_upper_intake_numbers_list[k]')
+                print(result_percentage_of_tolerable_upper_intake_numbers_list[k])
+                print('\n')
 
         # There is only a target.
         elif (result_percentage_of_target_amount_numbers_list[k] != None) and\
@@ -47,7 +52,12 @@ def judge_total_nutrition(
             elif result_percentage_of_target_amount_numbers_list[k] < 100:
                 result_judge_total_nutrition.append(too_little_str)
             else:
-                print('Something went wrong, this case should not be possible.')
+                print('\n Something went wrong, this case should not be possible.')
+                print('Location in code: judge_total_nutrition loc 2. \n ')
+                print('Faulty variable: ')
+                print(' result_percentage_of_target_amount_numbers_list[k]')
+                print(result_percentage_of_target_amount_numbers_list[k])
+                print('\n')
 
         # There are both a target and a tolerable upper intake.
         elif (result_percentage_of_target_amount_numbers_list[k] != None) and\

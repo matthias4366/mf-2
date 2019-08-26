@@ -3,6 +3,9 @@ def calculate_total_price_fulldayofeating(
     pprint,
 ):
 
+    # print('\n specificingredient_dict_list in calculate_total_price_fulldayofeating \n')
+    # pprint.pprint(specificingredient_dict_list)
+
     # Initialize result values
     total_price = 0
 
@@ -18,7 +21,6 @@ def calculate_total_price_fulldayofeating(
     # False. It is enough for one ingredient to not have price data to make
     # it True.
     total_price_possibly_higher = False
-
 
     for specificingredient_dict_k in specificingredient_dict_list:
 
@@ -40,7 +42,8 @@ def calculate_total_price_fulldayofeating(
         elif not price_is_valid:
             total_price_possibly_higher = True
         else:
-            print('Something went wrong, this case should not be possible.')
+            print('\n Something went wrong, this case should not be possible.')
+            print('Location in code: calculate_total_price_fulldayofeating. \n')
 
     total_price_rounded = round(total_price, 2)
 
@@ -54,4 +57,8 @@ def calculate_total_price_fulldayofeating(
         'total_price_currency': total_price_currency,
         'total_price_possibly_higher': total_price_possibly_higher,
     }
+
+    # print('\n total_price_fulldayofeating_result_dict in calculate_total_price_fulldayofeating \n')
+    # pprint.pprint(total_price_fulldayofeating_result_dict)
+
     return total_price_fulldayofeating_result_dict

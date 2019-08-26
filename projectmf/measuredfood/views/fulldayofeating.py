@@ -50,17 +50,23 @@ import calculate_percentage_of_tolerable_upper_intake
 from measuredfood.utils.judge_total_nutrition\
 import judge_total_nutrition
 
-from measuredfood.utils.query_ingredients_fulldayofeating\
+from measuredfood.utils.query.query_ingredients_fulldayofeating\
 import query_ingredients_fulldayofeating
 
 from measuredfood.utils.calculate_total_price_fulldayofeating\
 import calculate_total_price_fulldayofeating
 
-from measuredfood.utils.query_nutrientprofile_of_fulldayofeating\
+from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
 import query_nutrientprofile_of_fulldayofeating
 
 from measuredfood.utils.query.query_tolerableupperintake_of_fulldayofeating\
 import query_tolerableupperintake_of_fulldayofeating
+
+from measuredfood.utils.undo_calculate_average_of_specificingredient_group\
+import undo_calculate_average_of_specificingredient_group
+
+from measuredfood.utils.calculate_average_of_specificingredient_group \
+import calculate_average_of_specificingredient_group
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -232,7 +238,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         pprint,
         copy,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-        np
+        np,
+        calculate_average_of_specificingredient_group,
+        undo_calculate_average_of_specificingredient_group,
         )
 
     specificingredient_id_and_calculated_amount = \
@@ -311,6 +319,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     for key, value in result_percentage_of_target_amount_numbers.items():
         result_percentage_of_target_amount_numbers_list.append(value)
 
+    print('\n result_percentage_of_target_amount_numbers_list \n')
+    pprint.pprint(result_percentage_of_target_amount_numbers_list)
+
     # Calculate the percentage of the tolerable upper limit.
     tolerableupperintake_dict = query_tolerableupperintake_of_fulldayofeating(
         id_fulldayofeating,
@@ -381,8 +392,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         specificingredient_dict_list,
         pprint,
     )
-
-
 
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \

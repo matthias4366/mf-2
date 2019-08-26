@@ -12,6 +12,9 @@ def calculate_total_nutrition_fulldayofeating(
     values have already been calculated.
     """
 
+    print('\n specificingredient_dict_list in calculate_total_nutrition_fulldayofeating \n')
+    pprint.pprint(specificingredient_dict_list)
+
     # Initialize the dictionary which will store the results
     result_total_nutrition_fulldayofeating = {}
     for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
@@ -54,6 +57,9 @@ def calculate_total_nutrition_fulldayofeating(
         nutrient_name = dict_k['name']
         result_total_nutrition_fulldayofeating_rounded[nutrient_name] = \
         round(result_total_nutrition_fulldayofeating[nutrient_name],1)
+
+    print('\n result_total_nutrition_fulldayofeating in calculate_total_nutrition_fulldayofeating \n')
+    pprint.pprint(result_total_nutrition_fulldayofeating)
 
     return result_total_nutrition_fulldayofeating,\
             result_total_nutrition_fulldayofeating_rounded
