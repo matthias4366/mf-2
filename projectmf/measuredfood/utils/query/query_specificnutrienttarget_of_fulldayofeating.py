@@ -10,6 +10,7 @@ def query_specificnutrienttarget_of_fulldayofeating(
 
     targeted_nutrients_errors = {
         'missing_nutrientprofile_value': False,
+        'nutrients_missing_nutrientprofile_value': [],
     }
 
     queryset_specificnutrienttarget_of_fulldayofeating = \
@@ -36,6 +37,10 @@ def query_specificnutrienttarget_of_fulldayofeating(
         if nutrientprofile_dict[nutrient_target_name] is None:
             nutrient_target_amount = 0
             targeted_nutrients_errors['missing_nutrientprofile_value'] = True
+            targeted_nutrients_errors\
+            ['nutrients_missing_nutrientprofile_value'].append(
+                nutrient_target_name
+            )
         elif nutrientprofile_dict[nutrient_target_name] is not None:
             nutrient_target_amount = nutrientprofile_dict[nutrient_target_name]
         else:
@@ -45,8 +50,5 @@ def query_specificnutrienttarget_of_fulldayofeating(
 
         new_dict = {nutrient_target_name: nutrient_target_amount}
         targeted_nutrients.update(new_dict)
-
-    print('\n targeted_nutrients_errors \n')
-    pprint.pprint(targeted_nutrients_errors)
 
     return targeted_nutrients, targeted_nutrients_errors

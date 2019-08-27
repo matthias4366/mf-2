@@ -55,7 +55,6 @@ def calculate_fulldayofeating(
 
     }
 
-
     # In the end, the calculated amounts are to be rounded. The number of
     # decimals to which to round is the number of decimals the user used for
     # the base amounts. Therefore, the number of decimals for the base amounts

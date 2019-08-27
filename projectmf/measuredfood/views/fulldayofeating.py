@@ -250,7 +250,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
     result_calculate_fulldayofeating,\
     specificingredient_dict_list,\
-    targeted_nutrients_errors = \
+    targeted_nutrients_errors,\
+    nutrientprofile_dict = \
     query_input_and_calculate_fulldayofeating(
         query_ingredients_fulldayofeating,
         query_nutrientprofile_of_fulldayofeating,
@@ -273,9 +274,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     )
 
     if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        print('\n targeted_nutrients_errors[\'missing_nutrientprofile_value\'] is True \n')
         context = {'id_fulldayofeating': id_fulldayofeating,
                    'targeted_nutrients_errors': targeted_nutrients_errors,
+                   'nutrientprofile_dict': nutrientprofile_dict,
                    }
         return render(
             request,

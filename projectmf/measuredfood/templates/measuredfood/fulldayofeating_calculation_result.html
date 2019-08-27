@@ -11,9 +11,20 @@
 
   {% if targeted_nutrients_errors.missing_nutrientprofile_value %}
     <br>
-    <h1>Error: targeted non existing value in nutrient profile.</h1>
+    <h1>
+      Error: targeted non existing value in nutrient profile.
+    </h1>
     <br>
-    <p></p>
+    <p>The following nutrients were targeted, but there were no values in the
+    nutrient profile:
+      <ol>
+        {% for nutrient_name in targeted_nutrients_errors.nutrients_missing_nutrientprofile_value %}
+          <li>{{ nutrient_name }}</li>
+        {% endfor %}
+      </ol>
+    </p>
+    <p>The name of the nutrient profile is "{{ nutrientprofile_dict.name }}".</p>
+
   {% elif negative_result %}
     <br>
     <h1>Error</h1>

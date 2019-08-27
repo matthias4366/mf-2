@@ -2,6 +2,7 @@ def query_nutrientprofile_of_fulldayofeating(
     id_fulldayofeating,
     FullDayOfEating,
     NutrientProfile,
+    pprint,
 ):
     """
     Query the related NutrientProfile and store the results in dictionaries.

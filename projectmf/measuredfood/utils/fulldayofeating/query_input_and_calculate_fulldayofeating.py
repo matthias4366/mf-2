@@ -36,6 +36,7 @@ def query_input_and_calculate_fulldayofeating(
         id_fulldayofeating,
         FullDayOfEating,
         NutrientProfile,
+        pprint,
     )
 
     targeted_nutrients, targeted_nutrients_errors = \
@@ -59,7 +60,8 @@ def query_input_and_calculate_fulldayofeating(
         specificingredient_dict_list = None
         return result_calculate_fulldayofeating,\
         specificingredient_dict_list,\
-        targeted_nutrients_errors
+        targeted_nutrients_errors,\
+        nutrientprofile_dict
 
     result_calculate_fulldayofeating = \
     calculate_fulldayofeating(
@@ -107,4 +109,5 @@ def query_input_and_calculate_fulldayofeating(
 
     return result_calculate_fulldayofeating,\
     specificingredient_dict_list,\
-    targeted_nutrients_errors
+    targeted_nutrients_errors,\
+    nutrientprofile_dict
