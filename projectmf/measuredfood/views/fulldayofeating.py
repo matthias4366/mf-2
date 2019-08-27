@@ -386,17 +386,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # print('\n aggregated_total_nutrition_fulldayofeating \n')
     # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
 
-    # Calculate the total price
-    # Query the SpecificIngredient objects related to the FullDayOfEating.
-    # TODO: There might be mulitple queries doing the same thing,
-    # i.e. getting SpecificIngredient objects related to the FullDayOfEating
-    # Not necessary here because it is run earlier.
-    # specificingredient_dict_list = query_ingredients_fulldayofeating(
-    #     id_fulldayofeating,
-    #     SpecificIngredient,
-    #     RawIngredient2,
-    #     pprint,
-    # )
+
     total_price_fulldayofeating_result_dict = calculate_total_price_fulldayofeating(
         specificingredient_dict_list,
         pprint,
@@ -405,6 +395,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     context = {'id_fulldayofeating': id_fulldayofeating,
                'result_calculation_fulldayofeating': \
                result_calculation_fulldayofeating,
+               'result_calculate_fulldayofeating':\
+               result_calculate_fulldayofeating,
                'aggregated_total_nutrition_fulldayofeating': \
                aggregated_total_nutrition_fulldayofeating,
                'result_percentage_of_target_amount':\
@@ -413,6 +405,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                total_price_fulldayofeating_result_dict,
                'negative_result':\
                result_calculate_fulldayofeating['errors']['negative_result'],
+               'mismatch':\
+               result_calculate_fulldayofeating['errors']['mismatch']
                }
 
     # TODO: use reverse function instead

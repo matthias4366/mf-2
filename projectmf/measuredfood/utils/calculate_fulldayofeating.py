@@ -34,6 +34,19 @@ def calculate_fulldayofeating(
             # Hence, to make the numbers add up, the solution for the
             # amount of pea protein will be negative.
             'negative_result': False,
+
+            # For the linear equation system to be solvable, the number of
+            # independently scaling entities (i.e. independently scaling
+            # ingredients or groups)
+            # has to equal the number of nutrient targets (e.g. calories,
+            # protein).
+            'mismatch': False,
+            # Show the user both the independently scaling entities and the
+            # nutrient targets so they can understand where they went wrong.
+            'list_names_independently_scaling_entities': None,
+            'list_nutrient_targets': None,
+            'n_independently_scaling_entities': None,
+            'n_nutrient_targets': None,
         },
 
     }
@@ -212,29 +225,74 @@ def calculate_fulldayofeating(
     # print('\nb \n')
     # pprint.pprint(b)
 
-    a = np.zeros(shape=(len(b),len(b)))
-    column_index = 0
-    for dict_k in list_independently_scaling_entities:
-        row_index = 0
-        for key_k in targeted_nutrients_remainder:
-            a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
-            row_index = row_index + 1
-        column_index = column_index + 1
-    # print('\na \n')
-    # pprint.pprint(a)
+    # Check for the error that the number of nutrient targets does not match
+    # the number of independently scaling entities.
+    if len(b) != len(list_independently_scaling_entities):
+        result_calculate_fulldayofeating['errors']['mismatch'] = True
+        print('Mismatch error in calculate_fulldayofeating.')
+        x = np.zeros(len(list_independently_scaling_entities))
 
-    # Solve the linear equation.
-    # Catch the case that the linear equation system is not solvable, in
-    # order to give the user a useful error page.
-    try:
-        x = np.linalg.solve(a, b)
-    except:
-        result_calculate_fulldayofeating['errors']['solver_failed']\
-        = True
-        print('\n solver failed in calculate_fulldayofeating\n')
-        return result_calculate_fulldayofeating
-    # print('\nx \n')
-    # pprint.pprint(x)
+        # print('\n list_independently_scaling_entities \n')
+        # pprint.pprint(list_independently_scaling_entities)
+        # print('\n x \n')
+        # pprint.pprint(x)
+
+        list_names_independently_scaling_entities = []
+        for dict_k in list_independently_scaling_entities:
+            name_independtly_scaling_entity = \
+            dict_k['raw_ingredient']['name']
+            list_names_independently_scaling_entities.append(
+                name_independtly_scaling_entity
+            )
+        result_calculate_fulldayofeating['errors']\
+        ['list_names_independently_scaling_entities'] = \
+        list_names_independently_scaling_entities
+
+        result_calculate_fulldayofeating['errors']\
+        ['n_independently_scaling_entities'] = \
+        len(list_names_independently_scaling_entities)
+
+        # print('\n list_names_independently_scaling_entities \n')
+        # pprint.pprint(list_names_independently_scaling_entities)
+
+        list_nutrient_targets = []
+        for key_k in targeted_nutrients_remainder:
+            list_nutrient_targets.append(key_k)
+        result_calculate_fulldayofeating['errors']\
+        ['list_nutrient_targets'] = \
+        list_nutrient_targets
+
+        result_calculate_fulldayofeating['errors']\
+        ['n_nutrient_targets'] = \
+        len(list_nutrient_targets)
+
+        # print('\n list_nutrient_targets \n')
+        # pprint.pprint(list_nutrient_targets)
+
+    else:
+        a = np.zeros(shape=(len(b),len(b)))
+        column_index = 0
+        for dict_k in list_independently_scaling_entities:
+            row_index = 0
+            for key_k in targeted_nutrients_remainder:
+                a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
+                row_index = row_index + 1
+            column_index = column_index + 1
+        # print('\na \n')
+        # pprint.pprint(a)
+
+        # Solve the linear equation.
+        # Catch the case that the linear equation system is not solvable, in
+        # order to give the user a useful error page.
+        try:
+            x = np.linalg.solve(a, b)
+        except:
+            result_calculate_fulldayofeating['errors']['solver_failed']\
+            = True
+            print('\n solver failed in calculate_fulldayofeating\n')
+            return result_calculate_fulldayofeating
+        # print('\nx \n')
+        # pprint.pprint(x)
 
     # Multiply the entries in x with the reference_amount of each
     # SpecificIngredient

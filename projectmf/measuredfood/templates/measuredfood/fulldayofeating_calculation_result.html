@@ -9,7 +9,47 @@
   <br>
   <br>
 
-  <h1>Calculation results:</h1>
+  {% if negative_result %}
+    <br>
+    <h1>Error</h1>
+    <br>
+    <p>It seems you have gotten a negative result. Try the following solution.
+    Remove the ingredient whose amount was negative. Remove one nutrient target.
+    Remove the nutrient target in which the ingredient with a negative result
+    is likely to be high.</p>
+    <p>For example, if you got a negative result for the
+    protein powder, the other ingredients in your recipe are already providing
+    enough protein to the point where you would need negative protein powder
+    to get back down to the specified protein target. In that case,
+    remove the protein powder as an ingredient and remove protein from the
+    targeted nutrients.</p>
+  {% elif mismatch %}
+    <br>
+    <h1>Mismatch error</h1>
+    <br>
+    <p>The number of nutrient targets and the number of independently
+    scaling ingredients or ingredient groups have to be equal.</p>
+    <p>You had
+      {{ result_calculate_fulldayofeating.errors.n_nutrient_targets }}
+      nutrient target(s):
+      <ol>
+        {% for nutrient_target in result_calculate_fulldayofeating.errors.list_nutrient_targets %}
+          <li>{{ nutrient_target }}</li>
+        {% endfor %}
+      </ol>
+    </p>
+    <p>You had
+      {{ result_calculate_fulldayofeating.errors.n_independently_scaling_entities }}
+      independently scaling ingredient(s) or ingredient group(s):
+      <ol>
+        {% for independently_scaling_entity in result_calculate_fulldayofeating.errors.list_names_independently_scaling_entities %}
+        <li>{{ independently_scaling_entity }}</li>
+        {% endfor %}
+      </ol>
+
+    </p>
+  {% else %}
+    <h1>Calculation results:</h1>
     <table border="2">
       <tr>
         <th>Calculated amount</th>
@@ -28,69 +68,56 @@
       </tr>
       {% endfor %}
     </table>
+    <br>
+    <br>
+    <h1>Total nutrition in full day of eating:</h1>
+    <table class="total_nutrition_table">
+      <tr>
+        <td class="total_nutrition_table">Nutrient name</td>
+        <td class="total_nutrition_table">Full day of eating</td>
+        <td class="total_nutrition_table">Unit</td>
+        <!-- Percent of the target set in NutrientProfile -->
+        <td class="total_nutrition_table">% Target</td>
+        <td class="total_nutrition_table">% Tolerable upper intake</td>
+        <td class="total_nutrition_table">Judgement</td>
+      </tr>
 
-  {% if negative_result %}
+      <!-- Use forloop.counter0 to access the for loop counter -->
+
+      {% for ab in aggregated_total_nutrition_fulldayofeating %}
+        <tr class="{{ ab.6 }} total_nutrition_table">
+          <td class="total_nutrition_table">{{ ab.0 }}</td>
+          <td class="total_nutrition_table">{{ ab.1 }}</td>
+          <td class="total_nutrition_table">{{ ab.2 }}</td>
+          <td class="total_nutrition_table">{{ ab.3 }}</td>
+          <td class="total_nutrition_table">{{ ab.4 }}</td>
+          <td class="total_nutrition_table">{{ ab.5 }}</td>
+        </tr>
+      {% endfor %}
+
+    </table>
     <br>
-    <h1>Error</h1>
     <br>
-    <p>It seems you have gotten a negative result. Try the following solution.
-    Remove the ingredient whose amount was negative. Remove one nutrient target.
-    Remove the nutrient target in which the ingredient with a negative result
-    is likely to be high.</p>
-    <p>For example, if you got a negative result for the
-    protein powder, the other ingredients in your recipe are already providing
-    enough protein to the point where you would need negative protein powder
-    to get back down to the specified protein target. In that case,
-    remove the protein powder as an ingredient and remove protein from the
-    targeted nutrients.</p>
+    <br>
+    <br>
+    <h1>Total price of full day of eating:</h1>
+    <table border="2">
+      <tr>
+        <td>Price</td>
+        <td>Currency</td>
+      </tr>
+      <tr>
+        <td>{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
+        <td>{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
   {% endif %}
 
-  <br>
-  <br>
-  <h1>Total nutrition in full day of eating:</h1>
-  <table class="total_nutrition_table">
-    <tr>
-      <td class="total_nutrition_table">Nutrient name</td>
-      <td class="total_nutrition_table">Full day of eating</td>
-      <td class="total_nutrition_table">Unit</td>
-      <!-- Percent of the target set in NutrientProfile -->
-      <td class="total_nutrition_table">% Target</td>
-      <td class="total_nutrition_table">% Tolerable upper intake</td>
-      <td class="total_nutrition_table">Judgement</td>
-    </tr>
 
-    <!-- Use forloop.counter0 to access the for loop counter -->
 
-    {% for ab in aggregated_total_nutrition_fulldayofeating %}
-      <tr class="{{ ab.6 }} total_nutrition_table">
-        <td class="total_nutrition_table">{{ ab.0 }}</td>
-        <td class="total_nutrition_table">{{ ab.1 }}</td>
-        <td class="total_nutrition_table">{{ ab.2 }}</td>
-        <td class="total_nutrition_table">{{ ab.3 }}</td>
-        <td class="total_nutrition_table">{{ ab.4 }}</td>
-        <td class="total_nutrition_table">{{ ab.5 }}</td>
-      </tr>
-    {% endfor %}
-
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h1>Total price of full day of eating:</h1>
-  <table border="2">
-    <tr>
-      <td>Price</td>
-      <td>Currency</td>
-    </tr>
-    <tr>
-      <td>{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
-      <td>{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
-    </tr>
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
 
 {% endblock content %}
