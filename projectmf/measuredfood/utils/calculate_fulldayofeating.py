@@ -253,7 +253,6 @@ def calculate_fulldayofeating(
         if solution[k] < 0:
             result_calculate_fulldayofeating['errors']['negative_result']\
             = True
-            return result_calculate_fulldayofeating
 
     # print('\n solution \n')
     # pprint.pprint(solution)

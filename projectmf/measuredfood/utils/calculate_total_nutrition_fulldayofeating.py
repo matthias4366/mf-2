@@ -39,8 +39,7 @@ def calculate_total_nutrition_fulldayofeating(
             result_total_nutrition_fulldayofeating[nutrient_name] \
             + set_to_zero_if_none(specificingredient_dict_list[k]['raw_ingredient'][nutrient_name]) \
             * specificingredient_dict_list[k]['calculated_amount']\
-            / specificingredient_dict_list[k]['raw_ingredient']\
-            ['reference_amount']
+            / specificingredient_dict_list[k]['raw_ingredient']['reference_amount']
 
     # Round the values in the result_total_nutrition_fulldayofeating
     # Initialize the dictionary containing the rounded values.

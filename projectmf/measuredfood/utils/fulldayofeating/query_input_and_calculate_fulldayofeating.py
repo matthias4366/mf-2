@@ -1,7 +1,7 @@
 def query_input_and_calculate_fulldayofeating(
     query_ingredients_fulldayofeating,
     query_nutrientprofile_of_fulldayofeating,
-    query_nutrienttargetselection_of_fulldayofeating,
+    query_specificnutrienttarget_of_fulldayofeating,
     calculate_fulldayofeating,
     calculate_average_of_specificingredient_group,
     undo_calculate_average_of_specificingredient_group,
@@ -13,7 +13,7 @@ def query_input_and_calculate_fulldayofeating(
     pprint,
     FullDayOfEating,
     NutrientProfile,
-    NutrientTargetSelection,
+    SpecificNutrientTarget,
     copy,
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     np,
@@ -38,11 +38,11 @@ def query_input_and_calculate_fulldayofeating(
         NutrientProfile,
     )
 
-    targeted_nutrients = query_nutrienttargetselection_of_fulldayofeating(
+    targeted_nutrients = query_specificnutrienttarget_of_fulldayofeating(
         id_fulldayofeating,
-        FullDayOfEating,
-        NutrientTargetSelection,
+        SpecificNutrientTarget,
         nutrientprofile_dict,
+        pprint,
     )
 
     result_calculate_fulldayofeating = \
@@ -59,10 +59,13 @@ def query_input_and_calculate_fulldayofeating(
         set_to_zero_if_none,
         )
 
+    # print('\n result_calculate_fulldayofeating in query_input_and_calculate_fulldayofeating \n')
+    # pprint.pprint(result_calculate_fulldayofeating)
+
     specificingredient_id_and_calculated_amount = \
     copy.deepcopy(result_calculate_fulldayofeating['values'])
 
-    # print('\n specificingredient_id_and_calculated_amount \n')
+    # print('\n specificingredient_id_and_calculated_amount in query_input_and_calculate_fulldayofeating \n')
     # pprint.pprint(specificingredient_id_and_calculated_amount)
 
     # Save the results to the database:
@@ -82,6 +85,9 @@ def query_input_and_calculate_fulldayofeating(
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         set_to_zero_if_none,
     )
+
+    # print('\n specificingredient_dict_list in query_input_and_calculate_fulldayofeating \n')
+    # pprint.pprint(specificingredient_dict_list)
 
     return result_calculate_fulldayofeating,\
     specificingredient_dict_list

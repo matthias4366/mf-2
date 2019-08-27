@@ -35,4 +35,8 @@ class SpecificNutrientTarget(models.Model):
         )
 
     def __str__(self):
-        return self.name
+        if self.nutrient_target is not None:
+            label = self.nutrient_target
+            return label
+        else:
+            return 'SpecificNutrientTarget without a NutrientTarget'

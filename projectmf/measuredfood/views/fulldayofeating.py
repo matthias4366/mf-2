@@ -11,6 +11,7 @@ from measuredfood.models import (
     NutrientProfile,
     NutrientTargetSelection,
     TolerableUpperIntake,
+    SpecificNutrientTarget,
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
 from django.urls import reverse, reverse_lazy
@@ -70,14 +71,14 @@ import undo_calculate_average_of_specificingredient_group
 from measuredfood.utils.calculate_average_of_specificingredient_group \
 import calculate_average_of_specificingredient_group
 
-from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
-import query_nutrienttargetselection_of_fulldayofeating
-
 from measuredfood.utils.fulldayofeating.query_input_and_calculate_fulldayofeating\
 import query_input_and_calculate_fulldayofeating
 
 from measuredfood.utils.query.query_result_calculation_fulldayofeating \
 import query_result_calculation_fulldayofeating
+
+from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
+import query_specificnutrienttarget_of_fulldayofeating
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -126,12 +127,6 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         # Allow the user to only add NutrientProfiles from their own collection.
         form_fulldayofeating.fields['nutrient_profile'].queryset = \
         NutrientProfile.objects.filter(
-            author = request.user.id
-            )
-        # Allow the user to only add NutrientTargetSelections from their own
-        # collection.
-        form_fulldayofeating.fields['nutrient_target_selection'].queryset = \
-        NutrientTargetSelection.objects.filter(
             author = request.user.id
             )
 
@@ -190,12 +185,6 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         for form in formset_specificingredient:
             form.fields['rawingredient'].queryset = \
             RawIngredient2.objects.filter(
-                author = request.user.id
-                )
-            # Allow the user to only add NutrientTargetSelections from their own
-            # collection.
-            form_fulldayofeating.fields['nutrient_target_selection'].queryset = \
-            NutrientTargetSelection.objects.filter(
                 author = request.user.id
                 )
 
@@ -264,7 +253,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     query_input_and_calculate_fulldayofeating(
         query_ingredients_fulldayofeating,
         query_nutrientprofile_of_fulldayofeating,
-        query_nutrienttargetselection_of_fulldayofeating,
+        query_specificnutrienttarget_of_fulldayofeating,
         calculate_fulldayofeating,
         calculate_average_of_specificingredient_group,
         undo_calculate_average_of_specificingredient_group,
@@ -276,7 +265,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         pprint,
         FullDayOfEating,
         NutrientProfile,
-        NutrientTargetSelection,
+        SpecificNutrientTarget,
         copy,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         np,

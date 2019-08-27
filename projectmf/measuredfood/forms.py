@@ -31,16 +31,13 @@ class FullDayOfEatingForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['author']
 
-    # Prevent the users from using the NutrientProfiles or
-    # NutrientTargetSelections
+    # Prevent the users from using the NutrientProfiles
     # of other users when
     # creating a full day of eating.
     def __init__(self, id_user, *args, **kwargs):
         super(FullDayOfEatingForm, self).__init__(*args, **kwargs)
         self.fields['nutrient_profile'].queryset = \
         NutrientProfile.objects.filter(author_id=id_user)
-        self.fields['nutrient_target_selection'].queryset = \
-        NutrientTargetSelection.objects.filter(author_id=id_user)
 
 
 class NutrientProfileForm(forms.ModelForm):
@@ -78,14 +75,6 @@ class RawIngredient2Form(forms.ModelForm):
 
     class Meta:
         model = RawIngredient2
-        fields = '__all__'
-        exclude = ['author']
-
-
-class NutrientTargetSelectionForm(forms.ModelForm):
-
-    class Meta:
-        model = NutrientTargetSelection
         fields = '__all__'
         exclude = ['author']
 

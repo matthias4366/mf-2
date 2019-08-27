@@ -22,8 +22,8 @@ from measuredfood.models import (
     SpecificIngredient,
     NutrientProfile,
     RawIngredient2,
-    NutrientTargetSelection,
     TolerableUpperIntake,
+    SpecificNutrientTarget,
 )
 from measuredfood.forms import (
     MealplanForm,
@@ -85,12 +85,12 @@ calculate_average_of_specificingredient_group
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group \
 import undo_calculate_average_of_specificingredient_group
 
-from measuredfood.utils.query.query_nutrienttargetselection_of_fulldayofeating \
-import query_nutrienttargetselection_of_fulldayofeating
-
 from measuredfood.utils.fulldayofeating\
 .query_input_and_calculate_fulldayofeating\
 import query_input_and_calculate_fulldayofeating
+
+from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating \
+import query_specificnutrienttarget_of_fulldayofeating
 
 @login_required
 def create_mealplan_view(request):
@@ -209,7 +209,7 @@ def shoppinglist_view(request, id_mealplan):
         query_input_and_calculate_fulldayofeating(
             query_ingredients_fulldayofeating,
             query_nutrientprofile_of_fulldayofeating,
-            query_nutrienttargetselection_of_fulldayofeating,
+            query_specificnutrienttarget_of_fulldayofeating,
             calculate_fulldayofeating,
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
@@ -221,7 +221,7 @@ def shoppinglist_view(request, id_mealplan):
             pprint,
             FullDayOfEating,
             NutrientProfile,
-            NutrientTargetSelection,
+            SpecificNutrientTarget,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,
@@ -351,7 +351,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         query_input_and_calculate_fulldayofeating(
             query_ingredients_fulldayofeating,
             query_nutrientprofile_of_fulldayofeating,
-            query_nutrienttargetselection_of_fulldayofeating,
+            query_specificnutrienttarget_of_fulldayofeating,
             calculate_fulldayofeating,
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
@@ -363,7 +363,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             pprint,
             FullDayOfEating,
             NutrientProfile,
-            NutrientTargetSelection,
+            SpecificNutrientTarget,
             copy,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,

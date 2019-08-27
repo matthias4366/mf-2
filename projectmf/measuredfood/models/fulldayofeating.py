@@ -37,16 +37,6 @@ class FullDayOfEating(models.Model):
         blank=False
     )
 
-    # Within the nutrient profile, some nutrients are selected for the
-    # mathematical calculation of the ingredient amounts in the final recipe.
-    nutrient_target_selection = models.ForeignKey(
-        NutrientTargetSelection,
-        on_delete = models.PROTECT,
-        editable = True,
-        null = True,
-        blank = False,
-    )
-
     tolerable_upper_intake = models.ForeignKey(
         TolerableUpperIntake,
         on_delete = models.PROTECT,
