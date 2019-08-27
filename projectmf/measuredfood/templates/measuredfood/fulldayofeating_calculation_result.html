@@ -9,7 +9,14 @@
   <br>
   <br>
 
-  {% if targeted_nutrients_errors.missing_nutrientprofile_value %}
+  <!-- n_ingredients_is_zero should only be defined when it is needed
+  and otherwise it should be None. None should be interpreted as False from Python. -->
+  {% if n_ingredients_is_zero %}
+    <br>
+    <h1>
+      Error: Please add at least 1 ingredient to the full day of eating.
+    </h1>
+  {% elif targeted_nutrients_errors.missing_nutrientprofile_value %}
     <br>
     <h1>
       Error: targeted non existing value in nutrient profile.
@@ -25,7 +32,7 @@
     </p>
     <p>The name of the nutrient profile is "{{ nutrientprofile_dict.name }}".</p>
 
-  {% elif negative_result %}
+  {% elif result_calculate_fulldayofeating.errors.negative_result %}
     <br>
     <h1>Error</h1>
     <br>
@@ -39,12 +46,14 @@
     to get back down to the specified protein target. In that case,
     remove the protein powder as an ingredient and remove protein from the
     targeted nutrients.</p>
-  {% elif mismatch %}
+  {% elif result_calculate_fulldayofeating.errors.mismatch %}
     <br>
     <h1>Mismatch error</h1>
     <br>
-    <p>The number of nutrient targets and the number of independently
-    scaling ingredients or ingredient groups have to be equal.</p>
+    <p>
+      The number of nutrient targets and the number of independently
+      scaling ingredients or ingredient groups have to be equal.
+      </p>
     <p>You had
       {{ result_calculate_fulldayofeating.errors.n_nutrient_targets }}
       nutrient target(s):

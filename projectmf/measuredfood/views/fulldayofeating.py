@@ -273,17 +273,46 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         np,
     )
 
+    if 'ingredients_are_present'\
+    in result_calculate_fulldayofeating['errors'].keys():
+        if not result_calculate_fulldayofeating['errors']\
+        ['ingredients_are_present']:
+            n_ingredients_is_zero = True
+            context = {
+                'result_calculate_fulldayofeating':\
+                result_calculate_fulldayofeating,
+                'id_fulldayofeating': id_fulldayofeating,\
+                'n_ingredients_is_zero': n_ingredients_is_zero,
+            }
+            return render(
+                request,
+                'measuredfood/fulldayofeating_calculation_result.html',
+                context
+                )
+
     if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        context = {'id_fulldayofeating': id_fulldayofeating,
-                   'targeted_nutrients_errors': targeted_nutrients_errors,
-                   'nutrientprofile_dict': nutrientprofile_dict,
-                   }
+        context = {
+            'id_fulldayofeating': id_fulldayofeating,
+            'targeted_nutrients_errors': targeted_nutrients_errors,
+            'nutrientprofile_dict': nutrientprofile_dict,
+        }
         return render(
             request,
             'measuredfood/fulldayofeating_calculation_result.html',
             context
             )
 
+    if result_calculate_fulldayofeating['errors']['mismatch']:
+        context = {
+            'result_calculate_fulldayofeating':\
+            result_calculate_fulldayofeating,
+            'id_fulldayofeating': id_fulldayofeating,
+        }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
 
     result_calculation_fulldayofeating = \
     query_result_calculation_fulldayofeating(
@@ -321,6 +350,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         id_fulldayofeating,
         FullDayOfEating,
         NutrientProfile,
+        pprint,
     )
 
     result_percentage_of_target_amount_str,\
@@ -385,8 +415,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         result_percentage_of_tolerable_upper_intake_numbers_list,
     )
 
-
-
     aggregated_total_nutrition_fulldayofeating = \
     zip(
         nutrient_name_list,
@@ -401,7 +429,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     # pprint.pprint(aggregated_total_nutrition_fulldayofeating)
 
 
-    total_price_fulldayofeating_result_dict = calculate_total_price_fulldayofeating(
+    total_price_fulldayofeating_result_dict = \
+    calculate_total_price_fulldayofeating(
         specificingredient_dict_list,
         pprint,
     )
@@ -417,10 +446,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                result_percentage_of_target_amount_str,
                'total_price_fulldayofeating_result_dict':\
                total_price_fulldayofeating_result_dict,
-               'negative_result':\
-               result_calculate_fulldayofeating['errors']['negative_result'],
-               'mismatch':\
-               result_calculate_fulldayofeating['errors']['mismatch']
                }
 
     return render(

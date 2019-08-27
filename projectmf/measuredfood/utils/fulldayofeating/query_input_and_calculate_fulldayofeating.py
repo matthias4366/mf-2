@@ -32,6 +32,22 @@ def query_input_and_calculate_fulldayofeating(
         set_to_zero_if_none,
     )
 
+    # Catch the error that the user did not add any ingredients whatsoever.
+    if len(specificingredient_dict_list) == 0:
+        result_calculate_fulldayofeating = {
+            'errors': {
+                'ingredients_are_present': False
+            }
+        }
+        specificingredient_id_and_calculated_amount = None
+        specificingredient_dict_list = None
+        targeted_nutrients_errors = None
+        nutrientprofile_dict = None
+        return result_calculate_fulldayofeating,\
+        specificingredient_dict_list,\
+        targeted_nutrients_errors,\
+        nutrientprofile_dict
+
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,
         FullDayOfEating,
