@@ -249,7 +249,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
 
     result_calculate_fulldayofeating,\
-    specificingredient_dict_list = \
+    specificingredient_dict_list,\
+    targeted_nutrients_errors = \
     query_input_and_calculate_fulldayofeating(
         query_ingredients_fulldayofeating,
         query_nutrientprofile_of_fulldayofeating,
@@ -270,6 +271,18 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         np,
     )
+
+    if targeted_nutrients_errors['missing_nutrientprofile_value']:
+        print('\n targeted_nutrients_errors[\'missing_nutrientprofile_value\'] is True \n')
+        context = {'id_fulldayofeating': id_fulldayofeating,
+                   'targeted_nutrients_errors': targeted_nutrients_errors,
+                   }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
+
 
     result_calculation_fulldayofeating = \
     query_result_calculation_fulldayofeating(
@@ -409,7 +422,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                result_calculate_fulldayofeating['errors']['mismatch']
                }
 
-    # TODO: use reverse function instead
     return render(
         request,
         'measuredfood/fulldayofeating_calculation_result.html',

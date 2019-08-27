@@ -8,6 +8,10 @@ def query_specificnutrienttarget_of_fulldayofeating(
     # Initialize result.
     targeted_nutrients = {}
 
+    targeted_nutrients_errors = {
+        'missing_nutrientprofile_value': False,
+    }
+
     queryset_specificnutrienttarget_of_fulldayofeating = \
     SpecificNutrientTarget.objects.filter(
         fulldayofeating = id_fulldayofeating
@@ -28,11 +32,21 @@ def query_specificnutrienttarget_of_fulldayofeating(
     # pprint.pprint(nutrientprofile_dict)
 
     for dict_k in specificnutrienttarget_list:
-        nutrient_target = dict_k['nutrient_target']
-        new_dict = {nutrient_target: nutrientprofile_dict[nutrient_target]}
+        nutrient_target_name = dict_k['nutrient_target']
+        if nutrientprofile_dict[nutrient_target_name] is None:
+            nutrient_target_amount = 0
+            targeted_nutrients_errors['missing_nutrientprofile_value'] = True
+        elif nutrientprofile_dict[nutrient_target_name] is not None:
+            nutrient_target_amount = nutrientprofile_dict[nutrient_target_name]
+        else:
+            print('\n This case should not be possible.')
+            print('Occured in query_specificnutrienttarget_of_fulldayofeating. \n')
+            return
+
+        new_dict = {nutrient_target_name: nutrient_target_amount}
         targeted_nutrients.update(new_dict)
 
-    # print('\n targeted_nutrients \n')
-    # pprint.pprint(targeted_nutrients)
+    print('\n targeted_nutrients_errors \n')
+    pprint.pprint(targeted_nutrients_errors)
 
-    return targeted_nutrients
+    return targeted_nutrients, targeted_nutrients_errors

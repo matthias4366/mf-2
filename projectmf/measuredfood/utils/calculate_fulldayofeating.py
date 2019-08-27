@@ -47,6 +47,10 @@ def calculate_fulldayofeating(
             'list_nutrient_targets': None,
             'n_independently_scaling_entities': None,
             'n_nutrient_targets': None,
+
+            # The user can choose to target a nutrient for which there is no
+            # value in the nutrient profile.
+            'missing_nutrientprofile_value': False,
         },
 
     }
@@ -197,7 +201,7 @@ def calculate_fulldayofeating(
             fulldayofeating_nutrition_so_far[nutrient_field_name]\
             + dict_k['base_amount'] \
             / dict_k['raw_ingredient']['reference_amount'] \
-            * dict_k['raw_ingredient'][nutrient_field_name]
+            * set_to_zero_if_none(dict_k['raw_ingredient'][nutrient_field_name])
     # print('\n fulldayofeating_nutrition_so_far \n')
     # pprint.pprint(fulldayofeating_nutrition_so_far)
 

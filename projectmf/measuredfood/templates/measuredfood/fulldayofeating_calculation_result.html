@@ -9,7 +9,12 @@
   <br>
   <br>
 
-  {% if negative_result %}
+  {% if targeted_nutrients_errors.missing_nutrientprofile_value %}
+    <br>
+    <h1>Error: targeted non existing value in nutrient profile.</h1>
+    <br>
+    <p></p>
+  {% elif negative_result %}
     <br>
     <h1>Error</h1>
     <br>
