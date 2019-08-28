@@ -23,13 +23,13 @@
     </h1>
     <br>
     <p>The following nutrients were targeted, but there were no values in the
-    nutrient profile:
+        nutrient profile:
+    </p>
       <ol>
         {% for nutrient_name in targeted_nutrients_errors.nutrients_missing_nutrientprofile_value %}
           <li>{{ nutrient_name }}</li>
         {% endfor %}
       </ol>
-    </p>
     <p>The name of the nutrient profile is "{{ nutrientprofile_dict.name }}".</p>
   {% elif result_calculate_fulldayofeating.errors.mismatch %}
     <br>
@@ -42,22 +42,23 @@
     <p>You had
       {{ result_calculate_fulldayofeating.errors.n_nutrient_targets }}
       nutrient target(s):
+    </p>
       <ol>
         {% for nutrient_target in result_calculate_fulldayofeating.errors.list_nutrient_targets %}
           <li>{{ nutrient_target }}</li>
         {% endfor %}
       </ol>
-    </p>
+
     <p>You had
       {{ result_calculate_fulldayofeating.errors.n_independently_scaling_entities }}
       independently scaling ingredient(s) or ingredient group(s):
+    </p>
       <ol>
         {% for independently_scaling_entity in result_calculate_fulldayofeating.errors.list_names_independently_scaling_entities %}
         <li>{{ independently_scaling_entity }}</li>
         {% endfor %}
       </ol>
 
-    </p>
   {% else %}
     {% if result_calculate_fulldayofeating.errors.negative_result %}
       <br>

@@ -1,8 +1,4 @@
 from django.db import models
-from django.urls import reverse
-from django.contrib.auth.models import User
-from string import ascii_lowercase
-from .nutrientprofile import NutrientProfile
 from .fulldayofeating import FullDayOfEating
 from .mealplan import Mealplan
 

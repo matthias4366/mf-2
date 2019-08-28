@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
 import copy
 from measuredfood.forms import (
     FullDayOfEatingForm,
@@ -9,23 +8,20 @@ from measuredfood.forms import (
 from measuredfood.models import (
     RawIngredient2,
     NutrientProfile,
-    NutrientTargetSelection,
     TolerableUpperIntake,
     SpecificNutrientTarget,
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 # imports for the view to create raw ingredients
 from django.views.generic import (
     ListView,
     DeleteView,
-    DetailView,
-    CreateView
+    DetailView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from measuredfood.utils.calculate_fulldayofeating\
-import calculate_fulldayofeating
-import pprint
+    import calculate_fulldayofeating
 from django.contrib.auth.decorators import login_required
 import pprint
 from measuredfood.ingredient_properties2 import (
@@ -36,49 +32,50 @@ import numpy as np
 from measuredfood.utils.check_if_author import check_if_author
 
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
-import save_fulldayofeating_calculation_result_to_database
+    import save_fulldayofeating_calculation_result_to_database
 
 from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
-import calculate_total_nutrition_fulldayofeating
+    import calculate_total_nutrition_fulldayofeating
 
 from measuredfood.utils.calculate_percentage_of_target_amount\
-import calculate_percentage_of_target_amount
+    import calculate_percentage_of_target_amount
 
 from measuredfood.utils.set_to_zero_if_none\
-import set_to_zero_if_none
+    import set_to_zero_if_none
 
 from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
-import calculate_percentage_of_tolerable_upper_intake
+    import calculate_percentage_of_tolerable_upper_intake
 
 from measuredfood.utils.judge_total_nutrition\
-import judge_total_nutrition
+    import judge_total_nutrition
 
 from measuredfood.utils.query.query_ingredients_fulldayofeating\
-import query_ingredients_fulldayofeating
+    import query_ingredients_fulldayofeating
 
 from measuredfood.utils.calculate_total_price_fulldayofeating\
-import calculate_total_price_fulldayofeating
+    import calculate_total_price_fulldayofeating
 
 from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
-import query_nutrientprofile_of_fulldayofeating
+    import query_nutrientprofile_of_fulldayofeating
 
 from measuredfood.utils.query.query_tolerableupperintake_of_fulldayofeating\
-import query_tolerableupperintake_of_fulldayofeating
+    import query_tolerableupperintake_of_fulldayofeating
 
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group\
-import undo_calculate_average_of_specificingredient_group
+    import undo_calculate_average_of_specificingredient_group
 
 from measuredfood.utils.calculate_average_of_specificingredient_group \
-import calculate_average_of_specificingredient_group
+    import calculate_average_of_specificingredient_group
 
 from measuredfood.utils.fulldayofeating.query_input_and_calculate_fulldayofeating\
-import query_input_and_calculate_fulldayofeating
+    import query_input_and_calculate_fulldayofeating
 
 from measuredfood.utils.query.query_result_calculation_fulldayofeating \
-import query_result_calculation_fulldayofeating
+    import query_result_calculation_fulldayofeating
 
 from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
-import query_specificnutrienttarget_of_fulldayofeating
+    import query_specificnutrienttarget_of_fulldayofeating
+
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -101,6 +98,7 @@ def create_fulldayofeating_view(request):
             'measuredfood/fulldayofeating_create.html',
             context
             )
+
 
 @login_required
 def update_fulldayofeating_view(request, id_fulldayofeating):
@@ -126,9 +124,9 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         # I do not know if this part is necessary. It seems to work without.
         # Allow the user to only add NutrientProfiles from their own collection.
         form_fulldayofeating.fields['nutrient_profile'].queryset = \
-        NutrientProfile.objects.filter(
-            author = request.user.id
-            )
+            NutrientProfile.objects.filter(
+                author=request.user.id
+                )
 
         formset_specificingredient = SpecificIngredientFormset(
             request.POST,
@@ -138,9 +136,9 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
         # Allow the user to only add RawIngredient2s from their own collection.
         for form in formset_specificingredient:
             form.fields['rawingredient'].queryset = \
-            RawIngredient2.objects.filter(
-                author = request.user.id
-                )
+                RawIngredient2.objects.filter(
+                    author=request.user.id
+                    )
 
         formset_specificnutrienttarget = SpecificNutrientTargetFormset(
             request.POST,
@@ -173,9 +171,9 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
             )
         # Allow the user to only add NutrientProfiles from their own collection.
         form_fulldayofeating.fields['nutrient_profile'].queryset = \
-        NutrientProfile.objects.filter(
-            author = request.user.id
-            )
+            NutrientProfile.objects.filter(
+                author=request.user.id
+                )
 
         formset_specificingredient = SpecificIngredientFormset(
             instance=fulldayofeating_object

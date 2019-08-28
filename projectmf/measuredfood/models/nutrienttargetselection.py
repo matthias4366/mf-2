@@ -4,6 +4,7 @@ from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 
+
 class NutrientTargetSelection(models.Model):
     """
     The total of the daily nutrient goals is stored in the NutrientProfile.
@@ -27,6 +28,7 @@ class NutrientTargetSelection(models.Model):
     def __str__(self):
         return self.name
 
+
 # add all the fields related to nutrition to the nutrient profile model
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     field_name = nutrient_dict['name'] + '_is_targeted'
@@ -34,8 +36,8 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     NutrientTargetSelection.add_to_class(
         field_name,
         models.BooleanField(
-            blank = False,
-            null = False,
-            default = False,
+            blank=False,
+            null=False,
+            default=False,
         )
     )

@@ -6,7 +6,6 @@ from measuredfood.ingredient_properties2 import (
     INGREDIENT_FIELDS_LINKS
 )
 
-from string import ascii_lowercase
 
 # The unit choices have been implemented for extensibility, so it is easier
 # to add more unit choices later. Currently, the user de facto has no choice.
@@ -36,46 +35,46 @@ class RawIngredient2(models.Model):
 
     # Price of the ingredient per reference amount
     price_per_reference_amount = models.FloatField(
-        blank = False,
-        null = False,
-        default = 0
+        blank=False,
+        null=False,
+        default=0
     )
 
     currency_of_price_per_reference_amount = models.CharField(
-        max_length = 100,
-        choices = [('euro', 'euro'),],
-        blank = False,
-        null = False,
-        default = 'euro',
+        max_length=100,
+        choices=[('euro', 'euro'), ],
+        blank=False,
+        null=False,
+        default='euro',
     )
 
     # Amount in package to round up shopping list.
     amount_in_package = models.FloatField(
-            blank = True,
-            null = True,
+            blank=True,
+            null=True,
         )
     amount_in_package_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram'),],
-        blank = False,
-        null = False,
-        default = 'gram',
+        max_length=100,
+        choices=[('gram', 'gram'), ],
+        blank=False,
+        null=False,
+        default='gram',
     )
 
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
     reference_amount = models.FloatField(
-        blank = True,
-        null = False,
-        default = 100
+        blank=True,
+        null=False,
+        default=100
     )
 
     reference_amount_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram'),],
-        blank = False,
-        null = False,
-        default = 'gram',
+        max_length=100,
+        choices=[('gram', 'gram'), ],
+        blank=False,
+        null=False,
+        default='gram',
     )
 
     """
@@ -91,18 +90,19 @@ class RawIngredient2(models.Model):
     RawIngredient2 object before publishing it.
     """
     is_public = models.BooleanField(
-        default = False,
-        null = False,
+        default=False,
+        null=False,
     )
 
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
+    @staticmethod
+    def get_absolute_url():
         return reverse('list-rawingredient2')
 
-# Nutrients
 
+# Nutrients
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # add the nutrient fields
     RawIngredient2.add_to_class(
@@ -116,11 +116,11 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     RawIngredient2.add_to_class(
         nutrient_dict['name']+'_unit',
         models.CharField(
-            max_length = 100,
-            choices = [(nutrient_dict['default_unit'], nutrient_dict['default_unit']),],
-            blank = False,
-            null = False,
-            default = nutrient_dict['default_unit'],
+            max_length=100,
+            choices=[(nutrient_dict['default_unit'], nutrient_dict['default_unit']), ],
+            blank=False,
+            null=False,
+            default=nutrient_dict['default_unit'],
         )
     )
 
@@ -128,7 +128,7 @@ for name in INGREDIENT_FIELDS_LINKS:
     RawIngredient2.add_to_class(
         name,
         models.URLField(
-        max_length=1000,
-        blank=True,
-        null=True)
+            max_length=1000,
+            blank=True,
+            null=True)
     )

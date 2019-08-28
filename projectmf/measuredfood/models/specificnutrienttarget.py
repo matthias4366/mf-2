@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
@@ -28,7 +27,7 @@ class SpecificNutrientTarget(models.Model):
         null=True)
 
     nutrient_target = models.CharField(
-        choices = choices_nutrient_names,
+        choices=choices_nutrient_names,
         max_length=100,
         blank=False,
         null=True

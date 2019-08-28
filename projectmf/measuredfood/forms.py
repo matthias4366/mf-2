@@ -8,13 +8,12 @@ from measuredfood.models import (
     RawIngredient2,
     Mealplan,
     SpecificFullDayOfEating,
-    NutrientTargetSelection,
     TolerableUpperIntake,
     SpecificNutrientTarget,
     )
 
 from django.forms import inlineformset_factory
-import pprint
+
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -37,7 +36,7 @@ class FullDayOfEatingForm(forms.ModelForm):
     def __init__(self, id_user, *args, **kwargs):
         super(FullDayOfEatingForm, self).__init__(*args, **kwargs)
         self.fields['nutrient_profile'].queryset = \
-        NutrientProfile.objects.filter(author_id=id_user)
+            NutrientProfile.objects.filter(author_id=id_user)
 
 
 class NutrientProfileForm(forms.ModelForm):
@@ -51,7 +50,7 @@ class NutrientProfileForm(forms.ModelForm):
 SpecificIngredientFormset = inlineformset_factory(
     FullDayOfEating,
     SpecificIngredient,
-    fields=('__all__'),
+    fields='__all__',
     extra=1,
     )
 
@@ -66,7 +65,7 @@ class MealplanForm(forms.ModelForm):
 SpecificFullDayOfEatingFormset = inlineformset_factory(
     Mealplan,
     SpecificFullDayOfEating,
-    fields=('__all__'),
+    fields='__all__',
     extra=1,
 )
 
@@ -97,6 +96,6 @@ class SpecificNutrientTargetForm(forms.ModelForm):
 SpecificNutrientTargetFormset = inlineformset_factory(
     FullDayOfEating,
     SpecificNutrientTarget,
-    fields=('__all__'),
+    fields='__all__',
     extra=1,
     )

@@ -1,9 +1,6 @@
 from django.db import models
-from django.urls import reverse
 from django.contrib.auth.models import User
-from string import ascii_lowercase
 from .nutrientprofile import NutrientProfile
-from .nutrienttargetselection import NutrientTargetSelection
 from .tolerableupperintake import TolerableUpperIntake
 
 MAX_DIGITS_ = 20
@@ -32,17 +29,17 @@ class FullDayOfEating(models.Model):
     nutrient_profile = models.ForeignKey(
         NutrientProfile,
         on_delete=models.PROTECT,
-        editable = True,
+        editable=True,
         null=True,
         blank=False
     )
 
     tolerable_upper_intake = models.ForeignKey(
         TolerableUpperIntake,
-        on_delete = models.PROTECT,
-        editable = True,
-        null = True,
-        blank = False,
+        on_delete=models.PROTECT,
+        editable=True,
+        null=True,
+        blank=False,
     )
 
     def __str__(self):

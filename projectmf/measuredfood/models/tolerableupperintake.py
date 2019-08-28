@@ -5,6 +5,7 @@ from measuredfood.ingredient_properties2 import (
     ELEMENTS_AND_DEFAULT_UNITS,
 )
 
+
 class TolerableUpperIntake(models.Model):
     """
     Some vitamins or other nutrients are toxic when an excessive amount is
@@ -39,9 +40,11 @@ class TolerableUpperIntake(models.Model):
     def __str__(self):
         return self.name
 
-    ## TODO: active this code when you have a url for 'list-tolerableupperintake'
+    # TODO: active this code when you have a url for
+    #  'list-tolerableupperintake'
     # def get_absolute_url(self):
     #     return reverse('list-tolerableupperintake')
+
 
 # Vitamins
 for nutrient_dict in VITAMINS_AND_DEFAULT_UNITS:
@@ -57,11 +60,12 @@ for nutrient_dict in VITAMINS_AND_DEFAULT_UNITS:
     TolerableUpperIntake.add_to_class(
         nutrient_dict['name']+'_unit',
         models.CharField(
-            max_length = 100,
-            choices = [(nutrient_dict['default_unit'], nutrient_dict['default_unit']),],
-            blank = False,
-            null = False,
-            default = nutrient_dict['default_unit'],
+            max_length=100,
+            choices=[(nutrient_dict['default_unit'], nutrient_dict[
+                'default_unit']), ],
+            blank=False,
+            null=False,
+            default=nutrient_dict['default_unit'],
         )
     )
     # Add the fields with boolean values stating whether a tolerable upper
@@ -71,9 +75,9 @@ for nutrient_dict in VITAMINS_AND_DEFAULT_UNITS:
     TolerableUpperIntake.add_to_class(
         nutrient_dict['name']+'_value_exists',
         models.BooleanField(
-            blank = False,
-            null = False,
-            default = True,
+            blank=False,
+            null=False,
+            default=True,
         )
     )
 
@@ -92,11 +96,12 @@ for nutrient_dict in ELEMENTS_AND_DEFAULT_UNITS:
     TolerableUpperIntake.add_to_class(
         nutrient_dict['name']+'_unit',
         models.CharField(
-            max_length = 100,
-            choices = [(nutrient_dict['default_unit'], nutrient_dict['default_unit']),],
-            blank = False,
-            null = False,
-            default = nutrient_dict['default_unit'],
+            max_length=100,
+            choices=[(nutrient_dict['default_unit'], nutrient_dict[
+                'default_unit']), ],
+            blank=False,
+            null=False,
+            default=nutrient_dict['default_unit'],
         )
     )
     # Add the fields with boolean values stating whether a tolerable upper
@@ -106,31 +111,8 @@ for nutrient_dict in ELEMENTS_AND_DEFAULT_UNITS:
     TolerableUpperIntake.add_to_class(
         nutrient_dict['name']+'_value_exists',
         models.BooleanField(
-            blank = False,
-            null = False,
-            default = True,
+            blank=False,
+            null=False,
+            default=True,
         )
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#

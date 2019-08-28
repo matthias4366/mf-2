@@ -1,10 +1,5 @@
 from django.db import models
-from django.urls import reverse
-from django.contrib.auth.models import User
-
-from string import ascii_lowercase
 from .rawingredient2 import RawIngredient2
-from .nutrientprofile import NutrientProfile
 from .fulldayofeating import FullDayOfEating
 
 MAX_DIGITS_ = 20
@@ -39,7 +34,7 @@ class SpecificIngredient(models.Model):
         decimal_places=DECIMAL_PLACES_,
         blank=False,
         null=False,
-        default = 100,
+        default=100,
     )
 
     calculated_amount = models.FloatField(
@@ -50,9 +45,9 @@ class SpecificIngredient(models.Model):
     # Do not give the user the choice between different units if you are not
     # doing anything with that choice on the backend.
     base_amount_unit = models.CharField(
-        max_length = 100,
-        choices = [('gram', 'gram')],
-        default = 'gram',
+        max_length=100,
+        choices=[('gram', 'gram')],
+        default='gram',
     )
 
     """
@@ -97,11 +92,11 @@ class SpecificIngredient(models.Model):
     ]
 
     scaling_option = models.CharField(
-        max_length = 100,
-        choices = SCALING_OPTION_CHOICES,
+        max_length=100,
+        choices=SCALING_OPTION_CHOICES,
         # blank=True,
         # null=True,
-        default = 'FIXED'
+        default='FIXED'
     )
 
     def __str__(self):

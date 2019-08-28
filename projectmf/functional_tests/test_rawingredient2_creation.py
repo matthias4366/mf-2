@@ -1,20 +1,14 @@
+from functional_tests.utils.click_navbar_item import \
+    click_navbar_item
+from data.ingredients_data2 import ingredient_dict_list
 from .base import FunctionalTest
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from unittest import skip
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import WebDriverException
 import time
-import os
 
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
-from data.ingredients_data2 import ingredient_dict_list
-from data.initial_nutrient_profiles import nutrient_profile_dict_list
 
-from functional_tests.utils.click_navbar_item import \
-click_navbar_item
 
 class RawIngredientTest(FunctionalTest):
 
@@ -24,9 +18,9 @@ class RawIngredientTest(FunctionalTest):
         Test the registration of a new user with a username and a password.
         """
 
-        DUMMY_USERNAME = 'DummyUser'
-        DUMMY_EMAIL = 'DummyUser@gmail.com'
-        DUMMY_PASSWORD = 'testpassword'
+        dummy_username = 'DummyUser'
+        dummy_email = 'DummyUser@gmail.com'
+        dummy_password = 'testpassword'
 
         # Open the registration page
         self.browser.get(self.live_server_url + '/register/')
@@ -38,10 +32,10 @@ class RawIngredientTest(FunctionalTest):
         password2 = self.browser.find_element_by_name('password2')
 
         # Input values into the fields
-        username.send_keys(DUMMY_USERNAME)
-        email.send_keys(DUMMY_EMAIL)
-        password1.send_keys(DUMMY_PASSWORD)
-        password2.send_keys(DUMMY_PASSWORD)
+        username.send_keys(dummy_username)
+        email.send_keys(dummy_email)
+        password1.send_keys(dummy_password)
+        password2.send_keys(dummy_password)
         time.sleep(3)
 
         # Simulate clicking on Sign Up
@@ -60,8 +54,8 @@ class RawIngredientTest(FunctionalTest):
         password_field = self.browser.find_element_by_name('password')
 
         # Input values into the fields
-        username_field.send_keys(DUMMY_USERNAME)
-        password_field.send_keys(DUMMY_PASSWORD)
+        username_field.send_keys(dummy_username)
+        password_field.send_keys(dummy_password)
 
         # Simulate clicking on Log In
         click_navbar_item(
@@ -97,7 +91,7 @@ class RawIngredientTest(FunctionalTest):
             time.sleep(1)
 
             for key, value in ingredient_dict_list[k].items():
-                if value != None:
+                if value is not None:
                     self.browser.find_element_by_name(key).send_keys(str(value))
 
             # Simulate clicking the save button
