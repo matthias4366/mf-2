@@ -205,7 +205,9 @@ def shoppinglist_view(request, id_mealplan):
         id_fulldayofeating = id_list_no_duplications[k]
 
         result_calculate_fulldayofeating,\
-        specificingredient_dict_list = \
+        specificingredient_dict_list,\
+        targeted_nutrients_errors,\
+        nutrientprofile_dict = \
         query_input_and_calculate_fulldayofeating(
             query_ingredients_fulldayofeating,
             query_nutrientprofile_of_fulldayofeating,
@@ -226,6 +228,49 @@ def shoppinglist_view(request, id_mealplan):
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,
         )
+
+    # Check if the key exists first, this is purely technical.
+    if 'ingredients_are_present'\
+    in result_calculate_fulldayofeating['errors'].keys():
+        # Here comes the actual logic: are there ingredients present
+        if not result_calculate_fulldayofeating['errors']\
+        ['ingredients_are_present']:
+            n_ingredients_is_zero = True
+            context = {
+                'result_calculate_fulldayofeating':\
+                result_calculate_fulldayofeating,
+                'id_fulldayofeating': id_fulldayofeating,\
+                'n_ingredients_is_zero': n_ingredients_is_zero,
+            }
+            return render(
+                request,
+                'measuredfood/fulldayofeating_calculation_result.html',
+                context
+                )
+
+    if targeted_nutrients_errors['missing_nutrientprofile_value']:
+        context = {
+            'id_fulldayofeating': id_fulldayofeating,
+            'targeted_nutrients_errors': targeted_nutrients_errors,
+            'nutrientprofile_dict': nutrientprofile_dict,
+        }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
+
+    if result_calculate_fulldayofeating['errors']['mismatch']:
+        context = {
+            'result_calculate_fulldayofeating':\
+            result_calculate_fulldayofeating,
+            'id_fulldayofeating': id_fulldayofeating,
+        }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
 
     # Sum up the calculated amounts.
     # Initiate a dictionary shopping_list_dict which will have the format
@@ -347,7 +392,9 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         id_fulldayofeating = id_list_no_duplications[k]
 
         result_calculate_fulldayofeating,\
-        specificingredient_dict_list = \
+        specificingredient_dict_list,\
+        targeted_nutrients_errors,\
+        nutrientprofile_dict = \
         query_input_and_calculate_fulldayofeating(
             query_ingredients_fulldayofeating,
             query_nutrientprofile_of_fulldayofeating,
@@ -368,6 +415,49 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             np,
         )
+
+    # Check if the key exists first, this is purely technical.
+    if 'ingredients_are_present'\
+    in result_calculate_fulldayofeating['errors'].keys():
+        # Here comes the actual logic: are there ingredients present
+        if not result_calculate_fulldayofeating['errors']\
+        ['ingredients_are_present']:
+            n_ingredients_is_zero = True
+            context = {
+                'result_calculate_fulldayofeating':\
+                result_calculate_fulldayofeating,
+                'id_fulldayofeating': id_fulldayofeating,\
+                'n_ingredients_is_zero': n_ingredients_is_zero,
+            }
+            return render(
+                request,
+                'measuredfood/fulldayofeating_calculation_result.html',
+                context
+                )
+
+    if targeted_nutrients_errors['missing_nutrientprofile_value']:
+        context = {
+            'id_fulldayofeating': id_fulldayofeating,
+            'targeted_nutrients_errors': targeted_nutrients_errors,
+            'nutrientprofile_dict': nutrientprofile_dict,
+        }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
+
+    if result_calculate_fulldayofeating['errors']['mismatch']:
+        context = {
+            'result_calculate_fulldayofeating':\
+            result_calculate_fulldayofeating,
+            'id_fulldayofeating': id_fulldayofeating,
+        }
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
 
     # The calculated_amount values for the FullDayOfEating objects have been
     # recalculated. Now to the calculation of the average daily nutrition.

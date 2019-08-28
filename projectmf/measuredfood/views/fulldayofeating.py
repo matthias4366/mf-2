@@ -273,8 +273,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         np,
     )
 
+    # Check if the key exists first, this is purely technical.
     if 'ingredients_are_present'\
     in result_calculate_fulldayofeating['errors'].keys():
+        # Here comes the actual logic: are there ingredients present
         if not result_calculate_fulldayofeating['errors']\
         ['ingredients_are_present']:
             n_ingredients_is_zero = True
@@ -283,6 +285,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 result_calculate_fulldayofeating,
                 'id_fulldayofeating': id_fulldayofeating,\
                 'n_ingredients_is_zero': n_ingredients_is_zero,
+                'fulldayofeating_object': fulldayofeating_object,
             }
             return render(
                 request,
@@ -295,6 +298,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'id_fulldayofeating': id_fulldayofeating,
             'targeted_nutrients_errors': targeted_nutrients_errors,
             'nutrientprofile_dict': nutrientprofile_dict,
+            'fulldayofeating_object': fulldayofeating_object,
         }
         return render(
             request,
@@ -307,6 +311,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'result_calculate_fulldayofeating':\
             result_calculate_fulldayofeating,
             'id_fulldayofeating': id_fulldayofeating,
+            'fulldayofeating_object': fulldayofeating_object
         }
         return render(
             request,
@@ -314,7 +319,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             context
             )
 
-    result_calculation_fulldayofeating = \
+    result_calculate_fulldayofeating_formatted_for_template = \
     query_result_calculation_fulldayofeating(
         id_fulldayofeating,
         SpecificIngredient,
@@ -436,8 +441,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     )
 
     context = {'id_fulldayofeating': id_fulldayofeating,
-               'result_calculation_fulldayofeating': \
-               result_calculation_fulldayofeating,
+               'result_calculate_fulldayofeating_formatted_for_template': \
+               result_calculate_fulldayofeating_formatted_for_template,
                'result_calculate_fulldayofeating':\
                result_calculate_fulldayofeating,
                'aggregated_total_nutrition_fulldayofeating': \
@@ -446,6 +451,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                result_percentage_of_target_amount_str,
                'total_price_fulldayofeating_result_dict':\
                total_price_fulldayofeating_result_dict,
+               'fulldayofeating_object': fulldayofeating_object,
                }
 
     return render(

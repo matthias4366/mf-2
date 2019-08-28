@@ -49,6 +49,12 @@ def query_specificnutrienttarget_of_fulldayofeating(
             return
 
         new_dict = {nutrient_target_name: nutrient_target_amount}
+        # Because the tarteged_nutrients gets update with a new dictionary,
+        # it does not matter if the users add calories twice as a
+        # SpecificIngredient.
         targeted_nutrients.update(new_dict)
+
+    # print('\n targeted_nutrients \n')
+    # pprint.pprint(targeted_nutrients)
 
     return targeted_nutrients, targeted_nutrients_errors

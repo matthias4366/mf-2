@@ -6,12 +6,12 @@
   <br>
   <table class="total_nutrition_table">
     <tr>
-      <td class="total_nutrition_table">Nutrient name</td>
-      <td class="total_nutrition_table">Average in mealplan</td>
-      <td class="total_nutrition_table">Unit</td>
-      <td class="total_nutrition_table">% Target</td>
-      <td class="total_nutrition_table">% Tolerable upper intake</td>
-      <td class="total_nutrition_table">Judgement</td>
+      <th class="total_nutrition_table">Nutrient name</th>
+      <th class="total_nutrition_table">Average in mealplan</th>
+      <th class="total_nutrition_table">Unit</th>
+      <th class="total_nutrition_table">% Target</th>
+      <th class="total_nutrition_table">% Tolerable upper intake</th>
+      <th class="total_nutrition_table">Judgement</th>
     </tr>
 
     {% for ab in aggregated_total_nutrition_fulldayofeating %}
@@ -33,8 +33,8 @@
   <h1>Average price of the mealplan {{ mealplan_name }}:</h1>
   <table border="2">
     <tr>
-      <td>Price</td>
-      <td>Currency</td>
+      <th>Price</th>
+      <th>Currency</th>
     </tr>
     <tr>
       <td>{{ mealplan_total_price_dict.average_price_mealplan_rounded }}</td>

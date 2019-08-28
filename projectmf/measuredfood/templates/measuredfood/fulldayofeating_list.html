@@ -16,12 +16,16 @@
     <h1>List of your full days of eating:</h1>
     <br>
     {% for fulldayofeating in fulldayofeating_list %}
+      <div class="center_text">
+        {{ fulldayofeating.name }}
+      </div>
       <p>
         <a href="{% url 'detail-fulldayofeating' fulldayofeating.id %}"
         class="btn btn-primary btn-large"
         id="button_view_fulldayofeating">
           View
-        </a>{{ fulldayofeating.name }}
+        </a>
+        <!-- {{ fulldayofeating.name }} -->
       </p>
     {% endfor %}
   </div>

@@ -55,39 +55,13 @@ def calculate_fulldayofeating(
 
     }
 
-    # In the end, the calculated amounts are to be rounded. The number of
-    # decimals to which to round is the number of decimals the user used for
-    # the base amounts. Therefore, the number of decimals for the base amounts
-    # are determined and stored in the dictionaries.
-    # Convert the base_amount from DecimalField to float. But, before,
-    # save the number of decimals based on the DecimalField.
+    # TODO: Currently, I am rounding to 2 decimal numbers.
+    # Maybe find a way to adapt the rounding to how many decimals the user
+    # input had.
     for k in range(len(specificingredient_dict_list)):
-        base_amount_str = str(specificingredient_dict_list[k]['base_amount'])
-
-        # TODO: This code is very unelegant. Rewrite it using regular
-        # expressions.
-        # The number of trailing zeros at the end of the base_amount. E.g.
-        # 400.230000 has 4 trailing zeros. 2.000 has 3 trailing zeros.
-        n_trailing_zeros = 0
-        for l in reversed(range(len(base_amount_str))):
-            if base_amount_str[l] == '0':
-                n_trailing_zeros = n_trailing_zeros + 1
-            else:
-                break
-
-        n_total_digits_after_decimal_point = 0
-        for l in reversed(range(len(base_amount_str))):
-            if base_amount_str[l] != '.':
-                n_total_digits_after_decimal_point = \
-                n_total_digits_after_decimal_point + 1
-            else:
-                break
-
-        n_decimals_to_round_to = n_total_digits_after_decimal_point\
-        - n_trailing_zeros
 
         specificingredient_dict_list[k].update(
-            n_decimals_to_round_to = n_decimals_to_round_to
+            n_decimals_to_round_to = 2
             )
 
         # Convert base_amount from decimal to float so it can be used for

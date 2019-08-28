@@ -3,7 +3,7 @@
 
   <a href="{% url 'update-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
     <button type="button" class="btn btn-primary">
-      Back to Full Day Of Eating.
+      Back to Full Day Of Eating: {{ fulldayofeating_object.name }}.
     </button>
   </a>
   <br>
@@ -31,21 +31,6 @@
       </ol>
     </p>
     <p>The name of the nutrient profile is "{{ nutrientprofile_dict.name }}".</p>
-
-  {% elif result_calculate_fulldayofeating.errors.negative_result %}
-    <br>
-    <h1>Error</h1>
-    <br>
-    <p>It seems you have gotten a negative result. Try the following solution.
-    Remove the ingredient whose amount was negative. Remove one nutrient target.
-    Remove the nutrient target in which the ingredient with a negative result
-    is likely to be high.</p>
-    <p>For example, if you got a negative result for the
-    protein powder, the other ingredients in your recipe are already providing
-    enough protein to the point where you would need negative protein powder
-    to get back down to the specified protein target. In that case,
-    remove the protein powder as an ingredient and remove protein from the
-    targeted nutrients.</p>
   {% elif result_calculate_fulldayofeating.errors.mismatch %}
     <br>
     <h1>Mismatch error</h1>
@@ -74,6 +59,21 @@
 
     </p>
   {% else %}
+    {% if result_calculate_fulldayofeating.errors.negative_result %}
+      <br>
+      <h1>Error</h1>
+      <br>
+      <p>It seems you have gotten a negative result. Try the following solution.
+      Remove the ingredient whose amount was negative. Remove one nutrient target.
+      Remove the nutrient target in which the ingredient with a negative result
+      is likely to be high.</p>
+      <p>For example, if you got a negative result for the
+      protein powder, the other ingredients in your recipe are already providing
+      enough protein to the point where you would need negative protein powder
+      to get back down to the specified protein target. In that case,
+      remove the protein powder as an ingredient and remove protein from the
+      targeted nutrients.</p>
+    {% endif %}
     <h1>Calculation results:</h1>
     <table border="2">
       <tr>
@@ -82,7 +82,7 @@
         <th>Ingredient</th>
         <th>Affiliate link</th>
       </tr>
-      {% for dict_k in result_calculation_fulldayofeating %}
+      {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
       <tr>
         <td>{{ dict_k.calculated_amount }}</td>
         <td>{{ dict_k.base_amount_unit }}</td>
@@ -98,13 +98,13 @@
     <h1>Total nutrition in full day of eating:</h1>
     <table class="total_nutrition_table">
       <tr>
-        <td class="total_nutrition_table">Nutrient name</td>
-        <td class="total_nutrition_table">Full day of eating</td>
-        <td class="total_nutrition_table">Unit</td>
+        <th class="total_nutrition_table">Nutrient name</th>
+        <th class="total_nutrition_table">Full day of eating</th>
+        <th class="total_nutrition_table">Unit</th>
         <!-- Percent of the target set in NutrientProfile -->
-        <td class="total_nutrition_table">% Target</td>
-        <td class="total_nutrition_table">% Tolerable upper intake</td>
-        <td class="total_nutrition_table">Judgement</td>
+        <th class="total_nutrition_table">% Target</th>
+        <th class="total_nutrition_table">% Tolerable upper intake</th>
+        <th class="total_nutrition_table">Judgement</th>
       </tr>
 
       <!-- Use forloop.counter0 to access the for loop counter -->
@@ -128,8 +128,8 @@
     <h1>Total price of full day of eating:</h1>
     <table border="2">
       <tr>
-        <td>Price</td>
-        <td>Currency</td>
+        <th>Price</th>
+        <th>Currency</th>
       </tr>
       <tr>
         <td>{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
