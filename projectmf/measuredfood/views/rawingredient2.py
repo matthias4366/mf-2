@@ -120,3 +120,8 @@ class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
         if self.request.user == rawingredient2.author:
             return True
         return False
+
+@login_required
+def browse_rawingredient2(request):
+    context = {}
+    return render(request, 'measuredfood/rawingredient2_browse.html', context)

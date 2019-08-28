@@ -47,6 +47,7 @@ ingredients is stored centrally in this python file.
     'chloride': None,  # 'default_unit': 'gram'
     'buy_here_link': None,
     'source_nutritional_information_link': None,
+    'is_public': None,
 },
 
 
@@ -91,6 +92,7 @@ ingredient_dict_list = [
         'copper' : 0.7,
         'manganese' : 1.1,
         'selenium' : 3.2,
+        'is_public': True,
     },
     {
         'name': 'Canola oil',
@@ -129,6 +131,7 @@ ingredient_dict_list = [
         'copper' : 0,
         'manganese' : 0,
         'selenium' : 0,
+        'is_public': True,
     },
     {
         'name': 'Rice, white, long-grain, regular, raw, unenriched',
@@ -167,6 +170,7 @@ ingredient_dict_list = [
         'copper' : 0.2,
         'manganese' : 1.1,
         'selenium' : 15.1,
+        'is_public': True,
     },
     {
         'name': 'Oregano',
@@ -205,6 +209,7 @@ ingredient_dict_list = [
         'copper' : 0,
         'manganese' : 0,
         'selenium' : 0,
+        'is_public': True,
     },
     {
         'name': 'Chili powder',
@@ -243,6 +248,7 @@ ingredient_dict_list = [
         'copper' : 0,
         'manganese' : 0,
         'selenium' : 0,
+        'is_public': True,
     },
     {
         'name': 'Tomato puree, MUTTI',
@@ -283,6 +289,7 @@ ingredient_dict_list = [
         'copper' : 0.3,
         'manganese' : 0.2,
         'selenium' : 0.7,
+        'is_public': True,
     },
     {
         'name': 'Beer, alcohol free',
@@ -321,6 +328,7 @@ ingredient_dict_list = [
         'copper' : None,
         'manganese' : None,
         'selenium' : None,
+        'is_public': True,
     },
     {
         'name': 'Mushrooms',
@@ -360,6 +368,7 @@ ingredient_dict_list = [
         'copper' : 0.3,
         'manganese' : 0.0,
         'selenium' : 9.3,
+        'is_public': True,
     },
     {
         'name': 'Walnuts',
@@ -398,6 +407,7 @@ ingredient_dict_list = [
         'copper' : 1.6,
         'manganese' : 3.4,
         'selenium' : 4.9,
+        'is_public': True,
     },
     {
         'name': 'Whole wheat pasta',
@@ -437,6 +447,7 @@ ingredient_dict_list = [
         'copper' : 0.5,
         'manganese' : 3.1,
         'selenium' : 73.0,
+        'is_public': True,
     },
     {
         'name': 'Pea protein powder',
@@ -475,6 +486,7 @@ ingredient_dict_list = [
         'copper' : None,
         'manganese' : None,
         'selenium' : None,
+        'is_public': True,
     },
     {
         'name': 'Napoletana sauce barilla',
@@ -513,6 +525,7 @@ ingredient_dict_list = [
         'copper' : None,
         'manganese' : None,
         'selenium' : None,
+        'is_public': True,
     },
     {
         'name': 'Arrabiata sauce barilla',
@@ -551,6 +564,7 @@ ingredient_dict_list = [
         'copper' : None,
         'manganese' : None,
         'selenium' : None,
+        'is_public': True,
     },
     {
         'name': 'Olive sauce barilla',
@@ -589,6 +603,7 @@ ingredient_dict_list = [
         'copper' : None,
         'manganese' : None,
         'selenium' : None,
+        'is_public': True,
     },
     {
         'name': 'Spinach',
@@ -630,6 +645,7 @@ ingredient_dict_list = [
         'copper' : 0.1,
         'manganese' : 0.9,
         'selenium' : 1.0,
+        'is_public': True,
     },
     {
         'name': 'Multivitamin A-Z Komplett Mivolis dm',
@@ -671,6 +687,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None, # package
+        'is_public': True,
     },
     {
         'name': 'Vitamin D3 Tablette Vitabay 5000 I.E.',
@@ -712,6 +729,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
+        'is_public': True,
     },
     {
         'name': 'Iron tablets, gentle iron',
@@ -753,6 +771,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
+        'is_public': True,
     },
     {
         'name': 'Vitamin B12 tablets Nu U',
@@ -794,6 +813,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
+        'is_public': True,
     },
     {
         'name': 'Zink bisglycinat Nature Love',
@@ -835,6 +855,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
+        'is_public': True,
     },
     {
         'name': 'Salt, iodized',
@@ -875,7 +896,9 @@ ingredient_dict_list = [
         'sodium': 38.758,
         'chloride': 0,
         'buy_here_link': None,
-        'source_nutritional_information_link': None,  # package aro Jodsalz von getnow
+        'source_nutritional_information_link': None,
+        # package aro Jodsalz von getnow
+        'is_public': True,
     },
     {
         'name': 'Magnesium citrate',
@@ -917,6 +940,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,  # package
+        'is_public': True,
     },
     {
         'name': 'Potassium citrate',
@@ -958,6 +982,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
+        'is_public': True,
     },
     {
         'name': 'Vitamin B-Komplex ratiopharm',
@@ -999,6 +1024,7 @@ ingredient_dict_list = [
         'chloride': 0,
         'buy_here_link': None,
         'source_nutritional_information_link': None,  # package
+        'is_public': True,
     },
     {
         'name': 'Complete Multivitamin Komplex Tabletten Bulkpowders',
@@ -1040,6 +1066,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
         'buy_here_link': 'https://www.bulkpowders.de/complete-multivitamin-komplex-de.html',
         'source_nutritional_information_link': 'https://www.bulkpowders.de/complete-multivitamin-komplex-de.html',
+        'is_public': True,
     },
     {
         'name': 'Multivitamin vitasyg',  # Best multivitamin tablet.
@@ -1081,6 +1108,7 @@ ingredient_dict_list = [
         'chloride': 0.036,  # 'default_unit': 'gram'
         'buy_here_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
         'source_nutritional_information_link': 'https://www.amazon.de/dp/B01NCIZG7B/?tag=glv-21&ascsubtag=3770aba8-0eac-417e-9c01-448e295cce7a',
+        'is_public': True,
     },
     {
         'name': 'Calcium citrate',
@@ -1122,5 +1150,6 @@ ingredient_dict_list = [
         'chloride': 0,  # 'default_unit': 'gram'
         'buy_here_link': 0,
         'source_nutritional_information_link': 'https://en.wikipedia.org/wiki/Calcium_citrate',
+        'is_public': True,
     },
 ]

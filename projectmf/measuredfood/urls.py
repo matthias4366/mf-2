@@ -6,7 +6,7 @@ from .views import (home,
                     fulldayofeating,
                     mealplan,
                     tolerableupperintake
-)
+                    )
 from django.contrib.auth import views as auth_views
 
 urlpattern_home = [
@@ -21,7 +21,7 @@ urlpatterns_user = [
     path('logout/',
          auth_views.LogoutView.as_view(
              template_name='measuredfood/logout.html'
-        ), name='logout'),
+                                        ), name='logout'),
 ]
 
 urlpatterns_rawingredient2 = [
@@ -49,6 +49,11 @@ urlpatterns_rawingredient2 = [
         'rawingredient2/<int:pk>/delete/',
         rawingredient2.DeleteRawIngredient2.as_view(),
         name='delete-rawingredient2'
+    ),
+    path(
+        'rawingredient2/browse/',
+        rawingredient2.browse_rawingredient2,
+        name='browse-rawingredient2'
     ),
 ]
 
@@ -89,8 +94,8 @@ urlpatterns_fulldayofeating = [
     ),
     path(
         'fulldayofeating/<int:id_fulldayofeating>/update/',
-         fulldayofeating.update_fulldayofeating_view,
-         name='update-fulldayofeating'
+        fulldayofeating.update_fulldayofeating_view,
+        name='update-fulldayofeating'
          ),
     path(
         'fulldayofeating/list/',
@@ -125,8 +130,8 @@ urlpatterns_mealplan = [
     ),
     path(
         'mealplan/<int:id_mealplan>/update/',
-         mealplan.update_mealplan_view,
-         name='update-mealplan'
+        mealplan.update_mealplan_view,
+        name='update-mealplan'
          ),
     path(
         'mealplan/list/',
@@ -187,11 +192,11 @@ urlpatterns_tolerableupperintake = [
 ]
 
 urlpatterns = urlpattern_home \
-+ urlpatterns_user \
-+ urlpatterns_rawingredient2 \
-+ urlpatterns_nutrientprofile \
-+ urlpatterns_fulldayofeating \
-+ urlpatterns_fulldayofeating_after_calculation \
-+ urlpatterns_mealplan \
-+ urlpatterns_shoppinglist \
-+ urlpatterns_tolerableupperintake
+    + urlpatterns_user \
+    + urlpatterns_rawingredient2 \
+    + urlpatterns_nutrientprofile \
+    + urlpatterns_fulldayofeating \
+    + urlpatterns_fulldayofeating_after_calculation \
+    + urlpatterns_mealplan \
+    + urlpatterns_shoppinglist \
+    + urlpatterns_tolerableupperintake

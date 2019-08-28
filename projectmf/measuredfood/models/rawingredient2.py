@@ -78,6 +78,23 @@ class RawIngredient2(models.Model):
         default = 'gram',
     )
 
+    """
+    The plan is to have a common pool of pre existing RawIngredient2 objects
+    from which the user can pull RawIngredient2 objects.
+    The is_public property defines whether a RawIngredient2 object is
+    part of that pool.
+    There are two reasons for this:
+    1) The user might be concerned about their privacy and not want their
+    RawIngredient2 object be a part of the common pool.
+    2) More importantly: the RawIngredient2 objects in the common pool should
+    be of high quality, i.e. correct. Users should put thought into a
+    RawIngredient2 object before publishing it.
+    """
+    is_public = models.BooleanField(
+        default = False,
+        null = False,
+    )
+
     def __str__(self):
         return self.name
 
