@@ -5,6 +5,7 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+# noinspection PyPep8
 class Migration(migrations.Migration):
 
     initial = True
@@ -13,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
+    # noinspection PyUnresolvedReferences
     operations = [
         migrations.CreateModel(
             name='FullDayOfEating',

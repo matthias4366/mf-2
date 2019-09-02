@@ -41,7 +41,8 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         nutrient_dict['name']+'_unit',
         models.CharField(
             max_length=100,
-            choices=[(nutrient_dict['default_unit'], nutrient_dict['default_unit']), ],
+            choices=[(nutrient_dict['default_unit'],
+                      nutrient_dict['default_unit']), ],
             blank=False,
             null=False,
             default=nutrient_dict['default_unit'],

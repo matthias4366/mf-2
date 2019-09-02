@@ -88,7 +88,9 @@ class NutrientProfileTest(FunctionalTest):
             for key, value in nutrient_profile_dict_list[k].items():
                 id_from_key = 'id_' + key
                 if value is not None:
-                    self.browser.find_element_by_id(id_from_key).send_keys(str(value))
+                    self.browser.find_element_by_id(id_from_key).send_keys(
+                        str(value)
+                    )
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(

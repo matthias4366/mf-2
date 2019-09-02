@@ -1,8 +1,8 @@
+
+
 def calculate_total_nutrition_fulldayofeating(
     specificingredient_dict_list,
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-    pprint,
-    copy,
+    all_nutrients_and_default_units,
     set_to_zero_if_none,
 ):
     """
@@ -12,12 +12,9 @@ def calculate_total_nutrition_fulldayofeating(
     values have already been calculated.
     """
 
-    # print('\n specificingredient_dict_list in calculate_total_nutrition_fulldayofeating \n')
-    # pprint.pprint(specificingredient_dict_list)
-
     # Initialize the dictionary which will store the results
     result_total_nutrition_fulldayofeating = {}
-    for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    for dict_k in all_nutrients_and_default_units:
         nutrient_name = dict_k['name']
         new_dict = {nutrient_name: 0}
         result_total_nutrition_fulldayofeating.update(
@@ -33,18 +30,20 @@ def calculate_total_nutrition_fulldayofeating(
     for k in range(len(specificingredient_dict_list)):
         # For each nutrient, calculate the amount of that nutrient contained
         # in the calculated_amount of the SpecificIngredient
-        for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        for dict_k in all_nutrients_and_default_units:
             nutrient_name = dict_k['name']
             result_total_nutrition_fulldayofeating[nutrient_name] = \
-            result_total_nutrition_fulldayofeating[nutrient_name] \
-            + set_to_zero_if_none(specificingredient_dict_list[k]['raw_ingredient'][nutrient_name]) \
-            * specificingredient_dict_list[k]['calculated_amount']\
-            / specificingredient_dict_list[k]['raw_ingredient']['reference_amount']
+                result_total_nutrition_fulldayofeating[nutrient_name] \
+                + set_to_zero_if_none(specificingredient_dict_list[k][
+                                          'raw_ingredient'][nutrient_name]) \
+                * specificingredient_dict_list[k]['calculated_amount']\
+                / specificingredient_dict_list[k][
+                    'raw_ingredient']['reference_amount']
 
     # Round the values in the result_total_nutrition_fulldayofeating
     # Initialize the dictionary containing the rounded values.
     result_total_nutrition_fulldayofeating_rounded = {}
-    for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    for dict_k in all_nutrients_and_default_units:
         nutrient_name = dict_k['name']
         new_dict = {nutrient_name: 0}
         result_total_nutrition_fulldayofeating_rounded.update(
@@ -52,13 +51,10 @@ def calculate_total_nutrition_fulldayofeating(
         )
 
     # Round the values and save them to the respective dictionary.
-    for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    for dict_k in all_nutrients_and_default_units:
         nutrient_name = dict_k['name']
         result_total_nutrition_fulldayofeating_rounded[nutrient_name] = \
-        round(result_total_nutrition_fulldayofeating[nutrient_name],1)
-
-    # print('\n result_total_nutrition_fulldayofeating in calculate_total_nutrition_fulldayofeating \n')
-    # pprint.pprint(result_total_nutrition_fulldayofeating)
+            round(result_total_nutrition_fulldayofeating[nutrient_name], 1)
 
     return result_total_nutrition_fulldayofeating,\
-            result_total_nutrition_fulldayofeating_rounded
+        result_total_nutrition_fulldayofeating_rounded

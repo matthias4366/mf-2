@@ -10,7 +10,7 @@ def calculate_fulldayofeating(
     specificingredient_dict_list,
     targeted_nutrients,
     set_to_zero_if_none,
-        ):
+):
 
     """
     This function should be independent of everything else.
@@ -57,8 +57,8 @@ def calculate_fulldayofeating(
     }
 
     # TODO: Currently, I am rounding to 2 decimal numbers.
-    # Maybe find a way to adapt the rounding to how many decimals the user
-    # input had.
+    #   Maybe find a way to adapt the rounding to how many decimals the user
+    #   input had.
     for k in range(len(specificingredient_dict_list)):
 
         specificingredient_dict_list[k].update(
@@ -256,6 +256,7 @@ def calculate_fulldayofeating(
         # Solve the linear equation.
         # Catch the case that the linear equation system is not solvable, in
         # order to give the user a useful error page.
+        # noinspection PyBroadException
         try:
             x = np.linalg.solve(a, b)
         except:
@@ -327,8 +328,7 @@ def calculate_fulldayofeating(
     specificingredient_scalingoption_group_dict_with_results =\
         undo_calculate_average_of_specificingredient_group(
             specificingredient_scalingoption_group_dict,
-            calculated_amount_and_group_name,
-            pprint
+            calculated_amount_and_group_name
         )
     # print('\n specificingredient_scalingoption_group_dict_with_results \n')
     # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)

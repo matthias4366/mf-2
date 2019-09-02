@@ -4,7 +4,7 @@ dictionaries. In order to be able to load the data into the django app with
 a python script, the list of dictionaries is converted into JSON.
 """
 
-from ingredients_data2 import ingredient_dict_list
+from data.ingredients_data2 import ingredient_dict_list
 import json
 
 import sys
@@ -22,11 +22,16 @@ for k in range(len(ingredient_dict_list)):
     formatted_dict_k = {
         'model': 'measuredfood.rawingredient2',
         'pk': k+1,
-        'fields':
-                formatted_ingredient_dict_list_k
+        'fields': formatted_ingredient_dict_list_k
     }
 
     formatted_ingredient_dict_list.append(formatted_dict_k)
 
-with open('/home/matthias/1_local_code/mf-2/projectmf/fixtures/rawingredient2_initial_data.json', 'w', encoding='utf-8') as f:
-    json.dump(formatted_ingredient_dict_list, f, ensure_ascii=False, indent=4)
+with open(
+        '/home/matthias/1_local_code/'
+        'mf-2/projectmf/fixtures/rawingredient2_initial_data.json',
+        'w', encoding='utf-8'
+) as f:
+    json.dump(
+        formatted_ingredient_dict_list, f, ensure_ascii=False, indent=4
+    )

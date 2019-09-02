@@ -1,5 +1,3 @@
-import copy
-
 """
 ingredient_properties_2 is the revised version of ingredient_properties.
 The fields of the ingredients containing for example nutrient properties such
@@ -98,11 +96,11 @@ ELEMENTS_AND_DEFAULT_UNITS = [
 ]
 
 ALL_NUTRIENTS_AND_DEFAULT_UNITS = \
-CALORIES_AND_DEFAULT_UNITS \
-+ MACRONUTRIENTS_AND_DEFAULT_UNITS\
-+ ESSENTIAL_FATS_AND_DEFAULT_UNITS\
-+ VITAMINS_AND_DEFAULT_UNITS\
-+ ELEMENTS_AND_DEFAULT_UNITS
+    CALORIES_AND_DEFAULT_UNITS \
+    + MACRONUTRIENTS_AND_DEFAULT_UNITS\
+    + ESSENTIAL_FATS_AND_DEFAULT_UNITS\
+    + VITAMINS_AND_DEFAULT_UNITS\
+    + ELEMENTS_AND_DEFAULT_UNITS
 
 INGREDIENT_FIELDS_LINKS = [
     'buy_here_link',

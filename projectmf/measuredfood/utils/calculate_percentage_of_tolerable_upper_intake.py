@@ -1,8 +1,8 @@
+
+
 def calculate_percentage_of_tolerable_upper_intake(
     tolerableupperintake_dict,
     result_total_nutrition_fulldayofeating,
-    pprint,
-    set_to_zero_if_none,
 ):
 
     # Initialize result
@@ -34,24 +34,25 @@ def calculate_percentage_of_tolerable_upper_intake(
             if tolerableupperintake_dict[str_value_exists]:
 
                 percentage_tolerable_upper_intake = \
-                (result_total_nutrition_fulldayofeating[nutrient_name] / value) * 100
+                    (result_total_nutrition_fulldayofeating[
+                         nutrient_name] / value) * 100
 
                 percentage_tolerable_upper_intake_rounded = \
-                round(percentage_tolerable_upper_intake, 0)
+                    round(percentage_tolerable_upper_intake, 0)
 
-                result_percentage_of_tolerable_upper_intake_numbers\
-                [nutrient_name] = \
-                percentage_tolerable_upper_intake_rounded
+                result_percentage_of_tolerable_upper_intake_numbers[
+                    nutrient_name] = \
+                    percentage_tolerable_upper_intake_rounded
 
                 percentage_tolerable_upper_intake_str = \
-                str(percentage_tolerable_upper_intake_rounded)+' %'
+                    str(percentage_tolerable_upper_intake_rounded)+' %'
 
-                result_percentage_of_tolerable_upper_intake_str[nutrient_name] = \
-                percentage_tolerable_upper_intake_str
+                result_percentage_of_tolerable_upper_intake_str[
+                    nutrient_name] = \
+                    percentage_tolerable_upper_intake_str
             else:
-                result_percentage_of_tolerable_upper_intake_str[nutrient_name] = \
-                ''
-
+                result_percentage_of_tolerable_upper_intake_str[
+                    nutrient_name] = ''
 
     return result_percentage_of_tolerable_upper_intake_str,\
-            result_percentage_of_tolerable_upper_intake_numbers
+        result_percentage_of_tolerable_upper_intake_numbers

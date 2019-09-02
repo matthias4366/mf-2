@@ -1,6 +1,8 @@
+
+
 def save_fulldayofeating_calculation_result_to_database(
     specificingredient_id_and_calculated_amount,
-    SpecificIngredient
+    specific_ingredient
 ):
     """
     This is not a pure function as it saves to the database.
@@ -10,10 +12,9 @@ def save_fulldayofeating_calculation_result_to_database(
     SpecificIngredients.
     """
     for k in range(len(specificingredient_id_and_calculated_amount)):
-        s = SpecificIngredient.objects.get(
-            pk = specificingredient_id_and_calculated_amount[k]['id']
+        s = specific_ingredient.objects.get(
+            pk=specificingredient_id_and_calculated_amount[k]['id']
         )
         s.calculated_amount = \
-        specificingredient_id_and_calculated_amount\
-        [k]['calculated_amount']
+            specificingredient_id_and_calculated_amount[k]['calculated_amount']
         s.save()

@@ -1,10 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-import copy
-
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from measuredfood.forms import UserRegisterForm
 
 from django.views.generic import (
     ListView,
@@ -18,6 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
+
 
 @login_required
 def update_nutrientprofile(request, id_nutrientprofile):
@@ -38,7 +33,7 @@ def update_nutrientprofile(request, id_nutrientprofile):
     if request.method == 'POST':
         form = NutrientProfileForm(
             request.POST,
-            instance = instance_nutrientprofile
+            instance=instance_nutrientprofile
             )
         if form.is_valid():
             form.save()
@@ -47,7 +42,7 @@ def update_nutrientprofile(request, id_nutrientprofile):
                 )
     else:
         form = NutrientProfileForm(
-            instance = instance_nutrientprofile
+            instance=instance_nutrientprofile
             )
         context = {'form': form}
         return render(
@@ -55,6 +50,7 @@ def update_nutrientprofile(request, id_nutrientprofile):
             'measuredfood/nutrientprofile_form.html',
             context
             )
+
 
 @login_required
 def create_nutrientprofile(request):
@@ -73,14 +69,16 @@ def create_nutrientprofile(request):
             context
             )
 
+
 class ListNutrientProfile(
     LoginRequiredMixin,
     ListView
 ):
     model = NutrientProfile
+
     def get_queryset(self):
         return NutrientProfile.objects.filter(
-            author = self.request.user
+            author=self.request.user
         ).order_by('name')
 
 
@@ -92,6 +90,7 @@ class DetailNutrientProfile(UserPassesTestMixin, DetailView):
         if self.request.user == nutrient_profile_.author:
             return True
         return False
+
 
 class DeleteNutrientProfile(UserPassesTestMixin, DeleteView):
     model = NutrientProfile

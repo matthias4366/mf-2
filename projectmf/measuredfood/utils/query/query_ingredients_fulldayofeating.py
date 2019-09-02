@@ -1,9 +1,10 @@
+
+
 def query_ingredients_fulldayofeating(
     id_fulldayofeating,
-    SpecificIngredient,
-    RawIngredient2,
-    pprint,
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    specific_ingredient,
+    raw_ingredient2,
+    all_nutrients_and_default_units,
     set_to_zero_if_none,
 ):
     """
@@ -20,14 +21,10 @@ def query_ingredients_fulldayofeating(
     objects are queried and their information is stored in a sub dictionary
     in the dictionary of the SpecificIngredient.
     """
-
-    # initialize result
-    specificingredient_dict_list = []
-
     """
     Query the related SpecificIngredients and store the results in dictionaries.
     """
-    queryset_specificingredient = SpecificIngredient.objects.filter(
+    queryset_specificingredient = specific_ingredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
         )
 
@@ -38,8 +35,8 @@ def query_ingredients_fulldayofeating(
     # Add the RawIngredient2 dictionaries to the SpecificIngredient dictionaries
     # to make the nutrition values (kcal etc.) accessible for calculation.
     for k in range(len(specificingredient_dict_list)):
-        rawingredient_k_queryset = RawIngredient2.objects.filter(
-            id = specificingredient_dict_list[k]['rawingredient_id']
+        rawingredient_k_queryset = raw_ingredient2.objects.filter(
+            id=specificingredient_dict_list[k]['rawingredient_id']
         ).values()
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
 
@@ -47,16 +44,13 @@ def query_ingredients_fulldayofeating(
         # pprint.pprint(rawingredient_k_dict)
 
         # Make sure that no None fields are returned.
-        for nutrient_dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        for nutrient_dict_k in all_nutrients_and_default_units:
             nutrient_name = nutrient_dict_k['name']
             rawingredient_k_dict[nutrient_name] = \
-            set_to_zero_if_none(rawingredient_k_dict[nutrient_name])
+                set_to_zero_if_none(rawingredient_k_dict[nutrient_name])
 
         specificingredient_dict_list[k].update(
-            raw_ingredient = rawingredient_k_dict
+            raw_ingredient=rawingredient_k_dict
             )
-
-    # print('\n specificingredient_dict_list \n')
-    # pprint.pprint(specificingredient_dict_list)
 
     return specificingredient_dict_list

@@ -1,8 +1,9 @@
+
+
 def query_specificnutrienttarget_of_fulldayofeating(
     id_fulldayofeating,
-    SpecificNutrientTarget,
+    specific_nutrient_target,
     nutrientprofile_dict,
-    pprint,
 ):
 
     # Initialize result.
@@ -14,17 +15,14 @@ def query_specificnutrienttarget_of_fulldayofeating(
     }
 
     queryset_specificnutrienttarget_of_fulldayofeating = \
-    SpecificNutrientTarget.objects.filter(
-        fulldayofeating = id_fulldayofeating
-    )
-
-    # print('\n queryset_specificnutrienttarget_of_fulldayofeating \n')
-    # pprint.pprint(queryset_specificnutrienttarget_of_fulldayofeating)
+        specific_nutrient_target.objects.filter(
+            fulldayofeating=id_fulldayofeating
+        )
 
     specificnutrienttarget_list = \
-    list(queryset_specificnutrienttarget_of_fulldayofeating.values(
-        'nutrient_target'
-        ))
+        list(queryset_specificnutrienttarget_of_fulldayofeating.values(
+            'nutrient_target'
+            ))
 
     # print('\n specificnutrienttarget_list \n')
     # pprint.pprint(specificnutrienttarget_list)
@@ -37,15 +35,16 @@ def query_specificnutrienttarget_of_fulldayofeating(
         if nutrientprofile_dict[nutrient_target_name] is None:
             nutrient_target_amount = 0
             targeted_nutrients_errors['missing_nutrientprofile_value'] = True
-            targeted_nutrients_errors\
-            ['nutrients_missing_nutrientprofile_value'].append(
+            targeted_nutrients_errors[
+                'nutrients_missing_nutrientprofile_value'].append(
                 nutrient_target_name
             )
         elif nutrientprofile_dict[nutrient_target_name] is not None:
             nutrient_target_amount = nutrientprofile_dict[nutrient_target_name]
         else:
             print('\n This case should not be possible.')
-            print('Occured in query_specificnutrienttarget_of_fulldayofeating. \n')
+            print('Occured in query_specificnutrienttarget_'
+                  'of_fulldayofeating. \n')
             return
 
         new_dict = {nutrient_target_name: nutrient_target_amount}

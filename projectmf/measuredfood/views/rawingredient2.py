@@ -1,26 +1,17 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-import copy
-
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from measuredfood.forms import UserRegisterForm
 
 # imports for the view to create raw ingredients
 from django.views.generic import (
-    CreateView,
     ListView,
-    UpdateView,
     DeleteView,
     DetailView
 )
 from measuredfood.models import (
-    RawIngredient2,
-    NutrientProfile
+    RawIngredient2
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 
 from measuredfood.ingredient_properties2 import (
     VITAMINS_AND_DEFAULT_UNITS
@@ -29,6 +20,7 @@ from measuredfood.ingredient_properties2 import (
 from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient2Form
 from measuredfood.utils.check_if_author import check_if_author
+
 
 @login_required
 def create_rawingredient2(request):
@@ -60,9 +52,10 @@ class ListRawIngredient2(
     ListView
 ):
     model = RawIngredient2
+
     def get_queryset(self):
         return RawIngredient2.objects.filter(
-            author = self.request.user
+            author=self.request.user
         ).order_by('name')
 
 
@@ -83,14 +76,14 @@ def update_rawingredient2(request, id_rawingredient2):
     if request.method == 'POST':
         form_rawingredient2 = RawIngredient2Form(
             request.POST,
-            instance = rawingredient2_object
+            instance=rawingredient2_object
         )
         if form_rawingredient2.is_valid():
             form_rawingredient2.save()
             return redirect('list-rawingredient2')
     else:
         form_rawingredient2 = RawIngredient2Form(
-            instance = rawingredient2_object
+            instance=rawingredient2_object
         )
         context = {
             'VITAMINS_AND_DEFAULT_UNITS': VITAMINS_AND_DEFAULT_UNITS,
@@ -102,6 +95,7 @@ def update_rawingredient2(request, id_rawingredient2):
             context
             )
 
+
 class DetailRawIngredient2(UserPassesTestMixin, DetailView):
     model = RawIngredient2
 
@@ -110,6 +104,7 @@ class DetailRawIngredient2(UserPassesTestMixin, DetailView):
         if self.request.user == rawingredient2.author:
             return True
         return False
+
 
 class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
     model = RawIngredient2
@@ -120,6 +115,7 @@ class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
         if self.request.user == rawingredient2.author:
             return True
         return False
+
 
 @login_required
 def browse_rawingredient2(request):

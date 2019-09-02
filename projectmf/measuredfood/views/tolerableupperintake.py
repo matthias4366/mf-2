@@ -11,6 +11,7 @@ from measuredfood.utils.check_if_author import check_if_author
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 
+
 @login_required
 def update_tolerableupperintake_view(request, id_tolerableupperintake):
     # Make sure users can not edit other user's objects.
@@ -30,7 +31,7 @@ def update_tolerableupperintake_view(request, id_tolerableupperintake):
     if request.method == 'POST':
         form = TolerableUpperIntakeForm(
             request.POST,
-            instance = instance_tolerableupperintake
+            instance=instance_tolerableupperintake
             )
         if form.is_valid():
             form.save()
@@ -39,7 +40,7 @@ def update_tolerableupperintake_view(request, id_tolerableupperintake):
                 )
     else:
         form = TolerableUpperIntakeForm(
-            instance = instance_tolerableupperintake
+            instance=instance_tolerableupperintake
             )
         context = {'form': form}
         return render(
@@ -47,6 +48,7 @@ def update_tolerableupperintake_view(request, id_tolerableupperintake):
             'measuredfood/tolerableupperintake_form.html',
             context
             )
+
 
 @login_required
 def create_tolerableupperintake_view(request):
@@ -65,15 +67,18 @@ def create_tolerableupperintake_view(request):
             context
             )
 
+
 class ListTolerableUpperIntake(
     LoginRequiredMixin,
     ListView
 ):
     model = TolerableUpperIntake
+
     def get_queryset(self):
         return TolerableUpperIntake.objects.filter(
-            author = self.request.user
+            author=self.request.user
         ).order_by('name')
+
 
 class DetailTolerableUpperIntake(UserPassesTestMixin, DetailView):
     model = TolerableUpperIntake
@@ -83,6 +88,7 @@ class DetailTolerableUpperIntake(UserPassesTestMixin, DetailView):
         if self.request.user == tolerableupperintake_.author:
             return True
         return False
+
 
 class DeleteTolerableUpperIntake(UserPassesTestMixin, DeleteView):
     model = TolerableUpperIntake

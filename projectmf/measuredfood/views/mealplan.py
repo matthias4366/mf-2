@@ -1,17 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 import copy
 
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from measuredfood.forms import UserRegisterForm
 
 # imports for the view to create raw ingredients
 from django.views.generic import (
-    CreateView,
     ListView,
-    UpdateView,
     DeleteView,
     DetailView
 )
@@ -34,63 +28,61 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
 import pprint
-from measuredfood.ingredient_properties2 import (
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS
-)
 import numpy as np
 
 from measuredfood.utils.calculate_fulldayofeating import \
-calculate_fulldayofeating
+    calculate_fulldayofeating
 
 from measuredfood.utils.save_fulldayofeating_calculation_result_to_database \
-import save_fulldayofeating_calculation_result_to_database
+    import save_fulldayofeating_calculation_result_to_database
 
 from measuredfood.utils.query.query_ingredients_fulldayofeating\
-import query_ingredients_fulldayofeating
+    import query_ingredients_fulldayofeating
 
 from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
-import calculate_total_nutrition_fulldayofeating
+    import calculate_total_nutrition_fulldayofeating
 
 from measuredfood.utils.set_to_zero_if_none\
-import set_to_zero_if_none
+    import set_to_zero_if_none
 
 from measuredfood.ingredient_properties2 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
 
 from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
-import query_nutrientprofile_of_fulldayofeating
+    import query_nutrientprofile_of_fulldayofeating
 
 from measuredfood.utils.calculate_percentage_of_target_amount\
-import calculate_percentage_of_target_amount
+    import calculate_percentage_of_target_amount
 
 from measuredfood.utils.query.query_nutrientprofile_of_mealplan\
-import query_nutrientprofile_of_mealplan
+    import query_nutrientprofile_of_mealplan
 
 from measuredfood.utils.query.query_tolerableupperintake_of_mealplan import\
-query_tolerableupperintake_of_mealplan
+    query_tolerableupperintake_of_mealplan
 
 from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake import\
-calculate_percentage_of_tolerable_upper_intake
+    calculate_percentage_of_tolerable_upper_intake
 
 from measuredfood.utils.judge_total_nutrition import\
-judge_total_nutrition
+    judge_total_nutrition
 
 from measuredfood.utils.calculate_total_price_fulldayofeating import \
-calculate_total_price_fulldayofeating
+    calculate_total_price_fulldayofeating
 
 from measuredfood.utils.calculate_average_of_specificingredient_group import \
-calculate_average_of_specificingredient_group
+    calculate_average_of_specificingredient_group
 
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group \
-import undo_calculate_average_of_specificingredient_group
+    import undo_calculate_average_of_specificingredient_group
 
 from measuredfood.utils.fulldayofeating\
-.query_input_and_calculate_fulldayofeating\
-import query_input_and_calculate_fulldayofeating
+    .query_input_and_calculate_fulldayofeating\
+    import query_input_and_calculate_fulldayofeating
 
 from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating \
-import query_specificnutrienttarget_of_fulldayofeating
+    import query_specificnutrienttarget_of_fulldayofeating
+
 
 @login_required
 def create_mealplan_view(request):
@@ -128,37 +120,37 @@ def update_mealplan_view(request, id_mealplan):
         return render(request, 'measuredfood/not_yours.html', context)
     # The user is the author, proceed.
 
-    mealplan_object = Mealplan.objects.get(pk = id_mealplan)
+    mealplan_object = Mealplan.objects.get(pk=id_mealplan)
 
     if request.method == 'POST':
         form_mealplan = MealplanForm(
             request.POST,
-            instance = mealplan_object
+            instance=mealplan_object
         )
         formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
             request.POST,
-            instance = mealplan_object
+            instance=mealplan_object
         )
 
         if form_mealplan.is_valid() and \
-        formset_specificfulldayofeating.is_valid():
+                formset_specificfulldayofeating.is_valid():
             formset_specificfulldayofeating.save()
             form_mealplan.save()
             return redirect(
                 'update-mealplan',
-                id_mealplan = mealplan_object.id
+                id_mealplan=mealplan_object.id
                 )
     else:
-        form_mealplan = MealplanForm(instance = mealplan_object)
+        form_mealplan = MealplanForm(instance=mealplan_object)
         formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
-            instance = mealplan_object
+            instance=mealplan_object
         )
         # Only let the user select FullDayOfEating objects from their own
         # collection.
         for form in formset_specificfulldayofeating:
             form.fields['fulldayofeating'].queryset = \
-            FullDayOfEating.objects.filter(
-                author = request.user.id
+                    FullDayOfEating.objects.filter(
+                author=request.user.id
             )
 
         context = {
@@ -167,21 +159,30 @@ def update_mealplan_view(request, id_mealplan):
             'id_mealplan': mealplan_object.id,
             'view_type': view_type
         }
-        # TODO: use reverse_lazy instead of hard coding the name of the html file.
+        # TODO: use reverse_lazy instead of hard coding
+        #  the name of the html file.
         return render(request, 'measuredfood/mealplan_form.html', context)
+
 
 @login_required
 def shoppinglist_view(request, id_mealplan):
 
+    # Pre defining local variables so there are no errors in
+    # PyCharm.
+    targeted_nutrients_errors = None
+    result_calculate_fulldayofeating = None
+    id_fulldayofeating = None
+    nutrientprofile_dict = None
+
     # From id_mealplan, get all the related SpecificFullDayOfEating objects.
     queryset_specificfulldayofeating = SpecificFullDayOfEating.objects.filter(
-        mealplan = id_mealplan
+        mealplan=id_mealplan
     )
 
     # From all the SpecificFullDayOfEating, get the related FullDayOfEating
     # objects.
     queryset_related_fulldayofeating = \
-    queryset_specificfulldayofeating.values('fulldayofeating')
+        queryset_specificfulldayofeating.values('fulldayofeating')
     list_dict_related_fulldayofeating = list(queryset_related_fulldayofeating)
 
     # Save the id values in a list. Make two lists: one without
@@ -205,41 +206,41 @@ def shoppinglist_view(request, id_mealplan):
         id_fulldayofeating = id_list_no_duplications[k]
 
         result_calculate_fulldayofeating,\
-        specificingredient_dict_list,\
-        targeted_nutrients_errors,\
-        nutrientprofile_dict = \
-        query_input_and_calculate_fulldayofeating(
-            query_ingredients_fulldayofeating,
-            query_nutrientprofile_of_fulldayofeating,
-            query_specificnutrienttarget_of_fulldayofeating,
-            calculate_fulldayofeating,
-            calculate_average_of_specificingredient_group,
-            undo_calculate_average_of_specificingredient_group,
-            save_fulldayofeating_calculation_result_to_database,
-            set_to_zero_if_none,
-            id_fulldayofeating,
-            SpecificIngredient,
-            RawIngredient2,
-            pprint,
-            FullDayOfEating,
-            NutrientProfile,
-            SpecificNutrientTarget,
-            copy,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            np,
-        )
+            specificingredient_dict_list,\
+            targeted_nutrients_errors,\
+            nutrientprofile_dict = \
+            query_input_and_calculate_fulldayofeating(
+                query_ingredients_fulldayofeating,
+                query_nutrientprofile_of_fulldayofeating,
+                query_specificnutrienttarget_of_fulldayofeating,
+                calculate_fulldayofeating,
+                calculate_average_of_specificingredient_group,
+                undo_calculate_average_of_specificingredient_group,
+                save_fulldayofeating_calculation_result_to_database,
+                set_to_zero_if_none,
+                id_fulldayofeating,
+                SpecificIngredient,
+                RawIngredient2,
+                pprint,
+                FullDayOfEating,
+                NutrientProfile,
+                SpecificNutrientTarget,
+                copy,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                np,
+            )
 
     # Check if the key exists first, this is purely technical.
     if 'ingredients_are_present'\
-    in result_calculate_fulldayofeating['errors'].keys():
+            in result_calculate_fulldayofeating['errors'].keys():
         # Here comes the actual logic: are there ingredients present
-        if not result_calculate_fulldayofeating['errors']\
-        ['ingredients_are_present']:
+        if not result_calculate_fulldayofeating['errors'][
+                'ingredients_are_present']:
             n_ingredients_is_zero = True
             context = {
-                'result_calculate_fulldayofeating':\
+                'result_calculate_fulldayofeating':
                 result_calculate_fulldayofeating,
-                'id_fulldayofeating': id_fulldayofeating,\
+                'id_fulldayofeating': id_fulldayofeating,
                 'n_ingredients_is_zero': n_ingredients_is_zero,
             }
             return render(
@@ -262,7 +263,7 @@ def shoppinglist_view(request, id_mealplan):
 
     if result_calculate_fulldayofeating['errors']['mismatch']:
         context = {
-            'result_calculate_fulldayofeating':\
+            'result_calculate_fulldayofeating':
             result_calculate_fulldayofeating,
             'id_fulldayofeating': id_fulldayofeating,
         }
@@ -280,19 +281,21 @@ def shoppinglist_view(request, id_mealplan):
     # Iterate over the id_list_with_duplications.
     for id_fulldayofeating_k in id_list_with_duplications:
         queryset_specificingredient_for_sum = SpecificIngredient.objects.filter(
-            fulldayofeating = id_fulldayofeating_k
+            fulldayofeating=id_fulldayofeating_k
         ).values()
-        list_specificingredient_for_sum = list(queryset_specificingredient_for_sum)
+        list_specificingredient_for_sum = \
+            list(queryset_specificingredient_for_sum)
         # print('\n\n list_specificingredient_for_sum')
         # pprint.pprint(list_specificingredient_for_sum)
 
         # For each FullDayOfEating in
         # that list, iterate over all the SpecificIngredients.
         for dict_specificingredient_k in list_specificingredient_for_sum:
-            # For each SpecificIngredient, get the name of the associated RawIngredient2.
+            # For each SpecificIngredient,
+            # get the name of the associated RawIngredient2.
             rawingredient_id = dict_specificingredient_k['rawingredient_id']
             query_rawingredient_name = RawIngredient2.objects.filter(
-                id = rawingredient_id
+                id=rawingredient_id
             ).values('name')
             # print('\n\n query_rawingredient_name')
             # pprint.pprint(query_rawingredient_name)
@@ -302,18 +305,18 @@ def shoppinglist_view(request, id_mealplan):
             # pprint.pprint(rawingredient_name)
 
             # Check if the name of the RawIngredient2 is already in the
-            # shopping_list_dict. If it is not, add it and initialize the sum total
+            # shopping_list_dict.
+            # If it is not, add it and initialize the sum total
             # amount as 0.
             if rawingredient_name not in shopping_list_dict:
                 new_dict = {rawingredient_name: 0}
                 shopping_list_dict.update(new_dict)
 
-            # After that, add the calculated_amount of the SpecificIngredient which
-            # is related to the RawIngredient2 to the sum total amount.
+            # After that, add the calculated_amount of the SpecificIngredient
+            # which is related to the RawIngredient2 to the sum total amount.
             shopping_list_dict[rawingredient_name] = \
-            shopping_list_dict[rawingredient_name] \
-            + dict_specificingredient_k['calculated_amount']
-
+                shopping_list_dict[rawingredient_name] \
+                + dict_specificingredient_k['calculated_amount']
 
     # print('\n\n shopping_list_dict')
     # pprint.pprint(shopping_list_dict)
@@ -331,9 +334,10 @@ class ListMealplan(
     ListView
 ):
     model = Mealplan
+
     def get_queryset(self):
         return Mealplan.objects.filter(
-            author = self.request.user
+            author=self.request.user
         ).order_by('name')
 
 
@@ -357,18 +361,26 @@ class DeleteMealplan(UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
 @login_required
 def mealplan_average_nutrition_view(request, id_mealplan):
 
+    # Avoid warning "local variable might be used before assignement" in
+    # PyCharm.
+    result_calculate_fulldayofeating = None
+    targeted_nutrients_errors = None
+    id_fulldayofeating = None
+    nutrientprofile_dict = None
+
     # From id_mealplan, get all the related SpecificFullDayOfEating objects.
     queryset_specificfulldayofeating = SpecificFullDayOfEating.objects.filter(
-        mealplan = id_mealplan
+        mealplan=id_mealplan
     )
 
     # From all the SpecificFullDayOfEating, get the related FullDayOfEating
     # objects.
     queryset_related_fulldayofeating = \
-    queryset_specificfulldayofeating.values('fulldayofeating')
+        queryset_specificfulldayofeating.values('fulldayofeating')
     list_dict_related_fulldayofeating = list(queryset_related_fulldayofeating)
 
     # Save the id values in a list. Make two lists: one without
@@ -377,7 +389,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     id_list_no_duplications = []
     id_list_with_duplications = []
     for k in range(len(list_dict_related_fulldayofeating)):
-        # TODO: A for loop is used for a dictionary that only has one entry.
         # This seems inefficient and confusing, but is also should not matter.
         for key, value in list_dict_related_fulldayofeating[k].items():
             id_list_with_duplications.append(value)
@@ -392,41 +403,41 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         id_fulldayofeating = id_list_no_duplications[k]
 
         result_calculate_fulldayofeating,\
-        specificingredient_dict_list,\
-        targeted_nutrients_errors,\
-        nutrientprofile_dict = \
-        query_input_and_calculate_fulldayofeating(
-            query_ingredients_fulldayofeating,
-            query_nutrientprofile_of_fulldayofeating,
-            query_specificnutrienttarget_of_fulldayofeating,
-            calculate_fulldayofeating,
-            calculate_average_of_specificingredient_group,
-            undo_calculate_average_of_specificingredient_group,
-            save_fulldayofeating_calculation_result_to_database,
-            set_to_zero_if_none,
-            id_fulldayofeating,
-            SpecificIngredient,
-            RawIngredient2,
-            pprint,
-            FullDayOfEating,
-            NutrientProfile,
-            SpecificNutrientTarget,
-            copy,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            np,
-        )
+            specificingredient_dict_list,\
+            targeted_nutrients_errors,\
+            nutrientprofile_dict = \
+            query_input_and_calculate_fulldayofeating(
+                query_ingredients_fulldayofeating,
+                query_nutrientprofile_of_fulldayofeating,
+                query_specificnutrienttarget_of_fulldayofeating,
+                calculate_fulldayofeating,
+                calculate_average_of_specificingredient_group,
+                undo_calculate_average_of_specificingredient_group,
+                save_fulldayofeating_calculation_result_to_database,
+                set_to_zero_if_none,
+                id_fulldayofeating,
+                SpecificIngredient,
+                RawIngredient2,
+                pprint,
+                FullDayOfEating,
+                NutrientProfile,
+                SpecificNutrientTarget,
+                copy,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                np,
+            )
 
     # Check if the key exists first, this is purely technical.
     if 'ingredients_are_present'\
-    in result_calculate_fulldayofeating['errors'].keys():
+            in result_calculate_fulldayofeating['errors'].keys():
         # Here comes the actual logic: are there ingredients present
-        if not result_calculate_fulldayofeating['errors']\
-        ['ingredients_are_present']:
+        if not result_calculate_fulldayofeating['errors'][
+                'ingredients_are_present']:
             n_ingredients_is_zero = True
             context = {
-                'result_calculate_fulldayofeating':\
+                'result_calculate_fulldayofeating':
                 result_calculate_fulldayofeating,
-                'id_fulldayofeating': id_fulldayofeating,\
+                'id_fulldayofeating': id_fulldayofeating,
                 'n_ingredients_is_zero': n_ingredients_is_zero,
             }
             return render(
@@ -449,7 +460,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
 
     if result_calculate_fulldayofeating['errors']['mismatch']:
         context = {
-            'result_calculate_fulldayofeating':\
+            'result_calculate_fulldayofeating':
             result_calculate_fulldayofeating,
             'id_fulldayofeating': id_fulldayofeating,
         }
@@ -480,7 +491,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             id_fulldayofeating,
             SpecificIngredient,
             RawIngredient2,
-            pprint,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             set_to_zero_if_none,
         )
@@ -491,14 +501,12 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             )
 
         result_total_nutrition_fulldayofeating,\
-        result_total_nutrition_fulldayofeating_rounded =\
-        calculate_total_nutrition_fulldayofeating(
-            specificingredient_dict_list,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            pprint,
-            copy,
-            set_to_zero_if_none,
-        )
+            result_total_nutrition_fulldayofeating_rounded =\
+            calculate_total_nutrition_fulldayofeating(
+                specificingredient_dict_list,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                set_to_zero_if_none,
+            )
 
         result_total_nutrition_fulldayofeating_list.append(
             result_total_nutrition_fulldayofeating
@@ -513,7 +521,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             new_dict
         )
 
-
     # Iterate through all the nutrients. For each nutrient, calculate the
     # average over the full days of eating contained in the mealplan.
     for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
@@ -523,21 +530,21 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         nutrient_sum_mealplan = 0
 
         for result_total_nutrition_fulldayofeating in \
-        result_total_nutrition_fulldayofeating_list:
+                result_total_nutrition_fulldayofeating_list:
             nutrient_sum_mealplan = \
-            nutrient_sum_mealplan + \
-            result_total_nutrition_fulldayofeating[nutrient_name]
+                nutrient_sum_mealplan + \
+                result_total_nutrition_fulldayofeating[nutrient_name]
 
         number_of_fulldayofeating_in_mealplan = \
-        len(result_total_nutrition_fulldayofeating_list)
+            len(result_total_nutrition_fulldayofeating_list)
         nutrient_average_in_mealplan = \
-        nutrient_sum_mealplan / number_of_fulldayofeating_in_mealplan
+            nutrient_sum_mealplan / number_of_fulldayofeating_in_mealplan
 
         nutrient_average_in_mealplan_rounded = \
-        round(nutrient_average_in_mealplan, 0)
+            round(nutrient_average_in_mealplan, 0)
 
         result_average_nutrition_mealplan[nutrient_name] =\
-        nutrient_average_in_mealplan_rounded
+            nutrient_average_in_mealplan_rounded
 
     # Make the result_average_nutrition_mealplan into a list.
     result_average_nutrition_mealplan_values = []
@@ -561,13 +568,12 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     )
 
     result_percentage_of_target_amount_str,\
-    result_percentage_of_target_amount_numbers = \
-    calculate_percentage_of_target_amount(
-        nutrientprofile_dict,
-        result_average_nutrition_mealplan,
-        pprint,
-        set_to_zero_if_none,
-    )
+        result_percentage_of_target_amount_numbers = \
+        calculate_percentage_of_target_amount(
+            nutrientprofile_dict,
+            result_average_nutrition_mealplan,
+            set_to_zero_if_none,
+        )
 
     # Make the result_percentage_of_target_amount_str into a list
     result_percentage_of_target_amount_list = []
@@ -581,16 +587,13 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         id_mealplan,
         Mealplan,
         TolerableUpperIntake,
-        pprint,
     )
     result_percentage_of_tolerable_upper_intake_str,\
-    result_percentage_of_tolerable_upper_intake_numbers = \
-    calculate_percentage_of_tolerable_upper_intake(
-        tolerableupperintake_dict,
-        result_average_nutrition_mealplan,
-        pprint,
-        set_to_zero_if_none,
-    )
+        result_percentage_of_tolerable_upper_intake_numbers = \
+        calculate_percentage_of_tolerable_upper_intake(
+            tolerableupperintake_dict,
+            result_average_nutrition_mealplan,
+        )
 
     # Make the result_percentage_of_tolerable_upper_intake_str into a list
     result_percentage_of_tolerable_upper_intake_str_list = []
@@ -599,7 +602,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
 
     # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
     result_percentage_of_tolerable_upper_intake_numbers_list = []
-    for key, value in result_percentage_of_tolerable_upper_intake_numbers.items():
+    for key, value in \
+            result_percentage_of_tolerable_upper_intake_numbers.items():
         result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
 
     # =========================================================================
@@ -613,26 +617,25 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for key, value in result_percentage_of_target_amount_numbers.items():
         result_percentage_of_target_amount_numbers_list.append(value)
     result_judge_total_nutrition,\
-    result_judge_total_nutrition_css_class_name = judge_total_nutrition(
-        result_percentage_of_target_amount_numbers_list,
-        result_percentage_of_tolerable_upper_intake_numbers_list,
-    )
-
+        result_judge_total_nutrition_css_class_name = judge_total_nutrition(
+            result_percentage_of_target_amount_numbers_list,
+            result_percentage_of_tolerable_upper_intake_numbers_list,
+        )
 
     aggregated_total_nutrition_fulldayofeating = \
-    zip(
-        nutrient_name_list,
-        result_average_nutrition_mealplan_values,
-        default_unit_list,
-        result_percentage_of_target_amount_list,
-        result_percentage_of_tolerable_upper_intake_str_list,
-        result_judge_total_nutrition,
-        result_judge_total_nutrition_css_class_name,
-        )
+        zip(
+            nutrient_name_list,
+            result_average_nutrition_mealplan_values,
+            default_unit_list,
+            result_percentage_of_target_amount_list,
+            result_percentage_of_tolerable_upper_intake_str_list,
+            result_judge_total_nutrition,
+            result_judge_total_nutrition_css_class_name,
+            )
 
     # Get the name of the mealplan
     queryset_mealplan_name = \
-    Mealplan.objects.filter(id=id_mealplan).values('name')
+        Mealplan.objects.filter(id=id_mealplan).values('name')
     mealplan_name = list(queryset_mealplan_name)[0]['name']
     # print('mealplan_name')
     # pprint.pprint(mealplan_name)
@@ -644,15 +647,12 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     fulldayofeating_price_collection_list = []
     for specificingredient_dict_list in specificingredient_dict_list_mealplan:
         total_price_fulldayofeating_result_dict = \
-        calculate_total_price_fulldayofeating(
-            specificingredient_dict_list,
-            pprint,
-        )
+            calculate_total_price_fulldayofeating(
+                specificingredient_dict_list,
+            )
         fulldayofeating_price_collection_list.append(
             total_price_fulldayofeating_result_dict
         )
-    # print('fulldayofeating_price_collection_list')
-    # pprint.pprint(fulldayofeating_price_collection_list)
 
     mealplan_total_price_dict = {
         'price_sum_mealplan': 0,
@@ -665,37 +665,33 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     # Mealplan.
     for price_dict in fulldayofeating_price_collection_list:
         mealplan_total_price_dict['price_sum_mealplan'] = \
-        mealplan_total_price_dict['price_sum_mealplan'] + \
-        price_dict['total_price']
-
-    # print('mealplan_total_price_dict')
-    # pprint.pprint(mealplan_total_price_dict)
+            mealplan_total_price_dict['price_sum_mealplan'] + \
+            price_dict['total_price']
 
     # From the sum, calculate the average price
     n_fulldayofeating_objects_in_mealplan = \
-    len(fulldayofeating_price_collection_list)
+        len(fulldayofeating_price_collection_list)
 
     mealplan_total_price_dict['average_price_mealplan'] = \
-    mealplan_total_price_dict['price_sum_mealplan']\
-    / n_fulldayofeating_objects_in_mealplan
+        mealplan_total_price_dict['price_sum_mealplan']\
+        / n_fulldayofeating_objects_in_mealplan
 
     mealplan_total_price_dict['average_price_mealplan_rounded'] = \
-    round(mealplan_total_price_dict['average_price_mealplan'], 2)
+        round(mealplan_total_price_dict['average_price_mealplan'], 2)
 
     # It is assumed that all mealplans have the same currency. The currency
     # of the first full day of eating is selected.
     mealplan_total_price_dict['total_price_currency'] = \
-    fulldayofeating_price_collection_list[0]['total_price_currency']
-
+        fulldayofeating_price_collection_list[0]['total_price_currency']
 
     # Write code above this line
 
     context = {
-        'aggregated_total_nutrition_fulldayofeating':\
+        'aggregated_total_nutrition_fulldayofeating':
         aggregated_total_nutrition_fulldayofeating,
-        'mealplan_name':\
+        'mealplan_name':
         mealplan_name,
-        'mealplan_total_price_dict':\
+        'mealplan_total_price_dict':
         mealplan_total_price_dict,
     }
     return render(

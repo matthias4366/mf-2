@@ -10,14 +10,14 @@ def query_input_and_calculate_fulldayofeating(
     save_fulldayofeating_calculation_result_to_database,
     set_to_zero_if_none,
     id_fulldayofeating,
-    SpecificIngredient,
-    RawIngredient2,
+    specific_ingredient,
+    raw_ingredient2,
     pprint,
-    FullDayOfEating,
-    NutrientProfile,
-    SpecificNutrientTarget,
+    full_day_of_eating,
+    nutrient_profile,
+    specific_nutrient_target,
     copy,
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    all_nutrients_and_default_units,
     np,
 ):
     """
@@ -27,10 +27,9 @@ def query_input_and_calculate_fulldayofeating(
 
     specificingredient_dict_list = query_ingredients_fulldayofeating(
         id_fulldayofeating,
-        SpecificIngredient,
-        RawIngredient2,
-        pprint,
-        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+        specific_ingredient,
+        raw_ingredient2,
+        all_nutrients_and_default_units,
         set_to_zero_if_none,
     )
 
@@ -41,29 +40,26 @@ def query_input_and_calculate_fulldayofeating(
                 'ingredients_are_present': False
             }
         }
-        specificingredient_id_and_calculated_amount = None
         specificingredient_dict_list = None
         targeted_nutrients_errors = None
         nutrientprofile_dict = None
         return result_calculate_fulldayofeating,\
-        specificingredient_dict_list,\
-        targeted_nutrients_errors,\
-        nutrientprofile_dict
+            specificingredient_dict_list,\
+            targeted_nutrients_errors,\
+            nutrientprofile_dict
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,
-        FullDayOfEating,
-        NutrientProfile,
-        pprint,
+        full_day_of_eating,
+        nutrient_profile,
     )
 
     targeted_nutrients, targeted_nutrients_errors = \
-    query_specificnutrienttarget_of_fulldayofeating(
-        id_fulldayofeating,
-        SpecificNutrientTarget,
-        nutrientprofile_dict,
-        pprint,
-    )
+        query_specificnutrienttarget_of_fulldayofeating(
+            id_fulldayofeating,
+            specific_nutrient_target,
+            nutrientprofile_dict,
+        )
 
     # If there is an error in the form of missing nutrient targets in the
     # NutrientProfile, then the rest of the function does not need to be
@@ -74,39 +70,32 @@ def query_input_and_calculate_fulldayofeating(
         # None so that the interpreter does not complain about unknown
         # variable names.
         result_calculate_fulldayofeating = None
-        specificingredient_id_and_calculated_amount = None
         specificingredient_dict_list = None
         return result_calculate_fulldayofeating,\
-        specificingredient_dict_list,\
-        targeted_nutrients_errors,\
-        nutrientprofile_dict
+            specificingredient_dict_list,\
+            targeted_nutrients_errors,\
+            nutrientprofile_dict
 
     result_calculate_fulldayofeating = \
         calculate_fulldayofeating(
             pprint,
             copy,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            all_nutrients_and_default_units,
             np,
             calculate_average_of_specificingredient_group,
             undo_calculate_average_of_specificingredient_group,
             specificingredient_dict_list,
             targeted_nutrients,
             set_to_zero_if_none,
-            )
-
-    # print('\n result_calculate_fulldayofeating in query_input_and_calculate_fulldayofeating \n')
-    # pprint.pprint(result_calculate_fulldayofeating)
+        )
 
     specificingredient_id_and_calculated_amount = \
-    copy.deepcopy(result_calculate_fulldayofeating['values'])
-
-    # print('\n specificingredient_id_and_calculated_amount in query_input_and_calculate_fulldayofeating \n')
-    # pprint.pprint(specificingredient_id_and_calculated_amount)
+        copy.deepcopy(result_calculate_fulldayofeating['values'])
 
     # Save the results to the database:
     save_fulldayofeating_calculation_result_to_database(
         specificingredient_id_and_calculated_amount,
-        SpecificIngredient
+        specific_ingredient
     )
 
     # Query the SpecificIngredient objects again in order to get them with
@@ -114,17 +103,13 @@ def query_input_and_calculate_fulldayofeating(
     # have them yet.
     specificingredient_dict_list = query_ingredients_fulldayofeating(
         id_fulldayofeating,
-        SpecificIngredient,
-        RawIngredient2,
-        pprint,
-        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+        specific_ingredient,
+        raw_ingredient2,
+        all_nutrients_and_default_units,
         set_to_zero_if_none,
     )
 
-    # print('\n specificingredient_dict_list in query_input_and_calculate_fulldayofeating \n')
-    # pprint.pprint(specificingredient_dict_list)
-
     return result_calculate_fulldayofeating,\
-    specificingredient_dict_list,\
-    targeted_nutrients_errors,\
-    nutrientprofile_dict
+        specificingredient_dict_list,\
+        targeted_nutrients_errors,\
+        nutrientprofile_dict
