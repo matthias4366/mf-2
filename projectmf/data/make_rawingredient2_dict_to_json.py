@@ -4,6 +4,7 @@ dictionaries. In order to be able to load the data into the django app with
 a python script, the list of dictionaries is converted into JSON.
 """
 
+# noinspection PyUnresolvedReferences
 from ingredients_data2 import ingredient_dict_list
 import json
 

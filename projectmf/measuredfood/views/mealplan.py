@@ -27,7 +27,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.utils.check_if_author import check_if_author
-import pprint
 import numpy as np
 
 from measuredfood.utils.calculate_fulldayofeating import \
@@ -221,7 +220,6 @@ def shoppinglist_view(request, id_mealplan):
                 id_fulldayofeating,
                 SpecificIngredient,
                 RawIngredient2,
-                pprint,
                 FullDayOfEating,
                 NutrientProfile,
                 SpecificNutrientTarget,
@@ -418,7 +416,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
                 id_fulldayofeating,
                 SpecificIngredient,
                 RawIngredient2,
-                pprint,
                 FullDayOfEating,
                 NutrientProfile,
                 SpecificNutrientTarget,

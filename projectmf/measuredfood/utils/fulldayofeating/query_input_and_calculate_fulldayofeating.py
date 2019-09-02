@@ -12,7 +12,6 @@ def query_input_and_calculate_fulldayofeating(
     id_fulldayofeating,
     specific_ingredient,
     raw_ingredient2,
-    pprint,
     full_day_of_eating,
     nutrient_profile,
     specific_nutrient_target,
