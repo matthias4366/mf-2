@@ -1,7 +1,6 @@
 
 
 def calculate_fulldayofeating(
-    pprint,
     copy,
     all_nutrients_and_default_units,
     np,

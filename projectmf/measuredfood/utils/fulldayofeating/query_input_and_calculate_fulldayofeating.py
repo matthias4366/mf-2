@@ -78,7 +78,6 @@ def query_input_and_calculate_fulldayofeating(
 
     result_calculate_fulldayofeating = \
         calculate_fulldayofeating(
-            pprint,
             copy,
             all_nutrients_and_default_units,
             np,
