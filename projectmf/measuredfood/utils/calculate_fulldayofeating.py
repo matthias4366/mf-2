@@ -1,15 +1,16 @@
+
+
 def calculate_fulldayofeating(
     pprint,
     copy,
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    all_nutrients_and_default_units,
     np,
     calculate_average_of_specificingredient_group,
     undo_calculate_average_of_specificingredient_group,
     specificingredient_dict_list,
-    nutrientprofile_dict,
     targeted_nutrients,
     set_to_zero_if_none,
-    ):
+        ):
 
     """
     This function should be independent of everything else.
@@ -61,13 +62,13 @@ def calculate_fulldayofeating(
     for k in range(len(specificingredient_dict_list)):
 
         specificingredient_dict_list[k].update(
-            n_decimals_to_round_to = 2
+            n_decimals_to_round_to=2
             )
 
         # Convert base_amount from decimal to float so it can be used for
         # calculations.
         specificingredient_dict_list[k]['base_amount'] = \
-        float(specificingredient_dict_list[k]['base_amount'])
+            float(specificingredient_dict_list[k]['base_amount'])
 
     # print('\n specificingredient_dict_list \n')
     # pprint.pprint(specificingredient_dict_list)
@@ -83,8 +84,6 @@ def calculate_fulldayofeating(
     # are lists of SpecificIngredients as dictionaries belonging to that group.
     specificingredient_scalingoption_group_dict = {}
 
-    counter_added_to_existing_group = 0
-
     for dict_k in specificingredient_dict_list:
         if dict_k['scaling_option'] == 'FIXED':
             specificingredient_scalingoption_fixed.append(dict_k)
@@ -93,11 +92,12 @@ def calculate_fulldayofeating(
         elif len(dict_k['scaling_option']) == 1:
             # If the group already exists in
             # specificingredient_scalingoption_group_dict, add dict_k to it.
-            if dict_k['scaling_option'] in specificingredient_scalingoption_group_dict:
+            if dict_k['scaling_option']\
+                    in specificingredient_scalingoption_group_dict:
                 # Check that the new SpecificIngredient has the same units as
                 # the first SpecificIngredient in the group.
                 if dict_k['base_amount_unit'] == \
-                specificingredient_scalingoption_group_dict[
+                    specificingredient_scalingoption_group_dict[
                                     dict_k['scaling_option']
                                     ][0]['base_amount_unit']:
                     specificingredient_scalingoption_group_dict[
@@ -106,22 +106,22 @@ def calculate_fulldayofeating(
                 else:
                     # TODO: Make this into a proper error message and show it
                     # to the user.
-                    print('\nERROR: All specific ingredients belonging to the'\
-                           ' same group'\
-                          ' must have the same units.\n')
+                    print(
+                        '\nERROR: All specific ingredients belonging to the'
+                        ' same group must have the same units.\n')
                     return None
             # If the group does not exist
             # specificingredient_scalingoption_group_dict, create it an add
             # dict_k to it.
             else:
                 specificingredient_scalingoption_group_dict.update(
-                    {dict_k['scaling_option'] : [dict_k]}
+                    {dict_k['scaling_option']: [dict_k]}
                     )
         else:
             # This case is impossible, since the user is only presented
             # with valid selections for the scaling_option. It's still good
             # practice to have this piece of code.
-            print('\nERROR. The value given for scaling_group option was' \
+            print('\nERROR. The value given for scaling_group option was'
                   ' not valid.\n')
             return None
 
@@ -133,13 +133,11 @@ def calculate_fulldayofeating(
     # pprint.pprint(specificingredient_scalingoption_group_dict)
 
     list_averaged_specificingredients = \
-    calculate_average_of_specificingredient_group(
-        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-        specificingredient_scalingoption_group_dict,
-        copy,
-        pprint,
-        targeted_nutrients
-    )
+        calculate_average_of_specificingredient_group(
+            all_nutrients_and_default_units,
+            specificingredient_scalingoption_group_dict,
+            copy,
+        )
     # print('\n list_averaged_specificingredients \n')
     # pprint.pprint(list_averaged_specificingredients)
 
@@ -156,7 +154,7 @@ def calculate_fulldayofeating(
     # pprint.pprint(list_independently_scaling_entities)
 
     fulldayofeating_nutrition_so_far = {}
-    for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    for nutrient_dict in all_nutrients_and_default_units:
         nutrient_field_name = nutrient_dict['name']
         fulldayofeating_nutrition_so_far.update(
             {nutrient_field_name: 0}
@@ -165,29 +163,28 @@ def calculate_fulldayofeating(
     # pprint.pprint(fulldayofeating_nutrition_so_far)
 
     for dict_k in specificingredient_scalingoption_fixed:
-        for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        for nutrient_dict in all_nutrients_and_default_units:
             nutrient_field_name = nutrient_dict['name']
-            if dict_k['raw_ingredient'][nutrient_field_name] == None:
-                dict_k['raw_ingredient'][nutrient_field_name] = \
-                0
-            fulldayofeating_nutrition_so_far[nutrient_field_name]=\
-            fulldayofeating_nutrition_so_far[nutrient_field_name]\
-            + dict_k['base_amount'] \
-            / dict_k['raw_ingredient']['reference_amount'] \
-            * set_to_zero_if_none(dict_k['raw_ingredient'][nutrient_field_name])
-    # print('\n fulldayofeating_nutrition_so_far \n')
-    # pprint.pprint(fulldayofeating_nutrition_so_far)
+            if dict_k['raw_ingredient'][nutrient_field_name] is None:
+                dict_k['raw_ingredient'][nutrient_field_name] = 0
+            fulldayofeating_nutrition_so_far[nutrient_field_name] = \
+                fulldayofeating_nutrition_so_far[nutrient_field_name]\
+                + dict_k['base_amount'] \
+                / dict_k['raw_ingredient']['reference_amount'] \
+                * set_to_zero_if_none(
+                    dict_k['raw_ingredient'][nutrient_field_name]
+                )
 
     # For the targeted nutrients, calculate the remaining values.
     targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)
     for key_k in targeted_nutrients:
         targeted_nutrients_remainder[key_k] = \
-        targeted_nutrients[key_k] \
-        - fulldayofeating_nutrition_so_far[key_k]
+            targeted_nutrients[key_k] \
+            - fulldayofeating_nutrition_so_far[key_k]
         # Check if the 'FIXED' SpecificIngredients already run over the
         # nutrition goal.
         if targeted_nutrients_remainder[key_k] <= 0:
-            print('ERROR: The ingredients with the \'FIXED\' scaling_options '\
+            print('ERROR: The ingredients with the \'FIXED\' scaling_options '
                   'already provide too much nutrition.')
             return None
 
@@ -217,17 +214,17 @@ def calculate_fulldayofeating(
         list_names_independently_scaling_entities = []
         for dict_k in list_independently_scaling_entities:
             name_independtly_scaling_entity = \
-            dict_k['raw_ingredient']['name']
+                dict_k['raw_ingredient']['name']
             list_names_independently_scaling_entities.append(
                 name_independtly_scaling_entity
             )
-        result_calculate_fulldayofeating['errors']\
-        ['list_names_independently_scaling_entities'] = \
-        list_names_independently_scaling_entities
+        result_calculate_fulldayofeating['errors'][
+            'list_names_independently_scaling_entities'] = \
+            list_names_independently_scaling_entities
 
-        result_calculate_fulldayofeating['errors']\
-        ['n_independently_scaling_entities'] = \
-        len(list_names_independently_scaling_entities)
+        result_calculate_fulldayofeating['errors'][
+            'n_independently_scaling_entities'] = \
+            len(list_names_independently_scaling_entities)
 
         # print('\n list_names_independently_scaling_entities \n')
         # pprint.pprint(list_names_independently_scaling_entities)
@@ -235,19 +232,17 @@ def calculate_fulldayofeating(
         list_nutrient_targets = []
         for key_k in targeted_nutrients_remainder:
             list_nutrient_targets.append(key_k)
-        result_calculate_fulldayofeating['errors']\
-        ['list_nutrient_targets'] = \
-        list_nutrient_targets
+        result_calculate_fulldayofeating['errors'][
+            'list_nutrient_targets'] = list_nutrient_targets
 
-        result_calculate_fulldayofeating['errors']\
-        ['n_nutrient_targets'] = \
-        len(list_nutrient_targets)
+        result_calculate_fulldayofeating['errors'][
+            'n_nutrient_targets'] = len(list_nutrient_targets)
 
         # print('\n list_nutrient_targets \n')
         # pprint.pprint(list_nutrient_targets)
 
     else:
-        a = np.zeros(shape=(len(b),len(b)))
+        a = np.zeros(shape=(len(b), len(b)))
         column_index = 0
         for dict_k in list_independently_scaling_entities:
             row_index = 0
@@ -265,7 +260,7 @@ def calculate_fulldayofeating(
             x = np.linalg.solve(a, b)
         except:
             result_calculate_fulldayofeating['errors']['solver_failed']\
-            = True
+                = True
             print('\n solver failed in calculate_fulldayofeating\n')
             return result_calculate_fulldayofeating
         # print('\nx \n')
@@ -279,15 +274,15 @@ def calculate_fulldayofeating(
 
     for k in range(len(x)):
         # Calculate solution
-        solution[k] = x[k] * list_independently_scaling_entities\
-        [k]['raw_ingredient']['reference_amount']
+        solution[k] = x[k] * list_independently_scaling_entities[k][
+            'raw_ingredient']['reference_amount']
 
         # If any of the solutions are negative, the whole calculation is not
         # useful to the user. The user will be shown an explanatory error
         # page.
         if solution[k] < 0:
             result_calculate_fulldayofeating['errors']['negative_result']\
-            = True
+                = True
 
     # print('\n solution \n')
     # pprint.pprint(solution)
@@ -295,7 +290,7 @@ def calculate_fulldayofeating(
     # Assign the solution to the respective dictionary.
     for k in range(len(solution)):
         list_independently_scaling_entities[k]['calculated_amount'] = \
-        solution[k]
+            solution[k]
     # print('\n list_independently_scaling_entities \n')
     # pprint.pprint(list_independently_scaling_entities)
 
@@ -311,15 +306,15 @@ def calculate_fulldayofeating(
     # averaged_specificingredient instances.
     calculated_amount_and_group_name = {}
     for k in range(len(list_independently_scaling_entities)):
-        new_dict = {}
         if list_independently_scaling_entities[k]['raw_ingredient']['name']\
-        .startswith('average_group_'):
+                .startswith('average_group_'):
             group_name = list_independently_scaling_entities[k]['group']
             calculated_amount = \
-            list_independently_scaling_entities[k]['calculated_amount']
+                list_independently_scaling_entities[k]['calculated_amount']
             total_base_amount = \
-            list_independently_scaling_entities[k]['total_base_amount']
-            new_dict = {group_name:
+                list_independently_scaling_entities[k]['total_base_amount']
+            new_dict = {
+                group_name:
                 {'calculated_amount': calculated_amount,
                  'total_base_amount': total_base_amount}
                                      }
@@ -330,22 +325,18 @@ def calculate_fulldayofeating(
 
     # unaverage the averaged_specificingredient instances
     specificingredient_scalingoption_group_dict_with_results =\
-     undo_calculate_average_of_specificingredient_group(
-        specificingredient_scalingoption_group_dict,
-        calculated_amount_and_group_name,
-        pprint
-    )
+        undo_calculate_average_of_specificingredient_group(
+            specificingredient_scalingoption_group_dict,
+            calculated_amount_and_group_name,
+            pprint
+        )
     # print('\n specificingredient_scalingoption_group_dict_with_results \n')
     # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
 
     for group_name, specificingredient_list in \
-    specificingredient_scalingoption_group_dict_with_results.items():
+            specificingredient_scalingoption_group_dict_with_results.items():
         for k in range(len(specificingredient_list)):
             id_result = specificingredient_list[k]['id']
-
-            # TODO: delete this old code.
-            # calculated_amount_result = \
-            # specificingredient_list[k]['calculated_amount']
 
             calculated_amount_result = round(
                 specificingredient_list[k]['calculated_amount'],
@@ -364,15 +355,14 @@ def calculate_fulldayofeating(
         # The averaged_specificingredient do not have a 'scaling_option' key.
         if 'scaling_option' in list_independently_scaling_entities[k].keys():
             if list_independently_scaling_entities[k]['scaling_option'] \
-            == 'INDEPENDENT':
+                    == 'INDEPENDENT':
                 id_result = list_independently_scaling_entities[k]['id']
 
                 # Round the calculated_amount_result before adding it to the
                 # return dictionary.
-                # TODO: remove trailing zeros when there are zero decimals.
                 calculated_amount_result = round(
                     list_independently_scaling_entities[k]['calculated_amount'],
-                    list_independently_scaling_entities[k]\
+                    list_independently_scaling_entities[k]
                     ['n_decimals_to_round_to']
                 )
 
@@ -392,7 +382,7 @@ def calculate_fulldayofeating(
         # Since the base amounts are used, rounding is not necessary.
         # TODO: This might be confusing.
         calculated_amount_result = \
-        specificingredient_scalingoption_fixed[k]['base_amount']
+            specificingredient_scalingoption_fixed[k]['base_amount']
         new_dict = {
             'id': id_result,
             'calculated_amount': calculated_amount_result
@@ -400,7 +390,7 @@ def calculate_fulldayofeating(
         specificingredient_id_and_calculated_amount.append(new_dict)
 
     result_calculate_fulldayofeating['values'] = \
-    copy.deepcopy(specificingredient_id_and_calculated_amount)
+        copy.deepcopy(specificingredient_id_and_calculated_amount)
 
     # Make it a PURE function, i.e. return the values instead of directly
     # saving them to the database.

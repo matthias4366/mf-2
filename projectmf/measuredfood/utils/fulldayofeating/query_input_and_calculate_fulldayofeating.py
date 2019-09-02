@@ -1,3 +1,5 @@
+
+
 def query_input_and_calculate_fulldayofeating(
     query_ingredients_fulldayofeating,
     query_nutrientprofile_of_fulldayofeating,
@@ -80,18 +82,17 @@ def query_input_and_calculate_fulldayofeating(
         nutrientprofile_dict
 
     result_calculate_fulldayofeating = \
-    calculate_fulldayofeating(
-        pprint,
-        copy,
-        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-        np,
-        calculate_average_of_specificingredient_group,
-        undo_calculate_average_of_specificingredient_group,
-        specificingredient_dict_list,
-        nutrientprofile_dict,
-        targeted_nutrients,
-        set_to_zero_if_none,
-        )
+        calculate_fulldayofeating(
+            pprint,
+            copy,
+            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            np,
+            calculate_average_of_specificingredient_group,
+            undo_calculate_average_of_specificingredient_group,
+            specificingredient_dict_list,
+            targeted_nutrients,
+            set_to_zero_if_none,
+            )
 
     # print('\n result_calculate_fulldayofeating in query_input_and_calculate_fulldayofeating \n')
     # pprint.pprint(result_calculate_fulldayofeating)

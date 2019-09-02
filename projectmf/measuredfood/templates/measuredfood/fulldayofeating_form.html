@@ -6,13 +6,13 @@ ingredients is built here. -->
   <form method="post">
     {% csrf_token %}
 
-    <table border="2">
+    <table>
       {{ form_fulldayofeating }}
     </table>
     <br>
     <br>
 
-    <table border="2">
+    <table>
       {{ formset_specificnutrienttarget.management_form }}
       <tr>
         <th>Nutrient targets for the calculations:</th>
@@ -31,7 +31,7 @@ ingredients is built here. -->
     <br>
     <br>
 
-    <table border="2">
+    <table>
       <tr>
         <th>Amount</th>
         <th>Units</th>

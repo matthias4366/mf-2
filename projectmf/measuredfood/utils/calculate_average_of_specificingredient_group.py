@@ -1,9 +1,9 @@
+
+
 def calculate_average_of_specificingredient_group(
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    all_nutrients_and_default_units,
     specificingredient_scalingoption_group_dict,
     copy,
-    pprint,
-    targeted_nutrients
 ):
     """
     For each group of ingredients, create an average ingredient representing
@@ -20,7 +20,7 @@ def calculate_average_of_specificingredient_group(
         # as opposed to starting with a copy of a SpecificIngredient. This way,
         # only the needed fields will be included.
         rawingredient_dict_initial = {}
-        for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+        for nutrient_dict in all_nutrients_and_default_units:
             field_name = nutrient_dict['name']
             rawingredient_dict_initial.update(
                 {field_name: 0}
@@ -28,25 +28,20 @@ def calculate_average_of_specificingredient_group(
         rawingredient_dict_initial.update(
             {'reference_amount': 100}
         )
-        # print('\n rawingredient_dict_initial \n')
-        # pprint.pprint(rawingredient_dict_initial)
         averaged_specificingredient_initial = {}
         averaged_specificingredient_initial.update(
             {'raw_ingredient': rawingredient_dict_initial}
         )
-        # print('\n averaged_specificingredient_initial \n')
-        # pprint.pprint(averaged_specificingredient_initial)
 
         # Name the averaged ingredient using the group name.
-        averaged_specificingredient = copy.deepcopy(averaged_specificingredient_initial)
+        averaged_specificingredient = copy.deepcopy(
+            averaged_specificingredient_initial
+        )
         averaged_specificingredient['raw_ingredient']['name'] = \
-        'average_group_' + key_k
+            'average_group_' + key_k
 
         # Add a group property with the group name to have it easily on hand.
         averaged_specificingredient['group'] = key_k
-
-        # print('\n averaged_specificingredient \n')
-        # pprint.pprint(averaged_specificingredient)
 
         # Average the SpecificIngredients in group_k
 
@@ -66,21 +61,23 @@ def calculate_average_of_specificingredient_group(
         sum_reference_amount_g = 0
         for m in range(len(group_k)):
             sum_reference_amount_g = sum_reference_amount_g \
-            + averaged_specificingredient['raw_ingredient']['reference_amount']
-            for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+                + averaged_specificingredient[
+                                         'raw_ingredient']['reference_amount']
+            for nutrient_dict in all_nutrients_and_default_units:
                 nutrient_field_name = nutrient_dict['name']
                 # Change field values to supported values, i.e. None to 0.
-                if group_k[m]['raw_ingredient'][nutrient_field_name] == None:
-                    group_k[m]['raw_ingredient'][nutrient_field_name] = \
-                    0
-                averaged_specificingredient['raw_ingredient'][nutrient_field_name] = \
-                averaged_specificingredient['raw_ingredient'][nutrient_field_name] \
-                + (group_k[m]['base_amount'] / total_base_amount) \
-                * group_k[m]['raw_ingredient'][nutrient_field_name]
+                if group_k[m]['raw_ingredient'][nutrient_field_name] is None:
+                    group_k[m]['raw_ingredient'][nutrient_field_name] = 0
+                averaged_specificingredient[
+                    'raw_ingredient'][nutrient_field_name] = \
+                    averaged_specificingredient['raw_ingredient'][
+                    nutrient_field_name] \
+                    + (group_k[m]['base_amount'] / total_base_amount) \
+                    * group_k[m]['raw_ingredient'][nutrient_field_name]
 
         # Calculate the average reference_amount.
         averaged_specificingredient['raw_ingredient']['reference_amount'] = \
-        sum_reference_amount_g / len(group_k)
+            sum_reference_amount_g / len(group_k)
 
         # Add all the averaged ingredients to a list.
         list_averaged_specificingredients.append(averaged_specificingredient)

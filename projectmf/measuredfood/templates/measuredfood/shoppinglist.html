@@ -10,11 +10,11 @@
   <br>
 
   <h1>Your shopping list:</h1>
-  <table border="2">
-    <thead>
+  <table>
+    <tr>
       <th>Total amount</th>
       <th>Ingredient name</th>
-    </thead>
+    </tr>
     {% for key, value in results_shopping_list.items %}
     <tr>
       <td>{{ value }}</td>
