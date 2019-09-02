@@ -9,6 +9,7 @@ base_template_ingredient_dict_list = [
     {
         'name': None,
         'reference_amount': None,  # default: 100 g
+        'price_per_reference_amount': None,
         'calories': None,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
         'fat': None,  # 'default_unit': 'gram'
@@ -46,7 +47,7 @@ base_template_ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
         'buy_here_link': None,
         'source_nutritional_information_link': None,
-        'is_public': None,
+        'is_public': False,
     },
 
 ]
@@ -88,7 +89,7 @@ ingredient_dict_list = [
         'calcium': 83.0,
         'iron': 6.7,
         'magnesium': 138,
-        'phosphorus': 0.747,
+        'phosphorus': 406,
         'potassium': 1.359,
         'sodium': 0.012,
         'zinc': 2.8,
@@ -176,7 +177,7 @@ ingredient_dict_list = [
         'calcium': 28.0,
         'iron': 0.8,
         'magnesium': 25.0,
-        'phosphorus': 0.115,
+        'phosphorus': 115,
         'potassium': 0.115,
         'sodium': 0.005,
         'zinc': 1.1,
@@ -304,7 +305,7 @@ ingredient_dict_list = [
         'calcium': 18.0,
         'iron': 1.8,
         'magnesium': 23.0,
-        'phosphorus': 0.040,
+        'phosphorus': 40,
         'potassium': 0.439,
         'sodium': 0.399,
         'zinc': 0.4,
@@ -391,7 +392,7 @@ ingredient_dict_list = [
         'calcium': 3.0,
         'iron': 0.5,
         'magnesium': 9.0,
-        'phosphorus': 0.086,
+        'phosphorus': 86,
         'potassium': 0.318,
         'sodium': 0.005,
         'zinc': 0.5,
@@ -435,7 +436,7 @@ ingredient_dict_list = [
         'calcium': 98.0,
         'iron': 2.9,
         'magnesium': 158,
-        'phosphorus': 0.346,
+        'phosphorus': 346,
         'potassium': 0.441,
         'sodium': 0.002,
         'zinc': 3.1,
@@ -480,7 +481,7 @@ ingredient_dict_list = [
         'calcium': 40.0,
         'iron': 3.6,
         'magnesium': 143,
-        'phosphorus': 0.258,
+        'phosphorus': 258,
         'potassium': 0.215,
         'sodium': 0.008,
         'zinc': 2.4,
@@ -709,7 +710,7 @@ ingredient_dict_list = [
         'calcium': 99.0,
         'iron': 2.7,
         'magnesium': 79.0,
-        'phosphorus': 0.049,
+        'phosphorus': 49,
         'potassium': 0.558,
         'sodium': 0.079,
         'zinc': 0.5,
@@ -965,7 +966,9 @@ ingredient_dict_list = [
         'zinc': 0,
         'potassium': 0,
         'sodium': 38.758,
-        'chloride': 0,
+        # Chloride was calculated roughly by calculating 100 - all the other
+        # components.
+        'chloride': 59,
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         # package aro Jodsalz von getnow
@@ -1231,6 +1234,135 @@ ingredient_dict_list = [
         'buy_here_link': 0,
         'source_nutritional_information_link':
             'https://en.wikipedia.org/wiki/Calcium_citrate',
+        'is_public': True,
+    },
+    {
+        'name': 'Copper tablet',
+        'reference_amount': 1,  # default: 100 g
+        'price_per_reference_amount': 0.1,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        'vitamin_a': 0,  # 'default_unit': 'microgram'
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 2000,  # 'default_unit': 'microgram'
+        'fluoride': 0,  # 'default_unit': 'milligram'
+        'iodine': 0,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 0,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': 0,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+    {
+        'name': 'Choline bitartrate',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 6.49,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        'vitamin_a': 0,  # 'default_unit': 'microgram'
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 99400,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 0,  # 'default_unit': 'microgram'
+        'fluoride': 0,  # 'default_unit': 'milligram'
+        'iodine': 0,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 0,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+    {
+        'name': 'Manganese tablet',
+        'reference_amount': 1,  # default: 100 g
+        'price_per_reference_amount': 0.15,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        'vitamin_a': 0,  # 'default_unit': 'microgram'
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 0,  # 'default_unit': 'microgram'
+        'fluoride': 0,  # 'default_unit': 'milligram'
+        'iodine': 0,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 4,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
         'is_public': True,
     },
 ]
