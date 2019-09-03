@@ -8,7 +8,7 @@ import time
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
-import logging
+# import logging
 
 
 class NutrientProfileTest(FunctionalTest):

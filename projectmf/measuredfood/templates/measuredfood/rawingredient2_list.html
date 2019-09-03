@@ -2,7 +2,7 @@
 {% block content %}
 
   <div class="">
-    <a class="btn btn-primary btn-large"
+    <a class="btn btn-lg btn-block btn-primary"
     href="{% url 'create-rawingredient2' %}"
     id="id_button_new_rawingredient2">
       New Ingredient
@@ -12,7 +12,7 @@
   <br>
 
   <div class="">
-    <a class="btn btn-primary btn-large"
+    <a class="btn btn-lg btn-block btn-secondary"
     href="{% url 'browse-rawingredient2' %}"
     id="id_button_browse_rawingredient2">
       Browse Ingredients
@@ -26,13 +26,20 @@
     <h1>List of your ingredients:</h1>
     <br>
     {% for ingredient in rawingredient2_list %}
-        <p>
-          <a href="{% url 'detail-rawingredient2' ingredient.id %}"
-          class="btn btn-primary btn-large"
-          id="button_view_rawingredient2">
-            View
-          </a>{{ ingredient.name }}
-        </p>
+
+        <div class="box">
+            <div>  <a class="btn btn-primary btn-large"
+              href="{% url 'update-rawingredient2' ingredient.id %}">
+                Edit
+              </a></div>
+            <div><p>{{ ingredient.name }}</p></div>
+            <div>  <a class="btn btn-danger btn-large"
+              href="{% url 'delete-rawingredient2' ingredient.id %}">
+                Delete
+              </a>
+            </div>
+        </div>
+        <br>
     {% endfor %}
   </div>
   {% else %}

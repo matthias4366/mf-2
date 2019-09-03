@@ -6,38 +6,38 @@ ingredients is built here. -->
   <form method="post">
     {% csrf_token %}
 
-    <table>
+    <table class="generic_table_th_td">
       {{ form_fulldayofeating }}
     </table>
     <br>
     <br>
 
-    <table>
+    <table class="generic_table_th_td">
       {{ formset_specificnutrienttarget.management_form }}
-      <tr>
-        <th>Nutrient targets for the calculations:</th>
-        <th>Delete</th>
+      <tr class="generic_table_th_td">
+        <th class="generic_table_th_td">Nutrient targets for the calculations:</th>
+        <th class="generic_table_th_td">Delete</th>
       </tr>
       {% for form in formset_specificnutrienttarget %}
         {% for hidden in form.hidden_fields %}
           {{ hidden }}
         {% endfor %}
-        <tr>
-          <td>{{ form.nutrient_target }}</td>
-          <td>{{ form.DELETE }}</td>
+        <tr class="generic_table_th_td">
+          <td class="generic_table_th_td">{{ form.nutrient_target }}</td>
+          <td class="generic_table_th_td">{{ form.DELETE }}</td>
         </tr>
       {% endfor %}
     </table>
     <br>
     <br>
 
-    <table>
+    <table class="generic_table_th_td">
       <tr>
-        <th>Amount</th>
-        <th>Units</th>
-        <th>Ingredient</th>
-        <th>Scaling</th>
-        <th>Delete</th>
+        <th class="generic_table_th_td">Amount</th>
+        <th class="generic_table_th_td">Units</th>
+        <th class="generic_table_th_td">Ingredient</th>
+        <th class="generic_table_th_td">Scaling</th>
+        <th class="generic_table_th_td">Delete</th>
       </tr>
 
       {{ formset_specificingredient.management_form }}
@@ -46,16 +46,17 @@ ingredients is built here. -->
           {{ hidden }}
         {% endfor %}
         <tr>
-          <td>{{ form.base_amount }}</td>
-          <td>{{ form.base_amount_unit }}</td>
-          <td>{{ form.rawingredient }}</td>
-          <td>{{ form.scaling_option }}</td>
-          <td>{{ form.DELETE }}</td>
+          <td class="generic_table_th_td">{{ form.base_amount }}</td>
+          <td class="generic_table_th_td">{{ form.base_amount_unit }}</td>
+          <td class="generic_table_th_td">{{ form.rawingredient }}</td>
+          <td class="generic_table_th_td">{{ form.scaling_option }}</td>
+          <td class="generic_table_th_td">{{ form.DELETE }}</td>
         </tr>
       {% endfor %}
     </table>
     <br>
-    <input type="submit" value="Save all changes and maybe add more ingredients" />
+    <input type="submit" value="Save all changes and maybe add more ingredients"
+    class="btn btn-primary"/>
   </form>
   <br>
   <br>

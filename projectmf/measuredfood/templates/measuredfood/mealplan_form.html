@@ -10,7 +10,7 @@
             </fieldset>
             <div class="form-group">
                 <button
-                  class="btn btn-outline-info"
+                  class="btn btn-success btn-block btn-lg"
                   type="submit"
                   id="id_button_save_new_mealplan">
                   Save
@@ -21,10 +21,10 @@
 
             <!-- TODO: find a better way to introduce line breaks. -->
             <p>----------------------------------------------------------------------------------------------------------------------------------------------------</p>
-            <table>
-              <tr>
-                <th>Full day of eating</th>
-                <th>Delete</th>
+            <table class="generic_table_th_td">
+              <tr class="generic_table_th_td">
+                <th class="generic_table_th_td">Full day of eating</th>
+                <th class="generic_table_th_td">Delete</th>
               </tr>
 
               {{ formset_specificfulldayofeating.management_form }}
@@ -32,36 +32,34 @@
                 {% for hidden in form.hidden_fields %}
                   {{ hidden }}
                 {% endfor %}
-                <tr>
+                <tr class="generic_table_th_td">
                   <!-- The goal is that users are not shown FullDayOfEating
                   objects made by other users.The form already shows only the
                   FullDayOfEating objects belonging to the user. Matthias
                   Schulz does not know why.
                   -->
-                  <td>{{ form.fulldayofeating }}</td>
-                  <td>{{ form.DELETE }}</td>
+                  <td class="generic_table_th_td">{{ form.fulldayofeating }}</td>
+                  <td class="generic_table_th_td">{{ form.DELETE }}</td>
                 </tr>
               {% endfor %}
             </table>
             <br>
-            <input type="submit" value="Save changes / Add more full days of eating" />
+            <input type="submit" value="Save changes / Add more full days of eating"
+            class="btn btn-block btn-lg btn-dark"/>
 
             {% endif %}
 
         </form>
         {% if view_type == 'update' %}
           <br>
-          <br>
           <a href="{% url 'mealplan-shoppinglist' id_mealplan=id_mealplan %}">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-lg btn-block btn-primary">
               Make shopping list
             </button>
           </a>
-
-          <br>
           <br>
           <a href="{% url 'mealplan-averagenutrition' id_mealplan=id_mealplan %}">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-lg btn-block btn-secondary">
               Calculate average daily nutrition
             </button>
           </a>
