@@ -94,6 +94,30 @@ class RawIngredient2(models.Model):
         null=False,
     )
 
+    """
+    imported_from is currently a placeholder. When searching through the 
+    ingredients in the common database, the source of the ingredient is of 
+    interest. If it was added by a user, it might not be correct. If it was
+    added by Matthias manually, it is more likely to be correct, but could 
+    still be wrong. If it was added through automated import from a separate, 
+    reputable database, it is most likely correct.   
+    """
+    imported_from = models.CharField(
+        max_length=100,
+        choices=[
+            ('manually created by user', 'manually created by user'),
+            ('manually created by matthias', 'manually created by matthias'),
+            ('automatically imported from database xyz', 'automatically '
+                                                         'imported from '
+                                                         'database xyz'),
+        ],
+        # The blank and null settings were set to be uncomplicated while
+        # the rest of the code is being developed.
+        blank=True,
+        null=True,
+        default='manually created by user',
+    )
+
     def __str__(self):
         return self.name
 

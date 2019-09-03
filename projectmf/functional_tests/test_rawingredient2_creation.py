@@ -91,8 +91,14 @@ class RawIngredientTest(FunctionalTest):
             time.sleep(1)
 
             for key, value in ingredient_dict_list[k].items():
-                if value is not None:
-                    self.browser.find_element_by_name(key).send_keys(str(value))
+                # The is_public key is not in the form for the creation
+                # of a new RawIngredient2. The RawIngredient2 instances are
+                # created from fixtures which already contain the is_public
+                # property. Hence, that key needs to be left out.
+                if key != 'is_public':
+                    if value is not None:
+                        self.browser.\
+                            find_element_by_name(key).send_keys(str(value))
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(

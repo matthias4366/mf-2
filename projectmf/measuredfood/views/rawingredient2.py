@@ -20,20 +20,25 @@ from measuredfood.ingredient_properties2 import (
 from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient2Form
 from measuredfood.utils.check_if_author import check_if_author
+import logging
 
 
 @login_required
 def create_rawingredient2(request):
+    logging.info('My changed logging message.')
     """
     Create view for the RawIngredient2. RawIngredient2 is the updated version
     of RawIngredient.
     """
     if request.method == 'POST':
         form_rawingredient2 = RawIngredient2Form(request.POST)
+        logging.info(form_rawingredient2.errors)
         if form_rawingredient2.is_valid():
             form_rawingredient2.instance.author = request.user
             form_rawingredient2.save()
             return redirect('list-rawingredient2')
+        else:
+            logging.info('form_rawingredient2 is not valid.')
     else:
         form_rawingredient2 = RawIngredient2Form()
         context = {
