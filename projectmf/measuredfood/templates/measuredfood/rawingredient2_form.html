@@ -89,18 +89,23 @@
                   <tr class="blank_row">
                       <td colspan="2"></td>
                   </tr>
-<!-- removed upper Save button while debugging the redirect -->
+
                   <tr>
                     <td>
                       <button
-                        class="btn btn-success"
+                        class="btn btn-lg btn-block btn-success"
                         type="submit"
                         id="id_button_save_new_rawingredient2">
                         Save
                       </button>
                     </td>
+                    <td>
+                      <a class="btn btn-lg btn-block btn-danger"
+                      href="{% url 'list-rawingredient2' %}">
+                        Cancel
+                      </a>
+                    </td>
                   </tr>
-
 
                   <tr class="blank_row">
                       <td colspan="2"></td>
@@ -589,19 +594,30 @@
                   <tr>
                     <td colspan="2">{{ form.source_nutritional_information_link }}</td>
                   </tr>
-                  <tr>
-                      <td colspan="2"><hr></td>
+
+                  <tr class="blank_row">
+                      <td colspan="2"></td>
                   </tr>
+
+                  <tr>
+                    <td>
+                      <button
+                        class="btn btn-lg btn-block btn-success"
+                        type="submit"
+                        id="id_button_save_new_rawingredient2">
+                        Save
+                      </button>
+                    </td>
+                    <td>
+                      <a class="btn btn-lg btn-block btn-danger"
+                      href="{% url 'list-rawingredient2' %}">
+                        Cancel
+                      </a>
+                    </td>
+                  </tr>
+
                 </table>
             </fieldset>
-            <div class="form-group">
-                <button
-                  class="btn btn-success"
-                  type="submit"
-                  id="id_button_save_new_rawingredient2">
-                  Save
-                </button>
-            </div>
         </form>
     </div>
 {% endblock content %}
