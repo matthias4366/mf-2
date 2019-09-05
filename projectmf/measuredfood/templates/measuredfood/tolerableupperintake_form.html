@@ -468,12 +468,17 @@
             </fieldset>
             <div class="form-group">
                 <button
-                  class="btn btn-success"
+                  class="btn btn-lg btn-block btn-success"
                   type="submit"
                   id="id_button_save_new_tolerableupperintake">
                   Save
                 </button>
             </div>
+            <a class="btn btn-lg btn-block btn-danger"
+              href="{% url 'list-tolerableupperintake' %}">
+                Cancel
+            </a>
+
         </form>
     </div>
 {% endblock content %}

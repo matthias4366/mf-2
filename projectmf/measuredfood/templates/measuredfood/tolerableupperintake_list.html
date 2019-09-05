@@ -1,10 +1,20 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
   <div class="">
-    <a class="btn btn-primary btn-large"
+    <a class="btn btn-lg btn-block btn-primary"
     href="{% url 'create-tolerableupperintake' %}"
     id="id_button_new_tolerableupperintake">
       New tolerable upper intake
+    </a>
+  </div>
+  <br>
+  <br>
+
+  <div class="">
+    <a class="btn btn-lg btn-block btn-secondary"
+    href="#"
+    id="id_button_browse_tolerableupperintake">
+      Browse Tolerable Upper Intakes
     </a>
   </div>
   <br>
@@ -15,13 +25,22 @@
       <h1>List of your tolerable upper intakes:</h1>
       <br>
       {% for tolerableupperintake in tolerableupperintake_list %}
-          <p>
-            <a href="{% url 'detail-tolerableupperintake' tolerableupperintake.id %}"
-            class="btn btn-primary btn-large"
-            id="button_view_tolerableupperintake">
-              View
-            </a>{{ tolerableupperintake.name }}
-          </p>
+        <div class="box">
+            <div>
+                <a class="btn btn-primary btn-large"
+                  href="{% url 'update-tolerableupperintake' tolerableupperintake.id %}">
+                    Edit
+                </a>
+            </div>
+            <div><p>{{ tolerableupperintake.name }}</p></div>
+            <div>
+              <a class="btn btn-danger btn-large"
+              href="{% url 'delete-tolerableupperintake' tolerableupperintake.id %}">
+                Delete
+              </a>
+            </div>
+        </div>
+        <br>
       {% endfor %}
     </div>
   {% else %}

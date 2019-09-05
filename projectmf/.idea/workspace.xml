@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,20 +31,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="55" column="76" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="76" />
+            <state relative-caret-position="179">
+              <caret line="477" column="57" selection-start-line="477" selection-start-column="57" selection-end-line="477" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_confirm_delete.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+            <state relative-caret-position="329">
+              <caret line="98" selection-start-line="98" selection-end-line="101" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="39" column="62" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -100,8 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/make_nutrient_profile_dict_to_json.py" />
-        <option value="$PROJECT_DIR$/functional_tests/utils/click_navbar_item.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/set_to_zero_if_none.py" />
         <option value="$PROJECT_DIR$/measuredfood/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/home.py" />
@@ -151,6 +153,8 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_confirm_delete.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html" />
       </list>
     </option>
   </component>
@@ -312,7 +316,9 @@
       <workItem from="1567063780367" duration="641000" />
       <workItem from="1567410743889" duration="18582000" />
       <workItem from="1567504305704" duration="7285000" />
-      <workItem from="1567511838077" duration="10268000" />
+      <workItem from="1567511838077" duration="11344000" />
+      <workItem from="1567527507768" duration="1741000" />
+      <workItem from="1567671239852" duration="1071000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -381,7 +387,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42381000" />
+    <option name="totallyTimeSpent" value="46269000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,12 +402,12 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2097399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21416713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -410,7 +416,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35421166" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32397407" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32937366" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -438,26 +444,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="All tests are working again. Although: it is unclear why." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/calculate_total_nutrition_fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/query/query_nutrientprofile_of_fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/calculate_percentage_of_target_amount.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/calculate_percentage_of_tolerable_upper_intake.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/query/query_tolerableupperintake_of_fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -706,22 +692,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/static/measuredfood/main.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" selection-start-line="13" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -788,17 +760,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="55" column="76" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrienttargetselection_confirm_delete.html" />
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="29" selection-start-line="29" selection-end-line="41" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" selection-start-line="8" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="39" column="62" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="98" selection-start-line="98" selection-end-line="101" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="477" column="57" selection-start-line="477" selection-start-column="57" selection-end-line="477" selection-end-column="57" />
         </state>
       </provider>
     </entry>
