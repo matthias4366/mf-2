@@ -1,8 +1,8 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <a href="{% url 'update-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
-    <button type="button" class="btn btn-primary">
+  <a href="{% url 'list-fulldayofeating' %}">
+    <button type="button" class="btn btn-lg btn-block btn-primary">
       Back to Full Day Of Eating: {{ fulldayofeating_object.name }}.
     </button>
   </a>

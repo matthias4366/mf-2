@@ -3,6 +3,14 @@
 <!-- The html table holding the recipe editor with the addition of specific
 ingredients is built here. -->
 
+ <a href="{% url 'list-fulldayofeating' %}">
+    <button type="button" class="btn btn-lg btn-block btn-primary">
+      Back to list of full days of eating
+    </button>
+  </a>
+  <br>
+  <br>
+
   <form method="post">
     {% csrf_token %}
 
@@ -57,12 +65,12 @@ ingredients is built here. -->
     </table>
     <br>
     <input type="submit" value="Save all changes and maybe add more ingredients"
-    class="btn btn-primary"/>
+    class="btn btn-lg btn-block btn-primary"/>
   </form>
   <br>
   <br>
     <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
-      <button type="button" class="btn btn-primary">
+      <button type="button" class="btn btn-lg btn-block btn-primary">
         Calculate full day of eating
       </button>
     </a>
