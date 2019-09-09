@@ -12,6 +12,7 @@ sys.path.insert(0, '/projectmf/data/')
 
 class RawIngredientTest(FunctionalTest):
 
+    # TODO: delete this old test once a newer replacement test is done
     def test_user_registration_and_rawingredient_creation(self):
         """
         There should be a temporary database created for testing purposes only.
@@ -107,3 +108,15 @@ class RawIngredientTest(FunctionalTest):
             save_button.send_keys(Keys.ENTER)
 
             time.sleep(1)
+
+    def test_rawingredient2_creation(self):
+
+        # Create a new dummy user.
+        # Force the login of that new dummy user.
+
+        # Create a new RawIngredient2 instance.
+        # Use pea protein powder.
+
+        # Check if the RawIngredient2 instance is found in the database.
+
+        pass
