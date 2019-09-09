@@ -2,6 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+
+    <a href="{% url 'list-mealplan' %}">
+      <button type="button" class="btn btn-lg btn-block btn-primary">
+        Back to list of mealplans
+      </button>
+    </a>
+    <br>
+    <br>
+
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -19,33 +28,39 @@
 
             {% if view_type == 'update' %}
 
-            <!-- TODO: find a better way to introduce line breaks. -->
-            <p>----------------------------------------------------------------------------------------------------------------------------------------------------</p>
-            <table class="generic_table_th_td">
-              <tr class="generic_table_th_td">
-                <th class="generic_table_th_td">Full day of eating</th>
-                <th class="generic_table_th_td">Delete</th>
-              </tr>
-
-              {{ formset_specificfulldayofeating.management_form }}
-              {% for form in formset_specificfulldayofeating %}
-                {% for hidden in form.hidden_fields %}
-                  {{ hidden }}
-                {% endfor %}
+              <br>
+              <br>
+              <table class="generic_table_th_td">
                 <tr class="generic_table_th_td">
-                  <!-- The goal is that users are not shown FullDayOfEating
-                  objects made by other users.The form already shows only the
-                  FullDayOfEating objects belonging to the user. Matthias
-                  Schulz does not know why.
-                  -->
-                  <td class="generic_table_th_td">{{ form.fulldayofeating }}</td>
-                  <td class="generic_table_th_td">{{ form.DELETE }}</td>
+                  <th class="generic_table_th_td">Full day of eating</th>
+                  <th class="generic_table_th_td">Delete</th>
                 </tr>
-              {% endfor %}
-            </table>
-            <br>
-            <input type="submit" value="Save changes / Add more full days of eating"
-            class="btn btn-block btn-lg btn-dark"/>
+
+                {{ formset_specificfulldayofeating.management_form }}
+                {% for form in formset_specificfulldayofeating %}
+                  {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                  {% endfor %}
+                  <tr class="generic_table_th_td">
+                    <!-- The goal is that users are not shown FullDayOfEating
+                    objects made by other users.The form already shows only the
+                    FullDayOfEating objects belonging to the user. Matthias
+                    Schulz does not know why.
+                    -->
+                    <td class="generic_table_th_td">{{ form.fulldayofeating }}</td>
+                    <td class="generic_table_th_td">{{ form.DELETE }}</td>
+                  </tr>
+                {% endfor %}
+                <tr>
+                  <td colspan="2">
+                    {#  Save changes or add more full days of eating. #}
+                    <input type="submit" value="Save changes"
+              class="btn btn-block btn-lg btn-dark"/>
+                  </td>
+                </tr>
+              </table>
+              <br>
+
 
             {% endif %}
 

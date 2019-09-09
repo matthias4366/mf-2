@@ -1,3 +1,9 @@
+/* Overall, it is not necessarily clear which button relates to the formset
+ and which button relates to a form. */
+.border_around_related_elements {
+
+}
+
 /* In lists of objects, align the Edit button, object name and delete button
  so that the buttons are all the way to the left and right side, respectively
  and the object name is in the middle.*/

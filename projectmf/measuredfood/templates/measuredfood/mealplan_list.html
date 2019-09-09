@@ -1,10 +1,19 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
   <div class="">
-    <a class="btn btn-primary btn-large"
+    <a class="btn btn-lg btn-block btn-primary"
     href="{% url 'create-mealplan' %}"
     id="id_button_new_mealplan">
       New mealplan
+    </a>
+  </div>
+  <br>
+  <br>
+  <div class="">
+    <a class="btn btn-lg btn-block btn-secondary"
+    href="#"
+    id="id_button_browse_mealplan">
+      Browse mealplans
     </a>
   </div>
   <br>
@@ -15,13 +24,31 @@
       <h1>List of your mealplans:</h1>
       <br>
       {% for mealplan in mealplan_list %}
-          <p>
-            <a href="{% url 'detail-mealplan' mealplan.id %}"
-            class="btn btn-primary btn-large"
-            id="button_view_mealplan">
-              View
-            </a>{{ mealplan.name }}
-          </p>
+        <div class="box">
+            <div>
+              <a class="btn btn-primary btn-large"
+              href="{% url 'update-mealplan' mealplan.id %}">
+                Edit
+              </a>
+            </div>
+            <div><p>{{ mealplan.name }}</p></div>
+            <div>
+              <a class="btn btn-danger btn-large"
+              href="{% url 'delete-mealplan' mealplan.id %}">
+                Delete
+              </a>
+            </div>
+        </div>
+        <br>
+
+
+{#          <p>#}
+{#            <a href="{% url 'detail-mealplan' mealplan.id %}"#}
+{#            class="btn btn-primary btn-large"#}
+{#            id="button_view_mealplan">#}
+{#              View#}
+{#            </a>{{ mealplan.name }}#}
+{#          </p>#}
       {% endfor %}
     </div>
   {% else %}

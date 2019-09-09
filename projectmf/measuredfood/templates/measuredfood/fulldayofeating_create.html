@@ -2,6 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+
+      <a href="{% url 'list-fulldayofeating' %}">
+        <button type="button" class="btn btn-lg btn-block btn-primary">
+          Back to list of full days of eating
+        </button>
+      </a>
+      <br>
+      <br>
+
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">

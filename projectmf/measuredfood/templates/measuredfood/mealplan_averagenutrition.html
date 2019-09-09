@@ -1,44 +1,52 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <h1>Average nutrition of the mealplan {{ mealplan_name }}:</h1>
+  <a href="{% url 'update-mealplan' id_mealplan=id_mealplan %}">
+    <button type="button" class="btn btn-lg btn-block btn-primary">
+      Back to Mealplan
+    </button>
+  </a>
   <br>
   <br>
-  <table class="total_nutrition_table">
+
+  <h1>Average nutrition of the mealplan</h1>
+  <h1>"{{ mealplan_name }}":</h1>
+  <br>
+  <table class="total_nutrition_table generic_table_th_td">
     <tr>
-      <th class="total_nutrition_table">Nutrient name</th>
-      <th class="total_nutrition_table">Average in mealplan</th>
-      <th class="total_nutrition_table">Unit</th>
-      <th class="total_nutrition_table">% Target</th>
-      <th class="total_nutrition_table">% Tolerable upper intake</th>
-      <th class="total_nutrition_table">Judgement</th>
+      <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
+      <th class="total_nutrition_table generic_table_th_td">Average in mealplan</th>
+      <th class="total_nutrition_table generic_table_th_td">Unit</th>
+      <th class="total_nutrition_table generic_table_th_td">% Target</th>
+      <th class="total_nutrition_table generic_table_th_td">% Tolerable upper intake</th>
+      <th class="total_nutrition_table generic_table_th_td">Judgement</th>
     </tr>
 
     {% for ab in aggregated_total_nutrition_fulldayofeating %}
       <tr  class="{{ ab.6 }} total_nutrition_table">
-        <td class="total_nutrition_table">{{ ab.0 }}</td>
-        <td class="total_nutrition_table">{{ ab.1 }}</td>
-        <td class="total_nutrition_table">{{ ab.2 }}</td>
-        <td class="total_nutrition_table">{{ ab.3 }}</td>
-        <td class="total_nutrition_table">{{ ab.4 }}</td>
-        <td class="total_nutrition_table">{{ ab.5 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.0 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.1 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.2 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.3 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.4 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.5 }}</td>
       </tr>
     {% endfor %}
 
   </table>
   <br>
   <br>
+  <h1>Average price of the mealplan</h1>
+  <h1>"{{ mealplan_name }}":</h1>
   <br>
-  <br>
-  <h1>Average price of the mealplan {{ mealplan_name }}:</h1>
-  <table>
+  <table class="generic_table_th_td">
     <tr>
-      <th>Price</th>
-      <th>Currency</th>
+      <th class="generic_table_th_td">Price</th>
+      <th class="generic_table_th_td">Currency</th>
     </tr>
     <tr>
-      <td>{{ mealplan_total_price_dict.average_price_mealplan_rounded }}</td>
-      <td>{{ mealplan_total_price_dict.total_price_currency }}</td>
+      <td class="generic_table_th_td">{{ mealplan_total_price_dict.average_price_mealplan_rounded }}</td>
+      <td class="generic_table_th_td">{{ mealplan_total_price_dict.total_price_currency }}</td>
     </tr>
   </table>
 

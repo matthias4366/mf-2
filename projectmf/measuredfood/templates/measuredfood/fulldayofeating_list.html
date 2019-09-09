@@ -1,51 +1,55 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <div class="">
-    <a class="btn btn-lg btn-block btn-primary"
-    href="{% url 'create-fulldayofeating' %}"
-    id="id_button_new_fulldayofeating">
-      New full day of eating
-    </a>
-  </div>
-  <br>
-  <br>
-  <div class="">
-      <a class="btn btn-lg btn-block btn-secondary"
-      href="#"
-      id="id_button_browse_fulldayofeating">
-        Browse full days of eating
+  <div class="content-section">
+
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+      href="{% url 'create-fulldayofeating' %}"
+      id="id_button_new_fulldayofeating">
+        New full day of eating
       </a>
-  </div>
-  <br>
-
-  {% if fulldayofeating_list %}
-  <div class="">
-    <h1>List of your full days of eating:</h1>
+    </div>
     <br>
-    {% for fulldayofeating in fulldayofeating_list %}
-      <div class="box">
+    <br>
+    <div class="">
+        <a class="btn btn-lg btn-block btn-secondary"
+        href="#"
+        id="id_button_browse_fulldayofeating">
+          Browse full days of eating
+        </a>
+    </div>
+    <br>
 
-        <div><a class="btn btn-primary btn-large"
-        href="{% url 'update-fulldayofeating' fulldayofeating.id %}">
-          Edit
-        </a></div>
-
-        <div><p>{{ fulldayofeating.name }}</p></div>
-
-        <div><a class="btn btn-danger btn-large"
-        href="{% url 'delete-fulldayofeating' fulldayofeating.id %}">
-          Delete
-        </a></div>
-
-      </div>
+    {% if fulldayofeating_list %}
+    <div class="">
+      <h1>List of your full days of eating:</h1>
       <br>
+      {% for fulldayofeating in fulldayofeating_list %}
+        <div class="box">
 
-    {% endfor %}
+          <div><a class="btn btn-primary btn-large"
+          href="{% url 'update-fulldayofeating' fulldayofeating.id %}">
+            Edit
+          </a></div>
+
+          <div><p>{{ fulldayofeating.name }}</p></div>
+
+          <div><a class="btn btn-danger btn-large"
+          href="{% url 'delete-fulldayofeating' fulldayofeating.id %}">
+            Delete
+          </a></div>
+
+        </div>
+        <br>
+
+      {% endfor %}
+    </div>
+    {% else %}
+      <h1>Add a full day of eating by clicking on the button "New Full Day Of
+        Eating". No full days of eating have been added yet.</h1>
+    {% endif %}
+
   </div>
-  {% else %}
-    <h1>Add a full day of eating by clicking on the button "New Full Day Of
-      Eating". No full days of eating have been added yet.</h1>
-  {% endif %}
 
 {% endblock content %}

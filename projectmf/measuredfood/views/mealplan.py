@@ -283,8 +283,6 @@ def shoppinglist_view(request, id_mealplan):
         ).values()
         list_specificingredient_for_sum = \
             list(queryset_specificingredient_for_sum)
-        # print('\n\n list_specificingredient_for_sum')
-        # pprint.pprint(list_specificingredient_for_sum)
 
         # For each FullDayOfEating in
         # that list, iterate over all the SpecificIngredients.
@@ -295,12 +293,8 @@ def shoppinglist_view(request, id_mealplan):
             query_rawingredient_name = RawIngredient2.objects.filter(
                 id=rawingredient_id
             ).values('name')
-            # print('\n\n query_rawingredient_name')
-            # pprint.pprint(query_rawingredient_name)
 
             rawingredient_name = list(query_rawingredient_name)[0]['name']
-            # print('\n\n rawingredient_name')
-            # pprint.pprint(rawingredient_name)
 
             # Check if the name of the RawIngredient2 is already in the
             # shopping_list_dict.
@@ -316,14 +310,10 @@ def shoppinglist_view(request, id_mealplan):
                 shopping_list_dict[rawingredient_name] \
                 + dict_specificingredient_k['calculated_amount']
 
-    # print('\n\n shopping_list_dict')
-    # pprint.pprint(shopping_list_dict)
     context = {
         'results_shopping_list': shopping_list_dict,
         'id_mealplan': id_mealplan,
         }
-    # print('\n\n context')
-    # pprint.pprint(context)
     return render(request, 'measuredfood/shoppinglist.html', context)
 
 
@@ -690,6 +680,8 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         mealplan_name,
         'mealplan_total_price_dict':
         mealplan_total_price_dict,
+        'id_mealplan':
+        id_mealplan,
     }
     return render(
         request,
