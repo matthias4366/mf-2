@@ -2,13 +2,21 @@
 {% block content %}
 
   <div class="">
-    <a class="btn btn-primary btn-large"
+    <a class="btn btn-lg btn-block btn-primary"
     href="{% url 'create-fulldayofeating' %}"
     id="id_button_new_fulldayofeating">
-      New Full Day Of Eating
+      New full day of eating
     </a>
   </div>
   <br>
+  <br>
+  <div class="">
+      <a class="btn btn-lg btn-block btn-secondary"
+      href="#"
+      id="id_button_browse_fulldayofeating">
+        Browse full days of eating
+      </a>
+  </div>
   <br>
 
   {% if fulldayofeating_list %}
@@ -16,17 +24,23 @@
     <h1>List of your full days of eating:</h1>
     <br>
     {% for fulldayofeating in fulldayofeating_list %}
-      <div class="center_text">
-        {{ fulldayofeating.name }}
+      <div class="box">
+
+        <div><a class="btn btn-primary btn-large"
+        href="{% url 'update-fulldayofeating' fulldayofeating.id %}">
+          Edit
+        </a></div>
+
+        <div><p>{{ fulldayofeating.name }}</p></div>
+
+        <div><a class="btn btn-danger btn-large"
+        href="{% url 'delete-fulldayofeating' fulldayofeating.id %}">
+          Delete
+        </a></div>
+
       </div>
-      <p>
-        <a href="{% url 'detail-fulldayofeating' fulldayofeating.id %}"
-        class="btn btn-primary btn-large"
-        id="button_view_fulldayofeating">
-          View
-        </a>
-        <!-- {{ fulldayofeating.name }} -->
-      </p>
+      <br>
+
     {% endfor %}
   </div>
   {% else %}

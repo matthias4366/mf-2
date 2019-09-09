@@ -15,7 +15,10 @@ class FullDayOfEating(models.Model):
 
     name = models.CharField(max_length=100)
 
-    notes = models.TextField(null=True, blank=True)
+    cooking_instruction = models.TextField(
+        null=True,
+        blank=True
+    )
 
     author = models.ForeignKey(
         User,

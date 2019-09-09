@@ -76,19 +76,19 @@
       targeted nutrients.</p>
     {% endif %}
     <h1>Calculation results:</h1>
-    <table>
+    <table class="generic_table_th_td">
       <tr>
-        <th>Calculated amount</th>
-        <th>Unit</th>
-        <th>Ingredient</th>
-        <th>Affiliate link</th>
+        <th class="generic_table_th_td">Calculated amount</th>
+        <th class="generic_table_th_td">Unit</th>
+        <th class="generic_table_th_td">Ingredient</th>
+        <th class="generic_table_th_td">Affiliate link</th>
       </tr>
       {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
       <tr>
-        <td>{{ dict_k.calculated_amount }}</td>
-        <td>{{ dict_k.base_amount_unit }}</td>
-        <td>{{ dict_k.name }}</td>
-        <td>
+        <td class="generic_table_th_td">{{ dict_k.calculated_amount }}</td>
+        <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
+        <td class="generic_table_th_td">{{ dict_k.name }}</td>
+        <td class="generic_table_th_td">
           <a href="{{ dict_k.buy_here_link }}">Buy</a>
         </td>
       </tr>
@@ -97,27 +97,27 @@
     <br>
     <br>
     <h1>Total nutrition in full day of eating:</h1>
-    <table class="total_nutrition_table">
+    <table class="total_nutrition_table generic_table_th_td">
       <tr>
-        <th class="total_nutrition_table">Nutrient name</th>
-        <th class="total_nutrition_table">Full day of eating</th>
-        <th class="total_nutrition_table">Unit</th>
+        <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
+        <th class="total_nutrition_table generic_table_th_td">Full day of eating</th>
+        <th class="total_nutrition_table generic_table_th_td">Unit</th>
         <!-- Percent of the target set in NutrientProfile -->
-        <th class="total_nutrition_table">% Target</th>
-        <th class="total_nutrition_table">% Tolerable upper intake</th>
-        <th class="total_nutrition_table">Judgement</th>
+        <th class="total_nutrition_table generic_table_th_td">% Target</th>
+        <th class="total_nutrition_table generic_table_th_td">% Tolerable upper intake</th>
+        <th class="total_nutrition_table generic_table_th_td">Judgement</th>
       </tr>
 
       <!-- Use forloop.counter0 to access the for loop counter -->
 
       {% for ab in aggregated_total_nutrition_fulldayofeating %}
         <tr class="{{ ab.6 }} total_nutrition_table">
-          <td class="total_nutrition_table">{{ ab.0 }}</td>
-          <td class="total_nutrition_table">{{ ab.1 }}</td>
-          <td class="total_nutrition_table">{{ ab.2 }}</td>
-          <td class="total_nutrition_table">{{ ab.3 }}</td>
-          <td class="total_nutrition_table">{{ ab.4 }}</td>
-          <td class="total_nutrition_table">{{ ab.5 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.0 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.1 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.2 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.3 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.4 }}</td>
+          <td class="total_nutrition_table generic_table_th_td">{{ ab.5 }}</td>
         </tr>
       {% endfor %}
 
@@ -127,14 +127,16 @@
     <br>
     <br>
     <h1>Total price of full day of eating:</h1>
-    <table>
+    <table class="generic_table_th_td">
       <tr>
-        <th>Price</th>
-        <th>Currency</th>
+        <th class="generic_table_th_td">Price</th>
+        <th class="generic_table_th_td">Currency</th>
       </tr>
       <tr>
-        <td>{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
-        <td>{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
+        <td class="generic_table_th_td"
+        >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
+        <td class="generic_table_th_td"
+        >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
       </tr>
     </table>
     <br>
