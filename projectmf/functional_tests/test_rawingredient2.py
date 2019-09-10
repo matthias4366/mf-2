@@ -1,122 +1,73 @@
 from functional_tests.utils.click_navbar_item import \
     click_navbar_item
 from data.ingredients_data2 import ingredient_dict_list
-from .base import FunctionalTest
+from .base import (
+    # FunctionalTest,
+    FunctionalTestWithUserLoggedIn)
 from selenium.webdriver.common.keys import Keys
 import time
+from measuredfood.models import RawIngredient2
+# from functional_tests.base import wait
+
 
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
 
 
-class RawIngredientTest(FunctionalTest):
+class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
 
-    # TODO: delete this old test once a newer replacement test is done
-    def test_user_registration_and_rawingredient_creation(self):
-        """
-        There should be a temporary database created for testing purposes only.
-        Test the registration of a new user with a username and a password.
-        """
-
-        dummy_username = 'DummyUser'
-        dummy_email = 'DummyUser@gmail.com'
-        dummy_password = 'testpassword'
-
-        # Open the registration page
-        self.browser.get(self.live_server_url + '/register/')
-
-        # Find elements by name
-        username = self.browser.find_element_by_name('username')
-        email = self.browser.find_element_by_name('email')
-        password1 = self.browser.find_element_by_name('password1')
-        password2 = self.browser.find_element_by_name('password2')
-
-        # Input values into the fields
-        username.send_keys(dummy_username)
-        email.send_keys(dummy_email)
-        password1.send_keys(dummy_password)
-        password2.send_keys(dummy_password)
-        time.sleep(3)
-
-        # Simulate clicking on Sign Up
-        sign_up_button = self.browser.find_element_by_id('id_button_signup')
-        sign_up_button.send_keys(Keys.ENTER)
-
-        # TODO: Check if the user has been added to the database.
-
-        # A redirect to the login page should happen at this point.
-        # TODO: Test whether the redirect has happened.
-
-        time.sleep(3)
-
-        # Find login elements
-        username_field = self.browser.find_element_by_name('username')
-        password_field = self.browser.find_element_by_name('password')
-
-        # Input values into the fields
-        username_field.send_keys(dummy_username)
-        password_field.send_keys(dummy_password)
-
-        # Simulate clicking on Log In
-        click_navbar_item(
-            'id_button_login',
-            self.browser,
-            Keys,
-            )
-
-        time.sleep(3)
-
-        # A redirect to the homepage should happen at this point.
-        # TODO: Test whether a redirect to the homepage happens.
+    def test_rawingredient2_creation(self):
 
         # Simulate clicking on the menu item "Ingredients"
         click_navbar_item(
             'id_menu_item_rawingredients2',
             self.browser,
             Keys,
+            time,
             )
 
-        time.sleep(3)
+        # Simulate the user creating a new RawIngredient2 instance using
+        # the form.
+        new_ingredient_button = self.browser.find_element_by_id(
+            'id_button_new_rawingredient2'
+        )
+        new_ingredient_button.send_keys(Keys.ENTER)
 
-        # Add all the ingredients
-        # for k in range(len(ingredient_dict_list)):
-        # It is not necessary to add all the ingredients.
-        for k in range(2):
+        # Add the first ingredient from the list.
+        k = 0
 
-            new_ingredient_button = self.browser.find_element_by_id(
-                'id_button_new_rawingredient2'
-            )
-            new_ingredient_button.send_keys(Keys.ENTER)
+        new_ingredient_button = self.browser.find_element_by_id(
+            'id_button_new_rawingredient2'
+        )
+        new_ingredient_button.send_keys(Keys.ENTER)
 
-            time.sleep(1)
+        time.sleep(1)
 
-            for key, value in ingredient_dict_list[k].items():
-                # The is_public key is not in the form for the creation
-                # of a new RawIngredient2. The RawIngredient2 instances are
-                # created from fixtures which already contain the is_public
-                # property. Hence, that key needs to be left out.
-                if key != 'is_public':
-                    if value is not None:
-                        self.browser.\
-                            find_element_by_name(key).send_keys(str(value))
+        for key, value in ingredient_dict_list[k].items():
+            # The is_public key relates to a boolean field which is not to
+            # be filled out with text but checked instead.
+            if key != 'is_public':
+                if value is not None:
+                    self.browser. \
+                        find_element_by_name(key).send_keys(str(value))
+            # Since the is_public key is set to False by default and False
+            # is the desired setting, it is not necessary to do anything.
+            else:
+                pass
 
-            # Simulate clicking the save button
-            save_button = self.browser.find_element_by_id(
-                'id_button_save_new_rawingredient2'
-            )
-            save_button.send_keys(Keys.ENTER)
-
-            time.sleep(1)
-
-    def test_rawingredient2_creation(self):
-
-        # Create a new dummy user.
-        # Force the login of that new dummy user.
-
-        # Create a new RawIngredient2 instance.
-        # Use pea protein powder.
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_new_rawingredient2'
+        )
+        save_button.click()
 
         # Check if the RawIngredient2 instance is found in the database.
 
-        pass
+        rawingredient2_saved_object = RawIngredient2.objects.filter(
+            name=ingredient_dict_list[k]['name']
+        )
+
+        rawingredient2_was_saved = rawingredient2_saved_object.exists()
+
+        self.assertTrue(rawingredient2_was_saved)

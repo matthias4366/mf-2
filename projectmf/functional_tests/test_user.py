@@ -1,13 +1,10 @@
 from django.contrib.auth.models import User
-# from functional_tests.utils.click_navbar_item import \
-#     click_navbar_item
 from .base import FunctionalTest
 from selenium.webdriver.common.keys import Keys
 from functional_tests.base import wait
 
 import sys
 sys.path.insert(0, '/projectmf/data/')
-# import logging
 
 
 class NewUserProfileTest(FunctionalTest):

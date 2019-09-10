@@ -44,6 +44,7 @@ class NutrientProfileTest(FunctionalTest):
             'id_button_signup',
             self.browser,
             Keys,
+            time,
             )
 
         # TODO: Check if the user has been added to the database.
@@ -72,6 +73,7 @@ class NutrientProfileTest(FunctionalTest):
             'id_menu_item_nutrient_profiles',
             self.browser,
             Keys,
+            time,
             )
 
         time.sleep(3)
