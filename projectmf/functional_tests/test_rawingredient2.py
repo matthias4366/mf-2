@@ -7,6 +7,7 @@ from .base import (
 from selenium.webdriver.common.keys import Keys
 import time
 from measuredfood.models import RawIngredient2
+from django.contrib.auth.models import User
 # from functional_tests.base import wait
 
 
@@ -521,3 +522,39 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
             len(rawingredient2_paragraph) > 0
 
         self.assertTrue(rawingredient2_is_shown_in_list)
+
+    def test_user_can_not_edit_rawingredient2_of_other_user(self):
+        """
+        It should not be possible for users to edit any object from another
+        user. Here, it is tested whether the user can edit other users
+        RawIngredient2 objects. If a user were to know (or guess) the id of a
+        foreign object, it is possible in principle to access that
+        object via url forgery.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        # Create a RawIngredient2 object that belong to a different user.
+        foreign_rawingredient2 = RawIngredient2.objects.create(
+            name='Ingredient from other user',
+            author=other_user,
+        )
+
+        url_foreign_rawingredient2 = \
+            self.live_server_url \
+            + '/rawingredient2/' \
+            + str(foreign_rawingredient2.id) \
+            + '/update/'
+
+        # Try opening the edit page of the different RawIngredient2.
+        self.browser.get(url_foreign_rawingredient2)
+
+        # Test whether the appropriate error page is shown.
+        error_paragraph = self.browser.find_elements_by_id(
+            'error_message_not_your_rawingredient2_to_edit'
+        )
+        error_page_is_shown = \
+            len(error_paragraph) > 0
+        self.assertTrue(error_page_is_shown)
