@@ -29,12 +29,18 @@
 
           <div class="box">
               <div>  <a class="btn btn-primary btn-large"
-                href="{% url 'update-rawingredient2' ingredient.id %}">
+                href="{% url 'update-rawingredient2' ingredient.id %}"
+              id="edit {{ ingredient.name }}">
                   Edit
                 </a></div>
-              <div><p>{{ ingredient.name }}</p></div>
+              <div>
+                <p id="paragraph {{ ingredient.name }}">
+                  {{ ingredient.name }}
+                </p>
+              </div>
               <div>  <a class="btn btn-danger btn-large"
-                href="{% url 'delete-rawingredient2' ingredient.id %}">
+                href="{% url 'delete-rawingredient2' ingredient.id %}"
+              id="delete {{ ingredient.name }}">
                   Delete
                 </a>
               </div>
