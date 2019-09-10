@@ -63,11 +63,8 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
         save_button.click()
 
         # Check if the RawIngredient2 instance is found in the database.
-
         rawingredient2_saved_object = RawIngredient2.objects.filter(
             name=ingredient_dict_list[k]['name']
         )
-
         rawingredient2_was_saved = rawingredient2_saved_object.exists()
-
         self.assertTrue(rawingredient2_was_saved)

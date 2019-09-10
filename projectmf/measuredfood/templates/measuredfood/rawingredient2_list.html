@@ -1,49 +1,50 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
-
-  <div class="">
-    <a class="btn btn-lg btn-block btn-primary"
-    href="{% url 'create-rawingredient2' %}"
-    id="id_button_new_rawingredient2">
-      New Ingredient
-    </a>
-  </div>
-  <br>
-  <br>
-
-  <div class="">
-    <a class="btn btn-lg btn-block btn-secondary"
-    href="{% url 'browse-rawingredient2' %}"
-    id="id_button_browse_rawingredient2">
-      Browse Ingredients
-    </a>
-  </div>
-  <br>
-  <br>
-
-  {% if rawingredient2_list %}
-  <div class="">
-    <h1>List of your ingredients:</h1>
+  <div class="content-section">
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+      href="{% url 'create-rawingredient2' %}"
+      id="id_button_new_rawingredient2">
+        New Ingredient
+      </a>
+    </div>
     <br>
-    {% for ingredient in rawingredient2_list %}
+    <br>
 
-        <div class="box">
-            <div>  <a class="btn btn-primary btn-large"
-              href="{% url 'update-rawingredient2' ingredient.id %}">
-                Edit
-              </a></div>
-            <div><p>{{ ingredient.name }}</p></div>
-            <div>  <a class="btn btn-danger btn-large"
-              href="{% url 'delete-rawingredient2' ingredient.id %}">
-                Delete
-              </a>
-            </div>
-        </div>
-        <br>
-    {% endfor %}
+    <div class="">
+      <a class="btn btn-lg btn-block btn-secondary"
+      href="{% url 'browse-rawingredient2' %}"
+      id="id_button_browse_rawingredient2">
+        Browse Ingredients
+      </a>
+    </div>
+    <br>
+    <br>
+
+    {% if rawingredient2_list %}
+    <div class="">
+      <h1>List of your ingredients:</h1>
+      <br>
+      {% for ingredient in rawingredient2_list %}
+
+          <div class="box">
+              <div>  <a class="btn btn-primary btn-large"
+                href="{% url 'update-rawingredient2' ingredient.id %}">
+                  Edit
+                </a></div>
+              <div><p>{{ ingredient.name }}</p></div>
+              <div>  <a class="btn btn-danger btn-large"
+                href="{% url 'delete-rawingredient2' ingredient.id %}">
+                  Delete
+                </a>
+              </div>
+          </div>
+          <br>
+      {% endfor %}
+    </div>
+    {% else %}
+      <h1>Add ingredients by clicking on the "New Ingredient" button above.</h1>
+    {% endif %}
   </div>
-  {% else %}
-    <h1>Add ingredients by clicking on the "New Ingredient" button above.</h1>
-  {% endif %}
 
 {% endblock content %}

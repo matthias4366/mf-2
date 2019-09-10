@@ -2,6 +2,16 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+
+      <a href="{% url 'list-rawingredient2' %}"
+      id="back_to_list_of_ingredients">
+        <button type="button" class="btn btn-lg btn-block btn-primary">
+          Back to list of ingredients
+        </button>
+      </a>
+      <br>
+      <br>
+
         <h3>Add new ingredient</h3>
         <p>Add a new ingredient and its nutritional data.
           A good source for nutrition data is
