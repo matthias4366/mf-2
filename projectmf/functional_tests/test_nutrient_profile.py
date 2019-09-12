@@ -88,3 +88,65 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         )
         nutrient_profile_was_saved = nutrient_profile_query.exists()
         self.assertTrue(nutrient_profile_was_saved)
+
+    def test_nutrient_profile_creation_with_invalid_data(self):
+        """
+        Test the creation of a nutrient profile with invalid data, i.e. other
+        fields are filled out but the name is left blank.
+        """
+
+        # Simulate clicking on nutrient profiles
+        click_navbar_item(
+            'id_menu_item_nutrient_profiles',
+            self.browser,
+            Keys,
+            time,
+            )
+
+        time.sleep(0.1)
+
+        # Add the first nutrient profile from the list of nutrient profiles
+        # saved in the fixtures.
+
+        new_nutrient_profile_button = self.browser.find_element_by_id(
+            'id_button_new_nutrient_profile'
+        )
+        new_nutrient_profile_button.click()
+
+        time.sleep(0.1)
+
+        k = 0
+
+        for key, value in nutrient_profile_dict_list[k].items():
+            # Leave the name field blank to simulate a case of trying to
+            # create a NutrientProfile without filling out all the required
+            # fields.
+            if key != 'name':
+                id_from_key = 'id_' + key
+                if value is not None:
+
+                    self.browser.find_element_by_id(id_from_key).send_keys(
+                        str(value)
+                    )
+
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_new_nutrientprofile'
+        )
+        save_button.click()
+
+        time.sleep(1)
+
+        # This test is not necessary. The other test is sufficient. If the
+        # NutrientProfile object is not in the database, it is impossible for
+        # it to show up in the list.
+        # (Test whether the saved nutrient profile shows up in the list of
+        # nutrient profiles.)
+
+        # Test whether the saved nutrient profile is in the database.
+        nutrient_profile_query = NutrientProfile.objects.filter(
+            name=nutrient_profile_dict_list[k]['name']
+        )
+        nutrient_profile_was_saved = nutrient_profile_query.exists()
+        self.assertFalse(nutrient_profile_was_saved)
+
