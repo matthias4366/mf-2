@@ -387,7 +387,6 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
         self.assertIn('rawingredient2/list/', self.browser.current_url)
 
         # Find the correct delete button by its id.
-
         delete_button = self.browser.find_element_by_id(
             'delete '+ingredient_dict_list[k]['name']
         )
