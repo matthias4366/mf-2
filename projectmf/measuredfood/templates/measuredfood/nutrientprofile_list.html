@@ -27,13 +27,20 @@
       {% for profile in nutrientprofile_list %}
 
           <div class="box">
-                <div>  <a class="btn btn-primary btn-large"
-                  href="{% url 'update-nutrient-profile' profile.id %}">
+                <div>
+                  <a class="btn btn-primary btn-large"
+                  href="{% url 'update-nutrient-profile' profile.id %}"
+                  id="edit {{ profile.name }}"
+                  >
                     Edit
                   </a></div>
-                <div><p>{{ profile.name }}</p></div>
-                <div>  <a class="btn btn-danger btn-large"
-                  href="{% url 'delete-nutrient-profile' profile.id %}">
+                <div id="paragraph {{ profile.name }}">
+                  <p>{{ profile.name }}</p>
+                </div>
+                <div>
+                  <a class="btn btn-danger btn-large"
+                  href="{% url 'delete-nutrient-profile' profile.id %}"
+                  id="delete {{ profile.name }}">
                     Delete
                   </a>
                 </div>
