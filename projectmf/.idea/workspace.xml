@@ -7,8 +7,6 @@
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="409" column="37" selection-start-line="409" selection-start-column="37" selection-end-line="409" selection-end-column="37" />
+            <state relative-caret-position="293">
+              <caret line="525" column="46" selection-start-line="525" selection-start-column="46" selection-end-line="525" selection-end-column="46" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -51,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="426" column="57" lean-forward="true" selection-start-line="415" selection-start-column="7" selection-end-line="426" selection-end-column="57" />
+              <caret line="426" column="57" selection-start-line="415" selection-start-column="7" selection-end-line="426" selection-end-column="57" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -63,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -72,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_confirm_delete.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="376">
-              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="42" />
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -299,27 +297,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_confirm_delete">
-    <configuration name="Test: functional_tests.test_nutrient_profile" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="projectmf" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="functional_tests.test_nutrient_profile" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete">
     <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrient_profile_creation_with_invalid_data" type="DjangoTestsConfigurationType" temporary="true">
       <module name="projectmf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -334,6 +312,26 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="TARGET" value="functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrient_profile_creation_with_invalid_data" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="projectmf" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -426,11 +424,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_confirm_delete" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_save_changes" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrient_profile_creation_with_invalid_data" />
-        <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +454,7 @@
       <workItem from="1567764778865" duration="1176000" />
       <workItem from="1568026152970" duration="19050000" />
       <workItem from="1568100510956" duration="25551000" />
-      <workItem from="1568273817618" duration="16006000" />
+      <workItem from="1568273817618" duration="17093000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -525,12 +523,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__functional_tests_test_nutrient_profile - 2019.09.12 at 13h 34m 37s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile - 2019.09.12 at 13h 45m 38s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="Test__functional_tests_test_nutrient_profile - 2019.09.12 at 13h 52m 58s.xml">
       <configuration name="Test: functional_tests.test_nutrient_profile" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
@@ -555,9 +547,15 @@
     <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_discard_changes - 2019.09.12 at 15h 04m 46s.xml">
       <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_confirm_delete - 2019.09.12 at 15h 20m 24s.xml">
+      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_confirm_delete" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_cancel_delete - 2019.09.12 at 15h 34m 46s.xml">
+      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109099000" />
+    <option name="totallyTimeSpent" value="110186000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,7 +568,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2241284" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -578,7 +575,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39956802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4997233" weight="0.32937366" />
@@ -586,7 +583,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32397407" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32397407" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -614,6 +611,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="All tests are working again. Although: it is unclear why." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_cancel_delete.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete Coverage Results" MODIFIED="1568295259746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_user_can_not_edit_rawingredient2_of_other_user.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_edit_rawingredient2_of_other_user Coverage Results" MODIFIED="1568122013242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2.coverage" NAME="Test: functional_tests.test_rawingredient2 Coverage Results" MODIFIED="1568110197513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_discard_changes.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes Coverage Results" MODIFIED="1568293457810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -977,21 +975,21 @@
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="42" />
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="426" column="57" lean-forward="true" selection-start-line="415" selection-start-column="7" selection-end-line="426" selection-end-column="57" />
+          <caret line="426" column="57" selection-start-line="415" selection-start-column="7" selection-end-line="426" selection-end-column="57" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
@@ -1000,8 +998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="409" column="37" selection-start-line="409" selection-start-column="37" selection-end-line="409" selection-end-column="37" />
+        <state relative-caret-position="293">
+          <caret line="525" column="46" selection-start-line="525" selection-start-column="46" selection-end-line="525" selection-end-column="46" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

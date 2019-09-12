@@ -522,3 +522,118 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
             len(nutrientprofile_paragraph) > 0
 
         self.assertFalse(nutrientprofile_is_shown_in_list)
+
+    def test_nutrientprofile_delete_cancel_delete(self):
+        """
+        A NutrientProfile object is created. The test case consists of
+        clicking on 'Delete' and the subsequent cancelling by clicking on
+        'Cancel'. It is tested whether the NutrientProfile object remains in
+        the database and in the list of NutrientProfile objects.
+        """
+        # Simulate clicking on nutrient profiles
+        click_navbar_item(
+            'id_menu_item_nutrient_profiles',
+            self.browser,
+            Keys,
+            time,
+            )
+
+        time.sleep(0.1)
+
+        # Add the first nutrient profile from the list of nutrient profiles
+        # saved in the fixtures.
+
+        new_nutrient_profile_button = self.browser.find_element_by_id(
+            'id_button_new_nutrient_profile'
+        )
+        new_nutrient_profile_button.click()
+
+        time.sleep(0.1)
+
+        k = 0
+
+        for key, value in nutrient_profile_dict_list[k].items():
+            id_from_key = 'id_' + key
+            # logging.info('\n id_from_key in
+            # test_nutrient_profile_creation '
+            #              '\n')
+            # logging.info(id_from_key)
+            # logging.info('\n value in test_nutrient_profile_creation '
+            #              '\n')
+            # logging.info(value)
+            if value is not None:
+
+                self.browser.find_element_by_id(id_from_key).send_keys(
+                    str(value)
+                )
+
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_new_nutrientprofile'
+        )
+        save_button.click()
+
+        time.sleep(1)
+
+        # Test whether the saved nutrient profile shows up in the list of
+        # nutrient profiles.
+
+        xpath_ = "//*[contains(text(), " \
+                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+
+        nutrient_profile_is_shown_in_list = check_exists_by_xpath(
+            self.browser,
+            xpath_,
+            NoSuchElementException
+        )
+
+        self.assertTrue(nutrient_profile_is_shown_in_list)
+
+        # Test whether the saved nutrient profile is in the database.
+        nutrient_profile_query = NutrientProfile.objects.filter(
+            name=nutrient_profile_dict_list[k]['name']
+        )
+        nutrient_profile_was_saved = nutrient_profile_query.exists()
+        self.assertTrue(nutrient_profile_was_saved)
+
+        # Now that the NutrientProfile object has been created, it is deleted.
+        # Find the correct delete button by its id.
+        delete_button = self.browser.find_element_by_id(
+            'delete '+nutrient_profile_dict_list[k]['name']
+        )
+        delete_button.click()
+
+        # Test whether the user is redirected to the delete page of
+        # NutrientProfile instance.
+        self.assertIn('delete', self.browser.current_url)
+        self.assertIn('nutrientprofile', self.browser.current_url)
+
+        cancel_delete_button = self.browser.find_element_by_id(
+            'cancel_delete'
+        )
+        cancel_delete_button.click()
+
+        # Test whether the NutrientProfile object has been deleted in two ways.
+
+        # The first way is to test whether the NutrientProfile object can
+        # be found in the database.
+
+        nutrientprofile_query = NutrientProfile.objects.filter(
+            name=nutrient_profile_dict_list[k]['name']
+        )
+        nutrientprofile_is_in_database = \
+            nutrientprofile_query.exists()
+        self.assertTrue(nutrientprofile_is_in_database)
+
+        # The second way is to test whether the NutrientProfile object can
+        # be found in the list using the unchanged name.
+
+        nutrientprofile_paragraph = \
+            self.browser.find_elements_by_id(
+                'paragraph '+nutrient_profile_dict_list[k]['name']
+            )
+
+        nutrientprofile_is_shown_in_list = \
+            len(nutrientprofile_paragraph) > 0
+
+        self.assertTrue(nutrientprofile_is_shown_in_list)
