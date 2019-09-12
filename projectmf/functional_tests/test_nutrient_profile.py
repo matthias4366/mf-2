@@ -8,6 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from functional_tests.utils.check_exists_by_xpath \
     import check_exists_by_xpath
 from measuredfood.models import NutrientProfile
+from django.contrib.auth.models import User
 
 # import the ingredient dictionaries
 import sys
@@ -637,3 +638,69 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
             len(nutrientprofile_paragraph) > 0
 
         self.assertTrue(nutrientprofile_is_shown_in_list)
+
+    def test_user_can_not_edit_nutrientprofile_of_other_user(self):
+        """
+        Url forgery used to access the nutrient profiles of other users has
+        to be prevented. It is tested whether the attempt to edit the
+        nutrient profile of another user is successfully thwarted.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        foreign_nutrientprofile = NutrientProfile.objects.create(
+            name='Nutrient profile from other user',
+            author=other_user
+        )
+
+        url_foreign_nutrientprofile = \
+            self.live_server_url \
+            + '/nutrientprofile/'\
+            + str(foreign_nutrientprofile.id)\
+            + '/update/'
+
+        # Try opening the edit page of the foreign NutrientProfile object.
+        self.browser.get(url_foreign_nutrientprofile)
+
+        # Test whether the appropriate error page is shown.
+        error_paragraph = self.browser.find_elements_by_id(
+            'error_message_url_forgery'
+        )
+        error_page_is_shown = \
+            len(error_paragraph) > 0
+        self.assertTrue(error_page_is_shown)
+
+    def test_user_can_not_delete_nutrientprofile_of_other_user(self):
+        """
+        It should not be possible for users to delete any object from another
+        user. Here, it is tested whether the user can delete other users
+        NutrientProfile objects via url forgery.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        # Create a NutrientProfile object that belong to a different user.
+        foreign_nutrientprofile = NutrientProfile.objects.create(
+            name='Nutrient profile from other user',
+            author=other_user,
+        )
+
+        # Forge the url to try to delete the other users NutrientProfile.
+        url_foreign_nutrientprofile = \
+            self.live_server_url \
+            + '/nutrientprofile/' \
+            + str(foreign_nutrientprofile.id) \
+            + '/delete/'
+
+        self.browser.get(url_foreign_nutrientprofile)
+
+        error_message_element = self.browser.find_element_by_xpath(
+            "/html/body/h1")
+
+        error_message = error_message_element.text
+
+        self.assertEqual(error_message, '403 Forbidden')

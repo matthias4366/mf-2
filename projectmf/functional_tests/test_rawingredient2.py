@@ -554,7 +554,7 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
 
         # Test whether the appropriate error page is shown.
         error_paragraph = self.browser.find_elements_by_id(
-            'error_message_not_your_rawingredient2_to_edit'
+            'error_message_url_forgery'
         )
         error_page_is_shown = \
             len(error_paragraph) > 0

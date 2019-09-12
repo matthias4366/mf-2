@@ -28,6 +28,10 @@ def wait(fn):
     return modified_fn
 
 
+def wait_until_user_has_signed_up():
+    pass
+
+
 class FunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self):
@@ -78,7 +82,7 @@ class FunctionalTestWithUserLoggedIn(StaticLiveServerTestCase):
         sign_up_button = self.browser.find_element_by_id('id_button_signup')
         sign_up_button.send_keys(Keys.ENTER)
 
-        time.sleep(3)
+        time.sleep(0.5)
 
         # Check if the dummy user object exists in the database.
         query_dummy_user = User.objects.filter(
@@ -106,5 +110,5 @@ class FunctionalTestWithUserLoggedIn(StaticLiveServerTestCase):
         )
 
     def tearDown(self):
-        time.sleep(2)
         self.browser.quit()
+
