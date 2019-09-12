@@ -8,9 +8,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 from measuredfood.models import RawIngredient2
 from django.contrib.auth.models import User
-from django.test import Client
-from django.urls import reverse
-from selenium.webdriver.common.by import By
+# from django.test import Client
+# from django.urls import reverse
+# from selenium.webdriver.common.by import By
 
 
 # import the ingredient dictionaries
@@ -578,6 +578,7 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
             author=other_user,
         )
 
+        # Forge the url to try to delete the other users RawIngredient2.
         url_foreign_rawingredient2 = \
             self.live_server_url \
             + '/rawingredient2/' \

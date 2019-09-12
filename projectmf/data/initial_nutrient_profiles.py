@@ -1,6 +1,6 @@
 nutrient_profile_dict_list = [
     {
-        'name': 'Matthias maintenance plus vitamins from NIH Males 19-30 ',
+        'name': 'Maintenance plus vitamins from NIH Males 19-30',
         # sources:
         # https://www.ncbi.nlm.nih.gov/books/
         # NBK56068/

@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
+      <change afterPath="$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ingredients_data2.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/ingredients_data2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/initial_nutrient_profiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/initial_nutrient_profiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixtures/rawingredient2_initial_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/rawingredient2_initial_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +38,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="812" column="25" selection-start-line="812" selection-start-column="9" selection-end-line="812" selection-end-column="25" />
+            <state relative-caret-position="2040">
+              <caret line="85" column="64" lean-forward="true" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="64" selection-start-line="64" selection-end-line="68" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -48,20 +92,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/initial_nutrient_profiles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="48">
+              <caret line="2" column="64" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="579" selection-start-line="579" selection-end-line="579" />
-              <folding>
-                <element signature="e#0#76#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="141">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -77,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'calories' :</find>
       <find>NutrientProfile</find>
       <find>TolerableUpperIntake</find>
       <find>SpecificIngredient</find>
@@ -107,6 +147,7 @@
       <find>green</find>
       <find>None</find>
       <find>reference_amount</find>
+      <find>RawIngredient2</find>
     </findStrings>
     <replaceStrings>
       <replace>'calories':</replace>
@@ -124,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/measuredfood/utils/query/query_tolerableupperintake_of_mealplan.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/query/query_nutrientprofile_of_fulldayofeating.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/query/query_nutrientprofile_of_mealplan.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/query/query_tolerableupperintake_of_fulldayofeating.py" />
@@ -144,8 +184,6 @@
         <option value="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_nutrient_profile_creation.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_full_day_of_eating_creation.py" />
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" />
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_confirm_delete.html" />
@@ -166,15 +204,18 @@
         <option value="$PROJECT_DIR$/measuredfood/models/rawingredient2.py" />
         <option value="$PROJECT_DIR$/functional_tests/base.py" />
         <option value="$PROJECT_DIR$/functional_tests/utils/click_navbar_item.py" />
-        <option value="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_form.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/not_yours.html" />
         <option value="$PROJECT_DIR$/data/ingredients_data2.py" />
-        <option value="$PROJECT_DIR$/data/initial_nutrient_profiles.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" />
+        <option value="$PROJECT_DIR$/data/initial_nutrient_profiles.py" />
+        <option value="$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py" />
+        <option value="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" />
       </list>
     </option>
   </component>
@@ -234,6 +275,19 @@
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectmf" type="462c0819:PsiDirectoryNode" />
               <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,7 +329,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user">
+  <component name="RunManager" selected="Django tests.Test: functional_tests.test_nutrient_profile">
+    <configuration name="Test: functional_tests.test_nutrient_profile" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="projectmf" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="functional_tests.test_nutrient_profile" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_cancel_delete" type="DjangoTestsConfigurationType" temporary="true">
       <module name="projectmf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -310,26 +384,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="TARGET" value="functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_confirm_delete" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_discard_changes" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="projectmf" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_discard_changes" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -402,11 +456,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile" />
         <item itemvalue="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user" />
         <item itemvalue="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_edit_rawingredient2_of_other_user" />
         <item itemvalue="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_cancel_delete" />
         <item itemvalue="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_confirm_delete" />
-        <item itemvalue="Django tests.Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_discard_changes" />
       </list>
     </recent_temporary>
   </component>
@@ -432,7 +486,7 @@
       <workItem from="1567764778865" duration="1176000" />
       <workItem from="1568026152970" duration="19050000" />
       <workItem from="1568100510956" duration="25551000" />
-      <workItem from="1568273817618" duration="8230000" />
+      <workItem from="1568273817618" duration="11071000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -501,9 +555,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_user_can_not_delete_rawingredient2_of_other_user - 2019.09.10 at 16h 48m 20s.xml">
-      <configuration name="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_user_can_not_delete_rawingredient2_of_other_user - 2019.09.10 at 17h 03m 18s.xml">
       <configuration name="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
@@ -531,9 +582,12 @@
     <history-entry file="Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_user_can_not_delete_rawingredient2_of_other_user - 2019.09.12 at 12h 55m 05s.xml">
       <configuration name="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="Test__functional_tests_test_nutrient_profile - 2019.09.12 at 13h 34m 37s.xml">
+      <configuration name="Test: functional_tests.test_nutrient_profile" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101323000" />
+    <option name="totallyTimeSpent" value="104164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,6 +600,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2241284" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -553,7 +608,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4997233" weight="0.32937366" />
@@ -561,7 +616,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32397407" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32397407" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -595,20 +650,11 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_rawingredient2_delete_confirm_delete.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_confirm_delete Coverage Results" MODIFIED="1568114081616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_rawingredient2_edit_discard_changes.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_discard_changes Coverage Results" MODIFIED="1568112549221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_rawingredient2_delete_cancel_delete.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_delete_cancel_delete Coverage Results" MODIFIED="1568114540568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile.coverage" NAME="Test: functional_tests.test_nutrient_profile Coverage Results" MODIFIED="1568288710772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_user_can_not_delete_rawingredient2_of_other_user.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_user_can_not_delete_rawingredient2_of_other_user Coverage Results" MODIFIED="1568285682392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_rawingredient2_edit_save_changes.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_save_changes Coverage Results" MODIFIED="1568111851736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/make_rawingredient2_dict_to_json.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#227#282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -651,13 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="8" selection-start-line="8" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -732,13 +771,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2496">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
@@ -832,16 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_full_day_of_eating.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -870,13 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="45" column="56" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -964,17 +979,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/initial_nutrient_profiles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="48">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="579" selection-start-line="579" selection-end-line="579" />
+        <state relative-caret-position="278">
+          <caret line="64" selection-start-line="64" selection-end-line="68" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="85" column="64" lean-forward="true" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
