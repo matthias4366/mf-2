@@ -16,7 +16,13 @@ base_template_ingredient_dict_list = [
         'protein': None,  # 'default_unit': 'gram'
         'linoleic_acid': None,  # 'default_unit': 'gram'
         'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
-        'vitamin_a': None,  # 'default_unit': 'microgram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': None,  # 'default_unit': 'microgram'.
         'vitamin_c': None,  # 'default_unit': 'milligram'
         'vitamin_d': None,  # 'default_unit': 'microgram'
         'vitamin_e': None,  # 'default_unit': 'milligram'
@@ -33,7 +39,6 @@ base_template_ingredient_dict_list = [
         'calcium': None,  # 'default_unit': 'milligram'
         'chromium': None,  # 'default_unit': 'microgram'
         'copper': None,  # 'default_unit': 'microgram'
-        'fluoride': None,  # 'default_unit': 'milligram'
         'iodine': None,  # 'default_unit': 'microgram'
         'iron': None,  # 'default_unit': 'milligram'
         'magnesium': None,  # 'default_unit': 'milligram'
@@ -47,7 +52,7 @@ base_template_ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
         'buy_here_link': None,
         'source_nutritional_information_link': None,
-        'is_public': False,
+        'is_public': True,
     },
 
 ]
@@ -1365,4 +1370,461 @@ ingredient_dict_list = [
         'source_nutritional_information_link': None,
         'is_public': True,
     },
+    {
+        'name': 'Corn',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.418,
+        'calories': 365,  # 'default_unit': 'kcal'
+        'carbohydrates': 74.3,  # 'default_unit': 'gram'
+        'fat': 4.7,  # 'default_unit': 'gram'
+        'protein': 9.4,  # 'default_unit': 'gram'
+        'linoleic_acid': 2.097,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.065,  # 'default_unit': 'gram'
+        'vitamin_a': 64.2,  # 'default_unit': 'microgram'
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.5,  # 'default_unit': 'milligram'
+        'vitamin_k': 0.3,  # 'default_unit': 'microgram'
+        'thiamin': 0.4,  # 'default_unit': 'milligram'
+        'riboflavin': 0.2,  # 'default_unit': 'milligram'
+        'niacin': 3.6,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.6,  # 'default_unit': 'milligram'
+        'folate': 19,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.4,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 7,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 300,  # 'default_unit': 'microgram'
+        'fluoride': 0,  # 'default_unit': 'milligram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 2.7,  # 'default_unit': 'milligram'
+        'magnesium': 127,  # 'default_unit': 'milligram'
+        'manganese': 0.5,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 210,  # 'default_unit': 'milligram'
+        'selenium': 15.5,  # 'default_unit': 'microgram'
+        'zinc': 2.2,  # 'default_unit': 'milligram'
+        'potassium': 0.287,  # 'default_unit': 'gram'
+        'sodium': 0.035,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': 'https://www.getnow.com/Themenwelten/'
+                         'Alles-fuer-die-Bowl/'
+                         'Bonduelle-Goldmais-600g.html?'
+                         'listtype=search&searchparam=mais',
+        'source_nutritional_information_link':
+            'https://nutritiondata.self.com/'
+            'facts/cereal-grains-and-pasta/5687/2',
+        'is_public': True,
+    },
+    {
+        'name': 'Beans, pinto, mature seeds, raw',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.30,
+        'calories': 347,  # 'default_unit': 'kcal'
+        'carbohydrates': 62.5,  # 'default_unit': 'gram'
+        'fat': 1.2,  # 'default_unit': 'gram'
+        'protein': 21.4,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.170,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.237,  # 'default_unit': 'gram'
+        'vitamin_a': 0,  # 'default_unit': 'microgram'
+        'vitamin_c': 6.3,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.2,  # 'default_unit': 'milligram'
+        'vitamin_k': 5.6,  # 'default_unit': 'microgram'
+        'thiamin': 0.7,  # 'default_unit': 'milligram'
+        'riboflavin': 0.2,  # 'default_unit': 'milligram'
+        'niacin': 1.2,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.5,  # 'default_unit': 'milligram'
+        'folate': 525,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.8,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 66.2,  # 'default_unit': 'milligram'
+        'calcium': 113,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 900,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 5.1,  # 'default_unit': 'milligram'
+        'magnesium': 176,  # 'default_unit': 'milligram'
+        'manganese': 1.1,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 411,  # 'default_unit': 'milligram'
+        'selenium': 27.9,  # 'default_unit': 'microgram'
+        'zinc': 2.3,  # 'default_unit': 'milligram'
+        'potassium': 1.393,  # 'default_unit': 'gram'
+        'sodium': 0.012,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link':
+            'https://nutritiondata.self.com/'
+            'facts/legumes-and-legume-products/4311/2',
+        'is_public': True,
+    },
+    {
+        'name': 'Coriander',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': None,  # 'default_unit': 'microgram'
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+    {
+        'name': 'Cocoa powder',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 1.312,
+        'calories': 366,  # 'default_unit': 'kcal'
+        'carbohydrates': 8.9,  # 'default_unit': 'gram'
+        'fat': 21,  # 'default_unit': 'gram'
+        'protein': 20,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': None,  # 'default_unit': 'microgram'
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+    {
+        'name': 'Garam masala',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': None,  # 'default_unit': 'microgram'
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+    {
+        'name': 'Green beans',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.16,
+        'calories': 31,  # 'default_unit': 'kcal'
+        'carbohydrates': 7.1,  # 'default_unit': 'gram'
+        'fat': 0.1,  # 'default_unit': 'gram'
+        'protein': 1.8,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.023,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.036,  # 'default_unit': 'gram'
+        'vitamin_a': 207,  # 'default_unit': 'microgram'
+        'vitamin_c': 16.3,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.4,  # 'default_unit': 'milligram'
+        'vitamin_k': 14.4,  # 'default_unit': 'microgram'
+        'thiamin': 0.1,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 0.8,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.1,  # 'default_unit': 'milligram'
+        'folate': 37,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.1,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 15.3,  # 'default_unit': 'milligram'
+        'calcium': 37,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 100,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 1,  # 'default_unit': 'milligram'
+        'magnesium': 25,  # 'default_unit': 'milligram'
+        'manganese': 0.2,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 38,  # 'default_unit': 'milligram'
+        'selenium': 0.6,  # 'default_unit': 'microgram'
+        'zinc': 0.2,  # 'default_unit': 'milligram'
+        'potassium': 0.209,  # 'default_unit': 'gram'
+        'sodium': 0.006,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': 'https://www.getnow.com/Tiefkuehl/'
+                         'Gemuese-Kraeuter-Obst/'
+                         'Gemuese-Pilze/'
+                         'Metro-Chef-Prinzessbohnen-sehr-fein-tiefgekuehlt-'
+                         '2-5kg.html?listtype=search&searchparam=bohnen',
+        'source_nutritional_information_link':
+            'https://nutritiondata.self.com/'
+            'facts/vegetables-and-vegetable-products/2341/2',
+        'is_public': True,
+    },
+    {
+        'name': 'Gym nutrition multicomplex',
+        'reference_amount': 2,  # default: 100 g
+        'price_per_reference_amount': 0.28,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        'vitamin_a': 1000,  # 'default_unit': 'microgram'
+        'vitamin_c': 100,  # 'default_unit': 'milligram'
+        'vitamin_d': 7.6,  # 'default_unit': 'microgram'
+        'vitamin_e': 12,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 1.7,  # 'default_unit': 'milligram'
+        'riboflavin': 2.2,  # 'default_unit': 'milligram'
+        'niacin': 16,  # 'default_unit': 'milligram'
+        'vitamin_b6': 6,  # 'default_unit': 'milligram'
+        'folate': 200,  # 'default_unit': 'microgram'
+        'vitamin_b12': 3.6,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 12,  # 'default_unit': 'milligram'
+        'biotin': 100,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 50,  # 'default_unit': 'microgram'
+        'copper': 1000,  # 'default_unit': 'microgram'
+        'iodine': 150,  # 'default_unit': 'microgram'
+        'iron': 5,  # 'default_unit': 'milligram'
+        'magnesium': 100,  # 'default_unit': 'milligram'
+        'manganese': 2,  # 'default_unit': 'milligram'
+        'molybdenum': 12.6,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 55,  # 'default_unit': 'microgram'
+        'zinc': 10,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': 'https://www.amazon.de/'
+                         'gp/product/B07JZ9TCZ8/'
+                         'ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1',
+        'source_nutritional_information_link':
+            'https://www.amazon.de/gp/'
+            'product/B07JZ9TCZ8/ref=ppx_'
+            'yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1',
+        'is_public': True,
+    },
+    {
+        'name': 'Vitamin K Komplex Vispura',
+        'reference_amount': 1,  # default: 100 g
+        'price_per_reference_amount': 0.16,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'vitamin_a': None,  # 'default_unit': 'microgram'
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': 2200,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+        'buy_here_link':
+            'https://www.amazon.de/Vitamin-Komplex-hochdosiert-1-000-Menaquinon'
+            '/dp/B075TK5BK9/ref=sr_1_6?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%'
+            '91&keywords=vitamin+k&qid=1568276634&s=gateway&sr=8-6',
+        'source_nutritional_information_link':
+            'https://www.amazon.de/Vitamin-Komplex-hochdosiert-1-000-Menaquinon'
+            '/dp/B075TK5BK9/ref=sr_1_6?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%'
+            '91&keywords=vitamin+k&qid=1568276634&s=gateway&sr=8-6',
+        'is_public': True,
+    },
+    {
+        'name': 'Sweet potato, raw, unprepared',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.63,
+        'calories': 86.0,  # 'default_unit': 'kcal'
+        'carbohydrates': 20.1,  # 'default_unit': 'gram'
+        'fat': 0.1,  # 'default_unit': 'gram'
+        'protein': 1.6,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.013,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.001,  # 'default_unit': 'gram'
+        'vitamin_a': 4255.5,  # 'default_unit': 'microgram'
+        'vitamin_c': 2.4,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.3,  # 'default_unit': 'milligram'
+        'vitamin_k': 1.8,  # 'default_unit': 'microgram'
+        'thiamin': 0.1,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 0.6,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.2,  # 'default_unit': 'milligram'
+        'folate': 11,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.8,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 12.3,  # 'default_unit': 'milligram'
+        'calcium': 30,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 0.2,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 0.6,  # 'default_unit': 'milligram'
+        'magnesium': 25,  # 'default_unit': 'milligram'
+        'manganese': 0.3,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 47,  # 'default_unit': 'milligram'
+        'selenium': 0.6,  # 'default_unit': 'microgram'
+        'zinc': 0.3,  # 'default_unit': 'milligram'
+        'potassium': 0.337,  # 'default_unit': 'gram'
+        'sodium': 0.055,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link':
+            'https://www.getnow.com/'
+            'index.php?cl=details&cnid=109&actcontrol='
+            'details&anid=430628605990110001&redirected=1',
+        'source_nutritional_information_link':
+            'https://nutritiondata.self.com/'
+            'facts/vegetables-and-vegetable-products/2666/2',
+        'is_public': True,
+    },
+    {
+        'name': 'Vinegar (5% Acid)',
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.045,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 0,  # 'default_unit': 'microgram'.
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 0,  # 'default_unit': 'microgram'
+        'iodine': 0,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 0,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+    },
+
 ]

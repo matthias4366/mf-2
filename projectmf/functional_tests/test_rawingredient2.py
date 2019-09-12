@@ -8,7 +8,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 from measuredfood.models import RawIngredient2
 from django.contrib.auth.models import User
-# from functional_tests.base import wait
+from django.test import Client
+from django.urls import reverse
+from selenium.webdriver.common.by import By
 
 
 # import the ingredient dictionaries
@@ -558,3 +560,35 @@ class RawIngredient2Test(FunctionalTestWithUserLoggedIn):
         error_page_is_shown = \
             len(error_paragraph) > 0
         self.assertTrue(error_page_is_shown)
+
+    def test_user_can_not_delete_rawingredient2_of_other_user(self):
+        """
+        It should not be possible for users to delete any object from another
+        user. Here, it is tested whether the user can delete other users
+        RawIngredient2 objects via url forgery.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        # Create a RawIngredient2 object that belong to a different user.
+        foreign_rawingredient2 = RawIngredient2.objects.create(
+            name='Ingredient from other user',
+            author=other_user,
+        )
+
+        url_foreign_rawingredient2 = \
+            self.live_server_url \
+            + '/rawingredient2/' \
+            + str(foreign_rawingredient2.id) \
+            + '/delete/'
+
+        self.browser.get(url_foreign_rawingredient2)
+
+        error_message_element = self.browser.find_element_by_xpath(
+            "/html/body/h1")
+
+        error_message = error_message_element.text
+
+        self.assertEqual(error_message, '403 Forbidden')
