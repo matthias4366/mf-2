@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from functional_tests.utils.check_exists_by_xpath \
     import check_exists_by_xpath
 from measuredfood.models import TolerableUpperIntake
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 # import the ingredient dictionaries
 import sys
@@ -604,68 +604,68 @@ class TolerableUpperIntakeTest(FunctionalTestWithUserLoggedIn):
 
         self.assertTrue(tolerable_upper_intake_is_shown_in_list)
 
-    # def test_user_can_not_edit_TolerableUpperIntake_of_other_user(self):
-    #     """
-    #     Url forgery used to access the tolerable upper intakes of other users has
-    #     to be prevented. It is tested whether the attempt to edit the
-    #     tolerable upper intake of another user is successfully thwarted.
-    #     """
-    # 
-    #     other_user = User.objects.create(
-    #         username='Other User'
-    #     )
-    # 
-    #     foreign_TolerableUpperIntake = TolerableUpperIntake.objects.create(
-    #         name='tolerable upper intake from other user',
-    #         author=other_user
-    #     )
-    # 
-    #     url_foreign_TolerableUpperIntake = \
-    #         self.live_server_url \
-    #         + '/TolerableUpperIntake/' \
-    #         + str(foreign_TolerableUpperIntake.id) \
-    #         + '/update/'
-    # 
-    #     # Try opening the edit page of the foreign TolerableUpperIntake object.
-    #     self.browser.get(url_foreign_TolerableUpperIntake)
-    # 
-    #     # Test whether the appropriate error page is shown.
-    #     error_paragraph = self.browser.find_elements_by_id(
-    #         'error_message_url_forgery'
-    #     )
-    #     error_page_is_shown = \
-    #         len(error_paragraph) > 0
-    #     self.assertTrue(error_page_is_shown)
-    # 
-    # def test_user_can_not_delete_TolerableUpperIntake_of_other_user(self):
-    #     """
-    #     It should not be possible for users to delete any object from another
-    #     user. Here, it is tested whether the user can delete other users
-    #     TolerableUpperIntake objects via url forgery.
-    #     """
-    # 
-    #     other_user = User.objects.create(
-    #         username='Other User'
-    #     )
-    # 
-    #     # Create a TolerableUpperIntake object that belong to a different user.
-    #     foreign_TolerableUpperIntake = TolerableUpperIntake.objects.create(
-    #         name='tolerable upper intake from other user',
-    #         author=other_user,
-    #     )
-    # 
-    #     # Forge the url to try to delete the other users TolerableUpperIntake.
-    #     url_foreign_TolerableUpperIntake = \
-    #         self.live_server_url \
-    #         + '/TolerableUpperIntake/' \
-    #         + str(foreign_TolerableUpperIntake.id) \
-    #         + '/delete/'
-    # 
-    #     self.browser.get(url_foreign_TolerableUpperIntake)
-    # 
-    #     error_message_element = self.browser.find_element_by_xpath(
-    #         "/html/body/h1")
-    # 
-    #     error_message = error_message_element.text
-    # 
-    #     self.assertEqual(error_message, '403 Forbidden')
+    def test_user_can_not_edit_tolerable_upper_intake_of_other_user(self):
+        """
+        Url forgery used to access the tolerable upper intakes of other users
+        has to be prevented. It is tested whether the attempt to edit the
+        tolerable upper intake of another user is successfully thwarted.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        foreign_tolerable_upper_intake = TolerableUpperIntake.objects.create(
+            name='tolerable upper intake from other user',
+            author=other_user
+        )
+
+        url_foreign_tolerable_upper_intake = \
+            self.live_server_url \
+            + '/tolerableupperintake/' \
+            + str(foreign_tolerable_upper_intake.id) \
+            + '/update/'
+
+        # Try opening the edit page of the foreign TolerableUpperIntake object.
+        self.browser.get(url_foreign_tolerable_upper_intake)
+
+        # Test whether the appropriate error page is shown.
+        error_paragraph = self.browser.find_elements_by_id(
+            'error_message_url_forgery'
+        )
+        error_page_is_shown = \
+            len(error_paragraph) > 0
+        self.assertTrue(error_page_is_shown)
+
+    def test_user_can_not_delete_tolerable_upper_intake_of_other_user(self):
+        """
+        It should not be possible for users to delete any object from another
+        user. Here, it is tested whether the user can delete other users
+        TolerableUpperIntake objects via url forgery.
+        """
+
+        other_user = User.objects.create(
+            username='Other User'
+        )
+
+        # Create a TolerableUpperIntake object that belong to a different user.
+        foreign_tolerable_upper_intake = TolerableUpperIntake.objects.create(
+            name='tolerable upper intake from other user',
+            author=other_user,
+        )
+
+        # Forge the url to try to delete the other users TolerableUpperIntake.
+        url_foreign_tolerable_upper_intake = \
+            self.live_server_url \
+            + '/tolerableupperintake/' \
+            + str(foreign_tolerable_upper_intake.id) \
+            + '/delete/'
+
+        self.browser.get(url_foreign_tolerable_upper_intake)
+
+        error_message_element = self.browser.find_element_by_xpath(
+            "/html/body/h1")
+
+        error_message = error_message_element.text
+
+        self.assertEqual(error_message, '403 Forbidden')
