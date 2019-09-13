@@ -83,3 +83,58 @@ class TolerableUpperIntakeTest(FunctionalTestWithUserLoggedIn):
         tolerable_upper_intake_was_saved = \
             tolerable_upper_intake_query.exists()
         self.assertTrue(tolerable_upper_intake_was_saved)
+
+    def test_tolerable_upper_intake_creation_with_invalid_data(self):
+        """
+        Test of the creation of a TolerableUpperIntake object where the input
+        data is not valid, i.e. the name is missing. The test is successfull if
+        the TolerableUpperIntake object is not saved to the database.
+        """
+
+        # Simulate the clicking on the tolerable upper intakes navbar item.
+        # Simulate clicking on nutrient profiles
+        click_navbar_item(
+            'id_menu_item_tolerableupperintake',
+            self.browser,
+            Keys,
+            time,
+            )
+
+        time.sleep(0.1)
+
+        # Add the first tolerable upper intake from the list of
+        # tolerable upper intakes saved in the fixtures.
+
+        new_tolerable_upper_intake_button = self.browser.find_element_by_id(
+            'id_button_new_tolerableupperintake'
+        )
+        new_tolerable_upper_intake_button.click()
+
+        time.sleep(0.1)
+
+        k = 0
+
+        for key, value in initial_tolerable_upper_intake[k].items():
+            id_from_key = 'id_' + key
+            # Skip the name, making the input invalid as the name is necessary.
+            if key != 'name':
+                if value is not None:
+                    self.browser.find_element_by_id(id_from_key).send_keys(
+                        str(value)
+                    )
+
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_tolerableupperintake'
+        )
+        save_button.click()
+
+        time.sleep(1)
+
+        # Test whether the saved tolerable upper intake is in the database.
+        tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
+            name=initial_tolerable_upper_intake[k]['name']
+        )
+        tolerable_upper_intake_was_saved = \
+            tolerable_upper_intake_query.exists()
+        self.assertFalse(tolerable_upper_intake_was_saved)
