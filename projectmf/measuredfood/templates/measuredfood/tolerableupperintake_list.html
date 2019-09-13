@@ -29,14 +29,19 @@
           <div class="box">
               <div>
                   <a class="btn btn-primary btn-large"
-                    href="{% url 'update-tolerableupperintake' tolerableupperintake.id %}">
+                    href="{% url 'update-tolerableupperintake' tolerableupperintake.id %}"
+                     id="edit {{ tolerableupperintake.name }}"
+                  >
                       Edit
                   </a>
               </div>
-              <div><p>{{ tolerableupperintake.name }}</p></div>
+              <div id="paragraph {{ tolerableupperintake.name }}">
+                <p>{{ tolerableupperintake.name }}</p>
+              </div>
               <div>
                 <a class="btn btn-danger btn-large"
-                href="{% url 'delete-tolerableupperintake' tolerableupperintake.id %}">
+                href="{% url 'delete-tolerableupperintake' tolerableupperintake.id %}"
+                id="delete {{ tolerableupperintake.name }}">
                   Delete
                 </a>
               </div>

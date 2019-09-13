@@ -8,6 +8,7 @@
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="90" selection-start-line="35" selection-start-column="7" selection-end-line="90" />
+            <state relative-caret-position="454">
+              <caret line="704" column="56" selection-start-line="152" selection-start-column="1" selection-end-line="704" selection-end-column="56" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -49,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+            <state relative-caret-position="168">
+              <caret line="260" selection-start-line="260" selection-end-line="260" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -61,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="427" column="25" selection-start-line="427" selection-start-column="25" selection-end-line="427" selection-end-column="25" />
+            <state relative-caret-position="197">
+              <caret line="425" column="57" selection-start-line="425" selection-start-column="22" selection-end-line="425" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -70,17 +71,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="44" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="246">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/initial_tolerable_upper_intake.py">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="66" column="45" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="45" />
+            <state relative-caret-position="249">
+              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -96,10 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>id_button_new_rawingredient2</find>
-      <find>class=&quot;total_nutrition_table&quot;</find>
-      <find>User</find>
-      <find>assert</find>
       <find>pea</find>
       <find>author</find>
       <find>new_ingredient_button</find>
@@ -125,6 +122,10 @@
       <find>targeted_nutrients_errors</find>
       <find>missing_nutrientprofile</find>
       <find>nutrient_profile_dict_list</find>
+      <find>nutrient profile</find>
+      <find>new_nutrient_profile_button</find>
+      <find>nutrient_profile_was_saved</find>
+      <find>changed_TolerableUpperIntake</find>
       <find>save</find>
     </findStrings>
     <replaceStrings>
@@ -139,6 +140,10 @@
       <replace>3</replace>
       <replace>formatted_tolerable_upper_intake_dict_k</replace>
       <replace>formatted_tolerable_upper_intake_dict_list</replace>
+      <replace>tolerable upper intake</replace>
+      <replace>new_tolerable_upper_intake_button</replace>
+      <replace>tolerable_upper_intake_was_saved</replace>
+      <replace>changed_tolerable_upper_intake</replace>
       <replace>initial_tolerable_upper_intake</replace>
     </replaceStrings>
   </component>
@@ -195,9 +200,9 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" />
         <option value="$PROJECT_DIR$/learn/learn_error_raising.py" />
         <option value="$PROJECT_DIR$/data/initial_nutrient_profiles.py" />
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" />
         <option value="$PROJECT_DIR$/data/initial_tolerable_upper_intake.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" />
         <option value="$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py" />
       </list>
     </option>
@@ -303,27 +308,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_invalid_data">
-    <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="projectmf" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Django tests.Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes">
     <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_user_can_not_delete_nutrientprofile_of_other_user" type="DjangoTestsConfigurationType" temporary="true">
       <module name="projectmf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -404,6 +389,26 @@
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="projectmf" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="projectmf" type="Python.DjangoServer" factoryName="Django server">
       <module name="projectmf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -430,11 +435,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Django tests.Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" />
         <item itemvalue="Django tests.Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_invalid_data" />
         <item itemvalue="Django tests.Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_valid_data" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_user_can_not_delete_nutrientprofile_of_other_user" />
         <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_user_can_not_edit_nutrientprofile_of_other_user" />
-        <item itemvalue="Django tests.Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" />
       </list>
     </recent_temporary>
   </component>
@@ -461,7 +466,7 @@
       <workItem from="1568026152970" duration="19050000" />
       <workItem from="1568100510956" duration="25551000" />
       <workItem from="1568273817618" duration="27690000" />
-      <workItem from="1568371574918" duration="8354000" />
+      <workItem from="1568371574918" duration="9647000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -530,39 +535,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrient_profile_creation_with_invalid_data - 2019.09.12 at 13h 58m 02s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrient_profile_creation_with_invalid_data" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_save_changes - 2019.09.12 at 14h 26m 48s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_discard_changes - 2019.09.12 at 15h 02m 11s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_discard_changes - 2019.09.12 at 15h 03m 16s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_discard_changes - 2019.09.12 at 15h 04m 46s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_discard_changes" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_confirm_delete - 2019.09.12 at 15h 20m 24s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_confirm_delete" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_cancel_delete - 2019.09.12 at 15h 34m 46s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_cancel_delete" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_user_can_not_edit_nutrientprofile_of_other_user - 2019.09.12 at 15h 47m 22s.xml">
-      <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_user_can_not_edit_nutrientprofile_of_other_user" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_user_can_not_delete_nutrientprofile_of_other_user - 2019.09.12 at 15h 50m 07s.xml">
       <configuration name="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_user_can_not_delete_nutrientprofile_of_other_user" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
     <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_creation_with_valid_data - 2019.09.13 at 16h 38m 19s.xml">
       <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_valid_data" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_creation_with_invalid_data - 2019.09.13 at 17h 07m 56s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_invalid_data" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 19m 01s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 20m 46s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 22m 51s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 23m 22s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 25m 20s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 26m 16s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes - 2019.09.13 at 17h 27m 12s.xml">
+      <configuration name="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129137000" />
+    <option name="totallyTimeSpent" value="130430000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -575,7 +580,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2268954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -583,7 +587,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39956802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4997233" weight="0.32937366" />
@@ -591,7 +595,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.27213824" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27213824" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -637,6 +641,7 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_creation_with_valid_data.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_valid_data Coverage Results" MODIFIED="1568385473974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_save_changes.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_save_changes Coverage Results" MODIFIED="1568291179234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrient_profile_creation_with_invalid_data.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrient_profile_creation_with_invalid_data Coverage Results" MODIFIED="1568289416229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes Coverage Results" MODIFIED="1568388407163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/shoppinglist.html">
@@ -796,13 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -991,25 +989,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_nutrient_profile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="90" selection-start-line="35" selection-start-column="7" selection-end-line="90" />
+        <state relative-caret-position="454">
+          <caret line="704" column="56" selection-start-line="152" selection-start-column="1" selection-end-line="704" selection-end-column="56" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="427" column="25" selection-start-line="427" selection-start-column="25" selection-end-line="427" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1020,10 +1004,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="425" column="57" selection-start-line="425" selection-start-column="22" selection-end-line="425" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+        <state relative-caret-position="168">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
