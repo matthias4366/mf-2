@@ -494,120 +494,116 @@ class TolerableUpperIntakeTest(FunctionalTestWithUserLoggedIn):
 
         self.assertFalse(tolerable_upper_intake_is_shown_in_list)
 
-    # def test_TolerableUpperIntake_delete_cancel_delete(self):
-    #     """
-    #     A TolerableUpperIntake object is created. The test case consists of
-    #     clicking on 'Delete' and the subsequent cancelling by clicking on
-    #     'Cancel'. It is tested whether the TolerableUpperIntake object remains in
-    #     the database and in the list of TolerableUpperIntake objects.
-    #     """
-    #     # Simulate clicking on tolerable upper intakes
-    #     click_navbar_item(
-    #         'id_menu_item_tolerableupperintake',
-    #         self.browser,
-    #         Keys,
-    #         time,
-    #     )
-    # 
-    #     time.sleep(0.1)
-    # 
-    #     # Add the first tolerable upper intake from the list of tolerable upper intakes
-    #     # saved in the fixtures.
-    # 
-    #     new_tolerable_upper_intake_button = self.browser.find_element_by_id(
-    #         'id_button_new_tolerableupperintake'
-    #     )
-    #     new_tolerable_upper_intake_button.click()
-    # 
-    #     time.sleep(0.1)
-    # 
-    #     k = 0
-    # 
-    #     for key, value in initial_tolerable_upper_intake[k].items():
-    #         id_from_key = 'id_' + key
-    #         # logging.info('\n id_from_key in
-    #         # test_nutrient_profile_creation '
-    #         #              '\n')
-    #         # logging.info(id_from_key)
-    #         # logging.info('\n value in test_nutrient_profile_creation '
-    #         #              '\n')
-    #         # logging.info(value)
-    #         if value is not None:
-    #             self.browser.find_element_by_id(id_from_key).send_keys(
-    #                 str(value)
-    #             )
-    # 
-    #     # Simulate clicking the save button
-    #     save_button = self.browser.find_element_by_id(
-    #         'id_button_save_tolerableupperintake'
-    #     )
-    #     save_button.click()
-    # 
-    #     time.sleep(1)
-    # 
-    #     # Test whether the saved tolerable upper intake shows up in the list of
-    #     # tolerable upper intakes.
-    # 
-    #     xpath_ = "//*[contains(text(), " \
-    #              "'Dummy tolerable upper intake')]"
-    # 
-    #     tolerable_upper_intake_is_shown_in_list = check_exists_by_xpath(
-    #         self.browser,
-    #         xpath_,
-    #         NoSuchElementException
-    #     )
-    # 
-    #     self.assertTrue(tolerable_upper_intake_is_shown_in_list)
-    # 
-    #     # Test whether the saved tolerable upper intake is in the database.
-    #     tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
-    #         name=initial_tolerable_upper_intake[k]['name']
-    #     )
-    #     tolerable_upper_intake_was_saved = tolerable_upper_intake_query.exists()
-    #     self.assertTrue(tolerable_upper_intake_was_saved)
-    # 
-    #     # Now that the TolerableUpperIntake object has been created, it is deleted.
-    #     # Find the correct delete button by its id.
-    #     delete_button = self.browser.find_element_by_id(
-    #         'delete ' + initial_tolerable_upper_intake[k]['name']
-    #     )
-    #     delete_button.click()
-    # 
-    #     # Test whether the user is redirected to the delete page of
-    #     # TolerableUpperIntake instance.
-    #     self.assertIn('delete', self.browser.current_url)
-    #     self.assertIn('TolerableUpperIntake', self.browser.current_url)
-    # 
-    #     cancel_delete_button = self.browser.find_element_by_id(
-    #         'cancel_delete'
-    #     )
-    #     cancel_delete_button.click()
-    # 
-    #     # Test whether the TolerableUpperIntake object has been deleted in two ways.
-    # 
-    #     # The first way is to test whether the TolerableUpperIntake object can
-    #     # be found in the database.
-    # 
-    #     tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
-    #         name=initial_tolerable_upper_intake[k]['name']
-    #     )
-    #     TolerableUpperIntake_is_in_database = \
-    #         tolerable_upper_intake_query.exists()
-    #     self.assertTrue(TolerableUpperIntake_is_in_database)
-    # 
-    #     # The second way is to test whether the TolerableUpperIntake object can
-    #     # be found in the list using the unchanged name.
-    # 
-    #     TolerableUpperIntake_paragraph = \
-    #         self.browser.find_elements_by_id(
-    #             'paragraph ' + initial_tolerable_upper_intake[k]['name']
-    #         )
-    # 
-    #     TolerableUpperIntake_is_shown_in_list = \
-    #         len(TolerableUpperIntake_paragraph) > 0
-    # 
-    #     self.assertTrue(TolerableUpperIntake_is_shown_in_list)
-    # 
+    def test_tolerable_upper_intake_delete_cancel_delete(self):
+        """
+        A TolerableUpperIntake object is created. The test case consists of
+        clicking on 'Delete' and the subsequent cancelling by clicking on
+        'Cancel'. It is tested whether the TolerableUpperIntake object remains
+        in the database and in the list of TolerableUpperIntake objects.
+        """
+        # Simulate clicking on tolerable upper intakes
+        click_navbar_item(
+            'id_menu_item_tolerableupperintake',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        time.sleep(0.1)
+
+        # Add the first tolerable upper intake from the list of tolerable upper
+        # intakes saved in the fixtures.
+
+        new_tolerable_upper_intake_button = self.browser.find_element_by_id(
+            'id_button_new_tolerableupperintake'
+        )
+        new_tolerable_upper_intake_button.click()
+
+        time.sleep(0.1)
+
+        k = 0
+
+        for key, value in initial_tolerable_upper_intake[k].items():
+            id_from_key = 'id_' + key
+            if value is not None:
+                self.browser.find_element_by_id(id_from_key).send_keys(
+                    str(value)
+                )
+
+        # Simulate clicking the save button
+        save_button = self.browser.find_element_by_id(
+            'id_button_save_tolerableupperintake'
+        )
+        save_button.click()
+
+        time.sleep(1)
+
+        # Test whether the saved tolerable upper intake shows up in the list of
+        # tolerable upper intakes.
+
+        xpath_ = "//*[contains(text(), " \
+                 "'Dummy tolerable upper intake')]"
+
+        tolerable_upper_intake_is_shown_in_list = check_exists_by_xpath(
+            self.browser,
+            xpath_,
+            NoSuchElementException
+        )
+
+        self.assertTrue(tolerable_upper_intake_is_shown_in_list)
+
+        # Test whether the saved tolerable upper intake is in the database.
+        tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
+            name=initial_tolerable_upper_intake[k]['name']
+        )
+        tolerable_upper_intake_was_saved = tolerable_upper_intake_query.exists()
+        self.assertTrue(tolerable_upper_intake_was_saved)
+
+        # Now that the TolerableUpperIntake object has been created, it is
+        # deleted.
+
+        # Find the correct delete button by its id.
+        delete_button = self.browser.find_element_by_id(
+            'delete ' + initial_tolerable_upper_intake[k]['name']
+        )
+        delete_button.click()
+
+        # Test whether the user is redirected to the delete page of
+        # TolerableUpperIntake instance.
+        self.assertIn('delete', self.browser.current_url)
+        self.assertIn('tolerableupperintake', self.browser.current_url)
+
+        cancel_delete_button = self.browser.find_element_by_id(
+            'cancel_delete'
+        )
+        cancel_delete_button.click()
+
+        # Test whether the TolerableUpperIntake object has been deleted in two
+        # ways.
+
+        # The first way is to test whether the TolerableUpperIntake object can
+        # be found in the database.
+
+        tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
+            name=initial_tolerable_upper_intake[k]['name']
+        )
+        tolerable_upper_intake_is_in_database = \
+            tolerable_upper_intake_query.exists()
+        self.assertTrue(tolerable_upper_intake_is_in_database)
+
+        # The second way is to test whether the TolerableUpperIntake object can
+        # be found in the list using the unchanged name.
+
+        tolerable_upper_intake_paragraph = \
+            self.browser.find_elements_by_id(
+                'paragraph ' + initial_tolerable_upper_intake[k]['name']
+            )
+
+        tolerable_upper_intake_is_shown_in_list = \
+            len(tolerable_upper_intake_paragraph) > 0
+
+        self.assertTrue(tolerable_upper_intake_is_shown_in_list)
+
     # def test_user_can_not_edit_TolerableUpperIntake_of_other_user(self):
     #     """
     #     Url forgery used to access the tolerable upper intakes of other users has
