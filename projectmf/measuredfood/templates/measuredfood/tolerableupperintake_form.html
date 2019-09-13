@@ -2,6 +2,17 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+
+        <div class="">
+          <a class="btn btn-lg btn-block btn-primary"
+          href="{% url 'list-tolerableupperintake' %}"
+          id="button_back_to_list_tolerable_upper_intake">
+            Back to list of tolerable upper intakes
+          </a>
+        </div>
+        <br>
+        <br>
+
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -412,7 +423,7 @@
                 <button
                   class="btn btn-lg btn-block btn-success"
                   type="submit"
-                  id="id_button_save_new_tolerableupperintake">
+                  id="id_button_save_tolerableupperintake">
                   Save
                 </button>
             </div>

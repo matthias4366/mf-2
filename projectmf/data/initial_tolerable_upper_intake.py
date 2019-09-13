@@ -62,7 +62,7 @@ tolerable_upper_intake_template = [
     },
 ]
 
-tolerable_upper_intake_initial = [
+initial_tolerable_upper_intake = [
     {
         'name': 'Dummy tolerable upper intake',
         'vitamin_a_tolerable_upper_intake': 1,

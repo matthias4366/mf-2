@@ -95,15 +95,18 @@ nutrient_profile_dict_list = [
         'name': 'Second nutrient profile placeholder',
     },
     {
-        'name': 'EU Male 25+',
+        'name': 'EU Male over 25',
         # source:
         #  https://www.efsa.europa.eu/en/interactive-pages/drvs
-        'calories': None,  # 'default_unit': 'kcal'
+        'calories': 2500,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
         'fat': None,  # 'default_unit': 'gram'
-        'protein': None,  # 'default_unit': 'gram'
-        'linoleic_acid': None,  # 'default_unit': 'gram'
-        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        'protein': 164,  # 'default_unit': 'gram'
+        # The values for linoleic acid and alpha linoleic acid were given as
+        # percentages of total energy intake. I went with values that I had
+        # noted in food_numbers_object_oriented that were taken from wikipedia.
+        'linoleic_acid': 17,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 1.6,  # 'default_unit': 'gram'
         # Vitamin A unit conversion:
         # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
         # or of 0.6 mcg beta-carotene
