@@ -3,7 +3,7 @@
         "model": "measuredfood.nutrientprofile",
         "pk": 1,
         "fields": {
-            "name": "Matthias maintenance plus vitamins from NIH Males 19-30 ",
+            "name": "Maintenance plus vitamins from NIH Males 19-30",
             "calories": 2500,
             "fat": 72,
             "protein": 164,
@@ -43,6 +43,48 @@
         "pk": 2,
         "fields": {
             "name": "Second nutrient profile placeholder",
+            "author": 1
+        }
+    },
+    {
+        "model": "measuredfood.nutrientprofile",
+        "pk": 3,
+        "fields": {
+            "name": "EU Male 25+",
+            "calories": null,
+            "carbohydrates": null,
+            "fat": null,
+            "protein": null,
+            "linoleic_acid": null,
+            "alpha_linoleic_acid": null,
+            "vitamin_a": 750,
+            "vitamin_c": 110,
+            "vitamin_d": 15,
+            "vitamin_e": 13,
+            "vitamin_k": 70,
+            "thiamin": 1.5,
+            "riboflavin": 1.6,
+            "niacin": 24,
+            "vitamin_b6": 1.7,
+            "folate": 330,
+            "vitamin_b12": 4,
+            "pantothenic_acid": 5,
+            "biotin": 40,
+            "choline": 400,
+            "calcium": 950,
+            "chromium": null,
+            "copper": 1600,
+            "iodine": 150,
+            "iron": 11,
+            "magnesium": 350,
+            "manganese": 3,
+            "molybdenum": 65,
+            "phosphorus": 550,
+            "selenium": 70,
+            "zinc": 16.3,
+            "potassium": 3.5,
+            "sodium": 2,
+            "chloride": 3.1,
             "author": 1
         }
     }

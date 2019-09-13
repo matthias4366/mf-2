@@ -4,11 +4,17 @@ python dictionaries. In order to be able to load the data into the django app
 with a python script, the list of dictionaries is converted into JSON.
 """
 
-from data.initial_nutrient_profiles import nutrient_profile_dict_list
+# IT WORKS EVEN THOUGH IT IS MARKED RED!
+from initial_nutrient_profiles import nutrient_profile_dict_list  # WORKS!
+
+
 import json
 
 import sys
 sys.path.insert(0, '/projectmf/fixtures/')
+sys.path.insert(0, '/')
+sys.path.insert(0, '/projectmf/data/')
+sys.path.insert(0, '/projectmf/')
 
 # Adapt the python list of dictionaries of the nutrient profiles so it produces
 # the correct JSON with the model name, pk and the fields.

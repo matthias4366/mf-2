@@ -13,7 +13,6 @@ from django.contrib.auth.models import User
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
-# import logging
 
 
 class NutrientProfileTest(FunctionalTestWithUserLoggedIn):

@@ -24,12 +24,6 @@ def query_specificnutrienttarget_of_fulldayofeating(
             'nutrient_target'
             ))
 
-    # print('\n specificnutrienttarget_list \n')
-    # pprint.pprint(specificnutrienttarget_list)
-
-    # print('\n nutrientprofile_dict \n')
-    # pprint.pprint(nutrientprofile_dict)
-
     for dict_k in specificnutrienttarget_list:
         nutrient_target_name = dict_k['nutrient_target']
         if nutrientprofile_dict[nutrient_target_name] is None:

@@ -32,7 +32,7 @@ class TolerableUpperIntake(models.Model):
         User,
         on_delete=models.CASCADE,
         # TODO: The null and blank settings might be wrong as I have not used
-        # them for the other models.
+        #       them for the other models.
         null=True,
         blank=False,
     )
@@ -40,7 +40,7 @@ class TolerableUpperIntake(models.Model):
     def __str__(self):
         return self.name
 
-    # TODO: active this code when you have a url for
+    # TODO: activate this code when you have a url for
     #  'list-tolerableupperintake'
     # def get_absolute_url(self):
     #     return reverse('list-tolerableupperintake')
@@ -68,19 +68,6 @@ for nutrient_dict in VITAMINS_AND_DEFAULT_UNITS:
             default=nutrient_dict['default_unit'],
         )
     )
-    # Add the fields with boolean values stating whether a tolerable upper
-    # intake has been determined.
-    # If this value is set to False, then scientists simply do not know the
-    # tolerable upper intake for this specific vitamin.
-    TolerableUpperIntake.add_to_class(
-        nutrient_dict['name']+'_value_exists',
-        models.BooleanField(
-            blank=False,
-            null=False,
-            default=True,
-        )
-    )
-
 
 # Elements
 for nutrient_dict in ELEMENTS_AND_DEFAULT_UNITS:
@@ -102,17 +89,5 @@ for nutrient_dict in ELEMENTS_AND_DEFAULT_UNITS:
             blank=False,
             null=False,
             default=nutrient_dict['default_unit'],
-        )
-    )
-    # Add the fields with boolean values stating whether a tolerable upper
-    # intake has been determined.
-    # If this value is set to False, then scientists simply do not know the
-    # tolerable upper intake for this specific vitamin.
-    TolerableUpperIntake.add_to_class(
-        nutrient_dict['name']+'_value_exists',
-        models.BooleanField(
-            blank=False,
-            null=False,
-            default=True,
         )
     )

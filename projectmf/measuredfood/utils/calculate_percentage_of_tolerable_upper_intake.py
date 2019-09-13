@@ -19,19 +19,14 @@ def calculate_percentage_of_tolerable_upper_intake(
     for key, value in tolerableupperintake_dict.items():
         # pick out only the fields which represent a tolerable upper intake
         if '_tolerable_upper_intake' in key:
-            # See if a value exists.
-            # print('\n key \n')
-            # pprint.pprint(key)
             # Get the name of the nutrient by removing '_upper_intake'.
 
             nutrient_name = key[:-len('_tolerable_upper_intake')]
 
-            # print('\n nutrient_name \n')
-            # pprint.pprint(nutrient_name)
+            tolerableupperintake_value_exists = \
+                (value is not None) and (value > 0)
 
-            # If no value exists, save that as the result.
-            str_value_exists = nutrient_name + '_value_exists'
-            if tolerableupperintake_dict[str_value_exists]:
+            if tolerableupperintake_value_exists:
 
                 percentage_tolerable_upper_intake = \
                     (result_total_nutrition_fulldayofeating[
