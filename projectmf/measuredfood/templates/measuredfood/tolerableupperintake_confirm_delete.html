@@ -11,11 +11,18 @@
                 </h2>
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">
+                <button
+                        class="btn btn-outline-danger"
+                        type="submit"
+                        id="confirm_delete"
+                >
                   Yes, Delete
                 </button>
-                <a class="btn btn-outline-secondary"
-                href="{% url 'list-tolerableupperintake' %}">
+                <a
+                        class="btn btn-outline-secondary"
+                        href="{% url 'list-tolerableupperintake' %}"
+                        id="cancel_delete"
+                >
                   Cancel
                 </a>
             </div>
