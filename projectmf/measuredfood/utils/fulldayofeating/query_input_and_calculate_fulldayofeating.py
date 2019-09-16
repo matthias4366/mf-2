@@ -18,6 +18,7 @@ def query_input_and_calculate_fulldayofeating(
     copy,
     all_nutrients_and_default_units,
     np,
+    no_specific_ingredient_in_full_day_of_eating_error,
 ):
     """
     This function groups together multiple sub functions that often need to be
@@ -34,18 +35,7 @@ def query_input_and_calculate_fulldayofeating(
 
     # Catch the error that the user did not add any ingredients whatsoever.
     if len(specificingredient_dict_list) == 0:
-        result_calculate_fulldayofeating = {
-            'errors': {
-                'ingredients_are_present': False
-            }
-        }
-        specificingredient_dict_list = None
-        targeted_nutrients_errors = None
-        nutrientprofile_dict = None
-        return result_calculate_fulldayofeating,\
-            specificingredient_dict_list,\
-            targeted_nutrients_errors,\
-            nutrientprofile_dict
+        raise no_specific_ingredient_in_full_day_of_eating_error
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,
