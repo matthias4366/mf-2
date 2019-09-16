@@ -26,14 +26,14 @@ try:
     nutrient_profile_is_valid = False
     if nutrient_profile_is_valid:
         result_step_1_is_valid = True
+    # If something went wrong (error_step_1), stop the calculation and show the
+    # user the error page.
     else:
         result_step_1_is_valid = False
         raise Step1Error
 
-    # If something went wrong (error_step_1), stop the calculation and show the
-    # user the error page.
-
     # Calculate step 2.
+
     # If something went wrong (error_step_2), stop the calculation and show the
     # user the error page.
 

@@ -21,9 +21,6 @@ def query_ingredients_fulldayofeating(
     objects are queried and their information is stored in a sub dictionary
     in the dictionary of the SpecificIngredient.
     """
-    """
-    Query the related SpecificIngredients and store the results in dictionaries.
-    """
     queryset_specificingredient = specific_ingredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
         )
@@ -39,9 +36,6 @@ def query_ingredients_fulldayofeating(
             id=specificingredient_dict_list[k]['rawingredient_id']
         ).values()
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
-
-        # print('\n rawingredient_k_dict \n')
-        # pprint.pprint(rawingredient_k_dict)
 
         # Make sure that no None fields are returned.
         for nutrient_dict_k in all_nutrients_and_default_units:

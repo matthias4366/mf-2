@@ -76,6 +76,8 @@ from measuredfood.utils.query.query_result_calculation_fulldayofeating \
 from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
     import query_specificnutrienttarget_of_fulldayofeating
 
+from measuredfood.utils.error.custom_error import UserIsNotAuthorError
+
 
 @login_required
 def create_fulldayofeating_view(request):
@@ -238,55 +240,71 @@ class DeleteFullDayOfEating(UserPassesTestMixin, DeleteView):
 
 @login_required
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
-    # Make sure users can not edit other user's objects.
-    user_is_author = check_if_author(
-        request,
-        FullDayOfEating,
-        id_fulldayofeating
-        )
-    if not user_is_author:
-        context = {}
-        return render(request, 'measuredfood/not_yours.html', context)
-    # The user is the author, proceed.
 
-    fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
+    try:
 
-    result_calculate_fulldayofeating,\
-        specificingredient_dict_list,\
-        targeted_nutrients_errors,\
-        nutrientprofile_dict = \
-        query_input_and_calculate_fulldayofeating(
-            query_ingredients_fulldayofeating,
-            query_nutrientprofile_of_fulldayofeating,
-            query_specificnutrienttarget_of_fulldayofeating,
-            calculate_fulldayofeating,
-            calculate_average_of_specificingredient_group,
-            undo_calculate_average_of_specificingredient_group,
-            save_fulldayofeating_calculation_result_to_database,
-            set_to_zero_if_none,
-            id_fulldayofeating,
-            SpecificIngredient,
-            RawIngredient2,
+        # Make sure users can not edit other user's objects.
+        user_is_author = check_if_author(
+            request,
             FullDayOfEating,
-            NutrientProfile,
-            SpecificNutrientTarget,
-            copy,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            np,
-        )
+            id_fulldayofeating
+            )
+        if not user_is_author:
+            context = {}
+            return render(request, 'measuredfood/not_yours.html', context)
+        # The user is the author, proceed.
 
-    # Check if the key exists first, this is purely technical.
-    if 'ingredients_are_present'\
-            in result_calculate_fulldayofeating['errors'].keys():
-        # Here comes the actual logic: are there ingredients present
-        if not result_calculate_fulldayofeating['errors'][
-                'ingredients_are_present']:
-            n_ingredients_is_zero = True
+        fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
+
+        result_calculate_fulldayofeating,\
+            specificingredient_dict_list,\
+            targeted_nutrients_errors,\
+            nutrientprofile_dict = \
+            query_input_and_calculate_fulldayofeating(
+                query_ingredients_fulldayofeating,
+                query_nutrientprofile_of_fulldayofeating,
+                query_specificnutrienttarget_of_fulldayofeating,
+                calculate_fulldayofeating,
+                calculate_average_of_specificingredient_group,
+                undo_calculate_average_of_specificingredient_group,
+                save_fulldayofeating_calculation_result_to_database,
+                set_to_zero_if_none,
+                id_fulldayofeating,
+                SpecificIngredient,
+                RawIngredient2,
+                FullDayOfEating,
+                NutrientProfile,
+                SpecificNutrientTarget,
+                copy,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                np,
+            )
+
+        # Check if the key exists first, this is purely technical.
+        if 'ingredients_are_present'\
+                in result_calculate_fulldayofeating['errors'].keys():
+            # Here comes the actual logic: are there ingredients present
+            if not result_calculate_fulldayofeating['errors'][
+                    'ingredients_are_present']:
+                n_ingredients_is_zero = True
+                context = {
+                    'result_calculate_fulldayofeating':
+                    result_calculate_fulldayofeating,
+                    'id_fulldayofeating': id_fulldayofeating,
+                    'n_ingredients_is_zero': n_ingredients_is_zero,
+                    'fulldayofeating_object': fulldayofeating_object,
+                }
+                return render(
+                    request,
+                    'measuredfood/fulldayofeating_calculation_result.html',
+                    context
+                    )
+
+        if targeted_nutrients_errors['missing_nutrientprofile_value']:
             context = {
-                'result_calculate_fulldayofeating':
-                result_calculate_fulldayofeating,
                 'id_fulldayofeating': id_fulldayofeating,
-                'n_ingredients_is_zero': n_ingredients_is_zero,
+                'targeted_nutrients_errors': targeted_nutrients_errors,
+                'nutrientprofile_dict': nutrientprofile_dict,
                 'fulldayofeating_object': fulldayofeating_object,
             }
             return render(
@@ -295,160 +313,154 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 context
                 )
 
-    if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        context = {
-            'id_fulldayofeating': id_fulldayofeating,
-            'targeted_nutrients_errors': targeted_nutrients_errors,
-            'nutrientprofile_dict': nutrientprofile_dict,
-            'fulldayofeating_object': fulldayofeating_object,
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
+        if result_calculate_fulldayofeating['errors']['mismatch']:
+            context = {
+                'result_calculate_fulldayofeating':
+                result_calculate_fulldayofeating,
+                'id_fulldayofeating': id_fulldayofeating,
+                'fulldayofeating_object': fulldayofeating_object
+            }
+            return render(
+                request,
+                'measuredfood/fulldayofeating_calculation_result.html',
+                context
+                )
+
+        result_calculate_fulldayofeating_formatted_for_template = \
+            query_result_calculation_fulldayofeating(
+                id_fulldayofeating,
+                SpecificIngredient,
+                RawIngredient2,
+                )
+
+        # Calculate the total nutrition of the full day of eating
+        result_total_nutrition_fulldayofeating,\
+            result_total_nutrition_fulldayofeating_rounded =\
+            calculate_total_nutrition_fulldayofeating(
+                specificingredient_dict_list,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                set_to_zero_if_none,
             )
 
-    if result_calculate_fulldayofeating['errors']['mismatch']:
-        context = {
-            'result_calculate_fulldayofeating':
-            result_calculate_fulldayofeating,
-            'id_fulldayofeating': id_fulldayofeating,
-            'fulldayofeating_object': fulldayofeating_object
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
-            )
+        # Make the result_total_nutrition_fulldayofeating_rounded into a list.
+        result_total_nutrition_fulldayofeating_rounded_list = []
+        nutrient_name_list = []
+        for key, value in result_total_nutrition_fulldayofeating_rounded.items():
+            result_total_nutrition_fulldayofeating_rounded_list.append(value)
+            nutrient_name_list.append(key)
 
-    result_calculate_fulldayofeating_formatted_for_template = \
-        query_result_calculation_fulldayofeating(
+        # print('\n result_total_nutrition_fulldayofeating_rounded \n')
+        # pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
+
+        # Calculate the ratio of the total nutrition in the full day of eating
+        # in relation to the target amounts in the nutrient profile and
+        # express the result as a percentage.
+
+        nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
             id_fulldayofeating,
-            SpecificIngredient,
-            RawIngredient2,
+            FullDayOfEating,
+            NutrientProfile,
+        )
+
+        result_percentage_of_target_amount_str,\
+            result_percentage_of_target_amount_numbers = \
+            calculate_percentage_of_target_amount(
+                nutrientprofile_dict,
+                result_total_nutrition_fulldayofeating,
+                set_to_zero_if_none,
             )
 
-    # Calculate the total nutrition of the full day of eating
-    result_total_nutrition_fulldayofeating,\
-        result_total_nutrition_fulldayofeating_rounded =\
-        calculate_total_nutrition_fulldayofeating(
-            specificingredient_dict_list,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            set_to_zero_if_none,
+        # Make the result_percentage_of_target_amount_str into a list
+        result_percentage_of_target_amount_list = []
+        for key, value in result_percentage_of_target_amount_str.items():
+            result_percentage_of_target_amount_list.append(value)
+
+        # Make the result_percentage_of_target_amount_numbers into a list
+        result_percentage_of_target_amount_numbers_list = []
+        for key, value in result_percentage_of_target_amount_numbers.items():
+            result_percentage_of_target_amount_numbers_list.append(value)
+
+        # print('\n result_percentage_of_target_amount_numbers_list \n')
+        # pprint.pprint(result_percentage_of_target_amount_numbers_list)
+
+        # Calculate the percentage of the tolerable upper limit.
+        tolerableupperintake_dict = query_tolerableupperintake_of_fulldayofeating(
+            id_fulldayofeating,
+            FullDayOfEating,
+            TolerableUpperIntake,
         )
-
-    # Make the result_total_nutrition_fulldayofeating_rounded into a list.
-    result_total_nutrition_fulldayofeating_rounded_list = []
-    nutrient_name_list = []
-    for key, value in result_total_nutrition_fulldayofeating_rounded.items():
-        result_total_nutrition_fulldayofeating_rounded_list.append(value)
-        nutrient_name_list.append(key)
-
-    # print('\n result_total_nutrition_fulldayofeating_rounded \n')
-    # pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
-
-    # Calculate the ratio of the total nutrition in the full day of eating
-    # in relation to the target amounts in the nutrient profile and
-    # express the result as a percentage.
-
-    nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
-        id_fulldayofeating,
-        FullDayOfEating,
-        NutrientProfile,
-    )
-
-    result_percentage_of_target_amount_str,\
-        result_percentage_of_target_amount_numbers = \
-        calculate_percentage_of_target_amount(
-            nutrientprofile_dict,
-            result_total_nutrition_fulldayofeating,
-            set_to_zero_if_none,
-        )
-
-    # Make the result_percentage_of_target_amount_str into a list
-    result_percentage_of_target_amount_list = []
-    for key, value in result_percentage_of_target_amount_str.items():
-        result_percentage_of_target_amount_list.append(value)
-
-    # Make the result_percentage_of_target_amount_numbers into a list
-    result_percentage_of_target_amount_numbers_list = []
-    for key, value in result_percentage_of_target_amount_numbers.items():
-        result_percentage_of_target_amount_numbers_list.append(value)
-
-    # print('\n result_percentage_of_target_amount_numbers_list \n')
-    # pprint.pprint(result_percentage_of_target_amount_numbers_list)
-
-    # Calculate the percentage of the tolerable upper limit.
-    tolerableupperintake_dict = query_tolerableupperintake_of_fulldayofeating(
-        id_fulldayofeating,
-        FullDayOfEating,
-        TolerableUpperIntake,
-    )
-    result_percentage_of_tolerable_upper_intake_str,\
-        result_percentage_of_tolerable_upper_intake_numbers = \
-        calculate_percentage_of_tolerable_upper_intake(
-            tolerableupperintake_dict,
-            result_total_nutrition_fulldayofeating,
-        )
-
-    # Make the result_percentage_of_tolerable_upper_intake_str into a list
-    result_percentage_of_tolerable_upper_intake_str_list = []
-    for key, value in result_percentage_of_tolerable_upper_intake_str.items():
-        result_percentage_of_tolerable_upper_intake_str_list.append(value)
-
-    # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
-    result_percentage_of_tolerable_upper_intake_numbers_list = []
-    for key, value in \
-            result_percentage_of_tolerable_upper_intake_numbers.items():
-        result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
-
-    # Make the default units into a list and display them in the table.
-    default_unit_list = []
-    for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-        default_unit_list.append(dict_k['default_unit'])
-
-    # Based on the ratios between the sum of the total nutrition for a
-    # given nutrient to that nutrient's target value and tolerable upper intake,
-    # judge the total nutrition as either the right amount, too little or too
-    # much.
-    result_judge_total_nutrition,\
-        result_judge_total_nutrition_css_class_name = judge_total_nutrition(
-            result_percentage_of_target_amount_numbers_list,
-            result_percentage_of_tolerable_upper_intake_numbers_list,
-        )
-
-    aggregated_total_nutrition_fulldayofeating = \
-        zip(
-            nutrient_name_list,
-            result_total_nutrition_fulldayofeating_rounded_list,
-            default_unit_list,
-            result_percentage_of_target_amount_list,
-            result_percentage_of_tolerable_upper_intake_str_list,
-            result_judge_total_nutrition,
-            result_judge_total_nutrition_css_class_name,
+        result_percentage_of_tolerable_upper_intake_str,\
+            result_percentage_of_tolerable_upper_intake_numbers = \
+            calculate_percentage_of_tolerable_upper_intake(
+                tolerableupperintake_dict,
+                result_total_nutrition_fulldayofeating,
             )
 
-    total_price_fulldayofeating_result_dict = \
-        calculate_total_price_fulldayofeating(
-            specificingredient_dict_list
-        )
+        # Make the result_percentage_of_tolerable_upper_intake_str into a list
+        result_percentage_of_tolerable_upper_intake_str_list = []
+        for key, value in result_percentage_of_tolerable_upper_intake_str.items():
+            result_percentage_of_tolerable_upper_intake_str_list.append(value)
 
-    context = {'id_fulldayofeating': id_fulldayofeating,
-               'result_calculate_fulldayofeating_formatted_for_template':
-               result_calculate_fulldayofeating_formatted_for_template,
-               'result_calculate_fulldayofeating':
-               result_calculate_fulldayofeating,
-               'aggregated_total_nutrition_fulldayofeating':
-               aggregated_total_nutrition_fulldayofeating,
-               'result_percentage_of_target_amount':
-               result_percentage_of_target_amount_str,
-               'total_price_fulldayofeating_result_dict':
-               total_price_fulldayofeating_result_dict,
-               'fulldayofeating_object': fulldayofeating_object,
-               }
+        # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
+        result_percentage_of_tolerable_upper_intake_numbers_list = []
+        for key, value in \
+                result_percentage_of_tolerable_upper_intake_numbers.items():
+            result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
 
-    return render(
-        request,
-        'measuredfood/fulldayofeating_calculation_result.html',
-        context
-        )
+        # Make the default units into a list and display them in the table.
+        default_unit_list = []
+        for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+            default_unit_list.append(dict_k['default_unit'])
+
+        # Based on the ratios between the sum of the total nutrition for a
+        # given nutrient to that nutrient's target value and tolerable upper intake,
+        # judge the total nutrition as either the right amount, too little or too
+        # much.
+        result_judge_total_nutrition,\
+            result_judge_total_nutrition_css_class_name = judge_total_nutrition(
+                result_percentage_of_target_amount_numbers_list,
+                result_percentage_of_tolerable_upper_intake_numbers_list,
+            )
+
+        aggregated_total_nutrition_fulldayofeating = \
+            zip(
+                nutrient_name_list,
+                result_total_nutrition_fulldayofeating_rounded_list,
+                default_unit_list,
+                result_percentage_of_target_amount_list,
+                result_percentage_of_tolerable_upper_intake_str_list,
+                result_judge_total_nutrition,
+                result_judge_total_nutrition_css_class_name,
+                )
+
+        total_price_fulldayofeating_result_dict = \
+            calculate_total_price_fulldayofeating(
+                specificingredient_dict_list
+            )
+
+        context = {'id_fulldayofeating': id_fulldayofeating,
+                   'result_calculate_fulldayofeating_formatted_for_template':
+                   result_calculate_fulldayofeating_formatted_for_template,
+                   'result_calculate_fulldayofeating':
+                   result_calculate_fulldayofeating,
+                   'aggregated_total_nutrition_fulldayofeating':
+                   aggregated_total_nutrition_fulldayofeating,
+                   'result_percentage_of_target_amount':
+                   result_percentage_of_target_amount_str,
+                   'total_price_fulldayofeating_result_dict':
+                   total_price_fulldayofeating_result_dict,
+                   'fulldayofeating_object': fulldayofeating_object,
+                   }
+
+        return render(
+            request,
+            'measuredfood/fulldayofeating_calculation_result.html',
+            context
+            )
+
+    except UserIsNotAuthorError:
+        """
+        Careful when you implement this. You will have to make changes at 
+        multiple spots in the code.
+        """
+        pass
