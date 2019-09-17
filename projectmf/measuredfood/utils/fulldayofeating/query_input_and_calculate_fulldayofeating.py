@@ -31,11 +31,8 @@ def query_input_and_calculate_fulldayofeating(
         raw_ingredient2,
         all_nutrients_and_default_units,
         set_to_zero_if_none,
+        no_specific_ingredient_in_full_day_of_eating_error,
     )
-
-    # Catch the error that the user did not add any ingredients whatsoever.
-    if len(specificingredient_dict_list) == 0:
-        raise no_specific_ingredient_in_full_day_of_eating_error
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,

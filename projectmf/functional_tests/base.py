@@ -85,11 +85,11 @@ class FunctionalTestWithUserLoggedIn(StaticLiveServerTestCase):
         time.sleep(0.5)
 
         # Check if the dummy user object exists in the database.
-        query_dummy_user = User.objects.filter(
+        self.user = User.objects.filter(
             username=dummy_username,
         )
 
-        dummy_user_exists = query_dummy_user.exists()
+        dummy_user_exists = self.user.exists()
 
         self.assertTrue(dummy_user_exists)
 
@@ -111,4 +111,3 @@ class FunctionalTestWithUserLoggedIn(StaticLiveServerTestCase):
 
     def tearDown(self):
         self.browser.quit()
-

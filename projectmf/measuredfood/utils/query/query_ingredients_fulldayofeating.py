@@ -6,6 +6,7 @@ def query_ingredients_fulldayofeating(
     raw_ingredient2,
     all_nutrients_and_default_units,
     set_to_zero_if_none,
+    no_specific_ingredient_in_full_day_of_eating_error,
 ):
     """
     This function assists the function calculate_total_price_fulldayofeating.
@@ -46,5 +47,9 @@ def query_ingredients_fulldayofeating(
         specificingredient_dict_list[k].update(
             raw_ingredient=rawingredient_k_dict
             )
+
+    # Catch the error that the user did not add any ingredients whatsoever.
+    if len(specificingredient_dict_list) == 0:
+        raise no_specific_ingredient_in_full_day_of_eating_error
 
     return specificingredient_dict_list

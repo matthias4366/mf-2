@@ -47,13 +47,6 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
 
         for key, value in nutrient_profile_dict_list[k].items():
             id_from_key = 'id_' + key
-            # logging.info('\n id_from_key in
-            # test_nutrient_profile_creation '
-            #              '\n')
-            # logging.info(id_from_key)
-            # logging.info('\n value in test_nutrient_profile_creation '
-            #              '\n')
-            # logging.info(value)
             if value is not None:
 
                 self.browser.find_element_by_id(id_from_key).send_keys(

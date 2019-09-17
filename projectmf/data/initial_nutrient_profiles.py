@@ -44,6 +44,8 @@ template_nutrient_profile = [
     # },
 ]
 
+# The first nutrient profile in nutrient_profile_dict_list is used in the tests.
+
 nutrient_profile_dict_list = [
     {
         'name': 'Maintenance plus vitamins from NIH Males 19-30',
