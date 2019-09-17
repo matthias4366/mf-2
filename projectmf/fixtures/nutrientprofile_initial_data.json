@@ -3,7 +3,7 @@
         "model": "measuredfood.nutrientprofile",
         "pk": 1,
         "fields": {
-            "name": "Sandor's profile (based on EU)",
+            "name": "Maintenance EU",
             "calories": 2500,
             "carbohydrates": null,
             "fat": null,

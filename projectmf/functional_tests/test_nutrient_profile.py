@@ -61,11 +61,20 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
 
         time.sleep(1)
 
+        # Test whether the saved nutrient profile is in the database.
+        nutrient_profile_query = NutrientProfile.objects.filter(
+            name=nutrient_profile_dict_list[k]['name']
+        )
+        nutrient_profile_was_saved = nutrient_profile_query.exists()
+        self.assertTrue(nutrient_profile_was_saved)
+
         # Test whether the saved nutrient profile shows up in the list of
         # nutrient profiles.
 
         xpath_ = "//*[contains(text(), " \
-                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+                 + "'"\
+                 + nutrient_profile_dict_list[k]['name']\
+                 + "')]"
 
         nutrient_profile_is_shown_in_list = check_exists_by_xpath(
             self.browser,
@@ -74,13 +83,6 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         )
 
         self.assertTrue(nutrient_profile_is_shown_in_list)
-
-        # Test whether the saved nutrient profile is in the database.
-        nutrient_profile_query = NutrientProfile.objects.filter(
-            name=nutrient_profile_dict_list[k]['name']
-        )
-        nutrient_profile_was_saved = nutrient_profile_query.exists()
-        self.assertTrue(nutrient_profile_was_saved)
 
     def test_nutrient_profile_creation_with_invalid_data(self):
         """
@@ -199,7 +201,9 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         # nutrient profiles.
 
         xpath_ = "//*[contains(text(), " \
-                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+                 + "'" \
+                 + nutrient_profile_dict_list[k]['name'] \
+                 + "')]"
 
         nutrient_profile_is_shown_in_list = check_exists_by_xpath(
             self.browser,
@@ -327,7 +331,9 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         # nutrient profiles.
 
         xpath_ = "//*[contains(text(), " \
-                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+                 + "'" \
+                 + nutrient_profile_dict_list[k]['name'] \
+                 + "')]"
 
         nutrient_profile_is_shown_in_list = check_exists_by_xpath(
             self.browser,
@@ -457,7 +463,9 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         # nutrient profiles.
 
         xpath_ = "//*[contains(text(), " \
-                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+                 + "'" \
+                 + nutrient_profile_dict_list[k]['name'] \
+                 + "')]"
 
         nutrient_profile_is_shown_in_list = check_exists_by_xpath(
             self.browser,
@@ -572,7 +580,9 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         # nutrient profiles.
 
         xpath_ = "//*[contains(text(), " \
-                 "'Maintenance plus vitamins from NIH Males 19-30')]"
+                 + "'" \
+                 + nutrient_profile_dict_list[k]['name'] \
+                 + "')]"
 
         nutrient_profile_is_shown_in_list = check_exists_by_xpath(
             self.browser,

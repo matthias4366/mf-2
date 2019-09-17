@@ -141,7 +141,7 @@ nutrient_profile_dict_list = [
     #     'name': 'Second nutrient profile placeholder',
     # },
     {
-        'name': 'Sandor\'s profile (based on EU)',
+        'name': 'Maintenance EU',
         # source:
         #  https://www.efsa.europa.eu/en/interactive-pages/drvs
         'calories': 2500,  # 'default_unit': 'kcal'
