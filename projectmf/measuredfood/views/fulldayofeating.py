@@ -8,7 +8,6 @@ from measuredfood.forms import (
 from measuredfood.models import (
     RawIngredient2,
     NutrientProfile,
-    TolerableUpperIntake,
     SpecificNutrientTarget,
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
@@ -42,11 +41,8 @@ from measuredfood.utils.calculate_percentage_of_target_amount\
 from measuredfood.utils.set_to_zero_if_none\
     import set_to_zero_if_none
 
-from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake\
-    import calculate_percentage_of_tolerable_upper_intake
-
-from measuredfood.utils.judge_total_nutrition\
-    import judge_total_nutrition
+# from measuredfood.utils.judge_total_nutrition\
+#     import judge_total_nutrition
 
 from measuredfood.utils.query.query_ingredients_fulldayofeating\
     import query_ingredients_fulldayofeating
@@ -56,9 +52,6 @@ from measuredfood.utils.calculate_total_price_fulldayofeating\
 
 from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
     import query_nutrientprofile_of_fulldayofeating
-
-from measuredfood.utils.query.query_tolerableupperintake_of_fulldayofeating\
-    import query_tolerableupperintake_of_fulldayofeating
 
 from measuredfood.utils.undo_calculate_average_of_specificingredient_group\
     import undo_calculate_average_of_specificingredient_group
@@ -387,52 +380,17 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         for key, value in result_percentage_of_target_amount_numbers.items():
             result_percentage_of_target_amount_numbers_list.append(value)
 
-        # print('\n result_percentage_of_target_amount_numbers_list \n')
-        # pprint.pprint(result_percentage_of_target_amount_numbers_list)
-
-        # Calculate the percentage of the tolerable upper limit.
-        tolerableupperintake_dict = \
-            query_tolerableupperintake_of_fulldayofeating(
-                id_fulldayofeating,
-                FullDayOfEating,
-                TolerableUpperIntake,
-            )
-        result_percentage_of_tolerable_upper_intake_str,\
-            result_percentage_of_tolerable_upper_intake_numbers = \
-            calculate_percentage_of_tolerable_upper_intake(
-                tolerableupperintake_dict,
-                result_total_nutrition_fulldayofeating,
-            )
-
-        # Make the result_percentage_of_tolerable_upper_intake_str into a list
-        result_percentage_of_tolerable_upper_intake_str_list = []
-        for key, value in \
-                result_percentage_of_tolerable_upper_intake_str.items():
-            result_percentage_of_tolerable_upper_intake_str_list.append(value)
-
-        # Make the result_percentage_of_tolerable_upper_intake_numbers into a
-        # list
-        result_percentage_of_tolerable_upper_intake_numbers_list = []
-        for key, value in \
-                result_percentage_of_tolerable_upper_intake_numbers.items():
-            result_percentage_of_tolerable_upper_intake_numbers_list.append(
-                value
-            )
+        # TODO: Calculate the percentage of the tolerable upper limit.
 
         # Make the default units into a list and display them in the table.
         default_unit_list = []
         for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             default_unit_list.append(dict_k['default_unit'])
 
-        # Based on the ratios between the sum of the total nutrition for a
-        # given nutrient to that nutrient's target value and tolerable upper
-        # intake, judge the total nutrition as either the right amount,
-        # too little or too much.
-        result_judge_total_nutrition,\
-            result_judge_total_nutrition_css_class_name = judge_total_nutrition(
-                result_percentage_of_target_amount_numbers_list,
-                result_percentage_of_tolerable_upper_intake_numbers_list,
-            )
+        # TODO: Based on the ratios between the sum of the total nutrition for a
+        #   given nutrient to that nutrient's target value and tolerable upper
+        #   intake, judge the total nutrition as either the right amount,
+        #   too little or too much.
 
         aggregated_total_nutrition_fulldayofeating = \
             zip(
@@ -440,9 +398,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 result_total_nutrition_fulldayofeating_rounded_list,
                 default_unit_list,
                 result_percentage_of_target_amount_list,
-                result_percentage_of_tolerable_upper_intake_str_list,
-                result_judge_total_nutrition,
-                result_judge_total_nutrition_css_class_name,
                 )
 
         total_price_fulldayofeating_result_dict = \

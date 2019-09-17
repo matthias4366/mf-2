@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .nutrientprofile import NutrientProfile
-from .tolerableupperintake import TolerableUpperIntake
 
 
 class Mealplan(models.Model):
@@ -27,14 +26,6 @@ class Mealplan(models.Model):
         editable=True,
         null=True,
         blank=False
-    )
-
-    tolerable_upper_intake = models.ForeignKey(
-        TolerableUpperIntake,
-        on_delete=models.PROTECT,
-        editable=True,
-        null=True,
-        blank=False,
     )
 
     def __str__(self):

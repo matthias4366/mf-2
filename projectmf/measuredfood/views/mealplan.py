@@ -16,7 +16,6 @@ from measuredfood.models import (
     SpecificIngredient,
     NutrientProfile,
     RawIngredient2,
-    TolerableUpperIntake,
     SpecificNutrientTarget,
 )
 from measuredfood.forms import (
@@ -56,15 +55,6 @@ from measuredfood.utils.calculate_percentage_of_target_amount\
 
 from measuredfood.utils.query.query_nutrientprofile_of_mealplan\
     import query_nutrientprofile_of_mealplan
-
-from measuredfood.utils.query.query_tolerableupperintake_of_mealplan import\
-    query_tolerableupperintake_of_mealplan
-
-from measuredfood.utils.calculate_percentage_of_tolerable_upper_intake import\
-    calculate_percentage_of_tolerable_upper_intake
-
-from measuredfood.utils.judge_total_nutrition import\
-    judge_total_nutrition
 
 from measuredfood.utils.calculate_total_price_fulldayofeating import \
     calculate_total_price_fulldayofeating
@@ -569,45 +559,15 @@ def mealplan_average_nutrition_view(request, id_mealplan):
 
     # =========================================================================
 
-    # Calculate the percentage of the tolerable upper limit.
-    tolerableupperintake_dict = query_tolerableupperintake_of_mealplan(
-        id_mealplan,
-        Mealplan,
-        TolerableUpperIntake,
-    )
-    result_percentage_of_tolerable_upper_intake_str,\
-        result_percentage_of_tolerable_upper_intake_numbers = \
-        calculate_percentage_of_tolerable_upper_intake(
-            tolerableupperintake_dict,
-            result_average_nutrition_mealplan,
-        )
-
-    # Make the result_percentage_of_tolerable_upper_intake_str into a list
-    result_percentage_of_tolerable_upper_intake_str_list = []
-    for key, value in result_percentage_of_tolerable_upper_intake_str.items():
-        result_percentage_of_tolerable_upper_intake_str_list.append(value)
-
-    # Make the result_percentage_of_tolerable_upper_intake_numbers into a list
-    result_percentage_of_tolerable_upper_intake_numbers_list = []
-    for key, value in \
-            result_percentage_of_tolerable_upper_intake_numbers.items():
-        result_percentage_of_tolerable_upper_intake_numbers_list.append(value)
+    # TODO Calculate the percentage of the tolerable upper limit.
 
     # =========================================================================
 
-    # Based on the ratios between the sum of the total nutrition for a
-    # given nutrient to that nutrient's target value and tolerable upper intake,
-    # judge the total nutrition as either the right amount, too little or too
-    # much.
-    # Make the result_percentage_of_target_amount_numbers into a list
-    result_percentage_of_target_amount_numbers_list = []
-    for key, value in result_percentage_of_target_amount_numbers.items():
-        result_percentage_of_target_amount_numbers_list.append(value)
-    result_judge_total_nutrition,\
-        result_judge_total_nutrition_css_class_name = judge_total_nutrition(
-            result_percentage_of_target_amount_numbers_list,
-            result_percentage_of_tolerable_upper_intake_numbers_list,
-        )
+    # TODO Based on the ratios between the sum of the total nutrition for a
+    #   given nutrient to that nutrient's target value and tolerable upper
+    #  intake,
+    #  judge the total nutrition as either the right amount, too little or too
+    #  much.
 
     aggregated_total_nutrition_fulldayofeating = \
         zip(
@@ -615,9 +575,6 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             result_average_nutrition_mealplan_values,
             default_unit_list,
             result_percentage_of_target_amount_list,
-            result_percentage_of_tolerable_upper_intake_str_list,
-            result_judge_total_nutrition,
-            result_judge_total_nutrition_css_class_name,
             )
 
     # Get the name of the mealplan

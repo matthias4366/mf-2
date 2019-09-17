@@ -5,7 +5,6 @@ from .models import (
     NutrientProfile,
     FullDayOfEating,
     Mealplan,
-    TolerableUpperIntake,
     SpecificNutrientTarget,
     )
 
@@ -15,5 +14,4 @@ admin.site.register(SpecificIngredient)
 admin.site.register(NutrientProfile)
 admin.site.register(FullDayOfEating)
 admin.site.register(Mealplan)
-admin.site.register(TolerableUpperIntake)
 admin.site.register(SpecificNutrientTarget)

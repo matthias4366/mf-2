@@ -8,7 +8,6 @@ from measuredfood.models import (
     RawIngredient2,
     Mealplan,
     SpecificFullDayOfEating,
-    TolerableUpperIntake,
     SpecificNutrientTarget,
     )
 
@@ -74,14 +73,6 @@ class RawIngredient2Form(forms.ModelForm):
 
     class Meta:
         model = RawIngredient2
-        fields = '__all__'
-        exclude = ['author']
-
-
-class TolerableUpperIntakeForm(forms.ModelForm):
-
-    class Meta:
-        model = TolerableUpperIntake
         fields = '__all__'
         exclude = ['author']
 
