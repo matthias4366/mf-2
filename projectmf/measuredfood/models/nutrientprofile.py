@@ -26,9 +26,9 @@ class NutrientProfile(models.Model):
         return reverse('list-nutrient-profiles')
 
 
-# add all the fields related to nutrition to the nutrient profile model
+# Add all the fields related to nutrition to the nutrient profile model.
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-    # add the nutrient fields
+    # Add the nutrient fields.
     NutrientProfile.add_to_class(
         nutrient_dict['name'],
         models.FloatField(
@@ -36,7 +36,7 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             null=True
         )
     )
-    # add the nutrient unit fields.
+    # Add the nutrient unit fields.
     NutrientProfile.add_to_class(
         nutrient_dict['name']+'_unit',
         models.CharField(
@@ -49,3 +49,28 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         )
     )
 
+# Add all the fields related to tolerable upper intakes of each
+# nutrient to the nutrient profile model.
+# 'Max' is used to indicate 'maximum' because that is clearer than 'tui' for
+# tolerable upper intake.
+for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    # Add the nutrient fields.
+    NutrientProfile.add_to_class(
+        'max_'+nutrient_dict['name'],
+        models.FloatField(
+            blank=True,
+            null=True
+        )
+    )
+    # Add the nutrient unit fields.
+    NutrientProfile.add_to_class(
+        'max_'+nutrient_dict['name']+'_unit',
+        models.CharField(
+            max_length=100,
+            choices=[(nutrient_dict['default_unit'],
+                      nutrient_dict['default_unit']), ],
+            blank=False,
+            null=False,
+            default=nutrient_dict['default_unit'],
+        )
+    )

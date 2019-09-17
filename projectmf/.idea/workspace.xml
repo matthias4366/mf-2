@@ -6,14 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_fulldayofeating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/initial_nutrient_profiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/initial_nutrient_profiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functional_tests/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating/query_input_and_calculate_fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating/query_input_and_calculate_fulldayofeating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/query/query_ingredients_fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/query/query_ingredients_fulldayofeating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="692">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -79,8 +73,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="528">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="574">
+              <caret line="716" lean-forward="true" selection-start-line="716" selection-end-line="716" />
             </state>
           </provider>
         </entry>
@@ -96,7 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nutrientprofile_query</find>
       <find>colspan=&quot;3&quot;</find>
       <find>value_exists</find>
       <find>None</find>
@@ -126,6 +128,7 @@
       <find>self.dummy_username</find>
       <find>select</find>
       <find>k</find>
+      <find>colspan=&quot;2&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>'calories':</replace>
@@ -155,6 +158,7 @@
       <replace>l</replace>
       <replace>k_tui</replace>
       <replace>k_np</replace>
+      <replace>colspan=&quot;4&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +186,6 @@
         <option value="$PROJECT_DIR$/data/ingredients_data2.py" />
         <option value="$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_list.html" />
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/not_yours.html" />
         <option value="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" />
@@ -214,10 +217,11 @@
         <option value="$PROJECT_DIR$/data/initial_nutrient_profiles.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_fulldayofeating.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -508,7 +512,7 @@
       <workItem from="1568371574918" duration="13276000" />
       <workItem from="1568620704575" duration="7859000" />
       <workItem from="1568644467970" duration="23000" />
-      <workItem from="1568714355091" duration="3305000" />
+      <workItem from="1568714355091" duration="5522000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -609,7 +613,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145246000" />
+    <option name="totallyTimeSpent" value="147463000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,8 +626,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23519646" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23519646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -637,7 +642,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27213824" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27213824" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -878,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13240">
-          <caret line="5" selection-start-line="5" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -1030,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_tolerable_upper_intake.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-304">
@@ -1066,13 +1057,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="692">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="716" lean-forward="true" selection-start-line="716" selection-end-line="716" />
         </state>
       </provider>
     </entry>
