@@ -102,103 +102,126 @@ def create_fulldayofeating_view(request):
 
 @login_required
 def update_fulldayofeating_view(request, id_fulldayofeating):
-    # Make sure users can not edit other user's objects.
-    user_is_author = check_if_author(
-        request,
-        FullDayOfEating,
-        id_fulldayofeating
+
+    try:
+
+        # Make sure users can not edit other user's objects.
+        check_if_author(
+            request,
+            FullDayOfEating,
+            id_fulldayofeating,
+            UserIsNotAuthorError
+            )
+
+        fulldayofeating_object = FullDayOfEating.objects.get(
+            pk=id_fulldayofeating
         )
-    if not user_is_author:
-        context = {}
-        return render(request, 'measuredfood/not_yours.html', context)
-    # The user is the author, proceed.
 
-    fulldayofeating_object = FullDayOfEating.objects.get(pk=id_fulldayofeating)
-
-    if request.method == 'POST':
-        form_fulldayofeating = FullDayOfEatingForm(
-            request.user.id,
-            request.POST,
-            instance=fulldayofeating_object
-            )
-        # I do not know if this part is necessary. It seems to work without.
-        # Allow the user to only add NutrientProfiles from their own collection.
-        form_fulldayofeating.fields['nutrient_profile'].queryset = \
-            NutrientProfile.objects.filter(
-                author=request.user.id
+        if request.method == 'POST':
+            form_fulldayofeating = FullDayOfEatingForm(
+                request.user.id,
+                request.POST,
+                instance=fulldayofeating_object
                 )
-
-        formset_specificingredient = SpecificIngredientFormset(
-            request.POST,
-            instance=fulldayofeating_object
-            )
-        # I do not know if this part is necessary. It seems to work without.
-        # Allow the user to only add RawIngredient2s from their own collection.
-        for form in formset_specificingredient:
-            form.fields['rawingredient'].queryset = \
-                RawIngredient2.objects.filter(
+            # I do not know if this part is necessary. It seems to work without.
+            # Allow the user to only add NutrientProfiles from their own
+            # collection.
+            form_fulldayofeating.fields['nutrient_profile'].queryset = \
+                NutrientProfile.objects.filter(
                     author=request.user.id
                     )
 
-        formset_specificnutrienttarget = SpecificNutrientTargetFormset(
-            request.POST,
-            instance=fulldayofeating_object,
-        )
-
-        if formset_specificingredient.is_valid() \
-                and form_fulldayofeating.is_valid()\
-                and formset_specificnutrienttarget.is_valid():
-
-            formset_specificingredient.save()
-            form_fulldayofeating.save()
-            formset_specificnutrienttarget.save()
-
-            return redirect(
-                'update-fulldayofeating',
-                id_fulldayofeating=fulldayofeating_object.id
+            formset_specificingredient = SpecificIngredientFormset(
+                request.POST,
+                instance=fulldayofeating_object
                 )
+            # I do not know if this part is necessary. It seems to work without.
+            # Allow the user to only add RawIngredient2s from their own
+            # collection.
+            for form in formset_specificingredient:
+                form.fields['rawingredient'].queryset = \
+                    RawIngredient2.objects.filter(
+                        author=request.user.id
+                        )
 
+            formset_specificnutrienttarget = SpecificNutrientTargetFormset(
+                request.POST,
+                instance=fulldayofeating_object,
+            )
+
+            if formset_specificingredient.is_valid() \
+                    and form_fulldayofeating.is_valid()\
+                    and formset_specificnutrienttarget.is_valid():
+
+                formset_specificingredient.save()
+                form_fulldayofeating.save()
+                formset_specificnutrienttarget.save()
+
+                return redirect(
+                    'update-fulldayofeating',
+                    id_fulldayofeating=fulldayofeating_object.id
+                    )
+
+            else:
+                context = {}
+                return render(
+                    request,
+                    'measuredfood/error/form_fulldayofeating_not_valid.html',
+                    context)
         else:
-            context = {}
-            return render(
-                request,
-                'measuredfood/error/form_fulldayofeating_not_valid.html',
-                context)
-    else:
-        form_fulldayofeating = FullDayOfEatingForm(
-            request.user.id,
-            instance=fulldayofeating_object
-            )
-        # Allow the user to only add NutrientProfiles from their own collection.
-        form_fulldayofeating.fields['nutrient_profile'].queryset = \
-            NutrientProfile.objects.filter(
-                author=request.user.id
+            form_fulldayofeating = FullDayOfEatingForm(
+                request.user.id,
+                instance=fulldayofeating_object
                 )
-
-        formset_specificingredient = SpecificIngredientFormset(
-            instance=fulldayofeating_object
-            )
-
-        # Allow the user to only add RawIngredient2s from their own collection.
-        for form in formset_specificingredient:
-            form.fields['rawingredient'].queryset = \
-                RawIngredient2.objects.filter(
+            # Allow the user to only add NutrientProfiles from their own
+            # collection.
+            form_fulldayofeating.fields['nutrient_profile'].queryset = \
+                NutrientProfile.objects.filter(
                     author=request.user.id
                     )
 
-        formset_specificnutrienttarget = SpecificNutrientTargetFormset(
-            instance=fulldayofeating_object,
-        )
+            formset_specificingredient = SpecificIngredientFormset(
+                instance=fulldayofeating_object
+                )
 
+            # Allow the user to only add RawIngredient2s from their own
+            # collection.
+            for form in formset_specificingredient:
+                form.fields['rawingredient'].queryset = \
+                    RawIngredient2.objects.filter(
+                        author=request.user.id
+                        )
+
+            formset_specificnutrienttarget = SpecificNutrientTargetFormset(
+                instance=fulldayofeating_object,
+            )
+
+            context = {
+                'formset_specificingredient': formset_specificingredient,
+                'form_fulldayofeating': form_fulldayofeating,
+                'id_fulldayofeating': id_fulldayofeating,
+                'formset_specificnutrienttarget':
+                    formset_specificnutrienttarget,
+                }
+            # TODO: use reverse function instead
+            return render(request, 'measuredfood/fulldayofeating_form.html',
+                          context)
+
+    except UserIsNotAuthorError:
+        """
+        Careful when you implement this. You will have to make changes at 
+        multiple spots in the code.
+        """
         context = {
-            'formset_specificingredient': formset_specificingredient,
-            'form_fulldayofeating': form_fulldayofeating,
-            'id_fulldayofeating': id_fulldayofeating,
-            'formset_specificnutrienttarget': formset_specificnutrienttarget,
-            }
-        # TODO: use reverse function instead
-        return render(request, 'measuredfood/fulldayofeating_form.html',
-                      context)
+            'error_message': 'It seems like you are trying to edit an object '
+                             'of another user, which is forbidden.',
+            'error_id': 'UserIsNotAuthorError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
 
 
 class ListFullDayOfEating(
@@ -240,14 +263,12 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
     try:
 
         # Make sure users can not edit other user's objects.
-        user_is_author = check_if_author(
+        check_if_author(
             request,
             FullDayOfEating,
-            id_fulldayofeating
+            id_fulldayofeating,
+            UserIsNotAuthorError,
             )
-        if not user_is_author:
-            context = {}
-            return render(request, 'measuredfood/not_yours.html', context)
         # The user is the author, proceed.
 
         fulldayofeating_object = FullDayOfEating.objects.get(
@@ -442,4 +463,13 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         Careful when you implement this. You will have to make changes at 
         multiple spots in the code.
         """
-        pass
+        context = {
+            'error_message': 'It seems like you are trying to edit an object '
+                             'of another user, which is forbidden.',
+            'error_id': 'UserIsNotAuthorError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )

@@ -1,4 +1,11 @@
-def check_if_author(request_, model_, id_model):
+
+
+def check_if_author(
+        request_,
+        model_,
+        id_model,
+        user_is_not_author_error,
+):
     """
     Check if the user authored the given Model instance.
     """
@@ -13,4 +20,5 @@ def check_if_author(request_, model_, id_model):
     user_is_author = \
         (author_id_user_request == author_id_model)
 
-    return user_is_author
+    if not user_is_author:
+        raise user_is_not_author_error

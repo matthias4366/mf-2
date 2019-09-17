@@ -92,6 +92,7 @@ def query_input_and_calculate_fulldayofeating(
         raw_ingredient2,
         all_nutrients_and_default_units,
         set_to_zero_if_none,
+        no_specific_ingredient_in_full_day_of_eating_error,
     )
 
     return result_calculate_fulldayofeating,\

@@ -1,7 +1,6 @@
 from selenium.webdriver.support.ui import Select
 from functional_tests.utils.click_navbar_item import \
     click_navbar_item
-from data.initial_tolerable_upper_intake import initial_tolerable_upper_intake
 from ..base import FunctionalTestWithUserLoggedIn
 from selenium.webdriver.common.keys import Keys
 import time
@@ -11,9 +10,9 @@ from functional_tests.utils.check_exists_by_xpath \
 from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
-    TolerableUpperIntake,
 )
 from data.initial_nutrient_profiles import nutrient_profile_dict_list
+from django.contrib.auth.models import User
 
 # import the ingredient dictionaries
 import sys
@@ -21,6 +20,48 @@ sys.path.insert(0, '/projectmf/data/')
 
 
 class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
+    
+    def test_calculate_full_day_of_eating_of_other_user(self):
+        """
+        Through url forgery, a user could attempt the calculate the full day 
+        of eating of another user. That is thwarted with the check_if_author 
+        function. The test is passed if the attempt to calculate the foreign 
+        full day of eating is denied.
+        """
+        # Create another user.
+        foreign_user = User.objects.create(
+            username='Other User'
+        )
+        
+        # Create a full day of eating for the foreign user. Start with the 
+        # nutrient profile.
+        foreign_nutrientprofile = NutrientProfile.objects.create(
+            name='Nutrient profile from other user',
+            author=foreign_user
+        )
+        
+        foreign_full_day_of_eating = FullDayOfEating.objects.create(
+            name='Full day of eating from foreign user',
+            author=foreign_user,
+            nutrient_profile=foreign_nutrientprofile,
+        )
+
+        url_foreign_full_day_of_eating = \
+            self.live_server_url \
+            + '/fulldayofeating/'\
+            + str(foreign_full_day_of_eating.id)\
+            + '/calculate/'
+
+        # Try opening the edit page of the foreign FullDayOfEating object.
+        self.browser.get(url_foreign_full_day_of_eating)
+
+        # Test whether the appropriate error page is shown.
+        error_paragraph = self.browser.find_elements_by_id(
+            'UserIsNotAuthorError'
+        )
+        error_page_is_shown = \
+            len(error_paragraph) > 0
+        self.assertTrue(error_page_is_shown)
 
     def test_calculate_full_day_of_eating_without_ingredient(self):
         """
@@ -90,42 +131,6 @@ class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
 
         time.sleep(0.1)
 
-        # Add the first tolerable upper intake from the list of
-        # tolerable upper intakes saved in the fixtures.
-
-        new_tolerable_upper_intake_button = self.browser.find_element_by_id(
-            'id_button_new_tolerableupperintake'
-        )
-        new_tolerable_upper_intake_button.click()
-
-        time.sleep(0.1)
-
-        # Iterator for the tolerable upper intake.
-        k_tui = 0
-
-        for key, value in initial_tolerable_upper_intake[k_tui].items():
-            id_from_key = 'id_' + key
-            if value is not None:
-                self.browser.find_element_by_id(id_from_key).send_keys(
-                    str(value)
-                )
-
-        # Simulate clicking the save button
-        save_button = self.browser.find_element_by_id(
-            'id_button_save_tolerableupperintake'
-        )
-        save_button.click()
-
-        time.sleep(1)
-
-        # Test whether the saved tolerable upper intake is in the database.
-        tolerable_upper_intake_query = TolerableUpperIntake.objects.filter(
-            name=initial_tolerable_upper_intake[k_tui]['name']
-        )
-        tolerable_upper_intake_was_saved = \
-            tolerable_upper_intake_query.exists()
-        self.assertTrue(tolerable_upper_intake_was_saved)
-
         # Create FullDayOfEating object.
 
         # Simulate clicking the navbar item Full days of eating.
@@ -159,14 +164,6 @@ class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         ))
         select_nutrient_profile.select_by_visible_text(
             nutrient_profile_dict_list[k_np]['name']
-        )
-
-        # Select the TolerableUpperIntake that was created earlier in this test.
-        select_tolerable_upper_intake = Select(self.browser.find_element_by_id(
-            'id_tolerable_upper_intake'
-        ))
-        select_tolerable_upper_intake.select_by_visible_text(
-            initial_tolerable_upper_intake[k_tui]['name']
         )
 
         save_full_day_of_eating_button = self.browser.find_element_by_id(
