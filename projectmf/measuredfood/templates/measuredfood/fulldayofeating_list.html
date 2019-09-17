@@ -28,17 +28,29 @@
       {% for fulldayofeating in fulldayofeating_list %}
         <div class="box">
 
-          <div><a class="btn btn-primary btn-large"
-          href="{% url 'update-fulldayofeating' fulldayofeating.id %}">
-            Edit
-          </a></div>
+          <div>
+            <a
+            class="btn btn-primary btn-large"
+            href="{% url 'update-fulldayofeating' fulldayofeating.id %}"
+            id="edit {{ fulldayofeating.name }}"
+            >
+              Edit
+            </a>
+          </div>
 
-          <div><p>{{ fulldayofeating.name }}</p></div>
+          <div id="paragraph {{ fulldayofeating.name }}">
+            <p>{{ fulldayofeating.name }}</p>
+          </div>
 
-          <div><a class="btn btn-danger btn-large"
-          href="{% url 'delete-fulldayofeating' fulldayofeating.id %}">
-            Delete
-          </a></div>
+          <div>
+            <a
+              class="btn btn-danger btn-large"
+              href="{% url 'delete-fulldayofeating' fulldayofeating.id %}"
+              id="delete {{ fulldayofeating.name }}"
+            >
+              Delete
+            </a>
+          </div>
 
         </div>
         <br>

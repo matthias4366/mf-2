@@ -4,9 +4,9 @@ from functional_tests.utils.click_navbar_item import \
 from ..base import FunctionalTestWithUserLoggedIn
 from selenium.webdriver.common.keys import Keys
 import time
-from selenium.common.exceptions import NoSuchElementException
-from functional_tests.utils.check_exists_by_xpath \
-    import check_exists_by_xpath
+# from selenium.common.exceptions import NoSuchElementException
+# from functional_tests.utils.check_exists_by_xpath \
+#     import check_exists_by_xpath
 from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
@@ -119,18 +119,6 @@ class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         nutrient_profile_was_saved = nutrient_profile_query.exists()
         self.assertTrue(nutrient_profile_was_saved)
 
-        # Create a TolerableUpperIntake object.
-        # Simulate the clicking on the tolerable upper intakes navbar item.
-        # Simulate clicking on tolerable upper intakes
-        click_navbar_item(
-            'id_menu_item_tolerableupperintake',
-            self.browser,
-            Keys,
-            time,
-            )
-
-        time.sleep(0.1)
-
         # Create FullDayOfEating object.
 
         # Simulate clicking the navbar item Full days of eating.
@@ -178,4 +166,30 @@ class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         full_day_of_eating_was_saved = full_day_of_eating_query.exists()
         self.assertTrue(full_day_of_eating_was_saved)
 
-        self.fail('Finish the test!')
+        time.sleep(5)
+
+        # The user is redirected to the list of full days of eating.
+        # Find the correct full day of eating and click the edit button.
+        edit_button = self.browser.find_element_by_id(
+            'edit '+name_dummy_full_day_of_eating
+        )
+        edit_button.click()
+
+        # Click the button 'Calculate full day of eating'.
+        calculate_button = self.browser.find_element_by_id(
+            'id_button_calculate_full_day_of_eating'
+        )
+        calculate_button.click()
+
+        # time.sleep(7)
+
+        # Check if the correct error message is displayed.
+        # id = NoSpecificIngredientInFullDayOfEatingError
+
+        # Test whether the appropriate error page is shown.
+        error_paragraph = self.browser.find_elements_by_id(
+            'NoSpecificIngredientInFullDayOfEatingError'
+        )
+        error_page_is_shown = \
+            len(error_paragraph) > 0
+        self.assertTrue(error_page_is_shown)

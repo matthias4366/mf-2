@@ -261,7 +261,6 @@ class DeleteFullDayOfEating(UserPassesTestMixin, DeleteView):
 def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
     try:
-
         # Make sure users can not edit other user's objects.
         check_if_author(
             request,
@@ -269,7 +268,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             id_fulldayofeating,
             UserIsNotAuthorError,
             )
-        # The user is the author, proceed.
 
         fulldayofeating_object = FullDayOfEating.objects.get(
             pk=id_fulldayofeating
@@ -299,26 +297,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 np,
                 NoSpecificIngredientInFullDayOfEatingError,
             )
-
-        # Check if the key exists first, this is purely technical.
-        if 'ingredients_are_present'\
-                in result_calculate_fulldayofeating['errors'].keys():
-            # Here comes the actual logic: are there ingredients present
-            if not result_calculate_fulldayofeating['errors'][
-                    'ingredients_are_present']:
-                n_ingredients_is_zero = True
-                context = {
-                    'result_calculate_fulldayofeating':
-                    result_calculate_fulldayofeating,
-                    'id_fulldayofeating': id_fulldayofeating,
-                    'n_ingredients_is_zero': n_ingredients_is_zero,
-                    'fulldayofeating_object': fulldayofeating_object,
-                }
-                return render(
-                    request,
-                    'measuredfood/fulldayofeating_calculation_result.html',
-                    context
-                    )
 
         if targeted_nutrients_errors['missing_nutrientprofile_value']:
             context = {
@@ -450,7 +428,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         context = {
             'error_message': 'Please add at least one ingredient to your full '
                              'day of eating before calculating the full day '
-                             'of eating.'
+                             'of eating.',
+            'error_id': 'NoSpecificIngredientInFullDayOfEatingError',
         }
         return render(
             request,
