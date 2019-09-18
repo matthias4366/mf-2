@@ -9,6 +9,7 @@ def calculate_fulldayofeating(
     specificingredient_dict_list,
     targeted_nutrients,
     set_to_zero_if_none,
+    number_targeted_nutrients_not_equal_number_scaling_entities_error,
 ):
 
     """
@@ -34,19 +35,6 @@ def calculate_fulldayofeating(
             # Hence, to make the numbers add up, the solution for the
             # amount of pea protein will be negative.
             'negative_result': False,
-
-            # For the linear equation system to be solvable, the number of
-            # independently scaling entities (i.e. independently scaling
-            # ingredients or groups)
-            # has to equal the number of nutrient targets (e.g. calories,
-            # protein).
-            'mismatch': False,
-            # Show the user both the independently scaling entities and the
-            # nutrient targets so they can understand where they went wrong.
-            'list_names_independently_scaling_entities': None,
-            'list_nutrient_targets': None,
-            'n_independently_scaling_entities': None,
-            'n_nutrient_targets': None,
 
             # The user can choose to target a nutrient for which there is no
             # value in the nutrient profile.
@@ -195,50 +183,34 @@ def calculate_fulldayofeating(
     for key_k in targeted_nutrients_remainder:
         b.append(targeted_nutrients_remainder[key_k])
     b = np.asarray(b)
-    # print('\nb \n')
-    # pprint.pprint(b)
 
     # Check for the error that the number of nutrient targets does not match
     # the number of independently scaling entities.
     if len(b) != len(list_independently_scaling_entities):
-        result_calculate_fulldayofeating['errors']['mismatch'] = True
-        print('Mismatch error in calculate_fulldayofeating.')
-        x = np.zeros(len(list_independently_scaling_entities))
 
-        # print('\n list_independently_scaling_entities \n')
-        # pprint.pprint(list_independently_scaling_entities)
-        # print('\n x \n')
-        # pprint.pprint(x)
-
-        list_names_independently_scaling_entities = []
+        list_independently_scaling_entity = []
         for dict_k in list_independently_scaling_entities:
             name_independtly_scaling_entity = \
                 dict_k['raw_ingredient']['name']
-            list_names_independently_scaling_entities.append(
+            list_independently_scaling_entity.append(
                 name_independtly_scaling_entity
             )
-        result_calculate_fulldayofeating['errors'][
-            'list_names_independently_scaling_entities'] = \
-            list_names_independently_scaling_entities
 
-        result_calculate_fulldayofeating['errors'][
-            'n_independently_scaling_entities'] = \
-            len(list_names_independently_scaling_entities)
+        n_independently_scaling_entity = \
+            len(list_independently_scaling_entity)
 
-        # print('\n list_names_independently_scaling_entities \n')
-        # pprint.pprint(list_names_independently_scaling_entities)
-
-        list_nutrient_targets = []
+        list_targeted_nutrient = []
         for key_k in targeted_nutrients_remainder:
-            list_nutrient_targets.append(key_k)
-        result_calculate_fulldayofeating['errors'][
-            'list_nutrient_targets'] = list_nutrient_targets
+            list_targeted_nutrient.append(key_k)
 
-        result_calculate_fulldayofeating['errors'][
-            'n_nutrient_targets'] = len(list_nutrient_targets)
-
-        # print('\n list_nutrient_targets \n')
-        # pprint.pprint(list_nutrient_targets)
+        n_targeted_nutrient = len(list_targeted_nutrient)
+        
+        raise number_targeted_nutrients_not_equal_number_scaling_entities_error(
+            n_targeted_nutrient,
+            list_targeted_nutrient,
+            n_independently_scaling_entity,
+            list_independently_scaling_entity,
+        )
 
     else:
         a = np.zeros(shape=(len(b), len(b)))

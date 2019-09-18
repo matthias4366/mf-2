@@ -31,3 +31,26 @@ class NoValueForTargetedNutrientError(Exception):
 
     def __init__(self, nutrient_value_missing):
         self.nutrient_value_missing = nutrient_value_missing
+
+
+class NumberTargetedNutrientsNotEqualNumberScalingEntitiesError(Exception):
+    """
+    For the calculation of a full day of eating, it is necessary that the
+    linear equation system is solvable. For this purpose, the number of
+    targeted nutrients must equal the number of independently scaling
+    ingredients or ingredient groups.
+    """
+
+    def __init__(
+            self,
+            n_targeted_nutrient,
+            list_targeted_nutrient,
+            n_independently_scaling_entity,
+            list_independently_scaling_entity,
+
+    ):
+        self.n_targeted_nutrient = n_targeted_nutrient
+        self.list_targeted_nutrient = list_targeted_nutrient
+        self.n_independently_scaling_entity = n_independently_scaling_entity
+        self.list_independently_scaling_entity = \
+            list_independently_scaling_entity

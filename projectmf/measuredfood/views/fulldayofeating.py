@@ -73,6 +73,7 @@ from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
     NoSpecificIngredientInFullDayOfEatingError,
     NoValueForTargetedNutrientError,
+    NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
 )
 
 
@@ -297,6 +298,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 np,
                 NoSpecificIngredientInFullDayOfEatingError,
                 NoValueForTargetedNutrientError,
+                NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
             )
 
         if result_calculate_fulldayofeating['errors']['mismatch']:
@@ -335,9 +337,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 result_total_nutrition_fulldayofeating_rounded.items():
             result_total_nutrition_fulldayofeating_rounded_list.append(value)
             nutrient_name_list.append(key)
-
-        # print('\n result_total_nutrition_fulldayofeating_rounded \n')
-        # pprint.pprint(result_total_nutrition_fulldayofeating_rounded)
 
         # Calculate the ratio of the total nutrition in the full day of eating
         # in relation to the target amounts in the nutrient profile and
@@ -442,8 +441,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         )
 
     except NoValueForTargetedNutrientError as e:
-        """
-        """
         list_ = e.nutrient_value_missing
         seperator = ', '
         pretty_list = seperator.join(list_)
@@ -457,6 +454,37 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         context = {
             'error_message': error_message,
             'error_id': 'NoValueForTargetedNutrientError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
+    except NumberTargetedNutrientsNotEqualNumberScalingEntitiesError as e:
+
+        seperator = ', '
+        pretty_list_targeted_nutrient = seperator.join(e.list_targeted_nutrient)
+        pretty_list_independently_scaling_entity = \
+            seperator.join(e.list_independently_scaling_entity)
+
+        error_message = 'The number of nutrient targets did not match the ' \
+                        'number of independently scaling ingredients or ' \
+                        'ingredient groups.' \
+                        'There were '\
+                        + str(e.n_targeted_nutrient) \
+                        + ' targeted nutrients: ' \
+                        + pretty_list_targeted_nutrient \
+                        + '.' \
+                        + 'There were '\
+                        + str(e.n_independently_scaling_entity) \
+                        + ' independently scaling ingredients or ingredient ' \
+                          'groups: ' \
+                        + pretty_list_independently_scaling_entity \
+                        + '.'
+        context = {
+            'error_message': error_message,
+            'error_id':
+                'NumberTargetedNutrientsNotEqualNumberScalingEntitiesError',
         }
         return render(
             request,
