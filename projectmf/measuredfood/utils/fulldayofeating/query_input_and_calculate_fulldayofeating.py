@@ -51,7 +51,7 @@ def query_input_and_calculate_fulldayofeating(
             no_value_for_targeted_nutrient_error,
         )
 
-    result_calculate_fulldayofeating = \
+    specificingredient_id_and_calculated_amount = \
         calculate_fulldayofeating(
             copy,
             all_nutrients_and_default_units,
@@ -64,9 +64,6 @@ def query_input_and_calculate_fulldayofeating(
             number_targeted_nutrients_not_equal_number_scaling_entities_error,
             calculation_result_is_negative_error,
         )
-
-    specificingredient_id_and_calculated_amount = \
-        copy.deepcopy(result_calculate_fulldayofeating['values'])
 
     # Save the results to the database:
     save_fulldayofeating_calculation_result_to_database(
@@ -86,6 +83,6 @@ def query_input_and_calculate_fulldayofeating(
         no_specific_ingredient_in_full_day_of_eating_error,
     )
 
-    return result_calculate_fulldayofeating,\
+    return specificingredient_id_and_calculated_amount,\
         specificingredient_dict_list,\
         nutrientprofile_dict

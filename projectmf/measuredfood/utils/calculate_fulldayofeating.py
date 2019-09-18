@@ -22,24 +22,6 @@ def calculate_fulldayofeating(
     FullDayOfEating, which is associated with a NutrientProfile.
     """
 
-    result_calculate_fulldayofeating = {
-        'values': {},
-        'errors': {
-            # If there was a critical error in the linear matrix equation
-            # solver, set this variable to True.
-            'solver_failed': False,
-            # If the inputs are set up badly, it is possible to get negative
-            # results for the calculated amount values. For example,
-            # if the targets are 10000 kcal and 23 g of protein and the
-            # ingredients are beans and pea protein powder. Covering the
-            # calories with the beans already surpases the protein goal.
-            # Hence, to make the numbers add up, the solution for the
-            # amount of pea protein will be negative.
-            'negative_result': False,
-        },
-
-    }
-
     # TODO: Currently, I am rounding to 2 decimal numbers.
     #   Maybe find a way to adapt the rounding to how many decimals the user
     #   input had.
@@ -89,7 +71,10 @@ def calculate_fulldayofeating(
                         ].append(dict_k)
                 else:
                     # TODO: Make this into a proper error message and show it
-                    # to the user.
+                    #   to the user. (Not yet relevant as the units can not
+                    #   be chosen.) Once the units can be chosen this still
+                    #   won't be a problem because then unit conversion
+                    #   calculations will be implemented.
                     print(
                         '\nERROR: All specific ingredients belonging to the'
                         ' same group must have the same units.\n')
@@ -218,28 +203,20 @@ def calculate_fulldayofeating(
                 a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
                 row_index = row_index + 1
             column_index = column_index + 1
-        # print('\na \n')
-        # pprint.pprint(a)
 
         # Solve the linear equation.
-        # Catch the case that the linear equation system is not solvable, in
-        # order to give the user a useful error page.
-        # noinspection PyBroadException
-        try:
-            x = np.linalg.solve(a, b)
-        except:
-            result_calculate_fulldayofeating['errors']['solver_failed']\
-                = True
-            print('\n solver failed in calculate_fulldayofeating\n')
-            return result_calculate_fulldayofeating
-        # print('\nx \n')
-        # pprint.pprint(x)
+        
+        # New procedure. Make sure, that if the code gets to this point, 
+        # the linear equation system is solvable. Just try to calculate it. 
+        # The possible failure causes Sandor could think of have been caught,
+        # i.e. the number of targeted nutrients is not equal to the number of
+        # independently scaling ingredients or ingredient groups.
+
+        x = np.linalg.solve(a, b)
 
     # Multiply the entries in x with the reference_amount of each
     # SpecificIngredient
     solution = np.zeros(len(x))
-    # print('\nsolution \n')
-    # pprint.pprint(solution)
 
     list_ingredient_negative_result = []
 
@@ -252,8 +229,6 @@ def calculate_fulldayofeating(
         # useful to the user. The user will be shown an explanatory error
         # page.
         if solution[k] < 0:
-            result_calculate_fulldayofeating['errors']['negative_result']\
-                = True
             list_ingredient_negative_result.append(
                 list_independently_scaling_entities[k][
                     'raw_ingredient']['name']
@@ -365,13 +340,4 @@ def calculate_fulldayofeating(
         }
         specificingredient_id_and_calculated_amount.append(new_dict)
 
-    result_calculate_fulldayofeating['values'] = \
-        copy.deepcopy(specificingredient_id_and_calculated_amount)
-
-    # Make it a PURE function, i.e. return the values instead of directly
-    # saving them to the database.
-
-    # print('\n result_calculate_fulldayofeating[\'values\'] \n')
-    # pprint.pprint(result_calculate_fulldayofeating['values'])
-
-    return result_calculate_fulldayofeating
+    return specificingredient_id_and_calculated_amount
