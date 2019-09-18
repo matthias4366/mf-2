@@ -72,6 +72,7 @@ from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
 from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
     NoSpecificIngredientInFullDayOfEatingError,
+    NoValueForTargetedNutrientError,
 )
 
 
@@ -275,7 +276,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
         result_calculate_fulldayofeating,\
             specificingredient_dict_list,\
-            targeted_nutrients_errors,\
             nutrientprofile_dict = \
             query_input_and_calculate_fulldayofeating(
                 query_ingredients_fulldayofeating,
@@ -296,20 +296,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 ALL_NUTRIENTS_AND_DEFAULT_UNITS,
                 np,
                 NoSpecificIngredientInFullDayOfEatingError,
+                NoValueForTargetedNutrientError,
             )
-
-        if targeted_nutrients_errors['missing_nutrientprofile_value']:
-            context = {
-                'id_fulldayofeating': id_fulldayofeating,
-                'targeted_nutrients_errors': targeted_nutrients_errors,
-                'nutrientprofile_dict': nutrientprofile_dict,
-                'fulldayofeating_object': fulldayofeating_object,
-            }
-            return render(
-                request,
-                'measuredfood/fulldayofeating_calculation_result.html',
-                context
-                )
 
         if result_calculate_fulldayofeating['errors']['mismatch']:
             context = {
@@ -446,6 +434,29 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'error_message': 'It seems like you are trying to edit an object '
                              'of another user, which is forbidden.',
             'error_id': 'UserIsNotAuthorError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
+
+    except NoValueForTargetedNutrientError as e:
+        """
+        """
+        list_ = e.nutrient_value_missing
+        seperator = ', '
+        pretty_list = seperator.join(list_)
+        error_message = \
+            'The values for the following nutrients in the nutrient profile ' \
+            'are missing: '\
+            + pretty_list\
+            + '.'\
+            + ' Please add values for these nutrients in the ' \
+              'nutrient profile or do not target them.'
+        context = {
+            'error_message': error_message,
+            'error_id': 'NoValueForTargetedNutrientError',
         }
         return render(
             request,

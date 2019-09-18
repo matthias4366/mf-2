@@ -50,6 +50,6 @@ def query_ingredients_fulldayofeating(
 
     # Catch the error that the user did not add any ingredients whatsoever.
     if len(specificingredient_dict_list) == 0:
-        raise no_specific_ingredient_in_full_day_of_eating_error
+        raise(no_specific_ingredient_in_full_day_of_eating_error())
 
     return specificingredient_dict_list

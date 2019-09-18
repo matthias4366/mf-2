@@ -8,6 +8,9 @@ ingredients is stored centrally in this python file.
 base_template_ingredient_dict_list = [
     {
         'name': None,
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
         'reference_amount': None,  # default: 100 g
         'price_per_reference_amount': None,
         'calories': None,  # 'default_unit': 'kcal'
@@ -50,9 +53,6 @@ base_template_ingredient_dict_list = [
         'potassium': None,  # 'default_unit': 'gram'
         'sodium': None,  # 'default_unit': 'gram'
         'chloride': None,  # 'default_unit': 'gram'
-        'buy_here_link': None,
-        'source_nutritional_information_link': None,
-        'is_public': True,
     },
 
 ]
@@ -1236,7 +1236,7 @@ ingredient_dict_list = [
         'potassium': 0,  # 'default_unit': 'gram'
         'sodium': 0,  # 'default_unit': 'gram'
         'chloride': 0,  # 'default_unit': 'gram'
-        'buy_here_link': 0,
+        'buy_here_link': None,
         'source_nutritional_information_link':
             'https://en.wikipedia.org/wiki/Calcium_citrate',
         'is_public': True,
@@ -1280,7 +1280,7 @@ ingredient_dict_list = [
         'potassium': 0,  # 'default_unit': 'gram'
         'sodium': 0,  # 'default_unit': 'gram'
         'chloride': 0,  # 'default_unit': 'gram'
-        'buy_here_link': 0,
+        'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
     },

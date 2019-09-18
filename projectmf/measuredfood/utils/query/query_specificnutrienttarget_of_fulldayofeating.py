@@ -4,15 +4,11 @@ def query_specificnutrienttarget_of_fulldayofeating(
     id_fulldayofeating,
     specific_nutrient_target,
     nutrientprofile_dict,
+    no_value_for_targeted_nutrient_error,
 ):
 
     # Initialize result.
     targeted_nutrients = {}
-
-    targeted_nutrients_errors = {
-        'missing_nutrientprofile_value': False,
-        'nutrients_missing_nutrientprofile_value': [],
-    }
 
     queryset_specificnutrienttarget_of_fulldayofeating = \
         specific_nutrient_target.objects.filter(
@@ -24,15 +20,17 @@ def query_specificnutrienttarget_of_fulldayofeating(
             'nutrient_target'
             ))
 
+    nutrient_without_value_in_nutrientprofile = []
+
     for dict_k in specificnutrienttarget_list:
         nutrient_target_name = dict_k['nutrient_target']
         if nutrientprofile_dict[nutrient_target_name] is None:
-            nutrient_target_amount = 0
-            targeted_nutrients_errors['missing_nutrientprofile_value'] = True
-            targeted_nutrients_errors[
-                'nutrients_missing_nutrientprofile_value'].append(
+
+            nutrient_without_value_in_nutrientprofile.append(
                 nutrient_target_name
             )
+
+            nutrient_target_amount = None
         elif nutrientprofile_dict[nutrient_target_name] is not None:
             nutrient_target_amount = nutrientprofile_dict[nutrient_target_name]
         else:
@@ -47,7 +45,12 @@ def query_specificnutrienttarget_of_fulldayofeating(
         # SpecificIngredient.
         targeted_nutrients.update(new_dict)
 
-    # print('\n targeted_nutrients \n')
-    # pprint.pprint(targeted_nutrients)
+    # Raise the error outside the for loop so all nutrients for which there
+    # is no value in the nutrient profile are collected.
 
-    return targeted_nutrients, targeted_nutrients_errors
+    if len(nutrient_without_value_in_nutrientprofile) > 0:
+        raise (no_value_for_targeted_nutrient_error(
+            nutrient_without_value_in_nutrientprofile
+        ))
+
+    return targeted_nutrients

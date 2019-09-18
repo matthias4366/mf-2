@@ -19,6 +19,7 @@ def query_input_and_calculate_fulldayofeating(
     all_nutrients_and_default_units,
     np,
     no_specific_ingredient_in_full_day_of_eating_error,
+    no_value_for_targeted_nutrient_error,
 ):
     """
     This function groups together multiple sub functions that often need to be
@@ -40,27 +41,13 @@ def query_input_and_calculate_fulldayofeating(
         nutrient_profile,
     )
 
-    targeted_nutrients, targeted_nutrients_errors = \
+    targeted_nutrients = \
         query_specificnutrienttarget_of_fulldayofeating(
             id_fulldayofeating,
             specific_nutrient_target,
             nutrientprofile_dict,
+            no_value_for_targeted_nutrient_error,
         )
-
-    # If there is an error in the form of missing nutrient targets in the
-    # NutrientProfile, then the rest of the function does not need to be
-    # executed because an error message will be shown instead of calculated
-    # amounts.
-    if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        # Set the variables that would be calculated if there was no error to
-        # None so that the interpreter does not complain about unknown
-        # variable names.
-        result_calculate_fulldayofeating = None
-        specificingredient_dict_list = None
-        return result_calculate_fulldayofeating,\
-            specificingredient_dict_list,\
-            targeted_nutrients_errors,\
-            nutrientprofile_dict
 
     result_calculate_fulldayofeating = \
         calculate_fulldayofeating(
@@ -97,5 +84,4 @@ def query_input_and_calculate_fulldayofeating(
 
     return result_calculate_fulldayofeating,\
         specificingredient_dict_list,\
-        targeted_nutrients_errors,\
         nutrientprofile_dict
