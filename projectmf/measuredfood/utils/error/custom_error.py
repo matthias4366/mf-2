@@ -54,3 +54,20 @@ class NumberTargetedNutrientsNotEqualNumberScalingEntitiesError(Exception):
         self.n_independently_scaling_entity = n_independently_scaling_entity
         self.list_independently_scaling_entity = \
             list_independently_scaling_entity
+
+
+class CalculationResultIsNegativeError(Exception):
+    """
+    In the calculation of a full day of eating, it is possible to get
+    negative results. For example, if the targets are 10,000 kcal and 10 g of
+    protein and the independently scaling ingredients are beans and pea
+    protein powder. Filling in the 10,000 kcal with beans already provides
+    much more than 10 g of protein. Hence, the result for the pea protein
+    powder will be negative, because that is the only way to get back down to
+    the targeted amount of 10 g. Negative masses are not physically possible
+    and hence the user must be advised on what went wrong and how to proceed.
+    """
+
+    def __init__(self, list_ingredient_negative_result):
+        self.list_ingredient_negative_result = \
+            list_ingredient_negative_result

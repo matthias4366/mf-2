@@ -21,6 +21,7 @@ def query_input_and_calculate_fulldayofeating(
     no_specific_ingredient_in_full_day_of_eating_error,
     no_value_for_targeted_nutrient_error,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
+    calculation_result_is_negative_error,
 ):
     """
     This function groups together multiple sub functions that often need to be
@@ -61,6 +62,7 @@ def query_input_and_calculate_fulldayofeating(
             targeted_nutrients,
             set_to_zero_if_none,
             number_targeted_nutrients_not_equal_number_scaling_entities_error,
+            calculation_result_is_negative_error,
         )
 
     specificingredient_id_and_calculated_amount = \

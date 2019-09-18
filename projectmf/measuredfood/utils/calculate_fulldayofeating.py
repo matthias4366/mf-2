@@ -10,6 +10,7 @@ def calculate_fulldayofeating(
     targeted_nutrients,
     set_to_zero_if_none,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
+    calculation_result_is_negative_error,
 ):
 
     """
@@ -35,10 +36,6 @@ def calculate_fulldayofeating(
             # Hence, to make the numbers add up, the solution for the
             # amount of pea protein will be negative.
             'negative_result': False,
-
-            # The user can choose to target a nutrient for which there is no
-            # value in the nutrient profile.
-            'missing_nutrientprofile_value': False,
         },
 
     }
@@ -244,6 +241,8 @@ def calculate_fulldayofeating(
     # print('\nsolution \n')
     # pprint.pprint(solution)
 
+    list_ingredient_negative_result = []
+
     for k in range(len(x)):
         # Calculate solution
         solution[k] = x[k] * list_independently_scaling_entities[k][
@@ -255,9 +254,15 @@ def calculate_fulldayofeating(
         if solution[k] < 0:
             result_calculate_fulldayofeating['errors']['negative_result']\
                 = True
+            list_ingredient_negative_result.append(
+                list_independently_scaling_entities[k][
+                    'raw_ingredient']['name']
+            )
 
-    # print('\n solution \n')
-    # pprint.pprint(solution)
+    if len(list_ingredient_negative_result) > 0:
+        raise(calculation_result_is_negative_error(
+            list_ingredient_negative_result
+        ))
 
     # Assign the solution to the respective dictionary.
     for k in range(len(solution)):

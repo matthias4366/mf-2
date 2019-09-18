@@ -74,6 +74,7 @@ from measuredfood.utils.error.custom_error import (
     NoSpecificIngredientInFullDayOfEatingError,
     NoValueForTargetedNutrientError,
     NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+    CalculationResultIsNegativeError,
 )
 
 
@@ -299,20 +300,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 NoSpecificIngredientInFullDayOfEatingError,
                 NoValueForTargetedNutrientError,
                 NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+                CalculationResultIsNegativeError,
             )
-
-        if result_calculate_fulldayofeating['errors']['mismatch']:
-            context = {
-                'result_calculate_fulldayofeating':
-                result_calculate_fulldayofeating,
-                'id_fulldayofeating': id_fulldayofeating,
-                'fulldayofeating_object': fulldayofeating_object
-            }
-            return render(
-                request,
-                'measuredfood/fulldayofeating_calculation_result.html',
-                context
-                )
 
         result_calculate_fulldayofeating_formatted_for_template = \
             query_result_calculation_fulldayofeating(
@@ -485,6 +474,54 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'error_message': error_message,
             'error_id':
                 'NumberTargetedNutrientsNotEqualNumberScalingEntitiesError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
+    except CalculationResultIsNegativeError as e:
+        seperator = ', '
+        pretty_list_ingredient_negative_result = seperator.join(
+            e.list_ingredient_negative_result
+        )
+
+        if len(e.list_ingredient_negative_result) == 1:
+            error_message = \
+                'The calculation result for the ingredient ' \
+                + pretty_list_ingredient_negative_result \
+                + ' was negative.' \
+                + ' Try setting the scaling options of that ingredient to ' \
+                '\'fixed\'. The amount of that ingredient should ' \
+                'probably be ' \
+                'set to 0. As a consequence, the number of independently ' \
+                'scaling ingredients is reduced and therefore, ' \
+                  'fewer nutrients ' \
+                'must be targeted to maintain equality between the number of ' \
+                'targeted nutrients and independently scaling ingredients or ' \
+                'ingredient groups.'
+        elif len(e.list_ingredient_negative_result > 1):
+            error_message = \
+                'The calculation results for the ingredients ' \
+                + pretty_list_ingredient_negative_result \
+                + ' were negative.' \
+                + ' Try setting the scaling options of those ingredients to ' \
+                '\'fixed\'. The amounts of those ingredients should ' \
+                'probably be ' \
+                'set to 0. As a consequence, the number of independently ' \
+                'scaling ingredients is reduced and therefore, ' \
+                  'fewer nutrients ' \
+                'must be targeted to maintain equality between the number of ' \
+                'targeted nutrients and independently scaling ingredients or ' \
+                'ingredient groups.'
+        else:
+            error_message = None
+            print('This case should not be possible.')
+
+        context = {
+            'error_message': error_message,
+            'error_id':
+                'CalculationResultIsNegativeError',
         }
         return render(
             request,
