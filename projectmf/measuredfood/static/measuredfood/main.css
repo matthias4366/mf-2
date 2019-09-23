@@ -1,7 +1,12 @@
-/* Overall, it is not necessarily clear which button relates to the formset
- and which button relates to a form. */
-.border_around_related_elements {
+/* In the form full day of eating, center the elements on the page. */
+.center-div {
 
+}
+
+/* Emphasize the content section, i.e. whatever is not background and not
+navbar. */
+.content-section-sandor {
+  padding: 20px  100px 20px 100px;
 }
 
 /* In lists of objects, align the Edit button, object name and delete button
@@ -43,6 +48,22 @@ table {
 .generic_table_th_td {
   border: 1px solid black;
   padding: 5px 5px 5px 5px;
+}
+
+/* Table padding. */
+.table_th_td_padding {
+  padding: 5px 5px 5px 5px;
+}
+
+/* Table border. */
+.table_th_td_border {
+  border: 1px solid black;
+}
+
+/* Show which elements belong to the same save button in the full day of eating form. */
+.group_related_to_save_button {
+  border: 2px solid black;
+  padding: 20px 20px 20px 20px;
 }
 
 /*table, th, td {*/
@@ -154,8 +175,4 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
-}
-
-.button_view_ingredient {
-  margin-right:10em
 }

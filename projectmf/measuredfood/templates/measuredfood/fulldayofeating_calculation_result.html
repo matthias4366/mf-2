@@ -34,7 +34,7 @@
   <table class="total_nutrition_table generic_table_th_td">
     <tr>
       <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
-      <th class="total_nutrition_table generic_table_th_td">Full day of eating</th>
+      <th class="total_nutrition_table generic_table_th_td">Content</th>
       <th class="total_nutrition_table generic_table_th_td">Unit</th>
       <!-- Percent of the target set in NutrientProfile -->
       <th class="total_nutrition_table generic_table_th_td">% Target</th>
@@ -46,12 +46,32 @@
 
     {% for ab in aggregated_total_nutrition_fulldayofeating %}
       <tr class="{{ ab.6 }} total_nutrition_table">
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.0 }}</td>
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.1 }}</td>
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.2 }}</td>
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.3 }}</td>
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.4 }}</td>
-        <td class="total_nutrition_table generic_table_th_td">{{ ab.5 }}</td>
+        <td
+                class="total_nutrition_table generic_table_th_td"
+        >
+          {{ ab.0 }}
+        </td>
+        <td
+                class="total_nutrition_table generic_table_th_td"
+                id="nutrient content {{ ab.0 }}"
+        >
+          {{ ab.1 }}
+        </td>
+        <td class="total_nutrition_table generic_table_th_td">
+          {{ ab.2 }}
+        </td>
+        <td class="total_nutrition_table generic_table_th_td">
+          {{ ab.3 }}
+        </td>
+        <td
+                class="total_nutrition_table generic_table_th_td"
+                id="percent max {{ ab.0 }}"
+        >
+          {{ ab.4 }}
+        </td>
+        <td class="total_nutrition_table generic_table_th_td">
+          {{ ab.5 }}
+        </td>
       </tr>
     {% endfor %}
 

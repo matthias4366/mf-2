@@ -11,10 +11,14 @@ ingredients is built here. -->
   <br>
   <br>
 
+  <div class="group_related_to_save_button">
+
   <form method="post">
     {% csrf_token %}
 
     {# TODO: This table does not have borders on the inside. I do not know how to implement that. Forget it for now.#}
+
+
     <table class="generic_table_th_td">
       {{ form_fulldayofeating }}
     </table>
@@ -40,13 +44,13 @@ ingredients is built here. -->
     <br>
     <br>
 
-    <table class="generic_table_th_td">
+    <table class="table_th_td_padding table_th_td_border">
       <tr>
-        <th class="generic_table_th_td">Amount</th>
-        <th class="generic_table_th_td">Units</th>
-        <th class="generic_table_th_td">Ingredient</th>
-        <th class="generic_table_th_td">Scaling</th>
-        <th class="generic_table_th_td">Delete</th>
+        <th class="table_th_td_padding table_th_td_border">Amount</th>
+        <th class="table_th_td_padding table_th_td_border">Units</th>
+        <th class="table_th_td_padding table_th_td_border">Ingredient</th>
+        <th class="table_th_td_padding table_th_td_border">Scaling</th>
+        <th class="table_th_td_padding table_th_td_border">Delete</th>
       </tr>
 
       {{ formset_specificingredient.management_form }}
@@ -55,26 +59,24 @@ ingredients is built here. -->
           {{ hidden }}
         {% endfor %}
         <tr>
-          <td class="generic_table_th_td">{{ form.base_amount }}</td>
-          <td class="generic_table_th_td">{{ form.base_amount_unit }}</td>
-          <td class="generic_table_th_td">{{ form.rawingredient }}</td>
-          <td class="generic_table_th_td">{{ form.scaling_option }}</td>
-          <td class="generic_table_th_td">{{ form.DELETE }}</td>
+          <td class="table_th_td_padding">{{ form.base_amount }}</td>
+          <td class="table_th_td_padding">{{ form.base_amount_unit }}</td>
+          <td class="table_th_td_padding">{{ form.rawingredient }}</td>
+          <td class="table_th_td_padding">{{ form.scaling_option }}</td>
+          <td class="table_th_td_padding">{{ form.DELETE }}</td>
         </tr>
       {% endfor %}
-      <tr>
-        <td colspan="5">
-          <input
+    </table>
+    <br>
+
+    <input
                   type="submit"
                   value="Save changes"
                   id="save_changes_formset_fulldayofeating"
     class="btn btn-lg btn-block btn-dark"/>
-        </td>
-      </tr>
-    </table>
-    <br>
 
   </form>
+    </div>
   <br>
   <br>
     <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
