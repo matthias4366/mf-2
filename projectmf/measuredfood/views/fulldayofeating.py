@@ -69,6 +69,9 @@ from measuredfood.utils.query.query_result_calculation_fulldayofeating \
 from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
     import query_specificnutrienttarget_of_fulldayofeating
 
+from measuredfood.utils.fulldayofeating.calculate_percent_max_fulldayofeating \
+    import calculate_percent_max_fulldayofeating
+
 from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
     NoSpecificIngredientInFullDayOfEatingError,
@@ -357,6 +360,15 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
         # TODO: Calculate the percentage of the tolerable upper limit.
 
+        # 'Max amount' and 'tolerable upper intake' are used interchangeably.
+        result_percent_max_dict, \
+            result_percentage_of_tolerable_upper_intake_str_list, \
+            result_percentage_of_tolerable_upper_intake_numbers_list = \
+            calculate_percent_max_fulldayofeating(
+                nutrientprofile_dict,
+                result_total_nutrition_fulldayofeating,
+            )
+
         # Make the default units into a list and display them in the table.
         default_unit_list = []
         for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
@@ -373,6 +385,10 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 result_total_nutrition_fulldayofeating_rounded_list,
                 default_unit_list,
                 result_percentage_of_target_amount_list,
+                # TODO reimplement % of max amount. Old code:
+                result_percentage_of_tolerable_upper_intake_str_list,
+                # result_judge_total_nutrition,
+                # result_judge_total_nutrition_css_class_name,
                 )
 
         total_price_fulldayofeating_result_dict = \

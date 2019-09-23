@@ -3,10 +3,14 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py" line="559" />
     <bookmark url="file://$PROJECT_DIR$/measuredfood/utils/calculate_fulldayofeating.py" line="237" mnemonic="4" />
+    <bookmark url="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" line="372" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating/calculate_percent_max_fulldayofeating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="171" column="75" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="75" />
+            <state relative-caret-position="591">
+              <caret line="508" column="32" selection-start-line="508" selection-start-column="24" selection-end-line="508" selection-end-column="32" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -45,35 +49,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/error/form_fulldayofeating_not_valid.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_fulldayofeating.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="496" column="9" lean-forward="true" selection-start-line="496" selection-start-column="9" selection-end-line="496" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="28" column="72" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
-              <folding>
-                <element signature="e#132#181#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1609">
+              <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating/calculate_percent_max_fulldayofeating.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -89,12 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'edit</find>
-      <find>targeted_nutrients_errors</find>
-      <find>NoSpecificIngredientInFullDayOfEatingError</find>
-      <find>no_specific_ingredient_in_full_day_of_eating_error,</find>
-      <find>query_specificnutrienttarget_of_fulldayofeating</find>
-      <find>save_but</find>
       <find>rice</find>
       <find>pea</find>
       <find>calcium</find>
@@ -119,9 +102,14 @@
       <find>calculate</find>
       <find>update</find>
       <find>xpath</find>
+      <find>result_total_nutrition_fulldayofeating</find>
+      <find>result_percentage_of_tolerable_upper_intake_numbers</find>
+      <find>result_total_nutrition_fulldayofeating_rounded_list</find>
+      <find>result_total_nutrition_fulldayofeating_rounded</find>
+      <find>result_percent_max_dict</find>
+      <find>negative</find>
     </findStrings>
     <replaceStrings>
-      <replace>0</replace>
       <replace>colspan=&quot;2&quot;</replace>
       <replace>3</replace>
       <replace>formatted_tolerable_upper_intake_dict_k</replace>
@@ -151,6 +139,7 @@
       <replace>list_independently_scaling_entity</replace>
       <replace>delete</replace>
       <replace>result_calculate_fulldayofeating</replace>
+      <replace>result_percentage_of_tolerable_upper_intake_numbers_list</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/not_yours.html" />
         <option value="$PROJECT_DIR$/functional_tests/test_rawingredient2.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/tolerableupperintake.py" />
@@ -169,7 +157,6 @@
         <option value="$PROJECT_DIR$/measuredfood/utils/calculate_percentage_of_tolerable_upper_intake.py" />
         <option value="$PROJECT_DIR$/data/__init__.py" />
         <option value="$PROJECT_DIR$/data/make_nutrient_profile_dict_to_json.py" />
-        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" />
         <option value="$PROJECT_DIR$/data/initial_tolerable_upper_intake.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_form.html" />
@@ -202,7 +189,6 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_form.html" />
         <option value="$PROJECT_DIR$/data/ingredients_data2.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/error/custom_error.py" />
-        <option value="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_fulldayofeating.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculation_result_is_negative_error.py" />
         <option value="$PROJECT_DIR$/learn/learn_different_solver_error.py" />
@@ -210,10 +196,13 @@
         <option value="$PROJECT_DIR$/measuredfood/utils/calculate_fulldayofeating.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_update_full_day_of_eating_of_foreign_user.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py" />
+        <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating/calculate_percent_max_fulldayofeating.py" />
+        <option value="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -227,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,6 +323,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,7 +354,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.DeleteFullDayOfEatingOfForeignUser.test_delete_full_day_of_eating_of_foreign_user">
+  <component name="RunManager" selected="Django server.projectmf">
     <configuration name="Test: functional_tests.fulldayofeating.test_calculate_fulldayofeating" type="DjangoTestsConfigurationType" temporary="true">
       <module name="projectmf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -527,7 +516,11 @@
       <workItem from="1568620704575" duration="7859000" />
       <workItem from="1568644467970" duration="23000" />
       <workItem from="1568714355091" duration="20678000" />
-      <workItem from="1568792385730" duration="21250000" />
+      <workItem from="1568792385730" duration="21487000" />
+      <workItem from="1568893329748" duration="208000" />
+      <workItem from="1568964741807" duration="1206000" />
+      <workItem from="1569047779753" duration="621000" />
+      <workItem from="1569230083706" duration="4251000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -596,21 +589,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__functional_tests_fulldayofeating_test_calculation_result_is_negative_error_FullDayOfEatingTest_test_calculation_result_is_negative_error - 2019.09.18 at 14h 32m 14s.xml">
-      <configuration name="Test: functional_tests.fulldayofeating.test_calculation_result_is_negative_error.FullDayOfEatingTest.test_calculation_result_is_negative_error" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_fulldayofeating_test_calculation_result_is_negative_error_FullDayOfEatingTest_test_calculation_result_is_negative_error - 2019.09.18 at 14h 35m 53s.xml">
-      <configuration name="Test: functional_tests.fulldayofeating.test_calculation_result_is_negative_error.FullDayOfEatingTest.test_calculation_result_is_negative_error" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_fulldayofeating_test_calculation_result_is_negative_error_FullDayOfEatingTest_test_calculation_result_is_negative_error - 2019.09.18 at 14h 36m 46s.xml">
-      <configuration name="Test: functional_tests.fulldayofeating.test_calculation_result_is_negative_error.FullDayOfEatingTest.test_calculation_result_is_negative_error" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_fulldayofeating_test_calculation_result_is_negative_error_FullDayOfEatingTest_test_calculation_result_is_negative_error - 2019.09.18 at 14h 39m 22s.xml">
-      <configuration name="Test: functional_tests.fulldayofeating.test_calculation_result_is_negative_error.FullDayOfEatingTest.test_calculation_result_is_negative_error" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__functional_tests_fulldayofeating_test_calculation_result_is_negative_error_FullDayOfEatingTest_test_calculation_result_is_negative_error - 2019.09.18 at 14h 40m 25s.xml">
-      <configuration name="Test: functional_tests.fulldayofeating.test_calculation_result_is_negative_error.FullDayOfEatingTest.test_calculation_result_is_negative_error" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="Test__functional_tests_fulldayofeating_test_calculate_fulldayofeating - 2019.09.18 at 15h 11m 55s.xml">
       <configuration name="Test: functional_tests.fulldayofeating.test_calculate_fulldayofeating" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
@@ -626,9 +604,24 @@
     <history-entry file="Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_FullDayOfEatingTest_test_update_full_day_of_eating_of_foreign_user - 2019.09.18 at 16h 14m 38s.xml">
       <configuration name="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.FullDayOfEatingTest.test_update_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_FullDayOfEatingTest_test_update_full_day_of_eating_of_foreign_user - 2019.09.18 at 16h 15m 06s.xml">
+      <configuration name="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.FullDayOfEatingTest.test_update_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_FullDayOfEatingTest_test_update_full_day_of_eating_of_foreign_user - 2019.09.18 at 16h 15m 54s.xml">
+      <configuration name="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.FullDayOfEatingTest.test_update_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_fulldayofeating_test_update_full_day_of_eating_of_foreign_user_FullDayOfEatingTest_test_update_full_day_of_eating_of_foreign_user - 2019.09.18 at 16h 17m 11s.xml">
+      <configuration name="Test: functional_tests.fulldayofeating.test_update_full_day_of_eating_of_foreign_user.FullDayOfEatingTest.test_update_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_DeleteFullDayOfEatingOfForeignUser_test_delete_full_day_of_eating_of_foreign_user - 2019.09.18 at 16h 17m 40s.xml">
+      <configuration name="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.DeleteFullDayOfEatingOfForeignUser.test_delete_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_DeleteFullDayOfEatingOfForeignUser_test_delete_full_day_of_eating_of_foreign_user - 2019.09.23 at 11h 33m 48s.xml">
+      <configuration name="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.DeleteFullDayOfEatingOfForeignUser.test_delete_full_day_of_eating_of_foreign_user" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183869000" />
+    <option name="totallyTimeSpent" value="190392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,16 +633,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22634201" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23741007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39956802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4997233" weight="0.32937366" />
@@ -657,7 +650,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.27213824" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27213824" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -696,7 +689,7 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_delete_confirm_delete.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_delete_confirm_delete Coverage Results" MODIFIED="1568294397795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$learn_exception_attribute.coverage" NAME="learn_exception_attribute Coverage Results" MODIFIED="1568738253628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_rawingredient2_RawIngredient2Test_test_rawingredient2_edit_discard_changes.coverage" NAME="Test: functional_tests.test_rawingredient2.RawIngredient2Test.test_rawingredient2_edit_discard_changes Coverage Results" MODIFIED="1568112549221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_DeleteFullDayOfEatingOfForeignUser_test_delete_full_day_of_eating_of_foreign_user.coverage" NAME="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.DeleteFullDayOfEatingOfForeignUser.test_delete_full_day_of_eating_of_foreign_user Coverage Results" MODIFIED="1568816237102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_fulldayofeating_test_delete_full_day_of_eating_of_foreign_user_DeleteFullDayOfEatingOfForeignUser_test_delete_full_day_of_eating_of_foreign_user.coverage" NAME="Test: functional_tests.fulldayofeating.test_delete_full_day_of_eating_of_foreign_user.DeleteFullDayOfEatingOfForeignUser.test_delete_full_day_of_eating_of_foreign_user Coverage Results" MODIFIED="1569231205752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_creation_with_valid_data.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_creation_with_valid_data Coverage Results" MODIFIED="1568385473974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_fulldayofeating_test_calculate_fulldayofeating.coverage" NAME="Test: functional_tests.fulldayofeating.test_calculate_fulldayofeating Coverage Results" MODIFIED="1568812207946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_nutrient_profile_NutrientProfileTest_test_nutrientprofile_edit_save_changes.coverage" NAME="Test: functional_tests.test_nutrient_profile.NutrientProfileTest.test_nutrientprofile_edit_save_changes Coverage Results" MODIFIED="1568291179234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -726,14 +719,6 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes Coverage Results" MODIFIED="1568388407163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_list.html" />
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/tolerableupperintake_confirm_delete.html" />
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1017,36 +1002,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/error/form_fulldayofeating_not_valid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/test_full_day_of_eating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="171" column="75" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/test_full_day_of_eating.py" />
     <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_update_full_day_of_eating_of_foreign_user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="22" lean-forward="true" selection-end-line="67" />
+        <state relative-caret-position="240">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="e#132#181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="54" />
           <folding>
             <element signature="e#132#181#0" expanded="true" />
           </folding>
@@ -1055,21 +1025,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="496" column="9" lean-forward="true" selection-start-line="496" selection-start-column="9" selection-end-line="496" selection-end-column="9" />
+        <state relative-caret-position="574">
+          <caret line="496" column="9" selection-start-line="496" selection-start-column="9" selection-end-line="496" selection-end-column="9" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py">
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/error/form_fulldayofeating_not_valid.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="28" column="72" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
+        <state relative-caret-position="240">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="508" column="32" selection-start-line="508" selection-start-column="24" selection-end-line="508" selection-end-column="32" />
           <folding>
-            <element signature="e#132#181#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating/calculate_percent_max_fulldayofeating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1609">
+          <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
         </state>
       </provider>
     </entry>

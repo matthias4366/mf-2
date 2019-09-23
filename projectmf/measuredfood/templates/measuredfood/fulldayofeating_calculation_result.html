@@ -9,141 +9,74 @@
   <br>
   <br>
 
-  <!-- n_ingredients_is_zero should only be defined when it is needed
-  and otherwise it should be None. None should be interpreted as False from Python. -->
-  {% if n_ingredients_is_zero %}
-    <br>
-    <h1>
-      Error: Please add at least 1 ingredient to the full day of eating.
-    </h1>
-  {% elif targeted_nutrients_errors.missing_nutrientprofile_value %}
-    <br>
-    <h1>
-      Error: targeted non existing value in nutrient profile.
-    </h1>
-    <br>
-    <p>The following nutrients were targeted, but there were no values in the
-        nutrient profile:
-    </p>
-      <ol>
-        {% for nutrient_name in targeted_nutrients_errors.nutrients_missing_nutrientprofile_value %}
-          <li>{{ nutrient_name }}</li>
-        {% endfor %}
-      </ol>
-    <p>The name of the nutrient profile is "{{ nutrientprofile_dict.name }}".</p>
-  {% elif result_calculate_fulldayofeating.errors.mismatch %}
-    <br>
-    <h1>Mismatch error</h1>
-    <br>
-    <p>
-      The number of nutrient targets and the number of independently
-      scaling ingredients or ingredient groups have to be equal.
-      </p>
-    <p>You had
-      {{ result_calculate_fulldayofeating.errors.n_nutrient_targets }}
-      nutrient target(s):
-    </p>
-      <ol>
-        {% for nutrient_target in result_calculate_fulldayofeating.errors.list_nutrient_targets %}
-          <li>{{ nutrient_target }}</li>
-        {% endfor %}
-      </ol>
+  <h1>Calculation results:</h1>
+  <table class="generic_table_th_td">
+    <tr>
+      <th class="generic_table_th_td">Calculated amount</th>
+      <th class="generic_table_th_td">Unit</th>
+      <th class="generic_table_th_td">Ingredient</th>
+      <th class="generic_table_th_td">Affiliate link</th>
+    </tr>
+    {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
+    <tr>
+      <td class="generic_table_th_td">{{ dict_k.calculated_amount }}</td>
+      <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
+      <td class="generic_table_th_td">{{ dict_k.name }}</td>
+      <td class="generic_table_th_td">
+        <a href="{{ dict_k.buy_here_link }}">Buy</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <br>
+  <h1>Total nutrition in full day of eating:</h1>
+  <table class="total_nutrition_table generic_table_th_td">
+    <tr>
+      <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
+      <th class="total_nutrition_table generic_table_th_td">Full day of eating</th>
+      <th class="total_nutrition_table generic_table_th_td">Unit</th>
+      <!-- Percent of the target set in NutrientProfile -->
+      <th class="total_nutrition_table generic_table_th_td">% Target</th>
+      <th class="total_nutrition_table generic_table_th_td">% Max</th>
+      <th class="total_nutrition_table generic_table_th_td">Judgement</th>
+    </tr>
 
-    <p>You had
-      {{ result_calculate_fulldayofeating.errors.n_independently_scaling_entities }}
-      independently scaling ingredient(s) or ingredient group(s):
-    </p>
-      <ol>
-        {% for independently_scaling_entity in result_calculate_fulldayofeating.errors.list_names_independently_scaling_entities %}
-        <li>{{ independently_scaling_entity }}</li>
-        {% endfor %}
-      </ol>
+    <!-- Use forloop.counter0 to access the for loop counter -->
 
-  {% else %}
-    {% if result_calculate_fulldayofeating.errors.negative_result %}
-      <br>
-      <h1>Error</h1>
-      <br>
-      <p>It seems you have gotten a negative result. Try the following solution.
-      Remove the ingredient whose amount was negative. Remove one nutrient target.
-      Remove the nutrient target in which the ingredient with a negative result
-      is likely to be high.</p>
-      <p>For example, if you got a negative result for the
-      protein powder, the other ingredients in your recipe are already providing
-      enough protein to the point where you would need negative protein powder
-      to get back down to the specified protein target. In that case,
-      remove the protein powder as an ingredient and remove protein from the
-      targeted nutrients.</p>
-    {% endif %}
-    <h1>Calculation results:</h1>
-    <table class="generic_table_th_td">
-      <tr>
-        <th class="generic_table_th_td">Calculated amount</th>
-        <th class="generic_table_th_td">Unit</th>
-        <th class="generic_table_th_td">Ingredient</th>
-        <th class="generic_table_th_td">Affiliate link</th>
+    {% for ab in aggregated_total_nutrition_fulldayofeating %}
+      <tr class="{{ ab.6 }} total_nutrition_table">
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.0 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.1 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.2 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.3 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.4 }}</td>
+        <td class="total_nutrition_table generic_table_th_td">{{ ab.5 }}</td>
       </tr>
-      {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
-      <tr>
-        <td class="generic_table_th_td">{{ dict_k.calculated_amount }}</td>
-        <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
-        <td class="generic_table_th_td">{{ dict_k.name }}</td>
-        <td class="generic_table_th_td">
-          <a href="{{ dict_k.buy_here_link }}">Buy</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
-    <br>
-    <br>
-    <h1>Total nutrition in full day of eating:</h1>
-    <table class="total_nutrition_table generic_table_th_td">
-      <tr>
-        <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
-        <th class="total_nutrition_table generic_table_th_td">Full day of eating</th>
-        <th class="total_nutrition_table generic_table_th_td">Unit</th>
-        <!-- Percent of the target set in NutrientProfile -->
-        <th class="total_nutrition_table generic_table_th_td">% Target</th>
-        <th class="total_nutrition_table generic_table_th_td">% Tolerable upper intake</th>
-        <th class="total_nutrition_table generic_table_th_td">Judgement</th>
-      </tr>
+    {% endfor %}
 
-      <!-- Use forloop.counter0 to access the for loop counter -->
-
-      {% for ab in aggregated_total_nutrition_fulldayofeating %}
-        <tr class="{{ ab.6 }} total_nutrition_table">
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.0 }}</td>
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.1 }}</td>
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.2 }}</td>
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.3 }}</td>
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.4 }}</td>
-          <td class="total_nutrition_table generic_table_th_td">{{ ab.5 }}</td>
-        </tr>
-      {% endfor %}
-
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Total price of full day of eating:</h1>
-    <table class="generic_table_th_td">
-      <tr>
-        <th class="generic_table_th_td">Price</th>
-        <th class="generic_table_th_td">Currency</th>
-      </tr>
-      <tr>
-        <td class="generic_table_th_td"
-        >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
-        <td class="generic_table_th_td"
-        >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
-      </tr>
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-  {% endif %}
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Total price of full day of eating:</h1>
+  <table class="generic_table_th_td">
+    <tr>
+      <th class="generic_table_th_td">Price</th>
+      <th class="generic_table_th_td">Currency</th>
+    </tr>
+    <tr>
+      <td class="generic_table_th_td"
+      >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
+      <td class="generic_table_th_td"
+      >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
 
