@@ -19,7 +19,12 @@
     </tr>
     {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
     <tr>
-      <td class="generic_table_th_td">{{ dict_k.calculated_amount }}</td>
+      <td
+              class="generic_table_th_td"
+              id="calculated amount {{ dict_k.name }}"
+      >
+        {{ dict_k.calculated_amount }}
+      </td>
       <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
       <td class="generic_table_th_td">{{ dict_k.name }}</td>
       <td class="generic_table_th_td">
