@@ -25,6 +25,9 @@ class NutrientProfile(models.Model):
     def get_absolute_url():
         return reverse('list-nutrient-profiles')
 
+    class Meta:
+        ordering = ["name"]
+
 
 # Add all the fields related to nutrition to the nutrient profile model.
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:

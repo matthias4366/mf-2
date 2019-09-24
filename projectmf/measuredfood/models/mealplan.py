@@ -34,3 +34,6 @@ class Mealplan(models.Model):
     @staticmethod
     def get_absolute_url():
         return reverse('list-mealplan')
+
+    class Meta:
+        ordering = ["name"]
