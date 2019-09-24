@@ -666,9 +666,11 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         # Try opening the edit page of the foreign NutrientProfile object.
         self.browser.get(url_foreign_nutrientprofile)
 
+        time.sleep(10)
+
         # Test whether the appropriate error page is shown.
         error_paragraph = self.browser.find_elements_by_id(
-            'error_message_url_forgery'
+            'UserIsNotAuthorError'
         )
         error_page_is_shown = \
             len(error_paragraph) > 0

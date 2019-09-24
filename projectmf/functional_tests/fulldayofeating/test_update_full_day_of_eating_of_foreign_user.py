@@ -3,7 +3,7 @@
 #     click_navbar_item
 from ..base import FunctionalTestWithUserLoggedIn
 # from selenium.webdriver.common.keys import Keys
-# import time
+import time
 # from selenium.common.exceptions import NoSuchElementException
 # from functional_tests.utils.check_exists_by_xpath \
 #     import check_exists_by_xpath

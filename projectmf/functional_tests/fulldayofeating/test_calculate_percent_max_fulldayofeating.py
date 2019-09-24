@@ -11,11 +11,11 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
 )
-from data.initial_nutrient_profiles import nutrient_profile_dict_list
-from django.contrib.auth.models import User
+# from data.initial_nutrient_profiles import nutrient_profile_dict_list
+# from django.contrib.auth.models import User
 from data.ingredients_data2 import ingredient_dict_list
 from measuredfood.models import RawIngredient2
-from measuredfood.utils.set_to_zero_if_none import set_to_zero_if_none
+# from measuredfood.utils.set_to_zero_if_none import set_to_zero_if_none
 
 # import the ingredient dictionaries
 import sys
@@ -36,13 +36,6 @@ class FullDayOfEatingPercentMaxTest(FunctionalTestWithUserLoggedIn):
 
         This might be equivalent to test_calculate_fulldayofeating_good_case.
         """
-
-        full_day_of_eating_name = 'Chili mushrooms'
-
-        # list_nutrient_targets = [
-        #     'calories',
-        #     'protein',
-        # ]
 
         list_nutrient_targets = []
 

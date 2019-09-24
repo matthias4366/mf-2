@@ -22,6 +22,10 @@ from measuredfood.forms import RawIngredient2Form
 from measuredfood.utils.check_if_author import check_if_author
 import logging
 
+from measuredfood.utils.error.custom_error import (
+    UserIsNotAuthorError,
+)
+
 
 @login_required
 def create_rawingredient2(request):
@@ -66,39 +70,56 @@ class ListRawIngredient2(
 
 @login_required
 def update_rawingredient2(request, id_rawingredient2):
-    user_is_author = check_if_author(
-        request,
-        RawIngredient2,
-        id_rawingredient2
-    )
-    if not user_is_author:
-        context = {}
-        return render(request, 'measuredfood/not_yours.html', context)
-    # The user is the author, proceed.
 
-    rawingredient2_object = RawIngredient2.objects.get(pk=id_rawingredient2)
+    try:
 
-    if request.method == 'POST':
-        form_rawingredient2 = RawIngredient2Form(
-            request.POST,
-            instance=rawingredient2_object
+        check_if_author(
+            request,
+            RawIngredient2,
+            id_rawingredient2,
+            UserIsNotAuthorError,
         )
-        if form_rawingredient2.is_valid():
-            form_rawingredient2.save()
-            return redirect('list-rawingredient2')
-    else:
-        form_rawingredient2 = RawIngredient2Form(
-            instance=rawingredient2_object
-        )
+
+        rawingredient2_object = RawIngredient2.objects.get(pk=id_rawingredient2)
+
+        if request.method == 'POST':
+            form_rawingredient2 = RawIngredient2Form(
+                request.POST,
+                instance=rawingredient2_object
+            )
+            if form_rawingredient2.is_valid():
+                form_rawingredient2.save()
+                return redirect('list-rawingredient2')
+        else:
+            form_rawingredient2 = RawIngredient2Form(
+                instance=rawingredient2_object
+            )
+            context = {
+                'VITAMINS_AND_DEFAULT_UNITS': VITAMINS_AND_DEFAULT_UNITS,
+                'form': form_rawingredient2
+            }
+            return render(
+                request,
+                'measuredfood/rawingredient2_form.html',
+                context
+                )
+
+    except UserIsNotAuthorError:
+        """
+        Careful when you implement this. You will have to make changes at 
+        multiple spots in the code.
+        """
         context = {
-            'VITAMINS_AND_DEFAULT_UNITS': VITAMINS_AND_DEFAULT_UNITS,
-            'form': form_rawingredient2
+            'error_message': 'It seems like you are trying to edit an object '
+                             'of another user, which is forbidden.',
+            'error_id': 'UserIsNotAuthorError',
         }
         return render(
             request,
-            'measuredfood/rawingredient2_form.html',
+            'measuredfood/error/general_error_page.html',
             context
-            )
+        )
+
 
 
 class DetailRawIngredient2(UserPassesTestMixin, DetailView):
