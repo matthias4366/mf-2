@@ -81,6 +81,7 @@ from measuredfood.utils.error.custom_error import (
     NoValueForTargetedNutrientError,
     NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
     CalculationResultIsNegativeError,
+    FixedIngredientExceedsNutrientProfileValueError,
 )
 
 
@@ -306,6 +307,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 NoValueForTargetedNutrientError,
                 NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
                 CalculationResultIsNegativeError,
+                FixedIngredientExceedsNutrientProfileValueError,
             )
 
         result_calculate_fulldayofeating_formatted_for_template = \
@@ -539,6 +541,26 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'error_message': error_message,
             'error_id':
                 'CalculationResultIsNegativeError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
+
+    except FixedIngredientExceedsNutrientProfileValueError:
+
+        context = {
+            'error_message': 'The fixed ingredient exceed the values '
+                             'specified for the nutrient profile. For example: '
+                             'someone adds 1000 g of bacon to a recipe with '
+                             'the scaling option "fixed", adds eggs with a '
+                             'scaling option of "independent" and has a fat '
+                             'target of 70 g. It is not possible to add a '
+                             'positive amount of eggs so that the total fat '
+                             'amount gets to 70 g, because the bacon already '
+                             'provides more than that.',
+            'error_id': 'FixedIngredientExceedsNutrientProfileValueError',
         }
         return render(
             request,

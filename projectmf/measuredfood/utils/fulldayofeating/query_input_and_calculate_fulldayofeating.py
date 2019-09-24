@@ -22,6 +22,7 @@ def query_input_and_calculate_fulldayofeating(
     no_value_for_targeted_nutrient_error,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     calculation_result_is_negative_error,
+    fixed_ingredient_exceeds_nutrient_profile_value_error,
 ):
     """
     This function groups together multiple sub functions that often need to be
@@ -63,6 +64,7 @@ def query_input_and_calculate_fulldayofeating(
             set_to_zero_if_none,
             number_targeted_nutrients_not_equal_number_scaling_entities_error,
             calculation_result_is_negative_error,
+            fixed_ingredient_exceeds_nutrient_profile_value_error,
         )
 
     # Save the results to the database:

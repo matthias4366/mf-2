@@ -11,6 +11,7 @@ def calculate_fulldayofeating(
     set_to_zero_if_none,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     calculation_result_is_negative_error,
+    fixed_ingredient_exceeds_nutrient_profile_value_error,
 ):
 
     """
@@ -153,12 +154,7 @@ def calculate_fulldayofeating(
         # Check if the 'FIXED' SpecificIngredients already run over the
         # nutrition goal.
         if targeted_nutrients_remainder[key_k] <= 0:
-            print('ERROR: The ingredients with the \'FIXED\' scaling_options '
-                  'already provide too much nutrition.')
-            return None
-
-    # print('\n targeted_nutrients_remainder in calculate_fulldayofeating \n')
-    # pprint.pprint(targeted_nutrients_remainder)
+            raise fixed_ingredient_exceeds_nutrient_profile_value_error
 
     # Prepare the arrays for the linear equation solver.
     b = []

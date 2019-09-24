@@ -71,3 +71,17 @@ class CalculationResultIsNegativeError(Exception):
     def __init__(self, list_ingredient_negative_result):
         self.list_ingredient_negative_result = \
             list_ingredient_negative_result
+
+
+class FixedIngredientExceedsNutrientProfileValueError(Exception):
+    """
+    For the calculation of a full day of eating to be possible, the linear
+    equation system must be solveable without producing negative results.
+    One error case that would produce negative results is that the fixed
+    ingredients already provide nutrition in excess of the values stored in
+    the nutrient profile. For example: someone adds 1000 g of bacon to a
+    recipe with the scaling option 'fixed', adds eggs with a scaling option
+    of 'indepent' and has a fat target of 70 g. It is not possible to add a
+    positive amount of eggs so that the total fat amount gets to 70 g.
+    """
+    pass
