@@ -72,6 +72,9 @@ from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating\
 from measuredfood.utils.fulldayofeating.calculate_percent_max_fulldayofeating \
     import calculate_percent_max_fulldayofeating
 
+from measuredfood.utils.judge_total_nutrition import \
+    judge_total_nutrition
+
 from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
     NoSpecificIngredientInFullDayOfEatingError,
@@ -209,7 +212,6 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 'formset_specificnutrienttarget':
                     formset_specificnutrienttarget,
                 }
-            # TODO: use reverse function instead
             return render(request, 'measuredfood/fulldayofeating_form.html',
                           context)
 
@@ -358,8 +360,6 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         for key, value in result_percentage_of_target_amount_numbers.items():
             result_percentage_of_target_amount_numbers_list.append(value)
 
-        # TODO: Calculate the percentage of the tolerable upper limit.
-
         # 'Max amount' and 'tolerable upper intake' are used interchangeably.
         result_percent_max_dict, \
             result_percentage_of_tolerable_upper_intake_str_list, \
@@ -379,16 +379,22 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         #   intake, judge the total nutrition as either the right amount,
         #   too little or too much.
 
+        # Old code:
+        result_judge_total_nutrition, \
+            result_judge_total_nutrition_css_class_name = judge_total_nutrition(
+                result_percentage_of_target_amount_numbers_list,
+                result_percentage_of_tolerable_upper_intake_numbers_list,
+        )
+
         aggregated_total_nutrition_fulldayofeating = \
             zip(
                 nutrient_name_list,
                 result_total_nutrition_fulldayofeating_rounded_list,
                 default_unit_list,
                 result_percentage_of_target_amount_list,
-                # TODO reimplement % of max amount. Old code:
                 result_percentage_of_tolerable_upper_intake_str_list,
-                # result_judge_total_nutrition,
-                # result_judge_total_nutrition_css_class_name,
+                result_judge_total_nutrition,
+                result_judge_total_nutrition_css_class_name,
                 )
 
         total_price_fulldayofeating_result_dict = \

@@ -29,7 +29,7 @@ def calculate_percent_max_fulldayofeating(
             new_dict = {key: percent_max}
             result_percent_max_dict.update(new_dict)
             result_percentage_of_tolerable_upper_intake_str_list.append(
-                str(percent_max)
+                str(percent_max)+' %'
             )
             result_percentage_of_tolerable_upper_intake_numbers_list.append(
                 percent_max
