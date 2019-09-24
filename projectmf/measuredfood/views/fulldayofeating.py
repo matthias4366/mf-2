@@ -374,17 +374,12 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             default_unit_list.append(dict_k['default_unit'])
 
-        # TODO: Based on the ratios between the sum of the total nutrition for a
-        #   given nutrient to that nutrient's target value and tolerable upper
-        #   intake, judge the total nutrition as either the right amount,
-        #   too little or too much.
-
-        # Old code:
         result_judge_total_nutrition, \
             result_judge_total_nutrition_css_class_name = judge_total_nutrition(
                 result_percentage_of_target_amount_numbers_list,
                 result_percentage_of_tolerable_upper_intake_numbers_list,
-        )
+                set_to_zero_if_none,
+            )
 
         aggregated_total_nutrition_fulldayofeating = \
             zip(

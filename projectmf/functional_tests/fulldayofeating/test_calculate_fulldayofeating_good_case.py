@@ -31,4 +31,4 @@ class FullDayOfEatingGoodCaseTest(FunctionalTestWithUserLoggedIn):
         In this test, the good case is tested: everything is set up properly
         and it is tested whether the proper results are displayed.
         """
-        pass
+        self.fail('Finish the test!')

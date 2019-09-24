@@ -133,7 +133,9 @@ nutrient_profile_dict_list = [
         'copper': 1600,  # 'default_unit': 'microgram'
         'iodine': 150,  # 'default_unit': 'microgram'
         'iron': 11,  # 'default_unit': 'milligram'
-        'magnesium': 350,  # 'default_unit': 'milligram'
+        # Sandor Clegane changed magnesium from 350 to 200, so it would be
+        # lower than the maximum value.
+        'magnesium': 200,  # 'default_unit': 'milligram'
         'manganese': 3,  # 'default_unit': 'milligram'
         'molybdenum': 65,  # 'default_unit': 'microgram'
         'phosphorus': 550,  # 'default_unit': 'milligram'

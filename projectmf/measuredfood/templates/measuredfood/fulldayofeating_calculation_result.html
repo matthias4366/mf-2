@@ -46,6 +46,7 @@
 
     {% for ab in aggregated_total_nutrition_fulldayofeating %}
       <tr class="{{ ab.6 }} total_nutrition_table">
+        {# The ids are used to access the fields in the functional tests. #}
         <td
                 class="total_nutrition_table generic_table_th_td"
         >
@@ -57,10 +58,15 @@
         >
           {{ ab.1 }}
         </td>
-        <td class="total_nutrition_table generic_table_th_td">
+        <td
+                class="total_nutrition_table generic_table_th_td"
+        >
           {{ ab.2 }}
         </td>
-        <td class="total_nutrition_table generic_table_th_td">
+        <td
+                class="total_nutrition_table generic_table_th_td"
+                id="percent target {{ ab.0 }}"
+        >
           {{ ab.3 }}
         </td>
         <td
@@ -69,7 +75,10 @@
         >
           {{ ab.4 }}
         </td>
-        <td class="total_nutrition_table generic_table_th_td">
+        <td
+                class="total_nutrition_table generic_table_th_td"
+                id="judgment {{ ab.0 }}"
+        >
           {{ ab.5 }}
         </td>
       </tr>

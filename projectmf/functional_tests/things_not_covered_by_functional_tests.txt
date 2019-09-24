@@ -1,0 +1,2 @@
+The CSS styling introduced by the judgement of the total nutrition of a full day
+ of eating is not tested, as styling is too difficult to test to be worth it.

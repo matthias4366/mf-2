@@ -3,14 +3,15 @@
 def judge_total_nutrition(
     result_percentage_of_target_amount_numbers_list,
     result_percentage_of_tolerable_upper_intake_numbers_list,
+    set_to_zero_if_none,
 ):
 
     result_judge_total_nutrition = []
 
-    no_judgment_str = ''
     right_amount_str = 'good'
     too_much_str = 'too much'
     too_little_str = 'too little'
+    error_message = 'Error: % target <= % max.'
 
     # Check if the total amount for a nutrient is greater than the target
     # amount.
@@ -26,73 +27,41 @@ def judge_total_nutrition(
     # Iterate over the each nutrient in the list.
     for k in range(len(result_percentage_of_target_amount_numbers_list)):
 
-        # Catch the case of no value.
-        if (result_percentage_of_target_amount_numbers_list[k] is None) and\
-                (result_percentage_of_tolerable_upper_intake_numbers_list[k]
-                 is None):
-            result_judge_total_nutrition.append(no_judgment_str)
+        # New code:
+        # Catch the error that the nutrient target is greater than the
+        # maximum amount.
+        # If the target amount is greater in absolute terms, the percentage
+        # of the target amount is smaller than the percentage of the maximum
+        # amount.
+        percent_of_target = \
+            result_percentage_of_target_amount_numbers_list[k]
 
-        # There is only a tolerable upper intake.
-        elif (result_percentage_of_target_amount_numbers_list[k] is None) and\
-                (result_percentage_of_tolerable_upper_intake_numbers_list[k]
-                 is not None):
-            if result_percentage_of_tolerable_upper_intake_numbers_list[k] \
-                    < 100:
-                result_judge_total_nutrition.append(right_amount_str)
-            elif result_percentage_of_tolerable_upper_intake_numbers_list[k] \
-                    >= 100:
+        percent_of_maximum = \
+            result_percentage_of_tolerable_upper_intake_numbers_list[k]
+
+        if percent_of_target is not None and percent_of_maximum is not None:
+
+            target_is_greater_or_equal_than_maximum = \
+                set_to_zero_if_none(percent_of_target) \
+                <= set_to_zero_if_none(percent_of_maximum)
+            if target_is_greater_or_equal_than_maximum:
+                result_judge_total_nutrition.append(error_message)
+                continue
+
+        # Check if the amount is too little.
+        if percent_of_target is not None:
+            if percent_of_target < 100:
+                result_judge_total_nutrition.append(too_little_str)
+                continue
+
+        # Check if the amount is too much.
+        if percent_of_maximum is not None:
+            if percent_of_maximum > 100:
                 result_judge_total_nutrition.append(too_much_str)
-            else:
-                print(
-                    '\n Something went wrong, this case should not be possible.'
-                )
-                print('Location in code: judge_total_nutrition loc 1. \n ')
-                print('Faulty variable: ')
-                print(
-                    'result_percentage_of_tolerable_upper_intake_numbers_list'
-                    '[k]')
-                print(
-                    result_percentage_of_tolerable_upper_intake_numbers_list[k]
-                )
-                print('\n')
+                continue
 
-        # There is only a target.
-        elif (result_percentage_of_target_amount_numbers_list[k] is not None) \
-                and\
-                (result_percentage_of_tolerable_upper_intake_numbers_list[k]
-                 is None):
-            if result_percentage_of_target_amount_numbers_list[k] >= 100:
-                result_judge_total_nutrition.append(right_amount_str)
-            elif result_percentage_of_target_amount_numbers_list[k] < 100:
-                result_judge_total_nutrition.append(too_little_str)
-            else:
-                print(
-                    '\n Something went wrong, '
-                    'this case should not be possible.'
-                )
-                print('Location in code: judge_total_nutrition loc 2. \n ')
-                print('Faulty variable: ')
-                print(' result_percentage_of_target_amount_numbers_list[k]')
-                print(result_percentage_of_target_amount_numbers_list[k])
-                print('\n')
-
-        # There are both a target and a tolerable upper intake.
-        elif (result_percentage_of_target_amount_numbers_list[k] is not None) \
-                and\
-                (result_percentage_of_tolerable_upper_intake_numbers_list[k]
-                 is not None):
-            if result_percentage_of_target_amount_numbers_list[k] < 100:
-                result_judge_total_nutrition.append(too_little_str)
-            elif result_percentage_of_target_amount_numbers_list[k] >= 100:
-                if result_percentage_of_tolerable_upper_intake_numbers_list[k] \
-                        < 100:
-                    result_judge_total_nutrition.append(right_amount_str)
-                elif \
-                    result_percentage_of_tolerable_upper_intake_numbers_list[k]\
-                        >= 100:
-                    result_judge_total_nutrition.append(too_much_str)
-            else:
-                print('Something went wrong, this case should not be possible.')
+        # If no errors have been triggered, default to the right amount.
+        result_judge_total_nutrition.append(right_amount_str)
 
     # Based on the judgments, create css class names by replacing the spaces
     # underscores.
