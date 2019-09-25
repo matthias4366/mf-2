@@ -512,10 +512,17 @@ class FullDayOfEatingPercentMaxTest(FunctionalTestWithUserLoggedIn):
                 / nutrient_profile_dict['max_'+nutrient_name] \
                 * 100
 
-            percent_max_in_app = self.browser.find_element_by_id(
-                'percent max '+nutrient_name
-            ).text
-            percent_max_in_app = float(percent_max_in_app)
+            percent_max_in_app_with_percent_symbol = \
+                self.browser.find_element_by_id(
+                    'percent max '+nutrient_name
+                ).text
+            # The last two symbols of the string are removed to remove both
+            # the percent symbol and the space.
+            percent_max_in_app_without_percent_symbol = \
+                percent_max_in_app_with_percent_symbol[:-2]
+            percent_max_in_app = float(
+                percent_max_in_app_without_percent_symbol
+            )
 
             deviation = abs(percent_max_in_app - percent_max_comparison_value)
 
