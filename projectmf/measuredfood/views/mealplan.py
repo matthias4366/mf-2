@@ -72,6 +72,23 @@ from measuredfood.utils.fulldayofeating\
 from measuredfood.utils.query.query_specificnutrienttarget_of_fulldayofeating \
     import query_specificnutrienttarget_of_fulldayofeating
 
+from measuredfood.utils.fulldayofeating.calculate_percent_max_fulldayofeating \
+    import calculate_percent_max_fulldayofeating
+
+from measuredfood.utils.judge_total_nutrition import \
+    judge_total_nutrition
+
+from measuredfood.utils.error.custom_error import (
+    UserIsNotAuthorError,
+    NoSpecificIngredientInFullDayOfEatingError,
+    NoValueForTargetedNutrientError,
+    NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+    CalculationResultIsNegativeError,
+    FixedIngredientExceedsNutrientProfileValueError,
+)
+
+import math
+
 
 @login_required
 def create_mealplan_view(request):
@@ -96,72 +113,82 @@ def create_mealplan_view(request):
 
 @login_required
 def update_mealplan_view(request, id_mealplan):
-    view_type = 'update'
 
-    # Make sure users can not edit other user's objects.
-    user_is_author = check_if_author(
-        request,
-        Mealplan,
-        id_mealplan
-        )
-    if not user_is_author:
-        context = {}
-        return render(request, 'measuredfood/not_yours.html', context)
-    # The user is the author, proceed.
+    try:
 
-    mealplan_object = Mealplan.objects.get(pk=id_mealplan)
+        view_type = 'update'
 
-    if request.method == 'POST':
-        form_mealplan = MealplanForm(
-            request.POST,
-            instance=mealplan_object
-        )
-        formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
-            request.POST,
-            instance=mealplan_object
-        )
-
-        if form_mealplan.is_valid() and \
-                formset_specificfulldayofeating.is_valid():
-            formset_specificfulldayofeating.save()
-            form_mealplan.save()
-            return redirect(
-                'update-mealplan',
-                id_mealplan=mealplan_object.id
-                )
-    else:
-        form_mealplan = MealplanForm(instance=mealplan_object)
-        formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
-            instance=mealplan_object
-        )
-        # Only let the user select FullDayOfEating objects from their own
-        # collection.
-        for form in formset_specificfulldayofeating:
-            form.fields['fulldayofeating'].queryset = \
-                    FullDayOfEating.objects.filter(
-                author=request.user.id
+        # Make sure users can not edit other user's objects.
+        check_if_author(
+            request,
+            Mealplan,
+            id_mealplan,
+            UserIsNotAuthorError,
             )
 
+        mealplan_object = Mealplan.objects.get(pk=id_mealplan)
+
+        if request.method == 'POST':
+            form_mealplan = MealplanForm(
+                request.POST,
+                instance=mealplan_object
+            )
+            formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
+                request.POST,
+                instance=mealplan_object
+            )
+
+            if form_mealplan.is_valid() and \
+                    formset_specificfulldayofeating.is_valid():
+                formset_specificfulldayofeating.save()
+                form_mealplan.save()
+                return redirect(
+                    'update-mealplan',
+                    id_mealplan=mealplan_object.id
+                    )
+        else:
+            form_mealplan = MealplanForm(instance=mealplan_object)
+            formset_specificfulldayofeating = SpecificFullDayOfEatingFormset(
+                instance=mealplan_object
+            )
+            # Only let the user select FullDayOfEating objects from their own
+            # collection.
+            for form in formset_specificfulldayofeating:
+                form.fields['fulldayofeating'].queryset = \
+                        FullDayOfEating.objects.filter(
+                    author=request.user.id
+                )
+
+            context = {
+                'form_mealplan': form_mealplan,
+                'formset_specificfulldayofeating':
+                    formset_specificfulldayofeating,
+                'id_mealplan': mealplan_object.id,
+                'view_type': view_type
+            }
+            # TODO: use reverse_lazy instead of hard coding
+            #  the name of the html file.
+            return render(request, 'measuredfood/mealplan_form.html', context)
+
+    except UserIsNotAuthorError:
+        """
+        Careful when you implement this. You will have to make changes at 
+        multiple spots in the code.
+        """
         context = {
-            'form_mealplan': form_mealplan,
-            'formset_specificfulldayofeating': formset_specificfulldayofeating,
-            'id_mealplan': mealplan_object.id,
-            'view_type': view_type
+            'error_message': 'It seems like you are trying to edit an object '
+                             'of another user, which is forbidden.',
+            'error_id': 'UserIsNotAuthorError',
         }
-        # TODO: use reverse_lazy instead of hard coding
-        #  the name of the html file.
-        return render(request, 'measuredfood/mealplan_form.html', context)
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
 
 
 @login_required
 def shoppinglist_view(request, id_mealplan):
-
-    # Pre defining local variables so there are no errors in
-    # PyCharm.
-    targeted_nutrients_errors = None
-    result_calculate_fulldayofeating = None
-    id_fulldayofeating = None
-    nutrientprofile_dict = None
 
     # From id_mealplan, get all the related SpecificFullDayOfEating objects.
     queryset_specificfulldayofeating = SpecificFullDayOfEating.objects.filter(
@@ -180,8 +207,7 @@ def shoppinglist_view(request, id_mealplan):
     id_list_no_duplications = []
     id_list_with_duplications = []
     for k in range(len(list_dict_related_fulldayofeating)):
-        # TODO: A for loop is used for a dictionary that only has one entry.
-        # This seems inefficient and confusing, but is also should not matter.
+        # A for loop is used for a dictionary that only has one entry.
         for key, value in list_dict_related_fulldayofeating[k].items():
             id_list_with_duplications.append(value)
             if value not in id_list_no_duplications:
@@ -194,77 +220,209 @@ def shoppinglist_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating = id_list_no_duplications[k]
 
-        result_calculate_fulldayofeating,\
-            specificingredient_dict_list,\
-            targeted_nutrients_errors,\
-            nutrientprofile_dict = \
-            query_input_and_calculate_fulldayofeating(
-                query_ingredients_fulldayofeating,
-                query_nutrientprofile_of_fulldayofeating,
-                query_specificnutrienttarget_of_fulldayofeating,
-                calculate_fulldayofeating,
-                calculate_average_of_specificingredient_group,
-                undo_calculate_average_of_specificingredient_group,
-                save_fulldayofeating_calculation_result_to_database,
-                set_to_zero_if_none,
-                id_fulldayofeating,
-                SpecificIngredient,
-                RawIngredient2,
-                FullDayOfEating,
-                NutrientProfile,
-                SpecificNutrientTarget,
-                copy,
-                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-                np,
-            )
+        try:
 
-    # Check if the key exists first, this is purely technical.
-    if 'ingredients_are_present'\
-            in result_calculate_fulldayofeating['errors'].keys():
-        # Here comes the actual logic: are there ingredients present
-        if not result_calculate_fulldayofeating['errors'][
-                'ingredients_are_present']:
-            n_ingredients_is_zero = True
+            # Copy the query_input_and_calculate_fulldayofeating from the
+            # fulldayofeating.py file exactly as it is.
+            result_calculate_fulldayofeating, \
+            specificingredient_dict_list, \
+            nutrientprofile_dict = \
+                query_input_and_calculate_fulldayofeating(
+                    query_ingredients_fulldayofeating,
+                    query_nutrientprofile_of_fulldayofeating,
+                    query_specificnutrienttarget_of_fulldayofeating,
+                    calculate_fulldayofeating,
+                    calculate_average_of_specificingredient_group,
+                    undo_calculate_average_of_specificingredient_group,
+                    save_fulldayofeating_calculation_result_to_database,
+                    set_to_zero_if_none,
+                    id_fulldayofeating,
+                    SpecificIngredient,
+                    RawIngredient2,
+                    FullDayOfEating,
+                    NutrientProfile,
+                    SpecificNutrientTarget,
+                    copy,
+                    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                    np,
+                    NoSpecificIngredientInFullDayOfEatingError,
+                    NoValueForTargetedNutrientError,
+                    NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+                    CalculationResultIsNegativeError,
+                    FixedIngredientExceedsNutrientProfileValueError,
+                )
+
+        except NoSpecificIngredientInFullDayOfEatingError:
             context = {
-                'result_calculate_fulldayofeating':
-                result_calculate_fulldayofeating,
-                'id_fulldayofeating': id_fulldayofeating,
-                'n_ingredients_is_zero': n_ingredients_is_zero,
+                'error_message': 'Please add at least one ingredient to your '
+                                 'full '
+                                 'day of eating before calculating the full '
+                                 'day '
+                                 'of eating.',
+                'error_id': 'NoSpecificIngredientInFullDayOfEatingError',
             }
             return render(
                 request,
-                'measuredfood/fulldayofeating_calculation_result.html',
+                'measuredfood/error/general_error_page.html',
                 context
-                )
-
-    if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        context = {
-            'id_fulldayofeating': id_fulldayofeating,
-            'targeted_nutrients_errors': targeted_nutrients_errors,
-            'nutrientprofile_dict': nutrientprofile_dict,
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
             )
 
-    if result_calculate_fulldayofeating['errors']['mismatch']:
-        context = {
-            'result_calculate_fulldayofeating':
-            result_calculate_fulldayofeating,
-            'id_fulldayofeating': id_fulldayofeating,
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
+        except UserIsNotAuthorError:
+            """
+            Careful when you implement this. You will have to make changes at 
+            multiple spots in the code.
+            """
+            context = {
+                'error_message': 'It seems like you are trying to edit an '
+                                 'object '
+                                 'of another user, which is forbidden.',
+                'error_id': 'UserIsNotAuthorError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
             )
 
-    # Sum up the calculated amounts.
-    # Initiate a dictionary shopping_list_dict which will have the format
-    # {'RawIngredient_name': sum total amount}.
-    shopping_list_dict = {}
+        except NoValueForTargetedNutrientError as e:
+            list_ = e.nutrient_value_missing
+            seperator = ', '
+            pretty_list = seperator.join(list_)
+            error_message = \
+                'The values for the following nutrients in the nutrient ' \
+                'profile ' \
+                'are missing: ' \
+                + pretty_list \
+                + '.' \
+                + ' Please add values for these nutrients in the ' \
+                  'nutrient profile or do not target them.'
+            context = {
+                'error_message': error_message,
+                'error_id': 'NoValueForTargetedNutrientError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+        except NumberTargetedNutrientsNotEqualNumberScalingEntitiesError as e:
+
+            seperator = ', '
+            pretty_list_targeted_nutrient = seperator.join(
+                e.list_targeted_nutrient)
+            pretty_list_independently_scaling_entity = \
+                seperator.join(e.list_independently_scaling_entity)
+
+            error_message = 'The number of nutrient targets did not ' \
+                            'match the ' \
+                            'number of independently ' \
+                            'scaling ingredients or ' \
+                            'ingredient groups.' \
+                            'There were ' \
+                            + str(e.n_targeted_nutrient) \
+                            + ' targeted nutrients: ' \
+                            + pretty_list_targeted_nutrient \
+                            + '.' \
+                            + 'There were ' \
+                            + str(e.n_independently_scaling_entity) \
+                            + ' independently scaling ingredients ' \
+                              'or ingredient ' \
+                              'groups: ' \
+                            + pretty_list_independently_scaling_entity \
+                            + '.'
+            context = {
+                'error_message': error_message,
+                'error_id':
+                    'NumberTargetedNutrientsNotEqualNumberScalingEntitiesError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+        except CalculationResultIsNegativeError as e:
+            seperator = ', '
+            pretty_list_ingredient_negative_result = seperator.join(
+                e.list_ingredient_negative_result
+            )
+
+            if len(e.list_ingredient_negative_result) == 1:
+                error_message = \
+                    'The calculation result for the ingredient ' \
+                    + pretty_list_ingredient_negative_result \
+                    + ' was negative.' \
+                    + ' Try setting the scaling options of that' \
+                      ' ingredient to ' \
+                      '\'fixed\'. The amount of that ingredient should ' \
+                      'probably be ' \
+                      'set to 0. As a consequence, ' \
+                      'the number of independently ' \
+                      'scaling ingredients is reduced and therefore, ' \
+                      'fewer nutrients ' \
+                      'must be targeted to maintain ' \
+                      'equality between the number of ' \
+                      'targeted nutrients and independently ' \
+                      'scaling ingredients or ' \
+                      'ingredient groups.'
+            elif len(e.list_ingredient_negative_result > 1):
+                error_message = \
+                    'The calculation results for the ingredients ' \
+                    + pretty_list_ingredient_negative_result \
+                    + ' were negative.' \
+                    + ' Try setting the scaling options ' \
+                      'of those ingredients to ' \
+                      '\'fixed\'. The amounts of those ingredients should ' \
+                      'probably be ' \
+                      'set to 0. As a consequence, the ' \
+                      'number of independently ' \
+                      'scaling ingredients is reduced and therefore, ' \
+                      'fewer nutrients ' \
+                      'must be targeted to maintain ' \
+                      'equality between the number of ' \
+                      'targeted nutrients and ' \
+                      'independently scaling ingredients or ' \
+                      'ingredient groups.'
+            else:
+                error_message = None
+                print('This case should not be possible.')
+
+            context = {
+                'error_message': error_message,
+                'error_id':
+                    'CalculationResultIsNegativeError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+
+        except FixedIngredientExceedsNutrientProfileValueError:
+
+            context = {
+                'error_message': 'The fixed ingredient exceed the values '
+                                 'specified for the nutrient profile. '
+                                 'For example: '
+                                 'someone adds 1000 g of bacon'
+                                 ' to a recipe with '
+                                 'the scaling option "fixed", adds eggs with a '
+                                 'scaling option of "independent"'
+                                 ' and has a fat '
+                                 'target of 70 g. It is not possible to add a '
+                                 'positive amount of eggs '
+                                 'so that the total fat '
+                                 'amount gets to 70 g, '
+                                 'because the bacon already '
+                                 'provides more than that.',
+                'error_id': 'FixedIngredientExceedsNutrientProfileValueError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+
+    shopping_list = {}
 
     # Iterate over the id_list_with_duplications.
     for id_fulldayofeating_k in id_list_with_duplications:
@@ -286,22 +444,37 @@ def shoppinglist_view(request, id_mealplan):
 
             rawingredient_name = list(query_rawingredient_name)[0]['name']
 
+            # New code:
             # Check if the name of the RawIngredient2 is already in the
-            # shopping_list_dict.
+            # shopping_list.
             # If it is not, add it and initialize the sum total
             # amount as 0.
-            if rawingredient_name not in shopping_list_dict:
-                new_dict = {rawingredient_name: 0}
-                shopping_list_dict.update(new_dict)
+            if rawingredient_name not in shopping_list:
+                new_dict = {
+                    rawingredient_name:
+                        {
+                            'amount': 0,
+                            'unit': None,
+                        }
+                }
+                shopping_list.update(new_dict)
 
             # After that, add the calculated_amount of the SpecificIngredient
             # which is related to the RawIngredient2 to the sum total amount.
-            shopping_list_dict[rawingredient_name] = \
-                shopping_list_dict[rawingredient_name] \
+            shopping_list[rawingredient_name]['amount'] = \
+                shopping_list[rawingredient_name]['amount'] \
                 + dict_specificingredient_k['calculated_amount']
 
+            # Add unit.
+            shopping_list[rawingredient_name]['unit'] = \
+                dict_specificingredient_k['base_amount_unit']
+
+    # Round up the sums in the shopping list.
+    for key, value in shopping_list.items():
+        value['amount'] = math.ceil(value['amount'])
+
     context = {
-        'results_shopping_list': shopping_list_dict,
+        'results_shopping_list': shopping_list,
         'id_mealplan': id_mealplan,
         }
     return render(request, 'measuredfood/shoppinglist.html', context)
@@ -343,13 +516,6 @@ class DeleteMealplan(UserPassesTestMixin, DeleteView):
 @login_required
 def mealplan_average_nutrition_view(request, id_mealplan):
 
-    # Avoid warning "local variable might be used before assignement" in
-    # PyCharm.
-    result_calculate_fulldayofeating = None
-    targeted_nutrients_errors = None
-    id_fulldayofeating = None
-    nutrientprofile_dict = None
-
     # From id_mealplan, get all the related SpecificFullDayOfEating objects.
     queryset_specificfulldayofeating = SpecificFullDayOfEating.objects.filter(
         mealplan=id_mealplan
@@ -380,71 +546,206 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for k in range(len(id_list_no_duplications)):
         id_fulldayofeating = id_list_no_duplications[k]
 
-        result_calculate_fulldayofeating,\
-            specificingredient_dict_list,\
-            targeted_nutrients_errors,\
-            nutrientprofile_dict = \
-            query_input_and_calculate_fulldayofeating(
-                query_ingredients_fulldayofeating,
-                query_nutrientprofile_of_fulldayofeating,
-                query_specificnutrienttarget_of_fulldayofeating,
-                calculate_fulldayofeating,
-                calculate_average_of_specificingredient_group,
-                undo_calculate_average_of_specificingredient_group,
-                save_fulldayofeating_calculation_result_to_database,
-                set_to_zero_if_none,
-                id_fulldayofeating,
-                SpecificIngredient,
-                RawIngredient2,
-                FullDayOfEating,
-                NutrientProfile,
-                SpecificNutrientTarget,
-                copy,
-                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-                np,
-            )
+        # Copy the query_input_and_calculate_fulldayofeating from the
+        # fulldayofeating.py file exactly as it is.
 
-    # Check if the key exists first, this is purely technical.
-    if 'ingredients_are_present'\
-            in result_calculate_fulldayofeating['errors'].keys():
-        # Here comes the actual logic: are there ingredients present
-        if not result_calculate_fulldayofeating['errors'][
-                'ingredients_are_present']:
-            n_ingredients_is_zero = True
+        try:
+            result_calculate_fulldayofeating, \
+                specificingredient_dict_list, \
+                nutrientprofile_dict = \
+                query_input_and_calculate_fulldayofeating(
+                    query_ingredients_fulldayofeating,
+                    query_nutrientprofile_of_fulldayofeating,
+                    query_specificnutrienttarget_of_fulldayofeating,
+                    calculate_fulldayofeating,
+                    calculate_average_of_specificingredient_group,
+                    undo_calculate_average_of_specificingredient_group,
+                    save_fulldayofeating_calculation_result_to_database,
+                    set_to_zero_if_none,
+                    id_fulldayofeating,
+                    SpecificIngredient,
+                    RawIngredient2,
+                    FullDayOfEating,
+                    NutrientProfile,
+                    SpecificNutrientTarget,
+                    copy,
+                    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                    np,
+                    NoSpecificIngredientInFullDayOfEatingError,
+                    NoValueForTargetedNutrientError,
+                    NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+                    CalculationResultIsNegativeError,
+                    FixedIngredientExceedsNutrientProfileValueError,
+                )
+        except NoSpecificIngredientInFullDayOfEatingError:
             context = {
-                'result_calculate_fulldayofeating':
-                result_calculate_fulldayofeating,
-                'id_fulldayofeating': id_fulldayofeating,
-                'n_ingredients_is_zero': n_ingredients_is_zero,
+                'error_message': 'Please add at least one'
+                                 ' ingredient to your full '
+                                 'day of eating before '
+                                 'calculating the full day '
+                                 'of eating.',
+                'error_id': 'NoSpecificIngredientInFullDayOfEatingError',
             }
             return render(
                 request,
-                'measuredfood/fulldayofeating_calculation_result.html',
+                'measuredfood/error/general_error_page.html',
                 context
-                )
-
-    if targeted_nutrients_errors['missing_nutrientprofile_value']:
-        context = {
-            'id_fulldayofeating': id_fulldayofeating,
-            'targeted_nutrients_errors': targeted_nutrients_errors,
-            'nutrientprofile_dict': nutrientprofile_dict,
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
             )
 
-    if result_calculate_fulldayofeating['errors']['mismatch']:
-        context = {
-            'result_calculate_fulldayofeating':
-            result_calculate_fulldayofeating,
-            'id_fulldayofeating': id_fulldayofeating,
-        }
-        return render(
-            request,
-            'measuredfood/fulldayofeating_calculation_result.html',
-            context
+        except UserIsNotAuthorError:
+            """
+            Careful when you implement this. You will have to make changes at 
+            multiple spots in the code.
+            """
+            context = {
+                'error_message': 'It seems like you are trying '
+                                 'to edit an object '
+                                 'of another user, which is forbidden.',
+                'error_id': 'UserIsNotAuthorError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+
+        except NoValueForTargetedNutrientError as e:
+            list_ = e.nutrient_value_missing
+            seperator = ', '
+            pretty_list = seperator.join(list_)
+            error_message = \
+                'The values for the following nutrients ' \
+                'in the nutrient profile ' \
+                'are missing: ' \
+                + pretty_list \
+                + '.' \
+                + ' Please add values for these nutrients in the ' \
+                  'nutrient profile or do not target them.'
+            context = {
+                'error_message': error_message,
+                'error_id': 'NoValueForTargetedNutrientError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+        except NumberTargetedNutrientsNotEqualNumberScalingEntitiesError as e:
+
+            seperator = ', '
+            pretty_list_targeted_nutrient = seperator.join(
+                e.list_targeted_nutrient)
+            pretty_list_independently_scaling_entity = \
+                seperator.join(e.list_independently_scaling_entity)
+
+            error_message = 'The number of nutrient targets ' \
+                            'did not match the ' \
+                            'number of independently scaling ingredients or ' \
+                            'ingredient groups.' \
+                            'There were ' \
+                            + str(e.n_targeted_nutrient) \
+                            + ' targeted nutrients: ' \
+                            + pretty_list_targeted_nutrient \
+                            + '.' \
+                            + 'There were ' \
+                            + str(e.n_independently_scaling_entity) \
+                            + ' independently scaling ' \
+                              'ingredients or ingredient ' \
+                              'groups: ' \
+                            + pretty_list_independently_scaling_entity \
+                            + '.'
+            context = {
+                'error_message': error_message,
+                'error_id':
+                    'NumberTargetedNutrientsNotEqualNumberScalingEntitiesError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+        except CalculationResultIsNegativeError as e:
+            seperator = ', '
+            pretty_list_ingredient_negative_result = seperator.join(
+                e.list_ingredient_negative_result
+            )
+
+            if len(e.list_ingredient_negative_result) == 1:
+                error_message = \
+                    'The calculation result for the ingredient ' \
+                    + pretty_list_ingredient_negative_result \
+                    + ' was negative.' \
+                    + ' Try setting the scaling ' \
+                      'options of that ingredient to ' \
+                      '\'fixed\'. The amount of that ingredient should ' \
+                      'probably be ' \
+                      'set to 0. As a consequence, ' \
+                      'the number of independently ' \
+                      'scaling ingredients is reduced and therefore, ' \
+                      'fewer nutrients ' \
+                      'must be targeted to maintain ' \
+                      'equality between the number of ' \
+                      'targeted nutrients and ' \
+                      'independently scaling ingredients or ' \
+                      'ingredient groups.'
+            elif len(e.list_ingredient_negative_result > 1):
+                error_message = \
+                    'The calculation results for the ingredients ' \
+                    + pretty_list_ingredient_negative_result \
+                    + ' were negative.' \
+                    + ' Try setting the scaling ' \
+                      'options of those ingredients to ' \
+                      '\'fixed\'. The amounts of those ingredients should ' \
+                      'probably be ' \
+                      'set to 0. As a consequence, ' \
+                      'the number of independently ' \
+                      'scaling ingredients is reduced and therefore, ' \
+                      'fewer nutrients ' \
+                      'must be targeted to maintain ' \
+                      'equality between the number of ' \
+                      'targeted nutrients and ' \
+                      'independently scaling ingredients or ' \
+                      'ingredient groups.'
+            else:
+                error_message = None
+                print('This case should not be possible.')
+
+            context = {
+                'error_message': error_message,
+                'error_id':
+                    'CalculationResultIsNegativeError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
+            )
+
+        except FixedIngredientExceedsNutrientProfileValueError:
+
+            context = {
+                'error_message': 'The fixed ingredient exceed the values '
+                                 'specified for the nutrient profile. '
+                                 'For example: '
+                                 'someone adds 1000 g of bacon'
+                                 ' to a recipe with '
+                                 'the scaling option "fixed",'
+                                 ' adds eggs with a '
+                                 'scaling option of "independent" '
+                                 'and has a fat '
+                                 'target of 70 g. '
+                                 'It is not possible to add a '
+                                 'positive amount of eggs '
+                                 'so that the total fat '
+                                 'amount gets to 70 g, '
+                                 'because the bacon already '
+                                 'provides more than that.',
+                'error_id': 'FixedIngredientExceedsNutrientProfileValueError',
+            }
+            return render(
+                request,
+                'measuredfood/error/general_error_page.html',
+                context
             )
 
     # The calculated_amount values for the FullDayOfEating objects have been
@@ -470,6 +771,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
             RawIngredient2,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             set_to_zero_if_none,
+            NoSpecificIngredientInFullDayOfEatingError,
         )
 
         # Save for later to calculate average daily cost of mealplan.
@@ -557,9 +859,24 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     for key, value in result_percentage_of_target_amount_str.items():
         result_percentage_of_target_amount_list.append(value)
 
+    # Make the result_percentage_of_target_amount_numbers into a list
+    result_percentage_of_target_amount_numbers_list = []
+    for key, value in result_percentage_of_target_amount_numbers.items():
+        result_percentage_of_target_amount_numbers_list.append(value)
+
     # =========================================================================
 
-    # TODO Calculate the percentage of the tolerable upper limit.
+    # 'Max amount' and 'tolerable upper intake' are used interchangeably.
+    result_total_nutrition_fulldayofeating = copy.deepcopy(
+        result_average_nutrition_mealplan
+    )
+    result_percent_max_dict, \
+    result_percentage_of_tolerable_upper_intake_str_list, \
+    result_percentage_of_tolerable_upper_intake_numbers_list = \
+        calculate_percent_max_fulldayofeating(
+            nutrientprofile_dict,
+            result_total_nutrition_fulldayofeating,
+        )
 
     # =========================================================================
 
@@ -569,12 +886,22 @@ def mealplan_average_nutrition_view(request, id_mealplan):
     #  judge the total nutrition as either the right amount, too little or too
     #  much.
 
+    result_judge_total_nutrition, \
+    result_judge_total_nutrition_css_class_name = judge_total_nutrition(
+        result_percentage_of_target_amount_numbers_list,
+        result_percentage_of_tolerable_upper_intake_numbers_list,
+        set_to_zero_if_none,
+    )
+
     aggregated_total_nutrition_fulldayofeating = \
         zip(
             nutrient_name_list,
             result_average_nutrition_mealplan_values,
             default_unit_list,
             result_percentage_of_target_amount_list,
+            result_percentage_of_tolerable_upper_intake_str_list,
+            result_judge_total_nutrition,
+            result_judge_total_nutrition_css_class_name,
             )
 
     # Get the name of the mealplan

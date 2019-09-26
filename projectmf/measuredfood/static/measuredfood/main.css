@@ -7,6 +7,7 @@
 navbar. */
 .content-section-sandor {
   padding: 20px  100px 20px 100px;
+  /*max-width: 75%;*/
 }
 
 /* In lists of objects, align the Edit button, object name and delete button
@@ -92,9 +93,10 @@ visually grouped together. */
 
 /* Stuff from the tutorial I got the CSS file from */
 
+/* General background color. */
 body {
-  background: #fafafa;
-  color: #333333;
+  /*background: #fafafa;*/
+  /*color: #333333;*/
   margin-top: 5rem;
 }
 
@@ -106,6 +108,7 @@ ul {
   margin: 0;
 }
 
+/* Background color of the navbar. */
 .bg-steel {
   background-color: #5f788a;
 }

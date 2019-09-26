@@ -282,6 +282,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             pk=id_fulldayofeating
         )
 
+        # Copy this function call as is into the mealplan view.
         result_calculate_fulldayofeating,\
             specificingredient_dict_list,\
             nutrientprofile_dict = \

@@ -13,11 +13,13 @@
   <table class="generic_table_th_td">
     <tr>
       <th class="generic_table_th_td">Total amount</th>
+      <th class="generic_table_th_td">Unit</th>
       <th class="generic_table_th_td">Ingredient name</th>
     </tr>
     {% for key, value in results_shopping_list.items %}
     <tr>
-      <td class="generic_table_th_td">{{ value }}</td>
+      <td class="generic_table_th_td">{{ value.amount }}</td>
+      <td class="generic_table_th_td">{{ value.unit }}</td>
       <td class="generic_table_th_td">{{ key }}</td>
     </tr>
     {% endfor %}
