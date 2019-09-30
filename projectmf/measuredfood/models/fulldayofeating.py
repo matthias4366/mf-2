@@ -30,7 +30,7 @@ class FullDayOfEating(models.Model):
     # But one nutrient_profile can be linked to many full days of eating.
     nutrient_profile = models.ForeignKey(
         NutrientProfile,
-        on_delete=models.PROTECT,
+        on_delete=models.SET_NULL,
         editable=True,
         null=True,
         blank=False

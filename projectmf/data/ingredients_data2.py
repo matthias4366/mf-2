@@ -11,8 +11,8 @@ base_template_ingredient_dict_list = [
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
-        'reference_amount': None,  # default: 100 g
-        'price_per_reference_amount': None,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
         'calories': None,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
         'fat': None,  # 'default_unit': 'gram'
@@ -1826,5 +1826,298 @@ ingredient_dict_list = [
         'source_nutritional_information_link': None,
         'is_public': True,
     },
-
+    {
+        'name': 'Maggi',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': None,
+        'calories': 103.726,  # 'default_unit': 'kcal'
+        'carbohydrates': 7.4,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': 18,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': None,  # 'default_unit': 'microgram'.
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': 9.96,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Broccoli',
+        'buy_here_link': None,
+        'source_nutritional_information_link':
+            'https://nutritiondata.self.com/'
+            'facts/vegetables-and-vegetable-products/2356/2',
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': None,
+        'calories': 34.0,  # 'default_unit': 'kcal'
+        'carbohydrates': 6.6,  # 'default_unit': 'gram'
+        'fat': 0.4,  # 'default_unit': 'gram'
+        'protein': 2.8,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.017,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.021,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 187,  # 'default_unit': 'microgram'.
+        'vitamin_c': 89.2,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.8,  # 'default_unit': 'milligram'
+        'vitamin_k': 102,  # 'default_unit': 'microgram'
+        'thiamin': 0.1,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 0.6,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.2,  # 'default_unit': 'milligram'
+        'folate': 63.0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.6,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 18.7,  # 'default_unit': 'milligram'
+        'calcium': 47.0,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 0.7,  # 'default_unit': 'milligram'
+        'magnesium': 21.0,  # 'default_unit': 'milligram'
+        'manganese': 0.2,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 66.0,  # 'default_unit': 'milligram'
+        'selenium': 2.5,  # 'default_unit': 'microgram'
+        'zinc': 0.4,  # 'default_unit': 'milligram'
+        'potassium': 0.316,  # 'default_unit': 'gram'
+        'sodium': 0.0330,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Carrot',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': None,
+        'calories': 41.0,  # 'default_unit': 'kcal'
+        'carbohydrates': 9.6,  # 'default_unit': 'gram'
+        'fat': 0.2,  # 'default_unit': 'gram'
+        'protein': 0.9,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.115,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.002,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 5011.5,  # 'default_unit': 'microgram'.
+        'vitamin_c': 5.9,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.7,  # 'default_unit': 'milligram'
+        'vitamin_k': 13.2,  # 'default_unit': 'microgram'
+        'thiamin': 0.1,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 1.0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.1,  # 'default_unit': 'milligram'
+        'folate': 19.0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0.0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.3,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 8.8,  # 'default_unit': 'milligram'
+        'calcium': 33.0,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 0.0,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 0.3,  # 'default_unit': 'milligram'
+        'magnesium': 12.0,  # 'default_unit': 'milligram'
+        'manganese': 0.1,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 35.0,  # 'default_unit': 'milligram'
+        'selenium': 0.1,  # 'default_unit': 'microgram'
+        'zinc': 0.2,  # 'default_unit': 'milligram'
+        'potassium': 0.320,  # 'default_unit': 'gram'
+        'sodium': 0.0690,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Peas',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': None,
+        'calories': 81,  # 'default_unit': 'kcal'
+        'carbohydrates': 14.5,  # 'default_unit': 'gram'
+        'fat': 0.4,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.152,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.0350,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 229.5,  # 'default_unit': 'microgram'.
+        'vitamin_c': 40.0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.1,  # 'default_unit': 'milligram'
+        'vitamin_k': 24.8,  # 'default_unit': 'microgram'
+        'thiamin': 0.3,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 2.1,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.2,  # 'default_unit': 'milligram'
+        'folate': 65.0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0.0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0.1,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': 28.4,  # 'default_unit': 'milligram'
+        'calcium': 25.0,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 1.5,  # 'default_unit': 'milligram'
+        'magnesium': 33.0,  # 'default_unit': 'milligram'
+        'manganese': 0.4,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': 108,  # 'default_unit': 'milligram'
+        'selenium': 1.8,  # 'default_unit': 'microgram'
+        'zinc': 1.2,  # 'default_unit': 'milligram'
+        'potassium': 0.244,  # 'default_unit': 'gram'
+        'sodium': 0.005,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Asian vegetable mix',
+        'buy_here_link': 'https://www.getnow.com/'
+                         'index.php?cl=details&cnid=310'
+                         '&actcontrol=details&anid='
+                         '430628608634620001&redirected=1',
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.33625,
+        'calories': 30.1,  # 'default_unit': 'kcal'
+        'carbohydrates': 4.1,  # 'default_unit': 'gram'
+        'fat': 0.5,  # 'default_unit': 'gram'
+        'protein': 1.4,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': None,  # 'default_unit': 'microgram'.
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': 0.04,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Sweet sour sauce',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0.88,
+        'calories': 93,  # 'default_unit': 'kcal'
+        'carbohydrates': 21,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 1.3,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': None,  # 'default_unit': 'microgram'.
+        'vitamin_c': None,  # 'default_unit': 'milligram'
+        'vitamin_d': None,  # 'default_unit': 'microgram'
+        'vitamin_e': None,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': None,  # 'default_unit': 'milligram'
+        'riboflavin': None,  # 'default_unit': 'milligram'
+        'niacin': None,  # 'default_unit': 'milligram'
+        'vitamin_b6': None,  # 'default_unit': 'milligram'
+        'folate': None,  # 'default_unit': 'microgram'
+        'vitamin_b12': None,  # 'default_unit': 'microgram'
+        'pantothenic_acid': None,  # 'default_unit': 'milligram'
+        'biotin': None,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': None,  # 'default_unit': 'microgram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': None,  # 'default_unit': 'milligram'
+        'magnesium': None,  # 'default_unit': 'milligram'
+        'manganese': None,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': None,  # 'default_unit': 'microgram'
+        'zinc': None,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': 0.508,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
 ]
+

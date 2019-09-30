@@ -35,8 +35,8 @@ class RawIngredient2(models.Model):
 
     # Price of the ingredient per reference amount
     price_per_reference_amount = models.FloatField(
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
         default=0
     )
 

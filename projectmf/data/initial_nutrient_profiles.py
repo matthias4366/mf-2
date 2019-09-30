@@ -98,7 +98,7 @@ nutrient_profile_dict_list = [
         'calories': 2500,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
         'fat': None,  # 'default_unit': 'gram'
-        'protein': 164,  # 'default_unit': 'gram'
+        'protein': 190,  # 'default_unit': 'gram'
         # The values for linoleic acid and alpha linoleic acid were given as
         # percentages of total energy intake. I went with values that I had
         # noted in food_numbers_object_oriented that were taken from wikipedia.
