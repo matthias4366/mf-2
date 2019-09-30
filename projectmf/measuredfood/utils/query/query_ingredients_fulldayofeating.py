@@ -24,7 +24,7 @@ def query_ingredients_fulldayofeating(
     """
     queryset_specificingredient = specific_ingredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
-        )
+        ).order_by('id')
 
     specificingredient_dict_list = list(
         queryset_specificingredient.values()

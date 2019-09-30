@@ -42,6 +42,8 @@ base_template_ingredient_dict_list = [
         'calcium': None,  # 'default_unit': 'milligram'
         'chromium': None,  # 'default_unit': 'microgram'
         'copper': None,  # 'default_unit': 'microgram'
+        # Since fluoride is added to salt, it makes sense to track it.
+        'fluoride': None,  # 'default_unit': 'milligram'
         'iodine': None,  # 'default_unit': 'microgram'
         'iron': None,  # 'default_unit': 'milligram'
         'magnesium': None,  # 'default_unit': 'milligram'
@@ -2119,5 +2121,106 @@ ingredient_dict_list = [
         'sodium': 0.508,  # 'default_unit': 'gram'
         'chloride': None,  # 'default_unit': 'gram'
     },
+    {
+        'name': 'Water for white rice',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 0,  # 'default_unit': 'microgram'.
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 0,  # 'default_unit': 'microgram'
+        'iodine': 0,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 0,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 0,  # 'default_unit': 'gram'
+        'chloride': 0,  # 'default_unit': 'gram'
+    },
+    {
+        'name': 'Salt for water for white rice',
+        'buy_here_link': None,
+        # nutritional information from food numbers object oriented.
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
+        'calories': 0,  # 'default_unit': 'kcal'
+        'carbohydrates': 0,  # 'default_unit': 'gram'
+        'fat': 0,  # 'default_unit': 'gram'
+        'protein': 0,  # 'default_unit': 'gram'
+        'linoleic_acid': 0,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 0,  # 'default_unit': 'microgram'.
+        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'vitamin_d': 0,  # 'default_unit': 'microgram'
+        'vitamin_e': 0,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0,  # 'default_unit': 'milligram'
+        'niacin': 0,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0,  # 'default_unit': 'milligram'
+        'folate': 0,  # 'default_unit': 'microgram'
+        'vitamin_b12': 0,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 0,  # 'default_unit': 'milligram'
+        'biotin': 0,  # 'default_unit': 'microgram'
+        'choline': 0,  # 'default_unit': 'milligram'
+        'calcium': 0,  # 'default_unit': 'milligram'
+        'chromium': 0,  # 'default_unit': 'microgram'
+        'copper': 0,  # 'default_unit': 'microgram'
+        'fluoride': 31,  # 'default_unit': 'milligram'
+        'iodine': 2000,  # 'default_unit': 'microgram'
+        'iron': 0,  # 'default_unit': 'milligram'
+        'magnesium': 0,  # 'default_unit': 'milligram'
+        'manganese': 0,  # 'default_unit': 'milligram'
+        'molybdenum': 0,  # 'default_unit': 'microgram'
+        'phosphorus': 0,  # 'default_unit': 'milligram'
+        'selenium': 0,  # 'default_unit': 'microgram'
+        'zinc': 0,  # 'default_unit': 'milligram'
+        'potassium': 0,  # 'default_unit': 'gram'
+        'sodium': 38.758,  # 'default_unit': 'gram'
+        # Chloride content was estimated by calculating
+        # mass_chloride = 100 g - mass_sodium.
+        'chloride': 61,  # 'default_unit': 'gram'
+    },
+
 ]
 

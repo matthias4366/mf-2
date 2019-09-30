@@ -37,9 +37,6 @@ def calculate_fulldayofeating(
         specificingredient_dict_list[k]['base_amount'] = \
             float(specificingredient_dict_list[k]['base_amount'])
 
-    # print('\n specificingredient_dict_list \n')
-    # pprint.pprint(specificingredient_dict_list)
-
     """
     Iterate through the dictionaries representing the SpecificIngredients
     and sort them by their 'scaling_option' property.
@@ -95,21 +92,12 @@ def calculate_fulldayofeating(
                   ' not valid.\n')
             return None
 
-    # print('\n specificingredient_scalingoption_fixed')
-    # pprint.pprint(specificingredient_scalingoption_fixed)
-    # print('\n specificingredient_scalingoption_independent')
-    # pprint.pprint(specificingredient_scalingoption_independent)
-    # print('\n specificingredient_scalingoption_group_dict')
-    # pprint.pprint(specificingredient_scalingoption_group_dict)
-
     list_averaged_specificingredients = \
         calculate_average_of_specificingredient_group(
             all_nutrients_and_default_units,
             specificingredient_scalingoption_group_dict,
             copy,
         )
-    # print('\n list_averaged_specificingredients \n')
-    # pprint.pprint(list_averaged_specificingredients)
 
     # group the averaged SpecificIngredients together with the
     # SpecificIngredients whose scaling_option was set to independent.
@@ -120,8 +108,6 @@ def calculate_fulldayofeating(
     list_independently_scaling_entities.extend(
         list_averaged_specificingredients
         )
-    # print('\n list_independently_scaling_entities \n')
-    # pprint.pprint(list_independently_scaling_entities)
 
     fulldayofeating_nutrition_so_far = {}
     for nutrient_dict in all_nutrients_and_default_units:
@@ -129,8 +115,6 @@ def calculate_fulldayofeating(
         fulldayofeating_nutrition_so_far.update(
             {nutrient_field_name: 0}
         )
-    # print('\n fulldayofeating_nutrition_so_far \n')
-    # pprint.pprint(fulldayofeating_nutrition_so_far)
 
     for dict_k in specificingredient_scalingoption_fixed:
         for nutrient_dict in all_nutrients_and_default_units:
@@ -239,8 +223,6 @@ def calculate_fulldayofeating(
     for k in range(len(solution)):
         list_independently_scaling_entities[k]['calculated_amount'] = \
             solution[k]
-    # print('\n list_independently_scaling_entities \n')
-    # pprint.pprint(list_independently_scaling_entities)
 
     # Initialize the return value.
     specificingredient_id_and_calculated_amount = []
@@ -268,17 +250,12 @@ def calculate_fulldayofeating(
                                      }
             calculated_amount_and_group_name.update(new_dict)
 
-    # print('\n calculated_amount_and_group_name \n')
-    # pprint.pprint(calculated_amount_and_group_name)
-
     # unaverage the averaged_specificingredient instances
     specificingredient_scalingoption_group_dict_with_results =\
         undo_calculate_average_of_specificingredient_group(
             specificingredient_scalingoption_group_dict,
             calculated_amount_and_group_name
         )
-    # print('\n specificingredient_scalingoption_group_dict_with_results \n')
-    # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
 
     for group_name, specificingredient_list in \
             specificingredient_scalingoption_group_dict_with_results.items():
@@ -336,4 +313,18 @@ def calculate_fulldayofeating(
         }
         specificingredient_id_and_calculated_amount.append(new_dict)
 
-    return specificingredient_id_and_calculated_amount
+    # Reorder the result so the order of the ingredients in the
+    # calculation results html page is the same as the order of the
+    # ingredients in the full day of eating update form page.
+    specificingredient_id_and_calculated_amount_reordered = []
+    for k in range(len(specificingredient_dict_list)):
+        specificingredient_id = specificingredient_dict_list[k]['id']
+        find_dict_in_calculated_results = \
+            next(item for item in
+                 specificingredient_id_and_calculated_amount
+                 if item["id"] == specificingredient_id)
+        specificingredient_id_and_calculated_amount_reordered.append(
+            find_dict_in_calculated_results
+        )
+
+    return specificingredient_id_and_calculated_amount_reordered

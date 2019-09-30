@@ -103,7 +103,6 @@ def create_fulldayofeating_view(request):
                 'update-fulldayofeating',
                 id_fulldayofeating=new_fulldayofeating.id
             )
-            # return redirect('list-fulldayofeating')
     else:
         form_fulldayofeating = FullDayOfEatingForm(request.user.id)
         context = {'form_fulldayofeating': form_fulldayofeating}
@@ -249,6 +248,7 @@ class ListFullDayOfEating(
         ).order_by('name')
 
 
+# TODO: Check if the detail views can be deleted.
 class DetailFullDayOfEating(UserPassesTestMixin, DetailView):
     model = FullDayOfEating
 
