@@ -15,7 +15,7 @@ from measuredfood.models import (
 from django.contrib.auth.models import User
 # from data.ingredients_data2 import ingredient_dict_list
 # from measuredfood.models import RawIngredient2
-
+import unittest
 # import the ingredient dictionaries
 import sys
 
@@ -24,6 +24,7 @@ sys.path.insert(0, '/projectmf/data/')
 
 class MealplanShoppingListTest(FunctionalTestWithUserLoggedIn):
 
+    @unittest.skip('Skip. Finish writing this test later.')
     def test_shopping_list_mealplan(self):
         """
         Test whether the shopping list is created correctly.

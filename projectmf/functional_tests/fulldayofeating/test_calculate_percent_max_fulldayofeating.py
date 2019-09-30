@@ -334,13 +334,6 @@ class FullDayOfEatingPercentMaxTest(FunctionalTestWithUserLoggedIn):
         full_day_of_eating_was_saved = full_day_of_eating_query.exists()
         self.assertTrue(full_day_of_eating_was_saved)
 
-        # The user is redirected to the list of full days of eating.
-        # Find the correct full day of eating and click the edit button.
-        edit_button = self.browser.find_element_by_id(
-            'edit ' + name_dummy_full_day_of_eating
-        )
-        edit_button.click()
-
         # Add nutrient targets.
         for k in range(len(list_nutrient_targets)):
             id_k = \

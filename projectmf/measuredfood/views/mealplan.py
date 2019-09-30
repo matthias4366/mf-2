@@ -98,8 +98,11 @@ def create_mealplan_view(request):
         form_mealplan = MealplanForm(request.POST)
         if form_mealplan.is_valid():
             form_mealplan.instance.author = request.user
-            form_mealplan.save()
-            return redirect('list-mealplan')
+            new_mealplan = form_mealplan.save()
+            return redirect(
+                'update-mealplan',
+                id_mealplan=new_mealplan.id
+            )
     else:
         form_mealplan = MealplanForm()
         context = {'form_mealplan': form_mealplan,

@@ -98,8 +98,12 @@ def create_fulldayofeating_view(request):
         )
         if form_fulldayofeating.is_valid():
             form_fulldayofeating.instance.author = request.user
-            form_fulldayofeating.save()
-            return redirect('list-fulldayofeating')
+            new_fulldayofeating = form_fulldayofeating.save()
+            return redirect(
+                'update-fulldayofeating',
+                id_fulldayofeating=new_fulldayofeating.id
+            )
+            # return redirect('list-fulldayofeating')
     else:
         form_fulldayofeating = FullDayOfEatingForm(request.user.id)
         context = {'form_fulldayofeating': form_fulldayofeating}
