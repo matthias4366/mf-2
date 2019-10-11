@@ -853,48 +853,6 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Vitamin B12 tablets Nu U',
-        'reference_amount': 1,
-        'calories': 0,
-        'carbohydrates': 0,
-        'fat': 0,
-        'protein': 0,
-        'linoleic_acid': 0,
-        'alpha_linoleic_acid': 0,
-        'vitamin_a': 0,
-        'vitamin_c': 0,
-        'vitamin_d': 0,
-        'vitamin_e': 0,
-        'vitamin_k': 0,
-        'thiamin': 0,
-        'riboflavin': 0,
-        'niacin': 0,
-        'vitamin_b6': 0,
-        'folate': 0,
-        'vitamin_b12': 1000,
-        'pantothenic_acid': 0,
-        'biotin': 0,
-        'choline': 0,
-        'calcium': 0,
-        'chromium': 0,
-        'copper': 0,
-        'fluoride': 0,
-        'iodine': 0,
-        'iron': 0,
-        'magnesium': 0,
-        'manganese': 0,
-        'molybdenum': 0,
-        'phosphorus': 0,
-        'selenium': 0,
-        'zinc': 0,
-        'potassium': 0,
-        'sodium': 0,
-        'chloride': 0,
-        'buy_here_link': None,
-        'source_nutritional_information_link': None,
-        'is_public': True,
-    },
-    {
         'name': 'Zink bisglycinat Nature Love',
         'reference_amount': 1,
         'calories': 0,
@@ -1374,51 +1332,54 @@ ingredient_dict_list = [
     },
     {
         'name': 'Corn',
+        # https://nutritiondata.self.com/facts/vegetables-and-vegetable-products/2418/2
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
         'reference_amount': 100,  # default: 100 g
-        'price_per_reference_amount': 0.418,
-        'calories': 365,  # 'default_unit': 'kcal'
-        'carbohydrates': 74.3,  # 'default_unit': 'gram'
-        'fat': 4.7,  # 'default_unit': 'gram'
-        'protein': 9.4,  # 'default_unit': 'gram'
-        'linoleic_acid': 2.097,  # 'default_unit': 'gram'
-        'alpha_linoleic_acid': 0.065,  # 'default_unit': 'gram'
-        'vitamin_a': 64.2,  # 'default_unit': 'microgram'
-        'vitamin_c': 0,  # 'default_unit': 'milligram'
+        'price_per_reference_amount': 0.42,
+        'calories': 81,  # 'default_unit': 'kcal'
+        'carbohydrates': 18.8,  # 'default_unit': 'gram'
+        'fat': 0.9,  # 'default_unit': 'gram'
+        'protein': 2.6,  # 'default_unit': 'gram'
+        'linoleic_acid': 0.425,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': 0.019,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 13.5,  # 'default_unit': 'microgram'.
+        'vitamin_c': 0.7,  # 'default_unit': 'milligram'
         'vitamin_d': 0,  # 'default_unit': 'microgram'
-        'vitamin_e': 0.5,  # 'default_unit': 'milligram'
-        'vitamin_k': 0.3,  # 'default_unit': 'microgram'
-        'thiamin': 0.4,  # 'default_unit': 'milligram'
-        'riboflavin': 0.2,  # 'default_unit': 'milligram'
-        'niacin': 3.6,  # 'default_unit': 'milligram'
-        'vitamin_b6': 0.6,  # 'default_unit': 'milligram'
-        'folate': 19,  # 'default_unit': 'microgram'
+        'vitamin_e': 0.1,  # 'default_unit': 'milligram'
+        'vitamin_k': 0,  # 'default_unit': 'microgram'
+        'thiamin': 0,  # 'default_unit': 'milligram'
+        'riboflavin': 0.1,  # 'default_unit': 'milligram'
+        'niacin': 0.4,  # 'default_unit': 'milligram'
+        'vitamin_b6': 0.1,  # 'default_unit': 'milligram'
+        'folate': 43.0,  # 'default_unit': 'microgram'
         'vitamin_b12': 0,  # 'default_unit': 'microgram'
         'pantothenic_acid': 0.4,  # 'default_unit': 'milligram'
         'biotin': None,  # 'default_unit': 'microgram'
-        'choline': 0,  # 'default_unit': 'milligram'
-        'calcium': 7,  # 'default_unit': 'milligram'
+        'choline': 16.3,  # 'default_unit': 'milligram'
+        'calcium': 5,  # 'default_unit': 'milligram'
         'chromium': None,  # 'default_unit': 'microgram'
-        'copper': 300,  # 'default_unit': 'microgram'
-        'fluoride': 0,  # 'default_unit': 'milligram'
+        'copper': 100,  # 'default_unit': 'microgram'
+        # Since fluoride is added to salt, it makes sense to track it.
+        'fluoride': None,  # 'default_unit': 'milligram'
         'iodine': None,  # 'default_unit': 'microgram'
-        'iron': 2.7,  # 'default_unit': 'milligram'
-        'magnesium': 127,  # 'default_unit': 'milligram'
-        'manganese': 0.5,  # 'default_unit': 'milligram'
+        'iron': 0.7,  # 'default_unit': 'milligram'
+        'magnesium': 15,  # 'default_unit': 'milligram'
+        'manganese': 0.1,  # 'default_unit': 'milligram'
         'molybdenum': None,  # 'default_unit': 'microgram'
-        'phosphorus': 210,  # 'default_unit': 'milligram'
-        'selenium': 15.5,  # 'default_unit': 'microgram'
-        'zinc': 2.2,  # 'default_unit': 'milligram'
-        'potassium': 0.287,  # 'default_unit': 'gram'
-        'sodium': 0.035,  # 'default_unit': 'gram'
+        'phosphorus': 48,  # 'default_unit': 'milligram'
+        'selenium': 0.7,  # 'default_unit': 'microgram'
+        'zinc': 0.4,  # 'default_unit': 'milligram'
+        'potassium': 0.135,  # 'default_unit': 'gram'
+        'sodium': 0.298,  # 'default_unit': 'gram'
         'chloride': None,  # 'default_unit': 'gram'
-        'buy_here_link': 'https://www.getnow.com/Themenwelten/'
-                         'Alles-fuer-die-Bowl/'
-                         'Bonduelle-Goldmais-600g.html?'
-                         'listtype=search&searchparam=mais',
-        'source_nutritional_information_link':
-            'https://nutritiondata.self.com/'
-            'facts/cereal-grains-and-pasta/5687/2',
-        'is_public': True,
     },
     {
         'name': 'Beans, pinto, mature seeds, raw',

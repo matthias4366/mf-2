@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from django.views.generic import (
     ListView,
     DeleteView,
-    DetailView
 )
 from measuredfood.models import (
     RawIngredient2
@@ -121,17 +120,6 @@ def update_rawingredient2(request, id_rawingredient2):
         )
 
 
-
-class DetailRawIngredient2(UserPassesTestMixin, DetailView):
-    model = RawIngredient2
-
-    def test_func(self):
-        rawingredient2 = self.get_object()
-        if self.request.user == rawingredient2.author:
-            return True
-        return False
-
-
 class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
     model = RawIngredient2
     success_url = reverse_lazy('list-rawingredient2')
@@ -147,3 +135,4 @@ class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
 def browse_rawingredient2(request):
     context = {}
     return render(request, 'measuredfood/rawingredient2_browse.html', context)
+

@@ -22,6 +22,9 @@ def query_ingredients_fulldayofeating(
     objects are queried and their information is stored in a sub dictionary
     in the dictionary of the SpecificIngredient.
     """
+    # The point of the ordering is to display the ingredients in the
+    # calculation results of the full day of eating in the same order in
+    # which the user entered them in the form of the full day of eating.
     queryset_specificingredient = specific_ingredient.objects.filter(
         fulldayofeating_id=id_fulldayofeating
         ).order_by('id')

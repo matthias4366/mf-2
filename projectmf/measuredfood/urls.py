@@ -40,11 +40,6 @@ urlpatterns_rawingredient2 = [
         name='update-rawingredient2'
     ),
     path(
-        'rawingredient2/<int:pk>/detail/',
-        rawingredient2.DetailRawIngredient2.as_view(),
-        name='detail-rawingredient2'
-    ),
-    path(
         'rawingredient2/<int:pk>/delete/',
         rawingredient2.DeleteRawIngredient2.as_view(),
         name='delete-rawingredient2'

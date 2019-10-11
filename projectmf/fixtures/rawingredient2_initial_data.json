@@ -774,53 +774,6 @@
         "model": "measuredfood.rawingredient2",
         "pk": 19,
         "fields": {
-            "name": "Vitamin B12 tablets Nu U",
-            "reference_amount": 1,
-            "calories": 0,
-            "carbohydrates": 0,
-            "fat": 0,
-            "protein": 0,
-            "linoleic_acid": 0,
-            "alpha_linoleic_acid": 0,
-            "vitamin_a": 0,
-            "vitamin_c": 0,
-            "vitamin_d": 0,
-            "vitamin_e": 0,
-            "vitamin_k": 0,
-            "thiamin": 0,
-            "riboflavin": 0,
-            "niacin": 0,
-            "vitamin_b6": 0,
-            "folate": 0,
-            "vitamin_b12": 1000,
-            "pantothenic_acid": 0,
-            "biotin": 0,
-            "choline": 0,
-            "calcium": 0,
-            "chromium": 0,
-            "copper": 0,
-            "fluoride": 0,
-            "iodine": 0,
-            "iron": 0,
-            "magnesium": 0,
-            "manganese": 0,
-            "molybdenum": 0,
-            "phosphorus": 0,
-            "selenium": 0,
-            "zinc": 0,
-            "potassium": 0,
-            "sodium": 0,
-            "chloride": 0,
-            "buy_here_link": null,
-            "source_nutritional_information_link": null,
-            "is_public": true,
-            "author": 1
-        }
-    },
-    {
-        "model": "measuredfood.rawingredient2",
-        "pk": 20,
-        "fields": {
             "name": "Zink bisglycinat Nature Love",
             "reference_amount": 1,
             "calories": 0,
@@ -866,7 +819,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 21,
+        "pk": 20,
         "fields": {
             "name": "Salt, iodized",
             "reference_amount": 100,
@@ -913,7 +866,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 22,
+        "pk": 21,
         "fields": {
             "name": "Magnesium citrate",
             "reference_amount": 100,
@@ -960,7 +913,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 23,
+        "pk": 22,
         "fields": {
             "name": "Potassium citrate",
             "reference_amount": 100,
@@ -1007,7 +960,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 24,
+        "pk": 23,
         "fields": {
             "name": "Vitamin B-Komplex ratiopharm",
             "reference_amount": 1,
@@ -1054,7 +1007,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 25,
+        "pk": 24,
         "fields": {
             "name": "Complete Multivitamin Komplex Tabletten Bulkpowders",
             "reference_amount": 3,
@@ -1101,7 +1054,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 26,
+        "pk": 25,
         "fields": {
             "name": "Multivitamin vitasyg",
             "reference_amount": 1,
@@ -1148,7 +1101,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 27,
+        "pk": 26,
         "fields": {
             "name": "Calcium citrate",
             "reference_amount": 100,
@@ -1195,7 +1148,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 28,
+        "pk": 27,
         "fields": {
             "name": "Copper tablet",
             "reference_amount": 1,
@@ -1243,7 +1196,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 29,
+        "pk": 28,
         "fields": {
             "name": "Choline bitartrate",
             "reference_amount": 100,
@@ -1291,7 +1244,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 30,
+        "pk": 29,
         "fields": {
             "name": "Manganese tablet",
             "reference_amount": 1,
@@ -1339,55 +1292,55 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 31,
+        "pk": 30,
         "fields": {
             "name": "Corn",
+            "buy_here_link": null,
+            "source_nutritional_information_link": null,
+            "is_public": true,
             "reference_amount": 100,
-            "price_per_reference_amount": 0.418,
-            "calories": 365,
-            "carbohydrates": 74.3,
-            "fat": 4.7,
-            "protein": 9.4,
-            "linoleic_acid": 2.097,
-            "alpha_linoleic_acid": 0.065,
-            "vitamin_a": 64.2,
-            "vitamin_c": 0,
+            "price_per_reference_amount": 0.42,
+            "calories": 81,
+            "carbohydrates": 18.8,
+            "fat": 0.9,
+            "protein": 2.6,
+            "linoleic_acid": 0.425,
+            "alpha_linoleic_acid": 0.019,
+            "vitamin_a": 13.5,
+            "vitamin_c": 0.7,
             "vitamin_d": 0,
-            "vitamin_e": 0.5,
-            "vitamin_k": 0.3,
-            "thiamin": 0.4,
-            "riboflavin": 0.2,
-            "niacin": 3.6,
-            "vitamin_b6": 0.6,
-            "folate": 19,
+            "vitamin_e": 0.1,
+            "vitamin_k": 0,
+            "thiamin": 0,
+            "riboflavin": 0.1,
+            "niacin": 0.4,
+            "vitamin_b6": 0.1,
+            "folate": 43.0,
             "vitamin_b12": 0,
             "pantothenic_acid": 0.4,
             "biotin": null,
-            "choline": 0,
-            "calcium": 7,
+            "choline": 16.3,
+            "calcium": 5,
             "chromium": null,
-            "copper": 300,
-            "fluoride": 0,
+            "copper": 100,
+            "fluoride": null,
             "iodine": null,
-            "iron": 2.7,
-            "magnesium": 127,
-            "manganese": 0.5,
+            "iron": 0.7,
+            "magnesium": 15,
+            "manganese": 0.1,
             "molybdenum": null,
-            "phosphorus": 210,
-            "selenium": 15.5,
-            "zinc": 2.2,
-            "potassium": 0.287,
-            "sodium": 0.035,
+            "phosphorus": 48,
+            "selenium": 0.7,
+            "zinc": 0.4,
+            "potassium": 0.135,
+            "sodium": 0.298,
             "chloride": null,
-            "buy_here_link": "https://www.getnow.com/Themenwelten/Alles-fuer-die-Bowl/Bonduelle-Goldmais-600g.html?listtype=search&searchparam=mais",
-            "source_nutritional_information_link": "https://nutritiondata.self.com/facts/cereal-grains-and-pasta/5687/2",
-            "is_public": true,
             "author": 1
         }
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 32,
+        "pk": 31,
         "fields": {
             "name": "Beans, pinto, mature seeds, raw",
             "reference_amount": 100,
@@ -1434,7 +1387,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 33,
+        "pk": 32,
         "fields": {
             "name": "Coriander",
             "reference_amount": 100,
@@ -1481,7 +1434,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 34,
+        "pk": 33,
         "fields": {
             "name": "Cocoa powder",
             "reference_amount": 100,
@@ -1528,7 +1481,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 35,
+        "pk": 34,
         "fields": {
             "name": "Garam masala",
             "reference_amount": 100,
@@ -1575,7 +1528,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 36,
+        "pk": 35,
         "fields": {
             "name": "Green beans",
             "reference_amount": 100,
@@ -1622,7 +1575,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 37,
+        "pk": 36,
         "fields": {
             "name": "Gym nutrition multicomplex",
             "reference_amount": 2,
@@ -1669,7 +1622,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 38,
+        "pk": 37,
         "fields": {
             "name": "Vitamin K Komplex Vispura",
             "reference_amount": 1,
@@ -1716,7 +1669,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 39,
+        "pk": 38,
         "fields": {
             "name": "Sweet potato, raw, unprepared",
             "reference_amount": 100,
@@ -1763,7 +1716,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 40,
+        "pk": 39,
         "fields": {
             "name": "Vinegar (5% Acid)",
             "reference_amount": 100,
@@ -1810,7 +1763,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 41,
+        "pk": 40,
         "fields": {
             "name": "Maggi",
             "buy_here_link": null,
@@ -1857,7 +1810,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 42,
+        "pk": 41,
         "fields": {
             "name": "Broccoli",
             "buy_here_link": null,
@@ -1904,7 +1857,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 43,
+        "pk": 42,
         "fields": {
             "name": "Carrot",
             "buy_here_link": null,
@@ -1951,7 +1904,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 44,
+        "pk": 43,
         "fields": {
             "name": "Peas",
             "buy_here_link": null,
@@ -1998,7 +1951,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 45,
+        "pk": 44,
         "fields": {
             "name": "Asian vegetable mix",
             "buy_here_link": "https://www.getnow.com/index.php?cl=details&cnid=310&actcontrol=details&anid=430628608634620001&redirected=1",
@@ -2045,7 +1998,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 46,
+        "pk": 45,
         "fields": {
             "name": "Sweet sour sauce",
             "buy_here_link": null,
@@ -2092,7 +2045,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 47,
+        "pk": 46,
         "fields": {
             "name": "Water for white rice",
             "buy_here_link": null,
@@ -2139,7 +2092,7 @@
     },
     {
         "model": "measuredfood.rawingredient2",
-        "pk": 48,
+        "pk": 47,
         "fields": {
             "name": "Salt for water for white rice",
             "buy_here_link": null,
