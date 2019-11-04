@@ -59,7 +59,7 @@ class NutrientProfileTest(FunctionalTestWithUserLoggedIn):
         )
         save_button.click()
 
-        time.sleep(1)
+        time.sleep(0.5)
 
         # Test whether the saved nutrient profile is in the database.
         nutrient_profile_query = NutrientProfile.objects.filter(
