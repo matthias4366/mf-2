@@ -65,12 +65,21 @@ click_navbar_item(
 
 for k in range(0, len(full_day_of_eating_dict_list)):
 
-    # Check if the full day of eating exists already. If so, leave it alone.
+    # Check if the full day of eating exists already. If so, delete it.
     try:
         full_day_of_eating_name = \
             browser.find_element_by_id(
                 'paragraph ' + full_day_of_eating_dict_list[k]['name'])
-        continue
+        try:
+            browser.find_element_by_id(
+                'delete ' + full_day_of_eating_dict_list[k]['name']).click()
+            browser.find_element_by_id(
+                'delete ' + full_day_of_eating_dict_list[k]['name']
+            ).click()
+        except NoSuchElementException:
+            print('Element not found. Not supposed to happen.')
+            raise NoSuchElementException('Element not found. Not supposed to '
+                                         'happen.')
     except NoSuchElementException:
         pass
 
@@ -104,6 +113,85 @@ for k in range(0, len(full_day_of_eating_dict_list)):
         full_day_of_eating_dict_list[k]['nutrient_profile']
     )
 
+    save_full_day_of_eating_button = browser.find_element_by_id(
+        'id_button_save_new_fulldayofeating'
+    )
+    save_full_day_of_eating_button.click()
+
+    time.sleep(0.5)
+
+    # Set the nutrient targets for the calculation.
+
+    for l in range(len(full_day_of_eating_dict_list[k][
+                           'list_nutrient_target'])):
+        select_nutrient_target = Select(browser.find_element_by_id(
+            'id_specificnutrienttarget_set-'
+            + str(l)
+            + '-nutrient_target'
+        ))
+        select_nutrient_target.select_by_visible_text(
+            full_day_of_eating_dict_list[k][
+                'list_nutrient_target'][l]
+        )
+
+        browser.find_element_by_id(
+            'save_changes_formset_fulldayofeating'
+        ).click()
+
+    # Add the SpecificIngredient objects.
+
+    for m in range(len(full_day_of_eating_dict_list[k]
+                       ['list_dict_specific_ingredient'])):
+        # Amount.
+        browser.find_element_by_id(
+            'id_specificingredient_set-'
+            + str(m)
+            + '-base_amount'
+        ).clear()
+        browser.find_element_by_id(
+            'id_specificingredient_set-'
+            + str(m)
+            + '-base_amount'
+        ).send_keys(full_day_of_eating_dict_list[k][
+                                'list_dict_specific_ingredient'][m][
+            'base_amount'])
+
+        # Unit.
+        select_unit = Select(browser.find_element_by_id(
+            'id_specificingredient_set-'
+            + str(m)
+            + '-base_amount_unit'
+        ))
+        select_unit.select_by_visible_text(
+            full_day_of_eating_dict_list[k][
+                'list_dict_specific_ingredient'][m]['base_amount_unit']
+        )
+
+        # Raw ingredient.
+        select_rawingredient = Select(browser.find_element_by_id(
+            'id_specificingredient_set-'
+            + str(m)
+            + '-rawingredient'
+        ))
+        select_rawingredient.select_by_visible_text(
+            full_day_of_eating_dict_list[k][
+                'list_dict_specific_ingredient'][m]['rawingredient']
+        )
+
+        # Scaling option.
+        select_scaling_option = Select(browser.find_element_by_id(
+            'id_specificingredient_set-'
+            + str(m)
+            + '-scaling_option'
+        ))
+        select_scaling_option.select_by_visible_text(
+            full_day_of_eating_dict_list[k][
+                'list_dict_specific_ingredient'][m]['scaling_option']
+        )
+
+        browser.find_element_by_id(
+            'save_changes_formset_fulldayofeating'
+        ).click()
 
 # Tear it down
 time.sleep(10)
