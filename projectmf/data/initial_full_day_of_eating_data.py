@@ -47,3 +47,108 @@ Calculation results:
 
 
 """
+
+full_day_of_eating_dict_template = \
+    {
+        'name': '',
+        'cooking_instruction': '',
+        'nutrient_profile': '',
+        'list_nutrient_target':
+            [
+                'calories',
+                'protein'
+            ],
+        'list_dict_specific_ingredient':
+            [
+                {
+                    'amount': 0,
+                    'unit': '',
+                    'rawingredient2': '',
+                    'scaling': '',
+                },
+            ]
+
+    }
+
+full_day_of_eating_dict_list = [
+    {
+        'name': 'Olive sauce and pasta added from initial data',
+        'cooking_instruction': '',
+        'nutrient_profile': 'Maintenance EU',
+        'list_nutrient_target':
+            [
+                'calories',
+                'protein'
+            ],
+        'list_dict_specific_ingredient':
+            [
+                {
+                    'amount': 400,
+                    'unit': 'gram',
+                    'rawingredient2': 'Olive sauce barilla',
+                    'scaling': 'fixed',
+                },
+                {
+                    'amount': 200,
+                    'unit': 'gram',
+                    'rawingredient2': 'Spinach',
+                    'scaling': 'fixed',
+                },
+                {
+                    'amount': 100,
+                    'unit': 'gram',
+                    'rawingredient2': 'Pea protein powder',
+                    'scaling': 'independent',
+                },
+                {
+                    'amount': 400,
+                    'unit': 'gram',
+                    'rawingredient2': 'Whole wheat pasta',
+                    'scaling': 'independent',
+                },
+                {
+                    'amount': 60,
+                    'unit': 'gram',
+                    'rawingredient2': 'Walnuts',
+                    'scaling': 'fixed',
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+                {
+                    'amount': None,
+                    'unit': None,
+                    'rawingredient2': None,
+                    'scaling': None,
+                },
+            ]
+
+    }
+]

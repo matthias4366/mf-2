@@ -26,7 +26,8 @@ class RawIngredient2(models.Model):
     name = models.CharField(
         max_length=100,
         blank=False,
-        null=True)
+        null=True,
+    )
 
     author = models.ForeignKey(
         User,
@@ -120,6 +121,11 @@ class RawIngredient2(models.Model):
 
     class Meta:
         ordering = ["name"]
+        # So the user does not get confused, they must give unique names to
+        # their RawIngredient2 objects. Different users can use the same names.
+        unique_together = (
+            ("name", "author"),
+        )
 
     def __str__(self):
         return self.name
