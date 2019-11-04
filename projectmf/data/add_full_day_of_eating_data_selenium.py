@@ -73,6 +73,9 @@ for k in range(0, len(full_day_of_eating_dict_list)):
         try:
             browser.find_element_by_id(
                 'delete ' + full_day_of_eating_dict_list[k]['name']).click()
+            browser.find_element_by_id(
+                'confirm delete ' + full_day_of_eating_dict_list[k][
+                    'name']).click()
         except NoSuchElementException:
             print('Element not found. Not supposed to happen.')
             raise NoSuchElementException('Element not found. Not supposed to '
@@ -149,9 +152,12 @@ for k in range(0, len(full_day_of_eating_dict_list)):
             'id_specificingredient_set-'
             + str(m)
             + '-base_amount'
-        ).send_keys(full_day_of_eating_dict_list[k][
-                                'list_dict_specific_ingredient'][m][
-            'base_amount'])
+        ).send_keys(
+            str(
+                full_day_of_eating_dict_list[k]
+                ['list_dict_specific_ingredient'][m]['base_amount']
+            )
+        )
 
         # Unit.
         select_unit = Select(browser.find_element_by_id(
@@ -189,6 +195,10 @@ for k in range(0, len(full_day_of_eating_dict_list)):
         browser.find_element_by_id(
             'save_changes_formset_fulldayofeating'
         ).click()
+
+    browser.find_element_by_id(
+        'id_button_back_to_list_of_full_days_of_eating'
+    ).click()
 
 # Tear it down
 time.sleep(10)

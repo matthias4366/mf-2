@@ -52,72 +52,67 @@ click_navbar_item(
     time,
 )
 
-# Wait until the FullDayOfEating objects have been saved in dictionaries.
-# It is possible that recreating the ingredients will mess up the keys of the
-# ingredients and thus mess up the full days of eating.
+# Add the ingredients.
 
-initial_full_day_of_eating_data_has_been_written = False
+# Simulate clicking on the menu item "Ingredients"
+click_navbar_item(
+    'id_menu_item_rawingredients2',
+    browser,
+    Keys,
+    time,
+)
 
-if initial_full_day_of_eating_data_has_been_written:
+# Simulate the user creating a new RawIngredient2 instance using
+# the form.
 
-    # Add the ingredients.
+# Add the all ingredients from the list.
+for k in range(0, len(ingredient_dict_list)):
 
-    # Simulate clicking on the menu item "Ingredients"
-    click_navbar_item(
-        'id_menu_item_rawingredients2',
-        browser,
-        Keys,
-        time,
-    )
-
-    # Simulate the user creating a new RawIngredient2 instance using
-    # the form.
-
-    # Add the all ingredients from the list.
-    for k in range(0, len(ingredient_dict_list)):
-
-        # Check if the ingredient exists already. If it does, delete it.
-        # Existing RawIngredient2 objects that are not in the
-        # ingredient_dict_list are not affected. The script does not delete all
-        # previous RawIngredient2 objects.
-        try:
-            delete_button = \
-                browser.find_element_by_id(
-                    'delete ' + ingredient_dict_list[k]['name']
-                )
-            delete_button.click()
-            confirm_delete_button = browser.find_element_by_id(
-                'confirm_delete'
+    # Check if the ingredient exists already. If it does, delete it.
+    # Existing RawIngredient2 objects that are not in the
+    # ingredient_dict_list are not affected. The script does not delete all
+    # previous RawIngredient2 objects.
+    try:
+        delete_button = \
+            browser.find_element_by_id(
+                'delete ' + ingredient_dict_list[k]['name']
             )
-            confirm_delete_button.click()
-            time.sleep(0.5)
-        except NoSuchElementException:
+        delete_button.click()
+        confirm_delete_button = browser.find_element_by_id(
+            'confirm_delete'
+        )
+        confirm_delete_button.click()
+        time.sleep(0.5)
+    except NoSuchElementException:
+        pass
+
+    new_ingredient_button = browser.find_element_by_id(
+        'id_button_new_rawingredient2'
+    )
+    new_ingredient_button.click()
+
+    time.sleep(0.5)
+
+    for key, value in ingredient_dict_list[k].items():
+        # The is_public key relates to a boolean field which is not to
+        # be filled out with text but checked instead.
+        if key != 'is_public':
+            if value is not None:
+                # Remove the default value from the field, if necessary.
+                browser. \
+                    find_element_by_name(key).clear()
+                browser. \
+                    find_element_by_name(key).send_keys(str(value))
+        # Since the is_public key is set to False by default and False
+        # is the desired setting, it is not necessary to do anything.
+        else:
             pass
 
-        new_ingredient_button = browser.find_element_by_id(
-            'id_button_new_rawingredient2'
-        )
-        new_ingredient_button.click()
-
-        time.sleep(0.5)
-
-        for key, value in ingredient_dict_list[k].items():
-            # The is_public key relates to a boolean field which is not to
-            # be filled out with text but checked instead.
-            if key != 'is_public':
-                if value is not None:
-                    browser. \
-                        find_element_by_name(key).send_keys(str(value))
-            # Since the is_public key is set to False by default and False
-            # is the desired setting, it is not necessary to do anything.
-            else:
-                pass
-
-        # Simulate clicking the save button
-        save_button = browser.find_element_by_id(
-            'id_button_save_new_rawingredient2'
-        )
-        save_button.click()
+    # Simulate clicking the save button
+    save_button = browser.find_element_by_id(
+        'id_button_save_new_rawingredient2'
+    )
+    save_button.click()
 
 # Tear it down
 time.sleep(10)

@@ -244,7 +244,7 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Kidney beans, raw',
+                        'rawingredient': 'Kidney Beans, raw',
                         'scaling_option': 'A',
                     },
                     {
@@ -507,7 +507,7 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Kidney beans, raw',
+                        'rawingredient': 'Kidney Beans, raw',
                         'scaling_option': 'A',
                     },
                     {
@@ -521,10 +521,9 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Protein and vitamins',
             'cooking_instruction': '',
-            'nutrient_profile': '',
+            'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
                 [
-                    'calories',
                     'protein'
                 ],
             'list_dict_specific_ingredient':
