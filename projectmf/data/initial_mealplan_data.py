@@ -11,13 +11,13 @@ mealplan_initial_data = {
         'Napoletana',
         'Chili mushrooms',  # check
         'Chili mushrooms',
+        'Fried rice',  # check
         'Fried rice',
-        'Fried rice',
+        'Arrabiata',  # check
         'Arrabiata',
-        'Arrabiata',
+        'Asian vegetables and sweet sour sauce',  # check
         'Asian vegetables and sweet sour sauce',
-        'Asian vegetables and sweet sour sauce',
-        'Chili 3',
+        'Chili 3',  # check
         'Chili 3',
     ]
 }
