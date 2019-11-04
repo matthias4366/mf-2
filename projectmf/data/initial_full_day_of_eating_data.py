@@ -20,7 +20,6 @@ full_day_of_eating_dict_template = \
                         'scaling_option': '',
                     },
                 ]
-
         },
 
 
@@ -515,6 +514,92 @@ full_day_of_eating_dict_list = \
                         'base_amount': 5,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Oregano',
+                        'scaling_option': 'fixed',
+                    },
+                ]
+        },
+        {
+            'name': 'Protein and vitamins',
+            'cooking_instruction': '',
+            'nutrient_profile': '',
+            'list_nutrient_target':
+                [
+                    'calories',
+                    'protein'
+                ],
+            'list_dict_specific_ingredient':
+                [
+                    {
+                        'base_amount': 20,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Flaxseed flour',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 100,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Pea protein powder',
+                        'scaling_option': 'independent',
+                    },
+                    {
+                        'base_amount': 60,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Walnuts',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 3,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Magnesium citrate',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 2,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Calcium citrate',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 2.1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Choline bitartrate',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 3,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Multivitamin A-Z Komplett Mivolis dm',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Iron tablets, gentle iron',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Zink bisglycinat Nature Love',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Vitamin D3 Tablette '
+                                         'Vitabay 5000 I.E.',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Copper tablet',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Manganese tablet',
                         'scaling_option': 'fixed',
                     },
                 ]
