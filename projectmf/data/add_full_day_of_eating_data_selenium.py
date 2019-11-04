@@ -73,9 +73,6 @@ for k in range(0, len(full_day_of_eating_dict_list)):
         try:
             browser.find_element_by_id(
                 'delete ' + full_day_of_eating_dict_list[k]['name']).click()
-            browser.find_element_by_id(
-                'delete ' + full_day_of_eating_dict_list[k]['name']
-            ).click()
         except NoSuchElementException:
             print('Element not found. Not supposed to happen.')
             raise NoSuchElementException('Element not found. Not supposed to '
