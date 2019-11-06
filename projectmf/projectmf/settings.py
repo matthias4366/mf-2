@@ -26,7 +26,7 @@ FIXTURES_DIR = os.path.join(BASE_DIR, 'fixtures')
 SECRET_KEY = '-z!r5y2ojx(y8_cv$+7$b-)%d9x$1$tvlo=+ffy4zite36-_-p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
