@@ -17,7 +17,6 @@ import logging
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # noinspection PyUnresolvedReferences
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-FIXTURES_DIR = os.path.join(BASE_DIR, 'fixtures')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,7 +25,7 @@ FIXTURES_DIR = os.path.join(BASE_DIR, 'fixtures')
 SECRET_KEY = '-z!r5y2ojx(y8_cv$+7$b-)%d9x$1$tvlo=+ffy4zite36-_-p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
