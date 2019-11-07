@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from .base import *
+
 import os
 import logging
 
@@ -21,11 +23,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# Old code:
-# # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '-z!r5y2ojx(y8_cv$+7$b-)%d9x$1$tvlo=+ffy4zite36-_-p'
-
-SECRET_KEY = os.environ["SECRET_KEY_DEVELOPMENT"]
+SECRET_KEY = get_env_variable("SECRET_KEY_DEVELOPMENT")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

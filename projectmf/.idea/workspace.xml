@@ -8,14 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/local.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/production.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/staging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectmf/settings/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectmf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/original_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/local.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,16 +52,23 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#19#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectmf/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="518">
+              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
               <folding>
-                <element signature="e#310#319#0" expanded="true" />
+                <element signature="e#310#327#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="96">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -207,15 +210,15 @@
         <option value="$PROJECT_DIR$/data/initial_full_day_of_eating_data.py" />
         <option value="$PROJECT_DIR$/data/initial_mealplan_data.py" />
         <option value="$PROJECT_DIR$/projectmf/settings.py" />
-        <option value="$PROJECT_DIR$/projectmf/settings/base.py" />
         <option value="$PROJECT_DIR$/projectmf/settings/staging.py" />
         <option value="$PROJECT_DIR$/projectmf/settings/test.py" />
         <option value="$PROJECT_DIR$/projectmf/settings/production.py" />
+        <option value="$PROJECT_DIR$/projectmf/settings/base.py" />
         <option value="$PROJECT_DIR$/projectmf/settings/local.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -229,7 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,6 +313,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -561,7 +564,8 @@
       <workItem from="1573069100769" duration="71000" />
       <workItem from="1573119451958" duration="632000" />
       <workItem from="1573135557566" duration="3551000" />
-      <workItem from="1573140593717" duration="566000" />
+      <workItem from="1573140593717" duration="1184000" />
+      <workItem from="1573141790408" duration="1330000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -662,7 +666,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312170000" />
+    <option name="totallyTimeSpent" value="314118000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -676,7 +680,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34421694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34809077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1197,22 +1201,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="96">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#19#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projectmf/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="518">
+          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
           <folding>
-            <element signature="e#310#319#0" expanded="true" />
+            <element signature="e#310#327#0" expanded="true" />
           </folding>
         </state>
       </provider>
