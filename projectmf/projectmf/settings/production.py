@@ -2,6 +2,10 @@ from .base import *
 
 DEBUG = False
 
+ALLOWED_HOSTS = [
+    'tailoredmealplans.pythonanywhere.com'
+]
+
 # Security settings:
 # Set for 12 hours, so, if I fuck things up, I can continue tomorrow.
 SECURE_HSTS_SECONDS = 43200
