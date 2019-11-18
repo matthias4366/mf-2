@@ -2238,6 +2238,111 @@ ingredient_dict_list = [
         'sodium': None,  # 'default_unit': 'gram'
         'chloride': None,  # 'default_unit': 'gram'
     },
-
+    {
+        # THERE IS NO VITAMIN K!!
+        'name': 'Vit4Ever',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 1,  # default: 100 g
+        'price_per_reference_amount': 0.06,
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 800,  # 'default_unit': 'microgram'.
+        'vitamin_c': 80,  # 'default_unit': 'milligram'
+        'vitamin_d': 5,  # 'default_unit': 'microgram'
+        'vitamin_e': 12,  # 'default_unit': 'milligram'
+        'vitamin_k': None,  # 'default_unit': 'microgram'
+        'thiamin': 1.1,  # 'default_unit': 'milligram'
+        'riboflavin': 1.4,  # 'default_unit': 'milligram'
+        'niacin': 16,  # 'default_unit': 'milligram'
+        'vitamin_b6': 4.2,  # 'default_unit': 'milligram'
+        'folate': 200,  # 'default_unit': 'microgram'
+        'vitamin_b12': 2.5,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 12,  # 'default_unit': 'milligram'
+        'biotin': 50,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': None,  # 'default_unit': 'milligram'
+        'chromium': 40,  # 'default_unit': 'microgram'
+        'copper': 1000,  # 'default_unit': 'microgram'
+        # Since fluoride is added to salt, it makes sense to track it.
+        'fluoride': None,  # 'default_unit': 'milligram'
+        'iodine': 150,  # 'default_unit': 'microgram'
+        'iron': 14,  # 'default_unit': 'milligram'
+        'magnesium': 5,  # 'default_unit': 'milligram'
+        'manganese': 2,  # 'default_unit': 'milligram'
+        'molybdenum': 50,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': 55,  # 'default_unit': 'microgram'
+        'zinc': 10,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
+    {
+        # Mehr Luecken als Vit4ever, vergiss es!
+        'name': 'Purefitness MULTIVITAMIN A-Z',
+        'buy_here_link': None,
+        'source_nutritional_information_link': None,
+        'is_public': True,
+        'reference_amount': 100,  # default: 100 g
+        'price_per_reference_amount': 0,
+        'calories': None,  # 'default_unit': 'kcal'
+        'carbohydrates': None,  # 'default_unit': 'gram'
+        'fat': None,  # 'default_unit': 'gram'
+        'protein': None,  # 'default_unit': 'gram'
+        'linoleic_acid': None,  # 'default_unit': 'gram'
+        'alpha_linoleic_acid': None,  # 'default_unit': 'gram'
+        # Vitamin A unit conversion:
+        # Vitamin A: 1 IU is the biological equivalent of 0.3 mcg retinol,
+        # or of 0.6 mcg beta-carotene
+        # Source: https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php
+        # => * 0.3
+        'vitamin_a': 800,  # 'default_unit': 'microgram'.
+        'vitamin_c': 80,  # 'default_unit': 'milligram'
+        'vitamin_d': 5,  # 'default_unit': 'microgram'
+        'vitamin_e': 12,  # 'default_unit': 'milligram'
+        'vitamin_k': 75,  # 'default_unit': 'microgram'
+        'thiamin': 1.1,  # 'default_unit': 'milligram'
+        'riboflavin': 1.4,  # 'default_unit': 'milligram'
+        'niacin': 16,  # 'default_unit': 'milligram'
+        'vitamin_b6': 1.4,  # 'default_unit': 'milligram'
+        'folate': 200,  # 'default_unit': 'microgram'
+        'vitamin_b12': 2.5,  # 'default_unit': 'microgram'
+        'pantothenic_acid': 6,  # 'default_unit': 'milligram'
+        'biotin': 50,  # 'default_unit': 'microgram'
+        'choline': None,  # 'default_unit': 'milligram'
+        'calcium': 160,  # 'default_unit': 'milligram'
+        'chromium': None,  # 'default_unit': 'microgram'
+        'copper': 500,  # 'default_unit': 'microgram'
+        # Since fluoride is added to salt, it makes sense to track it.
+        'fluoride': None,  # 'default_unit': 'milligram'
+        'iodine': None,  # 'default_unit': 'microgram'
+        'iron': 7,  # 'default_unit': 'milligram'
+        'magnesium': 76,  # 'default_unit': 'milligram'
+        'manganese': 1,  # 'default_unit': 'milligram'
+        'molybdenum': None,  # 'default_unit': 'microgram'
+        'phosphorus': None,  # 'default_unit': 'milligram'
+        'selenium': 27.5,  # 'default_unit': 'microgram'
+        'zinc': 5,  # 'default_unit': 'milligram'
+        'potassium': None,  # 'default_unit': 'gram'
+        'sodium': None,  # 'default_unit': 'gram'
+        'chloride': None,  # 'default_unit': 'gram'
+    },
 ]
 
+
+def function_in_ingredients_data2():
+
+    print('THis is function ingredients_data2.')

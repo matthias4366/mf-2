@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 # the data directory as a source. (Settings / Project structure )
 from ingredients_data2 import function_in_ingredients_data2
 from ingredients_data2 import ingredient_dict_list
-# from projectmf.functional_tests.utils.click_navbar_item import click_navbar_item
+from projectmf.functional_tests.utils.click_navbar_item import click_navbar_item
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')

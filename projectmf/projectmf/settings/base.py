@@ -36,6 +36,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'projectmf.urls'
 
+"""
+In the deployment checklist,
+https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/#templates
+it is recommended to activate the cached template loader.
+
+In the django documentation here
+https://docs.djangoproject.com/en/2.2/ref/
+templates/api/#django.template.loaders.cached.Loader
+it says: "This loader is automatically enabled if OPTIONS['loaders']
+isn’t specified and OPTIONS['debug'] is False".
+"""
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
