@@ -8,23 +8,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/add_from_python_file/add_rawingredient2_data_selenium.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/click_navbar_item_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functional_tests/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_1/module_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_1/module_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_2/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_2/module_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_2/module_4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/package_2/subpackage_1/module_5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn/import/running_import.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/test/packA/a2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/test/packA/subA/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/test/packA/subA/sa1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/test/packA/subA/sa2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/test/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/projectmf.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectmf.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ingredients_data2.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/ingredients_data2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectmf/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectmf/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_from_python_file/add_rawingredient2_data_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_from_python_file_EXPERIMENTAL_BROKEN/add_rawingredient2_data_selenium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/add_mealplan_data_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/add_mealplan_data_selenium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functional_tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functional_tests/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/test/other.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_1/module_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_1/module_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_2/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_2/module_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/test/packA/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_2/module_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/test/packA/a1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/package_2/subpackage_1/module_5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/import/running_import.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,49 +54,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/learn/import/package_1/module_1.py">
+        <entry file="file://$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="288">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              <folding>
+                <element signature="e#125#173#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/learn/import/package_1/module_2.py">
+        <entry file="file://$PROJECT_DIR$/data/add_mealplan_data_selenium.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="2345" column="33" selection-start-line="2345" selection-start-column="4" selection-end-line="2345" selection-end-column="33" />
+            <state relative-caret-position="216">
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py">
+        <entry file="file://$PROJECT_DIR$/functional_tests/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="58" selection-start-column="58" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -110,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>edit</find>
       <find>fluoride</find>
       <find>None</find>
       <find>fluo</find>
@@ -140,6 +126,7 @@
       <find>django.core.cache</find>
       <find>django.contrib.staticfiles</find>
       <find>logger</find>
+      <find>sys</find>
     </findStrings>
     <replaceStrings>
       <replace>tolerable_upper_intake_was_saved</replace>
@@ -180,16 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/measuredfood/models/fulldayofeating.py" />
-        <option value="$PROJECT_DIR$/measuredfood/views/mealplan.py" />
-        <option value="$PROJECT_DIR$/functional_tests/mealplan/test_mealplan_calculate_average_nutrition.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_full_day_of_eating_without_ingredient.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_percent_max_fulldayofeating.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculation_result_is_negative_error.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_fixed_ingredient_exceeds_nutrient_profile_value_error.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_judge_total_nutrition_full_day_of_eating.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_no_value_for_targeted_nutrient_error.py" />
-        <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_number_targeted_nutrients_not_equal_number_scaling_entities_error.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_solver_calculate_full_day_of_eating.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html" />
@@ -204,13 +181,11 @@
         <option value="$PROJECT_DIR$/data/add_full_day_of_eating_data_by_simulating_browser_use.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/mealplan_form.html" />
-        <option value="$PROJECT_DIR$/data/add_mealplan_data_selenium.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_nutrient_profile.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/mealplan.py" />
         <option value="$PROJECT_DIR$/data/add_nutrientprofile_selenium.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_confirm_delete.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_form.html" />
-        <option value="$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py" />
         <option value="$PROJECT_DIR$/data/initial_full_day_of_eating_data.py" />
         <option value="$PROJECT_DIR$/data/initial_mealplan_data.py" />
         <option value="$PROJECT_DIR$/projectmf/settings.py" />
@@ -231,6 +206,18 @@
         <option value="$PROJECT_DIR$/learn/import/package_1/module_1.py" />
         <option value="$PROJECT_DIR$/data/ingredients_data2.py" />
         <option value="$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py" />
+        <option value="$PROJECT_DIR$/add_from_python_file/add_rawingredient2_data_selenium.py" />
+        <option value="$PROJECT_DIR$/functional_tests/utils/__init__.py" />
+        <option value="$PROJECT_DIR$/learn/test/packA/a2.py" />
+        <option value="$PROJECT_DIR$/learn/test/packA/a1.py" />
+        <option value="$PROJECT_DIR$/learn/test/packA/__init__.py" />
+        <option value="$PROJECT_DIR$/learn/test/start.py" />
+        <option value="$PROJECT_DIR$/learn/test/other.py" />
+        <option value="$PROJECT_DIR$/learn/test/packA/subA/sa1.py" />
+        <option value="$PROJECT_DIR$/learn/test/packA/subA/sa2.py" />
+        <option value="$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py" />
+        <option value="$PROJECT_DIR$/data/add_mealplan_data_selenium.py" />
+        <option value="$PROJECT_DIR$/functional_tests/__init__.py" />
       </list>
     </option>
   </component>
@@ -259,6 +246,11 @@
             <path>
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="add_from_python_file_EXPERIMENTAL_BROKEN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -269,7 +261,34 @@
             <path>
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="functional_tests" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
               <item name="learn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="packA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="packA" type="462c0819:PsiDirectoryNode" />
+              <item name="subA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
@@ -334,7 +353,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/add_from_python_file" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -345,7 +364,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -353,8 +372,8 @@
       <recent name="$PROJECT_DIR$/learn/import/package_1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/add_from_python_file" />
       <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/add_from_python_file" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -603,7 +622,7 @@
       <workItem from="1573462417958" duration="616000" />
       <workItem from="1573565553661" duration="614000" />
       <workItem from="1573894693586" duration="618000" />
-      <workItem from="1574069105407" duration="11054000" />
+      <workItem from="1574069105407" duration="15083000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -704,7 +723,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339636000" />
+    <option name="totallyTimeSpent" value="343665000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,6 +736,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28057554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -840,113 +860,6 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes Coverage Results" MODIFIED="1568388407163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_calculation_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-          <folding>
-            <element signature="e#44#89#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_full_day_of_eating_of_other_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding>
-            <element signature="e#132#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_percent_max_fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5892">
-          <caret line="334" column="53" selection-start-line="334" selection-start-column="53" selection-end-line="334" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="124" column="79" selection-start-line="124" selection-start-column="79" selection-end-line="124" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="398" column="8" selection-start-line="398" selection-start-column="8" selection-end-line="401" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_calculate_full_day_of_eating_without_ingredient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="106" column="38" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_judge_total_nutrition_full_day_of_eating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="339" selection-start-line="339" selection-end-line="342" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_delete_full_day_of_eating_of_foreign_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="55" column="22" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="22" />
-          <folding>
-            <element signature="e#132#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../virtualenvuptodate/lib/python3.6/site-packages/selenium/webdriver/remote/errorhandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3385">
@@ -1022,26 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/add_mealplan_data_selenium.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,9 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/learn/import/package_2/module_1.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1172,10 +1062,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learn/import/package_1/module_1.py">
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_from_python_file_EXPERIMENTAL_BROKEN/add_rawingredient2_data_selenium.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="209">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="2345" column="33" selection-start-line="2345" selection-start-column="4" selection-end-line="2345" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1186,10 +1086,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
+    <entry file="file://$PROJECT_DIR$/learn/import/package_1/module_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="2345" column="33" selection-start-line="2345" selection-start-column="4" selection-end-line="2345" selection-end-column="33" />
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/utils/check_exists_by_xpath.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-379">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1203,13 +1120,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/learn/test/other.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/add_rawingredient2_data_selenium.py">
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/subA/sa2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/subA/sa1.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/a2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/a1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/test/packA/subA/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/add_full_day_of_eating_data_selenium.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="e#125#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/add_mealplan_data_selenium.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functional_tests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="58" selection-start-column="58" selection-end-column="58" />
         </state>
       </provider>
     </entry>

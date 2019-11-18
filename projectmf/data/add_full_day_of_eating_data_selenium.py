@@ -2,13 +2,15 @@ from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
-from functional_tests.utils.click_navbar_item import \
+# IT WORKS DESPITE BEING MARKED AS WRONG!
+# It is not marked as wrong if the data directory is added to the sources in
+# Pycharm -> Settings -> Project Structure.
+from click_navbar_item_copy import \
     click_navbar_item
 from selenium.common.exceptions import NoSuchElementException
-from data.initial_full_day_of_eating_data import full_day_of_eating_dict_list
-# import the ingredient dictionaries
-import sys
-sys.path.insert(0, '/projectmf/data/')
+# IT WORKS DESPITE BEING MARKED AS WRONG!
+from initial_full_day_of_eating_data import \
+    full_day_of_eating_dict_list
 
 """
 During development, from time to time the database will be deleted and 
