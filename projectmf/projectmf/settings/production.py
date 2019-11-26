@@ -1,5 +1,7 @@
 from .base import *
 
+print('PRODUCTION SETTINGS ARE USED.')
+
 # TODO: Get the secret key from an environment variable!
 # SECRET_KEY = get_env_variable("SECRET_KEY_PRODUCTION")
 SECRET_KEY = "nt@$w7%vl#&s^-66+^ill62$cmass8vpat)a(b2nt=9##=+__"

@@ -8,8 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/local.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectmf/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/staging.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/staging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/settings/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectmf/settings/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +54,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="168">
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
               <folding>
                 <element signature="e#19#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projectmf/settings/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -64,23 +76,18 @@
         <entry file="file://$PROJECT_DIR$/projectmf/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/learn/THIS_WAS_PUSHED_TO_PYTHONANYWHERE.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -94,7 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Select</find>
       <find>delete</find>
       <find>scaling</find>
       <find>Salt for</find>
@@ -124,6 +130,7 @@
       <find>return</find>
       <find>.raw</find>
       <find>secret</find>
+      <find>SECRET_KEY</find>
     </findStrings>
     <replaceStrings>
       <replace>tolerable_upper_intake_was_saved</replace>
@@ -185,13 +192,10 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating_form.html" />
         <option value="$PROJECT_DIR$/data/initial_mealplan_data.py" />
         <option value="$PROJECT_DIR$/projectmf/settings.py" />
-        <option value="$PROJECT_DIR$/projectmf/settings/staging.py" />
-        <option value="$PROJECT_DIR$/projectmf/settings/test.py" />
         <option value="$PROJECT_DIR$/requirements/base.txt" />
         <option value="$PROJECT_DIR$/requirements/local.txt" />
         <option value="$PROJECT_DIR$/requirements/staging.txt" />
         <option value="$PROJECT_DIR$/requirements/production.txt" />
-        <option value="$PROJECT_DIR$/projectmf/settings/local.py" />
         <option value="$PROJECT_DIR$/data/__init__.py" />
         <option value="$PROJECT_DIR$/learn/import/package_1/module_2.py" />
         <option value="$PROJECT_DIR$/learn/import/package_2/__init__.py" />
@@ -213,8 +217,11 @@
         <option value="$PROJECT_DIR$/data/add_mealplan_data_selenium.py" />
         <option value="$PROJECT_DIR$/functional_tests/__init__.py" />
         <option value="$PROJECT_DIR$/data/initial_full_day_of_eating_data.py" />
-        <option value="$PROJECT_DIR$/projectmf/settings/base.py" />
+        <option value="$PROJECT_DIR$/projectmf/settings/local.py" />
         <option value="$PROJECT_DIR$/projectmf/settings/production.py" />
+        <option value="$PROJECT_DIR$/projectmf/settings/base.py" />
+        <option value="$PROJECT_DIR$/projectmf/settings/staging.py" />
+        <option value="$PROJECT_DIR$/projectmf/settings/test.py" />
       </list>
     </option>
   </component>
@@ -627,7 +634,7 @@
       <workItem from="1574694754554" duration="618000" />
       <workItem from="1574714102387" duration="613000" />
       <workItem from="1574768002195" duration="4239000" />
-      <workItem from="1574786706333" duration="1368000" />
+      <workItem from="1574786706333" duration="2123000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -728,7 +735,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="360446000" />
+    <option name="totallyTimeSpent" value="361201000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -743,7 +750,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3038185" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3038185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -757,7 +764,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.33693305" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.33693305" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -878,12 +885,6 @@
           <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectmf/settings/staging.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectmf/settings/test.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/projectmf/original_settings.py" />
     <entry file="file://$PROJECT_DIR$/old_requirements.txt">
@@ -1099,30 +1100,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/learn/THIS_WAS_PUSHED_TO_PYTHONANYWHERE.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectmf/settings/local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectmf/settings/staging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="168">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
           <folding>
             <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectmf/settings/local.py">
+    <entry file="file://$PROJECT_DIR$/projectmf/settings/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/THIS_WAS_PUSHED_TO_PYTHONANYWHERE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectmf/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

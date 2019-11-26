@@ -12,7 +12,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 from .base import *
 
-SECRET_KEY = get_env_variable("SECRET_KEY_DEVELOPMENT")
+print('LOCAL SETTINGS ARE USED.')
+
+# TODO: Use an environment variable for the secret key. This is for testing
+#  purposes.
+# SECRET_KEY = get_env_variable("SECRET_KEY_DEVELOPMENT")
+SECRET_KEY = "nt@$w7%vl#&s^-66+^ill62$cmass8vpat)a(b2nt=9##=+__"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
