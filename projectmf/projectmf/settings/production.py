@@ -45,7 +45,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'measuredfooddb',
         'USER': 'measuredfooduser',
-        'PASSWORD': get_env_variable("DATABASE_PASSWORD_PRODUCTION"),
+        # TODO: This is an intermediary solution. Get the password from an
+        #   environment variable.
+        'PASSWORD': '//85=bread=BICYCLE=number=66//',
+        # 'PASSWORD': get_env_variable("DATABASE_PASSWORD_PRODUCTION"),
         'HOST': 'measuredfood4875-23.postgres.eu.pythonanywhere-services.com',
         'PORT': '10023',
     }
