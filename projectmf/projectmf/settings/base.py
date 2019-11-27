@@ -122,7 +122,10 @@ logging.basicConfig(filename='example.log', level=logging.DEBUG)
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
     try:
-        return os.environ[var_name]
+        # Adapted according to
+        # https://help.pythonanywhere.com/pages/
+        # environment-variables-for-web-apps
+        return os.getenv(var_name)
     except KeyError:
         error_msg = "Set the {} environment variable".format(var_name)
         raise ImproperlyConfigured(error_msg)

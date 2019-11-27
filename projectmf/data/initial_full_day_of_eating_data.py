@@ -72,7 +72,9 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili mexican',
-            'cooking_instruction': '',
+            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+                                   'Sandor used only beans and he got mild'
+                                   'diarrhea. Fuck that.',
             'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
                 [
@@ -87,13 +89,13 @@ full_day_of_eating_dict_list = \
                         'rawingredient': 'Beans, pinto, mature seeds, raw',
                         'scaling_option': 'A',
                     },
-                    # {
-                    #     'base_amount': 200,
-                    #     'base_amount_unit': 'gram',
-                    #     'rawingredient': 'Rice, white, long-grain, regular, '
-                    #                      'raw, unenriched',
-                    #     'scaling_option': 'A',
-                    # },
+                    {
+                        'base_amount': 200,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Rice, white, long-grain, regular, '
+                                         'raw, unenriched',
+                        'scaling_option': 'A',
+                    },
                     {
                         'base_amount': 320,
                         'base_amount_unit': 'gram',
@@ -195,7 +197,9 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili mushrooms',
-            'cooking_instruction': '',
+            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+                                   'Sandor used only beans and he got mild'
+                                   'diarrhea. Fuck that.',
             'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
                 [
@@ -234,13 +238,13 @@ full_day_of_eating_dict_list = \
                         'rawingredient': 'Pea protein powder',
                         'scaling_option': 'independent',
                     },
-                    # {
-                    #     'base_amount': 200,
-                    #     'base_amount_unit': 'gram',
-                    #     'rawingredient': 'Rice, white, long-grain, '
-                    #                      'regular, raw, unenriched',
-                    #     'scaling_option': 'A',
-                    # },
+                    {
+                        'base_amount': 200,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Rice, white, long-grain, '
+                                         'regular, raw, unenriched',
+                        'scaling_option': 'A',
+                    },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
@@ -464,7 +468,9 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili 3',
-            'cooking_instruction': '',
+            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+                                   'Sandor used only beans and he got mild'
+                                   'diarrhea. Fuck that.',
             'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
                 [
@@ -497,13 +503,13 @@ full_day_of_eating_dict_list = \
                         'rawingredient': 'Pea protein powder',
                         'scaling_option': 'independent',
                     },
-                    # {
-                    #     'base_amount': 200,
-                    #     'base_amount_unit': 'gram',
-                    #     'rawingredient': 'Rice, white, long-grain, '
-                    #                      'regular, raw, unenriched',
-                    #     'scaling_option': 'A',
-                    # },
+                    {
+                        'base_amount': 200,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Rice, white, long-grain, '
+                                         'regular, raw, unenriched',
+                        'scaling_option': 'A',
+                    },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',

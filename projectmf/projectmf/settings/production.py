@@ -2,14 +2,13 @@ from .base import *
 
 print('PRODUCTION SETTINGS ARE USED.')
 
-# TODO: Get the secret key from an environment variable!
-# SECRET_KEY = get_env_variable("SECRET_KEY_PRODUCTION")
-SECRET_KEY = "nt@$w7%vl#&s^-66+^ill62$cmass8vpat)a(b2nt=9##=+__"
+SECRET_KEY = get_env_variable("SECRET_KEY_PRODUCTION")
 
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'tailoredmealplans.pythonanywhere.com'
+    'tailoredmealplans.pythonanywhere.com',
+    'measuredfood4875.eu.pythonanywhere.com',
 ]
 
 # Security settings:
@@ -45,10 +44,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'measuredfooddb',
         'USER': 'measuredfooduser',
-        # TODO: This is an intermediary solution. Get the password from an
-        #   environment variable.
-        'PASSWORD': 'measuredfoodpassword',
-        # 'PASSWORD': get_env_variable("DATABASE_PASSWORD_PRODUCTION"),
+        'PASSWORD': get_env_variable("DATABASE_PASSWORD_PRODUCTION"),
         'HOST': 'measuredfood4875-23.postgres.eu.pythonanywhere-services.com',
         'PORT': '10023',
     }
