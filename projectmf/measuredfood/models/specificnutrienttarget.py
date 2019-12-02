@@ -1,5 +1,5 @@
 from django.db import models
-from measuredfood.ingredient_properties2 import (
+from measuredfood.ingredient_properties3 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 from .fulldayofeating import FullDayOfEating
@@ -7,7 +7,7 @@ from .fulldayofeating import FullDayOfEating
 choices_nutrient_names = []
 # For the choice field, create a tuple with the nutrients.
 for nutrient_dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-    nutrient_name = nutrient_dict_k['name']
+    nutrient_name = nutrient_dict_k['name_measuredfood']
     new_tuple = (nutrient_name, nutrient_name)
     choices_nutrient_names.append(new_tuple)
 

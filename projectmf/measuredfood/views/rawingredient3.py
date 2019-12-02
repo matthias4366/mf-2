@@ -168,13 +168,20 @@ def get_from_food_data_central(request):
                 response_json = response.json()
 
                 print('response_json')
-                pprint.pprint(response_json)
+                pprint.pprint(response_json['description'])
 
                 # Check if there was a valid API reponse.
                 if 'status' in response_json:
                     raise FoodDataCentralAPIResponseError(response_json)
 
                 # TODO: continue here.
+                rawingredient3 = RawIngredient3(
+                    name=response_json['description'],
+                    author=request.user,
+                )
+                rawingredient3.save()
+
+                print('\n\n RawIngredient3 should have been saved. \n\n')
 
                 return redirect('list-rawingredient2')
 
@@ -200,7 +207,6 @@ def get_from_food_data_central(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FoodDataCentralIDForm()
-        form.clean()
 
     context = {'form': form}
     return render(

@@ -85,3 +85,15 @@ class FixedIngredientExceedsNutrientProfileValueError(Exception):
     positive amount of eggs so that the total fat amount gets to 70 g.
     """
     pass
+
+
+class FoodDataCentralAPIResponseError(Exception):
+    """
+    To make things easier for users, they can go to the FoodData Central
+    search, find the ingredient they need, find and copy the FDC ID and paste
+    FDC ID in a form and click a button to add that ingredient from the
+    FoodData Central database to their personal ingredients.
+    """
+    def __init__(self, response_json):
+        self.response_json = \
+            response_json

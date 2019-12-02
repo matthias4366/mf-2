@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import (
     RawIngredient2,
+    RawIngredient3,
     SpecificIngredient,
     NutrientProfile,
     FullDayOfEating,
@@ -10,6 +11,7 @@ from .models import (
 
 # Register your models here.
 admin.site.register(RawIngredient2)
+admin.site.register(RawIngredient3)
 admin.site.register(SpecificIngredient)
 admin.site.register(NutrientProfile)
 admin.site.register(FullDayOfEating)
