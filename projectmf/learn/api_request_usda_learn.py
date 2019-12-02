@@ -32,23 +32,35 @@ with open('api_food_search_endpoint_response.txt', 'w') as outfile:
 # USDA database at this website
 # https://fdc.nal.usda.gov/fdc-app.html#/?query=beans%20kidney%20raw.
 
-food_central_id_raw_kidney_beans = "173744"
-
-params = {
-    'api_key': API_KEY,
-    "FoodData Central ID": food_central_id_raw_kidney_beans,
+# With the food central app, different databases can be searched:
+# "Foundation", "Survey (FNDDS)", "Branded" and "SR Legacy".
+# The question is: are the JSON files from all of these databases in the same
+# format?
+# To test this, an example food from each database was taken.
+# The search term "beans" was used in each case and the first listed result
+# was used.
+food_central_id_different_databases = {
+    'Foundation': "335912",
+    'Survey (FNDDS)': "339277",
+    "Branded": "548596",
+    "SR Legacy": "169885",
 }
 
-url_food_details = r'https://api.nal.usda.gov/fdc/v1/'\
-       + food_central_id_raw_kidney_beans \
-       + r'?api_key='\
-       + str(API_KEY)
+for database, FDC_ID in food_central_id_different_databases.items():
 
-print(url_food_details)
+    url_food_details = r'https://api.nal.usda.gov/fdc/v1/'\
+           + FDC_ID \
+           + r'?api_key='\
+           + str(API_KEY)
 
-response = requests.get(
-    url_food_details,
-)
+    print(url_food_details)
 
-with open('api_food_details_endpoint_response.txt', 'w') as outfile:
-    json.dump(response.json(), outfile, indent=4, sort_keys=True)
+    response = requests.get(
+        url_food_details,
+    )
+
+    file_name_to_save_JSON = database + \
+        '_api_food_details_endpoint_response.txt'
+
+    with open(file_name_to_save_JSON, 'w') as outfile:
+        json.dump(response.json(), outfile, indent=4, sort_keys=True)

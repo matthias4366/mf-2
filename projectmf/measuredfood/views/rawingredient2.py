@@ -25,6 +25,8 @@ from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
 )
 
+from ..forms import FoodDataCentralIDForm
+
 
 @login_required
 def create_rawingredient2(request):
@@ -131,8 +133,38 @@ class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
         return False
 
 
-@login_required
-def browse_rawingredient2(request):
-    context = {}
-    return render(request, 'measuredfood/rawingredient2_browse.html', context)
+# # TODO: delete this once the replacement code is done.
+# @login_required
+# def browse_rawingredient2(request):
+#     context = {}
+#     return render(request, 'measuredfood/rawingredient2_browse.html', context)
 
+
+def get_from_food_data_central(request):
+    """
+    The user can search for an ingredient on FoodData Central, copy the FDC
+    ID into the form and the ingredient will be added to the user's ingredients.
+
+    This way, the users do not have to add their ingredients manually,
+    which is so bothersome that it is unrealistic.
+    """
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = FoodDataCentralIDForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return redirect('list-rawingredient2')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = FoodDataCentralIDForm()
+
+    context = {'form': form}
+    return render(
+        request,
+        'measuredfood/rawingredient2_get_from_food_data_central.html',
+        context)

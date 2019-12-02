@@ -8,8 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change beforePath="$PROJECT_DIR$/learn/api_reponse_learn.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/Branded_api_food_details_endpoint_response.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/Foundation_api_food_details_endpoint_response.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/SR Legacy_api_food_details_endpoint_response.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn/Survey (FNDDS)_api_food_details_endpoint_response.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_get_from_food_data_central.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/api_food_search_endpoint_response.txt" beforeDir="false" afterPath="$PROJECT_DIR$/learn/api_food_search_endpoint_response.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/learn/api_request_usda_learn.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/api_request_usda_learn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_browse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/learn/api_request_usda_learn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="340">
+              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -48,14 +60,65 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="88" column="39" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="39" />
+            <state relative-caret-position="216">
+              <caret line="148" column="50" selection-start-line="148" selection-start-column="50" selection-end-line="148" selection-end-column="50" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#44#89#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="54" column="49" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_get_from_food_data_central.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="96" column="4" lean-forward="true" selection-start-line="96" selection-start-column="4" selection-end-line="97" selection-end-column="80" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -71,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Salt for</find>
       <find>chili mush</find>
       <find>flax</find>
       <find>Mult</find>
@@ -101,6 +163,7 @@
       <find>chili</find>
       <find>STATIC_ROOT</find>
       <find>request</find>
+      <find>params</find>
     </findStrings>
     <replaceStrings>
       <replace>tolerable_upper_intake_was_saved</replace>
@@ -141,13 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/measuredfood/utils/calculate_fulldayofeating.py" />
-        <option value="$PROJECT_DIR$/measuredfood/utils/query/query_ingredients_fulldayofeating.py" />
-        <option value="$PROJECT_DIR$/functional_tests/mealplan/test_mealplan_shopping_list.py" />
-        <option value="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" />
-        <option value="$PROJECT_DIR$/measuredfood/urls.py" />
-        <option value="$PROJECT_DIR$/data/initial_nutrient_profiles.py" />
-        <option value="$PROJECT_DIR$/measuredfood/models/rawingredient2.py" />
         <option value="$PROJECT_DIR$/data/add_data_by_simulating_browser_use.py" />
         <option value="$PROJECT_DIR$/data/add_full_day_of_eating_data_by_simulating_browser_use.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html" />
@@ -192,10 +248,17 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/home.html" />
         <option value="$PROJECT_DIR$/learn/test/api_request_usda_learn.py" />
         <option value="$PROJECT_DIR$/learn/api_request_usda_learn.py" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_browse.html" />
+        <option value="$PROJECT_DIR$/measuredfood/forms.py" />
+        <option value="$PROJECT_DIR$/measuredfood/urls.py" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html" />
+        <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_get_from_food_data_central.html" />
+        <option value="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -595,7 +658,10 @@
       <workItem from="1575028033218" duration="620000" />
       <workItem from="1575045248299" duration="3899000" />
       <workItem from="1575052241828" duration="2000" />
-      <workItem from="1575116436337" duration="6919000" />
+      <workItem from="1575116436337" duration="7200000" />
+      <workItem from="1575192375307" duration="624000" />
+      <workItem from="1575196306230" duration="352000" />
+      <workItem from="1575284869219" duration="6308000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -696,7 +762,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382392000" />
+    <option name="totallyTimeSpent" value="389957000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -711,7 +777,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32650802" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3381295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -833,19 +899,6 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes Coverage Results" MODIFIED="1568388407163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/click_navbar_item_copy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" selection-start-line="2" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/import/package_2/module_1.py" />
-    <entry file="file://$PROJECT_DIR$/learn/import/running_import.py" />
-    <entry file="file://$PROJECT_DIR$/learn/import/package_2/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/learn/import/package_2/module_4.py" />
-    <entry file="file://$PROJECT_DIR$/learn/import/package_2/module_3.py" />
-    <entry file="file://$PROJECT_DIR$/learn/import/package_2/subpackage_1/module_5.py" />
     <entry file="file://$PROJECT_DIR$/__init__.py" />
     <entry file="file://$PROJECT_DIR$/add_from_python_file_EXPERIMENTAL_BROKEN/add_rawingredient2_data_selenium.py" />
     <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
@@ -937,19 +990,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="129" column="18" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/views/register.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/learn/THIS_WAS_PUSHED_TO_PYTHONANYWHERE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/THIS_WAS_PUSHED_TO_PYTHONANYWHERE.txt" />
     <entry file="file://$PROJECT_DIR$/projectmf/settings/staging.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -1011,16 +1055,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/tolerableupperintake.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/views/tolerableupperintake.py" />
     <entry file="file://$PROJECT_DIR$/projectmf/settings/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1069,19 +1104,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="88" column="39" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/api_reponse_learn.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/api_reponse_learn.txt" />
     <entry file="file://$PROJECT_DIR$/learn/api_response_learn.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13020" />
@@ -1089,10 +1112,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/learn/api_request_usda_learn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+        <state relative-caret-position="340">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="88" column="39" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectmf/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-110">
+          <folding>
+            <element signature="e#633#665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="54" column="49" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="96" column="4" lean-forward="true" selection-start-line="96" selection-start-column="4" selection-end-line="97" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_get_from_food_data_central.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="148" column="50" selection-start-line="148" selection-start-column="50" selection-end-line="148" selection-end-column="50" />
+          <folding>
+            <element signature="e#44#89#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -44,10 +44,16 @@ urlpatterns_rawingredient2 = [
         rawingredient2.DeleteRawIngredient2.as_view(),
         name='delete-rawingredient2'
     ),
+    # # TODO: delete this path once the new code is up and running.
+    # path(
+    #     'rawingredient2/browse/',
+    #     rawingredient2.browse_rawingredient2,
+    #     name='browse-rawingredient2'
+    # ),
     path(
-        'rawingredient2/browse/',
-        rawingredient2.browse_rawingredient2,
-        name='browse-rawingredient2'
+        'rawingredient2/get_from_food_data_central/',
+        rawingredient2.get_from_food_data_central,
+        name='get-from-food-data-central'
     ),
 ]
 

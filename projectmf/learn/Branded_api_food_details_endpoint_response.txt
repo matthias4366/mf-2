@@ -1,0 +1,373 @@
+{
+    "availableDate": "9/25/2017",
+    "brandOwner": "Supervalu, Inc.",
+    "brandedFoodCategory": "Canned & Bottled Beans",
+    "changes": "",
+    "dataSource": "LI",
+    "dataType": "Branded",
+    "description": "BEANS",
+    "fdcId": 548596,
+    "foodAttributes": [],
+    "foodClass": "Branded",
+    "foodComponents": [],
+    "foodNutrients": [
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3476179,
+            "nutrient": {
+                "id": 1110,
+                "name": "Vitamin D",
+                "number": "324",
+                "rank": 8750,
+                "unitName": "IU"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3476180,
+            "nutrient": {
+                "id": 1253,
+                "name": "Cholesterol",
+                "number": "601",
+                "rank": 15700,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3476181,
+            "nutrient": {
+                "id": 1258,
+                "name": "Fatty acids, total saturated",
+                "number": "606",
+                "rank": 9700,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 5.38,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104168,
+            "nutrient": {
+                "id": 1003,
+                "name": "Protein",
+                "number": "203",
+                "rank": 600,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.38,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104169,
+            "nutrient": {
+                "id": 1004,
+                "name": "Total lipid (fat)",
+                "number": "204",
+                "rank": 800,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 16.15,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104170,
+            "nutrient": {
+                "id": 1005,
+                "name": "Carbohydrate, by difference",
+                "number": "205",
+                "rank": 1110,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 92.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104171,
+            "nutrient": {
+                "id": 1008,
+                "name": "Energy",
+                "number": "208",
+                "rank": 300,
+                "unitName": "kcal"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 1.54,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104172,
+            "nutrient": {
+                "id": 2000,
+                "name": "Sugars, total including NLEA",
+                "number": "269",
+                "rank": 1510,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 3.8,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104173,
+            "nutrient": {
+                "id": 1079,
+                "name": "Fiber, total dietary",
+                "number": "291",
+                "rank": 1200,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 26.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104174,
+            "nutrient": {
+                "id": 1087,
+                "name": "Calcium, Ca",
+                "number": "301",
+                "rank": 5300,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 1.54,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104175,
+            "nutrient": {
+                "id": 1089,
+                "name": "Iron, Fe",
+                "number": "303",
+                "rank": 5400,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 362.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104176,
+            "nutrient": {
+                "id": 1093,
+                "name": "Sodium, Na",
+                "number": "307",
+                "rank": 5800,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.8,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104177,
+            "nutrient": {
+                "id": 1235,
+                "name": "Sugars, added",
+                "number": "539",
+                "rank": 1540,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5104178,
+            "nutrient": {
+                "id": 1257,
+                "name": "Fatty acids, total trans",
+                "number": "605",
+                "rank": 15400,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        }
+    ],
+    "foodPortions": [],
+    "gtinUpc": "041303072547",
+    "householdServingFullText": "0.5 cup",
+    "ingredients": "PREPARED RED BEANS, WATER, TOMATO PASTE, SALT, SEASONING (SPICES, DEHYDRATED ONION, DEHYDRATED TOMATO, ONION POWDER, DEHYDRATED GARLIC), SUGAR, BACON (CURED WITH WATER, SALT, BROWN SUGAR, SODIUM ERYTHORBATE, SODIUM NITRITE, FLAVORING), JALAPENO.",
+    "labelNutrients": {
+        "addedSugar": {
+            "value": 1.04
+        },
+        "calcium": {
+            "value": 33.8
+        },
+        "calories": {
+            "value": 119.6
+        },
+        "carbohydrates": {
+            "value": 20.995
+        },
+        "cholesterol": {
+            "value": 0.0
+        },
+        "fat": {
+            "value": 0.494
+        },
+        "fiber": {
+            "value": 4.94
+        },
+        "iron": {
+            "value": 2.002
+        },
+        "protein": {
+            "value": 6.994
+        },
+        "saturatedFat": {
+            "value": 0.0
+        },
+        "sodium": {
+            "value": 470.6
+        },
+        "sugars": {
+            "value": 2.002
+        },
+        "transFat": {
+            "value": 0.0
+        }
+    },
+    "modifiedDate": "9/25/2017",
+    "publicationDate": "4/1/2019",
+    "servingSize": 130.0,
+    "servingSizeUnit": "g",
+    "tableAliasName": "branded_food"
+}
