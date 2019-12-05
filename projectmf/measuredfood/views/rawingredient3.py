@@ -24,6 +24,9 @@ from measuredfood.utils.error.custom_error import (
 )
 
 from ..forms import FoodDataCentralIDForm
+from ..ingredient_properties3 import ALL_NUTRIENTS_AND_DEFAULT_UNITS
+from ..utils.rawingredient3.save_usda_ingredient_data import \
+    make_rawingredient3_from_usda_data
 
 import requests
 import pprint
@@ -158,7 +161,7 @@ def get_from_food_data_central(request):
             url_food_details = r'https://api.nal.usda.gov/fdc/v1/' \
                                + fdc_id \
                                + r'?api_key=' \
-                               + str(api_key)  # the str() part is
+                               + api_key  # the str() part is
             # unnecessary - it is already a string.
 
             try:
@@ -167,20 +170,17 @@ def get_from_food_data_central(request):
                 )
                 response_json = response.json()
 
-                print('\n\n response_json \n\n')
-                pprint.pprint(response_json['Water'])
-
-                # Check if there was a valid API reponse.
+                # Check if there was an error in the API reponse.
                 if 'status' in response_json:
                     raise FoodDataCentralAPIResponseError(response_json)
 
-                # TODO: continue here.
-                rawingredient3 = RawIngredient3(
-                    author=request.user,
+                rawingredient3_instance = make_rawingredient3_from_usda_data(
+                    RawIngredient3,
+                    request,
+                    response_json,
+                    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
                 )
-                rawingredient3.save()
-
-                print('\n\n RawIngredient3 should have been saved. \n\n')
+                rawingredient3_instance.save()
 
                 return redirect('list-rawingredient2')
 

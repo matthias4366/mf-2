@@ -105,7 +105,7 @@ ALL_NUTRIENTS_AND_DEFAULT_UNITS = [
         'default_unit': '\u00b5g',
     },
     {
-        'name_usda': 'Cobal, Co',
+        'name_usda': 'Cobalt, Co',
         'name_measuredfood': 'cobalt',
         'default_unit': '\u00b5g',
     },

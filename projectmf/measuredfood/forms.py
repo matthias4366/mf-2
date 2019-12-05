@@ -97,4 +97,8 @@ class FoodDataCentralIDForm(forms.Form):
     The user can search for an ingredient on FoodData Central, copy the FDC
     ID into the form and the ingredient will be added to the user's ingredients.
     """
-    FDC_ID = forms.CharField(label='FDC ID', max_length=100)
+    FDC_ID = forms.CharField(
+        label='FDC ID',
+        max_length=100,
+        initial='335912'
+    )
