@@ -1,3 +1,7 @@
+from settings_add_data import \
+    URL_ADD_DATA, \
+    USERNAME, \
+    PASSWORD
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 import time
@@ -23,7 +27,7 @@ This part of the new code adds the mealplan.
 
 browser = webdriver.Firefox()
 
-browser.get("http://127.0.0.1:8000/")
+browser.get(URL_ADD_DATA)
 
 # Log In
 
@@ -40,8 +44,8 @@ username_field = browser.find_element_by_name('username')
 password_field = browser.find_element_by_name('password')
 
 # Input values into the fields
-username_field.send_keys('sandor')
-password_field.send_keys('testpassword')
+username_field.send_keys(USERNAME)
+password_field.send_keys(PASSWORD)
 
 # Simulate clicking on Log In
 click_navbar_item(
@@ -62,18 +66,18 @@ click_navbar_item(
 
 for k in range(len(mealplan_initial_data)):
 
+    # If a mealplan with the same name exists, delete it.
+    id_ = 'delete ' + mealplan_initial_data[k]['name']
+    print('\n id_ \n')
+    print(id_)
     try:
-        mealplan_name = \
-            browser.find_element_by_id(
-                'paragraph ' + mealplan_initial_data[k]['name'])
-        try:
-            browser.find_element_by_id(
-                'delete ' + mealplan_initial_data[k]['name']).click()
-        except NoSuchElementException:
-            print('Element not found. Not supposed to happen.')
-            break
+        browser.find_element_by_id(
+            'delete ' + mealplan_initial_data[k]['name']).click()
+        browser.find_element_by_id(
+            'confirm delete ' + mealplan_initial_data[k][
+                'name']).click()
     except NoSuchElementException:
-        pass
+        print('\n\n No mealplan with the same name found. \n\n')
 
     browser.find_element_by_id(
         'id_button_new_mealplan'
@@ -111,5 +115,4 @@ for k in range(len(mealplan_initial_data)):
         ).click()
 
 # Tear it down
-time.sleep(10)
 browser.quit()

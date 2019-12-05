@@ -167,8 +167,8 @@ def get_from_food_data_central(request):
                 )
                 response_json = response.json()
 
-                print('response_json')
-                pprint.pprint(response_json['description'])
+                print('\n\n response_json \n\n')
+                pprint.pprint(response_json['Water'])
 
                 # Check if there was a valid API reponse.
                 if 'status' in response_json:
@@ -176,7 +176,6 @@ def get_from_food_data_central(request):
 
                 # TODO: continue here.
                 rawingredient3 = RawIngredient3(
-                    name=response_json['description'],
                     author=request.user,
                 )
                 rawingredient3.save()

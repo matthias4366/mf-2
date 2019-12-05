@@ -1,3 +1,7 @@
+from settings_add_data import \
+    URL_ADD_DATA, \
+    USERNAME, \
+    PASSWORD
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 import time
@@ -27,7 +31,7 @@ objects in a way that will always work properly.
 
 browser = webdriver.Firefox()
 
-browser.get("http://127.0.0.1:8000/")
+browser.get(URL_ADD_DATA)
 
 # Log In
 
@@ -44,8 +48,8 @@ username_field = browser.find_element_by_name('username')
 password_field = browser.find_element_by_name('password')
 
 # Input values into the fields
-username_field.send_keys('sandor')
-password_field.send_keys('testpassword')
+username_field.send_keys(USERNAME)
+password_field.send_keys(PASSWORD)
 
 # Simulate clicking on Log In
 click_navbar_item(
@@ -203,6 +207,5 @@ for k in range(0, len(full_day_of_eating_dict_list)):
     ).click()
 
 # Tear it down
-time.sleep(10)
 browser.quit()
 

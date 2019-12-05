@@ -28,7 +28,7 @@ full_day_of_eating_dict_template = \
 full_day_of_eating_dict_list = \
     [
         {
-            'name': 'Olive sauce and pasta',
+            'name': 'Olive sauce and pasta [add Kale!]',
             'cooking_instruction': '',
             'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
@@ -66,6 +66,12 @@ full_day_of_eating_dict_list = \
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Walnuts',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 200,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Spinach',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -191,6 +197,12 @@ full_day_of_eating_dict_list = \
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Peas',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 200,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Spinach',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -403,9 +415,12 @@ full_day_of_eating_dict_list = \
                 ]
         },
         {
-            'name': 'Asian vegetables and sweet sour sauce',
+            'name': 'Asian vegetables and Maggi',
             'cooking_instruction':
                 """
+                Sweet sour sauce not that tasty, and not that digestible. 
+                Switch to Maggi instead. 
+                
                 Salt the beans with 5 g of salt per liter of water.
                 Use 4 ml of water per 1 g of beans.
                 
@@ -428,9 +443,9 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
 {
-                        'base_amount': 340,
+                        'base_amount': 5,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Sweet sour sauce',
+                        'rawingredient': 'Maggi',
                         'scaling_option': 'fixed',
                     },
 {
@@ -525,8 +540,9 @@ full_day_of_eating_dict_list = \
                 ]
         },
         {
-            'name': 'Protein and vitamins',
-            'cooking_instruction': '',
+            'name': 'Protein and vitamins v1',
+            'cooking_instruction': 'Once Zinc or Copper run out, increase the '
+                                   'amount of Vit4Ever tablets.',
             'nutrient_profile': 'Maintenance EU',
             'list_nutrient_target':
                 [
@@ -553,6 +569,12 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
+                        'base_amount': 0.4,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Potassium citrate',
+                        'scaling_option': 'fixed',
+                    },
+                    {
                         'base_amount': 3,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Magnesium citrate',
@@ -571,7 +593,13 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 3,
+                        'base_amount': 2,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Vit4Ever',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Multivitamin A-Z Komplett Mivolis dm',
                         'scaling_option': 'fixed',
@@ -579,32 +607,8 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 1,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Iron tablets, gentle iron',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Zink bisglycinat Nature Love',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
                         'rawingredient': 'Vitamin D3 Tablette '
                                          'Vitabay 5000 I.E.',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Copper tablet',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Manganese tablet',
                         'scaling_option': 'fixed',
                     },
                 ]

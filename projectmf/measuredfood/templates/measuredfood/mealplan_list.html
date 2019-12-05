@@ -33,8 +33,11 @@
             </div>
             <div><p>{{ mealplan.name }}</p></div>
             <div>
-              <a class="btn btn-danger btn-large"
-              href="{% url 'delete-mealplan' mealplan.id %}">
+              <a
+                class="btn btn-danger btn-large"
+                href="{% url 'delete-mealplan' mealplan.id %}"
+                id="delete {{ mealplan.name }}"
+              >
                 Delete
               </a>
             </div>

@@ -1,3 +1,7 @@
+from settings_add_data import \
+    URL_ADD_DATA, \
+    USERNAME, \
+    PASSWORD
 from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
@@ -9,8 +13,7 @@ from selenium.common.exceptions import NoSuchElementException
 # the data directory as a source. (Settings / Project structure )
 from ingredients_data2 import function_in_ingredients_data2
 from ingredients_data2 import ingredient_dict_list
-# from projectmf.functional_tests.utils.click_navbar_item import
-# click_navbar_item
+from click_navbar_item_copy import click_navbar_item
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
@@ -30,32 +33,9 @@ mitigate this problem, this script is written to add the RawIngredient2
 objects in a way that will always work properly.
 """
 
-# TODO: Sandor Clegane wanted to import the click_navbar_item function from
-#  projectmf/functional_tests/utils/click_navbar_item.py but could not figure
-#  out how to import from there.
-
-
-def click_navbar_item(
-    id_,
-    browser_,
-    keys,
-    time_,
-):
-    # Click on the navbar toggle element to show the menu items.
-    navbar_toggle_button = browser_.find_element_by_class_name(
-        'navbar-toggler'
-        )
-    navbar_toggle_button.send_keys(keys.ENTER)
-
-    time_.sleep(1)
-
-    button = browser_.find_element_by_id(id_)
-    button.click()
-
-
 browser = webdriver.Firefox()
 
-browser.get("http://127.0.0.1:8000/")
+browser.get(URL_ADD_DATA)
 
 # Log In
 
@@ -72,8 +52,8 @@ username_field = browser.find_element_by_name('username')
 password_field = browser.find_element_by_name('password')
 
 # Input values into the fields
-username_field.send_keys('sandor')
-password_field.send_keys('testpassword')
+username_field.send_keys(USERNAME)
+password_field.send_keys(PASSWORD)
 
 # Simulate clicking on Log In
 click_navbar_item(
