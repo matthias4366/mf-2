@@ -16,6 +16,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient2Form
 from measuredfood.utils.check_if_author import check_if_author
+from measuredfood.utils.rawingredient3.find_equivalent_nutrient_name \
+    import find_equivalent_nutrient_name
 import logging
 
 from measuredfood.utils.error.custom_error import (
@@ -161,8 +163,7 @@ def get_from_food_data_central(request):
             url_food_details = r'https://api.nal.usda.gov/fdc/v1/' \
                                + fdc_id \
                                + r'?api_key=' \
-                               + api_key  # the str() part is
-            # unnecessary - it is already a string.
+                               + api_key
 
             try:
                 response = requests.get(
@@ -179,6 +180,7 @@ def get_from_food_data_central(request):
                     request,
                     response_json,
                     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                    find_equivalent_nutrient_name,
                 )
                 rawingredient3_instance.save()
 

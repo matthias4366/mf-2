@@ -5,6 +5,7 @@ def make_rawingredient3_from_usda_data(
     request,
     response_json,
     all_nutrients_and_default_units,
+    find_equivalent_nutrient_name,
 ):
     """
 
@@ -17,6 +18,10 @@ def make_rawingredient3_from_usda_data(
     ingredient_properties3.py. It is a collection of all nutrients, such as
     'carbohydrates' etc., and the default unit for each nutrient, such as
     gram ('g') for 'carbohydrates'.
+    :param find_equivalent_nutrient_name: The function
+    find_equivalent_nutrient_name takes in a nutrient name returned from the
+    FoodData Central API and finds the equivalent nutrient name in the
+    measuredfood database.
     :return: rawingredient3_instance: Based on the JSON data on the
     ingredient obtained from the FoodData Central API, a RawIngredient3 model
     object has been created and it is returned.
@@ -38,26 +43,19 @@ def make_rawingredient3_from_usda_data(
             # print('nutrient_name_from_usda')
             # print(nutrient_name_from_usda)
 
-            equivalent_nutrient_name_measuredfood = None
-            for nutrient_dict in all_nutrients_and_default_units:
-                # print(f'nutrient_dict[\'name_usda\']:')
-                # print(nutrient_dict['name_usda'])
-                # print('True or not?')
-                # print(nutrient_dict['name_usda'] ==
-                #       nutrient_name_from_usda)
-                if nutrient_dict['name_usda'] == \
-                        nutrient_name_from_usda:
-                    equivalent_nutrient_name_measuredfood = \
-                        nutrient_dict[
-                            'name_measuredfood']
+            equivalent_nutrient_name_measuredfood = \
+                find_equivalent_nutrient_name(
+                    all_nutrients_and_default_units,
+                    nutrient_name_from_usda,
+                )
 
-            # print(f'equivalent_nutrient_name_measuredfood: '
-            #       f'{equivalent_nutrient_name_measuredfood}')
-            # print(f'amount_from_usda: '
-            #       f'{amount_from_usda}')
-
-            setattr(
-                rawingredient3_instance,
-                equivalent_nutrient_name_measuredfood,
-                amount_from_usda)
+            if equivalent_nutrient_name_measuredfood is None:
+                print('The following nutrient name from the FoodCentral '
+                      'database was not found in the measured food database:')
+                print(nutrient_name_from_usda)
+            else:
+                setattr(
+                    rawingredient3_instance,
+                    equivalent_nutrient_name_measuredfood,
+                    amount_from_usda)
     return rawingredient3_instance
