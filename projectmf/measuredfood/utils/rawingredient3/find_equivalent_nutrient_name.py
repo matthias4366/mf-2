@@ -21,7 +21,7 @@ def find_equivalent_nutrient_name(
     equivalent_nutrient_name_measuredfood = None
     for nutrient_dict in all_nutrients_and_default_units:
         # print(f'nutrient_dict[\'nutrient_name_usda_api\']:')
-        print(nutrient_dict)
+        # print(nutrient_dict)
         # print('True or not?')
         # print(nutrient_dict['nutrient_name_usda_api'] ==
         #       nutrient_name_from_usda)

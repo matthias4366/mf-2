@@ -27,18 +27,18 @@ class RawIngredient3(models.Model):
     )
 
     # Price of the ingredient per reference amount
-    price_per_reference_amount = models.FloatField(
+    price_per_100_gram = models.FloatField(
         blank=True,
         null=True,
         default=0
     )
 
-    currency_of_price_per_reference_amount = models.CharField(
+    currency_of_price_per_100_gram = models.CharField(
         max_length=100,
-        choices=[('euro', 'euro'), ],
+        choices=[('\u20ac', '\u20ac'), ],
         blank=False,
         null=False,
-        default='euro',
+        default='\u20ac',
     )
 
     # Amount in package to round up shopping list.
@@ -48,26 +48,10 @@ class RawIngredient3(models.Model):
         )
     amount_in_package_unit = models.CharField(
         max_length=100,
-        choices=[('gram', 'gram'), ],
+        choices=[('g', 'g'), ],
         blank=False,
         null=False,
-        default='gram',
-    )
-
-    # Reference amount to which all the nutrition amounts related, e.g.
-    # 370 kcal / 100 g => 100 is the reference amount.
-    reference_amount = models.FloatField(
-        blank=True,
-        null=False,
-        default=100
-    )
-
-    reference_amount_unit = models.CharField(
-        max_length=100,
-        choices=[('gram', 'gram'), ],
-        blank=False,
-        null=False,
-        default='gram',
+        default='g',
     )
 
     class Meta:
@@ -88,9 +72,9 @@ class RawIngredient3(models.Model):
 
 # Nutrients
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-    # Ignore the nutrient names from the USDA database that are actually
-    # section titles, such as "Vitamins" and "Minerals".
-    if nutrient_dict['nutrient_name_measuredfood'] is not 'ignore':
+    # Ignore incomplete nutrient_dict.
+    if len(nutrient_dict['id_nutrient_usda_api']) > 0 and \
+            len(nutrient_dict['nutrient_name_measuredfood']) > 0:
         # add the nutrient fields
         RawIngredient3.add_to_class(
             nutrient_dict['nutrient_name_measuredfood'],

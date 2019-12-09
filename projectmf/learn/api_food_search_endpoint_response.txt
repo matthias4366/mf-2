@@ -138,17 +138,6 @@
             "score": -441.20615
         },
         {
-            "allHighlightFields": "<b>Brand Owner</b>: The <em>Chia</em> Company<br/><b>Ingredients</b>: <em>CHIA</em> SEED GEL (FILTERED WATER, <em>CHIA</em> SEED), ALMOND MILK (FILTERED WATER, ALMOND PASTE), COCONUT PALM SUGAR, CACAO POWDER",
-            "brandOwner": "The Chia Company",
-            "dataType": "Branded",
-            "description": "CHIA POD",
-            "fdcId": 467184,
-            "gtinUpc": "9340224006756",
-            "ingredients": "CHIA SEED GEL (FILTERED WATER, CHIA SEED), ALMOND MILK (FILTERED WATER, ALMOND PASTE), COCONUT PALM SUGAR, CACAO POWDER",
-            "publishedDate": "2019-04-01",
-            "score": -441.20615
-        },
-        {
             "allHighlightFields": "<b>Brand Owner</b>: THE <em>CHIA</em> CO<br/><b>Ingredients</b>: <em>CHIA</em> SEED GEL (FILTERED WATER, <em>CHIA</em> SEED), MANGO PUREE, COCONUT MILK",
             "brandOwner": "THE CHIA CO",
             "dataType": "Branded",
@@ -156,6 +145,17 @@
             "fdcId": 378971,
             "gtinUpc": "340224006671",
             "ingredients": "CHIA SEED GEL (FILTERED WATER, CHIA SEED), MANGO PUREE, COCONUT MILK",
+            "publishedDate": "2019-04-01",
+            "score": -441.20615
+        },
+        {
+            "allHighlightFields": "<b>Brand Owner</b>: The <em>Chia</em> Company<br/><b>Ingredients</b>: <em>CHIA</em> SEED GEL (FILTERED WATER, <em>CHIA</em> SEED), ALMOND MILK (FILTERED WATER, ALMOND PASTE), COCONUT PALM SUGAR, CACAO POWDER",
+            "brandOwner": "The Chia Company",
+            "dataType": "Branded",
+            "description": "CHIA POD",
+            "fdcId": 467184,
+            "gtinUpc": "9340224006756",
+            "ingredients": "CHIA SEED GEL (FILTERED WATER, CHIA SEED), ALMOND MILK (FILTERED WATER, ALMOND PASTE), COCONUT PALM SUGAR, CACAO POWDER",
             "publishedDate": "2019-04-01",
             "score": -441.20615
         },
@@ -230,8 +230,8 @@
             "brandOwner": "The Chia Company",
             "dataType": "Branded",
             "description": "WHITE CHIA",
-            "fdcId": 494410,
-            "gtinUpc": "9340224005513",
+            "fdcId": 518719,
+            "gtinUpc": "9340224005711",
             "ingredients": "100% CHIA SEED (SALVIA HISPANICA).",
             "publishedDate": "2019-04-01",
             "score": -441.20615
@@ -241,8 +241,8 @@
             "brandOwner": "The Chia Company",
             "dataType": "Branded",
             "description": "WHITE CHIA",
-            "fdcId": 518719,
-            "gtinUpc": "9340224005711",
+            "fdcId": 494410,
+            "gtinUpc": "9340224005513",
             "ingredients": "100% CHIA SEED (SALVIA HISPANICA).",
             "publishedDate": "2019-04-01",
             "score": -441.20615
@@ -347,6 +347,17 @@
             "score": -442.2378
         },
         {
+            "allHighlightFields": "<b>Ingredients</b>: WHITE <em>CHIA</em> SEEDS, BROWN RICE SYRUP, ORGANIC CASHEW BUTTER, ROLLED OATS, DRIED MANGO, ORGANIC AGAVE",
+            "brandOwner": "Health Warrior, Inc.",
+            "dataType": "Branded",
+            "description": "CHIA BAR",
+            "fdcId": 466548,
+            "gtinUpc": "852684003361",
+            "ingredients": "WHITE CHIA SEEDS, BROWN RICE SYRUP, ORGANIC CASHEW BUTTER, ROLLED OATS, DRIED MANGO, ORGANIC AGAVE SYRUP, ALMONDS, ORGANIC BROWN RICE CRISPS (ORGANIC BROWN RICE, ORGANIC BROWN RICE SYRUP, SEA SALT), ARABIC GUM, UNSWEETENED COCONUT, NATURAL FLAVORS, SEA SALT, MIXED TOCOPHEROLS (NATURAL VITAMIN E).",
+            "publishedDate": "2019-04-01",
+            "score": -442.2378
+        },
+        {
             "allHighlightFields": "<b>Ingredients</b>: WHITE <em>CHIA</em> SEEDS, ORGANIC CASHEW BUTTER, BROWN RICE SYRUP, ROLLED OATS, CRANBERRIES (CRANBERRIES",
             "brandOwner": "Health Warrior, Inc.",
             "dataType": "Branded",
@@ -373,31 +384,9 @@
             "brandOwner": "Health Warrior, Inc.",
             "dataType": "Branded",
             "description": "CHIA BAR",
-            "fdcId": 466548,
-            "gtinUpc": "852684003361",
-            "ingredients": "WHITE CHIA SEEDS, BROWN RICE SYRUP, ORGANIC CASHEW BUTTER, ROLLED OATS, DRIED MANGO, ORGANIC AGAVE SYRUP, ALMONDS, ORGANIC BROWN RICE CRISPS (ORGANIC BROWN RICE, ORGANIC BROWN RICE SYRUP, SEA SALT), ARABIC GUM, UNSWEETENED COCONUT, NATURAL FLAVORS, SEA SALT, MIXED TOCOPHEROLS (NATURAL VITAMIN E).",
-            "publishedDate": "2019-04-01",
-            "score": -442.2378
-        },
-        {
-            "allHighlightFields": "<b>Ingredients</b>: WHITE <em>CHIA</em> SEEDS, BROWN RICE SYRUP, ORGANIC CASHEW BUTTER, ROLLED OATS, DRIED MANGO, ORGANIC AGAVE",
-            "brandOwner": "Health Warrior, Inc.",
-            "dataType": "Branded",
-            "description": "CHIA BAR",
             "fdcId": 392033,
             "gtinUpc": "852684003231",
             "ingredients": "WHITE CHIA SEEDS, BROWN RICE SYRUP, ORGANIC CASHEW BUTTER, ROLLED OATS, DRIED MANGO, ORGANIC AGAVE SYRUP. ALMONDS, ORGANIC BROWN RICE CRISPS (ORGANIC BROWN RICE, ORGANIC BROWN RICE SYRUP, SEA SALT), ARABIC GUM, UNSWEETENED COCONUT, NATURAL FLAVORS, SEA SALT, MIXED TOCOPHEROLS (NATURAL VITAMIN E).",
-            "publishedDate": "2019-04-01",
-            "score": -442.2378
-        },
-        {
-            "allHighlightFields": "<b>Ingredients</b>: WHITE <em>CHIA</em> SEEDS, ALMONDS, BROWN RICE SYRUP, GLUTEN FREE ROLLED OATS, ORGANIC AGAVE SYRUP, ORGANIC",
-            "brandOwner": "Health Warrior, Inc.",
-            "dataType": "Branded",
-            "description": "CHIA BAR",
-            "fdcId": 533017,
-            "gtinUpc": "852684003583",
-            "ingredients": "WHITE CHIA SEEDS, ALMONDS, BROWN RICE SYRUP, GLUTEN FREE ROLLED OATS, ORGANIC AGAVE SYRUP, ORGANIC BROWN RICE CRISPS (ORGANIC BROWN RICE, ORGANIC BROWN RICE SYRUP, SEA SALT), ARABIC GUM, NATURAL FLAVORS, MIXED TOCOPHEROLS (NATURAL VITAMIN E), SEA SALT.",
             "publishedDate": "2019-04-01",
             "score": -442.2378
         },
@@ -409,6 +398,17 @@
             "fdcId": 562454,
             "gtinUpc": "769745000132",
             "ingredients": "ORGANIC DATES, ORGANIC CHIA SEEDS, ORGANIC ALMONDS, ORGANIC TAPIOCA SYRUP, ORGANIC QUINOA, CHICORY ROOT FIBER, *GREENS+ SUPERFOODS ADVANCED MULTI SUPERFOOD PROPRIETARY BLEND, PEA PROTEIN, MIXED TOCOPHEROLS (NATURAL VITAMIN E), ORGANIC PURIFIED STEVIA EXTRACT.",
+            "publishedDate": "2019-04-01",
+            "score": -442.2378
+        },
+        {
+            "allHighlightFields": "<b>Ingredients</b>: WHITE <em>CHIA</em> SEEDS, ALMONDS, BROWN RICE SYRUP, GLUTEN FREE ROLLED OATS, ORGANIC AGAVE SYRUP, ORGANIC",
+            "brandOwner": "Health Warrior, Inc.",
+            "dataType": "Branded",
+            "description": "CHIA BAR",
+            "fdcId": 533017,
+            "gtinUpc": "852684003583",
+            "ingredients": "WHITE CHIA SEEDS, ALMONDS, BROWN RICE SYRUP, GLUTEN FREE ROLLED OATS, ORGANIC AGAVE SYRUP, ORGANIC BROWN RICE CRISPS (ORGANIC BROWN RICE, ORGANIC BROWN RICE SYRUP, SEA SALT), ARABIC GUM, NATURAL FLAVORS, MIXED TOCOPHEROLS (NATURAL VITAMIN E), SEA SALT.",
             "publishedDate": "2019-04-01",
             "score": -442.2378
         },

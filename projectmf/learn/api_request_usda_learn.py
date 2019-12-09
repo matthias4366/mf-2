@@ -49,7 +49,11 @@ food_central_id_different_databases = {
     "Drink with added vitamins": "167707",
     "Beverages, DANNON, water, bottled, non-carbonated, with Fluoride":
         "173658",
-    "PURIFIED WATER contains Molybdenum": "517684",
+    "PURIFIED WATER does not actually contain Molybdenum": "517684",
+    "Nuts, almonds, dry roasted, with salt added - contains Selenium":
+        "323294",
+    "Soybean oil - contains the different fats": "343880",
+    "Oil, canola": "172336",
 }
 
 for database, FDC_ID in food_central_id_different_databases.items():

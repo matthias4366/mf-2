@@ -31,9 +31,9 @@ class NutrientProfile(models.Model):
 
 # Add all the fields related to nutrition to the nutrient profile model.
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-    # Ignore the nutrient names from the USDA database that are actually
-    # section titles, such as "Vitamins" and "Minerals".
-    if nutrient_dict['nutrient_name_measuredfood'] is not 'ignore':
+    # Ignore incomplete nutrient_dict.
+    if len(nutrient_dict['id_nutrient_usda_api']) > 0 and \
+            len(nutrient_dict['nutrient_name_measuredfood']) > 0:
         # Add the nutrient fields.
         NutrientProfile.add_to_class(
             nutrient_dict['nutrient_name_measuredfood'],

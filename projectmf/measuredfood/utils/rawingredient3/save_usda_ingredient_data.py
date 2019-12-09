@@ -40,6 +40,9 @@ def make_rawingredient3_from_usda_data(
             nutrient_name_from_usda = \
                 response_json['foodNutrients'][k]['nutrient'][
                     'name']
+            nutrient_id = \
+                response_json['foodNutrients'][k]['nutrient'][
+                    'id']
             # print('nutrient_name_from_usda')
             # print(nutrient_name_from_usda)
 
@@ -50,9 +53,16 @@ def make_rawingredient3_from_usda_data(
                 )
 
             if equivalent_nutrient_name_measuredfood is None:
-                print('The following nutrient name from the FoodCentral '
-                      'database was not found in the measured food database:')
-                print(nutrient_name_from_usda)
+                file_name_to_save_message = \
+                    'nutrients_missing_from_measuredfood_database.txt'
+                message_missing_nutrient = '\n' \
+                    + 'The following nutrient name from the FoodCentral ' \
+                    + 'database was not found in the measured food database:'\
+                    + f'nutrient_name_from_usda: {nutrient_name_from_usda}'\
+                    + f'nutrient_id: {nutrient_id}'\
+                    + '\n'
+                with open(file_name_to_save_message, 'w') as outfile:
+                    outfile.write(message_missing_nutrient)
             else:
                 setattr(
                     rawingredient3_instance,
