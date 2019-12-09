@@ -1,0 +1,516 @@
+{
+    "changes": "",
+    "dataType": "SR Legacy",
+    "description": "Beverages, DANNON, water, bottled, non-carbonated, with Fluoride",
+    "fdcId": 173658,
+    "foodAttributes": [],
+    "foodCategory": {
+        "code": "1400",
+        "description": "Beverages",
+        "id": 14
+    },
+    "foodClass": "FinalFood",
+    "foodComponents": [],
+    "foodNutrients": [
+        {
+            "nutrient": {
+                "id": 2045,
+                "name": "Proximates",
+                "number": "951",
+                "rank": 50,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 99.97,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796104,
+            "nutrient": {
+                "id": 1051,
+                "name": "Water",
+                "number": "255",
+                "rank": 100,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 0,
+            "foodNutrientDerivation": {
+                "code": "NC",
+                "description": "Calculated",
+                "foodNutrientSource": {
+                    "code": "4",
+                    "description": "Calculated or imputed",
+                    "id": 2
+                },
+                "id": 49
+            },
+            "id": 1796103,
+            "nutrient": {
+                "id": 1008,
+                "name": "Energy",
+                "number": "208",
+                "rank": 300,
+                "unitName": "kcal"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 1.0,
+            "dataPoints": 0,
+            "foodNutrientDerivation": {
+                "code": "NC",
+                "description": "Calculated",
+                "foodNutrientSource": {
+                    "code": "4",
+                    "description": "Calculated or imputed",
+                    "id": 2
+                },
+                "id": 49
+            },
+            "id": 1796110,
+            "nutrient": {
+                "id": 1062,
+                "name": "Energy",
+                "number": "268",
+                "rank": 400,
+                "unitName": "kJ"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796108,
+            "nutrient": {
+                "id": 1003,
+                "name": "Protein",
+                "number": "203",
+                "rank": 600,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796101,
+            "nutrient": {
+                "id": 1004,
+                "name": "Total lipid (fat)",
+                "number": "204",
+                "rank": 800,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796109,
+            "nutrient": {
+                "id": 1007,
+                "name": "Ash",
+                "number": "207",
+                "rank": 1000,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "nutrient": {
+                "id": 2039,
+                "name": "Carbohydrates",
+                "number": "956",
+                "rank": 1100,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.03,
+            "dataPoints": 0,
+            "foodNutrientDerivation": {
+                "code": "NC",
+                "description": "Calculated",
+                "foodNutrientSource": {
+                    "code": "4",
+                    "description": "Calculated or imputed",
+                    "id": 2
+                },
+                "id": 49
+            },
+            "id": 1796102,
+            "nutrient": {
+                "id": 1005,
+                "name": "Carbohydrate, by difference",
+                "number": "205",
+                "rank": 1110,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "nutrient": {
+                "id": 2043,
+                "name": "Minerals",
+                "number": "300",
+                "rank": 5200,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 3.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796105,
+            "nutrient": {
+                "id": 1087,
+                "name": "Calcium, Ca",
+                "number": "301",
+                "rank": 5300,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.01,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796111,
+            "nutrient": {
+                "id": 1089,
+                "name": "Iron, Fe",
+                "number": "303",
+                "rank": 5400,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 1.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796112,
+            "nutrient": {
+                "id": 1090,
+                "name": "Magnesium, Mg",
+                "number": "304",
+                "rank": 5500,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796113,
+            "nutrient": {
+                "id": 1091,
+                "name": "Phosphorus, P",
+                "number": "305",
+                "rank": 5600,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796106,
+            "nutrient": {
+                "id": 1092,
+                "name": "Potassium, K",
+                "number": "306",
+                "rank": 5700,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 1.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796114,
+            "nutrient": {
+                "id": 1093,
+                "name": "Sodium, Na",
+                "number": "307",
+                "rank": 5800,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796107,
+            "nutrient": {
+                "id": 1095,
+                "name": "Zinc, Zn",
+                "number": "309",
+                "rank": 5900,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796115,
+            "nutrient": {
+                "id": 1098,
+                "name": "Copper, Cu",
+                "number": "312",
+                "rank": 6000,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796116,
+            "nutrient": {
+                "id": 1101,
+                "name": "Manganese, Mn",
+                "number": "315",
+                "rank": 6100,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 78.0,
+            "dataPoints": 1,
+            "foodNutrientDerivation": {
+                "code": "A",
+                "description": "Analytical",
+                "foodNutrientSource": {
+                    "code": "1",
+                    "description": "Analytical or derived from analytical",
+                    "id": 1
+                },
+                "id": 1
+            },
+            "id": 1796117,
+            "nutrient": {
+                "id": 1099,
+                "name": "Fluoride, F",
+                "number": "313",
+                "rank": 6240,
+                "unitName": "\u00b5g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "nutrient": {
+                "id": 2044,
+                "name": "Lipids",
+                "number": "950",
+                "rank": 9600,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "dataPoints": 0,
+            "foodNutrientDerivation": {
+                "code": "Z",
+                "description": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)",
+                "foodNutrientSource": {
+                    "code": "7",
+                    "description": "Assumed zero",
+                    "id": 5
+                },
+                "id": 68
+            },
+            "id": 1796118,
+            "nutrient": {
+                "id": 1257,
+                "name": "Fatty acids, total trans",
+                "number": "605",
+                "rank": 15400,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        }
+    ],
+    "foodPortions": [
+        {
+            "amount": 1.0,
+            "gramWeight": 29.6,
+            "id": 93046,
+            "measureUnit": {
+                "abbreviation": "undetermined",
+                "id": 9999,
+                "name": "undetermined"
+            },
+            "modifier": "fl oz",
+            "sequenceNumber": 1
+        },
+        {
+            "amount": 1.0,
+            "gramWeight": 251.0,
+            "id": 93047,
+            "measureUnit": {
+                "abbreviation": "undetermined",
+                "id": 9999,
+                "name": "undetermined"
+            },
+            "modifier": "bottle 8.5 fl oz",
+            "sequenceNumber": 2
+        }
+    ],
+    "inputFoods": [],
+    "isHistoricalReference": true,
+    "ndbNumber": 14440,
+    "nutrientConversionFactors": [
+        {
+            "id": 21099,
+            "type": ".ProteinConversionFactor",
+            "value": 6.25
+        },
+        {
+            "carbohydrateValue": 4.0,
+            "fatValue": 9.0,
+            "id": 15373,
+            "name": "Calories From Proximates",
+            "proteinValue": 4.0,
+            "type": ".CalorieConversionFactor"
+        }
+    ],
+    "publicationDate": "4/1/2019",
+    "tableAliasName": "sr_legacy_food"
+}

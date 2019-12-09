@@ -1,0 +1,336 @@
+{
+    "availableDate": "8/10/2018",
+    "brandOwner": "AquaHydrate, Inc.",
+    "brandedFoodCategory": "Water",
+    "changes": "",
+    "dataSource": "LI",
+    "dataType": "Branded",
+    "description": "PURIFIED WATER",
+    "fdcId": 517684,
+    "foodAttributes": [],
+    "foodClass": "Branded",
+    "foodComponents": [],
+    "foodNutrients": [
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850592,
+            "nutrient": {
+                "id": 1004,
+                "name": "Total lipid (fat)",
+                "number": "204",
+                "rank": 800,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850593,
+            "nutrient": {
+                "id": 1005,
+                "name": "Carbohydrate, by difference",
+                "number": "205",
+                "rank": 1110,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 6.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850594,
+            "nutrient": {
+                "id": 1087,
+                "name": "Calcium, Ca",
+                "number": "301",
+                "rank": 5300,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.1,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850595,
+            "nutrient": {
+                "id": 1089,
+                "name": "Iron, Fe",
+                "number": "303",
+                "rank": 5400,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 2.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850596,
+            "nutrient": {
+                "id": 1090,
+                "name": "Magnesium, Mg",
+                "number": "304",
+                "rank": 5500,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.08,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850597,
+            "nutrient": {
+                "id": 1095,
+                "name": "Zinc, Zn",
+                "number": "309",
+                "rank": 5900,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.011,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850598,
+            "nutrient": {
+                "id": 1098,
+                "name": "Copper, Cu",
+                "number": "312",
+                "rank": 6000,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850599,
+            "nutrient": {
+                "id": 1101,
+                "name": "Manganese, Mn",
+                "number": "315",
+                "rank": 6100,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCD",
+                "description": "Calculated from a daily value percentage per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 75
+            },
+            "id": 3850600,
+            "nutrient": {
+                "id": 1103,
+                "name": "Selenium, Se",
+                "number": "317",
+                "rank": 6200,
+                "unitName": "\u00b5g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5664092,
+            "nutrient": {
+                "id": 1003,
+                "name": "Protein",
+                "number": "203",
+                "rank": 600,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5664093,
+            "nutrient": {
+                "id": 1008,
+                "name": "Energy",
+                "number": "208",
+                "rank": 300,
+                "unitName": "kcal"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 0.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5664094,
+            "nutrient": {
+                "id": 2000,
+                "name": "Sugars, total including NLEA",
+                "number": "269",
+                "rank": 1510,
+                "unitName": "g"
+            },
+            "type": "FoodNutrient"
+        },
+        {
+            "amount": 4.0,
+            "foodNutrientDerivation": {
+                "code": "LCCS",
+                "description": "Calculated from value per serving size measure",
+                "foodNutrientSource": {
+                    "code": "12",
+                    "description": "Manufacturer's analytical; partial documentation",
+                    "id": 9
+                },
+                "id": 70
+            },
+            "id": 5664095,
+            "nutrient": {
+                "id": 1093,
+                "name": "Sodium, Na",
+                "number": "307",
+                "rank": 5800,
+                "unitName": "mg"
+            },
+            "type": "FoodNutrient"
+        }
+    ],
+    "foodPortions": [],
+    "gtinUpc": "182136000083",
+    "householdServingFullText": "12 ONZ",
+    "ingredients": "PURIFIED WATER, SODIUM CHLORIDE, CONCENTRATE (MAGNESIUM, IODINE, IRON, CALCIUM, CHROMIUM, SELENIUM, ZINC, COPPER, MANGANESE, MOLYBDENUM).",
+    "labelNutrients": {
+        "calcium": {
+            "value": 21.6
+        },
+        "calories": {
+            "value": 0.0
+        },
+        "carbohydrates": {
+            "value": 0.0
+        },
+        "fat": {
+            "value": 0.0
+        },
+        "iron": {
+            "value": 0.36
+        },
+        "protein": {
+            "value": 0.0
+        },
+        "sodium": {
+            "value": 14.4
+        },
+        "sugars": {
+            "value": 0.0
+        }
+    },
+    "modifiedDate": "8/10/2018",
+    "publicationDate": "4/1/2019",
+    "servingSize": 360.0,
+    "servingSizeUnit": "ml",
+    "tableAliasName": "branded_food"
+}

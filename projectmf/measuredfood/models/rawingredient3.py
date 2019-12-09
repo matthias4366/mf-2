@@ -90,10 +90,10 @@ class RawIngredient3(models.Model):
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # Ignore the nutrient names from the USDA database that are actually
     # section titles, such as "Vitamins" and "Minerals".
-    if nutrient_dict['name_measuredfood'] is not 'ignore':
+    if nutrient_dict['nutrient_name_measuredfood'] is not 'ignore':
         # add the nutrient fields
         RawIngredient3.add_to_class(
-            nutrient_dict['name_measuredfood'],
+            nutrient_dict['nutrient_name_measuredfood'],
             models.FloatField(
                 blank=True,
                 null=True,
@@ -101,13 +101,13 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         )
         # add the nutrient unit fields.
         RawIngredient3.add_to_class(
-            nutrient_dict['name_measuredfood']+'_unit',
+            nutrient_dict['nutrient_name_measuredfood']+'_unit',
             models.CharField(
                 max_length=100,
-                choices=[(nutrient_dict['default_unit'],
-                          nutrient_dict['default_unit']), ],
+                choices=[(nutrient_dict['unit_nutrient_usda_api'],
+                          nutrient_dict['unit_nutrient_usda_api']), ],
                 blank=False,
                 null=False,
-                default=nutrient_dict['default_unit'],
+                default=nutrient_dict['unit_nutrient_usda_api'],
             )
         )

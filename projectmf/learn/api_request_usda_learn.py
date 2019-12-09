@@ -44,6 +44,12 @@ food_central_id_different_databases = {
     'Survey (FNDDS)': "339277",
     "Branded": "548596",
     "SR Legacy": "169885",
+    # Beverages, fruit-flavored drink, powder,
+    # with high vitamin C with other added vitamins, low calorie
+    "Drink with added vitamins": "167707",
+    "Beverages, DANNON, water, bottled, non-carbonated, with Fluoride":
+        "173658",
+    "PURIFIED WATER contains Molybdenum": "517684",
 }
 
 for database, FDC_ID in food_central_id_different_databases.items():

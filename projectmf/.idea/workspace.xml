@@ -2,16 +2,19 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py" line="559" />
-    <bookmark url="file://$PROJECT_DIR$/measuredfood/utils/calculate_fulldayofeating.py" line="217" mnemonic="4" />
-    <bookmark url="file://$PROJECT_DIR$/data/initial_full_day_of_eating_data.py" line="255" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/data/initial_full_day_of_eating_data.py" line="323" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/measuredfood/ingredient_properties3.py" line="228" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/Foundation_api_food_details_endpoint_response.txt" beforeDir="false" afterPath="$PROJECT_DIR$/learn/Foundation_api_food_details_endpoint_response.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn/api_request_usda_learn.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/api_request_usda_learn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/ingredient_properties3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/ingredient_properties3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,20 +41,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/measuredfood/ingredient_properties3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2904">
-              <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
+            <state relative-caret-position="134">
+              <caret line="48" column="64" lean-forward="true" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient3.py">
+        <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2720">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state>
+              <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -59,17 +62,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="344">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            <state relative-caret-position="629">
+              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/learn/api_request_usda_learn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -85,13 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>kidn</find>
-      <find>protein and</find>
-      <find>FIXTURES_DIR</find>
-      <find>cache</find>
-      <find>django.core.cache</find>
-      <find>django.contrib.staticfiles</find>
-      <find>logger</find>
       <find>sys</find>
       <find>midd</find>
       <find>MIDD</find>
@@ -115,11 +147,15 @@
       <find>RawIngredient3</find>
       <find>ALL_NUTRIENTS_AND_DEFAULT_UNITS</find>
       <find>Cobalt</find>
+      <find>ignore</find>
+      <find>boron</find>
+      <find>ash</find>
+      <find>thiamin</find>
+      <find>default_unit</find>
+      <find>name_usda</find>
+      <find>name_measuredfood</find>
     </findStrings>
     <replaceStrings>
-      <replace>self.assertIn('tolerableupperintake', self.browser.current_url)</replace>
-      <replace>url_foreign_tolerable_upper_intake</replace>
-      <replace>foreign_tolerable_upper_intake</replace>
       <replace>CustomException</replace>
       <replace>self.dummy_username</replace>
       <replace>dummy_username</replace>
@@ -147,6 +183,9 @@
       <replace>rawingredient3_instance</replace>
       <replace>rawingredient3_model</replace>
       <replace>all_nutrients_and_default_units</replace>
+      <replace>unit_nutrient_usda_api</replace>
+      <replace>nutrient_nutrient_name_usda_api</replace>
+      <replace>nutrient_name_measuredfood</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -155,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/learn/test/packA/a2.py" />
         <option value="$PROJECT_DIR$/learn/test/packA/a1.py" />
         <option value="$PROJECT_DIR$/learn/test/packA/__init__.py" />
         <option value="$PROJECT_DIR$/learn/test/start.py" />
@@ -171,7 +209,6 @@
         <option value="$PROJECT_DIR$/projectmf/settings/production.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/home.html" />
         <option value="$PROJECT_DIR$/learn/test/api_request_usda_learn.py" />
-        <option value="$PROJECT_DIR$/learn/api_request_usda_learn.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_browse.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_form.html" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_list.html" />
@@ -180,9 +217,6 @@
         <option value="$PROJECT_DIR$/measuredfood/models/raw_ingredient_usda.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/raw_ingredient2.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/rawingredient2.py" />
-        <option value="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" />
-        <option value="$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py" />
-        <option value="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/rawingredient2.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/__init__.py" />
         <option value="$PROJECT_DIR$/measuredfood/urls.py" />
@@ -201,11 +235,16 @@
         <option value="$PROJECT_DIR$/measuredfood/forms.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient2_get_from_food_data_central.html" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data_to_measuredfood_database.py" />
-        <option value="$PROJECT_DIR$/measuredfood/ingredient_properties3.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_measuredfood.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py" />
+        <option value="$PROJECT_DIR$/learn/all_nutrient_names_from_usda_documentation.txt" />
+        <option value="$PROJECT_DIR$/learn/api_request_usda_learn.py" />
+        <option value="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" />
+        <option value="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" />
+        <option value="$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py" />
+        <option value="$PROJECT_DIR$/measuredfood/ingredient_properties3.py" />
       </list>
     </option>
   </component>
@@ -234,38 +273,11 @@
             <path>
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectmf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectmf" type="462c0819:PsiDirectoryNode" />
-              <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="measuredfood" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -620,7 +632,8 @@
       <workItem from="1575390641842" duration="179000" />
       <workItem from="1575456525395" duration="7058000" />
       <workItem from="1575544687030" duration="7696000" />
-      <workItem from="1575631044492" duration="1418000" />
+      <workItem from="1575631044492" duration="6849000" />
+      <workItem from="1575886893562" duration="6392000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -721,7 +734,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="420570000" />
+    <option name="totallyTimeSpent" value="432393000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -736,7 +749,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36303264" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36745986" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -750,7 +763,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.38336933" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.63066953" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -858,9 +871,6 @@
     <SUITE FILE_PATH="coverage/projectmf$Test__functional_tests_test_tolerable_upper_intake_TolerableUpperIntakeTest_test_tolerable_upper_intake_edit_save_changes.coverage" NAME="Test: functional_tests.test_tolerable_upper_intake.TolerableUpperIntakeTest.test_tolerable_upper_intake_edit_save_changes Coverage Results" MODIFIED="1568388407163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projectmf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -961,16 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/ingredient_properties2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1701">
@@ -1030,28 +1030,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/api_request_usda_learn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1536">
-          <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/make_code_for_creation_of_rawingredient3_object.py" />
     <entry file="file://$PROJECT_DIR$/measuredfood/models/__init__.py">
@@ -1065,16 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="97" column="27" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1181,31 +1151,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/ingredient_properties3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2904">
-          <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/all_nutrient_names_from_usda_documentation.txt" />
     <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2720">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="24">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py">
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="629">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="80" column="61" selection-start-line="80" selection-start-column="61" selection-end-line="80" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn/api_request_usda_learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/specificnutrienttarget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        <state>
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/save_usda_ingredient_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/ingredient_properties3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="48" column="64" lean-forward="true" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
         </state>
       </provider>
     </entry>
