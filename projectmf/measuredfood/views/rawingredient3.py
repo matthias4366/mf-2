@@ -1,5 +1,6 @@
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
+import datetime
 
 # imports for the view to create raw ingredients
 from django.views.generic import (
@@ -26,8 +27,8 @@ from measuredfood.utils.error.custom_error import (
 )
 
 from ..forms import FoodDataCentralIDForm
-from ..ingredient_properties3 import ALL_NUTRIENTS_AND_DEFAULT_UNITS
-from ..utils.rawingredient3.save_usda_ingredient_data import \
+from ..ingredient_properties4 import ALL_NUTRIENTS_AND_DEFAULT_UNITS
+from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
 
 import requests
@@ -137,6 +138,7 @@ class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
         return False
 
 
+@login_required()
 def get_from_food_data_central(request):
     """
     The user can search for an ingredient on FoodData Central, copy the FDC
@@ -181,6 +183,7 @@ def get_from_food_data_central(request):
                     response_json,
                     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
                     find_equivalent_nutrient_name,
+                    datetime,
                 )
                 rawingredient3_instance.save()
 

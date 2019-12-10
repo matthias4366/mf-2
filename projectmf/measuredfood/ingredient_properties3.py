@@ -1078,6 +1078,50 @@ ALL_NUTRIENTS_AND_DEFAULT_UNITS = [
         'placeholder_property_a': '',
         'placeholder_property_b': '',
     },
+
+    # Added because /home/matthias/1_local_code/mf-2/projectmf/
+    # measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data.py
+    # said it was missing:
+    {
+        'nutrient_name_documentation': '',
+        'id_nutrient_usda_api': '2019',
+        'nutrient_name_usda_api': '18:3 t',
+        'nutrient_name_measuredfood': 'fatty_acid_18_3_t',
+        'unit_nutrient_usda_api': 'g',
+        'displayed_in_list_of_percentages': '',
+        'placeholder_property_a': '',
+        'placeholder_property_b': '',
+    },
+    {
+        'nutrient_name_documentation': '',
+        'id_nutrient_usda_api': '1253',
+        'nutrient_name_usda_api': 'Cholesterol',
+        'nutrient_name_measuredfood': 'cholesterol',
+        'unit_nutrient_usda_api': 'mg',
+        'displayed_in_list_of_percentages': '',
+        'placeholder_property_a': '',
+        'placeholder_property_b': '',
+    },
+    {
+        'nutrient_name_documentation': '',
+        'id_nutrient_usda_api': '1057',
+        'nutrient_name_usda_api': 'Caffeine',
+        'nutrient_name_measuredfood': 'caffeine',
+        'unit_nutrient_usda_api': 'mg',
+        'displayed_in_list_of_percentages': '',
+        'placeholder_property_a': '',
+        'placeholder_property_b': '',
+    },
+    {
+        'nutrient_name_documentation': '',
+        'id_nutrient_usda_api': '1058',
+        'nutrient_name_usda_api': 'Theobromine',
+        'nutrient_name_measuredfood': 'theobromine',
+        'unit_nutrient_usda_api': 'mg',
+        'displayed_in_list_of_percentages': '',
+        'placeholder_property_a': '',
+        'placeholder_property_b': '',
+    },
 ]
 
 # The displayed_in_list_of_percentages is a True or False value, determining

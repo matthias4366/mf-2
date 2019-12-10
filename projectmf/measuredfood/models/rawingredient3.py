@@ -1,8 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from measuredfood.utils.rawingredient3.transform_ingredient_name_usda_to_measuredfood import transform_ingredient_name_usda_to_measuredfood
 
-from measuredfood.ingredient_properties3 import (
+from measuredfood.ingredient_properties4 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
 
@@ -74,10 +75,18 @@ class RawIngredient3(models.Model):
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # Ignore incomplete nutrient_dict.
     if len(nutrient_dict['id_nutrient_usda_api']) > 0 and \
-            len(nutrient_dict['nutrient_name_measuredfood']) > 0:
+            len(nutrient_dict['nutrient_name_usda_api']) > 0:
+
+        # Create a nutrient name for the measured food database based on the
+        # nutrient name from the USDA API.
+        nutrient_name_measuredfood = \
+            transform_ingredient_name_usda_to_measuredfood(
+                nutrient_dict
+            )
+
         # add the nutrient fields
         RawIngredient3.add_to_class(
-            nutrient_dict['nutrient_name_measuredfood'],
+            nutrient_name_measuredfood,
             models.FloatField(
                 blank=True,
                 null=True,
@@ -85,7 +94,7 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         )
         # add the nutrient unit fields.
         RawIngredient3.add_to_class(
-            nutrient_dict['nutrient_name_measuredfood']+'_unit',
+            nutrient_name_measuredfood+'_unit',
             models.CharField(
                 max_length=100,
                 choices=[(nutrient_dict['unit_nutrient_usda_api'],

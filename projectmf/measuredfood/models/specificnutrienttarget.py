@@ -1,5 +1,5 @@
 from django.db import models
-from measuredfood.ingredient_properties3 import (
+from measuredfood.ingredient_properties4 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS
 )
 from .fulldayofeating import FullDayOfEating

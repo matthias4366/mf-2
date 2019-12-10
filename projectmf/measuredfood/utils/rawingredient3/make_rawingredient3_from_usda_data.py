@@ -6,6 +6,7 @@ def make_rawingredient3_from_usda_data(
     response_json,
     all_nutrients_and_default_units,
     find_equivalent_nutrient_name,
+    datetime,
 ):
     """
 
@@ -15,13 +16,15 @@ def make_rawingredient3_from_usda_data(
     RawIngredient3 instance.
     :param response_json: Response from the FoodData Central API, in JSON form.
     :param all_nutrients_and_default_units: Dictionary contained in
-    ingredient_properties3.py. It is a collection of all nutrients, such as
+    ingredient_properties4.py. It is a collection of all nutrients, such as
     'carbohydrates' etc., and the default unit for each nutrient, such as
     gram ('g') for 'carbohydrates'.
     :param find_equivalent_nutrient_name: The function
     find_equivalent_nutrient_name takes in a nutrient name returned from the
     FoodData Central API and finds the equivalent nutrient name in the
     measuredfood database.
+    :param datetime: datetime module to give timestamps to the missing
+    nutrients that are recorded.
     :return: rawingredient3_instance: Based on the JSON data on the
     ingredient obtained from the FoodData Central API, a RawIngredient3 model
     object has been created and it is returned.
@@ -43,6 +46,9 @@ def make_rawingredient3_from_usda_data(
             nutrient_id = \
                 response_json['foodNutrients'][k]['nutrient'][
                     'id']
+            nutrient_unit = \
+                response_json['foodNutrients'][k]['nutrient'][
+                    'unitName']
             # print('nutrient_name_from_usda')
             # print(nutrient_name_from_usda)
 
@@ -55,13 +61,27 @@ def make_rawingredient3_from_usda_data(
             if equivalent_nutrient_name_measuredfood is None:
                 file_name_to_save_message = \
                     'nutrients_missing_from_measuredfood_database.txt'
-                message_missing_nutrient = '\n' \
-                    + 'The following nutrient name from the FoodCentral ' \
-                    + 'database was not found in the measured food database:'\
-                    + f'nutrient_name_from_usda: {nutrient_name_from_usda}'\
-                    + f'nutrient_id: {nutrient_id}'\
-                    + '\n'
-                with open(file_name_to_save_message, 'w') as outfile:
+                message_missing_nutrient = \
+                    '{\n' \
+                    + '    \'nutrient_name_documentation\': \'\', \n' \
+                    + f'    \'id_nutrient_usda_api\': \'{nutrient_id}\', \n' \
+                    + f'    \'nutrient_name_usda_api\': ' \
+                    + f'\'{nutrient_name_from_usda}\', \n' \
+                    + '    \'nutrient_name_measuredfood\': \'\', \n' \
+                    + f'    \'unit_nutrient_usda_api\': \'{nutrient_id}\',\n'  \
+                    + '    \'displayed_in_list_of_percentages\': \'\', \n' \
+                    + '    \'placeholder_property_a\': \'\', \n'  \
+                    + '    \'placeholder_property_b\': '', \n' \
+                    + '},\n'
+                # message_missing_nutrient = '\n' \
+                #     + f'Time: {datetime.datetime.now()}\n\n'\
+                #     + 'The following nutrient name from the FoodCentral ' \
+                #     + 'database was not found in the measured food database:\n'\
+                #     + f'nutrient_name_from_usda: {nutrient_name_from_usda}\n'\
+                #     + f'nutrient_id: {nutrient_id}\n'\
+                #     + f'nutrient_unit: {nutrient_unit}\n' \
+                #     + '\n'
+                with open(file_name_to_save_message, 'a') as outfile:
                     outfile.write(message_missing_nutrient)
             else:
                 setattr(
