@@ -1,6 +1,5 @@
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
-import datetime
 
 # imports for the view to create raw ingredients
 from django.views.generic import (
@@ -17,8 +16,9 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient2Form
 from measuredfood.utils.check_if_author import check_if_author
-from measuredfood.utils.rawingredient3.find_equivalent_nutrient_name \
-    import find_equivalent_nutrient_name
+from measuredfood.utils.rawingredient3.\
+    transform_ingredient_name_usda_to_measuredfood \
+    import transform_ingredient_name_usda_to_measuredfood
 import logging
 
 from measuredfood.utils.error.custom_error import (
@@ -27,12 +27,10 @@ from measuredfood.utils.error.custom_error import (
 )
 
 from ..forms import FoodDataCentralIDForm
-from ..ingredient_properties4 import ALL_NUTRIENTS_AND_DEFAULT_UNITS
 from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
 
 import requests
-import pprint
 
 
 @login_required
@@ -181,9 +179,7 @@ def get_from_food_data_central(request):
                     RawIngredient3,
                     request,
                     response_json,
-                    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-                    find_equivalent_nutrient_name,
-                    datetime,
+                    transform_ingredient_name_usda_to_measuredfood,
                 )
                 rawingredient3_instance.save()
 

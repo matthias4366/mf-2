@@ -1,26 +1,26 @@
 
 
 def transform_ingredient_name_usda_to_measuredfood(
-    nutrient_dict,
+    nutrient_name_usda_api,
+    id_nutrient_usda_api,
 ):
     """
-
-    :param nutrient_dict:
+    :param nutrient_name_usda_api: The name of nutrient as it was returned by
+    the USDA API.
+    :param id_nutrient_usda_api: The id of the nutrient as it was returned by
+    the USDA API.
     :return:
     """
 
-    # print('\nnutrient_dict[\'nutrient_name_usda_api\']')
-    # print(nutrient_dict['nutrient_name_usda_api'])
-
-    if len(nutrient_dict['nutrient_name_usda_api']) < 1:
+    if len(nutrient_name_usda_api) < 1:
         raise Exception()
 
     ingredient_name_measuredfood = \
-        nutrient_dict['nutrient_name_usda_api'] \
+        str(nutrient_name_usda_api) \
         + '-' \
         + 'name' \
         + '-' \
-        + nutrient_dict['id_nutrient_usda_api'] \
+        + str(id_nutrient_usda_api) \
         + '-' \
         + 'id'
 
