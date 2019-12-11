@@ -7,14 +7,13 @@ from django.views.generic import (
     DeleteView,
 )
 from measuredfood.models import (
-    RawIngredient2,
     RawIngredient3,
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 
 from django.contrib.auth.decorators import login_required
-from measuredfood.forms import RawIngredient2Form
+from measuredfood.forms import RawIngredient3Form
 from measuredfood.utils.check_if_author import check_if_author
 from measuredfood.utils.rawingredient3.\
     transform_ingredient_name_usda_to_measuredfood \
@@ -34,77 +33,79 @@ import requests
 
 
 @login_required
-def create_rawingredient2(request):
+def create_rawingredient3(request):
     logging.info('My changed logging message.')
     """
-    Create view for the RawIngredient2. RawIngredient2 is the updated version
-    of RawIngredient.
+    Create view for the RawIngredient3. RawIngredient3 is the updated version
+    of RawIngredient2.
     """
     if request.method == 'POST':
-        form_rawingredient2 = RawIngredient2Form(request.POST)
-        logging.info(form_rawingredient2.errors)
-        if form_rawingredient2.is_valid():
-            form_rawingredient2.instance.author = request.user
-            form_rawingredient2.save()
-            return redirect('list-rawingredient2')
+        form_rawingredient3 = RawIngredient3Form(request.POST)
+        logging.info(form_rawingredient3.errors)
+        if form_rawingredient3.is_valid():
+            form_rawingredient3.instance.author = request.user
+            form_rawingredient3.save()
+            return redirect('list-rawingredient3')
         else:
-            logging.info('form_rawingredient2 is not valid.')
+            logging.info('form_rawingredient3 is not valid.')
     else:
-        form_rawingredient2 = RawIngredient2Form()
+        form_rawingredient3 = RawIngredient3Form()
         context = {
-            'form': form_rawingredient2
+            'form': form_rawingredient3
         }
         return render(
             request,
-            'measuredfood/rawingredient2_form.html',
+            'measuredfood/rawingredient3_form.html',
             context
             )
 
 
-class ListRawIngredient2(
+class ListRawIngredient3(
     LoginRequiredMixin,
     ListView
 ):
-    model = RawIngredient2
+    model = RawIngredient3
 
     def get_queryset(self):
-        return RawIngredient2.objects.filter(
+        return RawIngredient3.objects.filter(
             author=self.request.user
         ).order_by('name')
 
 
 @login_required
-def update_rawingredient2(request, id_rawingredient2):
+def update_rawingredient3(request, id_rawingredient3):
 
     try:
 
         check_if_author(
             request,
-            RawIngredient2,
-            id_rawingredient2,
+            RawIngredient3,
+            id_rawingredient3,
             UserIsNotAuthorError,
         )
 
-        rawingredient2_object = RawIngredient2.objects.get(pk=id_rawingredient2)
+        rawingredient3_object = RawIngredient3.objects.get(
+            pk=id_rawingredient3
+        )
 
         if request.method == 'POST':
-            form_rawingredient2 = RawIngredient2Form(
+            form_rawingredient3 = RawIngredient3Form(
                 request.POST,
-                instance=rawingredient2_object
+                instance=rawingredient3_object
             )
-            if form_rawingredient2.is_valid():
-                form_rawingredient2.save()
-                return redirect('list-rawingredient2')
+            if form_rawingredient3.is_valid():
+                form_rawingredient3.save()
+                return redirect('list-rawingredient3')
         else:
-            form_rawingredient2 = RawIngredient2Form(
-                instance=rawingredient2_object
+            form_rawingredient3 = RawIngredient3Form(
+                instance=rawingredient3_object
             )
             context = {
-                'form': form_rawingredient2
+                'form': form_rawingredient3
             }
             return render(
                 request,
-                'measuredfood/rawingredient2_form.html',
+                'measuredfood/rawingredient3_form.html',
                 context
                 )
 
@@ -125,13 +126,13 @@ def update_rawingredient2(request, id_rawingredient2):
         )
 
 
-class DeleteRawIngredient2(UserPassesTestMixin, DeleteView):
-    model = RawIngredient2
-    success_url = reverse_lazy('list-rawingredient2')
+class DeleteRawIngredient3(UserPassesTestMixin, DeleteView):
+    model = RawIngredient3
+    success_url = reverse_lazy('list-rawingredient3')
 
     def test_func(self):
-        rawingredient2 = self.get_object()
-        if self.request.user == rawingredient2.author:
+        rawingredient3 = self.get_object()
+        if self.request.user == rawingredient3.author:
             return True
         return False
 
@@ -183,7 +184,7 @@ def get_from_food_data_central(request):
                 )
                 rawingredient3_instance.save()
 
-                return redirect('list-rawingredient2')
+                return redirect('list-rawingredient3')
 
             except FoodDataCentralAPIResponseError:
 
@@ -211,5 +212,5 @@ def get_from_food_data_central(request):
     context = {'form': form}
     return render(
         request,
-        'measuredfood/rawingredient2_get_from_food_data_central.html',
+        'measuredfood/rawingredient3_get_from_food_data_central.html',
         context)

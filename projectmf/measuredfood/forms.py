@@ -6,6 +6,7 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
     RawIngredient2,
+    RawIngredient3,
     Mealplan,
     SpecificFullDayOfEating,
     SpecificNutrientTarget,
@@ -73,6 +74,14 @@ class RawIngredient2Form(forms.ModelForm):
 
     class Meta:
         model = RawIngredient2
+        fields = '__all__'
+        exclude = ['author']
+
+
+class RawIngredient3Form(forms.ModelForm):
+
+    class Meta:
+        model = RawIngredient3
         fields = '__all__'
         exclude = ['author']
 

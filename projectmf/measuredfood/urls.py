@@ -52,6 +52,34 @@ urlpatterns_rawingredient2 = [
     ),
 ]
 
+urlpatterns_rawingredient3 = [
+    path(
+        'rawingredient3/create/',
+        rawingredient3.create_rawingredient3,
+        name='create-rawingredient3'
+    ),
+    path(
+        'rawingredient3/list/',
+        rawingredient3.ListRawIngredient3.as_view(),
+        name='list-rawingredient3'
+    ),
+    path(
+        'rawingredient3/<int:id_rawingredient3>/update/',
+        rawingredient3.update_rawingredient3,
+        name='update-rawingredient3'
+    ),
+    path(
+        'rawingredient3/<int:pk>/delete/',
+        rawingredient3.DeleteRawIngredient3.as_view(),
+        name='delete-rawingredient3'
+    ),
+    path(
+        'rawingredient3/get_from_food_data_central/',
+        rawingredient3.get_from_food_data_central,
+        name='get-from-food-data-central'
+    ),
+]
+
 urlpatterns_nutrientprofile = [
     path(
         'nutrientprofile/create/',
@@ -161,6 +189,7 @@ urlpatterns_shoppinglist = [
 urlpatterns = urlpattern_home \
     + urlpatterns_user \
     + urlpatterns_rawingredient2 \
+    + urlpatterns_rawingredient3 \
     + urlpatterns_nutrientprofile \
     + urlpatterns_fulldayofeating \
     + urlpatterns_fulldayofeating_after_calculation \

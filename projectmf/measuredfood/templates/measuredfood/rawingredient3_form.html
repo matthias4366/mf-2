@@ -1,0 +1,45 @@
+{% extends "measuredfood/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+
+      <a href="{% url 'list-rawingredient3' %}"
+      id="back_to_list_of_ingredients">
+        <button type="button" class="btn btn-lg btn-block btn-primary">
+          Back to list of ingredients
+        </button>
+      </a>
+      <br>
+      <br>
+
+        <h3>Add new ingredient manually</h3>
+        <p>
+          Tip: it is easier to add the ingredients using the FoodData Central
+          database.
+        </p>
+{# Design choices:   #}
+{# Make one column with the field name on the left, and one column with the field on the right.   #}
+{# Forget about putting the unit field next to the amount field. It is work, and it is not good for mobile users.   #}
+{# Changes to be made:   #}
+{# The users need to easily see which field name belongs to which form field.   #}
+{# The column with the form fields should start right where the column with the field names stop.   #}
+{# The excessive nutrients need to be removed. #}
+{# The nutrients need to be divided into sections, such as Vitamins etc.   #}
+{# The field names need to be changed to be more understable:   #}
+{# Use nutrient_name or nutrient_name + 'unit' for the USDA nutrients.   #}
+        <form method="POST">
+            {% csrf_token %}
+             <table id="ingredient_form_table">
+
+            {% for field in form %}
+                <tr>
+                  <td>{{ field.name }}</td>
+                  <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}
