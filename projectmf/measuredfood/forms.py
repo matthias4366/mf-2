@@ -10,7 +10,6 @@ from measuredfood.models import (
     SpecificFullDayOfEating,
     SpecificNutrientTarget,
     )
-import pprint
 from measuredfood.utils.rawingredient3\
     .transform_ingredient_name_usda_to_measuredfood \
     import transform_ingredient_name_usda_to_measuredfood
@@ -39,9 +38,6 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         exclude_.append(
             nutrient_name_measuredfood + '_unit'
         )
-
-print('exclude_')
-pprint.pprint(exclude_)
 
 
 class UserRegisterForm(UserCreationForm):

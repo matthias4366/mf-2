@@ -60,7 +60,7 @@ class RawIngredient3(models.Model):
     class Meta:
         ordering = ["name"]
         # So the user does not get confused, they must give unique names to
-        # their RawIngredient2 objects. Different users can use the same names.
+        # their RawIngredient3 objects. Different users can use the same names.
         unique_together = (
             ("name", "author"),
         )
@@ -89,6 +89,9 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         models.FloatField(
             blank=True,
             null=True,
+            # The verbose_name is used to set the field labels on the
+            # RawIngredient3Form.
+            verbose_name=nutrient_dict['nutrient_name_usda_api'],
         )
     )
     # add the nutrient unit fields.
@@ -101,5 +104,6 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             blank=False,
             null=False,
             default=nutrient_dict['unit_nutrient_usda_api'],
+            verbose_name=nutrient_dict['nutrient_name_usda_api']+' unit',
         )
     )
