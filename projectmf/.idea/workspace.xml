@@ -7,17 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/data/make_list_nutrient_ids_to_ignore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_get_from_food_data_central.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.~lock.nutrient.csv#" beforeDir="false" afterPath="$PROJECT_DIR$/data/.~lock.nutrient.csv#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/nutrient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nutrient_dict_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient_dict_list.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,20 +38,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="888">
               <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/make_list_nutrient_ids_to_ignore.py">
+        <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+            <state relative-caret-position="-707">
+              <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-747">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,7 +196,6 @@
         <option value="$PROJECT_DIR$/measuredfood/ingredient_properties3.py" />
         <option value="$PROJECT_DIR$/measuredfood/ingredient_properties4.py" />
         <option value="$PROJECT_DIR$/data/transform_unit_name_csv_to_unit_name_api.py" />
-        <option value="$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data..py" />
         <option value="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" />
         <option value="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" />
@@ -194,6 +211,7 @@
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_confirm_delete.html" />
         <option value="$PROJECT_DIR$/data/make_list_nutrient_ids_to_ignore.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_form.html" />
+        <option value="$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py" />
       </list>
     </option>
   </component>
@@ -611,7 +629,9 @@
       <workItem from="1575971361692" duration="3573000" />
       <workItem from="1575974976412" duration="19000" />
       <workItem from="1575975062156" duration="3142000" />
-      <workItem from="1576060995392" duration="6134000" />
+      <workItem from="1576060995392" duration="6281000" />
+      <workItem from="1576232238403" duration="1968000" />
+      <workItem from="1576260160621" duration="420000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -712,7 +732,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="462224000" />
+    <option name="totallyTimeSpent" value="464759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -726,7 +746,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34089652" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34864417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1047,16 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/find_equivalent_nutrient_name.py" />
     <entry file="file://$PROJECT_DIR$/data/nutrient_dict_list.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1074,16 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -1137,13 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1522">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1174,6 +1167,26 @@
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_get_from_food_data_central.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/nutrient.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-707">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/make_list_nutrient_ids_to_ignore.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1181,13 +1194,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/nutrient.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/rawingredient3_form.html">
+    <entry file="file://$PROJECT_DIR$/measuredfood/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="-747">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/make_nutrient_dict_list_from_csv_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -24,6 +24,7 @@ for index, row in df.iterrows():
         transform_unit_name_csv_to_unit_name_api(
             unit_nutrient_usda_csv
         )
+    display_in_ingredient_form = row['display_in_ingredient_form']
 
     nutrient_dict_as_string = \
         {
@@ -31,6 +32,7 @@ for index, row in df.iterrows():
             'nutrient_name_usda_api': nutrient_name_usda_api,
             'unit_nutrient_usda_csv': unit_nutrient_usda_csv,
             'unit_nutrient_usda_api': unit_nutrient_usda_api,
+            'display_in_ingredient_form': display_in_ingredient_form,
         }
 
     NUTRIENT_DICT_LIST_ID_NAME_UNIT.append(

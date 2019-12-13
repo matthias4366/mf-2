@@ -3,1362 +3,1589 @@
         "id_nutrient_usda_api": 1002,
         "nutrient_name_usda_api": "Nitrogen",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1003,
         "nutrient_name_usda_api": "Protein",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1004,
         "nutrient_name_usda_api": "Total lipid (fat)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1005,
         "nutrient_name_usda_api": "Carbohydrate, by difference",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1007,
         "nutrient_name_usda_api": "Ash",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1008,
         "nutrient_name_usda_api": "Energy",
         "unit_nutrient_usda_csv": "KCAL",
-        "unit_nutrient_usda_api": "kcal"
+        "unit_nutrient_usda_api": "kcal",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1009,
         "nutrient_name_usda_api": "Starch",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1010,
         "nutrient_name_usda_api": "Sucrose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1011,
         "nutrient_name_usda_api": "Glucose (dextrose)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1012,
         "nutrient_name_usda_api": "Fructose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1013,
         "nutrient_name_usda_api": "Lactose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1014,
         "nutrient_name_usda_api": "Maltose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1018,
         "nutrient_name_usda_api": "Alcohol, ethyl",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1024,
         "nutrient_name_usda_api": "Specific Gravity",
         "unit_nutrient_usda_csv": "SP_GR",
-        "unit_nutrient_usda_api": "sp gr"
+        "unit_nutrient_usda_api": "sp gr",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1026,
         "nutrient_name_usda_api": "Acetic acid",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1038,
         "nutrient_name_usda_api": "Lactic acid",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1050,
         "nutrient_name_usda_api": "Carbohydrate, by summation",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1051,
         "nutrient_name_usda_api": "Water",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1056,
         "nutrient_name_usda_api": "Sorbitol",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1057,
         "nutrient_name_usda_api": "Caffeine",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1058,
         "nutrient_name_usda_api": "Theobromine",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1062,
         "nutrient_name_usda_api": "Energy",
         "unit_nutrient_usda_csv": "kJ",
-        "unit_nutrient_usda_api": "kJ"
+        "unit_nutrient_usda_api": "kJ",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1063,
         "nutrient_name_usda_api": "Sugars, Total NLEA",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1072,
         "nutrient_name_usda_api": "Carbohydrate, other",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1075,
         "nutrient_name_usda_api": "Galactose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1078,
         "nutrient_name_usda_api": "Xylitol",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1079,
         "nutrient_name_usda_api": "Fiber, total dietary",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1081,
         "nutrient_name_usda_api": "Ribose",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1082,
         "nutrient_name_usda_api": "Fiber, soluble",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1084,
         "nutrient_name_usda_api": "Fiber, insoluble",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1085,
         "nutrient_name_usda_api": "Total fat (NLEA)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1086,
         "nutrient_name_usda_api": "Total sugar alcohols",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1087,
         "nutrient_name_usda_api": "Calcium, Ca",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1088,
         "nutrient_name_usda_api": "Chlorine, Cl",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1089,
         "nutrient_name_usda_api": "Iron, Fe",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1090,
         "nutrient_name_usda_api": "Magnesium, Mg",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1091,
         "nutrient_name_usda_api": "Phosphorus, P",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1092,
         "nutrient_name_usda_api": "Potassium, K",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1093,
         "nutrient_name_usda_api": "Sodium, Na",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1094,
         "nutrient_name_usda_api": "Sulfur, S",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1095,
         "nutrient_name_usda_api": "Zinc, Zn",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1096,
         "nutrient_name_usda_api": "Chromium, Cr",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1097,
         "nutrient_name_usda_api": "Cobalt, Co",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1098,
         "nutrient_name_usda_api": "Copper, Cu",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1099,
         "nutrient_name_usda_api": "Fluoride, F",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1100,
         "nutrient_name_usda_api": "Iodine, I",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1101,
         "nutrient_name_usda_api": "Manganese, Mn",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1102,
         "nutrient_name_usda_api": "Molybdenum, Mo",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1103,
         "nutrient_name_usda_api": "Selenium, Se",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1104,
         "nutrient_name_usda_api": "Vitamin A, IU",
         "unit_nutrient_usda_csv": "IU",
-        "unit_nutrient_usda_api": "IU"
+        "unit_nutrient_usda_api": "IU",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1105,
         "nutrient_name_usda_api": "Retinol",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1106,
         "nutrient_name_usda_api": "Vitamin A, RAE",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1107,
         "nutrient_name_usda_api": "Carotene, beta",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1108,
         "nutrient_name_usda_api": "Carotene, alpha",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1109,
         "nutrient_name_usda_api": "Vitamin E (alpha-tocopherol)",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1110,
         "nutrient_name_usda_api": "Vitamin D",
         "unit_nutrient_usda_csv": "IU",
-        "unit_nutrient_usda_api": "IU"
+        "unit_nutrient_usda_api": "IU",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1111,
         "nutrient_name_usda_api": "Vitamin D2 (ergocalciferol)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1112,
         "nutrient_name_usda_api": "Vitamin D3 (cholecalciferol)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1113,
         "nutrient_name_usda_api": "25-hydroxycholecalciferol",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1114,
         "nutrient_name_usda_api": "Vitamin D (D2 + D3)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1116,
         "nutrient_name_usda_api": "Phytoene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1117,
         "nutrient_name_usda_api": "Phytofluene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1119,
         "nutrient_name_usda_api": "Zeaxanthin",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1120,
         "nutrient_name_usda_api": "Cryptoxanthin, beta",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1121,
         "nutrient_name_usda_api": "Lutein",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1122,
         "nutrient_name_usda_api": "Lycopene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1123,
         "nutrient_name_usda_api": "Lutein + zeaxanthin",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1124,
         "nutrient_name_usda_api": "Vitamin E (label entry primarily)",
         "unit_nutrient_usda_csv": "IU",
-        "unit_nutrient_usda_api": "IU"
+        "unit_nutrient_usda_api": "IU",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1125,
         "nutrient_name_usda_api": "Tocopherol, beta",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1126,
         "nutrient_name_usda_api": "Tocopherol, gamma",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1127,
         "nutrient_name_usda_api": "Tocopherol, delta",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1128,
         "nutrient_name_usda_api": "Tocotrienol, alpha",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1129,
         "nutrient_name_usda_api": "Tocotrienol, beta",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1130,
         "nutrient_name_usda_api": "Tocotrienol, gamma",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1131,
         "nutrient_name_usda_api": "Tocotrienol, delta",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1137,
         "nutrient_name_usda_api": "Boron, B",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1146,
         "nutrient_name_usda_api": "Nickel, Ni",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1158,
         "nutrient_name_usda_api": "Vitamin E",
         "unit_nutrient_usda_csv": "MG_ATE",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1159,
         "nutrient_name_usda_api": "cis-beta-Carotene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1160,
         "nutrient_name_usda_api": "cis-Lycopene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1161,
         "nutrient_name_usda_api": "cis-Lutein/Zeaxanthin",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1162,
         "nutrient_name_usda_api": "Vitamin C, total ascorbic acid",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1165,
         "nutrient_name_usda_api": "Thiamin",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1166,
         "nutrient_name_usda_api": "Riboflavin",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1167,
         "nutrient_name_usda_api": "Niacin",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1170,
         "nutrient_name_usda_api": "Pantothenic acid",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1175,
         "nutrient_name_usda_api": "Vitamin B-6",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1176,
         "nutrient_name_usda_api": "Biotin",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1177,
         "nutrient_name_usda_api": "Folate, total",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1178,
         "nutrient_name_usda_api": "Vitamin B-12",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1180,
         "nutrient_name_usda_api": "Choline, total",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1181,
         "nutrient_name_usda_api": "Inositol",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1183,
         "nutrient_name_usda_api": "Menaquinone-4",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1184,
         "nutrient_name_usda_api": "Dihydrophylloquinone",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1185,
         "nutrient_name_usda_api": "Vitamin K (phylloquinone)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1186,
         "nutrient_name_usda_api": "Folic acid",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1187,
         "nutrient_name_usda_api": "Folate, food",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1188,
         "nutrient_name_usda_api": "5-methyl tetrahydrofolate (5-MTHF)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1190,
         "nutrient_name_usda_api": "Folate, DFE",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1191,
         "nutrient_name_usda_api": "10-Formyl folic acid (10HCOFA)",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1192,
         "nutrient_name_usda_api": "5-Formyltetrahydrofolic acid (5-HCOH4",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1194,
         "nutrient_name_usda_api": "Choline, free",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1195,
         "nutrient_name_usda_api": "Choline, from phosphocholine",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1196,
         "nutrient_name_usda_api": "Choline, from phosphotidyl choline",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1197,
         "nutrient_name_usda_api": "Choline, from glycerophosphocholine",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1198,
         "nutrient_name_usda_api": "Betaine",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1199,
         "nutrient_name_usda_api": "Choline, from sphingomyelin",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1210,
         "nutrient_name_usda_api": "Tryptophan",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1211,
         "nutrient_name_usda_api": "Threonine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1212,
         "nutrient_name_usda_api": "Isoleucine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1213,
         "nutrient_name_usda_api": "Leucine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1214,
         "nutrient_name_usda_api": "Lysine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1215,
         "nutrient_name_usda_api": "Methionine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1216,
         "nutrient_name_usda_api": "Cystine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1217,
         "nutrient_name_usda_api": "Phenylalanine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1218,
         "nutrient_name_usda_api": "Tyrosine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1219,
         "nutrient_name_usda_api": "Valine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1220,
         "nutrient_name_usda_api": "Arginine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1221,
         "nutrient_name_usda_api": "Histidine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1222,
         "nutrient_name_usda_api": "Alanine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1223,
         "nutrient_name_usda_api": "Aspartic acid",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1224,
         "nutrient_name_usda_api": "Glutamic acid",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1225,
         "nutrient_name_usda_api": "Glycine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1226,
         "nutrient_name_usda_api": "Proline",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1227,
         "nutrient_name_usda_api": "Serine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1228,
         "nutrient_name_usda_api": "Hydroxyproline",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1232,
         "nutrient_name_usda_api": "Cysteine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1233,
         "nutrient_name_usda_api": "Glutamine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1234,
         "nutrient_name_usda_api": "Taurine",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1235,
         "nutrient_name_usda_api": "Sugars, added",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1242,
         "nutrient_name_usda_api": "Vitamin E, added",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1246,
         "nutrient_name_usda_api": "Vitamin B-12, added",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1253,
         "nutrient_name_usda_api": "Cholesterol",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1257,
         "nutrient_name_usda_api": "Fatty acids, total trans",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1258,
         "nutrient_name_usda_api": "Fatty acids, total saturated",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1259,
         "nutrient_name_usda_api": "4:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1260,
         "nutrient_name_usda_api": "6:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1261,
         "nutrient_name_usda_api": "8:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1262,
         "nutrient_name_usda_api": "10:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1263,
         "nutrient_name_usda_api": "12:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1264,
         "nutrient_name_usda_api": "14:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1265,
         "nutrient_name_usda_api": "16:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1266,
         "nutrient_name_usda_api": "18:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1267,
         "nutrient_name_usda_api": "20:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1268,
         "nutrient_name_usda_api": "18:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1269,
         "nutrient_name_usda_api": "18:2",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1270,
         "nutrient_name_usda_api": "18:3",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1271,
         "nutrient_name_usda_api": "20:4",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1272,
         "nutrient_name_usda_api": "22:6 n-3 (DHA)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1273,
         "nutrient_name_usda_api": "22:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1274,
         "nutrient_name_usda_api": "14:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1275,
         "nutrient_name_usda_api": "16:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1276,
         "nutrient_name_usda_api": "18:4",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1277,
         "nutrient_name_usda_api": "20:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1278,
         "nutrient_name_usda_api": "20:5 n-3 (EPA)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1279,
         "nutrient_name_usda_api": "22:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1280,
         "nutrient_name_usda_api": "22:5 n-3 (DPA)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1281,
         "nutrient_name_usda_api": "14:1 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1283,
         "nutrient_name_usda_api": "Phytosterols",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1285,
         "nutrient_name_usda_api": "Stigmasterol",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1286,
         "nutrient_name_usda_api": "Campesterol",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1288,
         "nutrient_name_usda_api": "Beta-sitosterol",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1292,
         "nutrient_name_usda_api": "Fatty acids, total monounsaturated",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1293,
         "nutrient_name_usda_api": "Fatty acids, total polyunsaturated",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1299,
         "nutrient_name_usda_api": "15:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1300,
         "nutrient_name_usda_api": "17:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1301,
         "nutrient_name_usda_api": "24:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1303,
         "nutrient_name_usda_api": "16:1 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1304,
         "nutrient_name_usda_api": "18:1 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1305,
         "nutrient_name_usda_api": "22:1 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1306,
         "nutrient_name_usda_api": "18:2 t not further defined",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1307,
         "nutrient_name_usda_api": "18:2 i",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1310,
         "nutrient_name_usda_api": "18:2 t,t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1311,
         "nutrient_name_usda_api": "18:2 CLAs",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1312,
         "nutrient_name_usda_api": "24:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1313,
         "nutrient_name_usda_api": "20:2 n-6 c,c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1314,
         "nutrient_name_usda_api": "16:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1315,
         "nutrient_name_usda_api": "18:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1316,
         "nutrient_name_usda_api": "18:2 n-6 c,c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1317,
         "nutrient_name_usda_api": "22:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1321,
         "nutrient_name_usda_api": "18:3 n-6 c,c,c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1323,
         "nutrient_name_usda_api": "17:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1325,
         "nutrient_name_usda_api": "20:3",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1329,
         "nutrient_name_usda_api": "Fatty acids, total trans-monoenoic",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1330,
         "nutrient_name_usda_api": "Fatty acids, total trans-dienoic",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1331,
         "nutrient_name_usda_api": "Fatty acids, total trans-polyenoic",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1332,
         "nutrient_name_usda_api": "13:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1333,
         "nutrient_name_usda_api": "15:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1334,
         "nutrient_name_usda_api": "22:2",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1335,
         "nutrient_name_usda_api": "11:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1368,
         "nutrient_name_usda_api": "Epigallocatechin-3-gallate",
         "unit_nutrient_usda_csv": "MG",
-        "unit_nutrient_usda_api": "mg"
+        "unit_nutrient_usda_api": "mg",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1403,
         "nutrient_name_usda_api": "Inulin",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1404,
         "nutrient_name_usda_api": "18:3 n-3 c,c,c (ALA)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 1405,
         "nutrient_name_usda_api": "20:3 n-3",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1406,
         "nutrient_name_usda_api": "20:3 n-6",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1408,
         "nutrient_name_usda_api": "20:4 n-6",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1409,
         "nutrient_name_usda_api": "18:3i",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1410,
         "nutrient_name_usda_api": "21:5",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1411,
         "nutrient_name_usda_api": "22:4",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1412,
         "nutrient_name_usda_api": "18:1-11 t (18:1t n-7)",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 1414,
         "nutrient_name_usda_api": "20:3 n-9",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2000,
         "nutrient_name_usda_api": "Sugars, total including NLEA",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": true
     },
     {
         "id_nutrient_usda_api": 2003,
         "nutrient_name_usda_api": "5:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2004,
         "nutrient_name_usda_api": "7:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2005,
         "nutrient_name_usda_api": "9:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2006,
         "nutrient_name_usda_api": "21:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2007,
         "nutrient_name_usda_api": "23:0",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2008,
         "nutrient_name_usda_api": "12:1",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2009,
         "nutrient_name_usda_api": "14:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2010,
         "nutrient_name_usda_api": "17:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2012,
         "nutrient_name_usda_api": "20:1 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2013,
         "nutrient_name_usda_api": "20:1 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2014,
         "nutrient_name_usda_api": "22:1 n-9",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2015,
         "nutrient_name_usda_api": "22:1 n-11",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2016,
         "nutrient_name_usda_api": "18:2 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2018,
         "nutrient_name_usda_api": "18:3 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2019,
         "nutrient_name_usda_api": "18:3 t",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2020,
         "nutrient_name_usda_api": "20:3 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2021,
         "nutrient_name_usda_api": "22:3",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2022,
         "nutrient_name_usda_api": "20:4 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2023,
         "nutrient_name_usda_api": "20:5 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2024,
         "nutrient_name_usda_api": "22:5 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2025,
         "nutrient_name_usda_api": "22:6 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2026,
         "nutrient_name_usda_api": "20:2 c",
         "unit_nutrient_usda_csv": "G",
-        "unit_nutrient_usda_api": "g"
+        "unit_nutrient_usda_api": "g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2028,
         "nutrient_name_usda_api": "trans-beta-Carotene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2029,
         "nutrient_name_usda_api": "trans-Lycopene",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     },
     {
         "id_nutrient_usda_api": 2032,
         "nutrient_name_usda_api": "Cryptoxanthin, alpha",
         "unit_nutrient_usda_csv": "UG",
-        "unit_nutrient_usda_api": "\u00b5g"
+        "unit_nutrient_usda_api": "\u00b5g",
+        "display_in_ingredient_form": false
     }
 ]
