@@ -5,14 +5,43 @@ from measuredfood.models import (
     SpecificIngredient,
     FullDayOfEating,
     NutrientProfile,
-    RawIngredient2,
     RawIngredient3,
     Mealplan,
     SpecificFullDayOfEating,
     SpecificNutrientTarget,
     )
+import pprint
+from measuredfood.utils.rawingredient3\
+    .transform_ingredient_name_usda_to_measuredfood \
+    import transform_ingredient_name_usda_to_measuredfood
 
 from django.forms import inlineformset_factory
+import json
+
+with open('data/nutrient_dict_list.json', 'r') as fp:
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS = json.load(fp)
+
+# List of fields to display in NutrientProfileForm.
+# Which fields are displayed is stored in nutrient.csv.
+# The purpose is to not overwhelm the user with the number of nutrients,
+# a lot of which are not important enough to care about.
+exclude_ = ['author']
+for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    if not nutrient_dict['display_in_ingredient_form']:
+        nutrient_name_measuredfood = \
+            transform_ingredient_name_usda_to_measuredfood(
+                nutrient_dict['nutrient_name_usda_api'],
+                nutrient_dict['id_nutrient_usda_api'],
+            )
+        exclude_.append(
+            nutrient_name_measuredfood
+        )
+        exclude_.append(
+            nutrient_name_measuredfood + '_unit'
+        )
+
+print('exclude_')
+pprint.pprint(exclude_)
 
 
 class UserRegisterForm(UserCreationForm):
@@ -44,7 +73,7 @@ class NutrientProfileForm(forms.ModelForm):
     class Meta:
         model = NutrientProfile
         fields = '__all__'
-        exclude = ['author']
+        exclude = exclude_
 
 
 SpecificIngredientFormset = inlineformset_factory(
@@ -70,20 +99,12 @@ SpecificFullDayOfEatingFormset = inlineformset_factory(
 )
 
 
-class RawIngredient2Form(forms.ModelForm):
-
-    class Meta:
-        model = RawIngredient2
-        fields = '__all__'
-        exclude = ['author']
-
-
 class RawIngredient3Form(forms.ModelForm):
 
     class Meta:
         model = RawIngredient3
         fields = '__all__'
-        exclude = ['author']
+        exclude = exclude_
 
 
 class SpecificNutrientTargetForm(forms.ModelForm):
