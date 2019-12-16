@@ -42,11 +42,8 @@ def query_ingredients_fulldayofeating(
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
 
         # Make sure that no None fields are returned.
-        for nutrient_dict_k in all_nutrients_and_default_units:
-            nutrient_name = transform_ingredient_name_usda_to_measuredfood(
-                nutrient_name_usda_api,
-                id_nutrient_usda_api,
-            )
+        for nutrient_dict in all_nutrients_and_default_units:
+            nutrient_name = nutrient_dict['nutrient_name_measuredfood']
             rawingredient_k_dict[nutrient_name] = \
                 set_to_zero_if_none(rawingredient_k_dict[nutrient_name])
 

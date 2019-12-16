@@ -2,11 +2,12 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from measuredfood.utils.rawingredient3.\
-    transform_ingredient_name_usda_to_measuredfood \
-    import transform_ingredient_name_usda_to_measuredfood
+    transform_nutrient_name_usda_to_measuredfood \
+    import transform_nutrient_name_usda_to_measuredfood
 
 from measuredfood.ingredient_properties4 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+    INGREDIENT_FIELDS_LINKS,
 )
 
 # The unit choices have been implemented for extensibility, so it is easier
@@ -30,13 +31,13 @@ class RawIngredient3(models.Model):
     )
 
     # Price of the ingredient per reference amount
-    price_per_100_gram = models.FloatField(
+    price_per_reference_amount = models.FloatField(
         blank=True,
         null=True,
         default=0
     )
 
-    currency_of_price_per_100_gram = models.CharField(
+    currency_of_price_per_reference_amount = models.CharField(
         max_length=100,
         choices=[('\u20ac', '\u20ac'), ],
         blank=False,
@@ -55,6 +56,15 @@ class RawIngredient3(models.Model):
         blank=False,
         null=False,
         default='g',
+    )
+
+    # Reference amount to which all the nutrition amounts related, e.g.
+    # 370 kcal / 100 g => 100 is the reference amount.
+    reference_amount = models.FloatField(
+        blank=True,
+        null=False,
+        default=100,
+        editable=False,
     )
 
     class Meta:
@@ -78,7 +88,7 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # Create a nutrient name for the measured food database based on the
     # nutrient name from the USDA API.
     nutrient_name_measuredfood = \
-        transform_ingredient_name_usda_to_measuredfood(
+        transform_nutrient_name_usda_to_measuredfood(
             nutrient_dict['nutrient_name_usda_api'],
             nutrient_dict['id_nutrient_usda_api']
         )
@@ -106,4 +116,13 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             default=nutrient_dict['unit_nutrient_usda_api'],
             verbose_name=nutrient_dict['nutrient_name_usda_api']+' unit',
         )
+    )
+
+for name in INGREDIENT_FIELDS_LINKS:
+    RawIngredient3.add_to_class(
+        name,
+        models.URLField(
+            max_length=1000,
+            blank=True,
+            null=True)
     )

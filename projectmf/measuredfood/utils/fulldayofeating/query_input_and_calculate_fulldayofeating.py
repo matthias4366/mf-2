@@ -1,4 +1,4 @@
-import pprint
+# import pprint
 
 
 def query_input_and_calculate_fulldayofeating(
@@ -39,8 +39,8 @@ def query_input_and_calculate_fulldayofeating(
         no_specific_ingredient_in_full_day_of_eating_error,
     )
 
-    print('specificingredient_dict_list')
-    pprint.pprint(specificingredient_dict_list)
+    # print('specificingredient_dict_list')
+    # pprint.pprint(specificingredient_dict_list)
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,

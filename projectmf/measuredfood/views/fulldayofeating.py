@@ -379,7 +379,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         # Make the default units into a list and display them in the table.
         default_unit_list = []
         for dict_k in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-            default_unit_list.append(dict_k['default_unit'])
+            default_unit_list.append(dict_k['unit_nutrient_usda_api'])
 
         result_judge_total_nutrition, \
             result_judge_total_nutrition_css_class_name = judge_total_nutrition(

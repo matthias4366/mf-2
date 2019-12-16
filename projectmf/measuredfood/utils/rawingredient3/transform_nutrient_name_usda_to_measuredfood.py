@@ -1,6 +1,6 @@
 
 
-def transform_ingredient_name_usda_to_measuredfood(
+def transform_nutrient_name_usda_to_measuredfood(
     nutrient_name_usda_api,
     id_nutrient_usda_api,
 ):
@@ -15,7 +15,7 @@ def transform_ingredient_name_usda_to_measuredfood(
     if len(nutrient_name_usda_api) < 1:
         raise Exception()
 
-    ingredient_name_measuredfood = \
+    nutrient_name_measuredfood = \
         str(nutrient_name_usda_api) \
         + '-' \
         + 'name' \
@@ -24,12 +24,12 @@ def transform_ingredient_name_usda_to_measuredfood(
         + '-' \
         + 'id'
 
-    ingredient_name_measuredfood.replace(" ", "_")
-    ingredient_name_measuredfood.replace("__", "")
-    ingredient_name_measuredfood.replace("___", "")
-    ingredient_name_measuredfood.replace("____", "")
-    ingredient_name_measuredfood.replace("_____", "")
-    ingredient_name_measuredfood.replace("______", "")
-    ingredient_name_measuredfood.replace("_______", "")
+    nutrient_name_measuredfood.replace(" ", "_")
+    nutrient_name_measuredfood.replace("__", "")
+    nutrient_name_measuredfood.replace("___", "")
+    nutrient_name_measuredfood.replace("____", "")
+    nutrient_name_measuredfood.replace("_____", "")
+    nutrient_name_measuredfood.replace("______", "")
+    nutrient_name_measuredfood.replace("_______", "")
 
-    return ingredient_name_measuredfood
+    return nutrient_name_measuredfood

@@ -111,14 +111,14 @@ def calculate_fulldayofeating(
 
     fulldayofeating_nutrition_so_far = {}
     for nutrient_dict in all_nutrients_and_default_units:
-        nutrient_field_name = nutrient_dict['name']
+        nutrient_field_name = nutrient_dict['nutrient_name_measuredfood']
         fulldayofeating_nutrition_so_far.update(
             {nutrient_field_name: 0}
         )
 
     for dict_k in specificingredient_scalingoption_fixed:
         for nutrient_dict in all_nutrients_and_default_units:
-            nutrient_field_name = nutrient_dict['name']
+            nutrient_field_name = nutrient_dict['nutrient_name_measuredfood']
             if dict_k['raw_ingredient'][nutrient_field_name] is None:
                 dict_k['raw_ingredient'][nutrient_field_name] = 0
             fulldayofeating_nutrition_so_far[nutrient_field_name] = \

@@ -5,8 +5,8 @@ from measuredfood.ingredient_properties4 import (
 from .fulldayofeating import FullDayOfEating
 
 from measuredfood.utils.rawingredient3\
-    .transform_ingredient_name_usda_to_measuredfood \
-    import transform_ingredient_name_usda_to_measuredfood
+    .transform_nutrient_name_usda_to_measuredfood \
+    import transform_nutrient_name_usda_to_measuredfood
 
 choices_nutrient_names = []
 # For the choice field, create a tuple with the nutrients.
@@ -18,7 +18,7 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # Create a nutrient name for the measured food database based on the
     # nutrient name from the USDA API.
     nutrient_name_measuredfood = \
-        transform_ingredient_name_usda_to_measuredfood(
+        transform_nutrient_name_usda_to_measuredfood(
             nutrient_dict['nutrient_name_usda_api'],
             nutrient_dict['id_nutrient_usda_api'],
         )

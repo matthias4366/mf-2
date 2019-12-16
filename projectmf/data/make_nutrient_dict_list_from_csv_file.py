@@ -2,6 +2,13 @@ import pandas as pd
 import json
 from transform_unit_name_csv_to_unit_name_api import \
     transform_unit_name_csv_to_unit_name_api
+import sys
+sys.path.append("..")
+sys.path.append("...")
+sys.path.append("....")
+from measuredfood.utils.rawingredient3\
+    .transform_nutrient_name_usda_to_measuredfood import \
+    transform_nutrient_name_usda_to_measuredfood
 
 """
 The USDA was so kind as to provide a full list of all the nutrients,
@@ -26,6 +33,12 @@ for index, row in df.iterrows():
         )
     display_in_ingredient_form = row['display_in_ingredient_form']
 
+    nutrient_name_measuredfood = \
+        transform_nutrient_name_usda_to_measuredfood(
+            nutrient_name_usda_api,
+            id_nutrient_usda_api,
+        )
+
     nutrient_dict_as_string = \
         {
             'id_nutrient_usda_api': id_nutrient_usda_api,
@@ -33,6 +46,7 @@ for index, row in df.iterrows():
             'unit_nutrient_usda_csv': unit_nutrient_usda_csv,
             'unit_nutrient_usda_api': unit_nutrient_usda_api,
             'display_in_ingredient_form': display_in_ingredient_form,
+            'nutrient_name_measuredfood': nutrient_name_measuredfood,
         }
 
     NUTRIENT_DICT_LIST_ID_NAME_UNIT.append(

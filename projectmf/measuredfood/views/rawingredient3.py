@@ -16,8 +16,8 @@ from django.contrib.auth.decorators import login_required
 from measuredfood.forms import RawIngredient3Form
 from measuredfood.utils.check_if_author import check_if_author
 from measuredfood.utils.rawingredient3.\
-    transform_ingredient_name_usda_to_measuredfood \
-    import transform_ingredient_name_usda_to_measuredfood
+    transform_nutrient_name_usda_to_measuredfood \
+    import transform_nutrient_name_usda_to_measuredfood
 import logging
 
 from measuredfood.utils.error.custom_error import (
@@ -180,7 +180,7 @@ def get_from_food_data_central(request):
                     RawIngredient3,
                     request,
                     response_json,
-                    transform_ingredient_name_usda_to_measuredfood,
+                    transform_nutrient_name_usda_to_measuredfood,
                 )
                 rawingredient3_instance.save()
 

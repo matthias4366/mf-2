@@ -11,8 +11,8 @@ from measuredfood.models import (
     SpecificNutrientTarget,
     )
 from measuredfood.utils.rawingredient3\
-    .transform_ingredient_name_usda_to_measuredfood \
-    import transform_ingredient_name_usda_to_measuredfood
+    .transform_nutrient_name_usda_to_measuredfood \
+    import transform_nutrient_name_usda_to_measuredfood
 
 from django.forms import inlineformset_factory
 import json
@@ -28,7 +28,7 @@ exclude_ = ['author']
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     if not nutrient_dict['display_in_ingredient_form']:
         nutrient_name_measuredfood = \
-            transform_ingredient_name_usda_to_measuredfood(
+            transform_nutrient_name_usda_to_measuredfood(
                 nutrient_dict['nutrient_name_usda_api'],
                 nutrient_dict['id_nutrient_usda_api'],
             )
