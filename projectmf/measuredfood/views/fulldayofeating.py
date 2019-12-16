@@ -333,11 +333,11 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
         # Make the result_total_nutrition_fulldayofeating_rounded into a list.
         result_total_nutrition_fulldayofeating_rounded_list = []
-        nutrient_name_list = []
+        nutrient_name_measuredfood_list = []
         for key, value in \
                 result_total_nutrition_fulldayofeating_rounded.items():
             result_total_nutrition_fulldayofeating_rounded_list.append(value)
-            nutrient_name_list.append(key)
+            nutrient_name_measuredfood_list.append(key)
 
         # Calculate the ratio of the total nutrition in the full day of eating
         # in relation to the target amounts in the nutrient profile and
@@ -359,6 +359,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
         # Make the result_percentage_of_target_amount_str into a list
         result_percentage_of_target_amount_list = []
+
         for key, value in result_percentage_of_target_amount_str.items():
             result_percentage_of_target_amount_list.append(value)
 
@@ -390,7 +391,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
 
         aggregated_total_nutrition_fulldayofeating = \
             zip(
-                nutrient_name_list,
+                nutrient_name_measuredfood_list,
                 result_total_nutrition_fulldayofeating_rounded_list,
                 default_unit_list,
                 result_percentage_of_target_amount_list,
@@ -398,6 +399,25 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 result_judge_total_nutrition,
                 result_judge_total_nutrition_css_class_name,
                 )
+
+        aggregated_ = copy.deepcopy(aggregated_total_nutrition_fulldayofeating)
+
+        # Remove the nutrients which are not to be displayed.
+        aggregated_total_nutrition_not_all_nutrients_displayed = []
+        for ab in aggregated_:
+            for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+                if nutrient_dict['is_displayed']:
+                    if ab[0] == nutrient_dict['nutrient_name_measuredfood']:
+                        # Add a tuple containing the nutrient name from the
+                        # USDA API, which is much more readable and thus
+                        # better to display.
+                        ab = ab + (nutrient_dict['nutrient_name_usda_api'],)
+                        aggregated_total_nutrition_not_all_nutrients_displayed.\
+                            append(ab)
+                    else:
+                        continue
+                else:
+                    continue
 
         total_price_fulldayofeating_result_dict = \
             calculate_total_price_fulldayofeating(
@@ -410,7 +430,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                    'result_calculate_fulldayofeating':
                    result_calculate_fulldayofeating,
                    'aggregated_total_nutrition_fulldayofeating':
-                   aggregated_total_nutrition_fulldayofeating,
+                   aggregated_total_nutrition_not_all_nutrients_displayed,
+                   # aggregated_total_nutrition_fulldayofeating,
                    'result_percentage_of_target_amount':
                    result_percentage_of_target_amount_str,
                    'total_price_fulldayofeating_result_dict':

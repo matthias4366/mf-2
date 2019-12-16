@@ -67,28 +67,6 @@ class RawIngredient3(models.Model):
         editable=False,
     )
 
-    # In the USDA database, the 'Carbohydrate, by difference' value includes
-    # the fibre. Of course, the number of carbohydrates should not include
-    # fiber. The number of carbohydrate_without_fiber is calculated by
-    # subtracting the number of 'Carbohydrate, by difference' and
-    # 'Fiber, total dietary'.
-    carbohydrate_without_fiber = models.FloatField(
-        blank=True,
-        null=True,
-        # The verbose_name is used to set the field labels on the
-        # RawIngredient3Form.
-        verbose_name='Carbohydrate without fiber',
-    )
-    carbohydrate_without_fiber_unit = models.CharField(
-        max_length=100,
-        choices=[('g',
-                  'g'), ],
-        blank=False,
-        null=False,
-        default='g',
-        verbose_name='Carbohydrate without fiber unit',
-    )
-
     class Meta:
         ordering = ["name"]
         # So the user does not get confused, they must give unique names to

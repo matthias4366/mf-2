@@ -24,6 +24,7 @@ def transform_nutrient_name_usda_to_measuredfood(
         + '-' \
         + 'id'
 
+    nutrient_name_measuredfood = nutrient_name_measuredfood.lower()
     nutrient_name_measuredfood = nutrient_name_measuredfood.replace(",", "")
     nutrient_name_measuredfood = nutrient_name_measuredfood.replace(" ", "_")
     nutrient_name_measuredfood = nutrient_name_measuredfood.replace("__", "")

@@ -1,122 +1,120 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+  <div class="content-section">
 
-  <a href="{% url 'update-fulldayofeating' id_fulldayofeating %}">
-    <button type="button" class="btn btn-lg btn-block btn-primary">
-      Back to Full Day Of Eating: {{ fulldayofeating_object.name }}.
-    </button>
-  </a>
-  <br>
-  <br>
+    <a href="{% url 'update-fulldayofeating' id_fulldayofeating %}">
+      <button type="button" class="btn btn-lg btn-block btn-primary">
+        Back to Full Day Of Eating: {{ fulldayofeating_object.name }}.
+      </button>
+    </a>
+    <br>
+    <br>
 
-  <h1>Calculation results:</h1>
-  <table class="generic_table_th_td">
-    <tr>
-      <th class="generic_table_th_td">Calculated amount</th>
-      <th class="generic_table_th_td">Unit</th>
-      <th class="generic_table_th_td">Ingredient</th>
-      <th class="generic_table_th_td">Affiliate link</th>
-    </tr>
-    {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
-    <tr>
-      <td
-              class="generic_table_th_td"
-              id="calculated amount {{ dict_k.name }}"
-      >
-        {{ dict_k.calculated_amount }}
-      </td>
-      <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
-      <td class="generic_table_th_td">{{ dict_k.name }}</td>
-      <td class="generic_table_th_td">
-        <a href="{{ dict_k.buy_here_link }}">Buy</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
-  <br>
-  <br>
-  <h1>Cooking instructions:</h1>
-  <p>{{ fulldayofeating_object.cooking_instruction|linebreaks }}</p>
-  <br>
-  <br>
-  <h1>Total nutrition in full day of eating:</h1>
-  <table class="total_nutrition_table generic_table_th_td">
-    <tr>
-      <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
-      <th class="total_nutrition_table generic_table_th_td">Content</th>
-      <th class="total_nutrition_table generic_table_th_td">Unit</th>
-      <!-- Percent of the target set in NutrientProfile -->
-      <th class="total_nutrition_table generic_table_th_td">% Target</th>
-      <th class="total_nutrition_table generic_table_th_td">% Max</th>
-      <th class="total_nutrition_table generic_table_th_td">Judgement</th>
-    </tr>
-
-    <!-- Use forloop.counter0 to access the for loop counter -->
-
-    {% for ab in aggregated_total_nutrition_fulldayofeating %}
-      <tr class="{{ ab.6 }} total_nutrition_table">
-        {# The ids are used to access the fields in the functional tests. #}
+    <h1>Calculation results:</h1>
+    <table class="generic_table_th_td">
+      <tr>
+        <th class="generic_table_th_td">Calculated amount</th>
+        <th class="generic_table_th_td">Unit</th>
+        <th class="generic_table_th_td">Ingredient</th>
+        <th class="generic_table_th_td">Affiliate link</th>
+      </tr>
+      {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
+      <tr>
         <td
-                class="total_nutrition_table generic_table_th_td"
+                class="generic_table_th_td"
+                id="calculated amount {{ dict_k.name }}"
         >
-          {{ ab.0 }}
+          {{ dict_k.calculated_amount }}
         </td>
-        <td
-                class="total_nutrition_table generic_table_th_td"
-                id="nutrient content {{ ab.0 }}"
-        >
-          {{ ab.1 }}
-        </td>
-        <td
-                class="total_nutrition_table generic_table_th_td"
-        >
-          {{ ab.2 }}
-        </td>
-        <td
-                class="total_nutrition_table generic_table_th_td"
-                id="percent target {{ ab.0 }}"
-        >
-          {{ ab.3 }}
-        </td>
-        <td
-                class="total_nutrition_table generic_table_th_td"
-                id="percent max {{ ab.0 }}"
-        >
-          {{ ab.4 }}
-        </td>
-        <td
-                class="total_nutrition_table generic_table_th_td"
-                id="judgment {{ ab.0 }}"
-        >
-          {{ ab.5 }}
+        <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
+        <td class="generic_table_th_td">{{ dict_k.name }}</td>
+        <td class="generic_table_th_td">
+          <a href="{{ dict_k.buy_here_link }}">Buy</a>
         </td>
       </tr>
-    {% endfor %}
+      {% endfor %}
+    </table>
+    <br>
+    <br>
+    <h1>Cooking instructions:</h1>
+    <p>{{ fulldayofeating_object.cooking_instruction|linebreaks }}</p>
+    <br>
+    <br>
+    <h1>Total nutrition in full day of eating:</h1>
+    <table class="total_nutrition_table generic_table_th_td">
+      <tr>
+        <th class="total_nutrition_table generic_table_th_td">Nutrient name</th>
+        <th class="total_nutrition_table generic_table_th_td">Content</th>
+        <th class="total_nutrition_table generic_table_th_td">Unit</th>
+        <!-- Percent of the target set in NutrientProfile -->
+        <th class="total_nutrition_table generic_table_th_td">% Target</th>
+        <th class="total_nutrition_table generic_table_th_td">% Max</th>
+        <th class="total_nutrition_table generic_table_th_td">Judgement</th>
+      </tr>
 
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h1>Total price of full day of eating:</h1>
-  <table class="generic_table_th_td">
-    <tr>
-      <th class="generic_table_th_td">Price</th>
-      <th class="generic_table_th_td">Currency</th>
-    </tr>
-    <tr>
-      <td class="generic_table_th_td"
-      >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
-      <td class="generic_table_th_td"
-      >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
-    </tr>
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
+      <!-- Use forloop.counter0 to access the for loop counter -->
 
+      {% for ab in aggregated_total_nutrition_fulldayofeating %}
+        <tr class="{{ ab.6 }} total_nutrition_table">
+          {# The ids are used to access the fields in the functional tests. #}
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+          >
+            {{ ab.7 }}
+          </td>
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+                  id="nutrient content {{ ab.0 }}"
+          >
+            {{ ab.1 }}
+          </td>
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+          >
+            {{ ab.2 }}
+          </td>
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+                  id="percent target {{ ab.0 }}"
+          >
+            {{ ab.3 }}
+          </td>
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+                  id="percent max {{ ab.0 }}"
+          >
+            {{ ab.4 }}
+          </td>
+          <td
+                  class="total_nutrition_table generic_table_th_td"
+                  id="judgment {{ ab.0 }}"
+          >
+            {{ ab.5 }}
+          </td>
+        </tr>
+      {% endfor %}
 
-
-
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Total price of full day of eating:</h1>
+    <table class="generic_table_th_td">
+      <tr>
+        <th class="generic_table_th_td">Price</th>
+        <th class="generic_table_th_td">Currency</th>
+      </tr>
+      <tr>
+        <td class="generic_table_th_td"
+        >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>
+        <td class="generic_table_th_td"
+        >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
 {% endblock content %}

@@ -15,7 +15,7 @@ from measuredfood.models import (
     SpecificFullDayOfEating,
     SpecificIngredient,
     NutrientProfile,
-    RawIngredient2,
+    RawIngredient3,
     SpecificNutrientTarget,
 )
 from measuredfood.forms import (
@@ -241,7 +241,7 @@ def shoppinglist_view(request, id_mealplan):
                     set_to_zero_if_none,
                     id_fulldayofeating,
                     SpecificIngredient,
-                    RawIngredient2,
+                    RawIngredient3,
                     FullDayOfEating,
                     NutrientProfile,
                     SpecificNutrientTarget,
@@ -439,16 +439,16 @@ def shoppinglist_view(request, id_mealplan):
         # that list, iterate over all the SpecificIngredients.
         for dict_specificingredient_k in list_specificingredient_for_sum:
             # For each SpecificIngredient,
-            # get the name of the associated RawIngredient2.
+            # get the name of the associated RawIngredient3.
             rawingredient_id = dict_specificingredient_k['rawingredient_id']
-            query_rawingredient_name = RawIngredient2.objects.filter(
+            query_rawingredient_name = RawIngredient3.objects.filter(
                 id=rawingredient_id
             ).values('name')
 
             rawingredient_name = list(query_rawingredient_name)[0]['name']
 
             # New code:
-            # Check if the name of the RawIngredient2 is already in the
+            # Check if the name of the RawIngredient3 is already in the
             # shopping_list.
             # If it is not, add it and initialize the sum total
             # amount as 0.
@@ -463,7 +463,7 @@ def shoppinglist_view(request, id_mealplan):
                 shopping_list.update(new_dict)
 
             # After that, add the calculated_amount of the SpecificIngredient
-            # which is related to the RawIngredient2 to the sum total amount.
+            # which is related to the RawIngredient3 to the sum total amount.
             shopping_list[rawingredient_name]['amount'] = \
                 shopping_list[rawingredient_name]['amount'] \
                 + dict_specificingredient_k['calculated_amount']
@@ -567,7 +567,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
                     set_to_zero_if_none,
                     id_fulldayofeating,
                     SpecificIngredient,
-                    RawIngredient2,
+                    RawIngredient3,
                     FullDayOfEating,
                     NutrientProfile,
                     SpecificNutrientTarget,
@@ -771,7 +771,7 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         specificingredient_dict_list = query_ingredients_fulldayofeating(
             id_fulldayofeating,
             SpecificIngredient,
-            RawIngredient2,
+            RawIngredient3,
             ALL_NUTRIENTS_AND_DEFAULT_UNITS,
             set_to_zero_if_none,
             NoSpecificIngredientInFullDayOfEatingError,
