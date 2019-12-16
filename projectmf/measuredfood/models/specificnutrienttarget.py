@@ -13,7 +13,7 @@ choices_nutrient_names = []
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
     # Do not display a part of the nutrients defined in the nutrients.csv
     # file. The reason is to not overwhelm the user.
-    if not nutrient_dict['display_in_ingredient_form']:
+    if not nutrient_dict['is_displayed']:
         continue
     # Create a nutrient name for the measured food database based on the
     # nutrient name from the USDA API.

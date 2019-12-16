@@ -1,3 +1,4 @@
+# import pprint
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
 
@@ -25,9 +26,17 @@ from measuredfood.utils.error.custom_error import (
     FoodDataCentralAPIResponseError,
 )
 
+from measuredfood.utils.rawingredient3.\
+    calculate_carbohydrate_without_fiber_form \
+    import calculate_carbohydrate_without_fiber_form
+from measuredfood.utils.rawingredient3.\
+    calculate_carbohydrate_without_fiber_model_instance import \
+    calculate_carbohydrate_without_fiber_model_instance
+
 from ..forms import FoodDataCentralIDForm
 from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
+from ..utils.set_to_zero_if_none import set_to_zero_if_none
 
 import requests
 
@@ -44,6 +53,10 @@ def create_rawingredient3(request):
         logging.info(form_rawingredient3.errors)
         if form_rawingredient3.is_valid():
             form_rawingredient3.instance.author = request.user
+            form_rawingredient3 = calculate_carbohydrate_without_fiber_form(
+                form_rawingredient3,
+                set_to_zero_if_none,
+            )
             form_rawingredient3.save()
             return redirect('list-rawingredient3')
         else:
@@ -94,6 +107,10 @@ def update_rawingredient3(request, id_rawingredient3):
                 instance=rawingredient3_object
             )
             if form_rawingredient3.is_valid():
+                form_rawingredient3 = calculate_carbohydrate_without_fiber_form(
+                    form_rawingredient3,
+                    set_to_zero_if_none,
+                )
                 form_rawingredient3.save()
                 return redirect('list-rawingredient3')
         else:
@@ -182,6 +199,16 @@ def get_from_food_data_central(request):
                     response_json,
                     transform_nutrient_name_usda_to_measuredfood,
                 )
+
+                rawingredient3_instance = \
+                    calculate_carbohydrate_without_fiber_model_instance(
+                        rawingredient3_instance,
+                        set_to_zero_if_none,
+                    )
+
+                # print('rawingredient3_instance')
+                # pprint.pprint(rawingredient3_instance._meta.fields)
+
                 rawingredient3_instance.save()
 
                 return redirect('list-rawingredient3')

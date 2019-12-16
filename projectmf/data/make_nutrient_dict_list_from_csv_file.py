@@ -31,7 +31,7 @@ for index, row in df.iterrows():
         transform_unit_name_csv_to_unit_name_api(
             unit_nutrient_usda_csv
         )
-    display_in_ingredient_form = row['display_in_ingredient_form']
+    is_displayed = row['is_displayed']
 
     nutrient_name_measuredfood = \
         transform_nutrient_name_usda_to_measuredfood(
@@ -41,12 +41,33 @@ for index, row in df.iterrows():
 
     nutrient_dict_as_string = \
         {
+            # In the USDA database, each nutrient is identified by a unique id.
             'id_nutrient_usda_api': id_nutrient_usda_api,
+            # In the USDA database, each nutrient has a name. This name is
+            # not unique, as the nutrients are identified by their unique
+            # ids. For example, there is "Energy" twice: once with the unit
+            # 'kcal', once with the unit 'kJ'.
             'nutrient_name_usda_api': nutrient_name_usda_api,
+            # In the nutrient.csv file, each nutrient has a unit. However,
+            # it is not in a pretty format, such as 'G' for 'gram'.
             'unit_nutrient_usda_csv': unit_nutrient_usda_csv,
+            # The unit from the nutrients.csv file in the ugly format is
+            # taken and the corresponding unit in a prettier format is found
+            # and saved here.
             'unit_nutrient_usda_api': unit_nutrient_usda_api,
-            'display_in_ingredient_form': display_in_ingredient_form,
+            # There are too many nutrients to display them all. This boolean
+            # value decides whether a nutrient is displayed.
+            'is_displayed': is_displayed,
+            # The name under which the nutrient is stored in the measuredfood
+            # database. It has to contain the id from the USDA database,
+            # as that ensures uniqueness.
             'nutrient_name_measuredfood': nutrient_name_measuredfood,
+            # The nutrient_name_measuredfood is not in a format that humans
+            # can easily read and understand. Hence, a human_readable_name is
+            # stored seperately. It is stored seperately from
+            # nutrient_name_usda_api, since there are some nutrients not from
+            # the USDA database that will be implemented in measuredfood.
+            'human_readable_name': nutrient_name_usda_api,
         }
 
     NUTRIENT_DICT_LIST_ID_NAME_UNIT.append(

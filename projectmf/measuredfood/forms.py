@@ -26,7 +26,7 @@ with open('data/nutrient_dict_list.json', 'r') as fp:
 # a lot of which are not important enough to care about.
 exclude_ = ['author']
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
-    if not nutrient_dict['display_in_ingredient_form']:
+    if not nutrient_dict['is_displayed']:
         nutrient_name_measuredfood = \
             transform_nutrient_name_usda_to_measuredfood(
                 nutrient_dict['nutrient_name_usda_api'],
