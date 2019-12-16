@@ -11,6 +11,10 @@ from measuredfood.utils.rawingredient3\
 choices_nutrient_names = []
 # For the choice field, create a tuple with the nutrients.
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
+    # Do not display a part of the nutrients defined in the nutrients.csv
+    # file. The reason is to not overwhelm the user.
+    if not nutrient_dict['display_in_ingredient_form']:
+        continue
     # Create a nutrient name for the measured food database based on the
     # nutrient name from the USDA API.
     nutrient_name_measuredfood = \
@@ -19,7 +23,9 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             nutrient_dict['id_nutrient_usda_api'],
         )
     nutrient_name = nutrient_name_measuredfood
-    new_tuple = (nutrient_name, nutrient_name)
+    # The second element of the tuple is the human readable name.
+    # Therefore, the nutrient_name_usda_api will be inserted here.
+    new_tuple = (nutrient_name, nutrient_dict['nutrient_name_usda_api'])
     choices_nutrient_names.append(new_tuple)
 
 

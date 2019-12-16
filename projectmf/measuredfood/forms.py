@@ -38,6 +38,13 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         exclude_.append(
             nutrient_name_measuredfood + '_unit'
         )
+        # The following fields are part of the nutrient profile form.
+        exclude_.append(
+            'max_'+nutrient_name_measuredfood
+        )
+        exclude_.append(
+            'max_'+nutrient_name_measuredfood + '_unit'
+        )
 
 
 class UserRegisterForm(UserCreationForm):

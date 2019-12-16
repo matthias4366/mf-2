@@ -6,7 +6,7 @@ from measuredfood.forms import (
     SpecificNutrientTargetFormset
     )
 from measuredfood.models import (
-    RawIngredient2,
+    RawIngredient3,
     NutrientProfile,
     SpecificNutrientTarget,
 )
@@ -22,7 +22,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from measuredfood.utils.calculate_fulldayofeating\
     import calculate_fulldayofeating
 from django.contrib.auth.decorators import login_required
-from measuredfood.ingredient_properties2 import (
+from measuredfood.ingredient_properties4 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
 )
 import numpy as np
@@ -149,11 +149,11 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 instance=fulldayofeating_object
                 )
             # I do not know if this part is necessary. It seems to work without.
-            # Allow the user to only add RawIngredient2s from their own
+            # Allow the user to only add RawIngredient3s from their own
             # collection.
             for form in formset_specificingredient:
                 form.fields['rawingredient'].queryset = \
-                    RawIngredient2.objects.filter(
+                    RawIngredient3.objects.filter(
                         author=request.user.id
                         )
 
@@ -197,11 +197,11 @@ def update_fulldayofeating_view(request, id_fulldayofeating):
                 instance=fulldayofeating_object
                 )
 
-            # Allow the user to only add RawIngredient2s from their own
+            # Allow the user to only add RawIngredient3s from their own
             # collection.
             for form in formset_specificingredient:
                 form.fields['rawingredient'].queryset = \
-                    RawIngredient2.objects.filter(
+                    RawIngredient3.objects.filter(
                         author=request.user.id
                         )
 
@@ -301,7 +301,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 set_to_zero_if_none,
                 id_fulldayofeating,
                 SpecificIngredient,
-                RawIngredient2,
+                RawIngredient3,
                 FullDayOfEating,
                 NutrientProfile,
                 SpecificNutrientTarget,
@@ -319,7 +319,7 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             query_result_calculation_fulldayofeating(
                 id_fulldayofeating,
                 SpecificIngredient,
-                RawIngredient2,
+                RawIngredient3,
                 )
 
         # Calculate the total nutrition of the full day of eating

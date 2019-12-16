@@ -48,7 +48,9 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         nutrient_name_measuredfood,
         models.FloatField(
             blank=True,
-            null=True
+            null=True,
+            # The verbose_name is used to set the field labels in the ModelForm.
+            verbose_name=nutrient_dict['nutrient_name_usda_api'],
         )
     )
     # Add the nutrient unit fields.
@@ -61,6 +63,8 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             blank=False,
             null=False,
             default=nutrient_dict['unit_nutrient_usda_api'],
+            # The verbose_name is used to set the field labels in the ModelForm.
+            verbose_name=nutrient_dict['nutrient_name_usda_api']+' unit',
         )
     )
 
@@ -75,7 +79,9 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
         'max_'+nutrient_name_measuredfood,
         models.FloatField(
             blank=True,
-            null=True
+            null=True,
+            # The verbose_name is used to set the field labels in the ModelForm.
+            verbose_name='max '+nutrient_dict['nutrient_name_usda_api'],
         )
     )
     # Add the nutrient unit fields.
@@ -88,5 +94,7 @@ for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
             blank=False,
             null=False,
             default=nutrient_dict['unit_nutrient_usda_api'],
+            # The verbose_name is used to set the field labels in the ModelForm.
+            verbose_name='max '+nutrient_dict['nutrient_name_usda_api']+' unit',
         )
     )

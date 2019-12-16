@@ -3,7 +3,7 @@
 def query_ingredients_fulldayofeating(
     id_fulldayofeating,
     specific_ingredient,
-    raw_ingredient2,
+    raw_ingredient3,
     all_nutrients_and_default_units,
     set_to_zero_if_none,
     no_specific_ingredient_in_full_day_of_eating_error,
@@ -18,7 +18,7 @@ def query_ingredients_fulldayofeating(
     SpecificIngredient objects and saves them in a dictionary and saves the
     dictionaries in a list, which will ultimately be the result.
 
-    Additionally, the RawIngredient2 objects related to the SpecificIngredient
+    Additionally, the RawIngredient3 objects related to the SpecificIngredient
     objects are queried and their information is stored in a sub dictionary
     in the dictionary of the SpecificIngredient.
     """
@@ -33,17 +33,20 @@ def query_ingredients_fulldayofeating(
         queryset_specificingredient.values()
         )
 
-    # Add the RawIngredient2 dictionaries to the SpecificIngredient dictionaries
+    # Add the RawIngredient3 dictionaries to the SpecificIngredient dictionaries
     # to make the nutrition values (kcal etc.) accessible for calculation.
     for k in range(len(specificingredient_dict_list)):
-        rawingredient_k_queryset = raw_ingredient2.objects.filter(
+        rawingredient_k_queryset = raw_ingredient3.objects.filter(
             id=specificingredient_dict_list[k]['rawingredient_id']
         ).values()
         rawingredient_k_dict = list(rawingredient_k_queryset)[0]
 
         # Make sure that no None fields are returned.
         for nutrient_dict_k in all_nutrients_and_default_units:
-            nutrient_name = nutrient_dict_k['name']
+            nutrient_name = transform_ingredient_name_usda_to_measuredfood(
+                nutrient_name_usda_api,
+                id_nutrient_usda_api,
+            )
             rawingredient_k_dict[nutrient_name] = \
                 set_to_zero_if_none(rawingredient_k_dict[nutrient_name])
 

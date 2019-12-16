@@ -1,5 +1,5 @@
 from django.db import models
-from .rawingredient2 import RawIngredient2
+from .rawingredient3 import RawIngredient3
 from .fulldayofeating import FullDayOfEating
 
 MAX_DIGITS_ = 20
@@ -15,7 +15,7 @@ class SpecificIngredient(models.Model):
         null=True)
 
     rawingredient = models.ForeignKey(
-        RawIngredient2,
+        RawIngredient3,
         on_delete=models.CASCADE,
         blank=False,
         null=True

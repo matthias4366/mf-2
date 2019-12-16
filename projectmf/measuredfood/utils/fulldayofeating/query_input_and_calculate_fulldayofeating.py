@@ -1,3 +1,4 @@
+import pprint
 
 
 def query_input_and_calculate_fulldayofeating(
@@ -11,7 +12,7 @@ def query_input_and_calculate_fulldayofeating(
     set_to_zero_if_none,
     id_fulldayofeating,
     specific_ingredient,
-    raw_ingredient2,
+    raw_ingredient3,
     full_day_of_eating,
     nutrient_profile,
     specific_nutrient_target,
@@ -32,11 +33,14 @@ def query_input_and_calculate_fulldayofeating(
     specificingredient_dict_list = query_ingredients_fulldayofeating(
         id_fulldayofeating,
         specific_ingredient,
-        raw_ingredient2,
+        raw_ingredient3,
         all_nutrients_and_default_units,
         set_to_zero_if_none,
         no_specific_ingredient_in_full_day_of_eating_error,
     )
+
+    print('specificingredient_dict_list')
+    pprint.pprint(specificingredient_dict_list)
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
         id_fulldayofeating,
@@ -79,7 +83,7 @@ def query_input_and_calculate_fulldayofeating(
     specificingredient_dict_list = query_ingredients_fulldayofeating(
         id_fulldayofeating,
         specific_ingredient,
-        raw_ingredient2,
+        raw_ingredient3,
         all_nutrients_and_default_units,
         set_to_zero_if_none,
         no_specific_ingredient_in_full_day_of_eating_error,
