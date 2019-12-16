@@ -23,7 +23,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Total lipid (fat)-name-1004-id",
+        "nutrient_name_measuredfood": "Total_lipid_(fat)-name-1004-id",
         "human_readable_name": "Total lipid (fat)"
     },
     {
@@ -32,7 +32,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Carbohydrate, by difference-name-1005-id",
+        "nutrient_name_measuredfood": "Carbohydrate_by_difference-name-1005-id",
         "human_readable_name": "Carbohydrate, by difference"
     },
     {
@@ -77,7 +77,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Glucose (dextrose)-name-1011-id",
+        "nutrient_name_measuredfood": "Glucose_(dextrose)-name-1011-id",
         "human_readable_name": "Glucose (dextrose)"
     },
     {
@@ -113,7 +113,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Alcohol, ethyl-name-1018-id",
+        "nutrient_name_measuredfood": "Alcohol_ethyl-name-1018-id",
         "human_readable_name": "Alcohol, ethyl"
     },
     {
@@ -122,7 +122,7 @@
         "unit_nutrient_usda_csv": "SP_GR",
         "unit_nutrient_usda_api": "sp gr",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Specific Gravity-name-1024-id",
+        "nutrient_name_measuredfood": "Specific_Gravity-name-1024-id",
         "human_readable_name": "Specific Gravity"
     },
     {
@@ -131,7 +131,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Acetic acid-name-1026-id",
+        "nutrient_name_measuredfood": "Acetic_acid-name-1026-id",
         "human_readable_name": "Acetic acid"
     },
     {
@@ -140,7 +140,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Lactic acid-name-1038-id",
+        "nutrient_name_measuredfood": "Lactic_acid-name-1038-id",
         "human_readable_name": "Lactic acid"
     },
     {
@@ -149,7 +149,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Carbohydrate, by summation-name-1050-id",
+        "nutrient_name_measuredfood": "Carbohydrate_by_summation-name-1050-id",
         "human_readable_name": "Carbohydrate, by summation"
     },
     {
@@ -203,7 +203,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Sugars, Total NLEA-name-1063-id",
+        "nutrient_name_measuredfood": "Sugars_Total_NLEA-name-1063-id",
         "human_readable_name": "Sugars, Total NLEA"
     },
     {
@@ -212,7 +212,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Carbohydrate, other-name-1072-id",
+        "nutrient_name_measuredfood": "Carbohydrate_other-name-1072-id",
         "human_readable_name": "Carbohydrate, other"
     },
     {
@@ -239,7 +239,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Fiber, total dietary-name-1079-id",
+        "nutrient_name_measuredfood": "Fiber_total_dietary-name-1079-id",
         "human_readable_name": "Fiber, total dietary"
     },
     {
@@ -257,7 +257,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Fiber, soluble-name-1082-id",
+        "nutrient_name_measuredfood": "Fiber_soluble-name-1082-id",
         "human_readable_name": "Fiber, soluble"
     },
     {
@@ -266,7 +266,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Fiber, insoluble-name-1084-id",
+        "nutrient_name_measuredfood": "Fiber_insoluble-name-1084-id",
         "human_readable_name": "Fiber, insoluble"
     },
     {
@@ -275,7 +275,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Total fat (NLEA)-name-1085-id",
+        "nutrient_name_measuredfood": "Total_fat_(NLEA)-name-1085-id",
         "human_readable_name": "Total fat (NLEA)"
     },
     {
@@ -284,7 +284,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Total sugar alcohols-name-1086-id",
+        "nutrient_name_measuredfood": "Total_sugar_alcohols-name-1086-id",
         "human_readable_name": "Total sugar alcohols"
     },
     {
@@ -293,7 +293,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Calcium, Ca-name-1087-id",
+        "nutrient_name_measuredfood": "Calcium_Ca-name-1087-id",
         "human_readable_name": "Calcium, Ca"
     },
     {
@@ -302,7 +302,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Chlorine, Cl-name-1088-id",
+        "nutrient_name_measuredfood": "Chlorine_Cl-name-1088-id",
         "human_readable_name": "Chlorine, Cl"
     },
     {
@@ -311,7 +311,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Iron, Fe-name-1089-id",
+        "nutrient_name_measuredfood": "Iron_Fe-name-1089-id",
         "human_readable_name": "Iron, Fe"
     },
     {
@@ -320,7 +320,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Magnesium, Mg-name-1090-id",
+        "nutrient_name_measuredfood": "Magnesium_Mg-name-1090-id",
         "human_readable_name": "Magnesium, Mg"
     },
     {
@@ -329,7 +329,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Phosphorus, P-name-1091-id",
+        "nutrient_name_measuredfood": "Phosphorus_P-name-1091-id",
         "human_readable_name": "Phosphorus, P"
     },
     {
@@ -338,7 +338,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Potassium, K-name-1092-id",
+        "nutrient_name_measuredfood": "Potassium_K-name-1092-id",
         "human_readable_name": "Potassium, K"
     },
     {
@@ -347,7 +347,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Sodium, Na-name-1093-id",
+        "nutrient_name_measuredfood": "Sodium_Na-name-1093-id",
         "human_readable_name": "Sodium, Na"
     },
     {
@@ -356,7 +356,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Sulfur, S-name-1094-id",
+        "nutrient_name_measuredfood": "Sulfur_S-name-1094-id",
         "human_readable_name": "Sulfur, S"
     },
     {
@@ -365,7 +365,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Zinc, Zn-name-1095-id",
+        "nutrient_name_measuredfood": "Zinc_Zn-name-1095-id",
         "human_readable_name": "Zinc, Zn"
     },
     {
@@ -374,7 +374,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Chromium, Cr-name-1096-id",
+        "nutrient_name_measuredfood": "Chromium_Cr-name-1096-id",
         "human_readable_name": "Chromium, Cr"
     },
     {
@@ -383,7 +383,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Cobalt, Co-name-1097-id",
+        "nutrient_name_measuredfood": "Cobalt_Co-name-1097-id",
         "human_readable_name": "Cobalt, Co"
     },
     {
@@ -392,7 +392,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Copper, Cu-name-1098-id",
+        "nutrient_name_measuredfood": "Copper_Cu-name-1098-id",
         "human_readable_name": "Copper, Cu"
     },
     {
@@ -401,7 +401,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Fluoride, F-name-1099-id",
+        "nutrient_name_measuredfood": "Fluoride_F-name-1099-id",
         "human_readable_name": "Fluoride, F"
     },
     {
@@ -410,7 +410,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Iodine, I-name-1100-id",
+        "nutrient_name_measuredfood": "Iodine_I-name-1100-id",
         "human_readable_name": "Iodine, I"
     },
     {
@@ -419,7 +419,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Manganese, Mn-name-1101-id",
+        "nutrient_name_measuredfood": "Manganese_Mn-name-1101-id",
         "human_readable_name": "Manganese, Mn"
     },
     {
@@ -428,7 +428,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Molybdenum, Mo-name-1102-id",
+        "nutrient_name_measuredfood": "Molybdenum_Mo-name-1102-id",
         "human_readable_name": "Molybdenum, Mo"
     },
     {
@@ -437,7 +437,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Selenium, Se-name-1103-id",
+        "nutrient_name_measuredfood": "Selenium_Se-name-1103-id",
         "human_readable_name": "Selenium, Se"
     },
     {
@@ -446,7 +446,7 @@
         "unit_nutrient_usda_csv": "IU",
         "unit_nutrient_usda_api": "IU",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin A, IU-name-1104-id",
+        "nutrient_name_measuredfood": "Vitamin_A_IU-name-1104-id",
         "human_readable_name": "Vitamin A, IU"
     },
     {
@@ -464,7 +464,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin A, RAE-name-1106-id",
+        "nutrient_name_measuredfood": "Vitamin_A_RAE-name-1106-id",
         "human_readable_name": "Vitamin A, RAE"
     },
     {
@@ -473,7 +473,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Carotene, beta-name-1107-id",
+        "nutrient_name_measuredfood": "Carotene_beta-name-1107-id",
         "human_readable_name": "Carotene, beta"
     },
     {
@@ -482,7 +482,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Carotene, alpha-name-1108-id",
+        "nutrient_name_measuredfood": "Carotene_alpha-name-1108-id",
         "human_readable_name": "Carotene, alpha"
     },
     {
@@ -491,7 +491,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin E (alpha-tocopherol)-name-1109-id",
+        "nutrient_name_measuredfood": "Vitamin_E_(alpha-tocopherol)-name-1109-id",
         "human_readable_name": "Vitamin E (alpha-tocopherol)"
     },
     {
@@ -500,7 +500,7 @@
         "unit_nutrient_usda_csv": "IU",
         "unit_nutrient_usda_api": "IU",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin D-name-1110-id",
+        "nutrient_name_measuredfood": "Vitamin_D-name-1110-id",
         "human_readable_name": "Vitamin D"
     },
     {
@@ -509,7 +509,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin D2 (ergocalciferol)-name-1111-id",
+        "nutrient_name_measuredfood": "Vitamin_D2_(ergocalciferol)-name-1111-id",
         "human_readable_name": "Vitamin D2 (ergocalciferol)"
     },
     {
@@ -518,7 +518,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin D3 (cholecalciferol)-name-1112-id",
+        "nutrient_name_measuredfood": "Vitamin_D3_(cholecalciferol)-name-1112-id",
         "human_readable_name": "Vitamin D3 (cholecalciferol)"
     },
     {
@@ -536,7 +536,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin D (D2 + D3)-name-1114-id",
+        "nutrient_name_measuredfood": "Vitamin_D_(D2_+_D3)-name-1114-id",
         "human_readable_name": "Vitamin D (D2 + D3)"
     },
     {
@@ -572,7 +572,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Cryptoxanthin, beta-name-1120-id",
+        "nutrient_name_measuredfood": "Cryptoxanthin_beta-name-1120-id",
         "human_readable_name": "Cryptoxanthin, beta"
     },
     {
@@ -599,7 +599,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Lutein + zeaxanthin-name-1123-id",
+        "nutrient_name_measuredfood": "Lutein_+_zeaxanthin-name-1123-id",
         "human_readable_name": "Lutein + zeaxanthin"
     },
     {
@@ -608,7 +608,7 @@
         "unit_nutrient_usda_csv": "IU",
         "unit_nutrient_usda_api": "IU",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin E (label entry primarily)-name-1124-id",
+        "nutrient_name_measuredfood": "Vitamin_E_(label_entry_primarily)-name-1124-id",
         "human_readable_name": "Vitamin E (label entry primarily)"
     },
     {
@@ -617,7 +617,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocopherol, beta-name-1125-id",
+        "nutrient_name_measuredfood": "Tocopherol_beta-name-1125-id",
         "human_readable_name": "Tocopherol, beta"
     },
     {
@@ -626,7 +626,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocopherol, gamma-name-1126-id",
+        "nutrient_name_measuredfood": "Tocopherol_gamma-name-1126-id",
         "human_readable_name": "Tocopherol, gamma"
     },
     {
@@ -635,7 +635,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocopherol, delta-name-1127-id",
+        "nutrient_name_measuredfood": "Tocopherol_delta-name-1127-id",
         "human_readable_name": "Tocopherol, delta"
     },
     {
@@ -644,7 +644,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocotrienol, alpha-name-1128-id",
+        "nutrient_name_measuredfood": "Tocotrienol_alpha-name-1128-id",
         "human_readable_name": "Tocotrienol, alpha"
     },
     {
@@ -653,7 +653,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocotrienol, beta-name-1129-id",
+        "nutrient_name_measuredfood": "Tocotrienol_beta-name-1129-id",
         "human_readable_name": "Tocotrienol, beta"
     },
     {
@@ -662,7 +662,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocotrienol, gamma-name-1130-id",
+        "nutrient_name_measuredfood": "Tocotrienol_gamma-name-1130-id",
         "human_readable_name": "Tocotrienol, gamma"
     },
     {
@@ -671,7 +671,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Tocotrienol, delta-name-1131-id",
+        "nutrient_name_measuredfood": "Tocotrienol_delta-name-1131-id",
         "human_readable_name": "Tocotrienol, delta"
     },
     {
@@ -680,7 +680,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Boron, B-name-1137-id",
+        "nutrient_name_measuredfood": "Boron_B-name-1137-id",
         "human_readable_name": "Boron, B"
     },
     {
@@ -689,7 +689,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Nickel, Ni-name-1146-id",
+        "nutrient_name_measuredfood": "Nickel_Ni-name-1146-id",
         "human_readable_name": "Nickel, Ni"
     },
     {
@@ -698,7 +698,7 @@
         "unit_nutrient_usda_csv": "MG_ATE",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin E-name-1158-id",
+        "nutrient_name_measuredfood": "Vitamin_E-name-1158-id",
         "human_readable_name": "Vitamin E"
     },
     {
@@ -734,7 +734,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin C, total ascorbic acid-name-1162-id",
+        "nutrient_name_measuredfood": "Vitamin_C_total_ascorbic_acid-name-1162-id",
         "human_readable_name": "Vitamin C, total ascorbic acid"
     },
     {
@@ -770,7 +770,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Pantothenic acid-name-1170-id",
+        "nutrient_name_measuredfood": "Pantothenic_acid-name-1170-id",
         "human_readable_name": "Pantothenic acid"
     },
     {
@@ -779,7 +779,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin B-6-name-1175-id",
+        "nutrient_name_measuredfood": "Vitamin_B-6-name-1175-id",
         "human_readable_name": "Vitamin B-6"
     },
     {
@@ -797,7 +797,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Folate, total-name-1177-id",
+        "nutrient_name_measuredfood": "Folate_total-name-1177-id",
         "human_readable_name": "Folate, total"
     },
     {
@@ -806,7 +806,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin B-12-name-1178-id",
+        "nutrient_name_measuredfood": "Vitamin_B-12-name-1178-id",
         "human_readable_name": "Vitamin B-12"
     },
     {
@@ -815,7 +815,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Choline, total-name-1180-id",
+        "nutrient_name_measuredfood": "Choline_total-name-1180-id",
         "human_readable_name": "Choline, total"
     },
     {
@@ -851,7 +851,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Vitamin K (phylloquinone)-name-1185-id",
+        "nutrient_name_measuredfood": "Vitamin_K_(phylloquinone)-name-1185-id",
         "human_readable_name": "Vitamin K (phylloquinone)"
     },
     {
@@ -860,7 +860,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Folic acid-name-1186-id",
+        "nutrient_name_measuredfood": "Folic_acid-name-1186-id",
         "human_readable_name": "Folic acid"
     },
     {
@@ -869,7 +869,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Folate, food-name-1187-id",
+        "nutrient_name_measuredfood": "Folate_food-name-1187-id",
         "human_readable_name": "Folate, food"
     },
     {
@@ -878,7 +878,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "5-methyl tetrahydrofolate (5-MTHF)-name-1188-id",
+        "nutrient_name_measuredfood": "5-methyl_tetrahydrofolate_(5-MTHF)-name-1188-id",
         "human_readable_name": "5-methyl tetrahydrofolate (5-MTHF)"
     },
     {
@@ -887,7 +887,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Folate, DFE-name-1190-id",
+        "nutrient_name_measuredfood": "Folate_DFE-name-1190-id",
         "human_readable_name": "Folate, DFE"
     },
     {
@@ -896,7 +896,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "10-Formyl folic acid (10HCOFA)-name-1191-id",
+        "nutrient_name_measuredfood": "10-Formyl_folic_acid_(10HCOFA)-name-1191-id",
         "human_readable_name": "10-Formyl folic acid (10HCOFA)"
     },
     {
@@ -905,7 +905,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "5-Formyltetrahydrofolic acid (5-HCOH4-name-1192-id",
+        "nutrient_name_measuredfood": "5-Formyltetrahydrofolic_acid_(5-HCOH4-name-1192-id",
         "human_readable_name": "5-Formyltetrahydrofolic acid (5-HCOH4"
     },
     {
@@ -914,7 +914,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "Choline, free-name-1194-id",
+        "nutrient_name_measuredfood": "Choline_free-name-1194-id",
         "human_readable_name": "Choline, free"
     },
     {
@@ -923,7 +923,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Choline, from phosphocholine-name-1195-id",
+        "nutrient_name_measuredfood": "Choline_from_phosphocholine-name-1195-id",
         "human_readable_name": "Choline, from phosphocholine"
     },
     {
@@ -932,7 +932,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Choline, from phosphotidyl choline-name-1196-id",
+        "nutrient_name_measuredfood": "Choline_from_phosphotidyl_choline-name-1196-id",
         "human_readable_name": "Choline, from phosphotidyl choline"
     },
     {
@@ -941,7 +941,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Choline, from glycerophosphocholine-name-1197-id",
+        "nutrient_name_measuredfood": "Choline_from_glycerophosphocholine-name-1197-id",
         "human_readable_name": "Choline, from glycerophosphocholine"
     },
     {
@@ -959,7 +959,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Choline, from sphingomyelin-name-1199-id",
+        "nutrient_name_measuredfood": "Choline_from_sphingomyelin-name-1199-id",
         "human_readable_name": "Choline, from sphingomyelin"
     },
     {
@@ -1085,7 +1085,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Aspartic acid-name-1223-id",
+        "nutrient_name_measuredfood": "Aspartic_acid-name-1223-id",
         "human_readable_name": "Aspartic acid"
     },
     {
@@ -1094,7 +1094,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Glutamic acid-name-1224-id",
+        "nutrient_name_measuredfood": "Glutamic_acid-name-1224-id",
         "human_readable_name": "Glutamic acid"
     },
     {
@@ -1166,7 +1166,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Sugars, added-name-1235-id",
+        "nutrient_name_measuredfood": "Sugars_added-name-1235-id",
         "human_readable_name": "Sugars, added"
     },
     {
@@ -1175,7 +1175,7 @@
         "unit_nutrient_usda_csv": "MG",
         "unit_nutrient_usda_api": "mg",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin E, added-name-1242-id",
+        "nutrient_name_measuredfood": "Vitamin_E_added-name-1242-id",
         "human_readable_name": "Vitamin E, added"
     },
     {
@@ -1184,7 +1184,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Vitamin B-12, added-name-1246-id",
+        "nutrient_name_measuredfood": "Vitamin_B-12_added-name-1246-id",
         "human_readable_name": "Vitamin B-12, added"
     },
     {
@@ -1202,7 +1202,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total trans-name-1257-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_trans-name-1257-id",
         "human_readable_name": "Fatty acids, total trans"
     },
     {
@@ -1211,7 +1211,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total saturated-name-1258-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_saturated-name-1258-id",
         "human_readable_name": "Fatty acids, total saturated"
     },
     {
@@ -1337,7 +1337,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "22:6 n-3 (DHA)-name-1272-id",
+        "nutrient_name_measuredfood": "22:6_n-3_(DHA)-name-1272-id",
         "human_readable_name": "22:6 n-3 (DHA)"
     },
     {
@@ -1391,7 +1391,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "20:5 n-3 (EPA)-name-1278-id",
+        "nutrient_name_measuredfood": "20:5_n-3_(EPA)-name-1278-id",
         "human_readable_name": "20:5 n-3 (EPA)"
     },
     {
@@ -1409,7 +1409,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:5 n-3 (DPA)-name-1280-id",
+        "nutrient_name_measuredfood": "22:5_n-3_(DPA)-name-1280-id",
         "human_readable_name": "22:5 n-3 (DPA)"
     },
     {
@@ -1418,7 +1418,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "14:1 t-name-1281-id",
+        "nutrient_name_measuredfood": "14:1_t-name-1281-id",
         "human_readable_name": "14:1 t"
     },
     {
@@ -1463,7 +1463,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total monounsaturated-name-1292-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_monounsaturated-name-1292-id",
         "human_readable_name": "Fatty acids, total monounsaturated"
     },
     {
@@ -1472,7 +1472,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total polyunsaturated-name-1293-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_polyunsaturated-name-1293-id",
         "human_readable_name": "Fatty acids, total polyunsaturated"
     },
     {
@@ -1508,7 +1508,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "16:1 t-name-1303-id",
+        "nutrient_name_measuredfood": "16:1_t-name-1303-id",
         "human_readable_name": "16:1 t"
     },
     {
@@ -1517,7 +1517,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:1 t-name-1304-id",
+        "nutrient_name_measuredfood": "18:1_t-name-1304-id",
         "human_readable_name": "18:1 t"
     },
     {
@@ -1526,7 +1526,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:1 t-name-1305-id",
+        "nutrient_name_measuredfood": "22:1_t-name-1305-id",
         "human_readable_name": "22:1 t"
     },
     {
@@ -1535,7 +1535,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:2 t not further defined-name-1306-id",
+        "nutrient_name_measuredfood": "18:2_t_not_further_defined-name-1306-id",
         "human_readable_name": "18:2 t not further defined"
     },
     {
@@ -1544,7 +1544,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:2 i-name-1307-id",
+        "nutrient_name_measuredfood": "18:2_i-name-1307-id",
         "human_readable_name": "18:2 i"
     },
     {
@@ -1553,7 +1553,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:2 t,t-name-1310-id",
+        "nutrient_name_measuredfood": "18:2_tt-name-1310-id",
         "human_readable_name": "18:2 t,t"
     },
     {
@@ -1562,7 +1562,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:2 CLAs-name-1311-id",
+        "nutrient_name_measuredfood": "18:2_CLAs-name-1311-id",
         "human_readable_name": "18:2 CLAs"
     },
     {
@@ -1571,7 +1571,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "24:1 c-name-1312-id",
+        "nutrient_name_measuredfood": "24:1_c-name-1312-id",
         "human_readable_name": "24:1 c"
     },
     {
@@ -1580,7 +1580,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:2 n-6 c,c-name-1313-id",
+        "nutrient_name_measuredfood": "20:2_n-6_cc-name-1313-id",
         "human_readable_name": "20:2 n-6 c,c"
     },
     {
@@ -1589,7 +1589,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "16:1 c-name-1314-id",
+        "nutrient_name_measuredfood": "16:1_c-name-1314-id",
         "human_readable_name": "16:1 c"
     },
     {
@@ -1598,7 +1598,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:1 c-name-1315-id",
+        "nutrient_name_measuredfood": "18:1_c-name-1315-id",
         "human_readable_name": "18:1 c"
     },
     {
@@ -1607,7 +1607,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "18:2 n-6 c,c-name-1316-id",
+        "nutrient_name_measuredfood": "18:2_n-6_cc-name-1316-id",
         "human_readable_name": "18:2 n-6 c,c"
     },
     {
@@ -1616,7 +1616,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:1 c-name-1317-id",
+        "nutrient_name_measuredfood": "22:1_c-name-1317-id",
         "human_readable_name": "22:1 c"
     },
     {
@@ -1625,7 +1625,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:3 n-6 c,c,c-name-1321-id",
+        "nutrient_name_measuredfood": "18:3_n-6_ccc-name-1321-id",
         "human_readable_name": "18:3 n-6 c,c,c"
     },
     {
@@ -1652,7 +1652,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total trans-monoenoic-name-1329-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_trans-monoenoic-name-1329-id",
         "human_readable_name": "Fatty acids, total trans-monoenoic"
     },
     {
@@ -1661,7 +1661,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total trans-dienoic-name-1330-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_trans-dienoic-name-1330-id",
         "human_readable_name": "Fatty acids, total trans-dienoic"
     },
     {
@@ -1670,7 +1670,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Fatty acids, total trans-polyenoic-name-1331-id",
+        "nutrient_name_measuredfood": "Fatty_acids_total_trans-polyenoic-name-1331-id",
         "human_readable_name": "Fatty acids, total trans-polyenoic"
     },
     {
@@ -1733,7 +1733,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": true,
-        "nutrient_name_measuredfood": "18:3 n-3 c,c,c (ALA)-name-1404-id",
+        "nutrient_name_measuredfood": "18:3_n-3_ccc_(ALA)-name-1404-id",
         "human_readable_name": "18:3 n-3 c,c,c (ALA)"
     },
     {
@@ -1742,7 +1742,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:3 n-3-name-1405-id",
+        "nutrient_name_measuredfood": "20:3_n-3-name-1405-id",
         "human_readable_name": "20:3 n-3"
     },
     {
@@ -1751,7 +1751,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:3 n-6-name-1406-id",
+        "nutrient_name_measuredfood": "20:3_n-6-name-1406-id",
         "human_readable_name": "20:3 n-6"
     },
     {
@@ -1760,7 +1760,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:4 n-6-name-1408-id",
+        "nutrient_name_measuredfood": "20:4_n-6-name-1408-id",
         "human_readable_name": "20:4 n-6"
     },
     {
@@ -1796,7 +1796,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:1-11 t (18:1t n-7)-name-1412-id",
+        "nutrient_name_measuredfood": "18:1-11_t_(18:1t_n-7)-name-1412-id",
         "human_readable_name": "18:1-11 t (18:1t n-7)"
     },
     {
@@ -1805,7 +1805,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:3 n-9-name-1414-id",
+        "nutrient_name_measuredfood": "20:3_n-9-name-1414-id",
         "human_readable_name": "20:3 n-9"
     },
     {
@@ -1814,7 +1814,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Sugars, total including NLEA-name-2000-id",
+        "nutrient_name_measuredfood": "Sugars_total_including_NLEA-name-2000-id",
         "human_readable_name": "Sugars, total including NLEA"
     },
     {
@@ -1877,7 +1877,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "14:1 c-name-2009-id",
+        "nutrient_name_measuredfood": "14:1_c-name-2009-id",
         "human_readable_name": "14:1 c"
     },
     {
@@ -1886,7 +1886,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "17:1 c-name-2010-id",
+        "nutrient_name_measuredfood": "17:1_c-name-2010-id",
         "human_readable_name": "17:1 c"
     },
     {
@@ -1895,7 +1895,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:1 c-name-2012-id",
+        "nutrient_name_measuredfood": "20:1_c-name-2012-id",
         "human_readable_name": "20:1 c"
     },
     {
@@ -1904,7 +1904,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:1 t-name-2013-id",
+        "nutrient_name_measuredfood": "20:1_t-name-2013-id",
         "human_readable_name": "20:1 t"
     },
     {
@@ -1913,7 +1913,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:1 n-9-name-2014-id",
+        "nutrient_name_measuredfood": "22:1_n-9-name-2014-id",
         "human_readable_name": "22:1 n-9"
     },
     {
@@ -1922,7 +1922,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:1 n-11-name-2015-id",
+        "nutrient_name_measuredfood": "22:1_n-11-name-2015-id",
         "human_readable_name": "22:1 n-11"
     },
     {
@@ -1931,7 +1931,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:2 c-name-2016-id",
+        "nutrient_name_measuredfood": "18:2_c-name-2016-id",
         "human_readable_name": "18:2 c"
     },
     {
@@ -1940,7 +1940,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:3 c-name-2018-id",
+        "nutrient_name_measuredfood": "18:3_c-name-2018-id",
         "human_readable_name": "18:3 c"
     },
     {
@@ -1949,7 +1949,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "18:3 t-name-2019-id",
+        "nutrient_name_measuredfood": "18:3_t-name-2019-id",
         "human_readable_name": "18:3 t"
     },
     {
@@ -1958,7 +1958,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:3 c-name-2020-id",
+        "nutrient_name_measuredfood": "20:3_c-name-2020-id",
         "human_readable_name": "20:3 c"
     },
     {
@@ -1976,7 +1976,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:4 c-name-2022-id",
+        "nutrient_name_measuredfood": "20:4_c-name-2022-id",
         "human_readable_name": "20:4 c"
     },
     {
@@ -1985,7 +1985,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:5 c-name-2023-id",
+        "nutrient_name_measuredfood": "20:5_c-name-2023-id",
         "human_readable_name": "20:5 c"
     },
     {
@@ -1994,7 +1994,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:5 c-name-2024-id",
+        "nutrient_name_measuredfood": "22:5_c-name-2024-id",
         "human_readable_name": "22:5 c"
     },
     {
@@ -2003,7 +2003,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "22:6 c-name-2025-id",
+        "nutrient_name_measuredfood": "22:6_c-name-2025-id",
         "human_readable_name": "22:6 c"
     },
     {
@@ -2012,7 +2012,7 @@
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "20:2 c-name-2026-id",
+        "nutrient_name_measuredfood": "20:2_c-name-2026-id",
         "human_readable_name": "20:2 c"
     },
     {
@@ -2039,7 +2039,7 @@
         "unit_nutrient_usda_csv": "UG",
         "unit_nutrient_usda_api": "\u00b5g",
         "is_displayed": false,
-        "nutrient_name_measuredfood": "Cryptoxanthin, alpha-name-2032-id",
+        "nutrient_name_measuredfood": "Cryptoxanthin_alpha-name-2032-id",
         "human_readable_name": "Cryptoxanthin, alpha"
     }
 ]

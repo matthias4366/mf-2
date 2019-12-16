@@ -27,9 +27,6 @@ from measuredfood.utils.error.custom_error import (
 )
 
 from measuredfood.utils.rawingredient3.\
-    calculate_carbohydrate_without_fiber_form \
-    import calculate_carbohydrate_without_fiber_form
-from measuredfood.utils.rawingredient3.\
     calculate_carbohydrate_without_fiber_model_instance import \
     calculate_carbohydrate_without_fiber_model_instance
 
@@ -53,10 +50,6 @@ def create_rawingredient3(request):
         logging.info(form_rawingredient3.errors)
         if form_rawingredient3.is_valid():
             form_rawingredient3.instance.author = request.user
-            form_rawingredient3 = calculate_carbohydrate_without_fiber_form(
-                form_rawingredient3,
-                set_to_zero_if_none,
-            )
             form_rawingredient3.save()
             return redirect('list-rawingredient3')
         else:
@@ -107,10 +100,6 @@ def update_rawingredient3(request, id_rawingredient3):
                 instance=rawingredient3_object
             )
             if form_rawingredient3.is_valid():
-                form_rawingredient3 = calculate_carbohydrate_without_fiber_form(
-                    form_rawingredient3,
-                    set_to_zero_if_none,
-                )
                 form_rawingredient3.save()
                 return redirect('list-rawingredient3')
         else:

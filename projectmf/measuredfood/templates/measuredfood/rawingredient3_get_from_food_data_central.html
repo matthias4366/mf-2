@@ -1,27 +1,37 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+  <div class="content-section">
 
-  <h1>Import ingredient from FoodData Central</h1>
+      <a href="{% url 'list-rawingredient3' %}"
+      id="back_to_list_of_ingredients">
+        <button type="button" class="btn btn-lg btn-block btn-primary">
+          Back to list of ingredients
+        </button>
+      </a>
+      <br>
+      <br>
 
-  <p>
-    You can import ingredient data from FoodData Central. It is an official
-    website
-    from the United States Department of Agriculture.
-    Go to
-     <a href="https://fdc.nal.usda.gov/fdc-app.html#/">
-       https://fdc.nal.usda.gov/fdc-app.html#/
-     </a>
-    and search for the desired ingredient. Once you have found the
-    ingredient, copy the FDC ID number (e.g. 335912), paste it in the form
-    below and
-    click
-    'Add this ingredient to my ingredients'.
-  </p>
+    <h1>Import ingredient from FoodData Central</h1>
 
-  <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-  </form>
+    <p>
+      You can import ingredient data from FoodData Central. It is an official
+      website
+      from the United States Department of Agriculture.
+      Go to
+       <a href="https://fdc.nal.usda.gov/fdc-app.html#/">
+         https://fdc.nal.usda.gov/fdc-app.html#/
+       </a>
+      and search for the desired ingredient. Once you have found the
+      ingredient, copy the FDC ID number (e.g. 335912), paste it in the form
+      below and
+      click
+      'Add this ingredient to my ingredients'.
+    </p>
 
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 {% endblock content %}

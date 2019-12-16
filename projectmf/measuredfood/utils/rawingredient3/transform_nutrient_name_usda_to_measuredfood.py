@@ -24,12 +24,13 @@ def transform_nutrient_name_usda_to_measuredfood(
         + '-' \
         + 'id'
 
-    nutrient_name_measuredfood.replace(" ", "_")
-    nutrient_name_measuredfood.replace("__", "")
-    nutrient_name_measuredfood.replace("___", "")
-    nutrient_name_measuredfood.replace("____", "")
-    nutrient_name_measuredfood.replace("_____", "")
-    nutrient_name_measuredfood.replace("______", "")
-    nutrient_name_measuredfood.replace("_______", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace(",", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace(" ", "_")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("__", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("___", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("____", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("_____", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("______", "")
+    nutrient_name_measuredfood = nutrient_name_measuredfood.replace("_______", "")
 
     return nutrient_name_measuredfood

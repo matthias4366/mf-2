@@ -37,9 +37,34 @@
                   <td>{{ field }}</td>
                 </tr>
             {% endfor %}
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button
+                  class="btn btn-lg btn-block btn-success"
+                  type="submit"
+                  id="id_button_save_new_rawingredient3">
+                  Save
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a class="btn btn-lg btn-block btn-danger"
+                   id="button_cancel_save_changes_rawingredient3"
+                href="{% url 'list-rawingredient3' %}">
+                  Cancel
+                </a>
+              </td>
+            </tr>
+
             </table>
 
-            <input type="submit" value="Submit">
         </form>
     </div>
 {% endblock content %}
