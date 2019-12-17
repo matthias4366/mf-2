@@ -62,12 +62,6 @@ for index, row in df.iterrows():
             # database. It has to contain the id from the USDA database,
             # as that ensures uniqueness.
             'nutrient_name_measuredfood': nutrient_name_measuredfood,
-            # The nutrient_name_measuredfood is not in a format that humans
-            # can easily read and understand. Hence, a human_readable_name is
-            # stored seperately. It is stored seperately from
-            # nutrient_name_usda_api, since there are some nutrients not from
-            # the USDA database that will be implemented in measuredfood.
-            'human_readable_name': nutrient_name_usda_api,
         }
 
     NUTRIENT_DICT_LIST_ID_NAME_UNIT.append(

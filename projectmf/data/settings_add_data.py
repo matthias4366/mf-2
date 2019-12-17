@@ -12,7 +12,7 @@ ALL_URLS_ADD_DATA = {
     'production': "https://measuredfood4875.eu.pythonanywhere.com/",
 }
 
-case = 'production'
+case = 'local'
 
 URL_ADD_DATA = ALL_URLS_ADD_DATA[case]
 USERNAME = 'sandor'
