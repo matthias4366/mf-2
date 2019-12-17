@@ -65,8 +65,78 @@ click_navbar_item(
     time,
 )
 
-# Simulate the user creating a new RawIngredient3 instance using
-# the form.
+browser.find_element_by_id(
+    'id_button_get_from_food_data_central'
+).click()
+
+template_ingredient = [
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+]
+
+ingredients_to_get_from_food_data_central = [
+    {
+        'id_ingredient_usda_api': 169738,
+        'ingredient_name_usda_api': 'Pasta, whole-wheat, dry (Includes foods '
+                                    'for USDA\'s Food Distribution Program)',
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+    {
+        'id_ingredient_usda_api': None,
+        'ingredient_name_usda_api': None,
+    },
+
+]
+
+# Simulate the user creating a new RawIngredient3 using the FoodData Central
+# database.
+id_ = 'id_FDC_ID'
+name_food_data_central_id_field = 'FDC_ID'
+for ingredient in ingredients_to_get_from_food_data_central:
+
+    if ingredient['id_ingredient_usda_api'] is None:
+        continue
+
+    # Enter the ingredient id.
+
+    # Remove the default value from the field, if necessary. This should not
+    # be necessary, as the initial value has been removed - but it remains as
+    # a precaution.
+    browser.find_element_by_id(
+        'id_FDC_ID'
+    ).clear()
+
+    browser.find_element_by_id(
+        'id_FDC_ID'
+    ).send_keys(
+        ingredient['id_ingredient_usda_api']
+    )
+
+    get_button = browser.find_element_by_id(
+        'id_button_get_from_food_data_central'
+    )
+    get_button.click()
 
 time.sleep(10)
 browser.quit()

@@ -133,5 +133,4 @@ class FoodDataCentralIDForm(forms.Form):
     FDC_ID = forms.CharField(
         label='FDC ID',
         max_length=100,
-        initial='335912'
     )

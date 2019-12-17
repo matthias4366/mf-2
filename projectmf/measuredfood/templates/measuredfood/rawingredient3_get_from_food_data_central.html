@@ -31,7 +31,12 @@
     <form method="post">
       {% csrf_token %}
       {{ form }}
-      <input type="submit" value="Submit">
+      <button
+        class="btn btn-lg btn-block btn-success"
+        type="submit"
+        id="id_button_get_from_food_data_central">
+        Get ingredient
+      </button>
     </form>
   </div>
 {% endblock content %}
