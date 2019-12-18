@@ -1,6 +1,5 @@
 from functional_tests.utils.click_navbar_item import \
     click_navbar_item
-from data.ingredients_data2 import ingredient_dict_list
 import sys
 sys.path.append("..")
 sys.path.append("...")
@@ -74,7 +73,11 @@ class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
             carbohydrate_without_fiber_amount = \
                 float(carbohydrate_without_fiber_amount)
 
-        carbohydrate_without_fiber_desired_value = 73.37 - 9.2
+        carbohyrate_by_difference = 73.37
+        fiber_total_dietary = 9.2
+        carbohydrate_without_fiber_desired_value = \
+            carbohyrate_by_difference \
+            - fiber_total_dietary
 
         self.assertAlmostEqual(
             carbohydrate_without_fiber_amount,

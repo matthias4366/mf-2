@@ -26,12 +26,15 @@ def calculate_carbohydrate_without_fiber_model_instance(
     carbohydrate_without_fiber_ = \
         carbohydrate_by_difference_ - fiber_total_dietary_
 
-    # print('carbohydrate_without_fiber_')
-    # print(carbohydrate_without_fiber_)
+    # If the amount of carbohydrates is not defined, it is possible to obtain
+    # a negative result. That does not make physical sense, hence it is
+    # caught here.
+    if carbohydrate_without_fiber_ < 0:
+        carbohydrate_without_fiber_ = 0
 
     setattr(
         rawingredient3_instance,
-        "carbohydrate_without_fiber",
+        "carbohydrate_without_fiber-name-1-id",
         carbohydrate_without_fiber_
     )
 

@@ -1,4 +1,4 @@
-# import pprint
+import pprint
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
 
@@ -194,9 +194,6 @@ def get_from_food_data_central(request):
                         rawingredient3_instance,
                         set_to_zero_if_none,
                     )
-
-                # print('rawingredient3_instance')
-                # pprint.pprint(rawingredient3_instance._meta.fields)
 
                 rawingredient3_instance.save()
 
