@@ -83,30 +83,77 @@ ingredients_to_get_from_food_data_central = [
                                     'for USDA\'s Food Distribution Program)',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 173744,
+        'ingredient_name_usda_api': 'Beans, kidney, red, mature seeds, raw',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 169760,
+        'ingredient_name_usda_api':
+            'Rice, white, medium-grain, raw, unenriched',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 171328,
+        'ingredient_name_usda_api': 'Spices, oregano, dried',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 168434,
+        'ingredient_name_usda_api':
+            'Mushrooms, brown, italian, or crimini, raw',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 170187,
+        'ingredient_name_usda_api': 'Nuts, walnuts, english',
     },
     {
-        'id_ingredient_usda_api': None,
-        'ingredient_name_usda_api': None,
+        'id_ingredient_usda_api': 554844,
+        'ingredient_name_usda_api': 'NOW SPORTS, PEA PROTEIN',
     },
+    {
+        'id_ingredient_usda_api': 168462,
+        'ingredient_name_usda_api': 'Spinach, raw',
+    },
+    {
+        'id_ingredient_usda_api': 169998,
+        'ingredient_name_usda_api': 'Corn, sweet, yellow, raw',
+    },
+    {
+        'id_ingredient_usda_api': 175199,
+        'ingredient_name_usda_api': 'Beans, pinto, mature seeds, '
+                                    'raw (Includes foods for USDA\'s '
+                                    'Food Distribution Program)',
+    },
+    {
+        'id_ingredient_usda_api': 321900,
+        'ingredient_name_usda_api': 'Broccoli, raw',
+    },
+    {
+        'id_ingredient_usda_api': 170393,
+        'ingredient_name_usda_api': 'Carrots, raw',
+    },
+    {
+        'id_ingredient_usda_api': 170419,
+        'ingredient_name_usda_api': 'Peas, green, raw',
+    },
+]
 
+# The following ingredients will have to be added manually as they were not
+# found on FoodData Central.
+ingredients_to_add_manually = [
+    'Barilla sauce (Arrabiata or similar)',
+    'Chili powder',
+    'Tomato puree, MUTTI',
+    'Vitamin D3 Tablette Vitabay 5000 I.E.',
+    'Salt, iodized',
+    'Magnesium citrate',
+    'Potassium citrate',
+    'Calcium citrate',
+    'Coriander',
+    'Maggi',
+    'Asian vegetable mix',
+    'Water for white rice',
+    'Salt for water for white rice',
+    'Flaxseed flour',
+    'Vit4Ever',
 ]
 
 # Simulate the user creating a new RawIngredient3 using the FoodData Central

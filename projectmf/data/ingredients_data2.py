@@ -63,7 +63,7 @@ base_template_ingredient_dict_list = [
 # dictionaries are saved in a list.
 ingredient_dict_list = [
     {
-        'name': 'Kidney Beans, raw',
+        'name': 'Kidney Beans, raw',  # Check
         'price_per_reference_amount': 0.35,
         'reference_amount': 100,
         'amount_in_package': 500,
@@ -151,7 +151,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Rice, white, long-grain, regular, raw, unenriched',
+        'name': 'Rice, white, long-grain, regular, raw, unenriched',  # check
         'price_per_reference_amount': 0.13,
         'reference_amount': 100,
         'amount_in_package': 10000,
@@ -194,7 +194,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Oregano',
+        'name': 'Oregano',  # check
         'price_per_reference_amount': 0,
         'reference_amount': 100,
         'amount_in_package': 0,
@@ -233,7 +233,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Chili powder',
+        'name': 'Chili powder',  # check
         'price_per_reference_amount': 0,
         'reference_amount': 100,
         'amount_in_package': 0,
@@ -272,7 +272,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Tomato puree, MUTTI',
+        'name': 'Tomato puree, MUTTI',  # check
         'price_per_reference_amount': 0.30,
         'reference_amount': 100,
         'amount_in_package': 750,
@@ -322,7 +322,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Beer, alcohol free',
+        'name': 'Beer, alcohol free',  # Check, not needed.
         'price_per_reference_amount': 0.21,
         'reference_amount': 100,
         'amount_in_package': 1980,
@@ -367,7 +367,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Mushrooms',
+        'name': 'Mushrooms',  # check
         'price_per_reference_amount': 0.33,
         'reference_amount': 100,
         'amount_in_package': 450,
@@ -409,7 +409,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Walnuts',
+        'name': 'Walnuts',  # check
         'price_per_reference_amount': 1.499,
         'reference_amount': 100,
         'amount_in_package': 1000,
@@ -453,7 +453,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Whole wheat pasta',
+        'name': 'Whole wheat pasta',  # check
         'price_per_reference_amount': 0.38,
         'reference_amount': 100,
         'amount_in_package': 500,
@@ -498,7 +498,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Pea protein powder',
+        'name': 'Pea protein powder',  # Check.
         'price_per_reference_amount': 1.04,
         'reference_amount': 100,
         'amount_in_package': 2500,
@@ -541,7 +541,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Napoletana sauce barilla',
+        'name': 'Napoletana sauce barilla',  # check
         'price_per_reference_amount': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -586,7 +586,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Arrabiata sauce barilla',
+        'name': 'Arrabiata sauce barilla',  # check
         'price_per_reference_amount': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -631,7 +631,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Olive sauce barilla',
+        'name': 'Olive sauce barilla',  # check
         'price_per_reference_amount': 0.40,
         'reference_amount': 100,
         'amount_in_package': 400,
@@ -676,7 +676,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Spinach',
+        'name': 'Spinach',  # check.
         'price_per_reference_amount': 0.213,
         'reference_amount': 100,
         'amount_in_package': 1000,
@@ -727,7 +727,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Multivitamin A-Z Komplett Mivolis dm',
+        'name': 'Multivitamin A-Z Komplett Mivolis dm',  # check
         'reference_amount': 1,
         'calories': 0,
         'carbohydrates': 0,
@@ -769,7 +769,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Vitamin D3 Tablette Vitabay 5000 I.E.',
+        'name': 'Vitamin D3 Tablette Vitabay 5000 I.E.',  # check
         'reference_amount': 1,
         'calories': 0,
         'carbohydrates': 0,
@@ -811,7 +811,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Iron tablets, gentle iron',
+        'name': 'Iron tablets, gentle iron',  # check
         'reference_amount': 1,
         'calories': 0,
         'carbohydrates': 0,
@@ -853,7 +853,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Zink bisglycinat Nature Love',
+        'name': 'Zink bisglycinat Nature Love',  # check
         'reference_amount': 1,
         'calories': 0,
         'carbohydrates': 0,
@@ -895,7 +895,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Salt, iodized',
+        'name': 'Salt, iodized',  # check
         'reference_amount': 100,
         'calories': 0,
         'carbohydrates': 0,
@@ -940,7 +940,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Magnesium citrate',
+        'name': 'Magnesium citrate',  # check
         'reference_amount': 100,
         'calories': 0,
         'carbohydrates': 0,
@@ -982,7 +982,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Potassium citrate',
+        'name': 'Potassium citrate',  # check
         'reference_amount': 100,
         'calories': 0,
         'carbohydrates': 0,
@@ -1024,7 +1024,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Vitamin B-Komplex ratiopharm',
+        'name': 'Vitamin B-Komplex ratiopharm',  # check
         'reference_amount': 1,
         'calories': 0,
         'carbohydrates': 0,
@@ -1066,7 +1066,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Complete Multivitamin Komplex Tabletten Bulkpowders',
+        'name': 'Complete Multivitamin Komplex Tabletten Bulkpowders',  # check
         'reference_amount': 3,
         'calories': None,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
@@ -1112,7 +1112,8 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Multivitamin vitasyg',  # Best multivitamin tablet.
+        'name': 'Multivitamin vitasyg',  # check (Another multivitamin is
+        # better)
         'reference_amount': 1,  # default: 100 g
         'calories': None,  # 'default_unit': 'kcal'
         'carbohydrates': None,  # 'default_unit': 'gram'
@@ -1159,7 +1160,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Calcium citrate',
+        'name': 'Calcium citrate',  # check
         'reference_amount': 100,  # default: 100 g
         'calories': 0,  # 'default_unit': 'kcal'
         'carbohydrates': 0,  # 'default_unit': 'gram'
@@ -1202,7 +1203,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Copper tablet',
+        'name': 'Copper tablet',  # check
         'reference_amount': 1,  # default: 100 g
         'price_per_reference_amount': 0.1,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1245,7 +1246,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Choline bitartrate',
+        'name': 'Choline bitartrate',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 6.49,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1288,7 +1289,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Manganese tablet',
+        'name': 'Manganese tablet',  # check
         'reference_amount': 1,  # default: 100 g
         'price_per_reference_amount': 0.15,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1331,7 +1332,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Corn',
+        'name': 'Corn',  # check
         # https://nutritiondata.self.com/facts/vegetables-and-vegetable-products/2418/2
         'buy_here_link': None,
         'source_nutritional_information_link': None,
@@ -1382,7 +1383,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Beans, pinto, mature seeds, raw',
+        'name': 'Beans, pinto, mature seeds, raw',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0.30,
         'calories': 347,  # 'default_unit': 'kcal'
@@ -1426,7 +1427,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Coriander',
+        'name': 'Coriander',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1468,7 +1469,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Cocoa powder',
+        'name': 'Cocoa powder',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 1.312,
         'calories': 366,  # 'default_unit': 'kcal'
@@ -1510,7 +1511,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Garam masala',
+        'name': 'Garam masala',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0,
         'calories': None,  # 'default_unit': 'kcal'
@@ -1552,7 +1553,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Green beans',
+        'name': 'Green beans',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0.16,
         'calories': 31,  # 'default_unit': 'kcal'
@@ -1600,7 +1601,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Gym nutrition multicomplex',
+        'name': 'Gym nutrition multicomplex',  # check
         'reference_amount': 2,  # default: 100 g
         'price_per_reference_amount': 0.28,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1647,7 +1648,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Vitamin K Komplex Vispura',
+        'name': 'Vitamin K Komplex Vispura',  # check
         'reference_amount': 1,  # default: 100 g
         'price_per_reference_amount': 0.16,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1695,7 +1696,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Sweet potato, raw, unprepared',
+        'name': 'Sweet potato, raw, unprepared',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0.63,
         'calories': 86.0,  # 'default_unit': 'kcal'
@@ -1742,7 +1743,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Vinegar (5% Acid)',
+        'name': 'Vinegar (5% Acid)',  # check
         'reference_amount': 100,  # default: 100 g
         'price_per_reference_amount': 0.045,
         'calories': 0,  # 'default_unit': 'kcal'
@@ -1790,7 +1791,7 @@ ingredient_dict_list = [
         'is_public': True,
     },
     {
-        'name': 'Maggi',
+        'name': 'Maggi',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -1838,7 +1839,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Broccoli',
+        'name': 'Broccoli',  # check
         'buy_here_link': None,
         'source_nutritional_information_link':
             'https://nutritiondata.self.com/'
@@ -1888,7 +1889,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Carrot',
+        'name': 'Carrot',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -1936,7 +1937,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Peas',
+        'name': 'Peas',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -2035,7 +2036,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Sweet sour sauce',
+        'name': 'Sweet sour sauce',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -2083,7 +2084,7 @@ ingredient_dict_list = [
         'chloride': None,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Water for white rice',
+        'name': 'Water for white rice',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -2131,7 +2132,7 @@ ingredient_dict_list = [
         'chloride': 0,  # 'default_unit': 'gram'
     },
     {
-        'name': 'Salt for water for white rice',
+        'name': 'Salt for water for white rice',  # check
         'buy_here_link': None,
         # nutritional information from food numbers object oriented.
         'source_nutritional_information_link': None,
@@ -2184,7 +2185,7 @@ ingredient_dict_list = [
     },
 
     {
-        'name': 'Flaxseed flour',
+        'name': 'Flaxseed flour',  # check
         'buy_here_link': 'https://www.amazon.de/gp/'
                          'product/B00KHWE8QI/'
                          'ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1',
@@ -2240,7 +2241,7 @@ ingredient_dict_list = [
     },
     {
         # THERE IS NO VITAMIN K!!
-        'name': 'Vit4Ever',
+        'name': 'Vit4Ever',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,
@@ -2291,7 +2292,7 @@ ingredient_dict_list = [
     },
     {
         # Mehr Luecken als Vit4ever, vergiss es!
-        'name': 'Purefitness MULTIVITAMIN A-Z',
+        'name': 'Purefitness MULTIVITAMIN A-Z',  # check
         'buy_here_link': None,
         'source_nutritional_information_link': None,
         'is_public': True,

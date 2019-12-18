@@ -17,6 +17,22 @@ from django.contrib.auth.models import User
 class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
 
     def test_get_from_food_data_central_carbohydrate_without_fiber(self):
+        """
+        The ingredients from the FoodData Central database have their
+        carbohydrates stored as "Carbohydrate, by difference". This value
+        includes fiber, which is not desired. Hence, from "Carbohydrate,
+        by difference" and "Fiber, total dietary",
+        "carbohydrate_without_fiber" is calculated.
+
+        It is tested whether the carbohydrate_without_fiber value is
+        calculated correctly for a food that has values for both
+        "Carbohydrate, by difference" and "Fiber, total dietary".
+
+        This test does not cover the calculation for the case that
+        "Carbohydrate, by difference" is None and "Fiber, total dietary" is a
+        positive number.
+        :return:
+        """
 
         # Simulate clicking on the menu item "Ingredients".
         click_navbar_item(
