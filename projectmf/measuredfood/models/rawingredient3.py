@@ -67,6 +67,16 @@ class RawIngredient3(models.Model):
         editable=False,
     )
 
+    # # FoodData Central id - the unique id used to identify a food in the
+    # # FoodData Central database. This id is saved to the RawIngredient3 model
+    # # when an ingredient is retrieved from the FoodData Central API and saved
+    # # as a RawIngredient3 model.
+    # fdcid = models.FloatField(
+    #     blank=True,
+    #     null=False,
+    #     editable=False,
+    # )
+
     class Meta:
         ordering = ["name"]
         # So the user does not get confused, they must give unique names to

@@ -13,6 +13,7 @@ sys.path.append("...")
 sys.path.append("....")
 from functional_tests.utils.click_navbar_item import \
     click_navbar_item
+from ingredients_data3 import ingredient_dict_list
 
 """
 During development, from time to time the database will be deleted and 
@@ -64,10 +65,6 @@ click_navbar_item(
     Keys,
     time,
 )
-
-browser.find_element_by_id(
-    'id_button_get_from_food_data_central'
-).click()
 
 template_ingredient = [
     {
@@ -136,54 +133,93 @@ ingredients_to_get_from_food_data_central = [
     },
 ]
 
-# The following ingredients will have to be added manually as they were not
-# found on FoodData Central.
-ingredients_to_add_manually = [
-    'Barilla sauce (Arrabiata or similar)',
-    'Chili powder',
-    'Tomato puree, MUTTI',
-    'Vitamin D3 Tablette Vitabay 5000 I.E.',
-    'Salt, iodized',
-    'Magnesium citrate',
-    'Potassium citrate',
-    'Calcium citrate',
-    'Coriander',
-    'Maggi',
-    'Asian vegetable mix',
-    'Water for white rice',
-    'Salt for water for white rice',
-    'Flaxseed flour',
-    'Vit4Ever',
-]
-
-# Simulate the user creating a new RawIngredient3 using the FoodData Central
-# database.
-id_ = 'id_FDC_ID'
-name_food_data_central_id_field = 'FDC_ID'
-for ingredient in ingredients_to_get_from_food_data_central:
-
-    if ingredient['id_ingredient_usda_api'] is None:
-        continue
-
-    # Enter the ingredient id.
-
-    # Remove the default value from the field, if necessary. This should not
-    # be necessary, as the initial value has been removed - but it remains as
-    # a precaution.
+# Since Sandor is working on something else at the moment, this is 
+# temporarily deactivated.
+ingredients_are_added_from_food_data_central = False
+if ingredients_are_added_from_food_data_central:
     browser.find_element_by_id(
-        'id_FDC_ID'
-    ).clear()
-
-    browser.find_element_by_id(
-        'id_FDC_ID'
-    ).send_keys(
-        ingredient['id_ingredient_usda_api']
-    )
-
-    get_button = browser.find_element_by_id(
         'id_button_get_from_food_data_central'
+    ).click()
+
+    # Simulate the user creating a new RawIngredient3 using the FoodData Central
+    # database.
+    id_ = 'id_FDC_ID'
+    name_food_data_central_id_field = 'FDC_ID'
+    for ingredient in ingredients_to_get_from_food_data_central:
+    
+        if ingredient['id_ingredient_usda_api'] is None:
+            continue
+    
+        # Enter the ingredient id.
+    
+        # Remove the default value from the field, if necessary. This should not
+        # be necessary, as the initial value has been removed - but it remains
+        # as
+        # a precaution.
+        browser.find_element_by_id(
+            'id_FDC_ID'
+        ).clear()
+    
+        browser.find_element_by_id(
+            'id_FDC_ID'
+        ).send_keys(
+            ingredient['id_ingredient_usda_api']
+        )
+    
+        get_button = browser.find_element_by_id(
+            'id_button_get_from_food_data_central'
+        )
+        get_button.click()
+
+# Simulate clicking on the menu item "Ingredients"
+click_navbar_item(
+    'id_menu_item_rawingredients3',
+    browser,
+    Keys,
+    time,
+)
+
+# Add the all ingredients from the list.
+for k in range(0, len(ingredient_dict_list)):
+
+    # Check if the ingredient exists already. If it does, delete it.
+    # Existing RawIngredient3 objects that are not in the
+    # ingredient_dict_list are not affected. The script does not delete all
+    # previous RawIngredient3 objects.
+    try:
+        delete_button = \
+            browser.find_element_by_id(
+                'delete ' + ingredient_dict_list[k]['name']
+            )
+        delete_button.click()
+        confirm_delete_button = browser.find_element_by_id(
+            'confirm_delete'
+        )
+        confirm_delete_button.click()
+        time.sleep(0.5)
+    except NoSuchElementException:
+        pass
+
+    new_ingredient_button = browser.find_element_by_id(
+        'id_button_new_rawingredient3'
     )
-    get_button.click()
+    new_ingredient_button.click()
+
+    time.sleep(0.5)
+
+    for key, value in ingredient_dict_list[k].items():
+        if value is not None:
+            # Remove the default value from the field, if necessary.
+            browser. \
+                find_element_by_name(key).clear()
+            browser. \
+                find_element_by_name(key).send_keys(str(value))
+
+    # Simulate clicking the save button
+    save_button = browser.find_element_by_id(
+        'id_button_save_new_rawingredient3'
+    )
+    save_button.click()
 
 time.sleep(10)
 browser.quit()
