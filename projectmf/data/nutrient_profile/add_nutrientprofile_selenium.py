@@ -7,7 +7,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 from click_navbar_item_copy import click_navbar_item
 from selenium.common.exceptions import NoSuchElementException
-from initial_nutrient_profiles import nutrient_profile_dict_list
+from nutrient_profile.initial_nutrient_profiles import nutrient_profile_dict_list
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')

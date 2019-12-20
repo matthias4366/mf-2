@@ -8,7 +8,7 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
 )
-from data.initial_nutrient_profiles import nutrient_profile_dict_list
+from nutrient_profile.initial_nutrient_profiles import nutrient_profile_dict_list
 
 # import the ingredient dictionaries
 import sys

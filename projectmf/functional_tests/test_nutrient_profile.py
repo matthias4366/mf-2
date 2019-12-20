@@ -1,6 +1,6 @@
 from functional_tests.utils.click_navbar_item import \
     click_navbar_item
-from data.initial_nutrient_profiles import nutrient_profile_dict_list
+from nutrient_profile.initial_nutrient_profiles import nutrient_profile_dict_list
 from .base import FunctionalTestWithUserLoggedIn
 from selenium.webdriver.common.keys import Keys
 import time

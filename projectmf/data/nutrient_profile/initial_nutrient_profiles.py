@@ -193,5 +193,4 @@ nutrient_profile_dict_list = [
         'max_chloride': None,  # 'default_unit': 'gram'
 
     },
-
 ]
