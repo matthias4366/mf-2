@@ -77,7 +77,7 @@ id,name,unit_name,nutrient_nbr,rank,is_displayed,display_in_ingredient_form_v1,d
 1131,"Tocotrienol, delta",MG,347,8600,FALSE,FALSE,,"Tocotrienols, which are related compounds, also have vitamin E activity. => diplay only vitamin E."
 1137,"Boron, B",UG,354,6245,TRUE,TRUE,,"Not an essential nutrient yet, but it has been shown to play a role the human body. https://www.ncbi.nlm.nih.gov/pubmed/8140253. It shows up in the DRI table, so I shall display it as well. https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t8/?report=objectonly"
 1146,"Nickel, Ni",UG,371,6242,TRUE,TRUE,,"Shows up in DRI table, therefore Sandor includes it as well. https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t8/?report=objectonly"
-1158,Vitamin E,MG_ATE,394,7800,TRUE,TRUE,,ATE means alpha Tocopherol equivalents (from https://en.wikipedia.org/wiki/Tocopherol).
+1158,Vitamin E,MG_ATE,394,7800,FALSE,FALSE,,ATE means alpha Tocopherol equivalents (from https://en.wikipedia.org/wiki/Tocopherol).
 1159,cis-beta-Carotene,UG,321.1,7442,FALSE,FALSE,,"Do not display, just another carotene."
 1160,cis-Lycopene,UG,337.1,7532,FALSE,FALSE,,"Do not display, see ""Lycopene"" above."
 1161,cis-Lutein/Zeaxanthin,UG,338.3,7534,FALSE,FALSE,,"Do not display, see ""Lutein + zeaxanthin"" above."
@@ -98,7 +98,7 @@ id,name,unit_name,nutrient_nbr,rank,is_displayed,display_in_ingredient_form_v1,d
 1186,Folic acid,UG,431,7000,FALSE,FALSE,,Converted to folate by the body.
 1187,"Folate, food",UG,432,7100,FALSE,FALSE,,"Use Folate, DFE instead."
 1188,5-methyl tetrahydrofolate (5-MTHF),UG,433,999999,FALSE,FALSE,,"Specific form of folate, use ""dietary folate equivalent"" (DFE) instead."
-1190,"Folate, DFE",UG,435,7200,TRUE,TRUE,,"DFE are ""dietary folate equivalents"". Therefore, this is the folate value Sandor will use. Source: https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"
+1190,"Folate, DFE",UG,435,7200,FALSE,FALSE,,"DFE are ""dietary folate equivalents"". Therefore, this is the folate value Sandor will use. Source: https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"
 1191,10-Formyl folic acid (10HCOFA),UG,436,999999,FALSE,FALSE,,"Specific form of folate, use ""dietary folate equivalent"" (DFE) instead."
 1192,5-Formyltetrahydrofolic acid (5-HCOH4,UG,437,999999,FALSE,FALSE,,"Specific form of folate, use ""dietary folate equivalent"" (DFE) instead."
 1194,"Choline, free",MG,450,7230,TRUE,TRUE,,Sandor guessed on this one. 

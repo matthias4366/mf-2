@@ -133,43 +133,62 @@ ingredients_to_get_from_food_data_central = [
     },
 ]
 
-# Since Sandor is working on something else at the moment, this is 
-# temporarily deactivated.
-ingredients_are_added_from_food_data_central = False
-if ingredients_are_added_from_food_data_central:
+# Simulate the user creating a new RawIngredient3 using the FoodData Central
+# database.
+id_ = 'id_FDC_ID'
+name_food_data_central_id_field = 'FDC_ID'
+for ingredient in ingredients_to_get_from_food_data_central:
+    # Check if the ingredient exists already in the user's list of
+    # ingredients. If it does, delete it.
+    # Existing RawIngredient3 objects that are not in the
+    # ingredients_to_get_from_food_data_central are not affected. The
+    # script does not delete all previous RawIngredient3 objects.
+    click_navbar_item(
+        'id_menu_item_rawingredients3',
+        browser,
+        Keys,
+        time,
+    )
+    try:
+        delete_button = \
+            browser.find_element_by_id(
+                'delete ' + ingredient['ingredient_name_usda_api']
+            )
+        delete_button.click()
+        confirm_delete_button = browser.find_element_by_id(
+            'confirm_delete'
+        )
+        confirm_delete_button.click()
+        time.sleep(0.5)
+    except NoSuchElementException:
+        print('Delete button not found. id:')
+        print('delete ' + ingredient['ingredient_name_usda_api'])
+        pass
+
     browser.find_element_by_id(
         'id_button_get_from_food_data_central'
     ).click()
 
-    # Simulate the user creating a new RawIngredient3 using the FoodData Central
-    # database.
-    id_ = 'id_FDC_ID'
-    name_food_data_central_id_field = 'FDC_ID'
-    for ingredient in ingredients_to_get_from_food_data_central:
-    
-        if ingredient['id_ingredient_usda_api'] is None:
-            continue
-    
-        # Enter the ingredient id.
-    
-        # Remove the default value from the field, if necessary. This should not
-        # be necessary, as the initial value has been removed - but it remains
-        # as
-        # a precaution.
-        browser.find_element_by_id(
-            'id_FDC_ID'
-        ).clear()
-    
-        browser.find_element_by_id(
-            'id_FDC_ID'
-        ).send_keys(
-            ingredient['id_ingredient_usda_api']
-        )
-    
-        get_button = browser.find_element_by_id(
-            'id_button_get_from_food_data_central'
-        )
-        get_button.click()
+    # Enter the ingredient id.
+
+    # Remove the default value from the field, if necessary. This should not
+    # be necessary, as the initial value has been removed - but it remains
+    # as
+    # a precaution.
+    browser.find_element_by_id(
+        'id_FDC_ID'
+    ).clear()
+
+    browser.find_element_by_id(
+        'id_FDC_ID'
+    ).send_keys(
+        ingredient['id_ingredient_usda_api']
+    )
+
+    get_button = browser.find_element_by_id(
+        'id_button_get_from_food_data_central'
+    )
+    get_button.click()
 
 # Simulate clicking on the menu item "Ingredients"
 click_navbar_item(

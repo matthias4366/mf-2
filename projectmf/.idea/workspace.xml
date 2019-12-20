@@ -6,14 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/data/ingredients_data3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/make_template_ingredients_data3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/.~lock.nutrient.csv#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/rawingredient3_field_names.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ingredients_data3.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/ingredients_data3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nutrient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nutrient_dict_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient_dict_list.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-608">
-              <caret line="186" column="48" selection-start-line="186" selection-start-column="48" selection-end-line="186" selection-end-column="48" />
+            <state relative-caret-position="328">
+              <caret line="161" column="23" lean-forward="true" selection-start-line="161" selection-start-column="23" selection-end-line="161" selection-end-column="23" />
               <folding>
                 <element signature="e#0#80#0" expanded="true" />
               </folding>
@@ -55,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="1968">
               <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -76,15 +73,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/ingredients_data3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="747" column="39" lean-forward="true" selection-start-line="747" selection-start-column="39" selection-end-line="747" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -96,10 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>carboh</find>
-      <find>fiber</find>
-      <find>targeted_nutrients</find>
-      <find>result_total_nutrition_fulldayofeating_rounded_list</find>
       <find>carb</find>
       <find>Rawingredi</find>
       <find>aggre</find>
@@ -116,7 +100,6 @@
       <find>is_public</find>
       <find>sodium</find>
       <find>salt</find>
-      <find>salt</find>
       <find>chrom</find>
       <find>iron</find>
       <find>copper</find>
@@ -126,6 +109,11 @@
       <find>copp</find>
       <find>magne</find>
       <find>zinc</find>
+      <find>folate</find>
+      <find>folate_dfe</find>
+      <find>vitamin_e</find>
+      <find>vitamin_e-name</find>
+      <find>vitamin e</find>
     </findStrings>
     <replaceStrings>
       <replace>list_independently_scaling_entity</replace>
@@ -218,8 +206,8 @@
         <option value="$PROJECT_DIR$/data/rawingredient3_field_names.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" />
         <option value="$PROJECT_DIR$/data/make_template_ingredients_data3.py" />
-        <option value="$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py" />
         <option value="$PROJECT_DIR$/data/ingredients_data3.py" />
+        <option value="$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py" />
       </list>
     </option>
   </component>
@@ -237,6 +225,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -349,7 +338,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -664,7 +652,8 @@
       <workItem from="1576579696990" duration="2742000" />
       <workItem from="1576582514244" duration="694000" />
       <workItem from="1576696560952" duration="6479000" />
-      <workItem from="1576782085640" duration="8110000" />
+      <workItem from="1576782085640" duration="8209000" />
+      <workItem from="1576835820703" duration="2598000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -765,7 +754,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="518279000" />
+    <option name="totallyTimeSpent" value="520976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -777,10 +766,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3752075" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37963477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1171,20 +1160,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/make_dict_template_ingredients_data3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" selection-start-line="12" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/rawingredient3_field_names.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/make_dict_template_ingredients_data3.py" />
+    <entry file="file://$PROJECT_DIR$/data/rawingredient3_field_names.py" />
     <entry file="file://$PROJECT_DIR$/measuredfood/views/rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1229,17 +1206,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/nutrient_dict_list.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ingredients_data2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55151">
           <caret line="2348" column="48" selection-start-line="2348" selection-start-column="48" selection-end-line="2348" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1968">
+          <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/ingredients_data3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="638" column="40" selection-start-line="638" selection-start-column="40" selection-end-line="638" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/nutrient_dict_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="443" column="44" selection-start-line="443" selection-start-column="35" selection-end-line="443" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1255,28 +1249,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/add_rawingredient3_data_selenium.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-608">
-          <caret line="186" column="48" selection-start-line="186" selection-start-column="48" selection-end-line="186" selection-end-column="48" />
+        <state relative-caret-position="328">
+          <caret line="161" column="23" lean-forward="true" selection-start-line="161" selection-start-column="23" selection-end-line="161" selection-end-column="23" />
           <folding>
             <element signature="e#0#80#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ingredients_data3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="747" column="39" lean-forward="true" selection-start-line="747" selection-start-column="39" selection-end-line="747" selection-end-column="39" />
         </state>
       </provider>
     </entry>
