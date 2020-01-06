@@ -1,15 +1,19 @@
+import sys
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
 from settings_add_data import \
     URL_ADD_DATA, \
     USERNAME, \
     PASSWORD
 from selenium import webdriver
 import time
+import json
 from selenium.webdriver.common.keys import Keys
 from click_navbar_item_copy import click_navbar_item
 from selenium.common.exceptions import NoSuchElementException
-from nutrient_profile.initial_nutrient_profiles import nutrient_profile_dict_list
-# import the ingredient dictionaries
-import sys
 sys.path.insert(0, '/projectmf/data/')
 
 """
@@ -62,6 +66,10 @@ click_navbar_item(
     Keys,
     time,
 )
+
+with open('nutrient_profile/'
+          'nutrient_profiles_from_national_institute_of_health.json', 'r') as fp:
+    nutrient_profile_dict_list = json.load(fp)
 
 # Add the nutrient profiles.
 

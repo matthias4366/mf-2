@@ -34,8 +34,6 @@ def make_nutrient_profile_dataframe_into_python_dict(
         full_life_stage = current_life_stage_categorie + df.iat[row_index, 0]
 
         nutrient_profile_dict['name'] = full_life_stage
-        # dri stands for 'daily recommended intake.
-        nutrient_profile_dict['dri'] = {}
 
         # The iteration starts at 1 in order to skip the
         # "Life Stage\nGroup" column.
@@ -59,7 +57,7 @@ def make_nutrient_profile_dataframe_into_python_dict(
 
             if nutrient_name_measuredfood is not None and \
                     nutrient_amount_measuredfood is not None:
-                nutrient_profile_dict['dri'][nutrient_name_measuredfood] = \
+                nutrient_profile_dict[nutrient_name_measuredfood] = \
                     nutrient_amount_measuredfood
 
         list_nutrient_profile_dict_national_institute_of_health.append(
