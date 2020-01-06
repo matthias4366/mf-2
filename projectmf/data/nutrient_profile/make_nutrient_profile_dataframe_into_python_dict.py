@@ -5,6 +5,8 @@ def make_nutrient_profile_dataframe_into_python_dict(
     life_stage_group_categories,
     re,
     make_number_from_national_institute_of_health_str,
+    match_nutrient_dri_to_measuredfood,
+    match_nutrient_dri_to_measuredfood_dict,
 ):
     list_nutrient_profile_dict_national_institute_of_health = []
 
@@ -15,9 +17,9 @@ def make_nutrient_profile_dataframe_into_python_dict(
 
     cell_content = df.iat[1, 3]
 
-    # Start with the first few rows to keep things simpler.
-    for row_index in range(0, 5):
-        # for row_index in range(0, n_rows):  # proper code
+    # # Start with the first few rows to keep things simpler.
+    # for row_index in range(0, 5):
+    for row_index in range(0, n_rows):  # proper code
 
         # The nutrient_profile_dict is the dictionary in which the resulting
         # nutrient profile is stored.
@@ -38,17 +40,27 @@ def make_nutrient_profile_dataframe_into_python_dict(
         # The iteration starts at 1 in order to skip the
         # "Life Stage\nGroup" column.
         for col_index in range(1, n_columns):
-            nutrient_amount_dri = df.iat[row_index, col_index]
+            nutrient_amount_dri_with_bad_characters = \
+                df.iat[row_index, col_index]
             nutrient_name_dri = df.columns[col_index]
 
-            nutrient_amount_measuredfood = \
+            nutrient_amount_dri = \
                 make_number_from_national_institute_of_health_str(
-                    str(nutrient_amount_dri),
+                    str(nutrient_amount_dri_with_bad_characters),
                     re,
                 )
 
-            nutrient_profile_dict['dri'][nutrient_name_dri] = \
-                nutrient_amount_measuredfood
+            nutrient_amount_measuredfood, nutrient_name_measuredfood = \
+                match_nutrient_dri_to_measuredfood(
+                    match_nutrient_dri_to_measuredfood_dict,
+                    nutrient_name_dri,
+                    nutrient_amount_dri,
+                )
+
+            if nutrient_name_measuredfood is not None and \
+                    nutrient_amount_measuredfood is not None:
+                nutrient_profile_dict['dri'][nutrient_name_measuredfood] = \
+                    nutrient_amount_measuredfood
 
         list_nutrient_profile_dict_national_institute_of_health.append(
             nutrient_profile_dict

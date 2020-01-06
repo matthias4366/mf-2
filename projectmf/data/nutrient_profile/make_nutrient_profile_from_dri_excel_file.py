@@ -62,6 +62,8 @@ list_nutrient_profile_dict_national_institute_of_health = \
         life_stage_group_categories,
         re,
         make_number_from_national_institute_of_health_str,
+        match_nutrient_dri_to_measuredfood,
+        match_nutrient_dri_to_measuredfood_dict,
     )
 
 # From the dictionary from the national institute of health, make a

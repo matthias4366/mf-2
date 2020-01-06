@@ -8,6 +8,9 @@ def make_number_from_national_institute_of_health_str(
     In the nutrition values from the national institute of health, there are
     bad characters such as "*" or letters. These need to be removed.
 
+    The units might not be the same. A unit conversion factor will have to
+    applied at some point.
+
     :param nutrient_amount_dri:
     :param re:
     :return:

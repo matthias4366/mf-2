@@ -252,7 +252,7 @@
         "nutrient_name_usda_api": "Total fat (NLEA)",
         "unit_nutrient_usda_csv": "G",
         "unit_nutrient_usda_api": "g",
-        "is_displayed": true,
+        "is_displayed": false,
         "nutrient_name_measuredfood": "total_fat_(nlea)-name-1085-id"
     },
     {

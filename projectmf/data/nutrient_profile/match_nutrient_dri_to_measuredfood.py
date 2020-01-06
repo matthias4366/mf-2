@@ -6,7 +6,6 @@ def match_nutrient_dri_to_measuredfood(
     nutrient_amount_dri,
 ):
     """
-
     :param match_nutrient_dri_to_measuredfood_dict: Dictionary matching the
     nutrients obtained from the
     Dietary Reference Intake recommendations found in the
@@ -30,6 +29,25 @@ def match_nutrient_dri_to_measuredfood(
     in the measured food database.
     """
 
+    # Check if there is matching nutrient name in the measuredfood
+    # application for the nutrient name given in the daily recommended intake
+    # by the national institute of health.
+    try:
+        nutrient_name_measuredfood = \
+            match_nutrient_dri_to_measuredfood_dict[
+                nutrient_name_dri]['matching_name_in_measuredfood']
+        if nutrient_name_measuredfood is None:
+            return None, None
+    except KeyError:
+        print(f'KeyError has occured for '
+              f'nutrient_name_dir {nutrient_name_dri}.')
+        return None, nutrient_name_measuredfood
+
+    if len(nutrient_amount_dri) < 1:
+        print(f'The nutrient_amount_dri string is empty for the nutrient with '
+              f'nutrient_name_dri: {nutrient_name_dri}.')
+        return None, nutrient_name_measuredfood
+
     try:
 
         unit_conversion_factor_ = float(
@@ -37,14 +55,9 @@ def match_nutrient_dri_to_measuredfood(
                 nutrient_name_dri]['unit_conversion_factor']
         )
 
-        # Catch the case that the DRI value might be not determined, and thus
-        # marked as the string 'ND' or 'NDe' in the cell.
-        if isinstance(nutrient_amount_dri, str):
-            nutrient_amount_dri_ = 0
-        else:
-            nutrient_amount_dri_ = float(
-                nutrient_amount_dri
-            )
+        nutrient_amount_dri_ = float(
+            nutrient_amount_dri
+        )
 
         nutrient_amount_measuredfood = \
             nutrient_amount_dri_ \
@@ -57,4 +70,14 @@ def match_nutrient_dri_to_measuredfood(
         return nutrient_amount_measuredfood, nutrient_name_measuredfood
 
     except KeyError:
-        return None, None
+        print(f'KeyError has occured for '
+              f'nutrient_name_dir {nutrient_name_dri}.')
+        return None, nutrient_name_measuredfood
+    # except ValueError:
+    #     print(f'ValueError has occured. The following nutrient amount could '
+    #           f'not be converted to float:\n'
+    #           f'nutrient_amount_dri {nutrient_amount_dri} \n'
+    #           f'for the nutrient\n'
+    #           f'nutrient_name_dir {nutrient_name_dri}.\n')
+    #     print(f'type(nutrient_amount_dri): {type(nutrient_amount_dri)}.\n')
+    #     return None, None
