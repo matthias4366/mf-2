@@ -1,7 +1,8 @@
 # Map the nutrient names from the dataframe which was made from
 # daily_recommended_intake.xlsx to the nutrient name as it is
 # stored in measuredfood.
-# For example "Calcium\n(mg/d)" in dataframe maps to "calcium_ca-name-1087-id".
+# For example "Calcium\n(mg/d)" in the dataframe maps to
+# "calcium_ca-name-1087-id" in the measuredfood app.
 
 # The matching_name_in_measuredfood is the respective name of the nutrients
 # under which it is stored in the measuredfood database.

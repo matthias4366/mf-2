@@ -9,7 +9,8 @@ daily_recommended_intake.xlsx.
 
 The script make_nutrient_profile_from_dri_excel_file takes in that excel file
 and makes nutrient profile dictionaries out of it, which will then be added
-to measuredfood using add_nutrient_profile_selenium2.py.
+to measuredfood using
+add_national_institute_of_health_nutrient_profiles_selenium.py.
 """
 import pandas as pd
 import json
@@ -48,8 +49,6 @@ life_stage_group_categories = [
     'Lactation',
 ]
 
-list_nutrient_profiles = []
-
 # Returns tuple of shape (Rows, columns) of dataframe/series.
 df_dimensions = df.shape
 n_rows = df_dimensions[0]
@@ -57,16 +56,30 @@ n_columns = df_dimensions[1]
 
 cell_content = df.iat[1, 3]
 
+# All the nutrient_profile_dict are stored in the following list
+# list_nutrient_profiles_national_institute_of_health.
+list_nutrient_profiles_national_institute_of_health = []
 
-# Start with the first 3 rows to keep things simpler.
-for row_index in range(0, 2):
+# Start with the first few rows to keep things simpler.
+for row_index in range(0, 5):
     # for row_index in range(0, n_rows):  # proper code
+
+    # The nutrient_profile_dict is the dictionary in which the resulting
+    # nutrient profile is stored.
+    nutrient_profile_dict = {}
+
+    # Get the category of the current life stage.
     if df.iat[row_index, 0] in life_stage_group_categories:
         current_life_stage_categorie = df.iat[row_index, 0]
+        # In the rows where the category of the life stage is listed,
+        # there are no nutrient values - hence, continue to the next row.
         continue
     full_life_stage = current_life_stage_categorie + df.iat[row_index, 0]
     print('full_life_stage')
     print(full_life_stage)
+
+    nutrient_profile_dict['name'] = full_life_stage
+
     # The iteration starts at 1 in order to skip the "Life Stage\nGroup" column.
     for col_index in range(1, n_columns):
         nutrient_amount_dri = df.iat[row_index, col_index]
@@ -83,6 +96,17 @@ for row_index in range(0, 2):
                 nutrient_amount_dri,
             )
 
+        nutrient_profile_dict[nutrient_name_measuredfood] = \
+            nutrient_amount_measuredfood
+
+    list_nutrient_profiles_national_institute_of_health.append(
+        nutrient_profile_dict
+    )
+
 # Transform the values from the dataframe to floats or None.
 # Map NaN to None.
 # Remove non numbers, such as *, a, b etc.
+
+with open('nutrient_profiles_from_national_institute_of_health.json', 'w') as\
+        fp:
+    json.dump(list_nutrient_profiles_national_institute_of_health, fp, indent=4)

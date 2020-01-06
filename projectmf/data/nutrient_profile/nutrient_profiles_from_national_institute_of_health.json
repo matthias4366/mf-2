@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Infants\u20030\u20136 mo",
+        "null": null,
+        "boron_b-name-1137-id": 0.0,
+        "calcium_ca-name-1087-id": 1000.0
+    },
+    {
+        "name": "Infants\u20036\u201312 mo",
+        "null": null,
+        "boron_b-name-1137-id": 0.0,
+        "calcium_ca-name-1087-id": 1500.0
+    },
+    {
+        "name": "Children\u20031\u20133 y",
+        "null": null,
+        "boron_b-name-1137-id": 0.003,
+        "calcium_ca-name-1087-id": 2500.0
+    }
+]
