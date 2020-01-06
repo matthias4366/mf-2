@@ -9,6 +9,10 @@ def merge_dataframe(
 
     Since merging with pandas took too long, the sheets were manually merged
     in open office calc.
+
+    The daily recommended intakes (DRI) and the tolerable upper intakes (TUI)
+    merged into seperate excel sheets: 'dri_all_in_one' and 'max_all_in_one'.
+
     :param pd:
     :return:
     """

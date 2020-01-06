@@ -14,13 +14,16 @@ add_national_institute_of_health_nutrient_profiles_selenium.py.
 """
 import pandas as pd
 import json
+import re
 from match_nutrient_dri_to_measuredfood_dict import \
     match_nutrient_dri_to_measuredfood_dict
 from match_nutrient_dri_to_measuredfood import \
     match_nutrient_dri_to_measuredfood
-from make_nutrient_profile_dataframe_sheets_into_dict import \
-    make_nutrient_profile_dataframe_sheets_into_dict
+from make_nutrient_profile_dataframe_into_python_dict import \
+    make_nutrient_profile_dataframe_into_python_dict
 from merge_dataframe import merge_dataframe
+from make_number_from_national_institute_of_health_str import \
+    make_number_from_national_institute_of_health_str
 
 sheet_names = [
     'dri_elements',
@@ -52,18 +55,20 @@ merged_dataframe = merge_dataframe(
 
 # merged_dataframe.to_excel("merged_dataframe.xlsx")
 
-
 # Make the merged dataframe into a python dictionary, so it is easier to handle.
-list_nutrient_profiles_national_institute_of_health_raw = \
-    make_nutrient_profile_dataframe_sheets_into_dict(
+list_nutrient_profile_dict_national_institute_of_health = \
+    make_nutrient_profile_dataframe_into_python_dict(
+        merged_dataframe,
         life_stage_group_categories,
-        sheet_names,
-        pd,
+        re,
+        make_number_from_national_institute_of_health_str,
     )
 
 # From the dictionary from the national institute of health, make a
 # transformed dictionary that can be used in the measuredfood app.
 
-# with open('nutrient_profiles_from_national_institute_of_health.json', 'w') as\
-#         fp:
-#     json.dump(merged_dataframe_json, fp, indent=4)
+with open('nutrient_profiles_from_national_institute_of_health.json', 'w') as\
+        fp:
+    json.dump(
+        list_nutrient_profile_dict_national_institute_of_health, fp, indent=4
+    )
