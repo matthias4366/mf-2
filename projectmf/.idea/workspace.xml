@@ -7,14 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/.~lock.daily_recommended_intake.xlsx#" beforeDir="false" afterPath="$PROJECT_DIR$/data/.~lock.daily_recommended_intake.xlsx#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.~lock.daily_recommended_intake.xlsx#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.~lock.nutrient.csv#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/daily_recommended_intake.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/daily_recommended_intake.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nutrient_profile/add_nutrientprofile_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/add_nutrientprofile_selenium_national_institute_of_health.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nutrient_profile/add_nutrientprofile_selenium_national_institute_of_health.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_dataframe_into_python_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_dataframe_into_python_dict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_from_dri_excel_file_old.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nutrient_profile/nutrient_profiles_from_national_institute_of_health.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/nutrient_profile/nutrient_profiles_from_national_institute_of_health.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,44 +35,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_dataframe_into_python_dict.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/nutrient_profile/nutrient_profiles_from_national_institute_of_health.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="384" column="36" selection-start-line="384" selection-start-column="36" selection-end-line="384" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../virtualenvuptodate/lib/python3.6/site-packages/selenium/webdriver/remote/errorhandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="245" selection-start-line="245" selection-end-line="245" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -215,7 +173,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -665,7 +623,8 @@
       <workItem from="1576866570570" duration="6305000" />
       <workItem from="1577703781948" duration="204000" />
       <workItem from="1578303413337" duration="21597000" />
-      <workItem from="1578327766320" duration="1310000" />
+      <workItem from="1578327766320" duration="1365000" />
+      <workItem from="1578475131609" duration="710000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -766,7 +725,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="554661000" />
+    <option name="totallyTimeSpent" value="555426000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -780,7 +739,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33259547" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3364693" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -794,7 +753,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.4384449" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.39092872" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1155,13 +1114,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_from_dri_excel_file_old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="113" column="11" lean-forward="true" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_from_dri_excel_file_old.py" />
     <entry file="file://$PROJECT_DIR$/data/nutrient_profile/learn_remove_everything_except_digits_and_dot_from_str.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1232,13 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_dataframe_into_python_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../virtualenvuptodate/lib/python3.6/site-packages/selenium/webdriver/remote/errorhandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -1248,14 +1194,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/templates/measuredfood/nutrientprofile_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
+        <state relative-caret-position="464">
           <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/nutrient_profile/make_nutrient_profile_dataframe_into_python_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1608">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/nutrient_profile/nutrient_profiles_from_national_institute_of_health.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="9216">
           <caret line="384" column="36" selection-start-line="384" selection-start-column="36" selection-end-line="384" selection-end-column="36" />
         </state>
       </provider>

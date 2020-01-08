@@ -53,8 +53,6 @@ merged_dataframe = merge_dataframe(
     pd,
 )
 
-# merged_dataframe.to_excel("merged_dataframe.xlsx")
-
 # Make the merged dataframe into a python dictionary, so it is easier to handle.
 list_nutrient_profile_dict_national_institute_of_health = \
     make_nutrient_profile_dataframe_into_python_dict(
