@@ -41,7 +41,7 @@ def match_nutrient_dri_to_measuredfood(
     except KeyError:
         print(f'KeyError has occured for '
               f'nutrient_name_dir {nutrient_name_dri}.')
-        return None, nutrient_name_measuredfood
+        return None, None
 
     if len(nutrient_amount_dri) < 1:
         print(f'The nutrient_amount_dri string is empty for the nutrient with '
@@ -55,29 +55,21 @@ def match_nutrient_dri_to_measuredfood(
                 nutrient_name_dri]['unit_conversion_factor']
         )
 
-        nutrient_amount_dri_ = float(
-            nutrient_amount_dri
-        )
-
-        nutrient_amount_measuredfood = \
-            nutrient_amount_dri_ \
-            * unit_conversion_factor_
-
-        nutrient_name_measuredfood = \
-            match_nutrient_dri_to_measuredfood_dict[
-                nutrient_name_dri]['matching_name_in_measuredfood']
-
-        return nutrient_amount_measuredfood, nutrient_name_measuredfood
-
     except KeyError:
-        print(f'KeyError has occured for '
-              f'nutrient_name_dir {nutrient_name_dri}.')
+        print(f'KeyError has occured while trying to find the \n'
+              f'unit conversion factor\n'
+              f' for '
+              f'nutrient_name_dri {nutrient_name_dri}.')
         return None, nutrient_name_measuredfood
-    # except ValueError:
-    #     print(f'ValueError has occured. The following nutrient amount could '
-    #           f'not be converted to float:\n'
-    #           f'nutrient_amount_dri {nutrient_amount_dri} \n'
-    #           f'for the nutrient\n'
-    #           f'nutrient_name_dir {nutrient_name_dri}.\n')
-    #     print(f'type(nutrient_amount_dri): {type(nutrient_amount_dri)}.\n')
-    #     return None, None
+
+    nutrient_amount_dri_ = float(
+        nutrient_amount_dri
+    )
+
+    nutrient_amount_measuredfood = \
+        nutrient_amount_dri_ \
+        * unit_conversion_factor_
+
+    return nutrient_amount_measuredfood, nutrient_name_measuredfood
+
+
