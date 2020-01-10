@@ -5,7 +5,7 @@ id,name,name_to_display,unit_name,nutrient_nbr,rank,is_displayed,display_in_ingr
 1,Carbohydrate without fiber,,G,None,None,TRUE,TRUE,,"Added by Sandor Clegane, not part of the ingredients belonging to FoodData Central."
 1005,"Carbohydrate, by difference",,G,205,1110,FALSE,FALSE,,"Display ""carbohydrate_without_fiber"" instead."
 1007,Ash,,G,207,1000,FALSE,FALSE,,
-1008,Energy,,KCAL,208,300,TRUE,TRUE,,
+1008,Energy,Energy in kcal (Calories),KCAL,208,300,TRUE,TRUE,,
 1009,Starch,,G,209,2200,FALSE,FALSE,,
 1010,Sucrose,,G,210,1600,FALSE,FALSE,,
 1011,Glucose (dextrose),,G,211,1700,FALSE,FALSE,,

@@ -8,8 +8,8 @@ full_day_of_eating_dict_template = \
             'nutrient_profile': '',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
@@ -30,48 +30,53 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Olive sauce and pasta [add Kale!]',
             'cooking_instruction': '',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile': 'Sandor clegane Profile based on Males 19–30 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 400,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Olive sauce barilla',
+                        'rawingredient':
+                            'Barilla sauce '
+                            '(Arrabiata / Napoletana / Olive / Aglio)',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach',
+                        'rawingredient': 'Spinach, raw',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 400,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Whole wheat pasta',
+                        'rawingredient':
+                            'Pasta, whole-wheat, dry '
+                            '(Includes foods for USDA\'s '
+                            'Food Distribution Program)',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach',
+                        'rawingredient': 'Spinach, raw',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -81,24 +86,28 @@ full_day_of_eating_dict_list = \
             'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Beans, pinto, mature seeds, raw',
+                        'rawingredient':
+                            'Beans, pinto, mature seeds, raw '
+                            '(Includes foods for USDA\'s '
+                            'Food Distribution Program)',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, long-grain, regular, '
+                        'rawingredient': 'Rice, white, medium-grain, '
                                          'raw, unenriched',
                         'scaling_option': 'A',
                     },
@@ -117,13 +126,13 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 285,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Corn',
+                        'rawingredient': 'Corn, sweet, yellow, raw',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
@@ -141,7 +150,7 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
@@ -155,54 +164,60 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Napoletana',
             'cooking_instruction': '',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 400,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Napoletana sauce barilla',
+                        'rawingredient':
+                            'Barilla sauce '
+                            '(Arrabiata / Napoletana / Olive / Aglio)',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Whole wheat pasta',
+                        'rawingredient':
+                            'Pasta, whole-wheat, dry '
+                            '(Includes foods for USDA\'s '
+                            'Food Distribution Program)',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Carrot',
+                        'rawingredient': 'Carrots, raw',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Peas',
+                        'rawingredient': 'Peas, green, raw',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach',
+                        'rawingredient': 'Spinach, raw',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -212,24 +227,26 @@ full_day_of_eating_dict_list = \
             'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 225,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Mushrooms',
+                        'rawingredient':
+                            'Mushrooms, brown, italian, or crimini, raw',
                         'scaling_option': 'fixed',
                     },
                     {
@@ -247,26 +264,27 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, long-grain, '
-                                         'regular, raw, unenriched',
+                        'rawingredient': 'Rice, white, medium-grain, '
+                                         'raw, unenriched',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Kidney Beans, raw',
+                        'rawingredient':
+                            'Beans, kidney, red, mature seeds, raw',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 5,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Oregano',
+                        'rawingredient': 'Spices, oregano, dried',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -283,8 +301,8 @@ full_day_of_eating_dict_list = \
                 
                 Original:
                 Broccoli - added to fixtures.
-                Carrots - added to fixtures.
-                Peas
+                Carrots, raws - added to fixtures.
+                Peas, green, raw
                 Mushrooms
                 1 handful green onions.
                 green beans.
@@ -299,8 +317,8 @@ full_day_of_eating_dict_list = \
                 
                 My version:
                 Broccoli - added to fixtures.
-                Carrots - added to fixtures.
-                Peas - added to fixtures.
+                Carrots, raws - added to fixtures.
+                Peas, green, raw - added to fixtures.
                 Mushrooms - added to fixtures.
                 test [1 handful green onions]
                 green beans - added to fixtures.
@@ -312,37 +330,39 @@ full_day_of_eating_dict_list = \
                 Just add Maggi sauce to taste.
                 
                 """,
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, long-grain, '
-                                         'regular, raw, unenriched',
+                        'rawingredient': 'Rice, white, medium-grain, '
+                                         'raw, unenriched',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 225,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Mushrooms',
+                        'rawingredient':
+                            'Mushrooms, brown, italian, or crimini, raw',
                         'scaling_option': 'fixed',
                     },
                     {
@@ -354,19 +374,19 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 25,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Carrot',
+                        'rawingredient': 'Carrots, raw',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 25,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Peas',
+                        'rawingredient': 'Peas, green, raw',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 25,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Broccoli',
+                        'rawingredient': 'Broccoli, raw',
                         'scaling_option': 'A',
                     },
                 ]
@@ -374,42 +394,48 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Arrabiata',
             'cooking_instruction': '',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 400,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Arrabiata sauce barilla',
+                        'rawingredient':
+                            'Barilla sauce '
+                            '(Arrabiata / Napoletana / Olive / Aglio)',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach',
+                        'rawingredient': 'Spinach, raw',
                         'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Whole wheat pasta',
+                        'rawingredient':
+                            'Pasta, whole-wheat, dry '
+                            '(Includes foods for USDA\'s '
+                            'Food Distribution Program)',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -428,11 +454,12 @@ full_day_of_eating_dict_list = \
                 0.33 g of salt per 100 ml of cooking water according to 
                 https://rechneronline.de/kueche/salzwasser.php.
                 """,
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
@@ -442,28 +469,28 @@ full_day_of_eating_dict_list = \
                         'rawingredient': 'Asian vegetable mix',
                         'scaling_option': 'fixed',
                     },
-{
+                    {
                         'base_amount': 5,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Maggi',
                         'scaling_option': 'fixed',
                     },
-{
+                    {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
-{
+                    {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, long-grain, regular, '
+                        'rawingredient': 'Rice, white, medium-grain, '
                                          'raw, unenriched',
                         'scaling_option': 'A',
                     },
@@ -486,18 +513,19 @@ full_day_of_eating_dict_list = \
             'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'calories',
-                    'protein'
+                    'Energy',
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
@@ -515,26 +543,27 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, long-grain, '
-                                         'regular, raw, unenriched',
+                        'rawingredient': 'Rice, white, medium-grain, '
+                                         'raw, unenriched',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Kidney Beans, raw',
+                        'rawingredient':
+                            'Beans, kidney, red, mature seeds, raw',
                         'scaling_option': 'A',
                     },
                     {
                         'base_amount': 5,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Oregano',
+                        'rawingredient': 'Spices, oregano, dried',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -543,10 +572,11 @@ full_day_of_eating_dict_list = \
             'name': 'Protein and vitamins v1',
             'cooking_instruction': 'Once Zinc or Copper run out, increase the '
                                    'amount of Vit4Ever tablets.',
-            'nutrient_profile': 'Maintenance EU',
+            'nutrient_profile':
+                'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
-                    'protein'
+                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
@@ -559,13 +589,13 @@ full_day_of_eating_dict_list = \
                     {
                         'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Pea protein powder',
+                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
                         'scaling_option': 'independent',
                     },
                     {
                         'base_amount': 60,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Walnuts',
+                        'rawingredient': 'Nuts, walnuts, english',
                         'scaling_option': 'fixed',
                     },
                     {
@@ -587,28 +617,9 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 2.1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Choline bitartrate',
-                        'scaling_option': 'fixed',
-                    },
-                    {
                         'base_amount': 2,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Vit4Ever',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Multivitamin A-Z Komplett Mivolis dm',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Vitamin D3 Tablette '
-                                         'Vitabay 5000 I.E.',
                         'scaling_option': 'fixed',
                     },
                 ]

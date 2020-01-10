@@ -67,8 +67,18 @@ click_navbar_item(
     time,
 )
 
-with open('nutrient_profile/'
-          'nutrient_profiles_from_national_institute_of_health.json', 'r') as fp:
+available_path_nutrient_profile = [
+    'nutrient_profile/nutrient_profiles_from_national_institute_of_health.json',
+    'nutrient_profile/nutrient_profile_sandor_clegane.json',
+]
+
+# Choose which nutrient profiles to add: either a series of nutrient profiles
+# from the national institute of health, as a preset so users can choose
+# among the preset, or the personal nutrient profile of Sandor Clegane.
+
+path_nutrient_profile = available_path_nutrient_profile[1]
+
+with open(path_nutrient_profile, 'r') as fp:
     nutrient_profile_dict_list = json.load(fp)
 
 # Add the nutrient profiles.

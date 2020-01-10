@@ -68,8 +68,8 @@ for k in range(len(mealplan_initial_data)):
 
     # If a mealplan with the same name exists, delete it.
     id_ = 'delete ' + mealplan_initial_data[k]['name']
-    print('\n id_ \n')
-    print(id_)
+    # print('\n id_ \n')
+    # print(id_)
     try:
         browser.find_element_by_id(
             'delete ' + mealplan_initial_data[k]['name']).click()

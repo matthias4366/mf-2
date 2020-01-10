@@ -8,11 +8,22 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
 )
-from nutrient_profile.initial_nutrient_profiles import nutrient_profile_dict_list
+import json
 
 # import the ingredient dictionaries
 import sys
 sys.path.insert(0, '/projectmf/data/')
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
+sys.path.append('.......')
+
+with open(
+        'data/nutrient_profile/nutrient_profile_sandor_clegane.json',
+        'r') as fp:
+    nutrient_profile_dict_list = json.load(fp)
 
 
 class FullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
