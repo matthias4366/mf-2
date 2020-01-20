@@ -1,4 +1,6 @@
 from django.urls import path
+from django.urls import include
+from django.conf.urls import url
 from .views import (home,
                     register,
                     rawingredient3,
@@ -157,6 +159,16 @@ urlpatterns_shoppinglist = [
     ),
 ]
 
+urlpattern_list_search = [
+    # path(
+    #     'search/',
+    #     haystack.urls,
+    #
+    # ),
+    # TODO: Rewrite this using path() once you figure out how.
+    url(r'^search/', include('haystack.urls')),
+]
+
 urlpatterns = urlpattern_home \
     + urlpatterns_user \
     + urlpatterns_rawingredient3 \
@@ -164,4 +176,5 @@ urlpatterns = urlpattern_home \
     + urlpatterns_fulldayofeating \
     + urlpatterns_fulldayofeating_after_calculation \
     + urlpatterns_mealplan \
-    + urlpatterns_shoppinglist
+    + urlpatterns_shoppinglist \
+    + urlpattern_list_search

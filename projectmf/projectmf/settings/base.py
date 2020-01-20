@@ -12,10 +12,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # noinspection PyUnresolvedReferences
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'whoosh',
+    'haystack',
     'crispy_forms',
     'measuredfood.apps.MeasuredfoodConfig',
     'django.contrib.admin',
@@ -117,6 +118,13 @@ LOGIN_URL = 'login'
 
 # Configure logging
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
 
 
 def get_env_variable(var_name):

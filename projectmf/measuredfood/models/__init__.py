@@ -5,3 +5,4 @@ from .specificingredient import SpecificIngredient
 from .mealplan import Mealplan
 from .specificfulldayofeating import SpecificFullDayOfEating
 from .specificnutrienttarget import SpecificNutrientTarget
+from .note import Note
