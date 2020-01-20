@@ -11,10 +11,12 @@ from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
 )
-# from data.initial_nutrient_profiles import nutrient_profile_dict_list
-# from django.contrib.auth.models import User
-from data.ingredients_data2 import ingredient_dict_list
-from measuredfood.models import RawIngredient2
+import sys
+sys.path.append("..")
+sys.path.append("...")
+sys.path.append("....")
+from data.ingredients_data3 import ingredient_dict_list
+from measuredfood.models import RawIngredient3
 
 # import the ingredient dictionaries
 import sys
@@ -45,8 +47,8 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
         ]
 
         list_nutrient_targets = [
-            'calories',
-            'protein',
+            'Energy',
+            'Protein',
         ]
 
         # The values were found by creating a full day of eating with the
@@ -57,7 +59,7 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
             210.7,
         ]
 
-        list_rawingredient2_of_specific_ingredient = [
+        list_rawingredient3_of_specific_ingredient = [
             'Kidney Beans, raw',
             'Rice, white, long-grain, regular, raw, unenriched',
             'Pea protein powder',
@@ -73,26 +75,26 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
 
         # Simulate clicking on the menu item "Ingredients"
         click_navbar_item(
-            'id_menu_item_rawingredients2',
+            'id_menu_item_rawingredients3',
             self.browser,
             Keys,
             time,
         )
 
-        # Simulate the user creating a new RawIngredient2 instance using
+        # Simulate the user creating a new RawIngredient3 instance using
         # the form.
 
         # Add all ingredients from the list.
         for k in range(len(ingredient_dict_list)):
 
-            # Only add the RawIngredient2 objects necessary for the full day
+            # Only add the RawIngredient3 objects necessary for the full day
             # of eating.
             if ingredient_dict_list[k]['name'] not in \
-                    list_rawingredient2_of_specific_ingredient:
+                    list_rawingredient3_of_specific_ingredient:
                 continue
 
             new_ingredient_button = self.browser.find_element_by_id(
-                'id_button_new_rawingredient2'
+                'id_button_new_rawingredient3'
             )
             new_ingredient_button.click()
 
@@ -114,18 +116,18 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
 
             # Simulate clicking the save button
             save_button = self.browser.find_element_by_id(
-                'id_button_save_new_rawingredient2'
+                'id_button_save_new_rawingredient3'
             )
             save_button.click()
 
             time.sleep(1)
 
-            # Check if the RawIngredient2 instance is found in the database.
-            rawingredient2_saved_object = RawIngredient2.objects.filter(
+            # Check if the RawIngredient3 instance is found in the database.
+            rawingredient3_saved_object = RawIngredient3.objects.filter(
                 name=ingredient_dict_list[k]['name']
             )
-            rawingredient2_was_saved = rawingredient2_saved_object.exists()
-            self.assertTrue(rawingredient2_was_saved)
+            rawingredient3_was_saved = rawingredient3_saved_object.exists()
+            self.assertTrue(rawingredient3_was_saved)
 
         # Create a NutrientProfile.
         # Simulate clicking on the navbar item for nutrient profiles.
@@ -246,17 +248,17 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
             time.sleep(0.5)
 
         # Add specific ingredients.
-        for k in range(len(list_rawingredient2_of_specific_ingredient)):
-            # Choose the RawIngredient2 object for each SpecificIngredient.
-            id_rawingredient2_for_specificingredient = \
+        for k in range(len(list_rawingredient3_of_specific_ingredient)):
+            # Choose the RawIngredient3 object for each SpecificIngredient.
+            id_rawingredient3_for_specificingredient = \
                 'id_specificingredient_set-' \
                 + str(k) \
                 + '-rawingredient'
-            select_rawingredient2 = Select(self.browser.find_element_by_id(
-                id_rawingredient2_for_specificingredient
+            select_rawingredient3 = Select(self.browser.find_element_by_id(
+                id_rawingredient3_for_specificingredient
             ))
-            select_rawingredient2.select_by_visible_text(
-                list_rawingredient2_of_specific_ingredient[k]
+            select_rawingredient3.select_by_visible_text(
+                list_rawingredient3_of_specific_ingredient[k]
             )
 
             # Set the scaling option of each specific ingredient to
@@ -290,11 +292,11 @@ class SolverTest(FunctionalTestWithUserLoggedIn):
 
         # Test whether the calculation results are correct.
 
-        for k in range(len(list_rawingredient2_of_specific_ingredient)):
-            rawingredient2_name_k = \
-                list_rawingredient2_of_specific_ingredient[k]
+        for k in range(len(list_rawingredient3_of_specific_ingredient)):
+            rawingredient3_name_k = \
+                list_rawingredient3_of_specific_ingredient[k]
             calculated_amount_k = self.browser.find_element_by_id(
-                'calculated amount '+rawingredient2_name_k
+                'calculated amount '+rawingredient3_name_k
             ).text
             calculated_amount_k = float(calculated_amount_k)
             comparison_value = list_calculated_amount_in_test[k]

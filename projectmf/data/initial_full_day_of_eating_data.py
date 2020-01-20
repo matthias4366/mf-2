@@ -83,7 +83,10 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili mexican',
-            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+            'cooking_instruction': 'Try beans no rice but do not salt the '
+                                   'beans! Maybe the diarrhea came from too '
+                                   'much salt.\n'
+                                   'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
             'nutrient_profile':
@@ -224,7 +227,10 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili mushrooms',
-            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+            'cooking_instruction': 'Try beans no rice but do not salt the '
+                                   'beans! Maybe the diarrhea came from too '
+                                   'much salt.\n'
+                                   'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
             'nutrient_profile':
@@ -510,7 +516,10 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili 3',
-            'cooking_instruction': 'Keep the fucking rice! On 27.11.2019, '
+            'cooking_instruction': 'Try beans no rice but do not salt the '
+                                   'beans! Maybe the diarrhea came from too '
+                                   'much salt.\n'
+                                   'Keep the fucking rice! On 27.11.2019, '
                                    'Sandor used only beans and he got mild'
                                    'diarrhea. Fuck that.',
             'nutrient_profile':
@@ -599,7 +608,7 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 0.4,
+                        'base_amount': 9,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Potassium citrate',
                         'scaling_option': 'fixed',
@@ -617,9 +626,15 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 2,
+                        'base_amount': 3,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Vit4Ever',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 1,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Vitamin D3 and K2 natural elements',
                         'scaling_option': 'fixed',
                     },
                 ]

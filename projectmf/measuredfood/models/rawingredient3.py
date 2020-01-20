@@ -60,11 +60,12 @@ class RawIngredient3(models.Model):
 
     # Reference amount to which all the nutrition amounts related, e.g.
     # 370 kcal / 100 g => 100 is the reference amount.
+    # Actually, the reference amount has to be editable because of the
+    # vitamin tablets, as they have a reference amount of 1g.
     reference_amount = models.FloatField(
         blank=True,
         null=False,
         default=100,
-        editable=False,
     )
 
     # # FoodData Central id - the unique id used to identify a food in the
