@@ -2,9 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from .nutrientprofile import NutrientProfile
 
-MAX_DIGITS_ = 20
-DECIMAL_PLACES_ = 6
-
 
 class FullDayOfEating(models.Model):
     """
