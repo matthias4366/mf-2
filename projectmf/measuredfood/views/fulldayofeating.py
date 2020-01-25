@@ -248,15 +248,39 @@ class ListFullDayOfEating(
         ).order_by('name')
 
 
-# TODO: Check if the detail views can be deleted.
-class DetailFullDayOfEating(UserPassesTestMixin, DetailView):
+class DetailFullDayOfEating(DetailView):
     model = FullDayOfEating
 
-    def test_func(self):
-        fulldayofeating_ = self.get_object()
-        if self.request.user == fulldayofeating_.author:
-            return True
-        return False
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+
+        # Access the FullDayOfEating object in order to query the correct
+        # specificnutrienttarget_queryset. For Arrabiata, the id should be 84.
+        id_full_day_of_eating_ = context['object'].id
+
+        specificnutrienttarget_queryset = SpecificNutrientTarget.objects.filter(
+                fulldayofeating=id_full_day_of_eating_
+            )
+
+        print('\n')
+        print('specificnutrienttarget_queryset')
+        print(specificnutrienttarget_queryset)
+        print('\n')
+
+        specificnutrienttarget_list = list(
+            specificnutrienttarget_queryset.values('nutrient_target')
+        )
+
+        print('\n')
+        print('specificnutrienttarget_list')
+        print(specificnutrienttarget_list)
+        print('\n')
+        
+        context['specificnutrienttarget_list'] = \
+            specificnutrienttarget_list
+
+        return context
 
 
 class DeleteFullDayOfEating(UserPassesTestMixin, DeleteView):
