@@ -36,5 +36,8 @@ class FullDayOfEating(models.Model):
     def __str__(self):
         return self.name
 
+    def get_detail_view_url(self):
+        return "/fulldayofeating/%i/detail/" % self.id
+
     class Meta:
         ordering = ["name"]

@@ -21,7 +21,7 @@ def calculate_average_of_specificingredient_group(
         # only the needed fields will be included.
         rawingredient_dict_initial = {}
         for nutrient_dict in all_nutrients_and_default_units:
-            field_name = nutrient_dict['name']
+            field_name = nutrient_dict['nutrient_name_measuredfood']
             rawingredient_dict_initial.update(
                 {field_name: 0}
             )
@@ -64,7 +64,8 @@ def calculate_average_of_specificingredient_group(
                 + averaged_specificingredient[
                                          'raw_ingredient']['reference_amount']
             for nutrient_dict in all_nutrients_and_default_units:
-                nutrient_field_name = nutrient_dict['name']
+                nutrient_field_name = \
+                    nutrient_dict['nutrient_name_measuredfood']
                 # Change field values to supported values, i.e. None to 0.
                 if group_k[m]['raw_ingredient'][nutrient_field_name] is None:
                     group_k[m]['raw_ingredient'][nutrient_field_name] = 0

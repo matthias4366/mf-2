@@ -9,6 +9,7 @@ from measuredfood.models import (
     RawIngredient3,
     NutrientProfile,
     SpecificNutrientTarget,
+    SpecificIngredient,
 )
 from measuredfood.models import FullDayOfEating, SpecificIngredient
 from django.urls import reverse_lazy
@@ -262,23 +263,20 @@ class DetailFullDayOfEating(DetailView):
         specificnutrienttarget_queryset = SpecificNutrientTarget.objects.filter(
                 fulldayofeating=id_full_day_of_eating_
             )
-
-        print('\n')
-        print('specificnutrienttarget_queryset')
-        print(specificnutrienttarget_queryset)
-        print('\n')
-
         specificnutrienttarget_list = list(
             specificnutrienttarget_queryset.values('nutrient_target')
         )
-
-        print('\n')
-        print('specificnutrienttarget_list')
-        print(specificnutrienttarget_list)
-        print('\n')
-        
         context['specificnutrienttarget_list'] = \
             specificnutrienttarget_list
+
+        specificingredient_queryset = SpecificIngredient.objects.filter(
+            fulldayofeating=id_full_day_of_eating_
+        )
+        specificingredient_list = list(
+            specificingredient_queryset
+        )
+        context['specificingredient_list'] = \
+            specificingredient_list
 
         return context
 

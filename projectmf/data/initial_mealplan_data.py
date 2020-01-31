@@ -5,19 +5,19 @@ mealplan_initial_data = [
         'nutrient_profile':
             'Sandor clegane Profile based on Males\u200319\u201330 y',
         'fulldayofeating_list': [
-            'Olive sauce and pasta [add Kale!]',  # check (meaning written into
+            'Barilla sauce and pasta',  # check (meaning written into
             # initial_full_day_of_eating_data)
-            'Olive sauce and pasta [add Kale!]',
+            'Barilla sauce and pasta',
             'Chili mexican',  # check
             'Chili mexican',
-            'Napoletana',  # check
-            'Napoletana',
+            'Barilla sauce and pasta',  # check
+            'Barilla sauce and pasta',
             'Chili mushrooms',  # check
             'Chili mushrooms',
             'Fried rice',  # check
             'Fried rice',
-            'Arrabiata',  # check
-            'Arrabiata',
+            'Barilla sauce and pasta',  # check
+            'Barilla sauce and pasta',
             'Asian vegetables and Maggi',  # check
             'Asian vegetables and Maggi',
             'Chili 3',  # check

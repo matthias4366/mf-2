@@ -43,6 +43,12 @@ def query_ingredients_fulldayofeating(
 
         # Make sure that no None fields are returned.
         for nutrient_dict in all_nutrients_and_default_units:
+
+            print('\n')
+            print('nutrient_dict')
+            print(nutrient_dict)
+            print('\n')
+
             nutrient_name = nutrient_dict['nutrient_name_measuredfood']
             rawingredient_k_dict[nutrient_name] = \
                 set_to_zero_if_none(rawingredient_k_dict[nutrient_name])

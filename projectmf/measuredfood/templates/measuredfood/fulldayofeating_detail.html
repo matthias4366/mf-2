@@ -17,9 +17,43 @@
       </p>
       <p>
         Nutrient targets for the calculations:
+      </p>
         {% for k in specificnutrienttarget_list %}
           <p> {{ k.nutrient_target }} </p>
         {% endfor %}
-      </p>
+
+      <p>
+        List of specific ingredients:
+        <table>
+          <tr>
+            <th> Amount </th>
+            <th> Units </th>
+            <th> Ingredient </th>
+            <th> Scaling </th>
+          </tr>
+
+          {% for specificingredient in specificingredient_list %}
+
+            <tr>
+              <td> {{ specificingredient.base_amount }} </td>
+              <td> {{ specificingredient.base_amount_unit }} </td>
+              <td> {{ specificingredient.rawingredient }} </td>
+              <td> {{ specificingredient.scaling_option }} </td>
+            </tr>
+
+          {% endfor %}
+        </table>
+
+    <br>
+    <br>
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+          href="#"
+{#          href="{% url 'add-to-my-full-days-of-eating' id_fulldayofeating=id_fulldayofeating %}"#}
+          id="id_button_new_fulldayofeating">
+        Add to my full days of eating
+      </a>
+    </div>
+
     </div>
 {% endblock content %}

@@ -1,4 +1,5 @@
 import copy
+import json
 
 # imports for the creation of user accounts
 from django.shortcuts import render, redirect
@@ -43,10 +44,6 @@ from measuredfood.utils.calculate_total_nutrition_fulldayofeating \
 from measuredfood.utils.set_to_zero_if_none\
     import set_to_zero_if_none
 
-from measuredfood.ingredient_properties2 import (
-    ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-)
-
 from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
     import query_nutrientprofile_of_fulldayofeating
 
@@ -88,6 +85,18 @@ from measuredfood.utils.error.custom_error import (
 )
 
 import math
+
+import sys
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
+
+# /home/matthias/1_local_code/mf-2/projectmf/data/nutrient_dict_list.json
+
+with open('data/nutrient_dict_list.json', 'r') as fp:
+    ALL_NUTRIENTS_AND_DEFAULT_UNITS = json.load(fp)
 
 
 @login_required

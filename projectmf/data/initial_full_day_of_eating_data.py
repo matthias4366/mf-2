@@ -28,7 +28,7 @@ full_day_of_eating_dict_template = \
 full_day_of_eating_dict_list = \
     [
         {
-            'name': 'Olive sauce and pasta [add Kale!]',
+            'name': 'Barilla sauce and pasta',
             'cooking_instruction': '',
             'nutrient_profile': 'Sandor clegane Profile based on Males 19–30 y',
             'list_nutrient_target':
@@ -160,67 +160,6 @@ full_day_of_eating_dict_list = \
                         'base_amount': 5,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Coriander',
-                        'scaling_option': 'fixed',
-                    },
-                ]
-        },
-        {
-            'name': 'Napoletana',
-            'cooking_instruction': '',
-            'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
-            'list_nutrient_target':
-                [
-                    'Energy',
-                    'Protein'
-                ],
-            'list_dict_specific_ingredient':
-                [
-                    {
-                        'base_amount': 400,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Barilla sauce '
-                            '(Arrabiata / Napoletana / Olive / Aglio)',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Pasta, whole-wheat, dry '
-                            '(Includes foods for USDA\'s '
-                            'Food Distribution Program)',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 60,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Carrots, raw',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Peas, green, raw',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach, raw',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -394,55 +333,6 @@ full_day_of_eating_dict_list = \
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Broccoli, raw',
                         'scaling_option': 'A',
-                    },
-                ]
-        },
-        {
-            'name': 'Arrabiata',
-            'cooking_instruction': '',
-            'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
-            'list_nutrient_target':
-                [
-                    'Energy',
-                    'Protein'
-                ],
-            'list_dict_specific_ingredient':
-                [
-                    {
-                        'base_amount': 400,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Barilla sauce '
-                            '(Arrabiata / Napoletana / Olive / Aglio)',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach, raw',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Pasta, whole-wheat, dry '
-                            '(Includes foods for USDA\'s '
-                            'Food Distribution Program)',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 60,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
                     },
                 ]
         },
