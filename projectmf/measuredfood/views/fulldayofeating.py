@@ -617,19 +617,50 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         )
 
 
-def copy_fulldayofeating_to_user(request):
+def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     """
     From the publicly available full days of eating, copy a full day of
     eating to the user's full day of eating objects.
     :return:
     """
 
-    # print('\n')
-    # print('id_fulldayofeating')
-    # print(id_fulldayofeating)
-    # print('\n')
+    # Copy the full day of eating, along with the SpecificNutrientTarget and
+    # the SpecificIngredient and the RawIngredient3 objects.
+    full_day_of_eating_copy = FullDayOfEating.objects.get(
+        id=id_fulldayofeating
+    )
+    full_day_of_eating_copy.pk = None
+    full_day_of_eating_copy.author = request.user
+    full_day_of_eating_copy.save()
 
-    context = {}
+    id_full_day_of_eating_copy = full_day_of_eating_copy.id
+
+    specific_nutrient_target_queryset = SpecificNutrientTarget.objects.filter(
+        fulldayofeating=id_fulldayofeating
+    )
+
+    # Copy all SpecificNutrientTarget objects.
+    for specific_nutrient_target_k in specific_nutrient_target_queryset:
+        specific_nutrient_target_copy_k = specific_nutrient_target_k
+        specific_nutrient_target_copy_k.fulldayofeating = \
+            full_day_of_eating_copy
+        specific_nutrient_target_copy_k.save()
+
+    # print('specific_nutrient_target_queryset')
+    # print(specific_nutrient_target_queryset)
+    #
+    # nutrient_target_list = list(
+    #     specific_nutrient_target_queryset.values('nutrient_target'))
+    #
+    # print('nutrient_target_list')
+    # print(nutrient_target_list)
+
+    fulldayofeating_list = FullDayOfEating.objects.filter(
+        author=request.user
+    ).order_by('name')
+
+    context = {'fulldayofeating_list': fulldayofeating_list}
+
     return render(
         request,
         'measuredfood/fulldayofeating_list.html',

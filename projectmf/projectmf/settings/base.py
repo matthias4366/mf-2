@@ -14,6 +14,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Application definition
 
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'whoosh',

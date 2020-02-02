@@ -133,7 +133,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         new_fulldayofeating_button.click()
 
         name_dummy_full_day_of_eating = \
-            'Full day 1'
+            'Full day one'
 
         # Type in the name of the new full day of eating.
         self.browser.find_element_by_id('id_name').send_keys(
@@ -199,8 +199,14 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             time.sleep(0.5)
 
         # Set some nutrient targets to see if they get copied properly as well.
+        # List of nutrient targets as they are displayed to the user.
         list_nutrient_targets = [
             'Energy',
+        ]
+        # List of nutrient targets as they are called internally in the
+        # application.
+        list_preset_nutrient_targets = [
+            'energy-name-1008-id'
         ]
         # Add nutrient targets.
         for k in range(len(list_nutrient_targets)):
@@ -325,30 +331,36 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # Click Search.
         self.browser.find_element_by_id('id_search').click()
 
+        time.sleep(10)
+
+        # TODO: RUN ./manage.py update_index ! Otherwise it can not work!
+
+
+
         # Test if the FullDayOfEating shows up in the search results.
         # If it does show up, click on it.
-        try:
-            id_ = 'search result ' + name_dummy_full_day_of_eating
-            self.browser.find_element_by_id(id_).click()
-        except NoSuchElementException:
-            self.fail('The full day of eating is not shown in the search '
-                      'results.')
+        # try:
+        id_ = 'search result ' + name_dummy_full_day_of_eating
+        self.browser.find_element_by_id(id_).click()
+        # except NoSuchElementException:
+        #     self.fail('The full day of eating is not shown in the search '
+        #               'results.')
 
         # Test if the user is redirected to the
         # detailview of the FullDayOfEating.
         # Do that by checking whether there is a button "Copy to my full days
         # of eating". If the button is found, click it.
-        try:
-            self.browser.find_element_by_id(
-                'id_button_copy_fulldayofeating'
-            ).click()
-        except NoSuchElementException:
-            self.fail('The user has searched for a full day of eating and '
-                      'the search result has been displayed. After clicking '
-                      'on the search result, the user should be forwarded to '
-                      'a DetailView of the FullDayOfEating. That DetailView '
-                      'should contain a button "Copy to my full days of '
-                      'eating". That button has not been found.')
+        # try:
+        self.browser.find_element_by_id(
+            'id_button_copy_fulldayofeating'
+        ).click()
+        # except NoSuchElementException:
+        #     self.fail('The user has searched for a full day of eating and '
+        #               'the search result has been displayed. After clicking '
+        #               'on the search result, the user should be forwarded to '
+        #               'a DetailView of the FullDayOfEating. That DetailView '
+        #               'should contain a button "Copy to my full days of '
+        #               'eating". That button has not been found.')
 
         time.sleep(10)
 
@@ -357,9 +369,10 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # 	B) "Test Full Day Of Eating made by UserA" shows up in the list
         # 	of Full Days Of Eating.
         try:
-            self.browser.find_element_by_id(
+            edit_button = self.browser.find_element_by_id(
                 'edit ' + name_dummy_full_day_of_eating
-            ).click()
+            )
+            edit_button.click()
         except NoSuchElementException:
             self.fail('The user should see a list with their full days of '
                       'eating, including the full day of eating that was just '
@@ -369,19 +382,29 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # Test if 'Energy' is selected as a nutrient target.
         # Test if 'Whole wheat pasta' is there as a RawIngredient3.
 
-        dummy_user_who_searches_full_day_of_eating = User.objects.filter(
-            name='DummyUserWhoSearchesFullDayOfEating')
+        dummy_user_who_searches_full_day_of_eating = User.objects.get(
+            username='DummyUserWhoSearchesFullDayOfEating')
 
-        full_day_of_eating_copy = FullDayOfEating.objects.filter(
+        full_day_of_eating_copy = FullDayOfEating.objects.get(
             name=name_dummy_full_day_of_eating,
             author=dummy_user_who_searches_full_day_of_eating.id,
         )
         specific_nutrient_target_copy = SpecificNutrientTarget.objects.filter(
             fulldayofeating=full_day_of_eating_copy.id
         )
+
+        specific_nutrient_target_copy = list(
+            specific_nutrient_target_copy.values('nutrient_target')
+        )
+
+        print('set(specific_nutrient_target_copy)')
+        print(set(specific_nutrient_target_copy))
+        print('set(list_preset_nutrient_targets)')
+        print(set(list_preset_nutrient_targets))
+
         self.assertEqual(
-            specific_nutrient_target_copy.nutrient_target,
-            'energy-name-1008-id',
+            set(specific_nutrient_target_copy),
+            set(list_preset_nutrient_targets),
         )
 
         rawingredient3_id_ = SpecificIngredient.objects.filter(

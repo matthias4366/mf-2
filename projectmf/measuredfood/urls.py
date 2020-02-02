@@ -1,6 +1,6 @@
 from django.urls import path
-from django.urls import include
-from django.conf.urls import url
+# from django.urls import include
+# from django.conf.urls import url
 from .views import (home,
                     register,
                     rawingredient3,
@@ -162,8 +162,8 @@ urlpatterns_shoppinglist = [
 
 urlpattern_list_search = [
     path(
-        'fulldayofeating/copy_fulldayofeating_to_user',
-        # 'fulldayofeating/<int:id_fulldayofeating>/copy_fulldayofeating_to_user',
+        # 'fulldayofeating/copy_fulldayofeating_to_user',
+        'fulldayofeating/<int:id_fulldayofeating>/copy/',
         fulldayofeating.copy_fulldayofeating_to_user,
         name='fulldayofeating-copy-to-user',
     ),
