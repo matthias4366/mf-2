@@ -615,3 +615,23 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
             'measuredfood/error/general_error_page.html',
             context
         )
+
+
+def copy_fulldayofeating_to_user(request):
+    """
+    From the publicly available full days of eating, copy a full day of
+    eating to the user's full day of eating objects.
+    :return:
+    """
+
+    # print('\n')
+    # print('id_fulldayofeating')
+    # print(id_fulldayofeating)
+    # print('\n')
+
+    context = {}
+    return render(
+        request,
+        'measuredfood/fulldayofeating_list.html',
+        context
+    )

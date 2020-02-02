@@ -9,6 +9,7 @@ from .views import (home,
                     mealplan,
                     )
 from django.contrib.auth import views as auth_views
+from haystack.views import SearchView
 
 urlpattern_home = [
     path('', home.home, name='home'),
@@ -160,13 +161,17 @@ urlpatterns_shoppinglist = [
 ]
 
 urlpattern_list_search = [
-    # path(
-    #     'search/',
-    #     haystack.urls,
-    #
-    # ),
-    # TODO: Rewrite this using path() once you figure out how.
-    url(r'^search/', include('haystack.urls')),
+    path(
+        'fulldayofeating/copy_fulldayofeating_to_user',
+        # 'fulldayofeating/<int:id_fulldayofeating>/copy_fulldayofeating_to_user',
+        fulldayofeating.copy_fulldayofeating_to_user,
+        name='fulldayofeating-copy-to-user',
+    ),
+    path(
+        'fulldayofeating/search',
+        SearchView(),
+        name='haystack-search'
+    ),
 ]
 
 urlpatterns = urlpattern_home \
