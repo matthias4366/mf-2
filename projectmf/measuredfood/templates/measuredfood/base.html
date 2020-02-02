@@ -55,12 +55,28 @@
                 >
                   Meal Plans
                 </a>
-                <a class="nav-item nav-link" href="{% url 'logout' %}">
+                <a
+                        class="nav-item nav-link"
+                        href="{% url 'logout' %}"
+                        id="id_menu_item_logout"
+                >
                   Log Out {{ user.username }}
                 </a>
               {% else %}
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                <a
+                        class="nav-item nav-link"
+                        href="{% url 'login' %}"
+                        id="id_menu_item_login"
+                >
+                  Login
+                </a>
+                <a
+                        class="nav-item nav-link"
+                        href="{% url 'register' %}"
+                        id="id_menu_item_register"
+                >
+                  Register
+                </a>
               {% endif %}
             </div>
           </div>

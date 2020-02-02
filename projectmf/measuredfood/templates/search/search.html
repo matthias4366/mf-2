@@ -9,7 +9,11 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="submit" value="Search">
+                    <input
+                            type="submit"
+                            value="Search"
+                            id="id_search"
+                    >
                 </td>
             </tr>
         </table>
@@ -19,7 +23,10 @@
 
             {% for result in page.object_list %}
                 <p>
-                    <a href="{{ result.object.get_detail_view_url }}">
+                    <a
+                            href="{{ result.object.get_detail_view_url }}"
+                            id="search result {{ result.object.name }}"
+                    >
                       {{ result.object.name }}</a>
                 </p>
             {% empty %}

@@ -10,11 +10,14 @@ import time
 from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
+    SpecificNutrientTarget,
+    SpecificIngredient,
+    RawIngredient3,
 )
 # from data.initial_nutrient_profiles import nutrient_profile_dict_list
 from django.contrib.auth.models import User
 # from data.ingredients_data2 import ingredient_dict_list
-# from measuredfood.models import RawIngredient2
+from selenium.common.exceptions import NoSuchElementException
 
 
 class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
@@ -129,7 +132,8 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         )
         new_fulldayofeating_button.click()
 
-        name_dummy_full_day_of_eating = 'Dummy full day of eating'
+        name_dummy_full_day_of_eating = \
+            'Full day 1'
 
         # Type in the name of the new full day of eating.
         self.browser.find_element_by_id('id_name').send_keys(
@@ -150,13 +154,6 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             'id_button_save_new_fulldayofeating'
         )
         save_full_day_of_eating_button.click()
-
-        # Check that full day of eating object exists in the database.
-        full_day_of_eating_query = FullDayOfEating.objects.filter(
-            name=name_dummy_full_day_of_eating
-        )
-        full_day_of_eating_was_saved = full_day_of_eating_query.exists()
-        self.assertTrue(full_day_of_eating_was_saved)
 
         list_rawingredient3_of_specific_ingredient = [
             ingredient['ingredient_name_usda_api']
@@ -201,25 +198,208 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             save_changes_button.click()
             time.sleep(0.5)
 
+        # Set some nutrient targets to see if they get copied properly as well.
+        list_nutrient_targets = [
+            'Energy',
+        ]
+        # Add nutrient targets.
+        for k in range(len(list_nutrient_targets)):
+            id_k = \
+                'id_specificnutrienttarget_set-' \
+                + str(k) \
+                + '-nutrient_target'
+
+            select_nutrient_target = Select(self.browser.find_element_by_id(
+                id_k
+            ))
+            select_nutrient_target.select_by_visible_text(
+                list_nutrient_targets[k]
+            )
+            # Simulate clicking the save button
+            save_changes_button = self.browser.find_element_by_id(
+                'save_changes_formset_fulldayofeating'
+            )
+            save_changes_button.click()
+            time.sleep(0.5)
+
+        # Check that full day of eating object exists in the database.
+        full_day_of_eating_query = FullDayOfEating.objects.filter(
+            name=name_dummy_full_day_of_eating
+        )
+        full_day_of_eating_was_saved = full_day_of_eating_query.exists()
+        self.assertTrue(full_day_of_eating_was_saved)
+
+        # Logout user 1, i.e. dummy user.
+        click_navbar_item(
+            'id_menu_item_logout',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        # Register DummyUserWhoSearchesFullDayOfEating, i.e. the user who
+        # will search for and copy the FullDayOfEating of DummyUser.
+        click_navbar_item(
+            'id_menu_item_register',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        # Create a new dummy user.
+        dummy_username = 'DummyUserWhoSearchesFullDayOfEating'
+        dummy_email = 'DummyUserWhoSearchesFullDayOfEating@gmail.com'
+        dummy_password = 'testpassword'
+
+        # Find elements by name
+        username = self.browser.find_element_by_name('username')
+        email = self.browser.find_element_by_name('email')
+        password1 = self.browser.find_element_by_name('password1')
+        password2 = self.browser.find_element_by_name('password2')
+
+        # Input values into the fields
+        username.send_keys(dummy_username)
+        email.send_keys(dummy_email)
+        password1.send_keys(dummy_password)
+        password2.send_keys(dummy_password)
+
+        # Simulate clicking on Sign Up
+        sign_up_button = self.browser.find_element_by_id('id_button_signup')
+        sign_up_button.send_keys(Keys.ENTER)
+
+        time.sleep(0.5)
+
+        # Check if the dummy user object exists in the database.
+        self.user = User.objects.filter(
+            username=dummy_username,
+        )
+
+        dummy_user_exists = self.user.exists()
+
+        self.assertTrue(dummy_user_exists)
+
+        # Find login elements
+        username_field = self.browser.find_element_by_name('username')
+        password_field = self.browser.find_element_by_name('password')
+
+        # Input values into the fields
+        username_field.send_keys(dummy_username)
+        password_field.send_keys(dummy_password)
+
+        # Simulate clicking on Log In
+        click_navbar_item(
+            'id_button_login',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        click_navbar_item(
+            'id_menu_item_fulldayofeating',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        browse_fulldayofeating_button = self.browser.find_element_by_id(
+            'id_button_browse_fulldayofeating'
+        )
+        browse_fulldayofeating_button.click()
+
+        # The DummyUserWhoSearchesFullDayOfEating should be redirected to
+        # the search page.
+
+        # The DummyUserWhoSearchesFullDayOfEating searches for the
+        # FullDayOfEating created by DummyUser.
+        self.browser.find_element_by_id('id_q').clear()
+        self.browser.find_element_by_id('id_q').send_keys(
+            name_dummy_full_day_of_eating
+        )
+
+        # Select Search In "Full Days Of Eating".
+        # TODO: Customize the search.html file to get a more informative id
+        #  than id_models_0.
+        self.browser.find_element_by_id('id_models_0').click()
+        time.sleep(0.1)
+
+        # Click Search.
+        self.browser.find_element_by_id('id_search').click()
+
+        # Test if the FullDayOfEating shows up in the search results.
+        # If it does show up, click on it.
+        try:
+            id_ = 'search result ' + name_dummy_full_day_of_eating
+            self.browser.find_element_by_id(id_).click()
+        except NoSuchElementException:
+            self.fail('The full day of eating is not shown in the search '
+                      'results.')
+
+        # Test if the user is redirected to the
+        # detailview of the FullDayOfEating.
+        # Do that by checking whether there is a button "Copy to my full days
+        # of eating". If the button is found, click it.
+        try:
+            self.browser.find_element_by_id(
+                'id_button_copy_fulldayofeating'
+            ).click()
+        except NoSuchElementException:
+            self.fail('The user has searched for a full day of eating and '
+                      'the search result has been displayed. After clicking '
+                      'on the search result, the user should be forwarded to '
+                      'a DetailView of the FullDayOfEating. That DetailView '
+                      'should contain a button "Copy to my full days of '
+                      'eating". That button has not been found.')
+
         time.sleep(10)
 
-        # Create a FullDayOfEating with UserA called
-        # "Test Full Day Of Eating made by UserA".
+        # Test if
+        # 	A) The user is redirected to their list of full days of eating.
+        # 	B) "Test Full Day Of Eating made by UserA" shows up in the list
+        # 	of Full Days Of Eating.
+        try:
+            self.browser.find_element_by_id(
+                'edit ' + name_dummy_full_day_of_eating
+            ).click()
+        except NoSuchElementException:
+            self.fail('The user should see a list with their full days of '
+                      'eating, including the full day of eating that was just '
+                      'copied from another user. That is not the case.')
 
+        # Test whether the copied FullDayOfEating is correct:
+        # Test if 'Energy' is selected as a nutrient target.
+        # Test if 'Whole wheat pasta' is there as a RawIngredient3.
 
-# Login UserB.
-# Click on the menu item "Full Days Of Eating".
-# Click on "Browse Full Days Of Eating".
-# The UserB should be redirected to the search page.
-# Enter "Test Full Day Of Eating made by UserA".
-# Select Search In "Full Days Of Eating".
-# Click Search.
-# Test if the "Test Full Day Of Eating made by UserA" shows up in the search results.
-# Click on "Test Full Day Of Eating made by UserA".
-# Test if the user is redirected to the detailview of "Test Full Day Of Eating made by UserA".
-# Click "Add to my Full Days Of Eating".
-# Test if
-# 	A) The user is redirected to their list of full days of eating.
-# 	B) "Test Full Day Of Eating made by UserA" shows up in the list of Full Days Of Eating.
+        dummy_user_who_searches_full_day_of_eating = User.objects.filter(
+            name='DummyUserWhoSearchesFullDayOfEating')
 
-        self.fail('Finish the test!')
+        full_day_of_eating_copy = FullDayOfEating.objects.filter(
+            name=name_dummy_full_day_of_eating,
+            author=dummy_user_who_searches_full_day_of_eating.id,
+        )
+        specific_nutrient_target_copy = SpecificNutrientTarget.objects.filter(
+            fulldayofeating=full_day_of_eating_copy.id
+        )
+        self.assertEqual(
+            specific_nutrient_target_copy.nutrient_target,
+            'energy-name-1008-id',
+        )
+
+        rawingredient3_id_ = SpecificIngredient.objects.filter(
+            fulldayofeating=full_day_of_eating_copy.id
+        ).values('rawingredient')
+        rawingredient3_id_ = list(rawingredient3_id_)
+        list_name_rawingredient3_in_copy_fulldayofeating = []
+        for id_k in rawingredient3_id_:
+            rawingredient3_name = RawIngredient3.objects.filter(
+                id=id_k
+            ).values('name')
+            list_name_rawingredient3_in_copy_fulldayofeating.append(
+                rawingredient3_name
+            )
+
+        for predefined_rawingredient3 in \
+                list_rawingredient3_of_specific_ingredient:
+            self.assertIn(
+                predefined_rawingredient3,
+                list_name_rawingredient3_in_copy_fulldayofeating,
+            )
