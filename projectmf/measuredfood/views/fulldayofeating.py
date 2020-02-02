@@ -624,6 +624,16 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     :return:
     """
 
+    # Copy the nutrient profile:
+    nutrient_profile = FullDayOfEating.objects.get(
+        id=id_fulldayofeating
+    ).nutrient_profile
+    nutrient_profile_copy = NutrientProfile.objects.get(
+        id=nutrient_profile.id
+    )
+    nutrient_profile_copy.author = request.user
+    nutrient_profile_copy.save()
+
     # Copy the full day of eating, along with the SpecificNutrientTarget and
     # the SpecificIngredient and the RawIngredient3 objects.
     full_day_of_eating_copy = FullDayOfEating.objects.get(
@@ -631,6 +641,7 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     )
     full_day_of_eating_copy.pk = None
     full_day_of_eating_copy.author = request.user
+    full_day_of_eating_copy.nutrient_profile = nutrient_profile_copy
     full_day_of_eating_copy.save()
 
     id_full_day_of_eating_copy = full_day_of_eating_copy.id
@@ -638,7 +649,6 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     specific_nutrient_target_queryset = SpecificNutrientTarget.objects.filter(
         fulldayofeating=id_fulldayofeating
     )
-
     # Copy all SpecificNutrientTarget objects.
     for specific_nutrient_target_k in specific_nutrient_target_queryset:
         specific_nutrient_target_copy_k = specific_nutrient_target_k
@@ -646,14 +656,21 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
             full_day_of_eating_copy
         specific_nutrient_target_copy_k.save()
 
-    # print('specific_nutrient_target_queryset')
-    # print(specific_nutrient_target_queryset)
-    #
-    # nutrient_target_list = list(
-    #     specific_nutrient_target_queryset.values('nutrient_target'))
-    #
-    # print('nutrient_target_list')
-    # print(nutrient_target_list)
+    # Copy all SpecificIngredient objects.
+    specific_ingredient_queryset = SpecificIngredient.objects.filter(
+        fulldayofeating=id_fulldayofeating
+    )
+
+    for specific_ingredient_k in specific_ingredient_queryset:
+        raw_ingredient3_copy = specific_ingredient_k.rawingredient
+        raw_ingredient3_copy.pk = None
+        raw_ingredient3_copy.author = request.user
+        raw_ingredient3_copy.save()
+        specific_ingredient_copy = specific_ingredient_k
+        specific_ingredient_copy.pk = None
+        specific_ingredient_copy.rawingredient = raw_ingredient3_copy
+        specific_ingredient_copy.fulldayofeating = full_day_of_eating_copy
+        specific_ingredient_copy.save()
 
     fulldayofeating_list = FullDayOfEating.objects.filter(
         author=request.user

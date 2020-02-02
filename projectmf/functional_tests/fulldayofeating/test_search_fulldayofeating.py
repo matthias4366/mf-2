@@ -331,11 +331,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # Click Search.
         self.browser.find_element_by_id('id_search').click()
 
-        time.sleep(10)
-
-        # TODO: RUN ./manage.py update_index ! Otherwise it can not work!
-
-
+        time.sleep(0.1)
 
         # Test if the FullDayOfEating shows up in the search results.
         # If it does show up, click on it.
@@ -362,7 +358,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         #               'should contain a button "Copy to my full days of '
         #               'eating". That button has not been found.')
 
-        time.sleep(10)
+        time.sleep(0.1)
 
         # Test if
         # 	A) The user is redirected to their list of full days of eating.
@@ -397,25 +393,37 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             specific_nutrient_target_copy.values('nutrient_target')
         )
 
-        print('set(specific_nutrient_target_copy)')
-        print(set(specific_nutrient_target_copy))
-        print('set(list_preset_nutrient_targets)')
-        print(set(list_preset_nutrient_targets))
+        nutrient_target_fulldayofeating_after_copying = []
+        for specific_nutrient_target_k in specific_nutrient_target_copy:
+            nutrient_target_fulldayofeating_after_copying.append(
+                specific_nutrient_target_k['nutrient_target']
+            )
 
         self.assertEqual(
-            set(specific_nutrient_target_copy),
+            set(nutrient_target_fulldayofeating_after_copying),
             set(list_preset_nutrient_targets),
         )
 
-        rawingredient3_id_ = SpecificIngredient.objects.filter(
+        specific_ingredient_copy_query = SpecificIngredient.objects.filter(
             fulldayofeating=full_day_of_eating_copy.id
-        ).values('rawingredient')
-        rawingredient3_id_ = list(rawingredient3_id_)
+        )
+
+        rawingredient3_queryset = specific_ingredient_copy_query.values(
+            'rawingredient')
+        rawingredient3_list_dict = list(rawingredient3_queryset)
+
+        rawingredient3_id_list = []
+        for dict_k in rawingredient3_list_dict:
+            rawingredient3_id_list.append(
+                dict_k['rawingredient']
+            )
+
         list_name_rawingredient3_in_copy_fulldayofeating = []
-        for id_k in rawingredient3_id_:
-            rawingredient3_name = RawIngredient3.objects.filter(
+        for id_k in rawingredient3_id_list:
+            rawingredient3_queryset = RawIngredient3.objects.filter(
                 id=id_k
             ).values('name')
+            rawingredient3_name = list(rawingredient3_queryset)[0]['name']
             list_name_rawingredient3_in_copy_fulldayofeating.append(
                 rawingredient3_name
             )
@@ -426,3 +434,20 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
                 predefined_rawingredient3,
                 list_name_rawingredient3_in_copy_fulldayofeating,
             )
+
+        name_nutrient_profile_of_fulldayofeating_copy = \
+            full_day_of_eating_copy.nutrient_profile.name
+
+        self.assertEqual(
+            name_nutrient_profile_of_fulldayofeating_copy,
+            nutrient_profile_name
+        )
+
+        self.fail('The test for the nutrient profile is bad. You must test '
+                  'whether the nutrient profile was copied and whether the '
+                  'copy of the nutrient profile is used. This test also gives '
+                  'a positive result if the original nutrient profile is used.'
+                  '\n'
+                  'Also, there is a problem when copying an ingredient that '
+                  'already exists in the users database. This problem is not '
+                  'addressed with this test.')
