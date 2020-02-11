@@ -80,11 +80,15 @@ class RawIngredient3(models.Model):
 
     class Meta:
         ordering = ["name"]
-        # So the user does not get confused, they must give unique names to
-        # their RawIngredient3 objects. Different users can use the same names.
-        unique_together = (
-            ("name", "author"),
-        )
+        # TODO: Reactivate this code after a proper copy function has been
+        #  written that takes care of the issue of duplicate RawIngredient3
+        #  objects when copying a FullDayOfEating of another User.
+        # # So the user does not get confused, they must give unique names to
+        # # their RawIngredient3 objects. Different users can use the
+        # # same names.
+        # unique_together = (
+        #     ("name", "author"),
+        # )
 
     def __str__(self):
         return self.name

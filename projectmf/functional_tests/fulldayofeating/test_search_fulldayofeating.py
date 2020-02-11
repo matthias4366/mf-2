@@ -17,7 +17,7 @@ from measuredfood.models import (
 # from data.initial_nutrient_profiles import nutrient_profile_dict_list
 from django.contrib.auth.models import User
 # from data.ingredients_data2 import ingredient_dict_list
-from selenium.common.exceptions import NoSuchElementException
+# from selenium.common.exceptions import NoSuchElementException
 
 
 class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
@@ -87,32 +87,42 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             time,
         )
 
-        ingredient = {
-            'id_ingredient_usda_api': '169738',
-            'ingredient_name_usda_api':
-                'Pasta, whole-wheat, dry (Includes foods '
-                'for USDA\'s Food Distribution Program)',
-        }
+        ingredient_dict_list = [
+            {
+                'id_ingredient_usda_api': '169738',
+                'ingredient_name_usda_api':
+                    'Pasta, whole-wheat, dry (Includes foods '
+                    'for USDA\'s Food Distribution Program)',
+            },
+            {
+                'id_ingredient_usda_api': ' 747440',
+                'ingredient_name_usda_api':
+                    'Beans, Dry, Dark Red Kidney (0% moisture)',
+            },
+        ]
 
         # Simulate clicking on "Add ingredient using the FoodData Central
         # database (recommended)"
-        self.browser.find_element_by_id(
-            'id_button_get_from_food_data_central'
-        ).click()
 
-        self.browser.find_element_by_id(
-            'id_FDC_ID'
-        ).clear()
+        for ingredient_dict_k in ingredient_dict_list:
 
-        self.browser.find_element_by_id(
-            'id_FDC_ID'
-        ).send_keys(
-            str(ingredient['id_ingredient_usda_api'])
-        )
+            self.browser.find_element_by_id(
+                'id_button_get_from_food_data_central'
+            ).click()
 
-        self.browser.find_element_by_id(
-            'id_button_get_from_food_data_central'
-        ).click()
+            self.browser.find_element_by_id(
+                'id_FDC_ID'
+            ).clear()
+
+            self.browser.find_element_by_id(
+                'id_FDC_ID'
+            ).send_keys(
+                str(ingredient_dict_k['id_ingredient_usda_api'])
+            )
+
+            self.browser.find_element_by_id(
+                'id_button_get_from_food_data_central'
+            ).click()
 
         # Create FullDayOfEating object.
 
@@ -133,7 +143,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         new_fulldayofeating_button.click()
 
         name_dummy_full_day_of_eating = \
-            'Full day one'
+            'Original Full day'
 
         # Type in the name of the new full day of eating.
         self.browser.find_element_by_id('id_name').send_keys(
@@ -161,6 +171,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         list_scaling_option = [
             'fixed'
         ]
+
         # Add specific ingredients.
         for k in range(len(list_rawingredient3_of_specific_ingredient)):
             # Choose the RawIngredient3 object for each SpecificIngredient.
@@ -175,8 +186,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
                 list_rawingredient3_of_specific_ingredient[k]
             )
 
-            # Set the scaling option of each specific ingredient to
-            # 'independent'.
+            # Set the scaling option of each specific ingredient.
             id_scaling_option = \
                 'id_specificingredient_set-' \
                 + str(k) \
@@ -335,28 +345,16 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
 
         # Test if the FullDayOfEating shows up in the search results.
         # If it does show up, click on it.
-        # try:
         id_ = 'search result ' + name_dummy_full_day_of_eating
         self.browser.find_element_by_id(id_).click()
-        # except NoSuchElementException:
-        #     self.fail('The full day of eating is not shown in the search '
-        #               'results.')
 
         # Test if the user is redirected to the
         # detailview of the FullDayOfEating.
         # Do that by checking whether there is a button "Copy to my full days
         # of eating". If the button is found, click it.
-        # try:
         self.browser.find_element_by_id(
             'id_button_copy_fulldayofeating'
         ).click()
-        # except NoSuchElementException:
-        #     self.fail('The user has searched for a full day of eating and '
-        #               'the search result has been displayed. After clicking '
-        #               'on the search result, the user should be forwarded to '
-        #               'a DetailView of the FullDayOfEating. That DetailView '
-        #               'should contain a button "Copy to my full days of '
-        #               'eating". That button has not been found.')
 
         time.sleep(0.1)
 
@@ -364,22 +362,18 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # 	A) The user is redirected to their list of full days of eating.
         # 	B) "Test Full Day Of Eating made by UserA" shows up in the list
         # 	of Full Days Of Eating.
-        try:
-            edit_button = self.browser.find_element_by_id(
-                'edit ' + name_dummy_full_day_of_eating
-            )
-            edit_button.click()
-        except NoSuchElementException:
-            self.fail('The user should see a list with their full days of '
-                      'eating, including the full day of eating that was just '
-                      'copied from another user. That is not the case.')
+        edit_button = self.browser.find_element_by_id(
+            'edit ' + name_dummy_full_day_of_eating
+        )
+        edit_button.click()
 
         # Test whether the copied FullDayOfEating is correct:
         # Test if 'Energy' is selected as a nutrient target.
         # Test if 'Whole wheat pasta' is there as a RawIngredient3.
 
         dummy_user_who_searches_full_day_of_eating = User.objects.get(
-            username='DummyUserWhoSearchesFullDayOfEating')
+            username='DummyUserWhoSearchesFullDayOfEating'
+        )
 
         full_day_of_eating_copy = FullDayOfEating.objects.get(
             name=name_dummy_full_day_of_eating,
@@ -443,10 +437,62 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             nutrient_profile_name
         )
 
+        # Make sure that the objects have actually been copied and that it is
+        # not the case that old objects are still used.
+
+        dummy_user = User.objects.get(
+            username='DummyUser'
+        )
+
+        full_day_of_eating_original = FullDayOfEating.objects.get(
+            name=name_dummy_full_day_of_eating,
+            author=dummy_user.id,
+        )
+
+        # FullDayOfEating
+        self.assertNotEqual(
+            full_day_of_eating_original.id,
+            full_day_of_eating_copy.id,
+        )
+
+        # NutrientProfile
+        self.assertNotEqual(
+            full_day_of_eating_original.nutrient_profile.id,
+            full_day_of_eating_copy.nutrient_profile.id,
+        )
+
+        # SpecificIngredient
+        # TODO: Make sure that the copied objects are
+        #  different from the original ones.
+        specific_ingredient_queryset_original = \
+            SpecificIngredient.objects.filter(
+                fulldayofeating=full_day_of_eating_original
+            )
+        specific_ingredient_id_list_original = \
+            specific_ingredient_queryset_original.values('id')
+        print('specific_ingredient_id_list_original')
+        print(specific_ingredient_id_list_original)
+
+        specific_ingredient_queryset_copy = \
+            SpecificIngredient.objects.filter(
+                fulldayofeating=full_day_of_eating_copy
+            )
+
+
+        # RawIngredient3
+        # TODO: Make sure that the copied objects are
+        #  different from the original ones.
+
+        # SpecificNutrientTarget
+        # TODO: Make sure that the copied objects are
+        #  different from the original ones.
+
         self.fail('The test for the nutrient profile is bad. You must test '
                   'whether the nutrient profile was copied and whether the '
                   'copy of the nutrient profile is used. This test also gives '
                   'a positive result if the original nutrient profile is used.'
+                  'Check it using the primary keys.'
+                  'Make new instances of the models.'
                   '\n'
                   'Also, there is a problem when copying an ingredient that '
                   'already exists in the users database. This problem is not '

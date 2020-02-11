@@ -10,8 +10,8 @@ from measuredfood.models import (
     NutrientProfile,
     SpecificNutrientTarget,
     SpecificIngredient,
+    FullDayOfEating,
 )
-from measuredfood.models import FullDayOfEating, SpecificIngredient
 from django.urls import reverse_lazy
 # imports for the view to create raw ingredients
 from django.views.generic import (
@@ -631,6 +631,7 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     nutrient_profile_copy = NutrientProfile.objects.get(
         id=nutrient_profile.id
     )
+    nutrient_profile_copy.pk = None
     nutrient_profile_copy.author = request.user
     nutrient_profile_copy.save()
 
@@ -644,14 +645,13 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     full_day_of_eating_copy.nutrient_profile = nutrient_profile_copy
     full_day_of_eating_copy.save()
 
-    id_full_day_of_eating_copy = full_day_of_eating_copy.id
-
     specific_nutrient_target_queryset = SpecificNutrientTarget.objects.filter(
         fulldayofeating=id_fulldayofeating
     )
     # Copy all SpecificNutrientTarget objects.
     for specific_nutrient_target_k in specific_nutrient_target_queryset:
         specific_nutrient_target_copy_k = specific_nutrient_target_k
+        specific_nutrient_target_copy_k.pk = None
         specific_nutrient_target_copy_k.fulldayofeating = \
             full_day_of_eating_copy
         specific_nutrient_target_copy_k.save()
