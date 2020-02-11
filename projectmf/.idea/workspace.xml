@@ -2,19 +2,14 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/functional_tests/test_rawingredient2.py" line="559" />
-    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="353" mnemonic="4" />
-    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="455" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="140" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="368" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="464" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="151" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="377" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="89" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_di8jt24ti8w9tguj.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/_MAIN_86.toc" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
+            <state relative-caret-position="-8503">
+              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -228,7 +223,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -668,7 +663,7 @@
       <workItem from="1581108298975" duration="618000" />
       <workItem from="1581236111278" duration="20000" />
       <workItem from="1581408420939" duration="682000" />
-      <workItem from="1581418608518" duration="5211000" />
+      <workItem from="1581418608518" duration="5646000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -769,7 +764,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="643464000" />
+    <option name="totallyTimeSpent" value="643899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -782,7 +777,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28555617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1308,8 +1302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
+        <state relative-caret-position="-8503">
+          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>

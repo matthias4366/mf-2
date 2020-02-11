@@ -101,6 +101,12 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             },
         ]
 
+        list_rawingredient3_of_specific_ingredient = []
+        for ingredient_dict_k in ingredient_dict_list:
+            list_rawingredient3_of_specific_ingredient.append(
+                ingredient_dict_k['ingredient_name_usda_api']
+            )
+
         # Simulate clicking on "Add ingredient using the FoodData Central
         # database (recommended)"
 
@@ -165,15 +171,13 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         )
         save_full_day_of_eating_button.click()
 
-        list_rawingredient3_of_specific_ingredient = [
-            ingredient['ingredient_name_usda_api']
-        ]
         list_scaling_option = [
-            'fixed'
+            'fixed',
+            'fixed',
         ]
 
         # Add specific ingredients.
-        for k in range(len(list_rawingredient3_of_specific_ingredient)):
+        for k in range(len(ingredient_dict_list)):
             # Choose the RawIngredient3 object for each SpecificIngredient.
             id_rawingredient3_for_specificingredient = \
                 'id_specificingredient_set-' \
@@ -183,7 +187,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
                 id_rawingredient3_for_specificingredient
             ))
             select_rawingredient3.select_by_visible_text(
-                list_rawingredient3_of_specific_ingredient[k]
+                ingredient_dict_list[k]['ingredient_name_usda_api']
             )
 
             # Set the scaling option of each specific ingredient.
@@ -468,8 +472,13 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
             SpecificIngredient.objects.filter(
                 fulldayofeating=full_day_of_eating_original
             )
-        specific_ingredient_id_list_original = \
+        specific_ingredient_id_queryset_original = \
             specific_ingredient_queryset_original.values('id')
+        specific_ingredient_id_dict_list_original = \
+            list(specific_ingredient_id_queryset_original)
+        specific_ingredient_id_list_original = []
+        for dict_k in specific_ingredient_id_dict_list_original:
+            specific_ingredient_id_list_original.append(dict_k['id'])
         print('specific_ingredient_id_list_original')
         print(specific_ingredient_id_list_original)
 
