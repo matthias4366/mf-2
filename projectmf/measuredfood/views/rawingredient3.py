@@ -1,6 +1,7 @@
 # import pprint
 # import json
 # imports for the creation of user accounts
+import re
 from django.shortcuts import render, redirect
 
 # imports for the view to create raw ingredients
@@ -34,6 +35,8 @@ from measuredfood.utils.rawingredient3.\
 from ..forms import FoodDataCentralIDForm
 from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
+from ..utils.rawingredient3.make_name_of_duplicate_rawingredient3 import \
+    make_name_of_duplicate_rawingredient3
 from ..utils.set_to_zero_if_none import set_to_zero_if_none
 
 import requests
@@ -188,6 +191,8 @@ def get_from_food_data_central(request):
                     request,
                     response_json,
                     transform_nutrient_name_usda_to_measuredfood,
+                    re,
+                    make_name_of_duplicate_rawingredient3,
                 )
 
                 rawingredient3_instance = \

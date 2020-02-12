@@ -5,6 +5,8 @@ def make_rawingredient3_from_usda_data(
     request,
     response_json,
     transform_nutrient_name_usda_to_measuredfood,
+    re,
+    make_name_of_duplicate_rawingredient3,
 ):
     """
     :param rawingredient3_model: The RawIngredient3 model.
@@ -15,14 +17,21 @@ def make_rawingredient3_from_usda_data(
     :param transform_nutrient_name_usda_to_measuredfood: This function
     takes in the ingredient name from the usda database, works on the string,
     and return the name for the measuredfood database.
+    :param re: Python module for regular expressions.
+    :param make_name_of_duplicate_rawingredient3: Function to alter the name
+    of the RawIngredient3 object in case a RawIngredient3 object with the
+    same name exists already.
     :return: rawingredient3_instance: Based on the JSON data on the
     ingredient obtained from the FoodData Central API, a RawIngredient3 model
     object has been created and it is returned.
     """
 
     if rawingredient3_model.objects.filter(name=response_json[
-        'description']).exists():
-        name_ = make
+            'description']).exists():
+        name_ = make_name_of_duplicate_rawingredient3(
+            response_json['description'],
+            re,
+        )
 
     rawingredient3_instance = rawingredient3_model(
         author=request.user,

@@ -1,3 +1,4 @@
+import re
 import sys
 sys.path.append('..')
 sys.path.append('...')
@@ -16,7 +17,10 @@ class MakeNameOfDuplicateRawIngredient3Test(TestCase):
 
     def test_make_name_of_duplicate_rawingredient3_no_initial_numbers(self):
         original_name = "Pasta"
-        result_actual = make_name_of_duplicate_rawingredient3(original_name)
+        result_actual = make_name_of_duplicate_rawingredient3(
+            original_name,
+            re,
+        )
         result_expected = "Pasta1"
         self.assertEqual(
             result_actual,
@@ -25,7 +29,10 @@ class MakeNameOfDuplicateRawIngredient3Test(TestCase):
 
     def test_make_name_of_duplicate_rawingredient3_with_initial_numbers(self):
         original_name = "Pasta1973"
-        result_actual = make_name_of_duplicate_rawingredient3(original_name)
+        result_actual = make_name_of_duplicate_rawingredient3(
+            original_name,
+            re,
+        )
         result_expected = "Pasta1974"
         self.assertEqual(
             result_actual,
