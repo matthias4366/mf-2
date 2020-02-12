@@ -189,7 +189,47 @@ class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
         RawIngredient3 objects. The new RawIngredient3 object's name should
         be changed. For example, "Pasta" should be changed to "Pasta1".
         """
-        self.fail('Finish the test!')
+
+        # Simulate clicking on the menu item "Ingredients".
+        click_navbar_item(
+            'id_menu_item_rawingredients3',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        original_name = 'Pasta 4540'
+        expected_duplicate_name = 'Pasta 4541'
+
+        # Make the original ingredient.
+        self.browser.find_element_by_id(
+            'id_button_new_rawingredient3'
+        ).click()
+        self.browser.find_element_by_id('id_name').send_keys(original_name)
+        self.browser.find_element_by_id(
+            'id_button_save_new_rawingredient3').click()
+
+        # Make exactly the same ingredient again.
+        self.browser.find_element_by_id(
+            'id_button_new_rawingredient3'
+        ).click()
+        self.browser.find_element_by_id('id_name').send_keys(original_name)
+        self.browser.find_element_by_id(
+            'id_button_save_new_rawingredient3').click()
+
+        ingredients_with_original_name = self.browser.find_elements_by_id(
+            'edit '+original_name
+        )
+        n_ingredients_with_original_name = len(ingredients_with_original_name)
+        self.assertEqual(n_ingredients_with_original_name, 1)
+
+        ingredients_with_name_of_duplicate = self.browser.find_elements_by_id(
+            'edit '+expected_duplicate_name
+        )
+        n_ingredients_with_name_of_duplicate = len(
+            ingredients_with_name_of_duplicate
+        )
+        self.assertEqual(n_ingredients_with_name_of_duplicate, 1)
 
     def test_duplicate_renaming_of_rawingredient3_copy_fulldayofeating(self):
         """
