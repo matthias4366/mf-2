@@ -6,11 +6,12 @@ sys.path.append("...")
 sys.path.append("....")
 from functional_tests.base import (
     # FunctionalTest,
-    FunctionalTestWithUserLoggedIn)
+    FunctionalTestWithUserLoggedIn
+)
 from selenium.webdriver.common.keys import Keys
 import time
-from measuredfood.models import RawIngredient3
-from django.contrib.auth.models import User
+# from measuredfood.models import RawIngredient3
+# from django.contrib.auth.models import User
 # python manage.py test functional_tests.rawingredient3.test_rawingredient3
 
 
@@ -99,3 +100,54 @@ class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
             carbohydrate_without_fiber_amount,
             carbohydrate_without_fiber_desired_value,
         )
+
+    def test_duplicate_renaming_get_rawingredient3_food_data_central(self):
+        """
+        A user gets a RawIngredient3 object from the FoodData Central
+        database that already exists in their RawIngredient3 objects. Test if
+        the new RawIngredient3 object gets renamed correctly. For example,
+        "Pasta" should be changed to "Pasta1".
+        """
+        self.fail('Finish the test!')
+
+    def test_duplicate_renaming_manual_rawingredient3_creation(self):
+        """
+        A user manually creates a RawIngredient3 that already exists in
+        their
+        RawIngredient3 objects. The new RawIngredient3 object's name should
+        be changed. For example, "Pasta" should be changed to "Pasta1".
+        """
+        self.fail('Finish the test!')
+
+    def test_duplicate_renaming_of_rawingredient3_copy_fulldayofeating(self):
+        """
+        A user copies a FullDayOfEating object from another user. As part of
+        this, the RawIngredient3 objects are copied as well. Some of the new
+        RawIngredient3 objects might already exist in the user's
+        RawIngredient3 objects. Test if
+        the new RawIngredient3 object gets renamed correctly. For example,
+        "Pasta" should be changed to "Pasta1".
+        """
+        self.fail('Finish the test!')
+
+    def test_duplicate_renaming_of_fulldayofeating_copy_fulldayofeating(self):
+        """
+        A user copies a FullDayOfEating object from another user. There
+        already exists a FullDayOfEating object with the same name in their
+        FullDayOfEating objects.
+
+        Test if the new FullDayOfEating object gets renamed appropriately.
+        "Stir fry" should become "Stir fry2".
+        """
+        self.fail('Finish the test!')
+
+    def test_duplicate_renaming_of_fulldayofeating_create_fulldayofeating(self):
+        """
+        A user manually creates a new FullDayOfEating object. There
+        already exists a FullDayOfEating object with the same name in their
+        FullDayOfEating objects.
+
+        Test if the new FullDayOfEating object gets renamed appropriately.
+        "Stir fry" should become "Stir fry2".
+        """
+        self.fail('Finish the test!')

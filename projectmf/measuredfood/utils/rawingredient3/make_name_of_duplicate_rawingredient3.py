@@ -20,4 +20,6 @@ def make_name_of_duplicate_rawingredient3(
     # Find the number at the end of the RawIngredient3 object's name,
     # for example Pasta12 => find 12.
 
+    name_of_duplicate = original_name + '1'
+
     return name_of_duplicate
