@@ -9,7 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_7gpvt952efgl1h76.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_cwjmgjzxihqophws.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_kvjcba5qhiqqm7ob.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_nezf7e63gcz07k01.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/MAIN_tw6w76vqlckyiut7.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectmf/whoosh_index/_MAIN_116.toc" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-314">
+            <state relative-caret-position="13560">
               <caret line="650" column="46" selection-start-line="650" selection-start-column="46" selection-end-line="650" selection-end-column="46" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -51,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8503">
-              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="347">
+              <caret line="532" selection-start-line="532" selection-end-line="532" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -63,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-308">
+            <state relative-caret-position="1726">
               <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -96,8 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nlea</find>
-      <find>chil</find>
       <find>MAX_DIGITS_</find>
       <find>id_full_day_of_eating_</find>
       <find>nutrient_targets_queryset_</find>
@@ -126,12 +131,10 @@
       <find>DummyUser</find>
       <find>RawIngredient3</find>
       <find>ingredient</find>
+      <find>specific_ingredient_id_list_original</find>
+      <find>SpecificNutrientTarget</find>
     </findStrings>
     <replaceStrings>
-      <replace>nutrient_dict</replace>
-      <replace>transform_nutrient_name_usda_to_measuredfood</replace>
-      <replace>is_displayed</replace>
-      <replace>calculate_carbohydrate_without_fiber_form</replace>
       <replace>ingredient3</replace>
       <replace>nutrient_name_measuredfood_list</replace>
       <replace>None</replace>
@@ -158,6 +161,10 @@
       <replace>specificnutrienttarget_queryset</replace>
       <replace>specificnutrienttarget_list</replace>
       <replace>nutrient_target_fulldayofeating_after_copying</replace>
+      <replace>specific_ingredient_id_original_queryset</replace>
+      <replace>specific_ingredient_original_queryset</replace>
+      <replace>specific_ingredient_original_id_dict_list</replace>
+      <replace>specific_ingredient_original_id_list</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/measuredfood/templates/measuredfood</dir>
@@ -223,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -663,7 +670,8 @@
       <workItem from="1581108298975" duration="618000" />
       <workItem from="1581236111278" duration="20000" />
       <workItem from="1581408420939" duration="682000" />
-      <workItem from="1581418608518" duration="5646000" />
+      <workItem from="1581418608518" duration="7963000" />
+      <workItem from="1581493971500" duration="2178000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -764,7 +772,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="643899000" />
+    <option name="totallyTimeSpent" value="648394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -776,9 +784,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28555617" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2888766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -792,7 +800,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.36285096" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.4136069" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1253,16 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-314">
-          <caret line="650" column="46" selection-start-line="650" selection-start-column="46" selection-end-line="650" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/models/fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-572">
@@ -1280,9 +1278,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/views/fulldayofeating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13560">
+          <caret line="650" column="46" selection-start-line="650" selection-start-column="46" selection-end-line="650" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/models/rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-308">
+        <state relative-caret-position="1726">
           <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -1302,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8503">
-          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+        <state relative-caret-position="347">
+          <caret line="532" selection-start-line="532" selection-end-line="532" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>

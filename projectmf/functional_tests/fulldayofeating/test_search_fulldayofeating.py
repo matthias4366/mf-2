@@ -466,43 +466,67 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         )
 
         # SpecificIngredient
-        # TODO: Make sure that the copied objects are
-        #  different from the original ones.
-        specific_ingredient_queryset_original = \
+        specific_ingredient_original_queryset = \
             SpecificIngredient.objects.filter(
                 fulldayofeating=full_day_of_eating_original
             )
-        specific_ingredient_id_queryset_original = \
-            specific_ingredient_queryset_original.values('id')
-        specific_ingredient_id_dict_list_original = \
-            list(specific_ingredient_id_queryset_original)
-        specific_ingredient_id_list_original = []
-        for dict_k in specific_ingredient_id_dict_list_original:
-            specific_ingredient_id_list_original.append(dict_k['id'])
-        print('specific_ingredient_id_list_original')
-        print(specific_ingredient_id_list_original)
+        specific_ingredient_id_original_queryset = \
+            specific_ingredient_original_queryset.values('id')
+        specific_ingredient_original_id_dict_list = \
+            list(specific_ingredient_id_original_queryset)
+        specific_ingredient_original_id_list = []
+        for dict_k in specific_ingredient_original_id_dict_list:
+            specific_ingredient_original_id_list.append(dict_k['id'])
+        specific_ingredient_original_id_set = set(
+            specific_ingredient_original_id_list
+        )
 
         specific_ingredient_queryset_copy = \
             SpecificIngredient.objects.filter(
                 fulldayofeating=full_day_of_eating_copy
             )
+        specific_ingredient_copy_id_queryset = \
+            specific_ingredient_queryset_copy.values('id')
+        specific_ingredient_copy_id_dict_list = \
+            list(specific_ingredient_copy_id_queryset)
+        specific_ingredient_copy_id_list = []
+        for dict_k in specific_ingredient_copy_id_dict_list:
+            specific_ingredient_copy_id_list.append(dict_k['id'])
+        specific_ingredient_copy_id_set = set(
+            specific_ingredient_copy_id_list
+        )
 
+        one_specificingredient_id_is_identical = (
+            specific_ingredient_original_id_set &
+            specific_ingredient_copy_id_set
+        )
+
+        self.assertFalse(
+            one_specificingredient_id_is_identical
+        )
 
         # RawIngredient3
-        # TODO: Make sure that the copied objects are
-        #  different from the original ones.
+        specific_ingredient_original_id_list = []
+        for specific_ingredient_k in specific_ingredient_original_queryset:
+            id_ = specific_ingredient_k.rawingredient.id
+            specific_ingredient_original_id_list.append(
+                id_
+            )
+        specific_ingredient_original_id_set = set(
+            specific_ingredient_original_id_list
+        )
 
-        # SpecificNutrientTarget
-        # TODO: Make sure that the copied objects are
-        #  different from the original ones.
-
-        self.fail('The test for the nutrient profile is bad. You must test '
-                  'whether the nutrient profile was copied and whether the '
-                  'copy of the nutrient profile is used. This test also gives '
-                  'a positive result if the original nutrient profile is used.'
-                  'Check it using the primary keys.'
-                  'Make new instances of the models.'
-                  '\n'
-                  'Also, there is a problem when copying an ingredient that '
-                  'already exists in the users database. This problem is not '
-                  'addressed with this test.')
+        specific_ingredient_copy_id_list = []
+        for specific_ingredient_k in specific_ingredient_queryset_copy:
+            id_ = specific_ingredient_k.rawingredient.id
+            specific_ingredient_copy_id_list.append(
+                id_
+            )
+        specific_ingredient_copy_id_set = set(specific_ingredient_copy_id_list)
+        one_rawingredient3_is_identical = (
+            specific_ingredient_original_id_set &
+            specific_ingredient_copy_id_set
+        )
+        self.assertFalse(
+            one_rawingredient3_is_identical
+        )
