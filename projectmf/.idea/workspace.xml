@@ -5,14 +5,12 @@
     <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="151" mnemonic="2" />
     <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="377" mnemonic="3" />
     <bookmark url="file://$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" line="89" mnemonic="4" />
-    <bookmark url="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data.py" line="29" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py" line="111" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change beforePath="$PROJECT_DIR$/measuredfood/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="444">
@@ -72,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-184">
-              <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+            <state relative-caret-position="264">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
               </folding>
@@ -81,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
+            <state relative-caret-position="166">
+              <caret line="103" column="68" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="68" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -224,15 +222,15 @@
         <option value="$PROJECT_DIR$/measuredfood/models/rawingredient3.py" />
         <option value="$PROJECT_DIR$/functional_tests/fulldayofeating/test_search_fulldayofeating.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_duplicate_rawingredient3.py" />
-        <option value="$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_rawingredient3_from_usda_data.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/rawingredient3.py" />
         <option value="$PROJECT_DIR$/measuredfood/tests.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py" />
+        <option value="$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="654" />
@@ -639,7 +637,7 @@
       <workItem from="1581236111278" duration="20000" />
       <workItem from="1581408420939" duration="682000" />
       <workItem from="1581418608518" duration="7963000" />
-      <workItem from="1581493971500" duration="10220000" />
+      <workItem from="1581493971500" duration="11055000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -740,7 +738,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="656436000" />
+    <option name="totallyTimeSpent" value="657271000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -752,7 +750,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2888766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -768,7 +767,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.25701943" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.33045357" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1265,30 +1264,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py">
+    <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="444">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        <state relative-caret-position="264">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/rawingredient3/make_name_of_duplicate_rawingredient3.py">
+    <entry file="file://$PROJECT_DIR$/functional_tests/rawingredient3/test_rawingredient3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="166">
+          <caret line="103" column="68" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

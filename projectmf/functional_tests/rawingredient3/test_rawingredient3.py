@@ -108,7 +108,79 @@ class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
         the new RawIngredient3 object gets renamed correctly. For example,
         "Pasta" should be changed to "Pasta1".
         """
-        self.fail('Finish the test!')
+
+        # Simulate clicking on the menu item "Ingredients".
+        click_navbar_item(
+            'id_menu_item_rawingredients3',
+            self.browser,
+            Keys,
+            time,
+        )
+
+        ingredient = {
+            'id_ingredient_usda_api': '169738',
+            'ingredient_name_usda_api':
+                'Pasta, whole-wheat, dry (Includes foods '
+                'for USDA\'s Food Distribution Program)',
+        }
+
+        # Simulate clicking on "Add ingredient using the FoodData Central
+        # database (recommended)"
+        self.browser.find_element_by_id(
+            'id_button_get_from_food_data_central'
+        ).click()
+
+        self.browser.find_element_by_id(
+            'id_FDC_ID'
+        ).clear()
+
+        self.browser.find_element_by_id(
+            'id_FDC_ID'
+        ).send_keys(
+            str(ingredient['id_ingredient_usda_api'])
+        )
+
+        self.browser.find_element_by_id(
+            'id_button_get_from_food_data_central'
+        ).click()
+
+        # Simulate clicking on "Add ingredient using the FoodData Central
+        # database (recommended)"
+        self.browser.find_element_by_id(
+            'id_button_get_from_food_data_central'
+        ).click()
+
+        self.browser.find_element_by_id(
+            'id_FDC_ID'
+        ).clear()
+
+        self.browser.find_element_by_id(
+            'id_FDC_ID'
+        ).send_keys(
+            str(ingredient['id_ingredient_usda_api'])
+        )
+
+        self.browser.find_element_by_id(
+            'id_button_get_from_food_data_central'
+        ).click()
+
+        # Check if there is the original ingredient, and that there is no
+        # duplication of the same ingredient.
+        # Check if the duplicate ingredient has been properly renamed.
+
+        renamed_ingredient_name = ingredient['ingredient_name_usda_api'] + '1'
+
+        ingredients_with_original_name = self.browser.find_elements_by_id(
+            'edit '+ingredient['ingredient_name_usda_api']
+        )
+        n_ingredients_with_original_name = len(ingredients_with_original_name)
+        self.assertEqual(n_ingredients_with_original_name, 1)
+
+        ingredients_with_adapted_name = self.browser.find_elements_by_id(
+            'edit '+renamed_ingredient_name
+        )
+        n_ingredients_with_adapted_name = len(ingredients_with_adapted_name)
+        self.assertEqual(n_ingredients_with_adapted_name, 1)
 
     def test_duplicate_renaming_manual_rawingredient3_creation(self):
         """
