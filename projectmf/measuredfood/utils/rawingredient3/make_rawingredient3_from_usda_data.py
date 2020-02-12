@@ -28,14 +28,16 @@ def make_rawingredient3_from_usda_data(
 
     if rawingredient3_model.objects.filter(name=response_json[
             'description']).exists():
-        name_ = make_name_of_duplicate_rawingredient3(
+        name_new_rawingredient3 = make_name_of_duplicate_rawingredient3(
             response_json['description'],
             re,
         )
+    else:
+        name_new_rawingredient3 = response_json['description']
 
     rawingredient3_instance = rawingredient3_model(
         author=request.user,
-        name=response_json['description']
+        name=name_new_rawingredient3
     )
 
     for k in range(len(response_json['foodNutrients'])):
