@@ -19,6 +19,11 @@ def make_rawingredient3_from_usda_data(
     ingredient obtained from the FoodData Central API, a RawIngredient3 model
     object has been created and it is returned.
     """
+
+    if rawingredient3_model.objects.filter(name=response_json[
+        'description']).exists():
+        name_ = make
+
     rawingredient3_instance = rawingredient3_model(
         author=request.user,
         name=response_json['description']
