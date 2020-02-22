@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import copy
+import re
 from measuredfood.forms import (
     FullDayOfEatingForm,
     SpecificIngredientFormset,
@@ -75,6 +76,9 @@ from measuredfood.utils.fulldayofeating.calculate_percent_max_fulldayofeating \
 
 from measuredfood.utils.judge_total_nutrition import \
     judge_total_nutrition
+
+from measuredfood.utils.rawingredient3.rename_duplicate import \
+    rename_duplicate
 
 from measuredfood.utils.error.custom_error import (
     UserIsNotAuthorError,
@@ -675,6 +679,13 @@ def copy_fulldayofeating_to_user(request, id_fulldayofeating):
     fulldayofeating_list = FullDayOfEating.objects.filter(
         author=request.user
     ).order_by('name')
+
+    rename_duplicate(
+        RawIngredient3,
+        'name',
+        request.user,
+        re,
+    )
 
     context = {'fulldayofeating_list': fulldayofeating_list}
 
