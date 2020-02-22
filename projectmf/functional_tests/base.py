@@ -59,8 +59,8 @@ class FunctionalTestWithUserLoggedIn(StaticLiveServerTestCase):
             self.live_server_url = 'http://' + staging_server
 
         # Create a new dummy user.
-        dummy_username = 'DummyUser'
-        dummy_email = 'DummyUser@gmail.com'
+        dummy_username = 'DummyUser1'
+        dummy_email = 'DummyUser1@gmail.com'
         dummy_password = 'testpassword'
 
         # Open the registration page

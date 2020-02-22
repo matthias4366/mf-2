@@ -62,6 +62,7 @@ def rename_duplicate(
                                      ]
             name_of_duplicate = original_name_stem + str(new_number)
 
+            # Avoid infinite while loop.
             n_increases_new_number = 0
             n_increment_new_number_max = 1000
 

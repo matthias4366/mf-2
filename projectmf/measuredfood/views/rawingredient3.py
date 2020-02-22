@@ -37,8 +37,6 @@ from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
 from ..utils.rawingredient3.rename_duplicate import \
     rename_duplicate
-from ..utils.rawingredient3.make_name_of_duplicate_rawingredient3 import \
-    make_name_of_duplicate_rawingredient3
 from ..utils.set_to_zero_if_none import set_to_zero_if_none
 
 import requests
@@ -202,8 +200,6 @@ def get_from_food_data_central(request):
                     request,
                     response_json,
                     transform_nutrient_name_usda_to_measuredfood,
-                    re,
-                    make_name_of_duplicate_rawingredient3,
                 )
 
                 rawingredient3_instance = \
@@ -213,6 +209,13 @@ def get_from_food_data_central(request):
                     )
 
                 rawingredient3_instance.save()
+
+                rename_duplicate(
+                    RawIngredient3,
+                    'name',
+                    request.user,
+                    re,
+                )
 
                 return redirect('list-rawingredient3')
 

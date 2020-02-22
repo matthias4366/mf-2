@@ -12,8 +12,8 @@ class NewUserProfileTest(FunctionalTest):
     @wait
     def test_user_registration(self):
 
-        dummy_username = 'DummyUser'
-        dummy_email = 'DummyUser@gmail.com'
+        dummy_username = 'DummyUser1'
+        dummy_email = 'DummyUser1@gmail.com'
         dummy_password = 'testpassword'
 
         # Open the registration page

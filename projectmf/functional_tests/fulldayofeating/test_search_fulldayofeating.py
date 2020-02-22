@@ -28,7 +28,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         This search functionality is tested here.
         """
 
-        # Use the dummy user to create a full day of eating called "Full Day
+        # Use the DummyUser1 to create a full day of eating called "Full Day
         # Of Eating created by dummy user"
 
         # To create a FullDayOfEating it is necessary to create a a
@@ -43,10 +43,6 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
 
         time.sleep(0.1)
 
-        # Create a nutrient profile with such values that the
-        # calculated_amount values will be equal to
-        # list_calculated_amount_in_test.
-
         new_nutrient_profile_button = self.browser.find_element_by_id(
             'id_button_new_nutrient_profile'
         )
@@ -54,7 +50,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
 
         time.sleep(0.1)
 
-        nutrient_profile_name = 'Dummy nutrient profile'
+        nutrient_profile_name = 'Nutrient profile made by DummyUser1'
 
         self.browser.find_element_by_id('id_name').clear()
         self.browser.find_element_by_id('id_name').send_keys(
@@ -258,7 +254,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         )
 
         # Register DummyUserWhoSearchesFullDayOfEating, i.e. the user who
-        # will search for and copy the FullDayOfEating of DummyUser.
+        # will search for and copy the FullDayOfEating of DummyUser1.
         click_navbar_item(
             'id_menu_item_register',
             self.browser,
@@ -330,7 +326,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # the search page.
 
         # The DummyUserWhoSearchesFullDayOfEating searches for the
-        # FullDayOfEating created by DummyUser.
+        # FullDayOfEating created by DummyUser1.
         self.browser.find_element_by_id('id_q').clear()
         self.browser.find_element_by_id('id_q').send_keys(
             name_dummy_full_day_of_eating
@@ -445,7 +441,7 @@ class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):
         # not the case that old objects are still used.
 
         dummy_user = User.objects.get(
-            username='DummyUser'
+            username='DummyUser1'
         )
 
         full_day_of_eating_original = FullDayOfEating.objects.get(
