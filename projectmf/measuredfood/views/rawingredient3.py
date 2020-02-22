@@ -35,6 +35,8 @@ from measuredfood.utils.rawingredient3.\
 from ..forms import FoodDataCentralIDForm
 from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
+from ..utils.rawingredient3.rename_duplicate import \
+    rename_duplicate
 from ..utils.rawingredient3.make_name_of_duplicate_rawingredient3 import \
     make_name_of_duplicate_rawingredient3
 from ..utils.set_to_zero_if_none import set_to_zero_if_none
@@ -55,23 +57,15 @@ def create_rawingredient3(request):
         if form_rawingredient3.is_valid():
             form_rawingredient3.instance.author = request.user
 
-            # TODO
-            # Check if a RawIngredient3 object with the same name exists
-            # already.
+            form_rawingredient3.save()
 
-            # Get the name stem, i.e. the name without the numbers at the end.
-            # Get all RawIngredient3 objects belonging to the user with that
-            # name stem.
-            # Adapt the make_name_of_duplicate_rawingredient3 function to
-            # handle the input of all the RawIngredient3 object names with
-            # the name stem. Call it "existing_object_same_name_stem_list".
-            name_new_rawingredient3_object = \
-                form_rawingredient3.cleaned_data['name']
-            RawIngredient3Form.objects.filter(
-                name=name_new_rawingredient3_object
+            rename_duplicate(
+                RawIngredient3,
+                'name',
+                request.user,
+                re,
             )
 
-            form_rawingredient3.save()
             return redirect('list-rawingredient3')
         else:
             logging.info('form_rawingredient3 is not valid.')
