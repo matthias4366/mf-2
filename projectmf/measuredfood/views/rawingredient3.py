@@ -54,6 +54,23 @@ def create_rawingredient3(request):
         logging.info(form_rawingredient3.errors)
         if form_rawingredient3.is_valid():
             form_rawingredient3.instance.author = request.user
+
+            # TODO
+            # Check if a RawIngredient3 object with the same name exists
+            # already.
+
+            # Get the name stem, i.e. the name without the numbers at the end.
+            # Get all RawIngredient3 objects belonging to the user with that
+            # name stem.
+            # Adapt the make_name_of_duplicate_rawingredient3 function to
+            # handle the input of all the RawIngredient3 object names with
+            # the name stem. Call it "existing_object_same_name_stem_list".
+            name_new_rawingredient3_object = \
+                form_rawingredient3.cleaned_data['name']
+            RawIngredient3Form.objects.filter(
+                name=name_new_rawingredient3_object
+            )
+
             form_rawingredient3.save()
             return redirect('list-rawingredient3')
         else:

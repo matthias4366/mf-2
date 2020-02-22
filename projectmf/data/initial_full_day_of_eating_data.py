@@ -28,24 +28,15 @@ full_day_of_eating_dict_template = \
 full_day_of_eating_dict_list = \
     [
         {
-            'name': 'Barilla sauce and pasta',
+            'name': 'Pasta',
             'cooking_instruction': '',
             'nutrient_profile': 'Sandor clegane Profile based on Males 19–30 y',
             'list_nutrient_target':
                 [
                     'Energy',
-                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
-                    {
-                        'base_amount': 400,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Barilla sauce '
-                            '(Arrabiata / Napoletana / Olive / Aglio)',
-                        'scaling_option': 'fixed',
-                    },
                     {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
@@ -68,15 +59,9 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'independent',
                     },
                     {
-                        'base_amount': 60,
+                        'base_amount': 42,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach, raw',
+                        'rawingredient': 'Oil, canola',
                         'scaling_option': 'fixed',
                     },
                 ]
@@ -337,51 +322,37 @@ full_day_of_eating_dict_list = \
                 ]
         },
         {
-            'name': 'Asian vegetables and Maggi',
+            'name': 'Asian vegetables',
             'cooking_instruction':
                 """
-                Sweet sour sauce not that tasty, and not that digestible. 
-                Switch to Maggi instead. 
-                
-                Salt the beans with 5 g of salt per liter of water.
-                Use 4 ml of water per 1 g of beans.
-                
-                Salt for the cooking water:
-                0.33 g of salt per 100 ml of cooking water according to 
-                https://rechneronline.de/kueche/salzwasser.php.
+                No Maggi, as you want to eat a low salt diet. No added salt. 
+                You get enough sodium from the protein powder.
                 """,
             'nutrient_profile':
                 'Sandor clegane Profile based on Males\u200319\u201330 y',
             'list_nutrient_target':
                 [
                     'Energy',
-                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
                     {
-                        'base_amount': 200,
+                        'base_amount': 400,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Asian vegetable mix',
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 5,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Maggi',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 60,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
+                        'base_amount': 160,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
+                        'scaling_option': 'fixed',
+                    },
+                    {
+                        'base_amount': 42,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Oil, canola',
+                        'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 200,
@@ -394,12 +365,6 @@ full_day_of_eating_dict_list = \
                         'base_amount': 320,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Water for white rice',
-                        'scaling_option': 'A',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Salt for water for white rice',
                         'scaling_option': 'A',
                     },
                 ]
