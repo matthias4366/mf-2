@@ -102,6 +102,9 @@ class RawIngredient3(models.Model):
     def get_absolute_url():
         return reverse('list-raw-ingredient-usda')
 
+    def get_detail_view_url(self):
+        return "/rawingredient3/%i/detail/" % self.id
+
 
 for name in INGREDIENT_FIELDS_LINKS:
     RawIngredient3.add_to_class(

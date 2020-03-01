@@ -100,14 +100,8 @@ class ListNutrientProfile(
         ).order_by('name')
 
 
-class DetailNutrientProfile(UserPassesTestMixin, DetailView):
+class DetailNutrientProfile(DetailView):
     model = NutrientProfile
-
-    def test_func(self):
-        nutrient_profile_ = self.get_object()
-        if self.request.user == nutrient_profile_.author:
-            return True
-        return False
 
 
 class DeleteNutrientProfile(UserPassesTestMixin, DeleteView):

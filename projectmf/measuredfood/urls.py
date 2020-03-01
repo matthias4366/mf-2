@@ -1,6 +1,4 @@
 from django.urls import path
-# from django.urls import include
-# from django.conf.urls import url
 from .views import (home,
                     register,
                     rawingredient3,
@@ -36,6 +34,11 @@ urlpatterns_rawingredient3 = [
         'rawingredient3/list/',
         rawingredient3.ListRawIngredient3.as_view(),
         name='list-rawingredient3'
+    ),
+    path(
+        'rawingredient3/<int:pk>/detail/',
+        rawingredient3.DetailRawIngredient3.as_view(),
+        name='detail-rawingredient3'
     ),
     path(
         'rawingredient3/<int:id_rawingredient3>/update/',

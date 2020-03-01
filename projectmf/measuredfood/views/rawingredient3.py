@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import (
     ListView,
     DeleteView,
+    DetailView,
 )
 from measuredfood.models import (
     RawIngredient3,
@@ -89,6 +90,10 @@ class ListRawIngredient3(
         return RawIngredient3.objects.filter(
             author=self.request.user
         ).order_by('name')
+
+
+class DetailRawIngredient3(DetailView):
+    model = RawIngredient3
 
 
 @login_required

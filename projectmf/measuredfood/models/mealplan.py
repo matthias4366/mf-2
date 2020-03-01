@@ -40,5 +40,8 @@ class Mealplan(models.Model):
     def get_absolute_url():
         return reverse('list-mealplan')
 
+    def get_detail_view_url(self):
+        return "/mealplan/%i/detail/" % self.id
+
     class Meta:
         ordering = ["name"]

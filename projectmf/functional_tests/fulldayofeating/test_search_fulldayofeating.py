@@ -4,9 +4,6 @@ from functional_tests.utils.click_navbar_item import \
 from ..base import FunctionalTestWithUserLoggedIn
 from selenium.webdriver.common.keys import Keys
 import time
-# from selenium.common.exceptions import NoSuchElementException
-# from functional_tests.utils.check_exists_by_xpath \
-#     import check_exists_by_xpath
 from measuredfood.models import (
     FullDayOfEating,
     NutrientProfile,
@@ -14,10 +11,7 @@ from measuredfood.models import (
     SpecificIngredient,
     RawIngredient3,
 )
-# from data.initial_nutrient_profiles import nutrient_profile_dict_list
 from django.contrib.auth.models import User
-# from data.ingredients_data2 import ingredient_dict_list
-# from selenium.common.exceptions import NoSuchElementException
 
 
 class SearchFullDayOfEatingTest(FunctionalTestWithUserLoggedIn):

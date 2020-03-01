@@ -32,6 +32,12 @@
               {% if user.is_authenticated %}
                 <a
                   class="nav-item nav-link"
+                  href="{% url 'haystack-search' %}"
+                  id="id_menu_item_nutrient_profiles">
+                  Search
+                </a>
+                <a
+                  class="nav-item nav-link"
                   href="{% url 'list-nutrient-profiles' %}"
                   id="id_menu_item_nutrient_profiles">
                   Nutrient Profiles

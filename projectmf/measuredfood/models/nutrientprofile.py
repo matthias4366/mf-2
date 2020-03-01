@@ -36,6 +36,9 @@ class NutrientProfile(models.Model):
     class Meta:
         ordering = ["name"]
 
+    def get_detail_view_url(self):
+        return "/nutrientprofile/%i/detail/" % self.id
+
 
 # Add all the fields related to nutrition to the nutrient profile model.
 for nutrient_dict in ALL_NUTRIENTS_AND_DEFAULT_UNITS:
