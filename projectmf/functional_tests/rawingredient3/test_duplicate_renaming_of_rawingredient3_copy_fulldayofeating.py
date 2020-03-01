@@ -16,11 +16,13 @@ from measuredfood.models import (
     NutrientProfile,
     FullDayOfEating,
 )
+import unittest
 
 # from django.contrib.auth.models import User
 # python manage.py test functional_tests.rawingredient3.test_rawingredient3
 
-
+@unittest.skip('Duplicate renaming no longer necessary since the ID\'s '
+               'are shown as well.')
 class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
 
     def test_duplicate_renaming_of_rawingredient3_copy_fulldayofeating(self):

@@ -40,12 +40,12 @@
                 </a></div>
               <div>
                 <p id="paragraph {{ ingredient.name }}">
-                  {{ ingredient.name }}
+                  {{ ingredient }}
                 </p>
               </div>
               <div>  <a class="btn btn-danger btn-large"
                 href="{% url 'delete-rawingredient3' ingredient.id %}"
-              id="delete {{ ingredient.name }}">
+              id="delete {{ ingredient }}">
                   Delete
                 </a>
               </div>

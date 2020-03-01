@@ -19,8 +19,10 @@ from functional_tests.base import (
 
 # from django.contrib.auth.models import User
 # python manage.py test functional_tests.rawingredient3.test_rawingredient3
+import unittest
 
-
+@unittest.skip('Duplicate renaming no longer necessary since the ID\'s '
+               'are shown as well.')
 class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
 
     def test_duplicate_renaming_of_fulldayofeating_create_fulldayofeating(self):

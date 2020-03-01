@@ -10,11 +10,13 @@ from functional_tests.base import (
 )
 from selenium.webdriver.common.keys import Keys
 import time
+import unittest
 
 # from django.contrib.auth.models import User
 # python manage.py test functional_tests.rawingredient3.test_rawingredient3
 
-
+@unittest.skip('Duplicate renaming no longer necessary since the ID\'s '
+               'are shown as well.')
 class RawIngredient3Test(FunctionalTestWithUserLoggedIn):
 
     def test_duplicate_renaming_get_rawingredient3_food_data_central(self):

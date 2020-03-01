@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .nutrientprofile import NutrientProfile
+from measuredfood.utils.make_displayed_name import make_displayed_name
 
 
 class Mealplan(models.Model):
@@ -29,7 +30,11 @@ class Mealplan(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        displayed_name = make_displayed_name(
+            self.name,
+            self.id
+        )
+        return displayed_name
 
     @staticmethod
     def get_absolute_url():

@@ -9,6 +9,7 @@ from measuredfood.ingredient_properties4 import (
     ALL_NUTRIENTS_AND_DEFAULT_UNITS,
     INGREDIENT_FIELDS_LINKS,
 )
+from measuredfood.utils.make_displayed_name import make_displayed_name
 
 # The unit choices have been implemented for extensibility, so it is easier
 # to add more unit choices later. Currently, the user de facto has no choice.
@@ -91,7 +92,11 @@ class RawIngredient3(models.Model):
         # )
 
     def __str__(self):
-        return self.name
+        displayed_name = make_displayed_name(
+            self.name,
+            self.id
+        )
+        return displayed_name
 
     @staticmethod
     def get_absolute_url():

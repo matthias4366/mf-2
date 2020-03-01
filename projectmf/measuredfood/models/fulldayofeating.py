@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from .nutrientprofile import NutrientProfile
+from measuredfood.utils.make_displayed_name import make_displayed_name
 
 
 class FullDayOfEating(models.Model):
@@ -34,7 +35,11 @@ class FullDayOfEating(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        displayed_name = make_displayed_name(
+            self.name,
+            self.id
+        )
+        return displayed_name
 
     def get_detail_view_url(self):
         return "/fulldayofeating/%i/detail/" % self.id

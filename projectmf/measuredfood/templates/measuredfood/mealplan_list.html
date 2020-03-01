@@ -31,7 +31,7 @@
                 Edit
               </a>
             </div>
-            <div><p>{{ mealplan.name }}</p></div>
+            <div><p>{{ mealplan }}</p></div>
             <div>
               <a
                 class="btn btn-danger btn-large"
@@ -44,14 +44,6 @@
         </div>
         <br>
 
-
-{#          <p>#}
-{#            <a href="{% url 'detail-mealplan' mealplan.id %}"#}
-{#            class="btn btn-primary btn-large"#}
-{#            id="button_view_mealplan">#}
-{#              View#}
-{#            </a>{{ mealplan.name }}#}
-{#          </p>#}
       {% endfor %}
     </div>
   {% else %}

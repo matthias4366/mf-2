@@ -7,6 +7,7 @@ from measuredfood.ingredient_properties4 import (
 from measuredfood.utils.rawingredient3\
     .transform_nutrient_name_usda_to_measuredfood \
     import transform_nutrient_name_usda_to_measuredfood
+from measuredfood.utils.make_displayed_name import make_displayed_name
 
 
 class NutrientProfile(models.Model):
@@ -22,7 +23,11 @@ class NutrientProfile(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        displayed_name = make_displayed_name(
+            self.name,
+            self.id
+        )
+        return displayed_name
 
     @staticmethod
     def get_absolute_url():
