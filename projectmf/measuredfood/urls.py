@@ -148,11 +148,6 @@ urlpatterns_mealplan = [
         mealplan.DeleteMealplan.as_view(),
         name='delete-mealplan'
     ),
-    path(
-        'mealplan/<int:id_mealplan>/averagenutrition/',
-        mealplan.mealplan_average_nutrition_view,
-        name='mealplan-averagenutrition'
-    ),
 ]
 
 urlpatterns_shoppinglist = [

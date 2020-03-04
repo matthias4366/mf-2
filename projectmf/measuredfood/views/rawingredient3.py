@@ -36,8 +36,6 @@ from measuredfood.utils.rawingredient3.\
 from ..forms import FoodDataCentralIDForm
 from ..utils.rawingredient3.make_rawingredient3_from_usda_data import \
     make_rawingredient3_from_usda_data
-from ..utils.rawingredient3.rename_duplicate import \
-    rename_duplicate
 from ..utils.set_to_zero_if_none import set_to_zero_if_none
 
 import requests
@@ -57,13 +55,6 @@ def create_rawingredient3(request):
             form_rawingredient3.instance.author = request.user
 
             form_rawingredient3.save()
-
-            rename_duplicate(
-                RawIngredient3,
-                'name',
-                request.user,
-                re,
-            )
 
             return redirect('list-rawingredient3')
         else:
@@ -214,13 +205,6 @@ def get_from_food_data_central(request):
                     )
 
                 rawingredient3_instance.save()
-
-                rename_duplicate(
-                    RawIngredient3,
-                    'name',
-                    request.user,
-                    re,
-                )
 
                 return redirect('list-rawingredient3')
 
