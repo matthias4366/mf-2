@@ -113,3 +113,31 @@ class DeleteNutrientProfile(UserPassesTestMixin, DeleteView):
         if self.request.user == nutrient_profile_.author:
             return True
         return False
+
+
+def copy_nutrientprofile_to_user(request, id_nutrientprofile):
+    """
+    From the publicly available full days of eating, copy a full day of
+    eating to the user's full day of eating objects.
+    :return:
+    """
+
+    # Copy the NutrientProfile.
+    nutrient_profile_copy = NutrientProfile.objects.get(
+        id=id_nutrientprofile
+    )
+    nutrient_profile_copy.pk = None
+    nutrient_profile_copy.author = request.user
+    nutrient_profile_copy.save()
+
+    nutrientprofile_list = NutrientProfile.objects.filter(
+        author=request.user
+    ).order_by('name')
+
+    context = {'nutrientprofile_list': nutrientprofile_list}
+
+    return render(
+        request,
+        'measuredfood/nutrientprofile_list.html',
+        context
+    )

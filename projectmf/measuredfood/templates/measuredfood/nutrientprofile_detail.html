@@ -9,16 +9,16 @@
         Nutrient Profile
       </h3>
 
-{#    <br>#}
-{#    <br>#}
-{#    <div class="">#}
-{#      <a class="btn btn-lg btn-block btn-primary"#}
-{#          href="#}
-{#{% url 'fulldayofeating-copy-to-user' id_fulldayofeating=fulldayofeating.id %}"#}
-{#          id="id_button_copy_fulldayofeating">#}
-{#        Copy to my full days of eating#}
-{#      </a>#}
-{#    </div>#}
+    <br>
+    <br>
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+          href="
+{% url 'nutrientprofile-copy-to-user' id_nutrientprofile=nutrientprofile.id %}"
+          id="id_button_copy_nutrientprofile">
+        Copy to my nutrient profiles
+      </a>
+    </div>
 
     </div>
 {% endblock content %}

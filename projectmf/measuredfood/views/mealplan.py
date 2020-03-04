@@ -504,14 +504,8 @@ class ListMealplan(
         ).order_by('name')
 
 
-class DetailMealplan(UserPassesTestMixin, DetailView):
+class DetailMealplan(DetailView):
     model = Mealplan
-
-    def test_func(self):
-        mealplan = self.get_object()
-        if self.request.user == mealplan.author:
-            return True
-        return False
 
 
 class DeleteMealplan(UserPassesTestMixin, DeleteView):
@@ -984,3 +978,43 @@ def mealplan_average_nutrition_view(request, id_mealplan):
         'measuredfood/mealplan_averagenutrition.html',
         context
         )
+
+
+def copy_mealplan_to_user(request, id_mealplan):
+    """
+    From the public available mealplans, copy a mealplan to the user's
+    collection of mealplans.
+    :return:
+    """
+
+    # Do the copying the manual and long way.
+
+    # Find all the FullDayOfEating objects associated with the Mealplan.
+
+    # Copy each FullDayOfEating object as you did before.
+
+    # Find the NutrientProfile associated with the Mealplan as a whole.
+
+    # Copy all the FullDayOfEating objects associated with the Mealplan.
+    original_mealplan = Mealplan.objects.get(
+        id=id_mealplan
+    )
+
+    mealplan_copy = copy.deepcopy(original_mealplan)
+    mealplan_copy.author = request.user
+    mealplan_copy.save()
+
+    mealplan_list = Mealplan.objects.filter(
+        author=request.user
+    ).order_by('name')
+
+    print('mealplan_list')
+    print(mealplan_list)
+
+    context = {'mealplan_list': mealplan_list}
+
+    return render(
+        request,
+        'measuredfood/fulldayofeating_list.html',
+        context
+    )

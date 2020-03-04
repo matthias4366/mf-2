@@ -1,7 +1,7 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
   <div class="">
-    <a class="btn btn-lg btn-block btn-primary"
+    <a class="btn btn-lg btn-block btn-dark"
     href="{% url 'create-nutrient-profile' %}"
     id="id_button_new_nutrient_profile">
       New nutrient profile
@@ -11,10 +11,10 @@
   <br>
 
   <div class="">
-    <a class="btn btn-lg btn-block btn-secondary"
-    href="#"
+    <a class="btn btn-lg btn-block btn-primary"
+    href="{% url 'haystack-search' %}"
     id="id_button_browse_nutrientprofile">
-      Browse nutrient profiles
+      Search nutrient profiles and other objects
     </a>
   </div>
   <br>

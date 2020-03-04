@@ -165,15 +165,25 @@ urlpatterns_shoppinglist = [
 
 urlpattern_list_search = [
     path(
-        # 'fulldayofeating/copy_fulldayofeating_to_user',
         'fulldayofeating/<int:id_fulldayofeating>/copy/',
         fulldayofeating.copy_fulldayofeating_to_user,
         name='fulldayofeating-copy-to-user',
     ),
     path(
+        # TODO: rewrite as more general /search
         'fulldayofeating/search',
         SearchView(),
         name='haystack-search'
+    ),
+    path(
+        'nutrientprofile/<int:id_nutrientprofile>/copy/',
+        nutrientprofile.copy_nutrientprofile_to_user,
+        name='nutrientprofile-copy-to-user',
+    ),
+    path(
+        'mealplan/<int:id_mealplan>/copy/',
+        mealplan.copy_mealplan_to_user,
+        name='mealplan-copy-to-user',
     ),
 ]
 
