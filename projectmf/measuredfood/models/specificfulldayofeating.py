@@ -2,9 +2,6 @@ from django.db import models
 from .fulldayofeating import FullDayOfEating
 from .mealplan import Mealplan
 
-MAX_DIGITS_ = 20
-DECIMAL_PLACES_ = 6
-
 
 class SpecificFullDayOfEating(models.Model):
     """

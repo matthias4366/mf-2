@@ -505,34 +505,51 @@ def copy_mealplan_to_user(request, id_mealplan):
     :return:
     """
 
-    # Do the copying the manual and long way.
+    # TODO: Finish this function. It is complicated and not absolutely
+    #  necessary so it can be skipped for now.
 
-    # Find all the FullDayOfEating objects associated with the Mealplan.
+    # # Do the copying of the mealplan the manual and long way.
+    #
+    # # Find all the FullDayOfEating objects associated with the Mealplan.
+    # specificfulldayofeating_of_mealplan_orig = \
+    #     SpecificFullDayOfEating.objects.filter(
+    #         mealplan=id_mealplan
+    #     )
+    #
+    # list_unique_nutrient_profile_id = []
+    # # Copy each SpecificFullDayOfEating object.
+    # for specific_full_day_of_eating in specificfulldayofeating_of_mealplan_orig:
+    #     id_fulldayofeating = specific_full_day_of_eating.fulldayofeating
+    #
+    #     # Copy the nutrient profile:
+    #     nutrient_profile_id = FullDayOfEating.objects.get(
+    #         id=id_fulldayofeating
+    #     ).nutrient_profile.id
+    #     if nutrient_profile_id not in list_unique_nutrient_profile_id:
+    #         list_unique_nutrient_profile_id.append(
+    #             nutrient_profile_id
+    #         )
+    #
+    # # Avoid copying the same nutrient profile multiple twice just because it
+    # # is associated with multiple FullDayOfEating objects in the Mealplan.
+    # for unique_id_nutrient_profile in list_unique_nutrient_profile_id:
+    #     nutrient_profile_copy = NutrientProfile.objects.get(
+    #         id=unique_id_nutrient_profile
+    #     )
+    #     nutrient_profile_copy.pk = None
+    #     nutrient_profile_copy.author = request.user
+    #     nutrient_profile_copy.save()
 
     # Copy each FullDayOfEating object as you did before.
-
-    # Find the NutrientProfile associated with the Mealplan as a whole.
-
-    # Copy all the FullDayOfEating objects associated with the Mealplan.
-    original_mealplan = Mealplan.objects.get(
-        id=id_mealplan
-    )
-
-    mealplan_copy = copy.deepcopy(original_mealplan)
-    mealplan_copy.author = request.user
-    mealplan_copy.save()
 
     mealplan_list = Mealplan.objects.filter(
         author=request.user
     ).order_by('name')
 
-    print('mealplan_list')
-    print(mealplan_list)
-
     context = {'mealplan_list': mealplan_list}
 
     return render(
         request,
-        'measuredfood/fulldayofeating_list.html',
+        'measuredfood/mealplan_list.html',
         context
     )
