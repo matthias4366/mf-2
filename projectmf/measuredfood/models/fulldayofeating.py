@@ -31,7 +31,7 @@ class FullDayOfEating(models.Model):
         on_delete=models.SET_NULL,
         editable=True,
         null=True,
-        blank=False
+        blank=True
     )
 
     def __str__(self):
