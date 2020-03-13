@@ -1,39 +1,13 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
-  <div class="jumbotron">
-    <h1>Welcome to measured food!</h1>
-{#    old english tutorial #}
-{#    https://www.youtube.com/watch?v=kTq7cDhpFJc  #}
 
-    <p>Overview of the application:</p>
-      <object
-          style="height: 390px; width: 640px">
-    <param name="movie"
-           value="https://www.youtube.com/watch?v=kTq7cDhpFJc">
-    <param name="allowFullScreen" value="true">
-    <param name="allowScriptAccess" value="always">
-    <embed src="https://www.youtube.com/watch?v=kTq7cDhpFJc"
-           type="application/x-shockwave-flash"
-           allowfullscreen="true"
-           allowScriptAccess="always"
-           width="640"
-           height="390">
-  </object>
+    <iframe
+            width="1280"
+            height="708"
+            src="https://www.youtube.com/embed/kTq7cDhpFJc"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
 
-    <p>Some video as test:</p>
-
-  <object
-          style="height: 390px; width: 640px">
-    <param name="movie"
-           value="http://www.youtube.com/v/v1gTI4BOPUw?version=3">
-    <param name="allowFullScreen" value="true">
-    <param name="allowScriptAccess" value="always">
-    <embed src="http://www.youtube.com/v/v1gTI4BOPUw?version=3"
-           type="application/x-shockwave-flash"
-           allowfullscreen="true"
-           allowScriptAccess="always"
-           width="640"
-           height="390">
-  </object>
-  </div>
 {% endblock content %}
