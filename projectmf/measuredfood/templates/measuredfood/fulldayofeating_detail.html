@@ -2,50 +2,70 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+  <div class="centerhorizontally">
+
 {#      <h1>#}
 {#        <u>Full Day Of Eating:</u>#}
 {#      </h1>#}
-      <h1>
+      <h1
+              class="centerhorizontally"
+      >
         {{ fulldayofeating }}
       </h1>
       <br>
 
-      <table class="generic_table_th_td">
+      <table
+              class="centerhorizontally table-list-ingredient"
+      >
           <tr>
-            <th> Amount </th>
-            <th> Units </th>
-            <th> Ingredient </th>
-            <th> Scaling </th>
+            <th class="table-list-ingredient"> Amount </th>
+            <th class="table-list-ingredient"> Units </th>
+            <th class="table-list-ingredient"> Ingredient </th>
+            <th class="table-list-ingredient"> Scaling </th>
           </tr>
 
           {% for specificingredient in specificingredient_list %}
 
-            <tr>
-              <td> {{ specificingredient.base_amount }} </td>
-              <td> {{ specificingredient.base_amount_unit }} </td>
-              <td> {{ specificingredient.rawingredient }} </td>
-              <td> {{ specificingredient.scaling_option }} </td>
+            <tr class="table-list-ingredient">
+              <td class="table-list-ingredient">
+                {{ specificingredient.base_amount }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.base_amount_unit }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.rawingredient }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.scaling_option }}
+              </td>
             </tr>
 
           {% endfor %}
       </table>
       <br>
 
-      <h3>
+      <h3
+              class="centerhorizontally"
+      >
         <u>Cooking instructions:</u>
       </h3>
       <p>
         {{ fulldayofeating.cooking_instruction|linebreaks }}
       </p>
       <br>
-      <h3>
+      <h3
+              class="centerhorizontally"
+      >
         <u>Nutrient profile name:</u>
       </h3>
       <p>
         {{ fulldayofeating.nutrient_profile }}
       </p>
       <br>
-      <h3>
+      <h3
+              class="centerhorizontally"
+      >
         <u>Nutrient targets for the calculations:</u>
       </h3>
         {% for k in specificnutrienttarget_list %}
@@ -63,4 +83,8 @@
         Copy to my full days of eating
       </a>
     </div>
+
+    </div>
+  <br>
+  <br>
 {% endblock content %}

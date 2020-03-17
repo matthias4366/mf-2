@@ -134,3 +134,4 @@ class FoodDataCentralIDForm(forms.Form):
         label='FDC ID',
         max_length=100,
     )
+

@@ -257,7 +257,7 @@ class DetailFullDayOfEating(DetailView):
         context = super().get_context_data(**kwargs)
 
         # Access the FullDayOfEating object in order to query the correct
-        # specificnutrienttarget_queryset. For Arrabiata, the id should be 84.
+        # specificnutrienttarget_queryset.
         id_full_day_of_eating_ = context['object'].id
 
         specificnutrienttarget_queryset = SpecificNutrientTarget.objects.filter(

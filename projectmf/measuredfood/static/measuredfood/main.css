@@ -1,111 +1,15 @@
-/* In the form full day of eating, center the elements on the page. */
-.center-div {
+/* Format tables showing calculation results. */
 
-}
-
-/* Emphasize the content section, i.e. whatever is not background and not
-navbar. */
-.content-section-sandor {
-  padding: 20px  100px 20px 100px;
-  /*max-width: 75%;*/
-}
-
-/* In lists of objects, align the Edit button, object name and delete button
- so that the buttons are all the way to the left and right side, respectively
- and the object name is in the middle.*/
-.box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.center_text {
-  text-align: center;
-}
-
-.good {
-  /* color: green; */
-  /* background-color: lightgreen */
-}
-
-/* Source for color pattern:
-https://www.colourlovers.com/palette/1123439/I_Want_Paint_of_This */
-
-.too_much {
-  background-color: #B33A3A;
-  color: white;
-}
-
-.too_little {
-  background-color: #3D999D;
-  color: white;
-  /* color: blue; */
-}
-
-table {
-  border-collapse: collapse;
-}
-
-/* Some generic formatting to be applied to most html tables, but not all. */
-.generic_table_th_td {
+.table-list-ingredient {
   border: 1px solid black;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
 }
 
-/* Table padding. */
-.table_th_td_padding {
-  padding: 5px 5px 5px 5px;
-}
+/* Center element horizontally. */
 
-/* Table border. */
-.table_th_td_border {
-  border: 1px solid black;
-}
-
-/* Show which elements belong to the same save button in the full day of eating form. */
-.group_related_to_save_button {
-  border: 2px solid black;
-  padding: 20px 20px 20px 20px;
-}
-
-/*table, th, td {*/
-/*  border: 1px solid black;*/
-/*  padding: 5px 5px 5px 5px;*/
-/*}*/
-
-/* Create horizontal lines in the create form for the RawIngredient2
-to create sections. */
-hr {
-  display: block;
-  margin: 0.5em auto 0.5em auto;
-  border-style: inset;
-  border-width: 5px;
-}
-
-
-/* Create blank row in html table which holds the form for the creation
-of RawIngredient2 objects. The blank row causes the related fields to be
-visually grouped together. */
-.blank_row
-{
-    height: 20px !important;
-    background-color: #FFFFFF;
-}
-
-/* Stuff from the tutorial I got the CSS file from */
-
-/* General background color. */
-body {
-  /*background: #fafafa;*/
-  /*color: #333333;*/
-  margin-top: 5rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
-}
-
-ul {
-  margin: 0;
+.centerhorizontally {
+  display: table;
+  margin: 0 auto;
 }
 
 /* Background color of the navbar. */
@@ -125,57 +29,9 @@ ul {
   font-weight: 500;
 }
 
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
+/* Avoid content disappearing underneath the navbar. */
+body {
+  /*background: #fafafa;*/
+  /*color: #333333;*/
+  margin-top: 5rem;
 }
