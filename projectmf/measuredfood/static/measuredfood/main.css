@@ -1,3 +1,19 @@
+@media (min-width: 750px) {
+  /* CSS that should be displayed if width is equal to or greater than 800px goes here */
+  .content-section-margin {
+    margin: auto 20%;
+  }
+  .content-section-max-width {
+    max-width: 750px;
+  }
+}
+
+
+.content-section-sandor {
+  display: table;
+  margin: 0 auto;
+}
+
 /* Format tables showing calculation results. */
 
 .table-list-ingredient {
@@ -7,9 +23,17 @@
 
 /* Center element horizontally. */
 
-.centerhorizontally {
+.centerhorizontallymargin {
   display: table;
   margin: 0 auto;
+}
+
+.center_container {
+  text-align: center;
+}
+
+.inside_center_container {
+  display: inline-block;
 }
 
 /* Background color of the navbar. */
@@ -29,9 +53,65 @@
   font-weight: 500;
 }
 
+/* In lists of objects, align the Edit button, object name and delete button
+ so that the buttons are all the way to the left and right side, respectively
+ and the object name is in the middle.*/
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Source for color pattern:
+https://www.colourlovers.com/palette/1123439/I_Want_Paint_of_This */
+
+.too_much {
+  background-color: #B33A3A;
+  color: white;
+}
+
+.too_little {
+  background-color: #3D999D;
+  color: white;
+  /* color: blue; */
+}
+
 /* Avoid content disappearing underneath the navbar. */
 body {
   /*background: #fafafa;*/
   /*color: #333333;*/
   margin-top: 5rem;
+}
+
+/* Show which elements belong to the same save button in the full day of eating form. */
+.group_related_to_save_button {
+  border: 2px solid black;
+  padding: 20px 20px 20px 20px;
+}
+
+/* Create horizontal lines in the create form for the RawIngredient2
+to create sections. */
+hr {
+  display: block;
+  margin: 0.5em auto 0.5em auto;
+  border-style: inset;
+  border-width: 5px;
+}
+
+/* Create blank row in html table which holds the form for the creation
+of RawIngredient2 objects. The blank row causes the related fields to be
+visually grouped together. */
+.blank_row
+{
+    height: 20px !important;
+    background-color: #FFFFFF;
+}
+
+/* Stuff from original CSS file */
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
 }

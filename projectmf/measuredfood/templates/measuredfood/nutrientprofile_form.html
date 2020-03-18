@@ -1,9 +1,9 @@
 {% extends "measuredfood/base.html" %}
-{% load crispy_forms_tags %}
+{#{% load crispy_forms_tags %}#}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section-max-width">
 
-        <div class="">
+        <div>
           <a class="btn btn-lg btn-block btn-primary"
           href="{% url 'list-nutrient-profiles' %}"
           id="button_back_to_list_nutrient_profiles">
@@ -13,7 +13,7 @@
         <br>
         <br>
 
-        <h3>Add a new nutrient profile</h3>
+        <h3>Edit nutrient profile</h3>
         <p>A nutrition profile is a collection of the dietary reference intakes
         for each nutrient - i.e. how much of it you should eat in a day.
         A good source for nutrient profiles for your gender is the National Institute of Health.
@@ -25,9 +25,7 @@
         <a href="https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t4/?report=objectonly">macronutrients.</a>
         If the links are broken, visit https://ods.od.nih.gov/Health_Information/Dietary_Reference_Intakes.aspx.
         </p>
-        <p>If you want to get done quickly, only add the macronutrients.</p>
 
-        <p>In the future, it will be possible to select nutrient profiles from a database.</p>
 
 
         <form method="POST">
@@ -47,5 +45,7 @@
                     type="submit"
                     value="Submit">
         </form>
+
+
     </div>
 {% endblock content %}
