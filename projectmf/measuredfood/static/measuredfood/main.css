@@ -1,29 +1,27 @@
-@media (min-width: 750px) {
+@media (min-width: 800px) {
   /* CSS that should be displayed if width is equal to or greater than 800px goes here */
 
-  /*.content-section-margin {*/
-  /*  margin: auto 20%;*/
-  /*}*/
-  /*.content-section-max-width {*/
-  /*  max-width: 750px;*/
-  /*}*/
-
   .content-section {
-    max-width: 750px;
+    max-width: 800px;
+    margin: 0 auto 2cm auto;
+    /* The color is used to make the application of the CSS class visible.
+    It is not meant as final solution. */
+    /*color: red;*/
+    /*background: #3D999D;*/
     /* Stuff from original CSS file to give it a border */
     /*background: #ffffff;*/
-    /*padding: 10px 20px;*/
-    /*border: 1px solid #dddddd;*/
-    /*border-radius: 3px;*/
-    /*margin-bottom: 20px;*/
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+  }
+
+  .center-variable-width {
+    margin: 0 auto 2cm auto;
+    max-width: 1280px;
+    /* Code to make application of this CSS class clearly visible. */
+    /*border: 10px solid red;*/
   }
 }
-
-
-/*.content-section-sandor {*/
-/*  display: table;*/
-/*  margin: 0 auto;*/
-/*}*/
 
 /* Format tables showing calculation results. */
 
@@ -32,20 +30,7 @@
   padding: 5px;
 }
 
-/* Center element horizontally. */
 
-.centerhorizontallymargin {
-  display: table;
-  margin: 0 auto;
-}
-
-.center_container {
-  text-align: center;
-}
-
-.inside_center_container {
-  display: inline-block;
-}
 
 /* Background color of the navbar. */
 .bg-steel {

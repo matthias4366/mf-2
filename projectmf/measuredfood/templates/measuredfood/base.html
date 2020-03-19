@@ -116,7 +116,6 @@
 
     {#  Sandor playing around to understand the formatting  #}
     <main>
-      <div class="content-section">
         {% if messages %}
           {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
@@ -126,7 +125,6 @@
         {% endif %}
         {% block content %}
         {% endblock %}
-      </div>
     </main>
 
     <!-- Optional JavaScript -->

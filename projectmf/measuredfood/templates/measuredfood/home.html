@@ -1,11 +1,16 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <div class="centerhorizontallymargin">
+  <div class="center-variable-width">
+{#  <div class="video_wrapper">#}
 
     <iframe
-            width="1280"
-            height="708"
+            align="middle"
+            width="100%"
+{#            width="1280"#}
+{#            to get the height, multiply width with 9/16 to get an aspect ratio#}
+{#            of 16:9, which is the standard for YouTube videos. #}
+            height="720"
             src="https://www.youtube.com/embed/kTq7cDhpFJc"
 {#          original code  #}
 {#          frameborder="0"  #}
