@@ -1,18 +1,29 @@
 @media (min-width: 750px) {
   /* CSS that should be displayed if width is equal to or greater than 800px goes here */
-  .content-section-margin {
-    margin: auto 20%;
-  }
-  .content-section-max-width {
+
+  /*.content-section-margin {*/
+  /*  margin: auto 20%;*/
+  /*}*/
+  /*.content-section-max-width {*/
+  /*  max-width: 750px;*/
+  /*}*/
+
+  .content-section {
     max-width: 750px;
+    /* Stuff from original CSS file to give it a border */
+    /*background: #ffffff;*/
+    /*padding: 10px 20px;*/
+    /*border: 1px solid #dddddd;*/
+    /*border-radius: 3px;*/
+    /*margin-bottom: 20px;*/
   }
 }
 
 
-.content-section-sandor {
-  display: table;
-  margin: 0 auto;
-}
+/*.content-section-sandor {*/
+/*  display: table;*/
+/*  margin: 0 auto;*/
+/*}*/
 
 /* Format tables showing calculation results. */
 
@@ -108,10 +119,10 @@ visually grouped together. */
 
 /* Stuff from original CSS file */
 
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
+/*.content-section {*/
+/*  background: #ffffff;*/
+/*  padding: 10px 20px;*/
+/*  border: 1px solid #dddddd;*/
+/*  border-radius: 3px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
