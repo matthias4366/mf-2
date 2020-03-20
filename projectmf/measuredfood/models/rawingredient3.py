@@ -10,6 +10,7 @@ from measuredfood.ingredient_properties4 import (
     INGREDIENT_FIELDS_LINKS,
 )
 from measuredfood.utils.make_displayed_name import make_displayed_name
+import copy
 
 # The unit choices have been implemented for extensibility, so it is easier
 # to add more unit choices later. Currently, the user de facto has no choice.
@@ -81,19 +82,21 @@ class RawIngredient3(models.Model):
 
     class Meta:
         ordering = ["name"]
-        # TODO: Reactivate this code after a proper copy function has been
-        #  written that takes care of the issue of duplicate RawIngredient3
-        #  objects when copying a FullDayOfEating of another User.
-        # # So the user does not get confused, they must give unique names to
-        # # their RawIngredient3 objects. Different users can use the
-        # # same names.
-        # unique_together = (
-        #     ("name", "author"),
-        # )
 
-    def __str__(self):
+    def get_full_name(self):
         displayed_name = make_displayed_name(
             self.name,
+            self.id
+        )
+        return displayed_name
+
+    def __str__(self):
+        max_name_length = 15
+        shortened_name = copy.deepcopy(self.name)
+        if len(self.name) > max_name_length:
+            shortened_name = shortened_name[0:max_name_length] + '...'
+        displayed_name = make_displayed_name(
+            shortened_name,
             self.id
         )
         return displayed_name

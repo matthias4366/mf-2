@@ -21,15 +21,12 @@ ingredients is built here. -->
     <form method="post">
       {% csrf_token %}
 
-      <p class="emphasize">Name:</p>
-      <p> {{ form_fulldayofeating.name }} </p>
+      {# TODO: This table does not have borders on the inside. I do not know how to implement that. Forget it for now.#}
 
-      <p class="emphasize">Cooking instructions:</p>
-      <p> {{ form_fulldayofeating.cooking_instruction }} </p>
 
-      <p class="emphasize">Nutrient Profile:</p>
-      <p> {{ form_fulldayofeating.nutrient_profile }} </p>
-
+      <table class="generic_table_th_td">
+        {{ form_fulldayofeating }}
+      </table>
       <br>
       <br>
 
@@ -53,35 +50,26 @@ ingredients is built here. -->
       <br>
 
       <table class="table_th_td_padding table_th_td_border">
+        <tr>
+          <th class="table_th_td_padding table_th_td_border">Amount</th>
+          <th class="table_th_td_padding table_th_td_border">Units</th>
+          <th class="table_th_td_padding table_th_td_border">Ingredient</th>
+          <th class="table_th_td_padding table_th_td_border">Scaling</th>
+          <th class="table_th_td_padding table_th_td_border">Delete</th>
+        </tr>
 
         {{ formset_specificingredient.management_form }}
         {% for form in formset_specificingredient %}
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
           {% endfor %}
-
-          <table class="table_th_td_padding table_th_td_border">
-
-            <tr>
-              <td class="table_th_td_padding">
-                {{ form.rawingredient }}</td>
-            </tr>
-            <tr class="table_th_td_border">
-              <td class="table_th_td_padding">{{ form.base_amount }}</td>
-              <td class="table_th_td_padding">{{ form.base_amount_unit }}</td>
-            </tr>
-            <tr class="table_th_td_border">
-              <td class="table_th_td_padding emphasize">Scaling</td>
-              <td class="table_th_td_padding">{{ form.scaling_option }}</td>
-            </tr>
-            <tr class="table_th_td_border">
-              <td class="table_th_td_padding emphasize">Delete</td>
-              <td class="table_th_td_padding">{{ form.DELETE }}</td>
-            </tr>
-
-          </table>
-          <br>
-
+          <tr>
+            <td class="table_th_td_padding">{{ form.base_amount }}</td>
+            <td class="table_th_td_padding">{{ form.base_amount_unit }}</td>
+            <td class="table_th_td_padding">{{ form.rawingredient }}</td>
+            <td class="table_th_td_padding">{{ form.scaling_option }}</td>
+            <td class="table_th_td_padding">{{ form.DELETE }}</td>
+          </tr>
         {% endfor %}
       </table>
       <br>

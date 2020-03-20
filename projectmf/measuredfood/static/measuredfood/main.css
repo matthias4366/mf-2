@@ -23,6 +23,10 @@
   }
 }
 
+.emphasize {
+  font-weight: bold;
+}
+
 /* Format tables showing calculation results. */
 
 .table-list-ingredient {
@@ -30,7 +34,23 @@
   padding: 5px;
 }
 
+/* Some generic formatting to be applied to most html tables, but not all. */
+.generic_table_th_td {
+  border: 1px solid black;
+  padding: 5px 5px 5px 5px;
+  border-collapse: collapse;
+}
 
+/* Table padding. */
+.table_th_td_padding {
+  padding: 5px 5px 5px 5px;
+}
+
+/* Table border. */
+.table_th_td_border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
 /* Background color of the navbar. */
 .bg-steel {
@@ -80,6 +100,12 @@ body {
 
 /* Show which elements belong to the same save button in the full day of eating form. */
 .group_related_to_save_button {
+  border: 2px solid black;
+  padding: 20px 20px 20px 20px;
+}
+
+/* Show which elements belong to the same SpecificIngredient in the full day of eating form. */
+.group_specificingredient {
   border: 2px solid black;
   padding: 20px 20px 20px 20px;
 }
