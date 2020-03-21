@@ -1,5 +1,8 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
+
+  <div class="content-section">
+
   <div class="">
     <a class="btn btn-lg btn-block btn-primary"
     href="{% url 'create-mealplan' %}"
@@ -49,5 +52,7 @@
   {% else %}
     <h1>No mealplans have been added yet.</h1>
   {% endif %}
+
+  </div>
 
 {% endblock content %}
