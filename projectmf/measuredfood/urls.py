@@ -5,6 +5,7 @@ from .views import (home,
                     nutrientprofile,
                     fulldayofeating,
                     mealplan,
+                    contact,
                     )
 from django.contrib.auth import views as auth_views
 from haystack.views import SearchView
@@ -182,6 +183,14 @@ urlpattern_list_search = [
     ),
 ]
 
+urlpattern_contact = [
+    path(
+        'contact',
+        contact.contact_view,
+        name='contact'
+    )
+]
+
 urlpatterns = urlpattern_home \
     + urlpatterns_user \
     + urlpatterns_rawingredient3 \
@@ -190,4 +199,5 @@ urlpatterns = urlpattern_home \
     + urlpatterns_fulldayofeating_after_calculation \
     + urlpatterns_mealplan \
     + urlpatterns_shoppinglist \
-    + urlpattern_list_search
+    + urlpattern_list_search \
+    + urlpattern_contact
