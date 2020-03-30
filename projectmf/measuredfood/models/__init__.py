@@ -1,3 +1,10 @@
+import sys
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
+
 from .rawingredient3 import RawIngredient3
 from .nutrientprofile import NutrientProfile
 from .fulldayofeating import FullDayOfEating

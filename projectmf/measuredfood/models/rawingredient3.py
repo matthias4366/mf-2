@@ -1,6 +1,12 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+import sys
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
 from measuredfood.utils.rawingredient3.\
     transform_nutrient_name_usda_to_measuredfood \
     import transform_nutrient_name_usda_to_measuredfood
