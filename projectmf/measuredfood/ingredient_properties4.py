@@ -1,3 +1,10 @@
+import sys
+sys.path.append('..')
+sys.path.append('...')
+sys.path.append('....')
+sys.path.append('.....')
+sys.path.append('......')
+
 import json
 
 with open('data/nutrient_dict_list.json', 'r') as fp:

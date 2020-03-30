@@ -43,7 +43,6 @@ import requests
 
 @login_required
 def create_rawingredient3(request):
-    logging.info('My changed logging message.')
     """
     Create view for the RawIngredient3. RawIngredient3 is the updated version
     of RawIngredient2.
