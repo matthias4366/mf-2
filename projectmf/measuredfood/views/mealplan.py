@@ -78,7 +78,8 @@ sys.path.append('......')
 from pathlib import Path
 
 path_to_nutrient_dict_list_json = Path(
-    __file__).parent.parent.joinpath('data').joinpath('nutrient_dict_list.json')
+    __file__).parent.parent.parent.joinpath('data').joinpath(
+    'nutrient_dict_list.json')
 
 with open(path_to_nutrient_dict_list_json, 'r') as fp:
     ALL_NUTRIENTS_AND_DEFAULT_UNITS = json.load(fp)
