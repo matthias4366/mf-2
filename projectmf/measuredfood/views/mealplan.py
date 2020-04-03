@@ -75,9 +75,12 @@ sys.path.append('....')
 sys.path.append('.....')
 sys.path.append('......')
 
-# /home/matthias/1_local_code/mf-2/projectmf/data/nutrient_dict_list.json
+from pathlib import Path
 
-with open('data/nutrient_dict_list.json', 'r') as fp:
+path_to_nutrient_dict_list_json = Path(
+    __file__).parent.parent.joinpath('data').joinpath('nutrient_dict_list.json')
+
+with open(path_to_nutrient_dict_list_json, 'r') as fp:
     ALL_NUTRIENTS_AND_DEFAULT_UNITS = json.load(fp)
 
 
