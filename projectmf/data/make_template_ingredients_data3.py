@@ -45,8 +45,8 @@ for ingredient_name in ingredients_to_add_manually:
             # print('nutrient_name')
             # print(nutrient_name)
             dict_with_nutrient_name_and_empty_value = {nutrient_name: None}
-            print(nutrient_name)
-            print(type(nutrient_name))
+            # print(nutrient_name)
+            # print(type(nutrient_name))
             new_dict.update(dict_with_nutrient_name_and_empty_value)
     ingredient_dict_list.append(new_dict)
 

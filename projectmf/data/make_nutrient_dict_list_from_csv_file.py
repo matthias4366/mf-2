@@ -68,7 +68,7 @@ for index, row in df.iterrows():
         nutrient_dict_as_string
     )
 
-# Write to json file.
-
+# Write to json file in this same folder:
 with open('nutrient_dict_list.json', 'w') as fp:
     json.dump(NUTRIENT_DICT_LIST_ID_NAME_UNIT, fp, indent=4)
+
