@@ -17,7 +17,12 @@ from measuredfood.utils.rawingredient3\
 from django.forms import inlineformset_factory
 import json
 
-with open('data/nutrient_dict_list.json', 'r') as fp:
+from pathlib import Path
+
+path_to_nutrient_dict_list_json = Path(
+    __file__).parent.parent.joinpath('data').joinpath('nutrient_dict_list.json')
+
+with open(path_to_nutrient_dict_list_json, 'r') as fp:
     ALL_NUTRIENTS_AND_DEFAULT_UNITS = json.load(fp)
 
 # List of fields to display in NutrientProfileForm.
