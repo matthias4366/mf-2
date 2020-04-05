@@ -1,24 +1,3 @@
-from settings_add_data import \
-    URL_ADD_DATA, \
-    USERNAME, \
-    PASSWORD
-
-from add_fulldayofeating_data_selenium import add_fulldayofeating_data_selenium
-
-from selenium.webdriver.support.ui import Select
-from selenium import webdriver
-import time
-from selenium.webdriver.common.keys import Keys
-# IT WORKS DESPITE BEING MARKED AS WRONG!
-# It is not marked as wrong if the data directory is added to the sources in
-# Pycharm -> Settings -> Project Structure.
-from click_navbar_item_copy import \
-    click_navbar_item
-from selenium.common.exceptions import NoSuchElementException
-# IT WORKS DESPITE BEING MARKED AS WRONG!
-from initial_full_day_of_eating_data import \
-    full_day_of_eating_dict_list
-
 # imports for add_nutrientprofile_selenium
 from add_nutrientprofile_selenium import add_nutrientprofile_selenium
 import sys
@@ -38,6 +17,26 @@ from selenium.webdriver.common.keys import Keys
 from click_navbar_item_copy import click_navbar_item
 from selenium.common.exceptions import NoSuchElementException
 sys.path.insert(0, '/projectmf/data/')
+
+# imports for add_rawingredient3_data_selenium.py
+from add_rawingredient3_data_selenium import add_rawingredient3_data_selenium
+from ingredients_data3 import ingredient_dict_list
+
+# imports for add_fulldayofeating_data_selenium
+from add_fulldayofeating_data_selenium import \
+    add_fulldayofeating_data_selenium
+
+from selenium.webdriver.support.ui import Select
+# IT WORKS DESPITE BEING MARKED AS WRONG!
+# It is not marked as wrong if the data directory is added to the sources in
+# Pycharm -> Settings -> Project Structure.
+from click_navbar_item_copy import \
+    click_navbar_item
+from selenium.common.exceptions import NoSuchElementException
+# IT WORKS DESPITE BEING MARKED AS WRONG!
+from initial_full_day_of_eating_data import \
+    full_day_of_eating_dict_list
+
 
 """
 During development, from time to time the database will be deleted and 
@@ -60,20 +59,7 @@ This script will merge all the functionality into one place so everything can
 be run with one click.
 """
 
-add_nutrientprofile_selenium(
-    webdriver,
-    URL_ADD_DATA,
-    USERNAME,
-    PASSWORD,
-    click_navbar_item,
-    Keys,
-    time,
-    json,
-    NoSuchElementException,
-)
-
-
-# add_fulldayofeating_data_selenium(
+# add_nutrientprofile_selenium(
 #     webdriver,
 #     URL_ADD_DATA,
 #     USERNAME,
@@ -81,7 +67,36 @@ add_nutrientprofile_selenium(
 #     click_navbar_item,
 #     Keys,
 #     time,
-#     full_day_of_eating_dict_list,
+#     json,
 #     NoSuchElementException,
-#     Select,
+# )
+
+# add_rawingredient3_data_selenium(
+#     webdriver,
+#     URL_ADD_DATA,
+#     USERNAME,
+#     PASSWORD,
+#     click_navbar_item,
+#     Keys,
+#     time,
+#     NoSuchElementException,
+#     ingredient_dict_list,
+# )
+
+add_fulldayofeating_data_selenium(
+    webdriver,
+    URL_ADD_DATA,
+    USERNAME,
+    PASSWORD,
+    click_navbar_item,
+    Keys,
+    time,
+    full_day_of_eating_dict_list,
+    NoSuchElementException,
+    Select,
+)
+
+# Last one to implement
+# add_mealplan_data_selenium(
+#
 # )

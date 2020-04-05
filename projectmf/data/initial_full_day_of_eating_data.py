@@ -1,7 +1,5 @@
 full_day_of_eating_dict_template = \
     [
-
-
         {
             'name': '',
             'cooking_instruction': '',
@@ -30,7 +28,7 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Pasta',
             'cooking_instruction': '',
-            'nutrient_profile': 'Sandor clegane Profile based on Males 19–30 y',
+            'nutrient_profile': 'sandor',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -38,16 +36,10 @@ full_day_of_eating_dict_list = \
             'list_dict_specific_ingredient':
                 [
                     {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Spinach, raw',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
+                        'base_amount': 160,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
+                        'scaling_option': 'fixed',
                     },
                     {
                         'base_amount': 400,
@@ -59,27 +51,39 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'independent',
                     },
                     {
-                        'base_amount': 42,
+                        'base_amount': 100,
                         'base_amount_unit': 'gram',
-                        'rawingredient': 'Oil, canola',
-                        'scaling_option': 'fixed',
+                        'rawingredient': 'Kale, raw',
+                        'scaling_option': 'A',
+                    },
+                    {
+                        'base_amount': 100,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Carrots, raw',
+                        'scaling_option': 'A',
+                    },
+                    {
+                        'base_amount': 100,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Peas, green, raw',
+                        'scaling_option': 'A',
+                    },
+                    {
+                        'base_amount': 100,
+                        'base_amount_unit': 'gram',
+                        'rawingredient': 'Broccoli, raw',
+                        'scaling_option': 'A',
                     },
                 ]
         },
         {
             'name': 'Chili mexican',
-            'cooking_instruction': 'Try beans no rice but do not salt the '
-                                   'beans! Maybe the diarrhea came from too '
-                                   'much salt.\n'
-                                   'Keep the fucking rice! On 27.11.2019, '
-                                   'Sandor used only beans and he got mild'
-                                   'diarrhea. Fuck that.',
+            'cooking_instruction': '',
             'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
+                'sandor',
             'list_nutrient_target':
                 [
                     'Energy',
-                    'Protein'
                 ],
             'list_dict_specific_ingredient':
                 [
@@ -151,14 +155,9 @@ full_day_of_eating_dict_list = \
         },
         {
             'name': 'Chili mushrooms',
-            'cooking_instruction': 'Try beans no rice but do not salt the '
-                                   'beans! Maybe the diarrhea came from too '
-                                   'much salt.\n'
-                                   'Keep the fucking rice! On 27.11.2019, '
-                                   'Sandor used only beans and he got mild'
-                                   'diarrhea. Fuck that.',
+            'cooking_instruction': '',
             'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
+                'sandor',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -261,7 +260,7 @@ full_day_of_eating_dict_list = \
                 
                 """,
             'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
+                'sandor',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -325,11 +324,10 @@ full_day_of_eating_dict_list = \
             'name': 'Asian vegetables',
             'cooking_instruction':
                 """
-                No Maggi, as you want to eat a low salt diet. No added salt. 
-                You get enough sodium from the protein powder.
+                
                 """,
             'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
+                'sandor',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -349,148 +347,11 @@ full_day_of_eating_dict_list = \
                         'scaling_option': 'fixed',
                     },
                     {
-                        'base_amount': 42,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Oil, canola',
-                        'scaling_option': 'fixed',
-                    },
-                    {
                         'base_amount': 200,
                         'base_amount_unit': 'gram',
                         'rawingredient': 'Rice, white, medium-grain, '
                                          'raw, unenriched',
                         'scaling_option': 'A',
-                    },
-                    {
-                        'base_amount': 320,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Water for white rice',
-                        'scaling_option': 'A',
-                    },
-                ]
-        },
-        {
-            'name': 'Chili 3',
-            'cooking_instruction': 'Try beans no rice but do not salt the '
-                                   'beans! Maybe the diarrhea came from too '
-                                   'much salt.\n'
-                                   'Keep the fucking rice! On 27.11.2019, '
-                                   'Sandor used only beans and he got mild'
-                                   'diarrhea. Fuck that.',
-            'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
-            'list_nutrient_target':
-                [
-                    'Energy',
-                    'Protein'
-                ],
-            'list_dict_specific_ingredient':
-                [
-                    {
-                        'base_amount': 60,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 350,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Tomato puree, MUTTI',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 0.63,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Chili powder',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Rice, white, medium-grain, '
-                                         'raw, unenriched',
-                        'scaling_option': 'A',
-                    },
-                    {
-                        'base_amount': 200,
-                        'base_amount_unit': 'gram',
-                        'rawingredient':
-                            'Beans, kidney, red, mature seeds, raw',
-                        'scaling_option': 'A',
-                    },
-                    {
-                        'base_amount': 5,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Spices, oregano, dried',
-                        'scaling_option': 'fixed',
-                    },
-                ]
-        },
-        {
-            'name': 'Protein and vitamins v1',
-            'cooking_instruction': 'Once Zinc or Copper run out, increase the '
-                                   'amount of Vit4Ever tablets.',
-            'nutrient_profile':
-                'Sandor clegane Profile based on Males\u200319\u201330 y',
-            'list_nutrient_target':
-                [
-                    'Protein'
-                ],
-            'list_dict_specific_ingredient':
-                [
-                    {
-                        'base_amount': 20,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Flaxseed flour',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 100,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'NOW SPORTS, PEA PROTEIN',
-                        'scaling_option': 'independent',
-                    },
-                    {
-                        'base_amount': 60,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Nuts, walnuts, english',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 9,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Potassium citrate',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 3,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Magnesium citrate',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 2,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Calcium citrate',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 3,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Vit4Ever',
-                        'scaling_option': 'fixed',
-                    },
-                    {
-                        'base_amount': 1,
-                        'base_amount_unit': 'gram',
-                        'rawingredient': 'Vitamin D3 and K2 natural elements',
-                        'scaling_option': 'fixed',
                     },
                 ]
         },

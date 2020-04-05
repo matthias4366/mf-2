@@ -74,9 +74,7 @@ def add_nutrientprofile_selenium(
     # from the national institute of health, as a preset so users can choose
     # among the preset, or the personal nutrient profile of Sandor Clegane.
 
-    path_nutrient_profile = available_path_nutrient_profile[1]
-
-    time.sleep(10)
+    path_nutrient_profile = available_path_nutrient_profile[0]
 
     with open(path_nutrient_profile, 'r') as fp:
         nutrient_profile_dict_list = json.load(fp)
