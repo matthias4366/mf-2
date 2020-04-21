@@ -28,7 +28,7 @@ full_day_of_eating_dict_list = \
         {
             'name': 'Pasta',
             'cooking_instruction': '',
-            'nutrient_profile': 'sandor',
+            'nutrient_profile': 'sandor #ID1',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -80,7 +80,7 @@ full_day_of_eating_dict_list = \
             'name': 'Chili mexican',
             'cooking_instruction': '',
             'nutrient_profile':
-                'sandor',
+                'sandor #ID1',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -157,7 +157,7 @@ full_day_of_eating_dict_list = \
             'name': 'Chili mushrooms',
             'cooking_instruction': '',
             'nutrient_profile':
-                'sandor',
+                'sandor #ID1',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -219,7 +219,7 @@ full_day_of_eating_dict_list = \
                 ]
         },
         {
-            'name': 'Fried rice',
+            'name': 'Rice and vegetables',
             'cooking_instruction':
                 """
                 Original recipe:
@@ -260,7 +260,7 @@ full_day_of_eating_dict_list = \
                 
                 """,
             'nutrient_profile':
-                'sandor',
+                'sandor #ID1',
             'list_nutrient_target':
                 [
                     'Energy',
@@ -321,13 +321,13 @@ full_day_of_eating_dict_list = \
                 ]
         },
         {
-            'name': 'Asian vegetables',
+            'name': 'Asian vegetables and rice',
             'cooking_instruction':
                 """
                 
                 """,
             'nutrient_profile':
-                'sandor',
+                'sandor #ID1',
             'list_nutrient_target':
                 [
                     'Energy',

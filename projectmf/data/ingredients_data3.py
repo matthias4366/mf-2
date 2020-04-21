@@ -714,7 +714,10 @@ ingredient_dict_list = [
         "manganese_mn-name-1101-id": 2,
         "molybdenum_mo-name-1102-id": 50,
         "selenium_se-name-1103-id": 55,
-        "vitamin_a_iu-name-1104-id": None,
+        # calculated from vitamin_a_rae by multiplying with 3.33 according to
+        # https://dietarysupplementdatabase.usda.nih.gov/
+        # ingredient_calculator/help.php#q10
+        "vitamin_a_iu-name-1104-id": 2664,
         "vitamin_a_rae-name-1106-id": 800,
         "vitamin_d-name-1110-id": 200,
         # calculated from mg using conversion factor of (1/0.67).

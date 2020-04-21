@@ -128,12 +128,12 @@ def add_fulldayofeating_data_selenium(
     
         for l in range(len(full_day_of_eating_dict_list[k][
                                'list_nutrient_target'])):
-            select__nutrient_target = select_(browser.find_element_by_id(
+            select_nutrient_target = select_(browser.find_element_by_id(
                 'id_specificnutrienttarget_set-'
                 + str(l)
                 + '-nutrient_target'
             ))
-            select__nutrient_target.select__by_visible_text(
+            select_nutrient_target.select_by_visible_text(
                 full_day_of_eating_dict_list[k][
                     'list_nutrient_target'][l]
             )
@@ -164,34 +164,34 @@ def add_fulldayofeating_data_selenium(
             )
     
             # Unit.
-            select__unit = select_(browser.find_element_by_id(
+            select_unit = select_(browser.find_element_by_id(
                 'id_specificingredient_set-'
                 + str(m)
                 + '-base_amount_unit'
             ))
-            select__unit.select__by_visible_text(
+            select_unit.select_by_visible_text(
                 full_day_of_eating_dict_list[k][
                     'list_dict_specific_ingredient'][m]['base_amount_unit']
             )
     
             # Raw ingredient.
-            select__rawingredient = select_(browser.find_element_by_id(
+            select_rawingredient = select_(browser.find_element_by_id(
                 'id_specificingredient_set-'
                 + str(m)
                 + '-rawingredient'
             ))
-            select__rawingredient.select__by_visible_text(
+            select_rawingredient.select_by_visible_text(
                 full_day_of_eating_dict_list[k][
                     'list_dict_specific_ingredient'][m]['rawingredient']
             )
     
             # Scaling option.
-            select__scaling_option = select_(browser.find_element_by_id(
+            select_scaling_option = select_(browser.find_element_by_id(
                 'id_specificingredient_set-'
                 + str(m)
                 + '-scaling_option'
             ))
-            select__scaling_option.select__by_visible_text(
+            select_scaling_option.select_by_visible_text(
                 full_day_of_eating_dict_list[k][
                     'list_dict_specific_ingredient'][m]['scaling_option']
             )
