@@ -509,8 +509,14 @@ def copy_mealplan_to_user(request, id_mealplan):
     :return:
     """
 
-    # TODO: Finish this function. It is complicated and not absolutely
-    #  necessary so it can be skipped for now.
+    # TODO: Skip this for now. This seems rather complicated and not
+    #  necessary at this point in time.
+
+    # Attempt to solve it using deepcopy.
+    new_mealplan = copy.deepcopy(Mealplan.objects.filter(id=id_mealplan))
+    new_mealplan.author = request.user
+    new_mealplan.name = new_mealplan.name + 'copy'
+    new_mealplan.save()
 
     # # Do the copying of the mealplan the manual and long way.
     #
@@ -534,17 +540,7 @@ def copy_mealplan_to_user(request, id_mealplan):
     #             nutrient_profile_id
     #         )
     #
-    # # Avoid copying the same nutrient profile multiple twice just because it
-    # # is associated with multiple FullDayOfEating objects in the Mealplan.
-    # for unique_id_nutrient_profile in list_unique_nutrient_profile_id:
-    #     nutrient_profile_copy = NutrientProfile.objects.get(
-    #         id=unique_id_nutrient_profile
-    #     )
-    #     nutrient_profile_copy.pk = None
-    #     nutrient_profile_copy.author = request.user
-    #     nutrient_profile_copy.save()
-
-    # Copy each FullDayOfEating object as you did before.
+    # # Copy each FullDayOfEating object as you did before.
 
     mealplan_list = Mealplan.objects.filter(
         author=request.user
