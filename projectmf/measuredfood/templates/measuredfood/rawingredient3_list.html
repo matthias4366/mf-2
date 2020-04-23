@@ -7,7 +7,7 @@
       <a class="btn btn-lg btn-block btn-primary"
       href="{% url 'get-from-food-data-central' %}"
       id="id_button_get_from_food_data_central">
-        Add ingredient using the FoodData central database (recommended)
+        Add ingredient from database
       </a>
     </div>
     <br>
@@ -24,7 +24,8 @@
     <br>
     <br>
 
-
+    <p><a href="https://www.youtube.com/watch?v=2hEQ9qfL5ew">This video
+      tutorial</a> shows how to add ingredients.</p>
 
     {% if rawingredient3_list %}
     <div class="">
@@ -54,7 +55,7 @@
       {% endfor %}
     </div>
     {% else %}
-      <h1>Add ingredients by clicking on the "New Ingredient" button above.</h1>
+      <p>No ingredients have been added yet.</p>
     {% endif %}
   </div>
 

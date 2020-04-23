@@ -5,20 +5,6 @@
   <div class="content-section">
 
     <h2>Search </h2>
-    <p>
-      To find a nutrient profile, use one of the following search terms and
-      select the one corresponding to your age.
-    </p>
-    <ul>
-      <li>Pregnancy</li>
-      <li>Lactation</li>
-      <li>Infants</li>
-      <li>Children</li>
-      <li>Females</li>
-      <li>Males</li>
-    </ul>
-
-    <br>
     <br>
 
     <form method="get" action="">
@@ -59,6 +45,27 @@
                 </div>
             {% endif %}
         {% else %}
+
+              <br>
+              <br>
+          <p>If you need help, check out this
+          <a href="https://www.youtube.com/watch?v=nhASufZlNds">
+          video tutorial.
+          </a>
+          </p>
+
+              <p>
+                To find a nutrient profile, use one of the following search terms and
+                select the one corresponding to your age.
+              </p>
+              <ul>
+                <li>Pregnancy</li>
+                <li>Lactation</li>
+                <li>Infants</li>
+                <li>Children</li>
+                <li>Females</li>
+                <li>Males</li>
+              </ul>
             {# Show some example queries to run, maybe query syntax, something else? #}
         {% endif %}
     </form>

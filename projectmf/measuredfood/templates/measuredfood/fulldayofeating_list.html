@@ -16,11 +16,17 @@
         <a class="btn btn-lg btn-block btn-secondary"
         href="{% url 'haystack-search' %}"
         id="id_button_browse_fulldayofeating">
-          Browse full days of eating
+          Search full days of eating
         </a>
     </div>
     <br>
 
+    <p><a href="https://www.youtube.com/watch?v=Y1lFgRFPOjY">This video 
+      tutorial</a> shows you how to calculate a full day of eating. </p>
+  
+    <p><a href="https://www.youtube.com/watch?v=rIZClQ88y5A">This video
+      tutorial</a> shows you how to setup the nutrient targets.</p>
+  
     {% if fulldayofeating_list %}
     <div class="">
       <h1>List of your full days of eating:</h1>
@@ -58,8 +64,7 @@
       {% endfor %}
     </div>
     {% else %}
-      <h1>Add a full day of eating by clicking on the button "New Full Day Of
-        Eating". No full days of eating have been added yet.</h1>
+      <p>No full days of eating have been added yet.</p>
     {% endif %}
 
   </div>
