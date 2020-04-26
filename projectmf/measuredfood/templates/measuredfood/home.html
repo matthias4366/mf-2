@@ -2,22 +2,41 @@
 {% block content %}
 
   <div class="center-variable-width">
-{#  <div class="video_wrapper">#}
 
-    <iframe
-            align="middle"
-            width="100%"
-{#            width="1280"#}
-{#            to get the height, multiply width with 9/16 to get an aspect ratio#}
-{#            of 16:9, which is the standard for YouTube videos. #}
-            height="720"
-            src="https://www.youtube.com/embed/kTq7cDhpFJc"
-{#          original code  #}
-{#          frameborder="0"  #}
-            frameborder="1"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
+    <div class="content-section">
+
+      <h1>Welcome to measuredfood!</h1>
+
+      <p>
+        You want to
+        <ul>
+          <li>lose fat</li>
+          <li>build muscle</li>
+          <li>reverse heart disease</li>
+{#          <li>reverse type 2 diabetes</li>#}
+        </ul>
+        but don't
+        want to log everything you eat into a calorie counter?
+      </p>
+        <br>
+      <p>
+        With measuredfood, you weigh your ingredients while cooking your meals.
+        Once the food is finished, there is no more counting: just eat what you
+        cooked, don't snack and you will reach your goals!
+      </p>
+
+      <a href="{% url 'register' %}">
+        <button
+                type="button"
+                class="btn btn-lg btn-block btn-success"
+                id=""
+        >
+          Sign me up!
+        </button>
+      </a>
+
+
+    </div>
 
   </div>
 

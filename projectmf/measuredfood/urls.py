@@ -14,6 +14,11 @@ urlpattern_home = [
     path('', home.home, name='home'),
     ]
 
+urlpattern_initial_tutorial = [
+    path('initial_tutorial_1/', home.initial_tutorial_1,
+         name='initial_tutorial_1'),
+]
+
 urlpatterns_user = [
     path('register/', register.register, name='register'),
     path('login/',
@@ -192,6 +197,7 @@ urlpattern_contact = [
 ]
 
 urlpatterns = urlpattern_home \
+    + urlpattern_initial_tutorial \
     + urlpatterns_user \
     + urlpatterns_rawingredient3 \
     + urlpatterns_nutrientprofile \

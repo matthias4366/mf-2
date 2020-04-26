@@ -23,6 +23,22 @@
   }
 }
 
+/* Formatting for smartphones */
+@media (max-width: 800px) {
+  .content-section {
+    margin: 3cm auto 4cm auto;
+    /* The color is used to make the application of the CSS class visible.
+    It is not meant as final solution. */
+    /*color: red;*/
+    /*background: #3D999D;*/
+    /* Stuff from original CSS file to give it a border */
+    /*background: #ffffff;*/
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+  }
+}
+
 .emphasize {
   font-weight: bold;
 }
