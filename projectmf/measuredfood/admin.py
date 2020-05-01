@@ -6,6 +6,7 @@ from .models import (
     FullDayOfEating,
     Mealplan,
     SpecificNutrientTarget,
+    UserProfile,
     )
 
 # Register your models here.
@@ -15,3 +16,4 @@ admin.site.register(NutrientProfile)
 admin.site.register(FullDayOfEating)
 admin.site.register(Mealplan)
 admin.site.register(SpecificNutrientTarget)
+admin.site.register(UserProfile)

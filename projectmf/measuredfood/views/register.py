@@ -11,9 +11,9 @@ def register(request):
             form.save()
             # TODO: this success message should be displayed inside the
             #  content section!
-            messages.success(request,
-                             f'Your account has been created!'
-                             ' You are now able to log in.')
+            # messages.success(request,
+            #                  f'Your account has been created!'
+            #                  ' You are now able to log in.')
             return redirect('login')
     else:
         form = UserRegisterForm()
