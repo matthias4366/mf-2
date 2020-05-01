@@ -102,5 +102,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Ignore the .idea files which are somehow related to the PyCharm IDE.
+.idea/
+
 # mypy
 .mypy_cache/
