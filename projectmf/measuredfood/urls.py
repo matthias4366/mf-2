@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (home,
                     register,
-                    # login,
+                    login,
                     rawingredient3,
                     nutrientprofile,
                     fulldayofeating,
@@ -22,8 +22,11 @@ urlpattern_initial_tutorial = [
 
 urlpatterns_user = [
     path('register/', register.register, name='register'),
+    # path('login/',
+    #      auth_views.LoginView.as_view(template_name='measuredfood/login.html'),
+    #      name='login'),
     path('login/',
-         auth_views.LoginView.as_view(template_name='measuredfood/login.html'),
+         login.login_custom_view,
          name='login'),
     path('logout/',
          auth_views.LogoutView.as_view(
