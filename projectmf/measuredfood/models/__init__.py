@@ -13,3 +13,4 @@ from .mealplan import Mealplan
 from .specificfulldayofeating import SpecificFullDayOfEating
 from .specificnutrienttarget import SpecificNutrientTarget
 from .userprofile import UserProfile
+from .information_for_nutrient_profile import InformationForNutrientProfile

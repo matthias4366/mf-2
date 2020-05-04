@@ -9,6 +9,7 @@ from measuredfood.models import (
     Mealplan,
     SpecificFullDayOfEating,
     SpecificNutrientTarget,
+    InformationForNutrientProfile,
     )
 from measuredfood.utils.rawingredient3\
     .transform_nutrient_name_usda_to_measuredfood \
@@ -140,3 +141,9 @@ class FoodDataCentralIDForm(forms.Form):
         max_length=100,
     )
 
+
+class InformationForNutrientProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = InformationForNutrientProfile
+        exclude = ['user']
