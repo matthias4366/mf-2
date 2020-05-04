@@ -1,13 +1,15 @@
 from django.urls import path
-from .views import (home,
-                    register,
-                    login,
-                    rawingredient3,
-                    nutrientprofile,
-                    fulldayofeating,
-                    mealplan,
-                    contact,
-                    )
+from .views import (
+    home,
+    register,
+    login,
+    rawingredient3,
+    nutrientprofile,
+    fulldayofeating,
+    mealplan,
+    contact,
+    onboarding_first_use,
+)
 from django.contrib.auth import views as auth_views
 from haystack.views import SearchView
 
@@ -16,15 +18,15 @@ urlpattern_home = [
     ]
 
 urlpattern_initial_tutorial = [
-    path('initial_tutorial_1/', home.initial_tutorial_1,
-         name='initial_tutorial_1'),
+    path(
+        'nutrientprofile_make_for_user/',
+        onboarding_first_use.nutrientprofile_make_for_user,
+        name='nutrientprofile-make-for-user'
+    ),
 ]
 
 urlpatterns_user = [
     path('register/', register.register, name='register'),
-    # path('login/',
-    #      auth_views.LoginView.as_view(template_name='measuredfood/login.html'),
-    #      name='login'),
     path('login/',
          login.login_custom_view,
          name='login'),

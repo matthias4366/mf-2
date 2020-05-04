@@ -1,7 +1,6 @@
 {% extends "measuredfood/base.html" %}
 {% block content %}
 
-  <div class="content-section">
 
   <a href="{% url 'update-mealplan' id_mealplan=id_mealplan %}">
     <button type="button" class="btn btn-lg btn-block btn-primary">
@@ -26,7 +25,5 @@
     </tr>
     {% endfor %}
   </table>
-
-  </div>
 
 {% endblock content %}

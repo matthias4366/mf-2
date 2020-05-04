@@ -27,15 +27,11 @@ def login_custom_view(request):
                 if user_has_completed_tutorial:
                     return redirect('list-fulldayofeating')
                 else:
-                    context_ = {}
-                    return render(
-                        request,
-                        'measuredfood/initial_tutorial_1.html',
-                        context_
-                    )
+                    return redirect('nutrientprofile-make-for-user')
+            else:
+                messages.error(request, "Invalid username or password.")
         else:
-            # TODO: display an error message
-            pass
+            messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
     context_ = {"form": form}
     return render(request, 'measuredfood/login.html', context_)

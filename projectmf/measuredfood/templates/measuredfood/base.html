@@ -98,31 +98,9 @@
       </nav>
     </header>
 
-    {#  Formatting from tutorial  #}
-{#    <main role="main" class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-md-8">#}
-{#          {% if messages %}#}
-{#            {% for message in messages %}#}
-{#              <div class="alert alert-{{ message.tags }}">#}
-{#                {{ message }}#}
-{#              </div>#}
-{#            {% endfor %}#}
-{#          {% endif %}#}
-{#          {% block content %}#}
-{#          {% endblock %}#}
-{#          <!-- Leave some space at the bottom -->#}
-{#          <br>#}
-{#          <br>#}
-{#          <br>#}
-{#          <br>#}
-{#          <br>#}
-{#        </div>#}
-{#      </div>#}
-{#    </main>#}
-
     {#  Sandor playing around to understand the formatting  #}
     <main>
+        <div class="content-section">
         {% if messages %}
           {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
@@ -132,6 +110,7 @@
         {% endif %}
         {% block content %}
         {% endblock %}
+        </div>
     </main>
 
     <!-- Optional JavaScript -->
