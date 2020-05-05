@@ -31,26 +31,30 @@ class InformationForNutrientProfile(models.Model):
         choices=WEIGHT_CHANGE_CHOICES
     )
 
-    # In kg.
-    current_weight = models.DecimalField(
+    # Total body mass in kg.
+    bodymass = models.DecimalField(
         max_digits=5,
         decimal_places=0
     )
-    UNIT_CURRENT_WEIGHT_CHOICES = [
+    UNIT_BODYMASS_CHOICES = [
         ('kg', 'kg'),
     ]
-    unit_current_weight = models.CharField(
+    unit_bodymass = models.CharField(
         max_length=10,
-        choices=UNIT_CURRENT_WEIGHT_CHOICES,
+        choices=UNIT_BODYMASS_CHOICES,
         default='kg',
     )
 
-    EXERISE_AMOUNT_CHOICES = [
-        ('sedentary', 'sedentary'),
-        ('endurance', 'endurance'),
-        ('strength training', 'strength training'),
+    ACTIVITY_LEVEL_CHOICES = [
+        ('Sedentary', 'Sedentary'),
+        ('Light Exercise', 'Light Exercise'),
+        ('Moderate Exercise', 'Moderate Exercise'),
+        ('Heavy Exercise', 'Heavy Exercise'),
+        ('Athlete', 'Athlete'),
     ]
-    exercise_amount = models.CharField(
+
+    activity_level = models.CharField(
         max_length=30,
-        choices=EXERISE_AMOUNT_CHOICES
+        choices=ACTIVITY_LEVEL_CHOICES,
+        null=True,
     )
