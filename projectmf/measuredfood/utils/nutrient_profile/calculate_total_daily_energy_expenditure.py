@@ -43,13 +43,15 @@ your BMR:
 
     s_all = {
         'male': +5,
-        'female': -151,
+        'female': -161,
     }
     s = s_all[biological_sex]
 
     # Mifflin-St Jeor Equation
     # https://www.ncbi.nlm.nih.gov/pubmed/15883556
-    basal_metabolic_rate_mifflin = 10 * bodymass + 6.25 * height - 5 * age + s
+    # Checked the exact equation based on the research paper on 5.5.2020.
+    basal_metabolic_rate_mifflin = \
+        9.99 * bodymass + 6.25 * height - 4.92 * age + s
     # bodymass has to be in kg
     # height has to be in cm
     # age has to be in years
