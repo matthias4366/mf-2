@@ -74,19 +74,85 @@ def calculate_ingredient_amount_slsqp_minimal_2(
     :param minimize:
     :param np:
     x is a vector with the calculated amount values for the ingredients.
+
+    Use np.concatenate((a, b), axis=0) to combine the ingredient arrrays into
+    a array (representing a matrix) that can be multiplied with the array
+    representing the ingredient amounts.
     :return:
     """
 
     # Kidney beans
     beans_kidney_dict = {
         'FDC_ID': 173744,
+        'name': 'Beans, kidney, red, mature seeds, raw',
         'Energy': 337,
         'Protein': 22.53,
         'Total lipid (fat)': 1.06,
         'Fiber, total dietary': 15.2,
         'Carbohydrate, by difference': 61.29,
     }
-    beans_kidney = beans_kidney_dict['Energy']
+
+    # Pea protein
+    pea_protein_dict = {
+        'FDC_ID':  571972,
+        'name': 'UNSWEETENED PEA PROTEIN POWDER',
+        'Energy': 370,
+        'Protein': 77.78,
+        'Total lipid (fat)': 5.56,
+        'Fiber, total dietary': 3.7,
+        'Carbohydrate, by difference': 7.41,
+    }
+
+    rice_dict = {
+        'FDC_ID':  169760,
+        'name': 'Rice, white, medium-grain, raw, unenriched',
+        'Energy': 360,
+        'Protein': 6.61,
+        'Total lipid (fat)': 0.58,
+        'Fiber, total dietary': 0,
+        'Carbohydrate, by difference': 79.34,
+    }
+
+    ingredient_dict_list = [
+        # beans_kidney_dict,
+        pea_protein_dict,
+        rice_dict
+    ]
+
+    list_ingredient_array = []
+    for k in range(len(ingredient_dict_list)):
+        list_k = [
+            ingredient_dict_list[k]['Energy']/100,
+            ingredient_dict_list[k]['Protein'] / 100,
+            # ingredient_dict_list[k]['Fiber, total dietary'] / 100,
+        ]
+        array_k = np.array(list_k)
+        list_ingredient_array.append(array_k)
+
+    print('list_ingredient_array')
+    print(list_ingredient_array)
+
+    ingredient_matrix_loop = np.vstack(list_ingredient_array)
+    print('ingredient_matrix_loop')
+    print(ingredient_matrix_loop)
+
+    ingredient_matrix = ingredient_matrix_loop.T
+    print('ingredient_matrix')
+    print(ingredient_matrix)
+
+    # test_vector = np.array([[1], [2], [3]])
+    # print('test_vector')
+    # print(test_vector)
+    #
+    # matrix_multiplication_test = np.dot(ingredient_matrix, test_vector)
+    #
+    # print('matrix_multiplication_test')
+    # print(matrix_multiplication_test)
+    #
+    # average_of_vector = np.linalg.norm(matrix_multiplication_test)
+    #
+    # print('average_of_vector')
+    # print(average_of_vector)
 
     nutrient_target_dict = {
         'Energy': 2500,
@@ -96,23 +162,50 @@ def calculate_ingredient_amount_slsqp_minimal_2(
         # 'Carbohydrate, by difference': 61.29,
     }
 
-    nutrient_target = nutrient_target_dict['Energy']
+    nutrient_target_list = [
+        nutrient_target_dict['Energy'],
+        nutrient_target_dict['Protein'],
+        # nutrient_target_dict['Fiber, total dietary']
+    ]
+    # nutrient_target = np.array(nutrient_target_list)
+    nutrient_target = np.vstack(nutrient_target_list)
 
-    print('beans_kidney')
-    print(beans_kidney)
-    print('nutrient_target')
+    print('\nnutrient_target\n')
     print(nutrient_target)
 
-    def objective(x):
-        amount_beans = x[0]
-        return abs(amount_beans / 100.0 * 337.0 - 2500)
-        # return amount_beans / 100.0 * beans_kidney - nutrient_target
+    matrix_times_amount = np.dot(ingredient_matrix, np.array([[1], [2]]))
+    print('\nmatrix_times_amount\n')
+    print(matrix_times_amount)
 
-    x0 = [100]
+    # deviation_each_nutrient_target_ = \
+    #     np.dot(ingredient_matrix, np.array([[100], [100]])) - nutrient_target
+    # print('\ndeviation_each_nutrient_target_\n')
+    # print(deviation_each_nutrient_target_)
+
+    deviation_each_nutrient_target_ = \
+        np.dot(ingredient_matrix, np.array([[100], [100]])) - nutrient_target
+    print('\ndeviation_each_nutrient_target_\n')
+    print(deviation_each_nutrient_target_)
+
+    array_a = np.array([1, 2, 3])
+    test_make_array_vertical = np.vstack(array_a)
+    print('\ntest_make_array_vertical\n')
+    print(test_make_array_vertical)
+
+    def objective(x):
+        # The vector x must be vertical, not horizontal.
+        x_vertical = np.vstack(x)
+        deviation_each_nutrient_target = \
+            np.dot(ingredient_matrix, x_vertical) - nutrient_target
+        deviation_total = np.linalg.norm(deviation_each_nutrient_target)
+        return deviation_total
+
+    x0 = np.array([100, 100])
+    print('\nobjective(x0)\n')
     print(objective(x0))
 
     b = (0, np.inf)
-    bnds = (b, )
+    bnds = (b, b)
 
     cons = []
 

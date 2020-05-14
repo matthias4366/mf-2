@@ -6,15 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
-      <change afterPath="$PROJECT_DIR$/measuredfood/models/fulldayofeating2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/models/specificingredient2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp_minimal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/models/nutrientprofile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/tests/test_calculate_ingredient_amount_slsqp.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/tests/test_calculate_ingredient_amount_slsqp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp_minimal.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp_minimal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp_minimal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
+            <state relative-caret-position="3">
+              <caret line="191" column="35" lean-forward="true" selection-start-line="191" selection-start-column="35" selection-end-line="191" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -58,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/tests/test_calculate_ingredient_amount_slsqp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="34">
               <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
           </provider>
@@ -67,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="3">
               <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -748,7 +740,7 @@
       <workItem from="1589350092024" duration="604000" />
       <workItem from="1589367117599" duration="404000" />
       <workItem from="1589375512724" duration="1056000" />
-      <workItem from="1589436043495" duration="8570000" />
+      <workItem from="1589436043495" duration="20705000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -849,7 +841,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="860561000" />
+    <option name="totallyTimeSpent" value="872696000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -861,10 +853,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24626453" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24626453" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -878,7 +869,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.33693305" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.46544278" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.9330453" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.4991699" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1310,16 +1301,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/models/fulldayofeating2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -1344,9 +1325,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/ingredients_data3.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/tests/test_calculate_ingredient_amount_slsqp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/models/fulldayofeating2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/models/nutrientprofile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state relative-caret-position="3">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -1354,20 +1355,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/tests/test_calculate_ingredient_amount_slsqp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ingredients_data3.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_ingredient_amount_slsqp_minimal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
+        <state relative-caret-position="3">
+          <caret line="191" column="35" lean-forward="true" selection-start-line="191" selection-start-column="35" selection-end-line="191" selection-end-column="35" />
         </state>
       </provider>
     </entry>
