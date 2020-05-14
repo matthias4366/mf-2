@@ -8,7 +8,7 @@ def nutrientprofile_make_for_user(
     is_lactating,
     activity_level,
     calculate_total_daily_energy_expenditure,
-
+    nutrient_profile_model,
 ):
     """
     Make a nutrientprofile for the user based on their input data: height,
@@ -29,6 +29,8 @@ def nutrientprofile_make_for_user(
     """
 
     # Step 0: Create a nutrient profile object with the correct name.
+    nutrientprofile_for_user = nutrient_profile_model()
+    nutrientprofile_for_user.name = user.name + '\'s nutrient profile'
 
     # Step 1: Calculate calories.
 
@@ -40,10 +42,12 @@ def nutrientprofile_make_for_user(
 
     # Add protein requirement to the nutrient profile.
 
+
+
     # Step 2: Select the correct micronutrients based on the input.
 
     # Step 2b: Add the micronutrients to the nutrient profile.
 
     # Step 3: return the nutrient profile object.
 
-    return 'correct'
+    return nutrientprofile_for_user

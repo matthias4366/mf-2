@@ -8,7 +8,7 @@ from django.test import TestCase
 
 # Run the unit tests using
 # python manage.py test measuredfood.tests
-
+import pprint
 from measuredfood.utils.nutrient_profile.nutrientprofile_make_for_user import \
     nutrientprofile_make_for_user
 from \
@@ -16,11 +16,26 @@ from \
     .calculate_total_daily_energy_expenditure \
     import calculate_total_daily_energy_expenditure
 
+from measuredfood.models import (
+    NutrientProfile,
+    UserProfile,
+)
+from django.contrib.auth.models import User
+
 
 class NutrientProfileMakeForUserTest(TestCase):
 
     def test_nutrientprofile_make_for_user(self):
-        nutrientprofile_result = nutrientprofile_make_for_user()
+        correct_nutrientprofile = NutrientProfile()
+        correct_nutrientprofile.save()
+
+        user_dummy = User()
+
+        nutrientprofile_result = nutrientprofile_make_for_user(
+            nutrient_profile_model=NutrientProfile,
+        )
+        print('nutrientprofile_result')
+        pprint.pprint(nutrientprofile_result)
         self.assertEqual('correct', nutrientprofile_result)
 
     def test_calculate_total_daily_energy_expenditure(self):
