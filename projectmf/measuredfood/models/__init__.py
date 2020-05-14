@@ -14,3 +14,5 @@ from .specificfulldayofeating import SpecificFullDayOfEating
 from .specificnutrienttarget import SpecificNutrientTarget
 from .userprofile import UserProfile
 from .information_for_nutrient_profile import InformationForNutrientProfile
+from .fulldayofeating2 import FullDayOfEating2
+from .specificingredient2 import SpecificIngredient2

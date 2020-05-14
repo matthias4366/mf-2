@@ -1,8 +1,8 @@
 
 
 def calculate_ingredient_amount_slsqp(
-    fulldayofeating2,
-
+    # fulldayofeating2,
+    minimize,
 ):
     """
     The scipy minimize algorithm with the option SLSQP is used.
@@ -13,4 +13,4 @@ def calculate_ingredient_amount_slsqp(
     eating.
     :return:
     """
-    pass
+    return None

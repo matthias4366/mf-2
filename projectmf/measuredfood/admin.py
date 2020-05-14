@@ -8,6 +8,8 @@ from .models import (
     SpecificNutrientTarget,
     UserProfile,
     InformationForNutrientProfile,
+    FullDayOfEating2,
+    SpecificIngredient2,
     )
 
 # Register your models here.
@@ -19,3 +21,5 @@ admin.site.register(Mealplan)
 admin.site.register(SpecificNutrientTarget)
 admin.site.register(UserProfile)
 admin.site.register(InformationForNutrientProfile)
+admin.site.register(FullDayOfEating2)
+admin.site.register(SpecificIngredient2)
