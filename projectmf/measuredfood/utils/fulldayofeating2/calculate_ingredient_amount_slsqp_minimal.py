@@ -129,30 +129,8 @@ def calculate_ingredient_amount_slsqp_minimal_2(
         array_k = np.array(list_k)
         list_ingredient_array.append(array_k)
 
-    print('list_ingredient_array')
-    print(list_ingredient_array)
-
     ingredient_matrix_loop = np.vstack(list_ingredient_array)
-    print('ingredient_matrix_loop')
-    print(ingredient_matrix_loop)
-
     ingredient_matrix = ingredient_matrix_loop.T
-    print('ingredient_matrix')
-    print(ingredient_matrix)
-
-    # test_vector = np.array([[1], [2], [3]])
-    # print('test_vector')
-    # print(test_vector)
-    #
-    # matrix_multiplication_test = np.dot(ingredient_matrix, test_vector)
-    #
-    # print('matrix_multiplication_test')
-    # print(matrix_multiplication_test)
-    #
-    # average_of_vector = np.linalg.norm(matrix_multiplication_test)
-    #
-    # print('average_of_vector')
-    # print(average_of_vector)
 
     nutrient_target_dict = {
         'Energy': 2500,
@@ -167,30 +145,7 @@ def calculate_ingredient_amount_slsqp_minimal_2(
         nutrient_target_dict['Protein'],
         # nutrient_target_dict['Fiber, total dietary']
     ]
-    # nutrient_target = np.array(nutrient_target_list)
     nutrient_target = np.vstack(nutrient_target_list)
-
-    print('\nnutrient_target\n')
-    print(nutrient_target)
-
-    matrix_times_amount = np.dot(ingredient_matrix, np.array([[1], [2]]))
-    print('\nmatrix_times_amount\n')
-    print(matrix_times_amount)
-
-    # deviation_each_nutrient_target_ = \
-    #     np.dot(ingredient_matrix, np.array([[100], [100]])) - nutrient_target
-    # print('\ndeviation_each_nutrient_target_\n')
-    # print(deviation_each_nutrient_target_)
-
-    deviation_each_nutrient_target_ = \
-        np.dot(ingredient_matrix, np.array([[100], [100]])) - nutrient_target
-    print('\ndeviation_each_nutrient_target_\n')
-    print(deviation_each_nutrient_target_)
-
-    array_a = np.array([1, 2, 3])
-    test_make_array_vertical = np.vstack(array_a)
-    print('\ntest_make_array_vertical\n')
-    print(test_make_array_vertical)
 
     def objective(x):
         # The vector x must be vertical, not horizontal.
@@ -207,6 +162,17 @@ def calculate_ingredient_amount_slsqp_minimal_2(
     b = (0, np.inf)
     bnds = (b, b)
 
+    step_size = 10
+
+    def constraint1(x):
+        """Adapt the protein amount in steps."""
+        return x[0] % step_size
+
+    # TODO: the pea protein powder without step should be 146 g.
+
+    con1 = {'type': 'eq', 'fun': constraint1}
+
+    # cons = [con1, ]
     cons = []
 
     sol = minimize(objective, x0, method='SLSQP', bounds=bnds, constraints=cons)
