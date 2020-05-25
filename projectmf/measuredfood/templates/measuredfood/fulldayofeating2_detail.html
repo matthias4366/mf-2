@@ -1,0 +1,89 @@
+{% extends "measuredfood/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+      <h1>
+        <u>Full Day Of Eating:</u>
+      </h1>
+      <h1
+              class="centerhorizontallymargin"
+      >
+        {{ fulldayofeating }}
+      </h1>
+      <br>
+
+      <table
+              class="centerhorizontallymargin table-list-ingredient"
+      >
+          <tr>
+            <th class="table-list-ingredient"> Amount </th>
+            <th class="table-list-ingredient"> Units </th>
+            <th class="table-list-ingredient"> Ingredient </th>
+            <th class="table-list-ingredient"> Scaling </th>
+          </tr>
+
+          {% for specificingredient in specificingredient_list %}
+
+            <tr class="table-list-ingredient">
+              <td class="table-list-ingredient">
+                {{ specificingredient.base_amount }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.base_amount_unit }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.rawingredient }}
+              </td>
+              <td class="table-list-ingredient">
+                {{ specificingredient.scaling_option }}
+              </td>
+            </tr>
+
+          {% endfor %}
+      </table>
+      <br>
+
+      <h3
+              class="centerhorizontallymargin"
+      >
+        <u>Cooking instructions:</u>
+      </h3>
+      <p>
+        {{ fulldayofeating.cooking_instruction|linebreaks }}
+      </p>
+      <br>
+      <h3
+              class="centerhorizontallymargin"
+      >
+        <u>Nutrient profile name:</u>
+      </h3>
+      <p>
+        {{ fulldayofeating.nutrient_profile }}
+      </p>
+      <br>
+      <h3
+              class="centerhorizontallymargin"
+      >
+        <u>Nutrient targets for the calculations:</u>
+      </h3>
+        {% for k in specificnutrienttarget_list %}
+          <p> {{ k.nutrient_target }} </p>
+        {% endfor %}
+      <br>
+
+    <br>
+    <br>
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+          href="
+{% url 'fulldayofeating-copy-to-user' id_fulldayofeating=fulldayofeating.id %}"
+          id="id_button_copy_fulldayofeating">
+        Copy to my full days of eating
+      </a>
+    </div>
+
+
+  <br>
+  <br>
+{% endblock content %}

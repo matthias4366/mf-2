@@ -1,0 +1,111 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+<!-- The html table holding the recipe editor with the addition of specific
+ingredients is built here. -->
+
+
+    <a href="{% url 'list-fulldayofeating' %}">
+      <button
+              type="button"
+              class="btn btn-lg btn-block btn-primary"
+              id="id_button_back_to_list_of_full_days_of_eating"
+      >
+        Back to list of full days of eating
+      </button>
+    </a>
+    <br>
+    <br>
+
+    <div class="group_related_to_save_button">
+
+    <form method="post">
+      {% csrf_token %}
+
+      <p class="emphasize">Name:</p>
+      <p> {{ form_fulldayofeating.name }} </p>
+
+      <p class="emphasize">Cooking instructions:</p>
+      <p> {{ form_fulldayofeating.cooking_instruction }} </p>
+
+      <p class="emphasize">Nutrient Profile:</p>
+      <p> {{ form_fulldayofeating.nutrient_profile }} </p>
+
+      <br>
+      <br>
+
+      <table class="generic_table_th_td">
+        {{ formset_specificnutrienttarget.management_form }}
+        <tr class="generic_table_th_td">
+          <th class="generic_table_th_td">Nutrient targets for the calculations:</th>
+          <th class="generic_table_th_td">Delete</th>
+        </tr>
+        {% for form in formset_specificnutrienttarget %}
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+          <tr class="generic_table_th_td">
+            <td class="generic_table_th_td">{{ form.nutrient_target }}</td>
+            <td class="generic_table_th_td">{{ form.DELETE }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <br>
+
+      <table class="table_th_td_padding table_th_td_border">
+
+        {{ formset_specificingredient.management_form }}
+        {% for form in formset_specificingredient %}
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          <table class="table_th_td_padding table_th_td_border">
+
+            <tr>
+              <td class="table_th_td_padding">
+                {{ form.rawingredient }}</td>
+            </tr>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">{{ form.base_amount }}</td>
+              <td class="table_th_td_padding">{{ form.base_amount_unit }}</td>
+            </tr>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding emphasize">Scaling</td>
+              <td class="table_th_td_padding">{{ form.scaling_option }}</td>
+            </tr>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding emphasize">Delete</td>
+              <td class="table_th_td_padding">{{ form.DELETE }}</td>
+            </tr>
+
+          </table>
+          <br>
+
+        {% endfor %}
+      </table>
+      <br>
+
+      <input
+                    type="submit"
+                    value="Save changes"
+                    id="save_changes_formset_fulldayofeating"
+      class="btn btn-lg btn-block btn-dark"/>
+
+    </form>
+      </div>
+    <br>
+    <br>
+      <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
+        <button
+                type="button"
+                class="btn btn-lg btn-block btn-primary"
+                id="id_button_calculate_full_day_of_eating"
+        >
+          Calculate full day of eating
+        </button>
+      </a>
+    <br>
+    <br>
+
+{% endblock content %}

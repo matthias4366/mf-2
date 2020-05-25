@@ -1,0 +1,70 @@
+{% extends "measuredfood/base.html" %}
+{% block content %}
+
+
+    <div class="">
+      <a class="btn btn-lg btn-block btn-primary"
+      href="{% url 'create-fulldayofeating2' %}"
+      id="id_button_new_fulldayofeating">
+        New full day of eating
+      </a>
+    </div>
+    <br>
+    <br>
+    <div class="">
+        <a class="btn btn-lg btn-block btn-secondary"
+        href="{% url 'haystack-search' %}"
+        id="id_button_browse_fulldayofeating">
+          Search full days of eating
+        </a>
+    </div>
+    <br>
+
+    <p><a href="https://www.youtube.com/watch?v=Y1lFgRFPOjY">This video 
+      tutorial</a> shows you how to calculate a full day of eating. </p>
+  
+    <p><a href="https://www.youtube.com/watch?v=rIZClQ88y5A">This video
+      tutorial</a> shows you how to setup the nutrient targets.</p>
+  
+    {% if fulldayofeating2_list %}
+    <div class="">
+      <h1>List of your full days of eating:</h1>
+      <br>
+      {% for fulldayofeating2 in fulldayofeating2_list %}
+        <div class="box">
+
+          <div>
+            <a
+            class="btn btn-primary btn-large"
+            href="{% url 'update-fulldayofeating2' fulldayofeating2.id %}"
+            id="edit {{ fulldayofeating2.name }}"
+            >
+              Edit
+            </a>
+          </div>
+
+          <div id="paragraph {{ fulldayofeating2.name }}">
+            <p>{{ fulldayofeating2 }}</p>
+          </div>
+
+          <div>
+            <a
+              class="btn btn-danger btn-large"
+              href="{% url 'delete-fulldayofeating2' fulldayofeating2.id %}"
+              id="delete {{ fulldayofeating2.name }}"
+            >
+              Delete
+            </a>
+          </div>
+
+        </div>
+        <br>
+
+      {% endfor %}
+    </div>
+    {% else %}
+      <p>No full days of eating have been added yet.</p>
+    {% endif %}
+
+
+{% endblock content %}

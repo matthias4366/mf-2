@@ -6,6 +6,7 @@ from .views import (
     rawingredient3,
     nutrientprofile,
     fulldayofeating,
+    fulldayofeating2,
     mealplan,
     contact,
     onboarding_first_use,
@@ -97,7 +98,6 @@ urlpatterns_nutrientprofile = [
     ),
 ]
 
-# interim code figuring out how to create html tables.
 urlpatterns_fulldayofeating = [
     path(
         'fulldayofeating/create/',
@@ -123,6 +123,34 @@ urlpatterns_fulldayofeating = [
         'fulldayofeating/<int:pk>/delete/',
         fulldayofeating.DeleteFullDayOfEating.as_view(),
         name='delete-fulldayofeating'
+    ),
+]
+
+urlpatterns_fulldayofeating2 = [
+    path(
+        'fulldayofeating2/create/',
+        fulldayofeating2.create_fulldayofeating2_view,
+        name='create-fulldayofeating2'
+    ),
+    path(
+        'fulldayofeating2/<int:id_fulldayofeating2>/update/',
+        fulldayofeating2.update_fulldayofeating2_view,
+        name='update-fulldayofeating2'
+         ),
+    path(
+        'fulldayofeating2/list/',
+        fulldayofeating2.ListFullDayOfEating2.as_view(),
+        name='list-fulldayofeating2'
+    ),
+    path(
+        'fulldayofeating2/<int:pk>/detail/',
+        fulldayofeating2.DetailFullDayOfEating2.as_view(),
+        name='detail-fulldayofeating2'
+    ),
+    path(
+        'fulldayofeating2/<int:pk>/delete/',
+        fulldayofeating2.DeleteFullDayOfEating2.as_view(),
+        name='delete-fulldayofeating2'
     ),
 ]
 
@@ -208,6 +236,7 @@ urlpatterns = urlpattern_home \
     + urlpatterns_rawingredient3 \
     + urlpatterns_nutrientprofile \
     + urlpatterns_fulldayofeating \
+    + urlpatterns_fulldayofeating2 \
     + urlpatterns_fulldayofeating_after_calculation \
     + urlpatterns_mealplan \
     + urlpatterns_shoppinglist \

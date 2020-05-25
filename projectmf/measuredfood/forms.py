@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from measuredfood.models import (
     SpecificIngredient,
+    SpecificIngredient2,
     FullDayOfEating,
+    FullDayOfEating2,
     NutrientProfile,
     RawIngredient3,
     Mealplan,
@@ -73,6 +75,22 @@ class FullDayOfEatingForm(forms.ModelForm):
     # creating a full day of eating.
     def __init__(self, id_user, *args, **kwargs):
         super(FullDayOfEatingForm, self).__init__(*args, **kwargs)
+        self.fields['nutrient_profile'].queryset = \
+            NutrientProfile.objects.filter(author_id=id_user)
+
+
+class FullDayOfEating2Form(forms.ModelForm):
+
+    class Meta:
+        model = FullDayOfEating2
+        fields = '__all__'
+        exclude = ['author']
+
+    # Prevent the users from using the NutrientProfiles
+    # of other users when
+    # creating a full day of eating.
+    def __init__(self, id_user, *args, **kwargs):
+        super(FullDayOfEating2Form, self).__init__(*args, **kwargs)
         self.fields['nutrient_profile'].queryset = \
             NutrientProfile.objects.filter(author_id=id_user)
 
