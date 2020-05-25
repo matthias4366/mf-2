@@ -152,6 +152,11 @@ urlpatterns_fulldayofeating2 = [
         fulldayofeating2.DeleteFullDayOfEating2.as_view(),
         name='delete-fulldayofeating2'
     ),
+    path(
+        'fulldayofeating2/<int:id_fulldayofeating2>/calculate/',
+        fulldayofeating2.calculate_fulldayofeating2_view,
+        name='calculate-fulldayofeating2'
+    ),
 ]
 
 urlpatterns_fulldayofeating_after_calculation = [

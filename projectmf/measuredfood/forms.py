@@ -11,6 +11,7 @@ from measuredfood.models import (
     Mealplan,
     SpecificFullDayOfEating,
     SpecificNutrientTarget,
+    SpecificNutrientTarget2,
     InformationForNutrientProfile,
     )
 from measuredfood.utils.rawingredient3\
@@ -111,6 +112,14 @@ SpecificIngredientFormset = inlineformset_factory(
     )
 
 
+SpecificIngredient2Formset = inlineformset_factory(
+    FullDayOfEating2,
+    SpecificIngredient2,
+    fields='__all__',
+    extra=1,
+    )
+
+
 class MealplanForm(forms.ModelForm):
 
     class Meta:
@@ -141,9 +150,24 @@ class SpecificNutrientTargetForm(forms.ModelForm):
         fields = '__all__'
 
 
+class SpecificNutrientTarget2Form(forms.ModelForm):
+
+    class Meta:
+        model = SpecificNutrientTarget2
+        fields = '__all__'
+
+
 SpecificNutrientTargetFormset = inlineformset_factory(
     FullDayOfEating,
     SpecificNutrientTarget,
+    fields='__all__',
+    extra=1,
+    )
+
+
+SpecificNutrientTarget2Formset = inlineformset_factory(
+    FullDayOfEating2,
+    SpecificNutrientTarget2,
     fields='__all__',
     extra=1,
     )

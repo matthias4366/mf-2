@@ -4,7 +4,7 @@
 ingredients is built here. -->
 
 
-    <a href="{% url 'list-fulldayofeating' %}">
+    <a href="{% url 'list-fulldayofeating2' %}">
       <button
               type="button"
               class="btn btn-lg btn-block btn-primary"
@@ -22,24 +22,24 @@ ingredients is built here. -->
       {% csrf_token %}
 
       <p class="emphasize">Name:</p>
-      <p> {{ form_fulldayofeating.name }} </p>
+      <p> {{ form_fulldayofeating2.name }} </p>
 
       <p class="emphasize">Cooking instructions:</p>
-      <p> {{ form_fulldayofeating.cooking_instruction }} </p>
+      <p> {{ form_fulldayofeating2.cooking_instruction }} </p>
 
       <p class="emphasize">Nutrient Profile:</p>
-      <p> {{ form_fulldayofeating.nutrient_profile }} </p>
+      <p> {{ form_fulldayofeating2.nutrient_profile }} </p>
 
       <br>
       <br>
 
       <table class="generic_table_th_td">
-        {{ formset_specificnutrienttarget.management_form }}
+        {{ formset_specificnutrienttarget2.management_form }}
         <tr class="generic_table_th_td">
           <th class="generic_table_th_td">Nutrient targets for the calculations:</th>
           <th class="generic_table_th_td">Delete</th>
         </tr>
-        {% for form in formset_specificnutrienttarget %}
+        {% for form in formset_specificnutrienttarget2 %}
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
           {% endfor %}
@@ -54,8 +54,8 @@ ingredients is built here. -->
 
       <table class="table_th_td_padding table_th_td_border">
 
-        {{ formset_specificingredient.management_form }}
-        {% for form in formset_specificingredient %}
+        {{ formset_specificingredient2.management_form }}
+        {% for form in formset_specificingredient2 %}
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
           {% endfor %}
@@ -96,7 +96,8 @@ ingredients is built here. -->
       </div>
     <br>
     <br>
-      <a href="{% url 'calculate-fulldayofeating' id_fulldayofeating=id_fulldayofeating %}">
+      <a href="
+{% url 'calculate-fulldayofeating2' id_fulldayofeating2=id_fulldayofeating2 %}">
         <button
                 type="button"
                 class="btn btn-lg btn-block btn-primary"
