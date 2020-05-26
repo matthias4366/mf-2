@@ -263,7 +263,8 @@ class DetailFullDayOfEating2(DetailView):
         # specificnutrienttarget_queryset.
         id_full_day_of_eating_ = context['object'].id
 
-        specificnutrienttarget_queryset = SpecificNutrientTarget2.objects.filter(
+        specificnutrienttarget_queryset = \
+            SpecificNutrientTarget2.objects.filter(
                 fulldayofeating=id_full_day_of_eating_
             )
         specificnutrienttarget_list = list(
@@ -286,7 +287,7 @@ class DetailFullDayOfEating2(DetailView):
 
 class DeleteFullDayOfEating2(UserPassesTestMixin, DeleteView):
     model = FullDayOfEating2
-    success_url = reverse_lazy('list-fulldayofeating')
+    success_url = reverse_lazy('list-fulldayofeating2')
 
     def test_func(self):
         fulldayofeating_ = self.get_object()
