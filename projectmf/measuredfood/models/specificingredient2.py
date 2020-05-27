@@ -193,8 +193,8 @@ class SpecificIngredient2(models.Model):
     )
 
     def __str__(self):
-        if self.rawingredient.name is not None:
-            label = self.rawingredient.name
+        if self.rawingredient3.name is not None:
+            label = self.rawingredient3.name
             return label
         else:
             return 'SpecificIngredient without an associated RawIngredient'

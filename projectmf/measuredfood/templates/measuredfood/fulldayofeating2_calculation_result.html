@@ -2,9 +2,9 @@
 {% block content %}
 
 
-    <a href="{% url 'update-fulldayofeating' id_fulldayofeating %}">
+    <a href="{% url 'update-fulldayofeating2' id_fulldayofeating2 %}">
       <button type="button" class="btn btn-lg btn-block btn-primary">
-        Back to Full Day Of Eating: {{ fulldayofeating_object }}.
+        Back to Full Day Of Eating: {{ fulldayofeating2_object }}.
       </button>
     </a>
     <br>
@@ -16,7 +16,6 @@
         <th class="generic_table_th_td">Calculated amount</th>
         <th class="generic_table_th_td">Unit</th>
         <th class="generic_table_th_td">Ingredient</th>
-        <th class="generic_table_th_td">Affiliate link</th>
       </tr>
       {% for dict_k in result_calculate_fulldayofeating_formatted_for_template %}
       <tr>
@@ -28,16 +27,13 @@
         </td>
         <td class="generic_table_th_td">{{ dict_k.base_amount_unit }}</td>
         <td class="generic_table_th_td">{{ dict_k.name }}</td>
-        <td class="generic_table_th_td">
-          <a href="{{ dict_k.buy_here_link }}">Buy</a>
-        </td>
       </tr>
       {% endfor %}
     </table>
     <br>
     <br>
     <h1>Cooking instructions:</h1>
-    <p>{{ fulldayofeating_object.cooking_instruction|linebreaks }}</p>
+    <p>{{ fulldayofeating2_object.cooking_instruction|linebreaks }}</p>
     <br>
     <br>
     <h1>Total nutrition in full day of eating:</h1>
@@ -95,23 +91,5 @@
       {% endfor %}
 
     </table>
-{# <p>Leave the price calculation and display for later. </p> #}
-{#    <h1>Total price of full day of eating:</h1>#}
-{#    <table class="generic_table_th_td">#}
-{#      <tr>#}
-{#        <th class="generic_table_th_td">Price</th>#}
-{#        <th class="generic_table_th_td">Currency</th>#}
-{#      </tr>#}
-{#      <tr>#}
-{#        <td class="generic_table_th_td"#}
-{#        >{{ total_price_fulldayofeating_result_dict.total_price_rounded }}</td>#}
-{#        <td class="generic_table_th_td"#}
-{#        >{{ total_price_fulldayofeating_result_dict.total_price_currency }}</td>#}
-{#      </tr>#}
-{#    </table>#}
-{#    <br>#}
-{#    <br>#}
-{#    <br>#}
-{#    <br>#}
 
 {% endblock content %}

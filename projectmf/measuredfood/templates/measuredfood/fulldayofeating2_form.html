@@ -33,25 +33,6 @@ ingredients is built here. -->
       <br>
       <br>
 
-      <table class="generic_table_th_td">
-        {{ formset_specificnutrienttarget2.management_form }}
-        <tr class="generic_table_th_td">
-          <th class="generic_table_th_td">Nutrient targets for the calculations:</th>
-          <th class="generic_table_th_td">Delete</th>
-        </tr>
-        {% for form in formset_specificnutrienttarget2 %}
-          {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-          {% endfor %}
-          <tr class="generic_table_th_td">
-            <td class="generic_table_th_td">{{ form.nutrient_target }}</td>
-            <td class="generic_table_th_td">{{ form.DELETE }}</td>
-          </tr>
-        {% endfor %}
-      </table>
-      <br>
-      <br>
-
       <table class="table_th_td_padding table_th_td_border">
 
         {{ formset_specificingredient2.management_form }}
@@ -62,18 +43,48 @@ ingredients is built here. -->
 
           <table class="table_th_td_padding table_th_td_border">
 
-            <tr>
-              <td class="table_th_td_padding">
-                {{ form.rawingredient }}</td>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Ingredient</td>
+              <td class="table_th_td_padding">{{ form.rawingredient3 }}</td>
+            </tr>
+
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Minimum amount in gram</td>
+              <td class="table_th_td_padding">{{ form.min_amount }}</td>
             </tr>
             <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Initial amount in gram</td>
               <td class="table_th_td_padding">{{ form.base_amount }}</td>
-              <td class="table_th_td_padding">gram</td>
             </tr>
             <tr class="table_th_td_border">
-              <td class="table_th_td_padding emphasize">Scaling</td>
-              <td class="table_th_td_padding">{{ form.scaling_option }}</td>
+              <td class="table_th_td_padding">Maximum amount in gram</td>
+              <td class="table_th_td_padding">{{ form.max_amount }}</td>
             </tr>
+
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Vary amount</td>
+              <td class="table_th_td_padding">{{ form.amount_is_variable }}</td>
+            </tr>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Group</td>
+              <td class="table_th_td_padding">{{ form.group }}</td>
+            </tr>
+
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Step size</td>
+              <td class="table_th_td_padding">{{ form.step_size }}</td>
+            </tr>
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Round step</td>
+              <td class="table_th_td_padding">{{ form.round_step }}</td>
+            </tr>
+
+
+            <tr class="table_th_td_border">
+              <td class="table_th_td_padding">Targeted nutrient</td>
+              <td class="table_th_td_padding">{{ form.nutrient_target }}</td>
+            </tr>
+
             <tr class="table_th_td_border">
               <td class="table_th_td_padding emphasize">Delete</td>
               <td class="table_th_td_padding">{{ form.DELETE }}</td>
