@@ -73,8 +73,8 @@ def calculate_average_of_specificingredient2_group(
                     'raw_ingredient'][nutrient_field_name] = \
                     averaged_specificingredient['raw_ingredient'][
                     nutrient_field_name] \
-                    + (group_k[m]['base_amount'] / total_base_amount) \
-                    * group_k[m]['raw_ingredient'][nutrient_field_name]
+                    + float((group_k[m]['base_amount'] / total_base_amount)) \
+                    * float(group_k[m]['raw_ingredient'][nutrient_field_name])
 
         # Calculate the average reference_amount.
         averaged_specificingredient['raw_ingredient']['reference_amount'] = \
