@@ -17,6 +17,7 @@ def query_input_and_calculate_fulldayofeating2(
     make_list_variable_ingredient_and_group,
     calculate_specificingredient2_amount_try,
     np,
+    number_targeted_nutrients_not_equal_number_scaling_entities_error,
 ):
     """
 
@@ -36,6 +37,7 @@ def query_input_and_calculate_fulldayofeating2(
     :param make_list_variable_ingredient_and_group:
     :param calculate_specificingredient2_amount_try:
     :param np:
+    :param number_targeted_nutrients_not_equal_number_scaling_entities_error:
     :return:
     """
     # """
@@ -79,6 +81,7 @@ def query_input_and_calculate_fulldayofeating2(
         set_to_zero_if_none,
         nutrientprofile_dict,
         np,
+        number_targeted_nutrients_not_equal_number_scaling_entities_error,
     )
 
     # print('r_calculate_fulldayofeating2')

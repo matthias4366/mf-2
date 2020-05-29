@@ -10,6 +10,8 @@ def calculate_specificingredient2_amount_try(
     nutrientprofile_dict,
     copy,
     np,
+    list_independently_scaling_entities,
+    number_targeted_nutrients_not_equal_number_scaling_entities_error,
 ):
     """
     Try to calculate the amounts of the SpecificIngredient2 objects. This
@@ -99,5 +101,58 @@ def calculate_specificingredient2_amount_try(
 
     print('b in 2')
     print(b)
+
+    # The number of nutrient targets needs to be the same as the number of
+    # independently scaling entities. Otherwise, the linear equation can not be
+    # solved.
+
+    # Check for the error that the number of nutrient targets does not match
+    # the number of independently scaling entities.
+    if len(b) != len(list_independently_scaling_entities):
+
+        list_independently_scaling_entity = []
+        for dict_k in list_independently_scaling_entities:
+            name_independtly_scaling_entity = \
+                dict_k['raw_ingredient']['name']
+            list_independently_scaling_entity.append(
+                name_independtly_scaling_entity
+            )
+
+        n_independently_scaling_entity = \
+            len(list_independently_scaling_entity)
+
+        list_targeted_nutrient = []
+        for key_k in targeted_nutrients_remainder:
+            list_targeted_nutrient.append(key_k)
+
+        n_targeted_nutrient = len(list_targeted_nutrient)
+
+        raise number_targeted_nutrients_not_equal_number_scaling_entities_error(
+            n_targeted_nutrient,
+            list_targeted_nutrient,
+            n_independently_scaling_entity,
+            list_independently_scaling_entity,
+        )
+
+    else:
+        a = np.zeros(shape=(len(b), len(b)))
+        column_index = 0
+        for dict_k in list_independently_scaling_entities:
+            row_index = 0
+            for key_k in targeted_nutrients_remainder:
+                a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
+                row_index = row_index + 1
+            column_index = column_index + 1
+
+        x = np.linalg.solve(a, b)
+
+    solution = np.zeros(len(x))
+    for k in range(len(x)):
+        # Calculate solution
+        solution[k] = x[k] * list_independently_scaling_entities[k][
+            'raw_ingredient']['reference_amount']
+
+    print('solution')
+    print(solution)
 
     return None

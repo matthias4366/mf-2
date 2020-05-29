@@ -10,6 +10,7 @@ def calculate_fulldayofeating2(
     set_to_zero_if_none,
     nutrientprofile_dict,
     np,
+    number_targeted_nutrients_not_equal_number_scaling_entities_error,
 ):
     """
     :return:
@@ -37,6 +38,8 @@ def calculate_fulldayofeating2(
             nutrientprofile_dict,
             copy,
             np,
+            list_independently_scaling_entities,
+            number_targeted_nutrients_not_equal_number_scaling_entities_error,
         )
 
 
