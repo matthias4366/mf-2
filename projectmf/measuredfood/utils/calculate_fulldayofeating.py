@@ -129,6 +129,9 @@ def calculate_fulldayofeating(
                     dict_k['raw_ingredient'][nutrient_field_name]
                 )
 
+    print('targeted_nutrients')
+    print(targeted_nutrients)
+
     # For the targeted nutrients, calculate the remaining values.
     targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)
     for key_k in targeted_nutrients:

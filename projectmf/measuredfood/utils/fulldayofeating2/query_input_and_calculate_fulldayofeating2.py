@@ -14,6 +14,9 @@ def query_input_and_calculate_fulldayofeating2(
     calculate_fulldayofeating2,
     calculate_average_of_specificingredient2_group,
     copy,
+    make_list_variable_ingredient_and_group,
+    calculate_specificingredient2_amount_try,
+    np,
 ):
     """
 
@@ -30,13 +33,17 @@ def query_input_and_calculate_fulldayofeating2(
     :param calculate_fulldayofeating2:
     :param calculate_average_of_specificingredient2_group:
     :param copy:
+    :param make_list_variable_ingredient_and_group:
+    :param calculate_specificingredient2_amount_try:
+    :param np:
     :return:
     """
     # """
     #
     # :param id_fulldayofeating2: The primary key of the FullDayOfEating2
     # object that is to be calculated.
-    # :return: Return the calculation results of the FullDayOfEating2 in a format
+    # :return: Return the calculation results of the FullDayOfEating2 in a
+    # format
     # that can be given to the calculation result html template.
     # """
     specificingredient2_dict_list = query_ingredients_fulldayofeating2(
@@ -67,9 +74,14 @@ def query_input_and_calculate_fulldayofeating2(
         calculate_average_of_specificingredient2_group,
         all_nutrients_and_default_units,
         copy,
+        make_list_variable_ingredient_and_group,
+        calculate_specificingredient2_amount_try,
+        set_to_zero_if_none,
+        nutrientprofile_dict,
+        np,
     )
 
-    print('r_calculate_fulldayofeating2')
-    pprint.pprint(r_calculate_fulldayofeating2)
+    # print('r_calculate_fulldayofeating2')
+    # pprint.pprint(r_calculate_fulldayofeating2)
 
     return None

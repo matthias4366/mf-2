@@ -52,7 +52,16 @@ from measuredfood.utils.fulldayofeating2\
     .calculate_average_of_specificingredient2_group \
     import calculate_average_of_specificingredient2_group
 
+from measuredfood.utils.fulldayofeating2\
+    .make_list_variable_ingredient_and_group \
+    import make_list_variable_ingredient_and_group
+
+from measuredfood.utils.fulldayofeating2\
+    .calculate_specificingredient2_amount_try \
+    import calculate_specificingredient2_amount_try
+
 import copy
+import numpy as np
 
 
 @login_required
@@ -270,6 +279,9 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         calculate_fulldayofeating2,
         calculate_average_of_specificingredient2_group,
         copy,
+        make_list_variable_ingredient_and_group,
+        calculate_specificingredient2_amount_try,
+        np,
     )
 
     context = {
