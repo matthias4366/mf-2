@@ -77,7 +77,7 @@ def calculate_fulldayofeating(
                         '\nERROR: All specific ingredients belonging to the'
                         ' same group must have the same units.\n')
                     return None
-            # If the group does not exist
+            # If the group does not exist in
             # specificingredient_scalingoption_group_dict, create it an add
             # dict_k to it.
             else:

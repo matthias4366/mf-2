@@ -26,8 +26,8 @@ def query_ingredients_fulldayofeating2(
     queryset_specificingredient = specificingredient2.objects.filter(
         fulldayofeating2_id=id_fulldayofeating2
         ).order_by('id')
-    pprint.pprint('queryset_specificingredient')
-    pprint.pprint(queryset_specificingredient)
+    # pprint.pprint('queryset_specificingredient')
+    # pprint.pprint(queryset_specificingredient)
 
     specificingredient_dict_list = list(
         queryset_specificingredient.values()

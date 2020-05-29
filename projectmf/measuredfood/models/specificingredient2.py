@@ -155,7 +155,7 @@ class SpecificIngredient2(models.Model):
     )
 
     GROUP_CHOICES = [
-        ('INDEPENDENT', 'independent'),
+        ('no group', 'no group'),
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
@@ -189,7 +189,7 @@ class SpecificIngredient2(models.Model):
         choices=GROUP_CHOICES,
         # blank=True,
         # null=True,
-        default='INDEPENDENT'
+        default='no group'
     )
 
     def __str__(self):

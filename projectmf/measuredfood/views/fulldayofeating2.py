@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from measuredfood.forms import (
     FullDayOfEating2Form,
-    SpecificIngredient2Formset,
-    SpecificNutrientTarget2Formset
+    SpecificIngredient2Formset
     )
 from measuredfood.models import (
     RawIngredient3,
     NutrientProfile,
-    SpecificNutrientTarget2,
     SpecificIngredient2,
     FullDayOfEating2,
 )
@@ -42,6 +40,19 @@ from measuredfood.ingredient_properties4 import (
 
 from measuredfood.utils.set_to_zero_if_none\
     import set_to_zero_if_none
+
+from measuredfood.utils.fulldayofeating2\
+    .query_nutrientprofile_of_fulldayofeating2 \
+    import query_nutrientprofile_of_fulldayofeating2
+
+from measuredfood.utils.fulldayofeating2.calculate_fulldayofeating2 \
+    import calculate_fulldayofeating2
+
+from measuredfood.utils.fulldayofeating2\
+    .calculate_average_of_specificingredient2_group \
+    import calculate_average_of_specificingredient2_group
+
+import copy
 
 
 @login_required
@@ -118,18 +129,11 @@ def update_fulldayofeating2_view(request, id_fulldayofeating2):
                         author=request.user.id
                         )
 
-            formset_specificnutrienttarget2 = SpecificNutrientTarget2Formset(
-                request.POST,
-                instance=fulldayofeating2_object,
-            )
-
             if formset_specificingredient2.is_valid() \
-                    and form_fulldayofeating2.is_valid()\
-                    and formset_specificnutrienttarget2.is_valid():
+                    and form_fulldayofeating2.is_valid():
 
                 formset_specificingredient2.save()
                 form_fulldayofeating2.save()
-                formset_specificnutrienttarget2.save()
 
                 return redirect(
                     'update-fulldayofeating2',
@@ -166,16 +170,10 @@ def update_fulldayofeating2_view(request, id_fulldayofeating2):
                         author=request.user.id
                         )
 
-            formset_specificnutrienttarget2 = SpecificNutrientTarget2Formset(
-                instance=fulldayofeating2_object,
-            )
-
             context = {
                 'formset_specificingredient2': formset_specificingredient2,
                 'form_fulldayofeating2': form_fulldayofeating2,
                 'id_fulldayofeating2': id_fulldayofeating2,
-                'formset_specificnutrienttarget2':
-                    formset_specificnutrienttarget2,
                 }
             return render(request, 'measuredfood/fulldayofeating2_form.html',
                           context)
@@ -220,16 +218,6 @@ class DetailFullDayOfEating2(DetailView):
         # Access the FullDayOfEating2 object in order to query the correct
         # specificnutrienttarget_queryset.
         id_full_day_of_eating_ = context['object'].id
-
-        specificnutrienttarget_queryset = \
-            SpecificNutrientTarget2.objects.filter(
-                fulldayofeating=id_full_day_of_eating_
-            )
-        specificnutrienttarget_list = list(
-            specificnutrienttarget_queryset.values('nutrient_target')
-        )
-        context['specificnutrienttarget_list'] = \
-            specificnutrienttarget_list
 
         specificingredient_queryset = SpecificIngredient2.objects.filter(
             fulldayofeating=id_full_day_of_eating_
@@ -276,6 +264,12 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         RawIngredient3,
         ALL_NUTRIENTS_AND_DEFAULT_UNITS,
         set_to_zero_if_none,
+        FullDayOfEating2,
+        NutrientProfile,
+        query_nutrientprofile_of_fulldayofeating2,
+        calculate_fulldayofeating2,
+        calculate_average_of_specificingredient2_group,
+        copy,
     )
 
     context = {
@@ -318,17 +312,6 @@ def copy_fulldayofeating2_to_user(request, id_fulldayofeating2):
     full_day_of_eating_copy.author = request.user
     full_day_of_eating_copy.nutrient_profile = nutrient_profile_copy
     full_day_of_eating_copy.save()
-
-    specific_nutrient_target_queryset = SpecificNutrientTarget2.objects.filter(
-        fulldayofeating=id_fulldayofeating2
-    )
-    # Copy all SpecificNutrientTarget2 objects.
-    for specific_nutrient_target_k in specific_nutrient_target_queryset:
-        specific_nutrient_target_copy_k = specific_nutrient_target_k
-        specific_nutrient_target_copy_k.pk = None
-        specific_nutrient_target_copy_k.fulldayofeating = \
-            full_day_of_eating_copy
-        specific_nutrient_target_copy_k.save()
 
     # Copy all SpecificIngredient2 objects.
     specific_ingredient_queryset = SpecificIngredient2.objects.filter(
