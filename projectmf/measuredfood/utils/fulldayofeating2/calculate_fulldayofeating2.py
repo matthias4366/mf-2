@@ -12,6 +12,7 @@ def calculate_fulldayofeating2(
     np,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     undo_calculate_average_of_specificingredient_group,
+    make_specificingredient2_id_and_calculated_amount_dict,
 ):
     """
     :return:
@@ -49,6 +50,7 @@ def calculate_fulldayofeating2(
             number_targeted_nutrients_not_equal_number_scaling_entities_error,
             undo_calculate_average_of_specificingredient_group,
             specificingredient_scalingoption_group_dict,
+            make_specificingredient2_id_and_calculated_amount_dict,
         )
 
 

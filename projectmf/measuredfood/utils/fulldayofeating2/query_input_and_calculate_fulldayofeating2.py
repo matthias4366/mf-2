@@ -19,6 +19,7 @@ def query_input_and_calculate_fulldayofeating2(
     np,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     undo_calculate_average_of_specificingredient_group,
+    make_specificingredient2_id_and_calculated_amount_dict,
 ):
     """
 
@@ -85,6 +86,7 @@ def query_input_and_calculate_fulldayofeating2(
         np,
         number_targeted_nutrients_not_equal_number_scaling_entities_error,
         undo_calculate_average_of_specificingredient_group,
+        make_specificingredient2_id_and_calculated_amount_dict,
     )
 
     # print('r_calculate_fulldayofeating2')
