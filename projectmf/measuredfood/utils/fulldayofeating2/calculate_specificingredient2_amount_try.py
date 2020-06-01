@@ -1,4 +1,4 @@
-# import pprint
+import pprint
 
 
 def calculate_specificingredient2_amount_try(
@@ -12,6 +12,8 @@ def calculate_specificingredient2_amount_try(
     np,
     list_independently_scaling_entities,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
+    undo_calculate_average_of_specificingredient_group,
+    specificingredient_scalingoption_group_dict,
 ):
     """
     Try to calculate the amounts of the SpecificIngredient2 objects. This
@@ -152,7 +154,119 @@ def calculate_specificingredient2_amount_try(
         solution[k] = x[k] * list_independently_scaling_entities[k][
             'raw_ingredient']['reference_amount']
 
-    print('solution')
-    print(solution)
+    # print('solution')
+    # print(solution)
+
+    # Assign the solution to the respective dictionary.
+    for k in range(len(solution)):
+        list_independently_scaling_entities[k]['calculated_amount'] = \
+            solution[k]
+
+    # print('list_independently_scaling_entities')
+    # pprint.pprint(list_independently_scaling_entities)
+
+    specificingredient_id_and_calculated_amount = []
+
+    # From list_independently_scaling_entities, get all the
+    # averaged_specificingredient instances.
+    calculated_amount_and_group_name = {}
+    for k in range(len(list_independently_scaling_entities)):
+        if list_independently_scaling_entities[k]['raw_ingredient']['name']\
+                .startswith('average_group_'):
+            group_name = list_independently_scaling_entities[k]['group']
+            calculated_amount = \
+                list_independently_scaling_entities[k]['calculated_amount']
+            total_base_amount = \
+                list_independently_scaling_entities[k]['total_base_amount']
+            new_dict = {
+                group_name:
+                {'calculated_amount': calculated_amount,
+                 'total_base_amount': total_base_amount}
+                                     }
+            calculated_amount_and_group_name.update(new_dict)
+
+    # unaverage the averaged_specificingredient instances
+    specificingredient_scalingoption_group_dict_with_results =\
+        undo_calculate_average_of_specificingredient_group(
+            specificingredient_scalingoption_group_dict,
+            calculated_amount_and_group_name
+        )
+    # print('specificingredient_scalingoption_group_dict_with_results')
+    # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
+
+    # TODO: Put the solution (i.e. the calculated amounts) into the
+    #  correct places in the specificingredient2_dict_list.
+    #  Find the SpecificIngredient2 id's and the associated calculated amounts.
+
+    # Find the SpecificIngredient2 id's and the associated calculated amounts.
+    for group_name, specificingredient_list in \
+            specificingredient_scalingoption_group_dict_with_results.items():
+        for k in range(len(specificingredient_list)):
+            id_result = specificingredient_list[k]['id']
+
+            calculated_amount_result = round(
+                specificingredient_list[k]['calculated_amount'],
+                specificingredient_list[k]['n_decimals_to_round_to']
+            )
+
+            new_dict = {
+                'id_specificingredient2': id_result,
+                'calculated_amount': calculated_amount_result
+            }
+            specificingredient_id_and_calculated_amount.append(new_dict)
+
+    # Assign the calculated_amount values from the SpecificIngredient2
+    # with amount_is_variable = True and no group to the return variable.
+    for k in range(len(list_independently_scaling_entities)):
+        if list_independently_scaling_entities[k]['group'] == 'no group':
+            if list_independently_scaling_entities[k]['amount_is_variable']:
+
+                id_result = list_independently_scaling_entities[k]['id']
+
+                # Round the calculated_amount_result before adding it to the
+                # return dictionary.
+                calculated_amount_result = round(
+                    list_independently_scaling_entities[k]['calculated_amount'],
+                    list_independently_scaling_entities[k]
+                    ['n_decimals_to_round_to']
+                )
+
+                new_dict = {
+                    'id_specificingredient2': id_result,
+                    'calculated_amount': calculated_amount_result
+                }
+                specificingredient_id_and_calculated_amount.append(new_dict)
+
+    # Assign the calculated_amount values from the SpecificIngredient2
+    # with amount_is_variable == False to the return variable.
+
+    for k in range(len(specificingredient2_list_fixed)):
+        id_result = specificingredient2_list_fixed[k]['id']
+        # For the SpecificIngredients with amount_is_variable == False,
+        # no calculations are done. Hence, the calculated_amount values are
+        # equal to the base_amount values.
+        # Since the base amounts are used, rounding is not necessary.
+        calculated_amount_result = \
+            specificingredient2_list_fixed[k]['base_amount']
+        new_dict = {
+            'id_specificingredient2': id_result,
+            'calculated_amount': calculated_amount_result
+        }
+        specificingredient_id_and_calculated_amount.append(new_dict)
+
+    print('specificingredient_id_and_calculated_amount')
+    pprint.pprint(specificingredient_id_and_calculated_amount)
+
+    # print('specificingredient2_dict_list')
+    # pprint.pprint(specificingredient2_dict_list)
+
+    # TODO: Do you want to manipulate the specificingredient2_dict_list or the
+    #  list_independently_scaling_entities?
+    #  => manipulate the specificingredient2_dict_list.
+    #  Identify SpecificIngredient2 objects in the
+    #  specificingredient2_dict_list via their 'id' property.
+
+    # TODO: Return the specificingredient2_dict_list with the calculated
+    #  amounts.
 
     return None

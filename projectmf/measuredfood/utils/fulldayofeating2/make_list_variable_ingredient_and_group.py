@@ -73,5 +73,6 @@ def make_list_variable_ingredient_and_group(
         )
 
     return list_independently_scaling_entities,\
-        specificingredient2_list_fixed
+        specificingredient2_list_fixed,\
+        specificingredient_scalingoption_group_dict
 

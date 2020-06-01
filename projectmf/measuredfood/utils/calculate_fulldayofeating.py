@@ -1,3 +1,4 @@
+import pprint
 
 
 def calculate_fulldayofeating(
@@ -259,6 +260,9 @@ def calculate_fulldayofeating(
             specificingredient_scalingoption_group_dict,
             calculated_amount_and_group_name
         )
+
+    # print('specificingredient_scalingoption_group_dict_with_results v1')
+    # pprint.pprint(specificingredient_scalingoption_group_dict_with_results)
 
     for group_name, specificingredient_list in \
             specificingredient_scalingoption_group_dict_with_results.items():

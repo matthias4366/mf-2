@@ -57,4 +57,15 @@ def query_ingredients_fulldayofeating2(
             raw_ingredient=rawingredient_k_dict
             )
 
+    for k in range(len(specificingredient_dict_list)):
+
+        specificingredient_dict_list[k].update(
+            n_decimals_to_round_to=2
+            )
+
+        # Convert base_amount from decimal to float so it can be used for
+        # calculations.
+        specificingredient_dict_list[k]['base_amount'] = \
+            float(specificingredient_dict_list[k]['base_amount'])
+
     return specificingredient_dict_list

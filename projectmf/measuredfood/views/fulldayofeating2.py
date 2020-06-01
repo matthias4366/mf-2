@@ -63,6 +63,10 @@ from measuredfood.utils.fulldayofeating2\
 from measuredfood.utils.error.custom_error import \
     NumberTargetedNutrientsNotEqualNumberScalingEntitiesError
 
+from measuredfood.utils.fulldayofeating2.\
+    undo_calculate_average_of_specificingredient2_group \
+    import undo_calculate_average_of_specificingredient2_group
+
 import copy
 import numpy as np
 
@@ -286,6 +290,7 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         calculate_specificingredient2_amount_try,
         np,
         NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+        undo_calculate_average_of_specificingredient2_group,
     )
 
     context = {

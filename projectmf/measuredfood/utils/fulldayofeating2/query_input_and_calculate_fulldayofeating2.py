@@ -18,6 +18,7 @@ def query_input_and_calculate_fulldayofeating2(
     calculate_specificingredient2_amount_try,
     np,
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
+    undo_calculate_average_of_specificingredient_group,
 ):
     """
 
@@ -38,6 +39,7 @@ def query_input_and_calculate_fulldayofeating2(
     :param calculate_specificingredient2_amount_try:
     :param np:
     :param number_targeted_nutrients_not_equal_number_scaling_entities_error:
+    :param undo_calculate_average_of_specificingredient_group:
     :return:
     """
     # """
@@ -82,6 +84,7 @@ def query_input_and_calculate_fulldayofeating2(
         nutrientprofile_dict,
         np,
         number_targeted_nutrients_not_equal_number_scaling_entities_error,
+        undo_calculate_average_of_specificingredient_group,
     )
 
     # print('r_calculate_fulldayofeating2')
