@@ -200,11 +200,8 @@ def calculate_specificingredient2_amount_try(
             specificingredient2_list_fixed,
         )
 
-    print('specificingredient_id_and_calculated_amount')
-    pprint.pprint(specificingredient_id_and_calculated_amount)
-
-    # TODO: Put the solution (i.e. the calculated amounts) into the
-    #  correct places in the specificingredient2_dict_list.
+    # print('specificingredient_id_and_calculated_amount')
+    # pprint.pprint(specificingredient_id_and_calculated_amount)
 
     # Put the solution (i.e. the calculated amounts) into the
     # correct places in the specificingredient2_dict_list.
