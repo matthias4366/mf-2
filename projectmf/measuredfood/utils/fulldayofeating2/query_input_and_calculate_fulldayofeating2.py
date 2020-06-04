@@ -20,6 +20,7 @@ def query_input_and_calculate_fulldayofeating2(
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     undo_calculate_average_of_specificingredient_group,
     make_specificingredient2_id_and_calculated_amount_dict,
+    save_fulldayofeating2_calculation_result_to_database,
 ):
     """
 
@@ -42,6 +43,7 @@ def query_input_and_calculate_fulldayofeating2(
     :param number_targeted_nutrients_not_equal_number_scaling_entities_error:
     :param undo_calculate_average_of_specificingredient_group:
     :param make_specificingredient2_id_and_calculated_amount_dict:
+    :param save_fulldayofeating2_calculation_result_to_database:
     :return:
     """
     # """
@@ -91,10 +93,10 @@ def query_input_and_calculate_fulldayofeating2(
     # print('r_calculate_fulldayofeating2')
     # pprint.pprint(r_calculate_fulldayofeating2)
 
-    # TODO: continue here.
-    # TODO: save the calculated amounts from the specificingredient_dict_list
-    #  to the database.
-    # TODO: Put the specificingredient_dict_list into an object that can be
-    #  displayed inside the html template.
+    # Save the results to the database:
+    save_fulldayofeating2_calculation_result_to_database(
+        specificingredient2_dict_list,
+        specificingredient2,
+    )
 
     return specificingredient2_dict_list

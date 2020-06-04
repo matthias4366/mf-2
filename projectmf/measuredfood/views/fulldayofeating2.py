@@ -71,6 +71,14 @@ from measuredfood.utils.fulldayofeating2\
     .make_specificingredient2_id_and_calculated_amount_dict import \
     make_specificingredient2_id_and_calculated_amount_dict
 
+from measuredfood.utils.fulldayofeating2\
+    .save_fulldayofeating2_calculation_result_to_database import \
+    save_fulldayofeating2_calculation_result_to_database
+
+from measuredfood.utils.fulldayofeating2\
+    .prepare_calculation_result_for_display import \
+    prepare_calculation_result_for_display
+
 import copy
 import numpy as np
 
@@ -276,7 +284,7 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         pk=id_fulldayofeating2
     )
 
-    r = query_input_and_calculate_fulldayofeating2(
+    specificingredient2_dict_list = query_input_and_calculate_fulldayofeating2(
         id_fulldayofeating2,
         SpecificIngredient2,
         query_ingredients_fulldayofeating2,
@@ -296,11 +304,19 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
         undo_calculate_average_of_specificingredient2_group,
         make_specificingredient2_id_and_calculated_amount_dict,
+        save_fulldayofeating2_calculation_result_to_database,
     )
+
+    result_calculate_fulldayofeating_formatted_for_template = \
+        prepare_calculation_result_for_display(
+            specificingredient2_dict_list,
+        )
 
     context = {
         'id_fulldayofeating2': id_fulldayofeating2,
         'fulldayofeating2_object': fulldayofeating2_object,
+        'result_calculate_fulldayofeating_formatted_for_template':
+            result_calculate_fulldayofeating_formatted_for_template,
     }
 
     return render(
