@@ -153,8 +153,6 @@ while n < n_iterations_max:
         amount_is_multiple_of_step_size = \
             relative_remainder < tolerance
 
-        # TODO: Continue here.
-
         if amount_is_multiple_of_step_size:
             specificingredient2_dict_k['is_multiple_of_step_size'] = True
             print('Calculated amount was multiple of step size.')

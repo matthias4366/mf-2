@@ -212,7 +212,7 @@ def calculate_specificingredient2_amount_try(
         for r_k in specificingredient_id_and_calculated_amount:
             if r_k['id_specificingredient2'] == id_specificingredient2_k:
                 specificingredient2_k['calculated_amount'] = \
-                    copy(r_k['calculated_amount'])
+                    copy.copy(r_k['calculated_amount'])
                 continue
 
     # print('specificingredient2_dict_list')

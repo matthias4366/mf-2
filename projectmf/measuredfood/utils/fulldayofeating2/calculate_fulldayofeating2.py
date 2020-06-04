@@ -19,11 +19,6 @@ def calculate_fulldayofeating2(
     :return:
     """
 
-    # TODO: Put the while loop here. Keep calculating the fulldayofeating and
-    #  adapting the specificingredient2_dict_list until the calculations
-    #  yield an acceptable result. Set a max number of tries (100) to avoid a
-    #  runaway loop.
-
     n_iterations_max = 100
     n = 1
     while n < n_iterations_max:
@@ -65,25 +60,134 @@ def calculate_fulldayofeating2(
                 make_specificingredient2_id_and_calculated_amount_dict,
             )
 
+        # calculated_amount_fullfill_all_criteria is a variable to
+        # determine if the calculated amounts are good as
+        # they are or whether the FullDayOfEating2 has to be recalculated.
         calculated_amount_fullfill_all_criteria = True
-
-        # TODO: Check if a calculated amount is negative
-        # adapt_specificingredient2_calculated_amount_negative_result()
 
         for specificingredient2_dict_k in specificingredient2_dict_list:
             if specificingredient2_dict_k['calculated_amount'] < 0:
+                print('Calculated amount smaller than 0.')
+                calculated_amount_fullfill_all_criteria = False
                 specificingredient2_dict_k['calculated_amount'] = 0
                 specificingredient2_dict_k['amount_is_variable'] = False
-                break
-            break 
+                continue
 
-        # TODO: Check if a maximum amount has been exceeded
-        # adapt_specificingredient2_calculated_amount_maximum()
+        if not calculated_amount_fullfill_all_criteria:
+            continue
 
-        # TODO: Check if a minimum amount has been undercut
-        # adapt_specificingredient2_calculated_amount_minimum()
+        for specificingredient2_dict_k in specificingredient2_dict_list:
+            if specificingredient2_dict_k['max_amount'] is None:
+                continue
+            else:
+                if specificingredient2_dict_k['calculated_amount'] > \
+                        specificingredient2_dict_k['max_amount']:
+                    print('Calculated amount greater than maximum.')
+                    calculated_amount_fullfill_all_criteria = False
+                    specificingredient2_dict_k['calculated_amount'] = \
+                        specificingredient2_dict_k['max_amount']
+                    continue
 
-        # TODO: Check if ingredients have step sizes.
-        # adapt_specificingredient2_calculated_amount_step()
+        if not calculated_amount_fullfill_all_criteria:
+            continue
+
+        for specificingredient2_dict_k in specificingredient2_dict_list:
+            if specificingredient2_dict_k['min_amount'] is None:
+                continue
+            else:
+                if specificingredient2_dict_k['calculated_amount'] < \
+                        specificingredient2_dict_k['min_amount']:
+                    print('Calculated amount less than minimum.')
+                    calculated_amount_fullfill_all_criteria = False
+                    specificingredient2_dict_k['calculated_amount'] = \
+                        specificingredient2_dict_k['min_amount']
+                    continue
+
+        if not calculated_amount_fullfill_all_criteria:
+            continue
+
+        for specificingredient2_dict_k in specificingredient2_dict_list:
+
+            if specificingredient2_dict_k['step_size'] is None:
+                print('No step size is defined, all good.')
+                continue
+
+            tolerance = 0.01
+            remainder = \
+                specificingredient2_dict_k['calculated_amount'] \
+                % specificingredient2_dict_k['step_size']
+            # print('remainder')
+            # print(remainder)
+            relative_remainder = \
+                remainder / specificingredient2_dict_k['calculated_amount']
+            # print('relative_remainder')
+            # print(relative_remainder)
+            amount_is_multiple_of_step_size = \
+                relative_remainder < tolerance
+
+            if amount_is_multiple_of_step_size:
+                print('Calculated amount was multiple of step size.')
+                continue
+
+            if not amount_is_multiple_of_step_size:
+                print('Calculated amount was not multiple of step size.')
+                calculated_amount_fullfill_all_criteria = False
+                r_floor_division = \
+                    specificingredient2_dict_k['calculated_amount'] \
+                    // specificingredient2_dict_k['step_size']
+                # print('r_floor_division')
+                # print(r_floor_division)
+                difference_to_next_higher_step = \
+                    abs(
+                        (r_floor_division + 1)
+                        * specificingredient2_dict_k['step_size']
+                        - specificingredient2_dict_k['calculated_amount']
+                    )
+                difference_to_next_lower_step = \
+                    abs(
+                        r_floor_division
+                        * specificingredient2_dict_k['step_size']
+                        - specificingredient2_dict_k['calculated_amount']
+                    )
+                r_is_closer_to_next_higher_step = \
+                    difference_to_next_higher_step \
+                    < difference_to_next_lower_step
+
+                calculated_amount_fit_to_higher_step = \
+                    (r_floor_division + 1) \
+                    * specificingredient2_dict_k['step_size']
+                calculated_amount_fit_to_lower_step = \
+                    r_floor_division \
+                    * specificingredient2_dict_k['step_size']
+
+                if r_is_closer_to_next_higher_step:
+                    calculated_amount_fit_to_closest_step = \
+                        calculated_amount_fit_to_higher_step
+                else:
+                    calculated_amount_fit_to_closest_step = \
+                        calculated_amount_fit_to_lower_step
+
+                if specificingredient2_dict_k['round_step'] == 'round down':
+                    specificingredient2_dict_k['calculated_amount'] = \
+                        calculated_amount_fit_to_lower_step
+                elif specificingredient2_dict_k['round_step'] \
+                        == 'closest value':
+                    specificingredient2_dict_k['calculated_amount'] = \
+                        calculated_amount_fit_to_closest_step
+                elif specificingredient2_dict_k['round_step'] == 'round up':
+                    specificingredient2_dict_k['calculated_amount'] = \
+                        calculated_amount_fit_to_higher_step
+                else:
+                    # This case should not be possible
+                    print('Invalid round_step property on SpecificIngredient2.')
+                    pass
+
+                continue
+
+        if not calculated_amount_fullfill_all_criteria:
+            continue
+
+        if calculated_amount_fullfill_all_criteria:
+            break
 
     return specificingredient2_dict_list
