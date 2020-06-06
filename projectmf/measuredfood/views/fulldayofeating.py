@@ -48,8 +48,8 @@ from measuredfood.utils.set_to_zero_if_none\
 from measuredfood.utils.query.query_ingredients_fulldayofeating\
     import query_ingredients_fulldayofeating
 
-from measuredfood.utils.calculate_total_price_fulldayofeating\
-    import calculate_total_price_fulldayofeating
+# from measuredfood.utils.calculate_total_price_fulldayofeating\
+#     import calculate_total_price_fulldayofeating
 
 from measuredfood.utils.query.query_nutrientprofile_of_fulldayofeating\
     import query_nutrientprofile_of_fulldayofeating
@@ -344,6 +344,9 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 RawIngredient3,
                 )
 
+        # TODO: Use the following code as inspiration to build the
+        #  make_aggregated_total_nutrition.py function.
+
         # Calculate the total nutrition of the full day of eating
         result_total_nutrition_fulldayofeating,\
             result_total_nutrition_fulldayofeating_rounded =\
@@ -365,6 +368,8 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
         # in relation to the target amounts in the nutrient profile and
         # express the result as a percentage.
 
+        # unnecessary query. You still have the nutrientprofile from above.
+        # Remove this in fulldayofeating2.py
         nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating(
             id_fulldayofeating,
             FullDayOfEating,
@@ -441,23 +446,23 @@ def calculate_fulldayofeating_view(request, id_fulldayofeating):
                 else:
                     continue
 
-        total_price_fulldayofeating_result_dict = \
-            calculate_total_price_fulldayofeating(
-                specificingredient_dict_list
-            )
+        # total_price_fulldayofeating_result_dict = \
+        #     calculate_total_price_fulldayofeating(
+        #         specificingredient_dict_list
+        #     )
 
         context = {'id_fulldayofeating': id_fulldayofeating,
                    'result_calculate_fulldayofeating_formatted_for_template':
                    result_calculate_fulldayofeating_formatted_for_template,
-                   'result_calculate_fulldayofeating':
-                   result_calculate_fulldayofeating,
+                   # 'result_calculate_fulldayofeating':
+                   # result_calculate_fulldayofeating,
                    'aggregated_total_nutrition_fulldayofeating':
                    aggregated_total_nutrition_not_all_nutrients_displayed,
                    # aggregated_total_nutrition_fulldayofeating,
-                   'result_percentage_of_target_amount':
-                   result_percentage_of_target_amount_str,
-                   'total_price_fulldayofeating_result_dict':
-                   total_price_fulldayofeating_result_dict,
+                   # 'result_percentage_of_target_amount':
+                   # result_percentage_of_target_amount_str,
+                   # 'total_price_fulldayofeating_result_dict':
+                   # total_price_fulldayofeating_result_dict,
                    'fulldayofeating_object': fulldayofeating_object,
                    }
 

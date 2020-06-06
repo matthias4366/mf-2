@@ -25,10 +25,10 @@ def calculate_fulldayofeating2(
 
         n += 1
 
-        # TODO: Before production, remove the print statements.
-        print(f"Iteration number {n}")
-        print('specificingredient2_dict_list')
-        pprint.pprint(specificingredient2_dict_list)
+        # # TODO: Before production, remove the print statements.
+        # print(f"Iteration number {n}")
+        # print('specificingredient2_dict_list')
+        # pprint.pprint(specificingredient2_dict_list)
 
         list_independently_scaling_entities,\
             specificingredient2_list_fixed, \
@@ -67,7 +67,7 @@ def calculate_fulldayofeating2(
 
         for specificingredient2_dict_k in specificingredient2_dict_list:
             if specificingredient2_dict_k['calculated_amount'] < 0:
-                print('Calculated amount smaller than 0.')
+                # print('Calculated amount smaller than 0.')
                 calculated_amount_fullfill_all_criteria = False
                 specificingredient2_dict_k['calculated_amount'] = 0
                 specificingredient2_dict_k['amount_is_variable'] = False
@@ -82,7 +82,7 @@ def calculate_fulldayofeating2(
             else:
                 if specificingredient2_dict_k['calculated_amount'] > \
                         specificingredient2_dict_k['max_amount']:
-                    print('Calculated amount greater than maximum.')
+                    # print('Calculated amount greater than maximum.')
                     calculated_amount_fullfill_all_criteria = False
                     specificingredient2_dict_k['calculated_amount'] = \
                         specificingredient2_dict_k['max_amount']
@@ -97,7 +97,7 @@ def calculate_fulldayofeating2(
             else:
                 if specificingredient2_dict_k['calculated_amount'] < \
                         specificingredient2_dict_k['min_amount']:
-                    print('Calculated amount less than minimum.')
+                    # print('Calculated amount less than minimum.')
                     calculated_amount_fullfill_all_criteria = False
                     specificingredient2_dict_k['calculated_amount'] = \
                         specificingredient2_dict_k['min_amount']
@@ -109,7 +109,7 @@ def calculate_fulldayofeating2(
         for specificingredient2_dict_k in specificingredient2_dict_list:
 
             if specificingredient2_dict_k['step_size'] is None:
-                print('No step size is defined, all good.')
+                # print('No step size is defined, all good.')
                 continue
 
             tolerance = 0.01
@@ -126,11 +126,11 @@ def calculate_fulldayofeating2(
                 relative_remainder < tolerance
 
             if amount_is_multiple_of_step_size:
-                print('Calculated amount was multiple of step size.')
+                # print('Calculated amount was multiple of step size.')
                 continue
 
             if not amount_is_multiple_of_step_size:
-                print('Calculated amount was not multiple of step size.')
+                # print('Calculated amount was not multiple of step size.')
                 calculated_amount_fullfill_all_criteria = False
                 r_floor_division = \
                     specificingredient2_dict_k['calculated_amount'] \
@@ -179,7 +179,8 @@ def calculate_fulldayofeating2(
                         calculated_amount_fit_to_higher_step
                 else:
                     # This case should not be possible
-                    print('Invalid round_step property on SpecificIngredient2.')
+                    # print('Invalid round_step
+                    # property on SpecificIngredient2.')
                     pass
 
                 continue

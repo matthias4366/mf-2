@@ -79,6 +79,26 @@ from measuredfood.utils.fulldayofeating2\
     .prepare_calculation_result_for_display import \
     prepare_calculation_result_for_display
 
+from measuredfood.utils.fulldayofeating2\
+    .make_aggregated_total_nutrition import \
+    make_aggregated_total_nutrition
+
+from measuredfood.utils.fulldayofeating2\
+    .calculate_total_nutrition_fulldayofeating2 import \
+    calculate_total_nutrition_fulldayofeating2
+
+from measuredfood.utils.fulldayofeating2\
+    .calculate_percentage_of_target_amount import \
+    calculate_percentage_of_target_amount
+
+from measuredfood.utils.fulldayofeating2\
+    .calculate_percent_max_fulldayofeating import \
+    calculate_percent_max_fulldayofeating
+
+from measuredfood.utils.fulldayofeating2\
+    .judge_total_nutrition import \
+    judge_total_nutrition
+
 import copy
 import numpy as np
 
@@ -284,39 +304,56 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
         pk=id_fulldayofeating2
     )
 
-    specificingredient2_dict_list = query_input_and_calculate_fulldayofeating2(
-        id_fulldayofeating2,
-        SpecificIngredient2,
-        query_ingredients_fulldayofeating2,
-        pprint,
-        RawIngredient3,
-        ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-        set_to_zero_if_none,
-        FullDayOfEating2,
-        NutrientProfile,
-        query_nutrientprofile_of_fulldayofeating2,
-        calculate_fulldayofeating2,
-        calculate_average_of_specificingredient2_group,
-        copy,
-        make_list_variable_ingredient_and_group,
-        calculate_specificingredient2_amount_try,
-        np,
-        NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
-        undo_calculate_average_of_specificingredient2_group,
-        make_specificingredient2_id_and_calculated_amount_dict,
-        save_fulldayofeating2_calculation_result_to_database,
-    )
+    specificingredient2_dict_list, \
+        nutrientprofile_dict \
+        = query_input_and_calculate_fulldayofeating2(
+            id_fulldayofeating2,
+            SpecificIngredient2,
+            query_ingredients_fulldayofeating2,
+            pprint,
+            RawIngredient3,
+            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            set_to_zero_if_none,
+            FullDayOfEating2,
+            NutrientProfile,
+            query_nutrientprofile_of_fulldayofeating2,
+            calculate_fulldayofeating2,
+            calculate_average_of_specificingredient2_group,
+            copy,
+            make_list_variable_ingredient_and_group,
+            calculate_specificingredient2_amount_try,
+            np,
+            NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+            undo_calculate_average_of_specificingredient2_group,
+            make_specificingredient2_id_and_calculated_amount_dict,
+            save_fulldayofeating2_calculation_result_to_database,
+        )
 
-    result_calculate_fulldayofeating_formatted_for_template = \
+    result_calculate_fulldayofeating2_formatted_for_template = \
         prepare_calculation_result_for_display(
             specificingredient2_dict_list,
+        )
+
+    aggregated_total_nutrition_not_all_nutrients_displayed = \
+        make_aggregated_total_nutrition(
+            specificingredient2_dict_list,
+            calculate_total_nutrition_fulldayofeating2,
+            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+            set_to_zero_if_none,
+            calculate_percentage_of_target_amount,
+            nutrientprofile_dict,
+            calculate_percent_max_fulldayofeating,
+            judge_total_nutrition,
+            copy,
         )
 
     context = {
         'id_fulldayofeating2': id_fulldayofeating2,
         'fulldayofeating2_object': fulldayofeating2_object,
         'result_calculate_fulldayofeating_formatted_for_template':
-            result_calculate_fulldayofeating_formatted_for_template,
+            result_calculate_fulldayofeating2_formatted_for_template,
+        'aggregated_total_nutrition_fulldayofeating':
+            aggregated_total_nutrition_not_all_nutrients_displayed,
     }
 
     return render(

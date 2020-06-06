@@ -102,8 +102,8 @@ def calculate_specificingredient2_amount_try(
         b.append(targeted_nutrients_remainder[key_k])
     b = np.asarray(b)
 
-    print('b in 2')
-    print(b)
+    # print('b in 2')
+    # print(b)
 
     # The number of nutrient targets needs to be the same as the number of
     # independently scaling entities. Otherwise, the linear equation can not be

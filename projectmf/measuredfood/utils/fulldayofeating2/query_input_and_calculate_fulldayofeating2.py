@@ -99,4 +99,4 @@ def query_input_and_calculate_fulldayofeating2(
         specificingredient2,
     )
 
-    return specificingredient2_dict_list
+    return specificingredient2_dict_list, nutrientprofile_dict
