@@ -21,7 +21,8 @@ def query_input_and_calculate_fulldayofeating2(
     undo_calculate_average_of_specificingredient_group,
     make_specificingredient2_id_and_calculated_amount_dict,
     save_fulldayofeating2_calculation_result_to_database,
-    logger_fulldayofeating2,
+    logging,
+    no_value_for_targeted_nutrient_error,
 ):
     """
 
@@ -45,7 +46,8 @@ def query_input_and_calculate_fulldayofeating2(
     :param undo_calculate_average_of_specificingredient_group:
     :param make_specificingredient2_id_and_calculated_amount_dict:
     :param save_fulldayofeating2_calculation_result_to_database:
-    :param logger_fulldayofeating2:
+    :param logging:
+    :param no_value_for_targeted_nutrient_error:
     :return:
     """
     # """
@@ -64,13 +66,6 @@ def query_input_and_calculate_fulldayofeating2(
         all_nutrients_and_default_units,
         set_to_zero_if_none,
     )
-
-    logger_fulldayofeating2.info(
-        'Inside query_input_and_calculate_fulldayofeating2'
-    )
-
-    logger_fulldayofeating2.debug('specificingredient2_dict_list')
-    logger_fulldayofeating2.debug(specificingredient2_dict_list)
 
     nutrientprofile_dict = query_nutrientprofile_of_fulldayofeating2(
         id_fulldayofeating2,
@@ -94,7 +89,8 @@ def query_input_and_calculate_fulldayofeating2(
         number_targeted_nutrients_not_equal_number_scaling_entities_error,
         undo_calculate_average_of_specificingredient_group,
         make_specificingredient2_id_and_calculated_amount_dict,
-        logger_fulldayofeating2,
+        logging,
+        no_value_for_targeted_nutrient_error,
     )
 
     # print('r_calculate_fulldayofeating2')

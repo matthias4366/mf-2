@@ -1,5 +1,4 @@
 import pprint
-import logging
 
 
 def calculate_fulldayofeating2(
@@ -15,7 +14,8 @@ def calculate_fulldayofeating2(
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     undo_calculate_average_of_specificingredient_group,
     make_specificingredient2_id_and_calculated_amount_dict,
-    logger_fulldayofeating2,
+    logging,
+    no_value_for_targeted_nutrient_error,
 ):
     """
     :return:
@@ -84,6 +84,7 @@ def calculate_fulldayofeating2(
                 undo_calculate_average_of_specificingredient_group,
                 specificingredient_scalingoption_group_dict,
                 make_specificingredient2_id_and_calculated_amount_dict,
+                no_value_for_targeted_nutrient_error,
             )
 
         # calculated_amount_fullfill_all_criteria is a variable to

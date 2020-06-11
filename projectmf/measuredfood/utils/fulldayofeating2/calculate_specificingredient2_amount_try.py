@@ -16,6 +16,7 @@ def calculate_specificingredient2_amount_try(
     undo_calculate_average_of_specificingredient_group,
     specificingredient_scalingoption_group_dict,
     make_specificingredient2_id_and_calculated_amount_dict,
+    no_value_for_targeted_nutrient_error,
 ):
     """
     Try to calculate the amounts of the SpecificIngredient2 objects. This
@@ -84,6 +85,12 @@ def calculate_specificingredient2_amount_try(
                     nutrientprofile_dict[
                         specificingredient2_k['nutrient_target']
                     ]
+
+                if targeted_nutrient_daily_amount is None:
+                    raise no_value_for_targeted_nutrient_error(
+                        [specificingredient2_k['nutrient_target'], ]
+                    )
+
                 targeted_nutrients.update(
                     {
                         specificingredient2_k['nutrient_target']:
@@ -103,7 +110,31 @@ def calculate_specificingredient2_amount_try(
 
     # For the targeted nutrients, calculate the remaining values.
     targeted_nutrients_remainder = copy.deepcopy(targeted_nutrients)
+    logger_calculate_specificingredient2_amount_try.debug(
+        'targeted_nutrients'
+    )
+    logger_calculate_specificingredient2_amount_try.debug(
+        targeted_nutrients
+    )
     for key_k in targeted_nutrients:
+        logger_calculate_specificingredient2_amount_try.debug(
+            'key_k'
+        )
+        logger_calculate_specificingredient2_amount_try.debug(
+            key_k
+        )
+        logger_calculate_specificingredient2_amount_try.debug(
+            'targeted_nutrients[key_k]'
+        )
+        logger_calculate_specificingredient2_amount_try.debug(
+            targeted_nutrients[key_k]
+        )
+        logger_calculate_specificingredient2_amount_try.debug(
+            'fulldayofeating_nutrition_so_far[key_k]'
+        )
+        logger_calculate_specificingredient2_amount_try.debug(
+            fulldayofeating_nutrition_so_far[key_k]
+        )
         targeted_nutrients_remainder[key_k] = \
             targeted_nutrients[key_k] \
             - fulldayofeating_nutrition_so_far[key_k]

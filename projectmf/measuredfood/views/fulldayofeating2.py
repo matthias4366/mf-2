@@ -114,6 +114,9 @@ file_handler.setFormatter(formatter)
 
 logger_fulldayofeating2.addHandler(file_handler)
 
+from measuredfood.utils.error.custom_error \
+    import NoValueForTargetedNutrientError
+
 
 @login_required
 def create_fulldayofeating2_view(request):
@@ -305,76 +308,100 @@ class DeleteFullDayOfEating2(UserPassesTestMixin, DeleteView):
 @login_required
 def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
 
-    # Make sure users can not edit other user's objects.
-    check_if_author(
-        request,
-        FullDayOfEating2,
-        id_fulldayofeating2,
-        UserIsNotAuthorError,
-    )
+    try:
 
-    fulldayofeating2_object = FullDayOfEating2.objects.get(
-        pk=id_fulldayofeating2
-    )
-
-    specificingredient2_dict_list, \
-        nutrientprofile_dict \
-        = query_input_and_calculate_fulldayofeating2(
-            id_fulldayofeating2,
-            SpecificIngredient2,
-            query_ingredients_fulldayofeating2,
-            pprint,
-            RawIngredient3,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            set_to_zero_if_none,
+        # Make sure users can not edit other user's objects.
+        check_if_author(
+            request,
             FullDayOfEating2,
-            NutrientProfile,
-            query_nutrientprofile_of_fulldayofeating2,
-            calculate_fulldayofeating2,
-            calculate_average_of_specificingredient2_group,
-            copy,
-            make_list_variable_ingredient_and_group,
-            calculate_specificingredient2_amount_try,
-            np,
-            NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
-            undo_calculate_average_of_specificingredient2_group,
-            make_specificingredient2_id_and_calculated_amount_dict,
-            save_fulldayofeating2_calculation_result_to_database,
-            logger_fulldayofeating2,
+            id_fulldayofeating2,
+            UserIsNotAuthorError,
         )
 
-    result_calculate_fulldayofeating2_formatted_for_template = \
-        prepare_calculation_result_for_display(
-            specificingredient2_dict_list,
+        fulldayofeating2_object = FullDayOfEating2.objects.get(
+            pk=id_fulldayofeating2
         )
 
-    aggregated_total_nutrition_not_all_nutrients_displayed = \
-        make_aggregated_total_nutrition(
-            specificingredient2_dict_list,
-            calculate_total_nutrition_fulldayofeating2,
-            ALL_NUTRIENTS_AND_DEFAULT_UNITS,
-            set_to_zero_if_none,
-            calculate_percentage_of_target_amount,
-            nutrientprofile_dict,
-            calculate_percent_max_fulldayofeating,
-            judge_total_nutrition,
-            copy,
+        specificingredient2_dict_list, \
+            nutrientprofile_dict \
+            = query_input_and_calculate_fulldayofeating2(
+                id_fulldayofeating2,
+                SpecificIngredient2,
+                query_ingredients_fulldayofeating2,
+                pprint,
+                RawIngredient3,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                set_to_zero_if_none,
+                FullDayOfEating2,
+                NutrientProfile,
+                query_nutrientprofile_of_fulldayofeating2,
+                calculate_fulldayofeating2,
+                calculate_average_of_specificingredient2_group,
+                copy,
+                make_list_variable_ingredient_and_group,
+                calculate_specificingredient2_amount_try,
+                np,
+                NumberTargetedNutrientsNotEqualNumberScalingEntitiesError,
+                undo_calculate_average_of_specificingredient2_group,
+                make_specificingredient2_id_and_calculated_amount_dict,
+                save_fulldayofeating2_calculation_result_to_database,
+                logging,
+                NoValueForTargetedNutrientError,
+            )
+
+        result_calculate_fulldayofeating2_formatted_for_template = \
+            prepare_calculation_result_for_display(
+                specificingredient2_dict_list,
+            )
+
+        aggregated_total_nutrition_not_all_nutrients_displayed = \
+            make_aggregated_total_nutrition(
+                specificingredient2_dict_list,
+                calculate_total_nutrition_fulldayofeating2,
+                ALL_NUTRIENTS_AND_DEFAULT_UNITS,
+                set_to_zero_if_none,
+                calculate_percentage_of_target_amount,
+                nutrientprofile_dict,
+                calculate_percent_max_fulldayofeating,
+                judge_total_nutrition,
+                copy,
+            )
+
+        context = {
+            'id_fulldayofeating2': id_fulldayofeating2,
+            'fulldayofeating2_object': fulldayofeating2_object,
+            'result_calculate_fulldayofeating_formatted_for_template':
+                result_calculate_fulldayofeating2_formatted_for_template,
+            'aggregated_total_nutrition_fulldayofeating':
+                aggregated_total_nutrition_not_all_nutrients_displayed,
+        }
+
+        return render(
+            request,
+            'measuredfood/fulldayofeating2_calculation_result.html',
+            context
         )
 
-    context = {
-        'id_fulldayofeating2': id_fulldayofeating2,
-        'fulldayofeating2_object': fulldayofeating2_object,
-        'result_calculate_fulldayofeating_formatted_for_template':
-            result_calculate_fulldayofeating2_formatted_for_template,
-        'aggregated_total_nutrition_fulldayofeating':
-            aggregated_total_nutrition_not_all_nutrients_displayed,
-    }
-
-    return render(
-        request,
-        'measuredfood/fulldayofeating2_calculation_result.html',
-        context
-    )
+    except NoValueForTargetedNutrientError as e:
+        list_ = e.nutrient_value_missing
+        seperator = ', '
+        pretty_list = seperator.join(list_)
+        error_message = \
+            'The values for the following nutrients in the nutrient profile ' \
+            'are missing: '\
+            + pretty_list\
+            + '.'\
+            + ' Please add values for these nutrients in the ' \
+              'nutrient profile or do not target them.'
+        context = {
+            'error_message': error_message,
+            'error_id': 'NoValueForTargetedNutrientError',
+        }
+        return render(
+            request,
+            'measuredfood/error/general_error_page.html',
+            context
+        )
 
 
 # TODO: Adapt this view to FullDayOfEating2
