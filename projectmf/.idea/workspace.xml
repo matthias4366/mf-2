@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3567885f-0382-4e6c-b814-585cf3e34014" name="Default Changelist" comment="All tests are working again. Although: it is unclear why.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_fulldayofeating2.py" beforeDir="false" afterPath="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_fulldayofeating2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +65,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_fulldayofeating2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+            <state relative-caret-position="1086">
+              <caret line="182" column="21" lean-forward="true" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_total_nutrition_fulldayofeating2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -97,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>raw_ingredient3</find>
       <find>result_calculate_fulldayofeating_formatted_for_template</find>
       <find>ALL_NUTRIENTS_AND_DEFAULT_UNITS</find>
       <find>set_to_zero_if_none</find>
@@ -127,6 +136,7 @@
       <find>Iteration number</find>
       <find>logger_fulldayofeating2</find>
       <find>targeted</find>
+      <find>step_size</find>
     </findStrings>
     <replaceStrings>
       <replace>select_</replace>
@@ -213,7 +223,6 @@
         <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/save_fulldayofeating2_calculation_result_to_database.py" />
         <option value="$PROJECT_DIR$/measuredfood/templates/measuredfood/fulldayofeating2_calculation_result.html" />
         <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/prepare_calculation_result_for_display.py" />
-        <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_total_nutrition_fulldayofeating2.py" />
         <option value="$PROJECT_DIR$/measuredfood/views/fulldayofeating.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/make_aggregated_total_nutrition.py" />
         <option value="$PROJECT_DIR$/learn/logging_learn/logging_learn.py" />
@@ -223,6 +232,7 @@
         <option value="$PROJECT_DIR$/measuredfood/views/fulldayofeating2.py" />
         <option value="$PROJECT_DIR$/fulldayofeating2.log" />
         <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_specificingredient2_amount_try.py" />
+        <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_total_nutrition_fulldayofeating2.py" />
         <option value="$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_fulldayofeating2.py" />
       </list>
     </option>
@@ -811,7 +821,7 @@
       <workItem from="1591590724797" duration="613000" />
       <workItem from="1591678639296" duration="3675000" />
       <workItem from="1591805425862" duration="591000" />
-      <workItem from="1591879690928" duration="5527000" />
+      <workItem from="1591879690928" duration="6177000" />
     </task>
     <task id="LOCAL-00001" summary="Pycharm professional was used for this commit. Since it is more powerful and only costs 8.90 euros / month, Matthias Schulz started using PyCharm Professional for django development so everything is formatted correctly.">
       <created>1566999211981</created>
@@ -912,7 +922,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="998572000" />
+    <option name="totallyTimeSpent" value="999222000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -924,9 +934,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15827338" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31211954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1331,13 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_total_nutrition_fulldayofeating2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learn/logging_learn/employee.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1430,10 +1433,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_total_nutrition_fulldayofeating2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/measuredfood/utils/fulldayofeating2/calculate_fulldayofeating2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+        <state relative-caret-position="1086">
+          <caret line="182" column="21" lean-forward="true" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

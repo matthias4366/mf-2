@@ -145,12 +145,13 @@ def calculate_fulldayofeating2(
 
             tolerance = 0.01
             remainder = \
-                specificingredient2_dict_k['calculated_amount'] \
-                % specificingredient2_dict_k['step_size']
+                float(specificingredient2_dict_k['calculated_amount']) \
+                % float(specificingredient2_dict_k['step_size'])
             # print('remainder')
             # print(remainder)
             relative_remainder = \
-                remainder / specificingredient2_dict_k['calculated_amount']
+                remainder / \
+                float(specificingredient2_dict_k['calculated_amount'])
             # print('relative_remainder')
             # print(relative_remainder)
             amount_is_multiple_of_step_size = \
@@ -165,19 +166,19 @@ def calculate_fulldayofeating2(
                 calculated_amount_fullfill_all_criteria = False
                 r_floor_division = \
                     specificingredient2_dict_k['calculated_amount'] \
-                    // specificingredient2_dict_k['step_size']
+                    // float(specificingredient2_dict_k['step_size'])
                 # print('r_floor_division')
                 # print(r_floor_division)
                 difference_to_next_higher_step = \
                     abs(
                         (r_floor_division + 1)
-                        * specificingredient2_dict_k['step_size']
+                        * float(specificingredient2_dict_k['step_size'])
                         - specificingredient2_dict_k['calculated_amount']
                     )
                 difference_to_next_lower_step = \
                     abs(
                         r_floor_division
-                        * specificingredient2_dict_k['step_size']
+                        * float(specificingredient2_dict_k['step_size'])
                         - specificingredient2_dict_k['calculated_amount']
                     )
                 r_is_closer_to_next_higher_step = \
@@ -186,10 +187,10 @@ def calculate_fulldayofeating2(
 
                 calculated_amount_fit_to_higher_step = \
                     (r_floor_division + 1) \
-                    * specificingredient2_dict_k['step_size']
+                    * float(specificingredient2_dict_k['step_size'])
                 calculated_amount_fit_to_lower_step = \
                     r_floor_division \
-                    * specificingredient2_dict_k['step_size']
+                    * float(specificingredient2_dict_k['step_size'])
 
                 if r_is_closer_to_next_higher_step:
                     calculated_amount_fit_to_closest_step = \
