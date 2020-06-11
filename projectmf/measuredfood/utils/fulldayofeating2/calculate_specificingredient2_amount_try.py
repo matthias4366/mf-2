@@ -1,4 +1,5 @@
 import pprint
+import logging
 
 
 def calculate_specificingredient2_amount_try(
@@ -21,6 +22,21 @@ def calculate_specificingredient2_amount_try(
     function will be run multiple times.
     :return:
     """
+
+    logger_calculate_specificingredient2_amount_try = logging.getLogger(
+        __name__)
+    logger_calculate_specificingredient2_amount_try.setLevel(logging.DEBUG)
+
+    formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+    file_handler = logging.FileHandler(
+        'calculate_specificingredient2_amount_try.log',
+        mode='a'
+    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
+
+    logger_calculate_specificingredient2_amount_try.addHandler(file_handler)
 
     # Calculate the nutrition already present in the FullDayOfEating2 because
     # of the SpecificIngredient2 objects whose amounts are not variable.
@@ -146,6 +162,11 @@ def calculate_specificingredient2_amount_try(
                 a[row_index][column_index] = dict_k['raw_ingredient'][key_k]
                 row_index = row_index + 1
             column_index = column_index + 1
+
+        logger_calculate_specificingredient2_amount_try.debug('a')
+        logger_calculate_specificingredient2_amount_try.debug(a)
+        logger_calculate_specificingredient2_amount_try.debug('b')
+        logger_calculate_specificingredient2_amount_try.debug(b)
 
         x = np.linalg.solve(a, b)
 

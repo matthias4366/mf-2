@@ -1,4 +1,5 @@
 import pprint
+import logging
 
 
 def calculate_fulldayofeating2(
@@ -20,17 +21,31 @@ def calculate_fulldayofeating2(
     :return:
     """
 
+    logger_calculatefulldayofeating2 = logging.getLogger(__name__)
+    logger_calculatefulldayofeating2.setLevel(logging.DEBUG)
+
+    formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+    file_handler = logging.FileHandler(
+        'calculate_fulldayofeating2.log',
+        mode='a'
+    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
+
+    logger_calculatefulldayofeating2.addHandler(file_handler)
+
     n_iterations_max = 100
     n = 1
     while n < n_iterations_max:
 
-        n += 1
-
         # # TODO: Before production, remove the print statements.
-        logger_fulldayofeating2.debug('This will get logged')
-        logger_fulldayofeating2.debug(f"Iteration number {n}")
+        logger_calculatefulldayofeating2.debug('This will get logged')
+        logger_calculatefulldayofeating2.debug(f"Iteration number {n}")
         # print('specificingredient2_dict_list')
         # pprint.pprint(specificingredient2_dict_list)
+
+        n += 1
 
         list_independently_scaling_entities,\
             specificingredient2_list_fixed, \
@@ -43,9 +58,11 @@ def calculate_fulldayofeating2(
                 copy,
             )
 
-        logger_fulldayofeating2.debug('list_independently_scaling_entities')
-        logger_fulldayofeating2.debug(
-            pprint.pprint(
+        logger_calculatefulldayofeating2.debug(
+            'list_independently_scaling_entities'
+        )
+        logger_calculatefulldayofeating2.debug(
+            pprint.pformat(
                 list_independently_scaling_entities
             )
         )
@@ -76,10 +93,15 @@ def calculate_fulldayofeating2(
 
         for specificingredient2_dict_k in specificingredient2_dict_list:
             if specificingredient2_dict_k['calculated_amount'] < 0:
-                # print('Calculated amount smaller than 0.')
+                logger_calculatefulldayofeating2.debug(
+                    f"Calculated amount smaller than 0 for ingredient "
+                    f"{specificingredient2_dict_k['raw_ingredient']['name']}."
+                    )
                 calculated_amount_fullfill_all_criteria = False
                 specificingredient2_dict_k['calculated_amount'] = 0
+                specificingredient2_dict_k['base_amount'] = 0
                 specificingredient2_dict_k['amount_is_variable'] = False
+                specificingredient2_dict_k['nutrient_target'] = None
                 continue
 
         if not calculated_amount_fullfill_all_criteria:
