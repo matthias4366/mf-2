@@ -14,6 +14,7 @@ def calculate_fulldayofeating2(
     number_targeted_nutrients_not_equal_number_scaling_entities_error,
     undo_calculate_average_of_specificingredient_group,
     make_specificingredient2_id_and_calculated_amount_dict,
+    logger_fulldayofeating2,
 ):
     """
     :return:
@@ -26,7 +27,8 @@ def calculate_fulldayofeating2(
         n += 1
 
         # # TODO: Before production, remove the print statements.
-        # print(f"Iteration number {n}")
+        logger_fulldayofeating2.debug('This will get logged')
+        logger_fulldayofeating2.debug(f"Iteration number {n}")
         # print('specificingredient2_dict_list')
         # pprint.pprint(specificingredient2_dict_list)
 
@@ -40,6 +42,13 @@ def calculate_fulldayofeating2(
                 all_nutrients_and_default_units,
                 copy,
             )
+
+        logger_fulldayofeating2.debug('list_independently_scaling_entities')
+        logger_fulldayofeating2.debug(
+            pprint.pprint(
+                list_independently_scaling_entities
+            )
+        )
 
         # Make a calculation attempt. Put it into a function. Have it return an
         # updated specificingredient2_dict_list.

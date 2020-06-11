@@ -101,6 +101,18 @@ from measuredfood.utils.fulldayofeating2\
 
 import copy
 import numpy as np
+import logging
+
+logger_fulldayofeating2 = logging.getLogger(__name__)
+logger_fulldayofeating2.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler('fulldayofeating2.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+logger_fulldayofeating2.addHandler(file_handler)
 
 
 @login_required
@@ -292,6 +304,7 @@ class DeleteFullDayOfEating2(UserPassesTestMixin, DeleteView):
 
 @login_required
 def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
+
     # Make sure users can not edit other user's objects.
     check_if_author(
         request,
@@ -327,6 +340,7 @@ def calculate_fulldayofeating2_view(request, id_fulldayofeating2):
             undo_calculate_average_of_specificingredient2_group,
             make_specificingredient2_id_and_calculated_amount_dict,
             save_fulldayofeating2_calculation_result_to_database,
+            logger_fulldayofeating2,
         )
 
     result_calculate_fulldayofeating2_formatted_for_template = \
