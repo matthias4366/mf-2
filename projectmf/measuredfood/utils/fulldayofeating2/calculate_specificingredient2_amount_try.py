@@ -77,6 +77,8 @@ def calculate_specificingredient2_amount_try(
 
     targeted_nutrients = {}
 
+    nutrient_targets_without_values = []
+
     for specificingredient2_k in specificingredient2_dict_list:
         if specificingredient2_k['nutrient_target'] is not None:
             if specificingredient2_k['nutrient_target'] not in \
@@ -87,8 +89,8 @@ def calculate_specificingredient2_amount_try(
                     ]
 
                 if targeted_nutrient_daily_amount is None:
-                    raise no_value_for_targeted_nutrient_error(
-                        [specificingredient2_k['nutrient_target'], ]
+                    nutrient_targets_without_values.append(
+                        specificingredient2_k['nutrient_target']
                     )
 
                 targeted_nutrients.update(
@@ -97,6 +99,11 @@ def calculate_specificingredient2_amount_try(
                         targeted_nutrient_daily_amount
                     }
                 )
+
+    if len(nutrient_targets_without_values) > 0:
+        raise no_value_for_targeted_nutrient_error(
+            nutrient_targets_without_values
+        )
 
     # print('targeted_nutrients in 2')
     # print(targeted_nutrients)
