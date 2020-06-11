@@ -423,7 +423,7 @@ def copy_fulldayofeating2_to_user(request, id_fulldayofeating2):
     nutrient_profile_copy.author = request.user
     nutrient_profile_copy.save()
 
-    # Copy the full day of eating, along with the SpecificNutrientTarget2 and
+    # Copy the full day of eating, along with the
     # the SpecificIngredient2 and the RawIngredient3 objects.
     full_day_of_eating_copy = FullDayOfEating2.objects.get(
         id=id_fulldayofeating2
